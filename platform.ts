@@ -32,7 +32,7 @@ export {
   subjectPage,
   withRoutes,
   libraryResolver,
-  withViewerNav,
+  themedPage,
   withInlineCode,
   formatPot,
   type PotEntry,

@@ -15,8 +15,8 @@ const REPO = resolve(INSTANCE, "..");
 const HARNESS = join(REPO, "cat-harness");
 const PAGE = join(HARNESS, siteDirFor(HARNESS), "cat-harness", "catalogue", "who-iris", "index.html");
 const html = existsSync(PAGE) ? readFileSync(PAGE, "utf-8") : "";
-// Matched by TEXT, not by exact markup: the rail step gives an id-less heading
-// an id (#1757), so `<h2>Every node</h2>` is `<h2 id="…">Every node</h2>`.
+// Matched by TEXT, not by exact markup: the heading carries an id
+// (`<h2 id="…">Every node</h2>`), which is not what this test is about.
 const table = html.slice(html.search(/<h2\b[^>]*>Every node<\/h2>/));
 const nodes = table.slice(0, table.indexOf("</table>"));
 
@@ -35,5 +35,21 @@ describe("the catalogue's rows lead somewhere (qgjh)", () => {
     for (const v of new Set(viewers)) {
       expect(existsSync(join(PAGE, "..", v, "index.html")), v).toBe(true);
     }
+  });
+});
+
+describe("the catalogue viewer is THEMED, so it carries the site's top band (2026-10-07)", () => {
+  it("is on the default layout, not a standalone document", () => {
+    expect(html.startsWith("---\nlayout: default\n")).toBe(true);
+    expect(html).not.toMatch(/<!doctype|<html|<head|<body/i);
+    expect(html).toContain('<h1 id="ic-title">');
+  });
+
+  it("styles nothing outside its own wrapper, and carries no rail", () => {
+    const css = [...html.matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]!).join("\n").replace(/\/\*[\s\S]*?\*\//g, "");
+    const selectors = [...css.matchAll(/([^{}]+)\{/g)].flatMap((m) => m[1]!.split(",").map((s) => s.trim())).filter(Boolean);
+    expect(selectors.length).toBeGreaterThan(0);
+    expect(selectors.filter((s) => !/^(:root\[data-fa-scheme="light"\] )?\.ic-page\b/.test(s))).toEqual([]);
+    expect(html).not.toContain('<nav class="fa-nav"');
   });
 });
