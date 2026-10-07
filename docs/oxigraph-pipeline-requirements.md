@@ -13,17 +13,23 @@ This document defines where **Oxigraph (WASM & CLI)** fits into the `folio-assis
 flowchart TD
     subgraph BuildServer ["1. Build Server / Ingestion Pipeline"]
         DSpace["Upstream DSpace / Captured Records"] --> Extract["Extraction Pipeline\n(catalogue/nodes, site/dublin-core)"]
-        Extract --> Norm["Graph Normalizer\n(build-iris-oxigraph.ts)"]
-        Norm -->|Blank Node Scoping| Partition["Named Graph Slicer"]
-        Partition --> NQuads["who-iris-dataset.nq\n(Multi-Graph N-Quads)"]
-        Partition --> Queries["queries.json\n(Prepared Queries)"]
-        NQuads --> Gzip["Brotli / Gzip Compression"]
+        Extract --> Norm["Solution A Skolemizer\n(build-iris-oxigraph.ts)"]
+        Norm -->|Zero Blank Nodes| TierEngine["2-Tier Graph Partition Engine"]
+        TierEngine --> Tier1["Tier 1: who-iris-spine.nq\n(Hierarchy, Handles, Title, Access Gates)"]
+        TierEngine --> Tier2["Tier 2: community_{id}.nq\n(MeSH, Abstracts, Spatial, Authorities)"]
+        TierEngine --> Full["who-iris-dataset.nq\n(Monolithic Merged Graph)"]
+        TierEngine --> Manifest["subgraph-manifest.json"]
+        TierEngine --> Queries["queries.json\n(Prepared Queries)"]
+        Tier1 --> Gzip["Gzip / Brotli Compression"]
+        Tier2 --> Gzip
+        Full --> Gzip
         Gzip --> Dist["_site/dist/oxigraph/"]
+        Manifest --> Dist
         Queries --> Dist
     end
 
     subgraph QAGates ["2. Validation & QA Gates"]
-        Dist --> BuildCheck["Oxigraph In-Process Verify\n(SPARQL QA Gates)"]
+        Dist --> BuildCheck["Oxigraph In-Process Verify\n(SPARQL QA Gates & Zero Bnodes)"]
         BuildCheck -->|Pass| Publish["Publish to CDN / gh-pages"]
     end
 
@@ -33,8 +39,8 @@ flowchart TD
     end
 
     subgraph EdgeClients ["4. Edge Execution & Consumption"]
-        CDN -->|Fetch .nq.gz + queries.json| WebClient["Browser Portal\n(Oxigraph WASM MemoryStore)"]
-        CDN -->|Lazy Fetch Community Slice| WebClient
+        CDN -->|1. Bootstrap: Fetch Spine + Manifest| WebClient["Browser Portal\n(Oxigraph WASM Store)"]
+        CDN -->|2. On-Demand: Fetch Community Slice| WebClient
         CDN -->|Fetch Blob URL| PDFViewer["Browser PDF Viewer"]
         CDN -->|Fetch or Local Query| Agent["Coding Agent / MCP Tool\n(Local Oxigraph Engine)"]
     end
@@ -44,19 +50,18 @@ flowchart TD
 
 ## 2. Pipeline Integration Stages
 
-### Stage 1: Build-Time Ingestion & Graph Slicing
+### Stage 1: Build-Time Ingestion, Skolemization & 2-Tier Partitioning
 - **Input:** 
   - `catalogue/nodes/*.json`: Communities, collections, item records, and bitstream manifests.
-  - `site/dublin-core/*.dc.jsonld`: Qualified Dublin Core records conforming to `folio-assistant-core/schemas/dublin-core.ts`.
+  - `site/dublin-core/*.dc.jsonld`: Qualified Dublin Core records conforming to `dublin-core.ts`.
 - **Tool:** `folio-assistant/who-iris/scripts/build-iris-oxigraph.ts`
 - **Actions:**
-  1. **Blank Node Disambiguation:** Prefix all blank nodes with the canonical item handle (`_:item_${handleClean}_${id}`) to prevent multi-document variable collision when merging.
-  2. **Multi-Graph Assignment:**
-     - `<https://iris.who.int/graph/catalogue>`: Top-level communities, collections, item parent-child paths, bitstream descriptors, and copyright gate verdicts.
-     - `<https://iris.who.int/graph/metadata>`: Dublin Core titles, creators, issued dates, abstracts, spatial coverage, languages, and MESH subject authorities.
-     - `<https://iris.who.int/graph/community/{id}>`: Partitioned subgraphs for lazy evaluation per administrative division.
-  3. **Compression:** Produce `.nq` and pre-compressed `.nq.gz` / `.nq.br` payloads.
-  4. **Query Manifest:** Export `queries.json` cataloging pre-compiled SPARQL queries for UI consumption.
+  1. **Solution A Skolemization:** Mint deterministic, globally unique URIs (`https://iris.who.int/entity/item/{handle}#{prop}_{idx}`) for all anonymous compound Dublin Core objects (creators, subjects, bitstreams). Asserts strictly 0 blank nodes (`_:`).
+  2. **2-Tier Multi-Graph Partitioning:**
+     - **Tier 1 (Spine)**: `<https://iris.who.int/graph/spine>` containing global hierarchy, item handles, title, primary creator, year, and bitstream copyright gate verdicts. Output as `who-iris-spine.nq` and `who-iris-spine.nq.gz`.
+     - **Tier 2 (Partitions)**: `<https://iris.who.int/graph/community/{id}>` containing deep Qualified Dublin Core metadata (MeSH taxonomy authorities, abstracts, spatial tags, govdoc, ISBN). Output per community as `iris_who_int_graph_community_{id}.nq` and `.gz`.
+     - **Monolithic Reference**: Complete merged dataset emitted as `who-iris-dataset.nq` and `.gz`.
+  3. **Manifest & Prepared Queries:** Export `subgraph-manifest.json` (partition registry) and `queries.json` (pre-compiled SPARQL queries).
 
 ### Stage 2: Build-Time SPARQL QA Gates
 - Before any preview or release site is built, Oxigraph runs natively in Bun to execute semantic integrity checks:
@@ -71,19 +76,20 @@ flowchart TD
 
 ### Stage 3: Static CDN Distribution
 - The generated assets are copied to `_site/who-iris/dist/oxigraph/` alongside the HTML replica:
-  - `who-iris-dataset.nq.gz` (Combined graph)
-  - `iris_who_int_graph_catalogue.nq.gz` (Lightweight catalogue backbone)
-  - `iris_who_int_graph_community_{id}.nq.gz` (Partitioned regional subgraphs)
-  - `queries.json` (Prepared queries)
+  - `who-iris-spine.nq.gz` (Tier 1: Global Routing Spine backbone)
+  - `subgraph-manifest.json` (Dynamic partition manifest & topology index)
+  - `iris_who_int_graph_community_{id}.nq.gz` (Tier 2: Partitioned regional subgraphs)
+  - `who-iris-dataset.nq.gz` (Monolithic merged graph)
+  - `queries.json` (Prepared queries catalog)
 - **Cache Policy:** `Cache-Control: public, max-age=31536000, immutable`. Content changes produce a new git commit hash or content-addressable filename.
 
 ### Stage 4: Client-Side Edge Execution (Browser WASM)
 - In the frontend viewer:
   1. Browser initializes in-memory store: `const store = new oxigraph.Store();`
-  2. Browser fetches the compressed catalogue or discovery slice (`~12–20 KB`).
+  2. Browser fetches Tier 1 spine (`who-iris-spine.nq.gz`, `< 20 KB`) and `subgraph-manifest.json`.
   3. Browser streams decompressed N-Quads directly into WASM memory via `store.load(decompressedNq, { format: 'application/n-quads' })`.
-  4. User UI interactions execute prepared SPARQL queries locally with zero server latency (< 5ms).
-  5. If the user filters into a specific regional community or collection, the application lazily fetches that community's `.nq.gz` and mounts it into the live store with `store.load()` without wiping existing state.
+  4. User UI interactions (title search, year filter, open-access copyright gates) execute prepared SPARQL queries locally in < 5ms.
+  5. If the user browses into or selects specific regional communities to search across, the application lazily fetches those communities' `.nq.gz` partitions from `subgraph-manifest.json` and mounts them into the live store with `store.load()` additively without wiping existing state.
 
 ---
 
@@ -92,13 +98,14 @@ flowchart TD
 | ID | Requirement | Verification Method |
 | :--- | :--- | :--- |
 | **SR-1** | **No Binary Embeddings in Graph**: No RDF object literal or URI may represent raw file binary bytes (base64 or blob data). Bitstreams must be modelled as nodes carrying `dspace:hasBitstream`, with `fileName`, `fileBytes` (integer), `mediaType`, and `fixity`. | Automated script checks: assert no literal length exceeds 8,192 characters (abstract ceiling). |
-| **SR-2** | **Deterministic Skolemization (Zero Blank Nodes)**: All anonymous compound nodes in Dublin Core JSON-LD (creators, subjects, dates) must be skolemized into globally unique, deterministic URIs (`https://iris.who.int/entity/item/{handle}#{prop}_{idx}`). The output N-Quads dataset must contain 0 blank nodes. | Assert 0 blank node identifiers in emitted `.nq` dataset (`grep '_:' dataset.nq` yields 0). |
+| **SR-2** | **Upstream Skolemization at the Extractor (Zero Blank Nodes)**: Extractors and ingestion pipelines must assign globally unique, deterministic URIs (`https://iris.who.int/entity/item/{handle}#{prop}_{idx}`) directly at record extraction time for all compound nodes (creators, subjects, dates). Zero anonymous compound structures or blank nodes (`_:`) may be emitted. | Assert 0 blank node identifiers in emitted `.nq` dataset (`grep '_:' dataset.nq` yields 0). |
 | **SR-3** | **Multi-Graph Isolation**: Catalogue containment and rights gates must reside in `<https://iris.who.int/graph/catalogue>`; bibliographic records must reside in `<https://iris.who.int/graph/metadata>`. | SPARQL verification: `GRAPH <catalogue>` must contain only `dspace:` predicates; `GRAPH <metadata>` must contain `dcterms:` predicates. |
 | **SR-4** | **Sub-50ms Query Execution**: Standard discovery and complex search queries over the materialized dataset must complete in under 50 milliseconds in WASM. | Measured in Bun/Playwright benchmarks in `iris-oxigraph.test.ts`. |
 | **SR-5** | **Additive Subgraph Mounting**: Calling `store.load()` for an additional named subgraph must not clobber, mutate, or duplicate previously loaded quads. | Test verified: initial query returns N items; loading community slice returns N + M items without reload. |
 | **SR-6** | **Handle Authority**: All item primary subject URIs must resolve using the canonical Handle system: `https://hdl.handle.net/10665/{id}`. | Graph check: all `a dspace:Item` subjects must start with `https://hdl.handle.net/`. |
 | **SR-7** | **Compressed Transport Ceiling**: For the current 3-item library, the full gzipped multi-graph payload must not exceed 10 KB. For scale (300,000 items), regional community partitions must not exceed 25 MB compressed. | Measured build artifact size check in CI. |
 | **SR-8** | **Prepared Query Equivalence**: Every entry in `queries.json` must be syntactically valid SPARQL 1.1 and execute against the dataset with 0 errors. | Automated test parses and dry-runs all queries in `queries.json`. |
+| **SR-9** | **Append-Only Streaming Partitioning**: The build and extraction toolchains must support streaming append-only output to partition files (`who-iris-spine.nq`, `community_{id}.nq`). Ingestion memory consumption must remain bounded O(1) regardless of repository catalog size (300,000 items). | Memory benchmark: heap usage under 250 MB during compilation of entire corpus. |
 
 ---
 
