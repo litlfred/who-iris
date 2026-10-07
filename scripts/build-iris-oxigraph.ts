@@ -78,11 +78,54 @@ export interface BuildResult {
 }
 
 /**
+ * Append-Only Streaming Partition Writer (Zero-Accumulation Architecture)
+ *
+ * Writes N-Quads directly to disk partition streams as records are processed,
+ * maintaining an O(1) memory footprint during corpus ingestion (300,000 items).
+ */
+export class StreamingPartitionWriter {
+  private outDir: string;
+  private openStreams: Map<string, fs.WriteStream> = new Map();
+
+  constructor(outDir: string) {
+    this.outDir = outDir;
+    fs.mkdirSync(outDir, { recursive: true });
+  }
+
+  public append(partitionFile: string, quads: string[]): void {
+    if (quads.length === 0) return;
+    const filePath = path.join(this.outDir, partitionFile);
+    fs.appendFileSync(filePath, quads.join('\n') + '\n', 'utf8');
+  }
+
+  public appendSingle(partitionFile: string, quad: string): void {
+    const filePath = path.join(this.outDir, partitionFile);
+    fs.appendFileSync(filePath, quad + '\n', 'utf8');
+  }
+}
+
+/**
+ * Upstream Extractor Skolemization Helper (Zero-Pass Minting)
+ *
+ * Mints a stable, deterministic, content-addressed URI for a Dublin Core entity
+ * at the point of ingestion/extraction, preventing blank node generation.
+ *
+ * URI format: https://iris.who.int/entity/item/{handle_slug}#{property}_{index}
+ */
+export function mintSkolemUri(handleClean: string, property: string, index: number): string {
+  const propClean = property.replace(/^.*[:#]/, '').replace(/[^a-zA-Z0-9]/g, '_');
+  return `https://iris.who.int/entity/item/${handleClean}#${propClean}_${index}`;
+}
+
+/**
  * Solution A: Skolemization (Mint Deterministic, Content-Addressed URIs)
  *
  * Traverses JSON-LD objects before RDF conversion and assigns globally unique,
  * deterministic URIs to all anonymous compound nodes (creators, subjects, dates,
  * spatial, language, types) based on the parent item handle and property path.
+ *
+ * Serves as both downstream normalizer and verification standard for upstream
+ * extractor minting.
  *
  * URI format: https://iris.who.int/entity/item/{handle_slug}#{property}_{index}
  */
@@ -90,7 +133,7 @@ export function skolemizeJsonLd(node: any, handleClean: string, prefix = 'entity
   if (Array.isArray(node)) {
     return node.map((item, idx) => {
       if (item && typeof item === 'object' && !item['@id'] && !item['@value']) {
-        const mintedId = `https://iris.who.int/entity/item/${handleClean}#${prefix}_${idx + 1}`;
+        const mintedId = mintSkolemUri(handleClean, prefix, idx + 1);
         return skolemizeJsonLd(
           { '@id': mintedId, ...item },
           handleClean,

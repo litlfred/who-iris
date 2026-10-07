@@ -50,7 +50,7 @@ The distribution package includes `subgraph-manifest.json`, which indexes the gl
 
 | # | Requirement | Why, in one line |
 |---|---|---|
-| **OX-1** | **Skolemize anonymous compound nodes into deterministic URIs** (`https://iris.who.int/entity/item/{handle}#{prop}_{idx}`) | Eliminates blank nodes entirely; prevents cross-document collisions and enables direct external URI addressability |
+| **OX-1** | **Upstream Skolemization at the extractor (Zero-Pass Minting)** (`https://iris.who.int/entity/item/{handle}#{prop}_{idx}`) | Eliminates blank nodes entirely at extraction; prevents multi-document collisions, enables external addressability, and avoids expensive downstream normalizer passes |
 | **OX-2** | **Store zero binary bytes in RDF** | Avoids WASM memory bloat; binaries are served as static files via CDN |
 | **OX-3** | **Join across named graphs via explicit `GRAPH` blocks** | Separates archival containment rights from bibliographic description |
 | **OX-4** | **Use canonical Handle URIs as primary subject** (`https://hdl.handle.net/...`) | Guarantees permanent identity resolution outside local server infrastructure |
@@ -58,6 +58,7 @@ The distribution package includes `subgraph-manifest.json`, which indexes the gl
 | **OX-6** | **Partition subgraphs by administrative community** | Enables sub-second edge loading by only fetching the needed community slice |
 | **OX-7** | **Never perform whole-corpus text scans in SPARQL** | SPARQL is graph pattern matching; full text is indexed via static inverted indexes |
 | **OX-8** | **Preserve controlled vocabulary authorities** (`dspace:authority`) | Distinguishes controlled MeSH headings from unstructured keyword literals |
+| **OX-9** | **Append-only streaming partition emission** | Single-pass streaming directly to tier partition streams (`who-iris-spine.nq`, `community_{id}.nq`); guarantees O(1) memory footprint during build at 300,000 scale |
 
 ---
 
