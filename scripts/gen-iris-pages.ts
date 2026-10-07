@@ -76,7 +76,7 @@ import {
   subjectPage,
   withInlineCode,
   withRoutes,
-  withViewerNav,
+  themedPage,
   type CatalogueNode,
   type PotEntry,
 } from "../platform.ts";
@@ -1263,13 +1263,12 @@ function page(
   crumbs: { label: string; href?: string; record?: { lang?: string } }[],
   body: string,
   /**
-   * WHICH SITE THIS PAGE IS ON, which is now three answers rather than two.
-   *
-   * `site` and `docs` are who-iris's own tree, mounted under its routes.
-   * `harness` is a kind viewer published into cat-harness's site at
-   * `/<handler>/<kind>/<subject>/` — a different site, with its own chrome.
+   * WHICH SITE THIS PAGE IS ON. `site` and `docs` are who-iris's own tree,
+   * mounted under its routes. The third answer, `harness` — the catalogue
+   * viewer, published into cat-harness's site — left this function on
+   * 2026-10-07 for the site's own layout ({@link catalogueViewer}).
    */
-  side: "site" | "docs" | "harness",
+  side: "site" | "docs",
   /**
    * The graph typologies this page documents, as `<meta name="documents">` — the
    * page names what it is about, so the directory need not name the page
@@ -1721,7 +1720,7 @@ ${body}
     iris: `<a href="https://iris.who.int/">iris.who.int</a>`,
   })}</p>
 </div></footer>
-${side === "harness" ? "" : FOLIO_MOUNT}
+${FOLIO_MOUNT}
 </body>
 </html>
 `;
@@ -1859,8 +1858,8 @@ function cataloguePage(all: Node[]): string {
   const files = c.totalFilesUpstream;
   const items = c.totalItemsUpstream;
 
-  return `<div class="wrap">
-<h1>The catalogue, as a graph</h1>
+  return `<div class="ic-page">
+<h1 id="ic-title">The catalogue, as a graph</h1>
 
 <p class="lede">The replica pages show what IRIS looks like. This one shows what this
 catalogue <em>knows</em> — and, more usefully, what it records that it does not know.</p>
@@ -1874,7 +1873,7 @@ Cataloguing by reference means recording that something exists without holding i
 so a small number here is the design rather than a shortfall.</p>
 </div>
 
-<h2>What is held, and what is only named</h2>
+<h2 id="ic-held">What is held, and what is only named</h2>
 
 <table class="kg">
 <tr><th>state</th><th>nodes</th><th>what it means</th></tr>
@@ -1883,7 +1882,7 @@ so a small number here is the design rather than a shortfall.</p>
 <tr><td>${stateBadge("unknown")}</td><td>${unknownState.length}</td><td>nobody has looked; never rendered as either of the above</td></tr>
 </table>
 
-<h2>What the gates say about the ${bitstreams} held bitstream(s)</h2>
+<h2 id="ic-gates">What the gates say about the ${bitstreams} held bitstream(s)</h2>
 
 ${
   unknownGates.length > 0
@@ -1901,7 +1900,7 @@ rather than left implicit: an absent warning and a clean result are not the same
 ${gateRows}
 </table>
 
-<h2>Every node</h2>
+<h2 id="ic-nodes">Every node</h2>
 
 <table class="kg">
 <tr><th>state</th><th>kind</th><th>node</th><th>held as</th><th>record</th><th>bitstreams</th></tr>
@@ -1915,6 +1914,61 @@ verifies that each node validates and that every <code>metadataRef</code>,
 <code>libraryId</code>, <code>localPath</code> and parent path resolves — so this page
 reports what the catalogue says, and that check reports whether it hangs together.</p>
 </div>`;
+}
+
+/**
+ * The catalogue viewer as a THEMED Jekyll page (2026-10-07).
+ *
+ * It is cat-harness's own view of this catalogue, published on cat-harness's
+ * site — not the replica — so it wears the SITE's chrome rather than IRIS's:
+ * on the theme's default layout it carries the top band (search, Folio,
+ * language) that only that layout delivers, and the theme's sidebar is its
+ * navigation, so there is no rail. Every rule is scoped under .ic-page, with
+ * no rule on body, :root or a (on the layout those would restyle the theme).
+ * The state palette keeps its three tones and its WORDS, keyed on the site's
+ * own scheme switch (data-fa-scheme), dark first because the site's ground is;
+ * the light tones are the replica's measured ones. Everything else is the
+ * theme's ink with opacity and a neutral translucent edge.
+ *
+ * NO BACKTICKS IN THE STYLESHEET BELOW: it is a template literal.
+ */
+export function catalogueViewer(all: Node[]): string {
+  return themedPage({
+    title: "The catalogue, as a graph — who-iris",
+    generator: "who-iris/scripts/gen-iris-pages.ts",
+    command: "bun run iris:pages",
+    body: `<style>
+.ic-page { --ic-edge: rgba(127,127,127,.4); --ic-wash: rgba(127,127,127,.12);
+  --ic-mat: #8fd18f; --ic-mat-edge: #4d7a2a; --ic-mat-bg: rgba(148,186,101,.16);
+  --ic-ref: currentColor; --ic-ref-edge: rgba(127,127,127,.55); --ic-ref-bg: rgba(127,127,127,.12);
+  --ic-unk: #f0c27a; --ic-unk-edge: #8a6420; --ic-unk-bg: rgba(236,148,51,.16);
+  --ic-current: #e8875a; }
+:root[data-fa-scheme="light"] .ic-page {
+  --ic-mat: #1d5c1d; --ic-mat-edge: #94BA65; --ic-mat-bg: #f0f6e9;
+  --ic-ref: #005072; --ic-ref-edge: #ced4da; --ic-ref-bg: #FAFAFA;
+  --ic-unk: #7a4a10; --ic-unk-edge: #ec9433; --ic-unk-bg: #fdf4e8;
+  --ic-current: #d86422; }
+.ic-page :not(pre) > code { overflow-wrap: anywhere; }
+.ic-page p.lede { font-size: 1.05rem; line-height: 1.6; max-width: 46rem; }
+.ic-page .note { border-inline-start: 4px solid var(--ic-edge); background: var(--ic-wash);
+  padding: .6rem 1rem; margin: 1rem 0; }
+.ic-page .note p { margin: 0; }
+.ic-page .state { display: inline-block; font-size: .72rem; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase;
+  padding: .12rem .45rem; border-radius: 3px; border: 1px solid; vertical-align: .12em; }
+.ic-page .state.materialized { color: var(--ic-mat); border-color: var(--ic-mat-edge); background: var(--ic-mat-bg); }
+.ic-page .state.referenced { color: var(--ic-ref); border-color: var(--ic-ref-edge); background: var(--ic-ref-bg); }
+.ic-page .state.unknown { color: var(--ic-unk); border-color: var(--ic-unk-edge); background: var(--ic-unk-bg); }
+.ic-page .kg { display: table; width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+.ic-page .kg th, .ic-page .kg td { text-align: start; padding: .4rem .55rem; border: 0;
+  border-bottom: 1px solid var(--ic-edge); vertical-align: top; background: transparent; }
+.ic-page .kg th { font-weight: 600; white-space: nowrap; }
+.ic-page .dim { opacity: .9; font-size: .85em; }
+.ic-page .caveat { border-inline-start: 4px solid var(--ic-current); background: var(--ic-wash);
+  padding: .9rem 1.1rem; margin: 1.6rem 0; font-size: .95rem; }
+</style>
+${cataloguePage(all)}`,
+  });
 }
 
 /** The community list — the page the owner named. */
@@ -3418,15 +3472,9 @@ function main(): number {
    * the cross-route problem #879 is solving properly; a crumb that reads as a
    * link and returns you to where you already are is worse than a plain label.
    */
-  siteFiles.set(
-    CATALOGUE_VIEWER,
-    page(
-      "The catalogue, as a graph",
-      [{ label: "who-iris" }, { label: "Catalogue" }],
-      cataloguePage(all),
-      "harness",
-    ),
-  );
+  // THEMED since 2026-10-07 (catalogueViewer): on cat-harness's site, it
+  // wears that site's layout rather than the replica's page chrome.
+  siteFiles.set(CATALOGUE_VIEWER, catalogueViewer(all));
 
   // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
   // top level, where it always was; then each translation beneath
@@ -3507,19 +3555,21 @@ function main(): number {
       rel: `who-iris/${key}`,
       html,
     })),
-    // THE NAVBAR GOES ON THE SITE SIDE ONLY — bean `edx7`.
+    // folio-assistant's CHROME GOES ON THE SITE SIDE ONLY — bean `edx7`.
     //
     // The split is already here and it is the right one. `siteFiles` are
     // cat-harness's own viewers of this catalogue, and the owner named
-    // `/cat-harness/catalogue/who-iris/` as a page that SHOULD carry the rail.
-    // `files` are the REPLICA, copied to look like IRIS; folio-assistant's
-    // chrome on those would be the opposite of what a replica is for.
+    // `/cat-harness/catalogue/who-iris/` as a page that SHOULD carry the
+    // site's navigation: since 2026-10-07 it is themed, so the theme's layout
+    // brings it and there is no rail to inject. `files` are the REPLICA,
+    // copied to look like IRIS; folio-assistant's chrome on those would be
+    // the opposite of what a replica is for.
     // The mount's withheld list, beside the pages it protects (bean `cw35`).
     { abs: join(LIB, "withheld.json"), rel: "who-iris/library/withheld.json", html: withheldManifest(nodes()) },
     ...[...siteFiles].map(([abs, html]) => ({
       abs,
       rel: relative(REPO_ROOT, abs),
-      html: withViewerNav(html, abs, { built: basename(HARNESS_ROOT), docsRoot: join(HARNESS_ROOT, siteDirFor(HARNESS_ROOT)) }) ?? html,
+      html,
     })),
   ];
   for (const { abs, rel, html } of targets) {
