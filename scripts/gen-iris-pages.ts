@@ -75,6 +75,7 @@ import {
   declaredRoute,
   siteOwnerDir,
   withRenderedBy,
+  withRenderedByFrontMatter,
   withInlineCode,
   withRoutes,
   themedPage,
@@ -3445,7 +3446,7 @@ function main(): number {
    */
   // THEMED since 2026-10-07 (catalogueViewer): on cat-harness's site, it
   // wears that site's layout rather than the replica's page chrome.
-  siteFiles.set(CATALOGUE_VIEWER, withRenderedBy(catalogueViewer(all), VIEWER_TOOL));
+  siteFiles.set(CATALOGUE_VIEWER, ((page: string) => (page.startsWith("---\n") ? withRenderedByFrontMatter(page, VIEWER_TOOL) : withRenderedBy(page, VIEWER_TOOL)))(catalogueViewer(all)));
 
   // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
   // top level, where it always was; then each translation beneath

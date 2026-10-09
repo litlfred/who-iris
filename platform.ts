@@ -53,6 +53,7 @@ export {
   siteOwnerDir,
   visualiserPageDir,
   withRenderedBy,
+  withRenderedByFrontMatter,
   defineTool,
   type ToolDefinition,
   toolTypeIri,
