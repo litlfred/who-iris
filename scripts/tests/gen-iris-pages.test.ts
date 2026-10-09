@@ -703,3 +703,25 @@ describe("the docs landing page lists the authored pages it does not generate (b
     expect(html).toContain('href="../library/README.md"');
   });
 });
+
+describe("the catalogue page (bean kx0p)", () => {
+  it("lists the held nodes first, labels each gate count inside its pill, and links no viewer on a site without one", async () => {
+    const { catalogueViewer } = await import("../gen-iris-pages.ts");
+    const { readdirSync, readFileSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const dir = join(import.meta.dir, "..", "..", "catalogue", "nodes");
+    const all = readdirSync(dir).filter((f) => f.endsWith(".json")).sort().map((f) => JSON.parse(readFileSync(join(dir, f), "utf-8")));
+    const page = catalogueViewer(all, { libraryViewer: false });
+    const every = page.slice(page.indexOf('id="ic-nodes"'));
+    const states = [...every.matchAll(/<td><span class="state ([a-z]+)">/g)].map((m) => m[1]);
+    expect(states.length).toBe(all.length);
+    const order = ["materialized", "referenced", "unknown"];
+    expect(states).toEqual([...states].sort((a, b) => order.indexOf(a!) - order.indexOf(b!)));
+    expect(states[0]).toBe("materialized"); // not vacuous: who-iris holds items
+    const gates = page.slice(page.indexOf('id="ic-gates"'), page.indexOf('id="ic-nodes"'));
+    expect(gates).toMatch(/<span class="state [a-z]+">[a-zA-Z]+: \d+ of \d+<\/span>/);
+    expect(gates).not.toMatch(/<\/span> \d/);
+    expect(page).not.toContain("library/who-iris/#");
+    expect(catalogueViewer(all)).toContain("library/who-iris/#"); // the harness site's build keeps the viewer links
+  });
+});
