@@ -1832,13 +1832,26 @@ function cataloguePage(all: Node[]): string {
     .map(([gate, m]) => {
       const cells = [...m.entries()]
         .sort((a, b) => a[0].localeCompare(b[0], "en"))
-        .map(([v, n]) => `${verdictBadge(v)} ${n}`)
+        .map(([v, n]) => `${verdictBadge(v)} <span class="verdict-count">: ${n}</span>`)
         .join(" ");
       return `<tr><td><code>${esc(gate)}</code></td><td>${cells}</td></tr>`;
     })
     .join("\n");
 
-  const nodeRows = all
+  const stateRank = (s: string): number => {
+    if (s === "materialized") return 0;
+    if (s === "referenced") return 1;
+    return 2;
+  };
+  const sortedNodes = [...all].sort((a, b) => {
+    const sA = a.materialization?.state ?? "unknown";
+    const sB = b.materialization?.state ?? "unknown";
+    const diff = stateRank(sA) - stateRank(sB);
+    if (diff !== 0) return diff;
+    return a.id.localeCompare(b.id, "en");
+  });
+
+  const nodeRows = sortedNodes
     .map((n) => {
       const state = n.materialization?.state ?? "unknown";
       const held = n.libraryId ? heldAs(n.libraryId) : "—";
@@ -1902,9 +1915,18 @@ ${gateRows}
 
 <h2 id="ic-nodes">Every node</h2>
 
-<table class="kg">
+<div class="ic-filter-wrap">
+  <input type="search" id="ic-filter" placeholder="Filter nodes..." aria-label="Filter nodes" autocomplete="off" spellcheck="false">
+  <span id="ic-filter-count" class="ic-filter-count" aria-live="polite"></span>
+</div>
+
+<table class="kg" id="ic-nodes-table" data-fa-filtered="true">
+<thead>
 <tr><th>state</th><th>kind</th><th>node</th><th>held as</th><th>record</th><th>bitstreams</th></tr>
+</thead>
+<tbody>
 ${nodeRows}
+</tbody>
 </table>
 
 <p class="caveat">Generated from <code>catalogue/</code> by
@@ -1913,6 +1935,35 @@ nodes themselves; none is transcribed. <code>bun run cat check:catalogue</code> 
 verifies that each node validates and that every <code>metadataRef</code>,
 <code>libraryId</code>, <code>localPath</code> and parent path resolves — so this page
 reports what the catalogue says, and that check reports whether it hangs together.</p>
+
+<script>
+(function() {
+  var input = document.getElementById("ic-filter");
+  var table = document.getElementById("ic-nodes-table");
+  var count = document.getElementById("ic-filter-count");
+  if (!input || !table) return;
+  var rows = Array.prototype.slice.call(table.querySelectorAll("tbody tr"));
+  var texts = rows.map(function(r) { return (r.textContent || "").toLowerCase(); });
+
+  function apply() {
+    var query = input.value.trim().toLowerCase();
+    var words = query.split(/\\s+/).filter(Boolean);
+    var shown = 0;
+    rows.forEach(function(row, i) {
+      var match = words.every(function(w) { return texts[i].indexOf(w) !== -1; });
+      row.hidden = !match;
+      if (match) shown++;
+    });
+    if (count) {
+      count.textContent = shown + " of " + rows.length + " rows";
+    }
+  }
+
+  input.addEventListener("input", apply);
+  input.addEventListener("search", apply);
+  apply();
+})();
+</script>
 </div>`;
 }
 
@@ -1959,6 +2010,11 @@ export function catalogueViewer(all: Node[]): string {
 .ic-page .state.materialized { color: var(--ic-mat); border-color: var(--ic-mat-edge); background: var(--ic-mat-bg); }
 .ic-page .state.referenced { color: var(--ic-ref); border-color: var(--ic-ref-edge); background: var(--ic-ref-bg); }
 .ic-page .state.unknown { color: var(--ic-unk); border-color: var(--ic-unk-edge); background: var(--ic-unk-bg); }
+.ic-page .verdict-count { font-variant-numeric: tabular-nums; margin-inline-end: .4rem; }
+.ic-page .ic-filter-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin: 1rem 0 .5rem; }
+.ic-page #ic-filter { flex: 1 1 14rem; min-width: 0; max-width: 28rem; min-height: 44px; padding: 0 .75rem; font: inherit; color: inherit; background: transparent; border: 1px solid var(--ic-edge); border-radius: 4px; }
+.ic-page .ic-filter-count { font-size: .875em; opacity: .85; }
+.ic-page tr[hidden] { display: none !important; }
 .ic-page .kg { display: table; width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
 .ic-page .kg th, .ic-page .kg td { text-align: start; padding: .4rem .55rem; border: 0;
   border-bottom: 1px solid var(--ic-edge); vertical-align: top; background: transparent; }
