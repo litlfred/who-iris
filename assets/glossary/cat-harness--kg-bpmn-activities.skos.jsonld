@@ -5169,6 +5169,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-bpmn-activities/process_mountsubgraph.task_retrievenpmpackage",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-bpmn-activities"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Retrieve the npm package or tarball"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "An `npm` source (`schemas/subgraph-source.ts`, `npm-kg-distribution`): an npm package specifier or tarball path (`.tgz`). `kg-retrieve-npm` or `npm` fetches and unpacks the package contents into the declared path."
+        }
+      ],
+      "skos:notation": "Task_RetrieveNpmPackage",
+      "dcterms:source": "cat-harness/processes/kg/mount-subgraph.bpmn#Task_RetrieveNpmPackage",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-bpmn-activities/process_mountsubgraph.task_usecheckoutpath",
       "@type": "skos:Concept",
       "skos:inScheme": {

@@ -18786,6 +18786,44 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/index-config.indexconfigschema.description",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "IndexConfigSchema.description"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "One paragraph under that title, saying what the checkout is for."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/index-config.ts#IndexConfigSchema.description",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/index-config.indexconfigschema.title",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "IndexConfigSchema.title"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "What this CHECKOUT is called. The index declares no instance of its own (owner, 2026-10-08), so nothing else names it; `index:render` titles the root `README.md` and `AGENTS.md` with it (owner, 2026-10-09: those two are rendered files). Absent, they are titled generically."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/index-config.ts#IndexConfigSchema.title",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/index-config.indexmigration.moved",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -18957,6 +18995,44 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/intake.intakeclassificationschema.basis",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "IntakeClassificationSchema.basis"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Why — the rule, the person's words, or the process step. Required: an unexplained classification is a guess."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/intake.ts#IntakeClassificationSchema.basis",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/intake.intakeclassificationschema.properties",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "IntakeClassificationSchema.properties"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Qualifiers the scheme defines, e.g. `{ publicationType: \"implementation-guidance\" }`."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/intake.ts#IntakeClassificationSchema.properties",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/intake.intakefileschema.role",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -19011,6 +19087,25 @@
         }
       ],
       "dcterms:source": "cat-harness/schemas/intake.ts#IntakeSchema._comment",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/intake.intakeschema.classifications",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "IntakeSchema.classifications"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Classifications of the captured item ({@link IntakeClassificationSchema})."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/intake.ts#IntakeSchema.classifications",
       "skos:note": "candidate"
     },
     {
@@ -19489,6 +19584,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/kg-node.kgimage.ground",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "KgImage.ground"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "What the navbar draws BEHIND this image when it is an avatar: `tone` (the default), the instance's hue square, which a card-art crop covers; or `none`, the image on the rail itself, for a mark that is transparent around its shape (issue #46, gap 5)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/kg-node.ts#KgImage.ground",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/kg-node.kgimage.height",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -19619,6 +19733,25 @@
         }
       ],
       "dcterms:source": "cat-harness/schemas/kg-node.ts#KgImage.width",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/kg-node.kgimageschema.ground",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "KgImageSchema.ground"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "{@link KgImage.ground}."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/kg-node.ts#KgImageSchema.ground",
       "skos:note": "candidate"
     },
     {
@@ -28381,6 +28514,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/sticky-contribution.declaredcontribution.instanceroot",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "DeclaredContribution.instanceRoot"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The declaring instance's root path on disk, when known."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/sticky-contribution.ts#DeclaredContribution.instanceRoot",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/sticky-contribution.declaredcontribution.summary",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -28853,6 +29005,101 @@
         }
       ],
       "dcterms:source": "cat-harness/schemas/subgraph-source.ts#FamilySourceSchema.repository",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/subgraph-source.npmsourceschema.integrity",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "NpmSourceSchema.integrity"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Integrity SRI string (sha256 or sha512) for fixity verification."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/subgraph-source.ts#NpmSourceSchema.integrity",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/subgraph-source.npmsourceschema.package",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "NpmSourceSchema.package"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Scoped or unscoped package name (e.g. `@litlfred/cat-harness`)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/subgraph-source.ts#NpmSourceSchema.package",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/subgraph-source.npmsourceschema.tool",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "NpmSourceSchema.tool"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Declared Tool that retrieves/mounts the package. Default: 'npm'."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/subgraph-source.ts#NpmSourceSchema.tool",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/subgraph-source.npmsourceschema.upstreampath",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "NpmSourceSchema.upstreamPath"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Upstream path inside the extracted package tarball."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/subgraph-source.ts#NpmSourceSchema.upstreamPath",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields/subgraph-source.npmsourceschema.version",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "NpmSourceSchema.version"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Exact semver version triple (no ranges)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/subgraph-source.ts#NpmSourceSchema.version",
       "skos:note": "candidate"
     },
     {

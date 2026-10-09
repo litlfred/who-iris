@@ -1254,6 +1254,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/npm",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Package manager and registry client for npm and GitHub Packages"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Package, publish, inspect, and retrieve npm packages and Knowledge Graphs distributed as tarballs or packages from npm registry or GitHub Packages."
+        }
+      ],
+      "skos:notation": "npm",
+      "dcterms:source": "cat-harness/tools/index.ts#npm",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/ns-vocabulary",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -1311,6 +1331,26 @@
       ],
       "skos:notation": "package-release-manual",
       "dcterms:source": "cat-harness/tools/index.ts#package-release-manual",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/package-release-workflow",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Release package via GitHub Actions release workflow"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Build, tag, and publish an npm package tarball to GitHub Releases and GitHub Packages registry via workflow_dispatch across any repository."
+        }
+      ],
+      "skos:notation": "package-release-workflow",
+      "dcterms:source": "cat-harness/tools/index.ts#package-release-workflow",
       "skos:note": "candidate"
     },
     {

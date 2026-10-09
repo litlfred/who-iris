@@ -34,7 +34,7 @@ its items are held.
   (`referenced`) or unestablished (`unknown`), and there is no default.
 - **The gap is the point.** IRIS reports its own figures for items and files;
   the catalogue holds a few and models the rest by reference. The census is
-  `bun run cat check:catalogue`, never a number written into a page.
+  `bun run check:catalogue`, never a number written into a page.
 
 This repository is the development home of the instance; an official copy is
 expected to live under WHO's own account.
