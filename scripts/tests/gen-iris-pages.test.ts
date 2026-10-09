@@ -16,7 +16,8 @@
  * @module who-iris/scripts/tests/gen-iris-pages.test
  */
 import { describe, expect, it } from "bun:test";
-import { existsSync, readFileSync, readdirSync } from "fs";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from "fs";
+import { tmpdir } from "os";
 import { join, resolve } from "path";
 import { execFileSync, spawnSync } from "child_process";
 import { createHash } from "crypto";
@@ -24,6 +25,7 @@ import { createHash } from "crypto";
 import {
   OWNED,
   OWNED_SITE,
+  authoredDocs,
   SITE_LOCALES,
   SITE_STRINGS,
   catalogueProblems,
@@ -664,4 +666,25 @@ describe("the page finds its site root on every host it is served from", () => {
     ["/who-iris/docs/who-iris/ingestion-notes.html", "/who-iris/"],
   ];
   for (const [path, root] of rows) it(`${path} → ${root}`, () => expect(path.match(re)?.[1]).toBe(root));
+});
+
+describe("the docs landing page lists the authored pages it does not generate (bean mw5z)", () => {
+  it("derives them from the directory: titled by first heading; README and front-matter pages left out", () => {
+    const d = mkdtempSync(join(tmpdir(), "iris-docs-"));
+    writeFileSync(join(d, "README.md"), "# The directory\n");
+    writeFileSync(join(d, "site-home.md"), "---\nlayout: default\n---\n# Home\n");
+    writeFileSync(join(d, "style-guide.md"), "# The WHO style guide\n\nText.\n");
+    writeFileSync(join(d, "notes.md"), "No heading here.\n");
+    writeFileSync(join(d, "index.html"), "<h1>x</h1>");
+    expect(authoredDocs(d)).toEqual([
+      { file: "notes.md", title: "notes" },
+      { file: "style-guide.md", title: "The WHO style guide" },
+    ]);
+  });
+
+  it("the committed landing page names every authored page in docs/", () => {
+    const docs = join(import.meta.dir, "..", "..", "docs");
+    const index = readFileSync(join(docs, "index.html"), "utf-8");
+    for (const d of authoredDocs(docs)) expect(index).toContain(`href="${d.file}"`);
+  });
 });
