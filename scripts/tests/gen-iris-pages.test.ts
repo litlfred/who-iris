@@ -697,9 +697,43 @@ describe("the docs landing page lists the authored pages it does not generate (b
   });
 
   it("renders GFM tables and points sibling .md links at their renderings, leaving other links alone", () => {
-    const html = renderAuthored("# T\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n[s](style-guide.md#x) [o](../library/README.md)\n", new Set(["style-guide.md"]));
+    const html = renderAuthored("# T\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n[s](style-guide.md#x) [o](../library/README.md)\n", new Set(["style-guide.md"]), null);
     expect(html).toContain("<table>");
     expect(html).toContain('href="style-guide.html#x"');
     expect(html).toContain('href="../library/README.md"');
+  });
+
+  it("cites a file OUTSIDE docs/ by repository, since only docs/ is published (who-iris's own site)", () => {
+    const html = renderAuthored(
+      "[o](../library/README.md#a) [v](../skills/voices/) [g](../../AGENTS.md)\n",
+      new Set(),
+      "example/who-iris",
+    );
+    expect(html).toContain('href="https://github.com/example/who-iris/blob/HEAD/library/README.md#a"');
+    expect(html).toContain('href="https://github.com/example/who-iris/tree/HEAD/skills/voices/"');
+    // Climbing out of the instance is a source defect, left for the site's link check to report.
+    expect(html).toContain('href="../../AGENTS.md"');
+  });
+});
+
+describe("the catalogue page (bean kx0p)", () => {
+  it("lists the held nodes first, labels each gate count inside its pill, and links no viewer on a site without one", async () => {
+    const { catalogueViewer } = await import("../gen-iris-pages.ts");
+    const { readdirSync, readFileSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const dir = join(import.meta.dir, "..", "..", "catalogue", "nodes");
+    const all = readdirSync(dir).filter((f) => f.endsWith(".json")).sort().map((f) => JSON.parse(readFileSync(join(dir, f), "utf-8")));
+    const page = catalogueViewer(all, { libraryViewer: false });
+    const every = page.slice(page.indexOf('id="ic-nodes"'));
+    const states = [...every.matchAll(/<td><span class="state ([a-z]+)">/g)].map((m) => m[1]);
+    expect(states.length).toBe(all.length);
+    const order = ["materialized", "referenced", "unknown"];
+    expect(states).toEqual([...states].sort((a, b) => order.indexOf(a!) - order.indexOf(b!)));
+    expect(states[0]).toBe("materialized"); // not vacuous: who-iris holds items
+    const gates = page.slice(page.indexOf('id="ic-gates"'), page.indexOf('id="ic-nodes"'));
+    expect(gates).toMatch(/<span class="state [a-z]+">[a-zA-Z]+: \d+ of \d+<\/span>/);
+    expect(gates).not.toMatch(/<\/span> \d/);
+    expect(page).not.toContain("library/who-iris/#");
+    expect(catalogueViewer(all)).toContain("library/who-iris/#"); // the harness site's build keeps the viewer links
   });
 });

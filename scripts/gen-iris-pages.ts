@@ -55,7 +55,7 @@
  * reads the `.po` beside it. A publication's own title, authors and abstract
  * are never translated. `--check` covers the catalogues as well as the pages.
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "fs";
 import { basename, dirname, join, posix, relative, resolve, sep } from "path";
 
 import {
@@ -1821,9 +1821,23 @@ function stateBadge(state: string): string {
  * permit, amber for unknown, so the two axes read consistently at a glance —
  * but the text is the verdict as recorded.
  */
-function verdictBadge(verdict: string): string {
+function verdictBadge(verdict: string, count?: { n: number; of: number }): string {
   const tone = verdict === "unknown" ? "unknown" : verdict === "permitted" ? "materialized" : "referenced";
-  return `<span class="state ${tone}">${esc(verdict)}</span>`;
+  // The count goes INSIDE its pill and says what it counts (bean `kx0p`
+  // finding 6): beside the pill as a bare number, "PERMITTED 3 UNKNOWN 3" read
+  // as one run rather than two verdicts with a count each.
+  const label = count === undefined ? esc(verdict) : `${esc(verdict)}: ${count.n} of ${count.of}`;
+  return `<span class="state ${tone}">${label}</span>`;
+}
+
+/** What the catalogue page may link, which depends on the site it is built into. */
+export interface CatalogueViewerOptions {
+  /**
+   * The site builds the library viewer, so a "held as" id may open it. False
+   * on who-iris's own site (`--catalogue-into`), which builds no viewer: the
+   * link would be published dead, and the build's link check refuses that.
+   */
+  libraryViewer: boolean;
 }
 
 /**
@@ -1832,12 +1846,12 @@ function verdictBadge(verdict: string): string {
  * item's page and its source, each only where it resolves. The viewer link is
  * made relative to this page. An id nothing resolves stays code.
  */
-function heldAs(id: string): string {
+function heldAs(id: string, opts: CatalogueViewerOptions): string {
   const l = LIBRARY_LINKS.links(id, SUBJECT);
   const code = `<code>${esc(id)}</code>`;
   if (l === undefined) return code;
   const from = subjectPage(HANDLER, CATALOGUE_KIND, SUBJECT).replace(/^\/|\/$/g, "");
-  const parts = [l.viewer === undefined ? code : (() => {
+  const parts = [l.viewer === undefined || !opts.libraryViewer ? code : (() => {
     const [path, hash] = l.viewer!.split("#");
     return `<a href="${esc(`${posix.relative(from, path!)}/#${hash}`)}">${code}</a>`;
   })()];
@@ -1846,7 +1860,10 @@ function heldAs(id: string): string {
   return parts.join(" &middot; ");
 }
 
-function cataloguePage(all: Node[]): string {
+/** Materialized first, then referenced, then unknown — bean `kx0p` finding 4. */
+const STATE_ORDER = ["materialized", "referenced", "unknown"];
+
+function cataloguePage(all: Node[], opts: CatalogueViewerOptions): string {
   const c = catalogue();
   const byState = (s: string): Node[] => all.filter((n) => (n.materialization?.state ?? "unknown") === s);
   const materialized = byState("materialized");
@@ -1876,16 +1893,25 @@ function cataloguePage(all: Node[]): string {
     .map(([gate, m]) => {
       const cells = [...m.entries()]
         .sort((a, b) => a[0].localeCompare(b[0], "en"))
-        .map(([v, n]) => `${verdictBadge(v)} ${n}`)
+        .map(([v, n]) => verdictBadge(v, { n, of: [...m.values()].reduce((a, b) => a + b, 0) }))
         .join(" ");
       return `<tr><td><code>${esc(gate)}</code></td><td>${cells}</td></tr>`;
     })
     .join("\n");
 
+  // The held rows FIRST (bean `kx0p` finding 4): in the order nodes are read,
+  // the ten referenced rows came first and the first held item sat about two
+  // screens down. A stable sort, so each group keeps the order it had.
+  const rank = (n: Node): number => {
+    const i = STATE_ORDER.indexOf(n.materialization?.state ?? "unknown");
+    return i < 0 ? STATE_ORDER.length : i;
+  };
   const nodeRows = all
-    .map((n) => {
+    .map((n, i) => ({ n, i }))
+    .sort((a, b) => rank(a.n) - rank(b.n) || a.i - b.i)
+    .map(({ n }) => {
       const state = n.materialization?.state ?? "unknown";
-      const held = n.libraryId ? heldAs(n.libraryId) : "—";
+      const held = n.libraryId ? heldAs(n.libraryId, opts) : "—";
       const rec = n.metadataRef ? "yes" : "—";
       const bs = (n.bitstreams ?? []).length;
       return `<tr>
@@ -1976,7 +2002,7 @@ reports what the catalogue says, and that check reports whether it hangs togethe
  *
  * NO BACKTICKS IN THE STYLESHEET BELOW: it is a template literal.
  */
-export function catalogueViewer(all: Node[]): string {
+export function catalogueViewer(all: Node[], opts: CatalogueViewerOptions = { libraryViewer: true }): string {
   return themedPage({
     title: "The catalogue, as a graph — who-iris",
     generator: "who-iris/scripts/gen-iris-pages.ts",
@@ -2011,7 +2037,7 @@ export function catalogueViewer(all: Node[]): string {
 .ic-page .caveat { border-inline-start: 4px solid var(--ic-current); background: var(--ic-wash);
   padding: .9rem 1.1rem; margin: 1.6rem 0; font-size: .95rem; }
 </style>
-${cataloguePage(all)}`,
+${cataloguePage(all, opts)}`,
   });
 }
 
@@ -3447,11 +3473,43 @@ const htmlName = (md: string): string => md.replace(/\.md$/, ".html");
  * keeps it (`publish-instance-files.ts`): the source is this repository's
  * authored prose, not external data.
  */
-export function renderAuthored(markdown: string, siblings: ReadonlySet<string>): string {
+export function renderAuthored(markdown: string, siblings: ReadonlySet<string>, repository: string | null = REPOSITORY ?? null): string {
   const html = String(remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).processSync(markdown));
-  return html.replace(/href="([^"#:/]+\.md)(#[^"]*)?"/g, (whole, file: string, hash?: string) =>
-    siblings.has(file) ? `href="${htmlName(file)}${hash ?? ""}"` : whole,
-  );
+  return html
+    .replace(/href="([^"#:/]+\.md)(#[^"]*)?"/g, (whole, file: string, hash?: string) =>
+      siblings.has(file) ? `href="${htmlName(file)}${hash ?? ""}"` : whole,
+    )
+    .replace(/href="(\.\.\/[^"#]*)(#[^"]*)?"/g, (whole, path: string, hash?: string) => {
+      const url = outOfDocs(path, hash, repository);
+      return url === undefined ? whole : `href="${url}"`;
+    });
+}
+
+/**
+ * The instance's repository, `owner/name`, from its own declaration — so a
+ * citation of a file outside `docs/` names the repository the declaration
+ * says, and the official copy under WHO's account gets its own links.
+ */
+const REPOSITORY = ((): string | undefined => {
+  const r = (readDeclaration(INSTANCE) as { repository?: unknown } | undefined)?.repository;
+  return typeof r === "string" && /^[\w.-]+\/[\w.-]+$/.test(r) ? r : undefined;
+})();
+
+/**
+ * A link from an authored page in `docs/` to a file OUTSIDE it — the
+ * instance's `library/`, `skills/`, its `AGENTS.md` — resolves nowhere on the
+ * site, because only `docs/` is mounted there. It becomes the file's address in
+ * the repository instead (the rule cat-harness's `renderMountedMarkdown`
+ * applies to the pages it renders). A path that climbs out of the instance is
+ * left as written; the site build's link check reports it.
+ */
+function outOfDocs(path: string, hash: string | undefined, repository: string | null): string | undefined {
+  if (repository === null) return undefined;
+  const target = posix.normalize(posix.join("docs", path));
+  if (target === ".." || target.startsWith("../")) return undefined;
+  const isDir = path.endsWith("/") || (existsSync(join(INSTANCE, target)) && statSync(join(INSTANCE, target)).isDirectory());
+  const clean = target.replace(/\/+$/, "");
+  return `https://github.com/${repository}/${isDir ? "tree" : "blob"}/HEAD/${clean}${isDir ? "/" : ""}${hash ?? ""}`;
 }
 
 function docsIndex(): string {
@@ -3516,9 +3574,40 @@ from it is this instance&rsquo;s own front page.</p>
 `;
 }
 
+/**
+ * Where `--catalogue-into <site-source>` puts the catalogue viewer: the same
+ * conventional route as {@link CATALOGUE_VIEWER}, under a site source this
+ * run is GIVEN — bean `kx0p`.
+ *
+ * In this instance's own repository the harness is a remote mount, so the
+ * default run (rightly) writes no catalogue page, and who-iris's own site
+ * published none: the one view of what the catalogue knows and does not know
+ * was missing from the site built around it. That site's Jekyll source is the
+ * tree `compose-docs --shell` writes, which this repository does not hold, so
+ * the build hands it over and only this page is written there — at the
+ * route `harnessTiles` discovers, so tiles and links agree without a second
+ * answer to where it lives.
+ */
+export function catalogueInto(siteSource: string): string {
+  return join(siteSource, subjectPage(HANDLER, CATALOGUE_KIND, SUBJECT).replace(/^\//, ""), "index.html");
+}
+
 function main(): number {
   if (process.argv.includes("--extract-pot")) {
     extractPot();
+    return 0;
+  }
+  const into = process.argv.indexOf("--catalogue-into");
+  if (into >= 0) {
+    const site = process.argv[into + 1];
+    if (!site || site.startsWith("--") || !existsSync(site)) {
+      console.error("--catalogue-into needs an existing site source directory (the tree `compose-docs --shell` wrote)");
+      return 2;
+    }
+    const dest = catalogueInto(resolve(site));
+    mkdirSync(dirname(dest), { recursive: true });
+    writeFileSync(dest, catalogueViewer(nodes(), { libraryViewer: false }));
+    console.log(`  wrote ${relative(resolve(site), dest)} into the site source`);
     return 0;
   }
   const all = nodes();
