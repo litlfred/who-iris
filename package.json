@@ -5,7 +5,10 @@
   "type": "module",
   "dependencies": {
     "jsonld": "8",
-    "oxigraph": "^0.5.11"
+    "oxigraph": "^0.5.11",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-html": "^16.0.1"
   },
   "scripts": {
     "check:catalogue": "bun run folio-assistant-core/scripts/check-catalogue.ts .",
