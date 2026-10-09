@@ -3400,7 +3400,55 @@ requirements this instance paid for, generated from the skill that records them.
  * not compose; the folio-assistant navbar on the left is what reaches both,
  * which is the whole point of the ruling.
  */
+/** An authored markdown page in `docs/`: its file name and its first heading. */
+export interface AuthoredDoc {
+  file: string;
+  title: string;
+}
+
+/**
+ * The pages in `dir` a PERSON wrote, as opposed to this generator's output:
+ * every `.md` but `README.md` (the directory's own description) and any file
+ * opening with front matter (a Jekyll page for another route, e.g.
+ * `site-home.md`). Bean `mw5z`: the landing page's "Pages" list was
+ * hand-kept, knew nothing of `style-guide.md` and `style-guide-agents.md`
+ * after bean `qsx4` moved them here, and so under-reported its own directory.
+ * Derived, so the next authored page is listed the day it lands.
+ */
+export function authoredDocs(dir: string): AuthoredDoc[] {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".md") && f !== "README.md")
+    .sort()
+    .flatMap((file) => {
+      const text = readFileSync(join(dir, file), "utf-8");
+      if (text.startsWith("---")) return [];
+      const heading = /^#\s+(.+?)\s*$/m.exec(text)?.[1];
+      return [{ file, title: heading ?? file.replace(/\.md$/, "") }];
+    });
+}
+
 function docsIndex(): string {
+  const html = docsIndexListed();
+  // Authored pages the list above does not already link (bean `mw5z`).
+  // Served as markdown SOURCE: who-iris's docs are mounted after Jekyll, so a
+  // .md here is copied verbatim, never rendered -- said on the page rather
+  // than hidden, until the owner chooses how they are rendered.
+  const more = authoredDocs(DOCS).filter((d) => !html.includes(`href="${d.file}"`));
+  if (more.length === 0) return html;
+  return (
+    html +
+    `
+<h2>Also in this directory</h2>
+<p>Authored pages, linked as their markdown source: this directory is mounted after the site is built, so they are not rendered yet.</p>
+<ul class="doclist">
+${more.map((d) => `  <li><a href="${esc(d.file)}">${esc(d.title)}</a> <em>(markdown source)</em></li>`).join("\n")}
+</ul>
+`
+  );
+}
+
+function docsIndexListed(): string {
   return `
 <h1>who-iris &mdash; documentation</h1>
 
