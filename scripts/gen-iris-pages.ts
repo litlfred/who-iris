@@ -352,7 +352,7 @@ export const ownedOn = (side: Side): RegExp => (side === "site" ? OWNED_SITE : O
  * emits a link from an unverified claim is one relocation away from shipping
  * dead links again.
  */
-const RAW = "https://raw.githubusercontent.com/litlfred/folio-assistant/main";
+const RAW = "https://raw.githubusercontent.com/litlfred/who-iris/main";
 
 /**
  * The same bytes, through a CDN.
@@ -383,7 +383,7 @@ const RAW = "https://raw.githubusercontent.com/litlfred/folio-assistant/main";
  * other. If the repository is ever made private, the CDN form is the one that
  * breaks first and silently — nothing here will catch that.
  */
-const CDN = "https://cdn.jsdelivr.net/gh/litlfred/folio-assistant@main";
+const CDN = "https://cdn.jsdelivr.net/gh/litlfred/who-iris@main";
 
 /** A repo-relative path, encoded once, for either host. */
 function encPath(rel: string): string {
@@ -578,7 +578,10 @@ function assetHref(
   // home to be deleted from.
   const found = bytesFor(INSTANCE, b.materialization?.localPath, b.name);
   if (!found) return undefined;
-  const rel = encPath(repoRelative(REPO_ROOT, found));
+  // Relative to the INSTANCE, which is the root of litlfred/who-iris since the
+  // cutover (bean g8jp). Relative to REPO_ROOT these were monorepo paths
+  // (`who-iris-approval/uploads/…`) that 404 once the instance left it.
+  const rel = encPath(repoRelative(INSTANCE, found));
   const gates = b.materialization?.gates;
   const withheld = publicationBlockers(gates).map(
     (k) => `${k}: ${gates?.[k]?.verdict ?? "not recorded"}${gates?.[k]?.basis ? ` — ${gates[k].basis}` : ""}`,
@@ -2263,7 +2266,7 @@ function metadataCell(n: Node): string {
   if (!n.metadataRef) return `<span class="none">${t("none captured")}</span>`;
   const abs = join(INSTANCE, n.metadataRef);
   if (!existsSync(abs)) return `<span class="none">${t("declared, but missing on disk")}</span>`;
-  const rel = encPath(`who-iris/${n.metadataRef}`);
+  const rel = encPath(n.metadataRef);
   const bytes = readFileSync(abs, "utf-8").length;
   return `<a href="${esc(`${RAW}/${rel}`)}">${t("Download {file}", { file: data(n.metadataRef.split("/").pop()!) })}</a>
       <br><a class="cdn" href="${esc(`${CDN}/${rel}`)}">${t("via CDN")}</a>
@@ -2417,7 +2420,7 @@ ${readHere(n, a)}<h3>${t("Both links, as asked for")}</h3>
     <td>${a ? linkOrWithheld(a, false) : t("not held")}</td></tr>
 <tr><td>${t("In collection")}</td><td>${collectionCell(n, all)}</td></tr>
 <tr><td>${t("Ingested text (L1)")}</td>
-    <td>${n.libraryId ? `<a href="https://github.com/litlfred/folio-assistant/tree/main/who-iris/library/${esc(n.libraryId)}/sections"><bdi dir="ltr">who-iris/library/${esc(n.libraryId)}/sections/</bdi></a>` : "—"}</td></tr>
+    <td>${n.libraryId ? `<a href="https://github.com/litlfred/who-iris/tree/main/library/${esc(n.libraryId)}/sections"><bdi dir="ltr">library/${esc(n.libraryId)}/sections/</bdi></a>` : "—"}</td></tr>
 <tr><td>${t("Dublin Core record")}</td><td>${metadataCell(n)}</td></tr>
 <tr><td>${t("Dublin Core renderings")}</td><td>${renderingsCell(n)}</td></tr>
 </tbody>
@@ -2912,7 +2915,7 @@ function submission(n: Node): string {
 }
 
 /** Where the skill itself is readable, for a reader who wants the full text. */
-const SKILL_BLOB = `https://github.com/litlfred/folio-assistant/blob/main/who-iris/skills/iris-dspace.md`;
+const SKILL_BLOB = `https://github.com/litlfred/who-iris/blob/main/skills/iris-dspace.md`;
 
 /**
  * Markdown inline spans → HTML, for text that came out of the skill.
