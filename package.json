@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "dependencies": {
+    "jsonld": "8",
+    "oxigraph": "^0.5.11"
+  },
   "checkoutScripts": {
     "check:catalogue": "bun run folio-assistant-core/scripts/check-catalogue.ts who-iris",
     "iris:covers": "bun run folio-assistant-core/scripts/gen-covers.ts who-iris",
