@@ -48,6 +48,14 @@ export {
   type Theme,
   DEFAULT_THEME_ID,
   themeById,
+  visualiserRoute,
+  declaredRoute,
+  siteOwnerDir,
+  visualiserPageDir,
+  withRenderedBy,
+  defineTool,
+  type ToolDefinition,
+  toolTypeIri,
 } from "../folio-assistant-core/scripts/platform.ts";
 export { bytesFor, repoRelative } from "../folio-assistant-core/scripts/lib/bytes.js";
 export { resolvableIri, type CatalogueNode } from "../folio-assistant-core/schemas/catalogue.js";

@@ -72,8 +72,9 @@ import {
   repoRelative,
   repoRootFor,
   resolvableIri,
-  siteDirFor,
-  subjectPage,
+  declaredRoute,
+  siteOwnerDir,
+  withRenderedBy,
   withInlineCode,
   withRoutes,
   themedPage,
@@ -134,72 +135,42 @@ const SITE = join(INSTANCE, "site");
 const DOCS = join(INSTANCE, "docs");
 
 /**
- * A THIRD SIDE: the kind viewer, published where the tile model already looks.
+ * A THIRD SIDE: the catalogue VISUALISER, which who-iris DECLARES.
  *
  * `library/` and `docs/` above are who-iris's own tree, which the build MOUNTS.
- * This one is not — it is written straight into the built site, because
- * `harnessTiles` discovers a viewer by CONVENTION at `/<handler>/<kind>/<name>/`
- * and links a declared ref only when that ref is under the published site
- * directory, where the published path is the ref with the prefix stripped.
- * A ref inside a mounted tree cannot be stripped, so `catalogue` was built,
- * declared, resolving, and linked by nothing — bean `ha78`, issue #886.
+ * This one is written straight into the built site, at the route of the
+ * visualiser `who-iris.json` declares in `visualisers` — `catalogue`,
+ * `renderedBy: iris-pages` — which `visualiserRoute` makes
+ * `who-iris/catalogue/` (owner, 2026-10-09: *"I still want the harness to be
+ * where specific visualizers/pages are declared for the harness at the
+ * level"*). Until then this page was written under cat-harness's handler, at
+ * `/cat-harness/catalogue/who-iris/`: a who-iris page squatting on another
+ * harness's route because the tile model looked there by CONVENTION (bean
+ * `ha78`, issue #886). Now the tile model reads the declaration, so the page
+ * goes where its own harness says.
  *
- * NOTHING HERE IS SPELLED. The handler is the harness's declared name, the
- * site directory is asked for rather than composed, and the route comes from
- * `subjectPage` itself — the same function `harnessTiles` discovers with, so
- * the two cannot drift into disagreeing about where this page is. A literal
- * would be a second answer to a question the platform already answers, which
- * is the defect this repository keeps paying for one rename at a time.
+ * NOTHING HERE IS SPELLED. The route comes from the declaration through
+ * `declaredRoute`, and the site directory from `siteOwnerDir` — the same two
+ * answers every reader uses, so this generator and the tiles cannot drift
+ * into disagreeing about where the page is.
  */
 const HARNESS_ROOT = join(REPO_ROOT, "cat-harness");
-/**
- * The instance's DIRECTORY name, read from its own declaration.
- *
- * `harnessTiles` builds its candidate paths from `decl.name`, so reading the
- * same field is what makes this generator and that discovery agree by
- * construction rather than by both being edited together.
- */
-const declNameOf = (root: string, fallback: string): string =>
-  readDeclaration(root)?.name ?? fallback;
-const HANDLER = declNameOf(HARNESS_ROOT, "cat-harness");
-const SUBJECT = declNameOf(INSTANCE, "who-iris");
-/**
- * The graph typology this viewer renders, taken from the declaration entry that
- * declares it rather than written down again.
- *
- * `who-iris.json`'s `who-iris-catalogue` entry is the one place that says this
- * directory holds a `catalogue` graph. Re-stating the string here would make
- * a rename of the kind produce a viewer published at the OLD route and a tile
- * looking at the new one — built and unreachable again, by exactly the
- * mechanism this change exists to close.
- */
-const CATALOGUE_KIND = ((): string => {
-  const dirs = readDeclaration(INSTANCE)?.directories ?? [];
-  const entry = dirs.find((d) => d.id === "who-iris-catalogue");
-  const kind = (entry?.graphTypologies ?? [])[0];
-  if (kind === undefined) {
+/** This generator's Tool node (`who-iris/tools/`), the one who-iris's catalogue visualiser is `renderedBy`. */
+const VIEWER_TOOL = "iris-pages";
+const SUBJECT = readDeclaration(INSTANCE)?.name ?? "who-iris";
+/** `who-iris/catalogue` — the declared route, without slashes. */
+const CATALOGUE_ROUTE = ((): string => {
+  const r = declaredRoute(INSTANCE, VIEWER_TOOL);
+  if (r === undefined) {
     throw new Error(
-      "who-iris.json declares no graphTypologies on `who-iris-catalogue`, so the catalogue " +
-        "viewer has no conventional route to be published at. Declare the kind, or " +
-        "this generator is publishing to a path no tile will look at (bean `ha78`).",
+      `who-iris.json declares no visualiser renderedBy \`${VIEWER_TOOL}\`, so the catalogue page has no ` +
+        "route. Declare it in `visualisers`, or this generator would publish to a URL nothing declared.",
     );
   }
-  return kind;
+  return r;
 })();
-/** `<site>/<handler>/<kind>/<subject>/index.html`, absolute. */
-const CATALOGUE_VIEWER = join(
-  // `siteDirFor` answers with the site directory's name RELATIVE to the
-  // instance that declares it -- `docs`, not a path -- so the root goes in
-  // front of it. `join(ROOT, siteDirFor(ROOT), ...)` is the idiom every other
-  // caller here uses, and dropping the root silently produces a cwd-relative
-  // path: the first run of this wrote a stray `docs/cat-harness/` at the
-  // repository root and reported success, which is the whole argument for
-  // matching the established shape rather than inventing one.
-  HARNESS_ROOT,
-  siteDirFor(HARNESS_ROOT),
-  subjectPage(HANDLER, CATALOGUE_KIND, SUBJECT).replace(/^\//, ""),
-  "index.html",
-);
+/** `<site>/who-iris/catalogue/index.html`, absolute. */
+const CATALOGUE_VIEWER = join(siteOwnerDir(REPO_ROOT), ...CATALOGUE_ROUTE.split("/"), "index.html");
 
 // No `outDirFor(name)` helper: the map key carries the side, so nothing has to
 // infer it from a filename. An inference would have to be kept in step with
@@ -1792,7 +1763,7 @@ function heldAs(id: string): string {
   const l = LIBRARY_LINKS.links(id, SUBJECT);
   const code = `<code>${esc(id)}</code>`;
   if (l === undefined) return code;
-  const from = subjectPage(HANDLER, CATALOGUE_KIND, SUBJECT).replace(/^\/|\/$/g, "");
+  const from = CATALOGUE_ROUTE;
   const parts = [l.viewer === undefined ? code : (() => {
     const [path, hash] = l.viewer!.split("#");
     return `<a href="${esc(`${posix.relative(from, path!)}/#${hash}`)}">${code}</a>`;
@@ -2108,7 +2079,7 @@ const REPLICA_ROUTE = (() => {
 /* Relative from the catalogue page, built on the one route above, which the
    withheld list also uses (issue #1794) — two consumers, one route. */
 const REPLICA_FROM_CATALOGUE = posix.relative(
-  subjectPage(HANDLER, CATALOGUE_KIND, SUBJECT).replace(/^\/|\/$/g, ""),
+  CATALOGUE_ROUTE,
   REPLICA_ROUTE,
 );
 
@@ -3474,7 +3445,7 @@ function main(): number {
    */
   // THEMED since 2026-10-07 (catalogueViewer): on cat-harness's site, it
   // wears that site's layout rather than the replica's page chrome.
-  siteFiles.set(CATALOGUE_VIEWER, catalogueViewer(all));
+  siteFiles.set(CATALOGUE_VIEWER, withRenderedBy(catalogueViewer(all), VIEWER_TOOL));
 
   // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
   // top level, where it always was; then each translation beneath
