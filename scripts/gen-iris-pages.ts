@@ -84,8 +84,12 @@ import { whoThemeById } from "../themes/themes.js";
 
 
 const INSTANCE = resolve(import.meta.dir, "..");
-/** The repository root — only the platform-owned architecture drawing is read from here. */
-const REPO_ROOT = resolve(INSTANCE, "..");
+/**
+ * The checkout root, which IS this instance's own repository since its cutover
+ * (bean g8jp): the platform it reads (`cat-harness/`, the architecture
+ * drawing) is a remote mount inside it, not a sibling of it.
+ */
+const REPO_ROOT = INSTANCE;
 
 const NODES = join(INSTANCE, "catalogue", "nodes");
 /**
@@ -185,6 +189,23 @@ const CATALOGUE_KIND = ((): string => {
     );
   }
   return kind;
+})();
+/**
+ * Is the harness a REMOTE MOUNT in this checkout — named in the checkout's
+ * `index.lock.json`, the file `mount:remote` writes? Read raw (`{ mounts: [{
+ * harness }] }`) rather than through the platform, because the question is
+ * about this checkout's own lock, and a lock that does not parse answers
+ * "not mounted" -- the old behaviour -- rather than throwing.
+ */
+const HARNESS_IS_MOUNTED = ((): boolean => {
+  const lock = join(REPO_ROOT, "index.lock.json");
+  if (!existsSync(lock)) return false;
+  try {
+    const m = (JSON.parse(readFileSync(lock, "utf-8")) as { mounts?: { harness?: string }[] }).mounts ?? [];
+    return m.some((x) => x.harness === HANDLER);
+  } catch {
+    return false;
+  }
 })();
 /** `<site>/<handler>/<kind>/<subject>/index.html`, absolute. */
 const CATALOGUE_VIEWER = join(
@@ -3488,7 +3509,13 @@ function main(): number {
    */
   // THEMED since 2026-10-07 (catalogueViewer): on cat-harness's site, it
   // wears that site's layout rather than the replica's page chrome.
-  siteFiles.set(CATALOGUE_VIEWER, catalogueViewer(all));
+  // NOT INTO A REMOTE MOUNT. In this instance's own repository the harness is
+  // a mount (index.lock.json) -- somebody else's tree at a pin, replaced
+  // whole by the next `mount:remote` -- so a page written into it is lost and
+  // `--check` would demand bytes this repository does not own. The page is
+  // the harness site's, built where that site is built.
+  if (!HARNESS_IS_MOUNTED) siteFiles.set(CATALOGUE_VIEWER, catalogueViewer(all));
+  else console.log(`  skipped ${relative(REPO_ROOT, CATALOGUE_VIEWER)} — ${HANDLER} is a remote mount here (index.lock.json); its site builds that page`);
 
   // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
   // top level, where it always was; then each translation beneath

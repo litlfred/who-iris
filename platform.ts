@@ -21,6 +21,17 @@
  * `folio-assistant-core/scripts/platform.ts`, so who-iris names no layer
  * below the one it declares. Owner: *"who-iris depends on folio-asst-core"*.
  *
+ * **Re-pointed 2026-10-09 (kg-separation stage 10).** who-iris is now its own
+ * repository, and its dependencies are REMOTE MOUNTS inside its checkout
+ * (`index.config.json`, `mount:remote`) -- the owner's g8jp ruling that
+ * imports "resolve through the mounted paths". So core is
+ * `./folio-assistant-core/`, not a sibling: the old `../` reached OUTSIDE the
+ * repository and resolved only where something happened to sit beside it.
+ * This is the interim (owner, 2026-10-09: "option 1 and option 2 now"):
+ * the target is a PACKAGE import (`@litlfred/folio-assistant-core`,
+ * separation lesson 5), which this file switches to in one edit once core is
+ * package-importable.
+ *
  * @module who-iris/platform
  */
 export {
@@ -48,9 +59,9 @@ export {
   type Theme,
   DEFAULT_THEME_ID,
   themeById,
-} from "../folio-assistant-core/scripts/platform.ts";
-export { bytesFor, repoRelative } from "../folio-assistant-core/scripts/lib/bytes.js";
-export { resolvableIri, type CatalogueNode } from "../folio-assistant-core/schemas/catalogue.js";
-export { dcRenderingsFor } from "../folio-assistant-core/scripts/dc-render.ts";
-export { publicationBlockers } from "../folio-assistant-core/schemas/materialization.js";
-export { nodes as coverNodes, pngSize } from "../folio-assistant-core/scripts/gen-covers.js";
+} from "./folio-assistant-core/scripts/platform.ts";
+export { bytesFor, repoRelative } from "./folio-assistant-core/scripts/lib/bytes.js";
+export { resolvableIri, type CatalogueNode } from "./folio-assistant-core/schemas/catalogue.js";
+export { dcRenderingsFor } from "./folio-assistant-core/scripts/dc-render.ts";
+export { publicationBlockers } from "./folio-assistant-core/schemas/materialization.js";
+export { nodes as coverNodes, pngSize } from "./folio-assistant-core/scripts/gen-covers.js";
