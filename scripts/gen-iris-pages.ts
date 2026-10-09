@@ -1216,15 +1216,26 @@ function banner(): string {
  * | `/folio-assistant/who-iris/item-x.html` | `/folio-assistant/` |
  * | `/STAGING/<branch>/who-iris/item-x.html` | `/STAGING/<branch>/` |
  *
- * That last row is why this is derived in the browser rather than written as
- * an absolute URL: a baked site URL is correct on exactly one of those four.
+ * | `/who-iris/who-iris/item-x.html` | `/who-iris/` |
+ * | `/who-iris/docs/who-iris/ingestion-notes.html` | `/who-iris/` |
+ *
+ * That fourth row is why this is derived in the browser rather than written as
+ * an absolute URL: a baked site URL is correct on exactly one of those.
+ *
+ * **The LAST `who-iris/` in the path is the route, not the first.** The last
+ * two rows are this instance's OWN site (owner, 2026-10-09: "index.html should
+ * follow cat-harness and folio-asst"), served from a repository that is itself
+ * named `who-iris`, so the base path and the route spell the same word. A lazy
+ * match stopped at the base, rooted the site at the host, and every PDF frame
+ * asked for `/assets/vendor/pdfjs/…` — a 404 the owner hit on the live site.
+ * The lookahead keeps the lazy group but forbids a later `who-iris/`.
  */
-const FOLIO_ROUTE = /^(.*?)(?:docs\/)?who-iris\//;
+const FOLIO_ROUTE = /^(.*?)(?:docs\/)?who-iris\/(?!.*who-iris\/)/;
 /**
  * The folio mount, emitted on who-iris's OWN pages and withheld on the
  * `harness` side. The withholding is measured, not stylistic.
  *
- * `FOLIO_ROUTE` is `^(.*?)(?:docs\/)?who-iris\/`, which MATCHES
+ * `FOLIO_ROUTE` is `^(.*?)(?:docs\/)?who-iris\/(?!.*who-iris\/)`, which MATCHES
  * `/cat-harness/catalogue/who-iris/` — the route the catalogue viewer moved to
  * for bean `ha78` — and derives the site root as `/cat-harness/catalogue/`.
  * The mount would then request its two assets from a path that 404s. A script

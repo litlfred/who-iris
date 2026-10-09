@@ -435,7 +435,7 @@
   &middot; <a href="https://cdn.jsdelivr.net/gh/litlfred/who-iris@main/uploads/9789241548960-eng/9789241548960_eng.pdf" download>Download</a></figcaption>
 <script>(function(){
 var f=document.currentScript.parentNode.querySelector("iframe[data-src]");
-var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/"));
+var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/(?!.*who-iris\\/)"));
 if(!f)return;
 if(!m||m[1]==null){f.srcdoc="<p style=\"font:1rem system-ui\">The viewer could not find this site's root from the page address. Use the links below.</p>";return;}
 var lm=Date.parse(document.lastModified);
@@ -474,7 +474,7 @@ io.observe(f);
   <p>Source of record: <a href="https://iris.who.int/">iris.who.int</a> — © WHO. This copy asserts no endorsement and carries no WHO mark.</p>
 </div></footer>
 <script data-fa-folio-mount>(function(){
-var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/"));
+var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/(?!.*who-iris\\/)"));
 if(!m||m[1]==null)return;
 var r=m[1];
 var l=document.createElement('link');

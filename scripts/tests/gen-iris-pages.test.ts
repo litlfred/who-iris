@@ -638,3 +638,30 @@ describe("the replica in the six UN languages — issue #2228", () => {
     }
   });
 });
+
+/**
+ * The site root the pages derive in the browser, read back out of a page as
+ * it ships — not out of the generator's constant, so the test fails if the
+ * page and the source ever disagree.
+ *
+ * The last two rows are the case that broke: this instance's OWN site, served
+ * from a repository also named `who-iris`, where a lazy match stopped at the
+ * base path and every PDF frame asked the host root for the viewer (a 404 the
+ * owner hit on the live site, 2026-10-09).
+ */
+describe("the page finds its site root on every host it is served from", () => {
+  const html = readFileSync(join(SITE, "item-item-b08c6c19-315a-41a4-a9cb-8edabdbc6791.html"), "utf-8");
+  const m = /new RegExp\(("(?:[^"\\]|\\.)*")\)/.exec(html);
+  it("a page carries the pattern", () => expect(m).not.toBeNull());
+  const re = new RegExp(JSON.parse(m![1]!) as string);
+  const rows: [string, string][] = [
+    ["/who-iris/item-x.html", "/"],
+    ["/docs/who-iris/ingestion-notes.html", "/"],
+    ["/folio-assistant/who-iris/item-x.html", "/folio-assistant/"],
+    ["/STAGING/branch/who-iris/item-x.html", "/STAGING/branch/"],
+    ["/who-iris/who-iris/item-x.html", "/who-iris/"],
+    ["/who-iris/who-iris/fr/item-x.html", "/who-iris/"],
+    ["/who-iris/docs/who-iris/ingestion-notes.html", "/who-iris/"],
+  ];
+  for (const [path, root] of rows) it(`${path} → ${root}`, () => expect(path.match(re)?.[1]).toBe(root));
+});
