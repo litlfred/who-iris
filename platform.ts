@@ -32,6 +32,11 @@
  * separation lesson 5), which this file switches to in one edit once core is
  * package-importable.
  *
+ * **Switched 2026-10-09.** The `./folio-assistant-core/` paths resolved only
+ * where core is mounted inside a who-iris checkout; in the composed index it
+ * is a sibling, and `landing:data:check` failed with "Cannot find module".
+ * The package name resolves in both layouts through the workspace install.
+ *
  * @module who-iris/platform
  */
 export {
@@ -59,9 +64,9 @@ export {
   type Theme,
   DEFAULT_THEME_ID,
   themeById,
-} from "./folio-assistant-core/scripts/platform.ts";
-export { bytesFor, repoRelative } from "./folio-assistant-core/scripts/lib/bytes.js";
-export { resolvableIri, type CatalogueNode } from "./folio-assistant-core/schemas/catalogue.js";
-export { dcRenderingsFor } from "./folio-assistant-core/scripts/dc-render.ts";
-export { publicationBlockers } from "./folio-assistant-core/schemas/materialization.js";
-export { nodes as coverNodes, pngSize } from "./folio-assistant-core/scripts/gen-covers.js";
+} from "@litlfred/folio-assistant-core/scripts/platform.ts";
+export { bytesFor, repoRelative } from "@litlfred/folio-assistant-core/scripts/lib/bytes.ts";
+export { resolvableIri, type CatalogueNode } from "@litlfred/folio-assistant-core/schemas/catalogue.ts";
+export { dcRenderingsFor } from "@litlfred/folio-assistant-core/scripts/dc-render.ts";
+export { publicationBlockers } from "@litlfred/folio-assistant-core/schemas/materialization.ts";
+export { nodes as coverNodes, pngSize } from "@litlfred/folio-assistant-core/scripts/gen-covers.ts";
