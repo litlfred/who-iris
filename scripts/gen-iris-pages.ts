@@ -81,6 +81,9 @@ import {
   type PotEntry,
 } from "../platform.ts";
 import { whoThemeById } from "../themes/themes.js";
+import { remark } from "remark";
+import remarkGfm from "remark-gfm";
+import remarkHtml from "remark-html";
 
 
 const INSTANCE = resolve(import.meta.dir, "..");
@@ -318,7 +321,13 @@ const PAGES = {
      * the docs index on sight.
      */
     fixed: ["index", "ingestion-notes", "kg-to-portal"],
-    families: [] as string[],
+    /**
+     * The RENDERINGS of the authored pages in `docs/` (bean `mw5z`, owner's
+     * option 1): each `<name>.md` a person wrote is rendered to `<name>.html`
+     * here, so the docs mount keeps its one rule -- everything in it is
+     * already HTML. Derived from the directory, never listed by hand.
+     */
+    families: authoredDocs(DOCS).map((d) => d.file.replace(/\.md$/, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&")) as string[],
   },
 } as const;
 
@@ -3428,21 +3437,37 @@ export function authoredDocs(dir: string): AuthoredDoc[] {
     });
 }
 
+/** `<name>.md` → `<name>.html`. */
+const htmlName = (md: string): string => md.replace(/\.md$/, ".html");
+
+/**
+ * One authored page's body: its markdown rendered with GFM (tables, task
+ * lists), and every link to a sibling authored page pointed at that page's
+ * rendering. Raw HTML in the source is kept, as the platform's own renderer
+ * keeps it (`publish-instance-files.ts`): the source is this repository's
+ * authored prose, not external data.
+ */
+export function renderAuthored(markdown: string, siblings: ReadonlySet<string>): string {
+  const html = String(remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).processSync(markdown));
+  return html.replace(/href="([^"#:/]+\.md)(#[^"]*)?"/g, (whole, file: string, hash?: string) =>
+    siblings.has(file) ? `href="${htmlName(file)}${hash ?? ""}"` : whole,
+  );
+}
+
 function docsIndex(): string {
   const html = docsIndexListed();
-  // Authored pages the list above does not already link (bean `mw5z`).
-  // Served as markdown SOURCE: who-iris's docs are mounted after Jekyll, so a
-  // .md here is copied verbatim, never rendered -- said on the page rather
-  // than hidden, until the owner chooses how they are rendered.
-  const more = authoredDocs(DOCS).filter((d) => !html.includes(`href="${d.file}"`));
+  // Authored pages the list above does not already link (bean `mw5z`), at
+  // their RENDERINGS: this generator writes `<name>.html` for each
+  // ({@link renderAuthored}), because a .md in this mounted directory would be
+  // copied verbatim, never rendered.
+  const more = authoredDocs(DOCS).filter((d) => !html.includes(`href="${htmlName(d.file)}"`));
   if (more.length === 0) return html;
   return (
     html +
     `
 <h2>Also in this directory</h2>
-<p>Authored pages, linked as their markdown source: this directory is mounted after the site is built, so they are not rendered yet.</p>
 <ul class="doclist">
-${more.map((d) => `  <li><a href="${esc(d.file)}">${esc(d.title)}</a> <em>(markdown source)</em></li>`).join("\n")}
+${more.map((d) => `  <li><a href="${esc(htmlName(d.file))}">${esc(d.title)}</a></li>`).join("\n")}
 </ul>
 `
   );
@@ -3484,7 +3509,7 @@ from it is this instance&rsquo;s own front page.</p>
     and the transport left undetermined rather than guessed.</p>
   </li>
   <li>
-    <a href="oxigraph-pipeline-requirements.md">Oxigraph multi-graph search pipeline &amp; scale architecture</a>
+    <a href="oxigraph-pipeline-requirements.html">Oxigraph multi-graph search pipeline &amp; scale architecture</a>
     <p>System requirements, pipeline placement, multi-graph partition model, and browser WASM SPARQL query engine architecture for WHO-IRIS (with scale plan for 300,000 items and zero binary blobs in RDF).</p>
   </li>
 </ul>
@@ -3517,6 +3542,21 @@ function main(): number {
     "docs/index.html",
     page("who-iris — documentation", [{ label: "Documentation" }], docsIndex(), "docs", ["catalogue"]),
   );
+
+  // The authored pages, rendered (bean `mw5z`, owner's option 1).
+  const authored = authoredDocs(DOCS);
+  const authoredFiles = new Set(authored.map((d) => d.file));
+  for (const d of authored) {
+    files.set(
+      `docs/${htmlName(d.file)}`,
+      page(
+        d.title,
+        [{ label: "Documentation", href: "index.html" }, { label: d.title }],
+        renderAuthored(readFileSync(join(DOCS, d.file), "utf-8"), authoredFiles),
+        "docs",
+      ),
+    );
+  }
 
   files.set(
     "docs/kg-to-portal.html",

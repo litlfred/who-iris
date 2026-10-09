@@ -26,6 +26,7 @@ import {
   OWNED,
   OWNED_SITE,
   authoredDocs,
+  renderAuthored,
   SITE_LOCALES,
   SITE_STRINGS,
   catalogueProblems,
@@ -162,6 +163,8 @@ describe("the generator owns its filenames, and prunes only those", () => {
     const wanted = new Set([
       ...fixedPagesOf("site"),
       ...fixedPagesOf("docs"),
+      // The renderings of the authored pages (bean `mw5z`), derived the way the generator derives them.
+      ...authoredDocs(DOCS).map((d) => d.file.replace(/\.md$/, ".html")),
       ...items,
       ...colls,
     ]);
@@ -682,9 +685,21 @@ describe("the docs landing page lists the authored pages it does not generate (b
     ]);
   });
 
-  it("the committed landing page names every authored page in docs/", () => {
+  it("every authored page is rendered, and the committed landing page links the rendering (owner's option 1)", () => {
     const docs = join(import.meta.dir, "..", "..", "docs");
     const index = readFileSync(join(docs, "index.html"), "utf-8");
-    for (const d of authoredDocs(docs)) expect(index).toContain(`href="${d.file}"`);
+    for (const d of authoredDocs(docs)) {
+      const html = d.file.replace(/\.md$/, ".html");
+      expect(existsSync(join(docs, html))).toBe(true);
+      expect(index).toContain(`href="${html}"`);
+      expect(index).not.toContain(`href="${d.file}"`);
+    }
+  });
+
+  it("renders GFM tables and points sibling .md links at their renderings, leaving other links alone", () => {
+    const html = renderAuthored("# T\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n[s](style-guide.md#x) [o](../library/README.md)\n", new Set(["style-guide.md"]));
+    expect(html).toContain("<table>");
+    expect(html).toContain('href="style-guide.html#x"');
+    expect(html).toContain('href="../library/README.md"');
   });
 });
