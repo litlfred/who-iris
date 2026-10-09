@@ -55,7 +55,7 @@
  * reads the `.po` beside it. A publication's own title, authors and abstract
  * are never translated. `--check` covers the catalogues as well as the pages.
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "fs";
 import { basename, dirname, join, posix, relative, resolve, sep } from "path";
 
 import {
@@ -3473,11 +3473,43 @@ const htmlName = (md: string): string => md.replace(/\.md$/, ".html");
  * keeps it (`publish-instance-files.ts`): the source is this repository's
  * authored prose, not external data.
  */
-export function renderAuthored(markdown: string, siblings: ReadonlySet<string>): string {
+export function renderAuthored(markdown: string, siblings: ReadonlySet<string>, repository: string | null = REPOSITORY ?? null): string {
   const html = String(remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).processSync(markdown));
-  return html.replace(/href="([^"#:/]+\.md)(#[^"]*)?"/g, (whole, file: string, hash?: string) =>
-    siblings.has(file) ? `href="${htmlName(file)}${hash ?? ""}"` : whole,
-  );
+  return html
+    .replace(/href="([^"#:/]+\.md)(#[^"]*)?"/g, (whole, file: string, hash?: string) =>
+      siblings.has(file) ? `href="${htmlName(file)}${hash ?? ""}"` : whole,
+    )
+    .replace(/href="(\.\.\/[^"#]*)(#[^"]*)?"/g, (whole, path: string, hash?: string) => {
+      const url = outOfDocs(path, hash, repository);
+      return url === undefined ? whole : `href="${url}"`;
+    });
+}
+
+/**
+ * The instance's repository, `owner/name`, from its own declaration — so a
+ * citation of a file outside `docs/` names the repository the declaration
+ * says, and the official copy under WHO's account gets its own links.
+ */
+const REPOSITORY = ((): string | undefined => {
+  const r = (readDeclaration(INSTANCE) as { repository?: unknown } | undefined)?.repository;
+  return typeof r === "string" && /^[\w.-]+\/[\w.-]+$/.test(r) ? r : undefined;
+})();
+
+/**
+ * A link from an authored page in `docs/` to a file OUTSIDE it — the
+ * instance's `library/`, `skills/`, its `AGENTS.md` — resolves nowhere on the
+ * site, because only `docs/` is mounted there. It becomes the file's address in
+ * the repository instead (the rule cat-harness's `renderMountedMarkdown`
+ * applies to the pages it renders). A path that climbs out of the instance is
+ * left as written; the site build's link check reports it.
+ */
+function outOfDocs(path: string, hash: string | undefined, repository: string | null): string | undefined {
+  if (repository === null) return undefined;
+  const target = posix.normalize(posix.join("docs", path));
+  if (target === ".." || target.startsWith("../")) return undefined;
+  const isDir = path.endsWith("/") || (existsSync(join(INSTANCE, target)) && statSync(join(INSTANCE, target)).isDirectory());
+  const clean = target.replace(/\/+$/, "");
+  return `https://github.com/${repository}/${isDir ? "tree" : "blob"}/HEAD/${clean}${isDir ? "/" : ""}${hash ?? ""}`;
 }
 
 function docsIndex(): string {

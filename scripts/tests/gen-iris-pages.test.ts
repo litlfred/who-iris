@@ -697,10 +697,22 @@ describe("the docs landing page lists the authored pages it does not generate (b
   });
 
   it("renders GFM tables and points sibling .md links at their renderings, leaving other links alone", () => {
-    const html = renderAuthored("# T\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n[s](style-guide.md#x) [o](../library/README.md)\n", new Set(["style-guide.md"]));
+    const html = renderAuthored("# T\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n[s](style-guide.md#x) [o](../library/README.md)\n", new Set(["style-guide.md"]), null);
     expect(html).toContain("<table>");
     expect(html).toContain('href="style-guide.html#x"');
     expect(html).toContain('href="../library/README.md"');
+  });
+
+  it("cites a file OUTSIDE docs/ by repository, since only docs/ is published (who-iris's own site)", () => {
+    const html = renderAuthored(
+      "[o](../library/README.md#a) [v](../skills/voices/) [g](../../AGENTS.md)\n",
+      new Set(),
+      "example/who-iris",
+    );
+    expect(html).toContain('href="https://github.com/example/who-iris/blob/HEAD/library/README.md#a"');
+    expect(html).toContain('href="https://github.com/example/who-iris/tree/HEAD/skills/voices/"');
+    // Climbing out of the instance is a source defect, left for the site's link check to report.
+    expect(html).toContain('href="../../AGENTS.md"');
   });
 });
 

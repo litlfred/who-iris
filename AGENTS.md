@@ -1,6 +1,7 @@
 # AGENTS.md — who-iris
 
-What binds everywhere is the repository's [`AGENTS.md`](../AGENTS.md); what
+What binds everywhere is the harness's
+[`AGENTS.md`](https://github.com/litlfred/cat-harness/blob/HEAD/AGENTS.md); what
 this layer *is* is [`README.md`](README.md). Two rules govern work here, and
 both are about the difference between knowing of something and holding it.
 
