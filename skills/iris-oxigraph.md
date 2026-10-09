@@ -6,7 +6,7 @@ description: >
   Enables combined complex queries, multi-dimensional faceted rollups, and lazy-loaded
   named subgraphs on the static edge.
 conformsTo:
-  - sparql-1.1-query
+  - w3c-sparql-1.1-query
   - w3c-n-quads
 graph-typologies:
   - catalogue
