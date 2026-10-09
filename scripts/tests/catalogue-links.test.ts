@@ -11,7 +11,7 @@ import { join, resolve } from "node:path";
 import { siteDirFor } from "../../platform.ts";
 
 const INSTANCE = resolve(import.meta.dir, "..", "..");
-const REPO = resolve(INSTANCE, "..");
+const REPO = INSTANCE; // the checkout root: who-iris is its own repository, its dependencies mounted inside it
 const HARNESS = join(REPO, "cat-harness");
 const PAGE = join(HARNESS, siteDirFor(HARNESS), "cat-harness", "catalogue", "who-iris", "index.html");
 const html = existsSync(PAGE) ? readFileSync(PAGE, "utf-8") : "";
