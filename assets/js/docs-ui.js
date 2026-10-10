@@ -10264,6 +10264,73 @@
   // this page's, so nothing here could have reached into it anyway; inlining
   // it is what puts it under the one viewer. Its fallback text, the only text
   // it carries, becomes the accessible name, as `alt` does for an `<img>`.
+  // AN INLINED SVG'S STYLESHEET IS NO LONGER ITS OWN. Inside `<img>` a file's
+  // `<style>` applies to that file alone; moved into this document it applies
+  // to the whole PAGE. Visio exports (the WHO IGs' business-process figures)
+  // all name their classes `.st1`…`.st30` and their markers `mrkr…`, with a
+  // different meaning in every file, so a page holding eight of them rendered
+  // each with whichever file's rules came last: black-filled gateways, lost
+  // labels, a stray marker drawn as a large black wedge (reported 2026-10-10
+  // on smart-immunizations' business-processes page). Each inlined drawing
+  // therefore gets its own prefix on every class and id, and its `<style>`
+  // selectors, `url(#…)` references and `#…` hrefs are rewritten to match.
+  var svgScopeSeq = 0;
+  function scopeSvg(svg) {
+    var pfx = "fa-svg" + ++svgScopeSeq + "-";
+    var ids = {};
+    [].forEach.call(svg.querySelectorAll("[id]"), function (el) {
+      var id = el.getAttribute("id");
+      ids[id] = pfx + id;
+      el.setAttribute("id", pfx + id);
+    });
+    function reId(text) {
+      return text.replace(/url\(\s*(['"]?)#([^'")\s]+)\1\s*\)/g, function (m, q, id) {
+        return ids[id] ? "url(" + q + "#" + ids[id] + q + ")" : m;
+      });
+    }
+    [].forEach.call(svg.querySelectorAll("*"), function (el) {
+      var cls = el.getAttribute("class");
+      if (cls) {
+        el.setAttribute("class", cls.split(/\s+/).filter(Boolean).map(function (c) { return pfx + c; }).join(" "));
+      }
+      [].forEach.call([].slice.call(el.attributes), function (a) {
+        if (a.value.indexOf("url(") !== -1) el.setAttribute(a.name, reId(a.value));
+        if ((a.localName === "href") && a.value.charAt(0) === "#" && ids[a.value.slice(1)]) {
+          el.setAttributeNS(a.namespaceURI, a.name, "#" + ids[a.value.slice(1)]);
+        }
+      });
+    });
+    var rootCls = svg.getAttribute("class");
+    if (rootCls) svg.setAttribute("class", rootCls.split(/\s+/).filter(Boolean).map(function (c) { return pfx + c; }).join(" "));
+    // Selectors are rewritten only OUTSIDE the declaration blocks, so a value
+    // such as `font-size:0.83em` is never mistaken for a class.
+    [].forEach.call(svg.querySelectorAll("style"), function (st) {
+      var css = st.textContent, out = "", depth = 0, buf = "";
+      for (var i = 0; i < css.length; i++) {
+        var ch = css.charAt(i);
+        if (ch === "{") {
+          if (depth === 0) {
+            out += buf.replace(/([.#])(-?[A-Za-z_][\w-]*)/g, function (m, sigil, name) {
+              return sigil === "." ? "." + pfx + name : (ids[name] ? "#" + ids[name] : m);
+            });
+            buf = "";
+          }
+          depth++;
+          out += ch;
+        } else if (ch === "}") {
+          depth--;
+          out += ch;
+        } else if (depth === 0) {
+          buf += ch;
+        } else {
+          out += ch;
+        }
+      }
+      st.textContent = reId(out + buf);
+    });
+    return svg;
+  }
+
   function inlineDiagrams(done) {
     var imgs = [].slice.call(
       document.querySelectorAll(
@@ -10315,7 +10382,7 @@
             if (checked === undefined) a.removeAttribute("href");
             else a.setAttribute("href", new URL(checked, fileUrl).href);
           });
-          img.parentNode.replaceChild(document.importNode(svg, true), img);
+          img.parentNode.replaceChild(scopeSvg(document.importNode(svg, true)), img);
         })
         .catch(function (e) {
           console.warn("docs-ui: could not inline " + src + " (" + e.message + "); it stays a static image, so its links will not work.");
