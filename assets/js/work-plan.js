@@ -564,7 +564,7 @@
     for (i = 0; i < beans.length; i++) byId[beans[i].id] = beans[i];
 
     var section = el("section", { class: "fa-workplan-panel" });
-    section.appendChild(el("h3", { class: "fa-workplan-panel-title" }, "What is stuck"));
+    section.appendChild(el("h2", { class: "fa-workplan-panel-title" }, "What is stuck"));
     var list = el("ul", { class: "fa-workplan-findings" });
 
     for (i = 0; i < findings.length; i++) {
@@ -618,7 +618,7 @@
     }
 
     var section = el("section", { class: "fa-workplan-panel" });
-    section.appendChild(el("h3", { class: "fa-workplan-panel-title" },
+    section.appendChild(el("h2", { class: "fa-workplan-panel-title" },
                             "Beans — the agent work plan"));
     var row = el("dl", { class: "fa-workplan-counts" });
     row.appendChild(countItem("open", open, true));
@@ -663,7 +663,7 @@
    */
   function todoOnlyPanel(todos) {
     var section = el("section", { class: "fa-workplan-panel" });
-    section.appendChild(el("h3", { class: "fa-workplan-panel-title" },
+    section.appendChild(el("h2", { class: "fa-workplan-panel-title" },
                             "Todos — the human half"));
     if (!todos) {
       section.appendChild(el("p", { class: "fa-workplan-empty" },

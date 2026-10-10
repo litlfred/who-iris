@@ -832,11 +832,12 @@
 
   // A static glyph: three finder squares and a scatter of modules. Inline so
   // it needs no extra request and inherits the header's colour.
-  var GLYPH =
+  var QR_GLYPH =
     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
     '<path d="M3 3h7v7H3V3zm2 2v3h3V5H5zm9-2h7v7h-7V3zm2 2v3h3V5h-3zM3 14h7v7H3v-7zm2 2v3h3v-3H5z"/>' +
     '<path d="M13 13h3v3h-3v-3zm5 0h3v2h-3v-2zm-5 5h2v3h-2v-3zm4 1h4v2h-4v-2zm2-3h2v2h-2v-2z"/>' +
     "</svg>";
+  var GLYPH = QR_GLYPH;
 
   // Ordered most specific first. just-the-docs has used `.site-title` across
   // many versions, but the theme is unpinned, so a miss here is configuration
@@ -1088,6 +1089,20 @@
       });
   }
 
+  /**
+   * Strip raw markdown code backticks, bold/heading markers from node names and
+   * descriptions so text renders cleanly (folio-assistant-oi3h).
+   */
+  function cleanMarkdownText(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/`/g, "")
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/#+\s*/g, "")
+      .trim();
+  }
+
   /** One node's detail: what it was, where it came from, and its text. */
   function buildDiscardedDetail(node, onBack) {
     var wrap = el("div", { class: "fa-discarded-detail" });
@@ -1098,7 +1113,7 @@
     wrap.appendChild(back);
 
     var h = el("h4", { class: "fa-discarded-title", tabindex: "-1" },
-               String(node.name || node.sourcePath || "Untitled"));
+               cleanMarkdownText(node.name || node.sourcePath || "Untitled"));
     wrap.appendChild(h);
 
     // The metadata that makes it not an orphan. `movedFrom` first: a reader
@@ -1116,7 +1131,7 @@
     if (meta.childNodes.length) wrap.appendChild(meta);
 
     if (node.description) {
-      wrap.appendChild(el("p", { class: "fa-discarded-summary" }, String(node.description)));
+      wrap.appendChild(el("p", { class: "fa-discarded-summary" }, cleanMarkdownText(node.description)));
     }
 
     // NEVER A BLANK PANE. A node with no body says so; it does not render
@@ -1133,7 +1148,11 @@
       wrap.appendChild(el("a", {
         class: "fa-discarded-source",
         href: safeHref(String(links.source).replace(/\/$/, "") + "/blob/main/" + node.sourcePath),
-      }, "View the source of this item"));
+        target: "_blank",
+        rel: "noopener noreferrer",
+        title: "View on GitHub",
+        "aria-label": "View the source of this item (opens on GitHub)",
+      }, "View the source of this item ↗"));
     }
     return wrap;
   }
@@ -1221,6 +1240,8 @@
       detail.setAttribute("hidden", "hidden");
       detail.innerHTML = "";
       list.removeAttribute("hidden");
+      var tilesBack = wrap.closest(".fa-tiles-view") ? wrap.closest(".fa-tiles-view").querySelector(".fa-tiles-back") : null;
+      if (tilesBack) tilesBack.removeAttribute("hidden");
       var first = list.querySelector("button");
       if (first) first.focus();
     }
@@ -1229,7 +1250,7 @@
       var li = el("li");
       var b = el("button", { type: "button", class: "fa-discarded-item" });
       b.appendChild(el("span", { class: "fa-discarded-item-name" },
-                       String(node.name || node.sourcePath || "Untitled")));
+                       cleanMarkdownText(node.name || node.sourcePath || "Untitled")));
       if (node.nodeKind) {
         b.appendChild(el("span", { class: "fa-discarded-item-kind" }, String(node.nodeKind)));
       }
@@ -1238,6 +1259,8 @@
         detail.innerHTML = "";
         detail.appendChild(buildDiscardedDetail(node, showList));
         detail.removeAttribute("hidden");
+        var tilesBack = wrap.closest(".fa-tiles-view") ? wrap.closest(".fa-tiles-view").querySelector(".fa-tiles-back") : null;
+        if (tilesBack) tilesBack.setAttribute("hidden", "hidden");
         // Focus the heading, not the top of the pane: the reader chose this
         // item and the first thing they should be told is which one opened.
         var h = detail.querySelector(".fa-discarded-title");
@@ -1907,7 +1930,9 @@
     var toggle = el("button", {
       type: "button",
       class: "fa-qr-toggle fa-tiles-toggle",
-      "aria-label": "Actions",
+      "aria-label": "Actions — settings, discarded items",
+      title: "Actions — settings, discarded items",
+      "data-fa-tip": "Actions — settings, discarded items",
       "aria-expanded": "false",
     });
     toggle.innerHTML = TILES_GLYPH; // static markup above, no input involved
@@ -2533,6 +2558,9 @@
       grid.appendChild(tileAction(SEARCH_GLYPH, "Search", revealSearch));
     }
     var pageSettingsTile = tileButton(GEAR_GLYPH, SETTINGS_NAMES.page, "settings");
+    pageSettingsTile.setAttribute("aria-label", SETTINGS_NAMES.page + " \u2014 " + SETTINGS_SCOPES.page);
+    pageSettingsTile.setAttribute("title", SETTINGS_NAMES.page + " \u2014 " + SETTINGS_SCOPES.page);
+    pageSettingsTile.setAttribute("data-fa-tip", SETTINGS_NAMES.page + " \u2014 " + SETTINGS_SCOPES.page);
     grid.appendChild(pageSettingsTile);
     // The glass's "Page settings →" lands HERE: the launcher opened and the
     // view shown, the same two steps a reader takes by hand (`ob3m` 12).

@@ -34,6 +34,46 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/archimate-check",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Check an instance's ArchiMate models against its config"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The gate for the `archimate` graph typology: every model `cat-archimate.config.json` names is held, parses (Archi's native XML or its zipped archive), and resolves — every box in every view draws an element the model holds, every relationship's ends are in the model — and no `.archimate` file is held that the config does not name."
+        }
+      ],
+      "skos:notation": "archimate-check",
+      "dcterms:source": "cat-harness/tools/index.ts#archimate-check",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/archimate-pages",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Give every ArchiMate view, element and relationship a page and an IRI, and draw every view"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Write a JSON-LD node and a thin page for each model an instance's `cat-archimate.config.json` names and for every view, element and relationship in it — keyed by Archi's own ids — plus the normalised model the pages' one loader draws from, and every view drawn as SVG from the model's own bounds and bendpoints in ArchiMate's notation, each box a link to its element. `--out` writes into a site being built at the graph's path; without it the files go into the graph and `--check` gates them."
+        }
+      ],
+      "skos:notation": "archimate-pages",
+      "dcterms:source": "cat-harness/tools/index.ts#archimate-pages",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/auto-docs-viewer",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -1194,6 +1234,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/mount-from-lock",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Replay a committed mount lock with nothing but Node"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Lay down every remote mount `index.lock.json` records — each instance fetched at the lock's full SHA (sparse, blob-filtered), each directory verified against its `treeDigest`, a mismatch undone and reported — importing only `node:*`, so it runs on a fresh clone before any layer is present. It never decides what to mount: `remote-mount` writes the lock (and checks trust); this only replays it. Refuses to write over a path with tracked files or bytes that no longer hash to the lock. Exit 0 mounted/current, 1 missing, 2 could-not-determine."
+        }
+      ],
+      "skos:notation": "mount-from-lock",
+      "dcterms:source": "cat-harness/tools/index.ts#mount-from-lock",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/narrative-queue",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -2034,6 +2094,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/staging-graph-viewer",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Staging-only graph viewer"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Render a kept-but-unpublished workspace graph as one page, for a local build or a staging preview only; a canonical deploy withholds it."
+        }
+      ],
+      "skos:notation": "staging-graph-viewer",
+      "dcterms:source": "cat-harness/tools/viewers.ts#staging-graph-viewer",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-tools/stakeholder-map",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -2546,7 +2626,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Draw one UML class diagram per harness and one per named sub-graph it declares, as PlantUML and Mermaid from one model, with every class read from the graph typology's node schema, and render the PlantUML to the SVG each page shows (needs Java; the check does not). A kind with none is drawn as could-not-determine, never as an empty box."
+          "@value": "Draw one UML class diagram per harness and one per named sub-graph it declares, as PlantUML, Mermaid and Graphviz DOT from one model, with every class read from the graph typology's node schema, and render the PlantUML to the SVG each page shows (needs Java; the check does not). The DOT is the page's Interactive view, laid out in the reader's browser by the site's vendored Graphviz WASM with draggable nodes. A kind with none is drawn as could-not-determine, never as an empty box."
         }
       ],
       "skos:notation": "uml-overview",

@@ -71,6 +71,18 @@
   --fa-wp-critical-text: #d03b3b;
 }
 
+@media (prefers-color-scheme: light) {
+  :root:not([data-fa-scheme="dark"]) .fa-workplan {
+    --fa-wp-surface: #fcfcfb;
+    --fa-wp-ink: #0b0b0b;
+    --fa-wp-ink-2: #52514e;
+    --fa-wp-border: rgba(11, 11, 11, 0.10);
+    --fa-wp-track: #e1e0d9;
+    --fa-wp-series: #2a78d6;
+    --fa-wp-critical-text: #d03b3b;
+  }
+}
+
 .fa-workplan-board {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
@@ -165,13 +177,15 @@
   margin: 0;
 }
 
-.fa-workplan-bar-label {
+.fa-workplan-bar-label,
+.fa-workplan-bar-toggle label {
   font-size: 0.8rem;
   color: var(--fa-wp-ink-2);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 .fa-workplan-bar-track {
@@ -267,6 +281,11 @@
    argument `.fa-node-edit` makes on every other content object here. */
 .fa-workplan-edit {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  box-sizing: border-box;
   vertical-align: -0.15em;
   color: var(--fa-wp-muted);
   text-decoration: none;
@@ -524,7 +543,17 @@ a.fa-workplan-bean-link { text-decoration: underline; text-underline-offset: 0.1
 }
 
 @media (max-width: 40rem) {
-  .fa-workplan-bar-toggle { grid-template-columns: minmax(5rem, 1fr) 1fr 2.2rem; }
+  .fa-workplan-finding {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .fa-workplan-bar-toggle {
+    grid-template-columns: minmax(5rem, 1.3fr) 1fr 2.2rem;
+  }
+  .fa-workplan-bar-label,
+  .fa-workplan-bar-toggle label {
+    -webkit-line-clamp: 5;
+  }
 }
 
 /* ── Milestone bars ─────────────────────────────────────────────────────

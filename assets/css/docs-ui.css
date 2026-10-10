@@ -4817,6 +4817,11 @@ html:has(.fa-glass-band[data-fa-band-tools]) .main-content * {
  * item). 1.75rem is 28px: past the floor with room, for the low-dexterity
  * profile this instance declares. The source link below is the same shape
  * and gets the same floor. */
+/* Finding 7 (folio-assistant-oi3h): singular back navigation in discarded detail */
+.fa-tiles:has(.fa-discarded-detail) .fa-tiles-head .fa-tiles-back {
+  display: none;
+}
+
 .fa-discarded-back {
   display: inline-flex;
   align-items: center;

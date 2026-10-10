@@ -109,6 +109,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills/archimate-models",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "archimate-models"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "ArchiMate models as knowledge-graph content: how an instance declares the Archi models it holds, what the `archimate` subgraph gives every model, view, element and relationship (an IRI, a thin page, and every view drawn as SVG from the model's own diagram), how to version the models, how to wire them into a folio's staging build and navbar, and why no Java, no Archi CLI and no Archi HTML report is ever part of the pipeline. Read before adding, publishing or rendering an `.archimate` file, before citing an ArchiMate element from prose, and before reaching for Archi's own tooling in CI."
+        }
+      ],
+      "skos:notation": "archimate-models",
+      "dcterms:source": "cat-harness/skills/ui/ui-core/archimate-models.md",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills/artefact-reachability",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -1534,6 +1554,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills/finding-software",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "finding-software"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A script needs a program or module the container does not have (tesseract, pdftoppm, PyMuPDF, a CLI from a GitHub release). Get it: `bun run cat software:ensure`, which tries apt, pip, then a pinned and checksummed GitHub release, from the declared table `scripts/software.json`. Do not route around a missing tool with a cache, a weaker backend or a skipped step, and do not report \"not installed\" as if it were a finding about the work."
+        }
+      ],
+      "skos:notation": "finding-software",
+      "dcterms:source": "cat-harness/skills/sdlc/sdlc-core/finding-software.md",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills/flushable-containers",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -2106,6 +2146,26 @@
       ],
       "skos:notation": "kg-separation",
       "dcterms:source": "cat-harness/skills/kg/graph-management/kg-separation.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills/kg-subgraph-layout",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "kg-subgraph-layout"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Lay out one declared sub-graph of a knowledge graph (a harness's schema overview, one named sub-graph, a declaration's kinds) as a single Graphviz diagram in the i2ce Form Documentor's convention, and show it on the site laid out in the reader's browser by Graphviz in WebAssembly, with pan, zoom, find, keyboard control and draggable nodes. The DOT is a third rendering of the model the PlantUML and Mermaid already draw, coloured from the same stylesheet. Tool `uml-overview`."
+        }
+      ],
+      "skos:notation": "kg-subgraph-layout",
+      "dcterms:source": "cat-harness/skills/kg/graph-management/kg-subgraph-layout.md",
       "skos:note": "candidate"
     },
     {

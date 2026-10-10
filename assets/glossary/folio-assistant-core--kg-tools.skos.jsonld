@@ -154,6 +154,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant-core/0.1.0/ns#glossary/kg-tools/glossary-page",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Glossary page"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Render every declared glossary — authored SKOS schemes, the swimlane ledger and the terms extracted from knowledge-graph assets — as the glossary page and one page per asset type, at the route of the visualiser core declares for it."
+        }
+      ],
+      "skos:notation": "glossary-page",
+      "dcterms:source": "folio-assistant-core/tools/index.ts#glossary-page",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant-core/0.1.0/ns#glossary/kg-tools/l1-coverage",
       "@type": "skos:Concept",
       "skos:inScheme": {
