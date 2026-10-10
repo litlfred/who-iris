@@ -195,7 +195,7 @@ three entries above now take their title from the record:
 The manifest records which source won, as `meta.title_source`
 (`dc-record | referenced | pdf-info | text-heading | slug`) and `meta.title_from`,
 so R8 can be checked rather than trusted. The resolver is
-`cat-harness/content/pipeline/library-title.ts`, and the library-ingestion
+`cat-harness-tools/content/pipeline/library-title.ts`, and the library-ingestion
 skill carries the full rule.
 
 ## Covers: an artefact we made, filed where IRIS files its own
@@ -203,7 +203,7 @@ skill carries the full rule.
 The replica's Recent Submissions strip shows a cover beside each item, because
 the real page does. **None of them came from IRIS.** Each is page 1 of a PDF
 this repository already holds, rasterised by
-`cat-harness/scripts/pdf-cover.py` and filed as a `THUMBNAIL`-bundle bitstream
+`cat-harness-tools/scripts/pdf-cover.py` and filed as a `THUMBNAIL`-bundle bitstream
 — which is the bundle name DSpace uses for the thumbnails **it** generates.
 That collision is the whole hazard: nothing downstream can tell the two apart
 from the bundle name, so the node has to say.

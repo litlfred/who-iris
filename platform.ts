@@ -6,7 +6,7 @@
  * re-exported from here, so the day it leaves, re-pointing the platform is a
  * one-file edit — the reason `smart-base/platform.ts` and
  * `smart-trust/platform.ts` exist. The rule is held by
- * `cat-harness/scripts/tests/instance-separation-imports.test.ts`.
+ * `cat-harness-tools/scripts/tests/instance-separation-imports.test.ts`.
  *
  * Created 2026-10-05 for the replica's translations (issue #2228, bean
  * `lffo`). Translating the replica needs the gettext reader and writer, two
@@ -64,6 +64,15 @@ export {
   type Theme,
   DEFAULT_THEME_ID,
   themeById,
+  visualiserRoute,
+  declaredRoute,
+  siteOwnerDir,
+  visualiserPageDir,
+  withRenderedBy,
+  withRenderedByFrontMatter,
+  defineTool,
+  type ToolDefinition,
+  toolTypeIri,
 } from "@litlfred/folio-assistant-core/scripts/platform.ts";
 export { bytesFor, repoRelative } from "@litlfred/folio-assistant-core/scripts/lib/bytes.ts";
 export { resolvableIri, type CatalogueNode } from "@litlfred/folio-assistant-core/schemas/catalogue.ts";
