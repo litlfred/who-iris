@@ -179,6 +179,22 @@ const CATALOGUE_ROUTE = ((): string => {
 })();
 /** `<site>/who-iris/catalogue/index.html`, absolute. */
 const CATALOGUE_VIEWER = join(siteOwnerDir(REPO_ROOT), ...CATALOGUE_ROUTE.split("/"), "index.html");
+/**
+ * Is cat-harness a REMOTE MOUNT here (named in `index.lock.json`)? Then its
+ * site — not this generator — builds the catalogue viewer, and writing one
+ * into the mount would edit a tree the lock hashes (bean `kx0p`). Who-iris's
+ * own site gets the page through `--catalogue-into` instead.
+ */
+const HARNESS_IS_MOUNTED = ((): boolean => {
+  const lock = join(REPO_ROOT, "index.lock.json");
+  if (!existsSync(lock)) return false;
+  try {
+    const m = (JSON.parse(readFileSync(lock, "utf-8")) as { mounts?: { harness?: string }[] }).mounts ?? [];
+    return m.some((x) => x.harness === "cat-harness");
+  } catch {
+    return false;
+  }
+})();
 
 // No `outDirFor(name)` helper: the map key carries the side, so nothing has to
 // infer it from a filename. An inference would have to be kept in step with
@@ -745,7 +761,7 @@ function coverSrc(n: Node): { src: string; w: number; h: number; masked: boolean
 // all translations"*, and after measurement, the replica's INTERFACE in the
 // five non-English UN languages.
 //
-// The model is `cat-harness/scripts/kg-viewer-strings.ts`, for the reason it
+// The model is `cat-harness-tools/scripts/kg-viewer-strings.ts`, for the reason it
 // gives: **a generated artefact is not a translation source; its generator
 // is.** The pages are regenerated on every catalogue change, so a `.pot`
 // extracted from them would churn its references with every run. The words
@@ -3544,7 +3560,35 @@ from it is this instance&rsquo;s own front page.</p>
  * answer to where it lives.
  */
 export function catalogueInto(siteSource: string): string {
-  return join(siteSource, subjectPage(HANDLER, CATALOGUE_KIND, SUBJECT).replace(/^\//, ""), "index.html");
+  return join(siteSource, ...ownSiteRoute().split("/"), "index.html");
+}
+
+/**
+ * The catalogue's route IN WHO-IRIS'S OWN SITE: the declared route with this
+ * instance's own name dropped. `compose-docs --instance who-iris` reads every
+ * `/who-iris/…` route as this site's own root — the navbar's catalogue tile
+ * (`/who-iris/catalogue/`) becomes `/catalogue/` — so the page goes where that
+ * link lands, not one level deeper.
+ */
+function ownSiteRoute(): string {
+  const own = `${SUBJECT}/`;
+  return CATALOGUE_ROUTE.startsWith(own) ? CATALOGUE_ROUTE.slice(own.length) : CATALOGUE_ROUTE;
+}
+
+/**
+ * The page is drawn for its declared route; written at {@link ownSiteRoute}
+ * its RELATIVE links must say the same targets from the new place. Every
+ * relative href/src is re-based; absolute, fragment and Liquid ones are left.
+ */
+export function rebaseRelative(html: string, from: string, to: string): string {
+  return html.replace(/\b(href|src)="([^"]*)"/g, (m, attr: string, u: string) => {
+    if (!u || /^(?:[a-z][a-z0-9+.-]*:|\/|#|\{\{|\{%)/i.test(u)) return m;
+    const [path, ...rest] = u.split(/(?=[?#])/);
+    const target = posix.normalize(posix.join(from, path!));
+    let next = posix.relative(to, target) || ".";
+    if (path!.endsWith("/") && !next.endsWith("/")) next += "/";
+    return `${attr}="${next}${rest.join("")}"`;
+  });
 }
 
 function main(): number {
@@ -3561,7 +3605,7 @@ function main(): number {
     }
     const dest = catalogueInto(resolve(site));
     mkdirSync(dirname(dest), { recursive: true });
-    writeFileSync(dest, catalogueViewer(nodes(), { libraryViewer: false }));
+    writeFileSync(dest, rebaseRelative(catalogueViewer(nodes(), { libraryViewer: false }), CATALOGUE_ROUTE, ownSiteRoute()));
     console.log(`  wrote ${relative(resolve(site), dest)} into the site source`);
     return 0;
   }
@@ -3641,7 +3685,8 @@ function main(): number {
    */
   // THEMED since 2026-10-07 (catalogueViewer): on cat-harness's site, it
   // wears that site's layout rather than the replica's page chrome.
-  siteFiles.set(CATALOGUE_VIEWER, ((page: string) => (page.startsWith("---\n") ? withRenderedByFrontMatter(page, VIEWER_TOOL) : withRenderedBy(page, VIEWER_TOOL)))(catalogueViewer(all)));
+  if (!HARNESS_IS_MOUNTED) siteFiles.set(CATALOGUE_VIEWER, ((page: string) => (page.startsWith("---\n") ? withRenderedByFrontMatter(page, VIEWER_TOOL) : withRenderedBy(page, VIEWER_TOOL)))(catalogueViewer(all)));
+  else console.log(`  skipped ${relative(REPO_ROOT, CATALOGUE_VIEWER)} — cat-harness is a remote mount here (index.lock.json); its site builds that page`);
 
   // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
   // top level, where it always was; then each translation beneath

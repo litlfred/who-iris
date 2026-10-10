@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "folio-assistant-cor[e]"
+  ],
   "dependencies": {
     "@litlfred/folio-assistant-core": "0.1.0",
     "jsonld": "8",
