@@ -244,7 +244,7 @@ export const WPRO_PRIMARY_PALETTE = [
  * ## Why a third theme rather than citing `iris-web`
  *
  * The note board styles a card only from a `sticky`-kind theme
- * (`cat-harness/scripts/gen-themes-css.ts`: a webpage theme *"shares the
+ * (`cat-harness-tools/scripts/gen-themes-css.ts`: a webpage theme *"shares the
  * geometry but not this stylesheet"*). `iris-web` is a `webpage` theme, so a
  * who-iris card, board tile or navbar entry could not cite it without changing
  * that platform rule. This theme is the sticky-kind face of the same palette.

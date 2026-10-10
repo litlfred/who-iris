@@ -13,7 +13,8 @@ import { siteDirFor } from "../../platform.ts";
 const INSTANCE = resolve(import.meta.dir, "..", "..");
 const REPO = INSTANCE; // the checkout root: who-iris is its own repository, its dependencies mounted inside it
 const HARNESS = join(REPO, "cat-harness");
-const PAGE = join(HARNESS, siteDirFor(HARNESS), "cat-harness", "catalogue", "who-iris", "index.html");
+// The harness route `<harness>/<visualiser>/` became `<subject>/<visualiser>/` (cat-harness f999d7f6).
+const PAGE = join(HARNESS, siteDirFor(HARNESS), "who-iris", "catalogue", "index.html");
 const html = existsSync(PAGE) ? readFileSync(PAGE, "utf-8") : "";
 // Matched by TEXT, not by exact markup: the heading carries an id
 // (`<h2 id="…">Every node</h2>`), which is not what this test is about.

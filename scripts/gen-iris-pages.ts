@@ -790,7 +790,7 @@ function coverSrc(n: Node): { src: string; w: number; h: number; masked: boolean
 // all translations"*, and after measurement, the replica's INTERFACE in the
 // five non-English UN languages.
 //
-// The model is `cat-harness/scripts/kg-viewer-strings.ts`, for the reason it
+// The model is `cat-harness-tools/scripts/kg-viewer-strings.ts`, for the reason it
 // gives: **a generated artefact is not a translation source; its generator
 // is.** The pages are regenerated on every catalogue change, so a `.pot`
 // extracted from them would churn its references with every run. The words
