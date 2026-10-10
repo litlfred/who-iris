@@ -145,7 +145,7 @@ The WHO IRIS upstream repository contains **1,057,223 files** representing appro
 
 ### Test Suites
 - Unit test suite: `bun test who-iris/scripts/tests/iris-oxigraph.test.ts` (Validates graph build, quad integrity, SPARQL queries, and lazy mounting).
-- End-to-end suite: `bunx playwright test cat-harness/test/who-iris-search.e2e.ts` (Validates browser search, facet chips, open-access gate filters, and multilingual UI).
+- End-to-end suite: `bunx playwright test cat-harness-tools/test/who-iris-search.e2e.ts` (Validates browser search, facet chips, open-access gate filters, and multilingual UI).
 
 ### Formal Skills & Specifications
 - `who-iris/skills/iris-oxigraph.md`: Registered in `who-iris/skills/package-manifest.json` under rules `OX-1` through `OX-8`.
