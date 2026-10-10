@@ -64,6 +64,15 @@ export {
   type Theme,
   DEFAULT_THEME_ID,
   themeById,
+  visualiserRoute,
+  declaredRoute,
+  siteOwnerDir,
+  visualiserPageDir,
+  withRenderedBy,
+  withRenderedByFrontMatter,
+  defineTool,
+  type ToolDefinition,
+  toolTypeIri,
 } from "@litlfred/folio-assistant-core/scripts/platform.ts";
 export { bytesFor, repoRelative } from "@litlfred/folio-assistant-core/scripts/lib/bytes.ts";
 export { resolvableIri, type CatalogueNode } from "@litlfred/folio-assistant-core/schemas/catalogue.ts";
