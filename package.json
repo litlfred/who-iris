@@ -22,6 +22,7 @@
     "dc:render:check": "bun run folio-assistant-core/scripts/dc-render.ts . --check",
     "iris:pages": "bun run scripts/gen-iris-pages.ts",
     "iris:pages:check": "bun run scripts/gen-iris-pages.ts --check",
+    "site:catalogue": "bun run scripts/gen-iris-pages.ts --catalogue-into",
     "iris:pot": "bun run scripts/gen-iris-pages.ts --extract-pot",
     "landing:sticky": "bun run cat-harness-tools/scripts/ensure-landing-sticky.ts .",
     "landing:sticky:check": "bun run cat-harness-tools/scripts/ensure-landing-sticky.ts . --check"
