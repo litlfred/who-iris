@@ -8,13 +8,13 @@ import { describe, expect, it } from "bun:test";
 import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
-import { siteDirFor } from "../../platform.ts";
+import { declaredRoute, siteOwnerDir } from "../../platform.ts";
 
 const INSTANCE = resolve(import.meta.dir, "..", "..");
-const REPO = INSTANCE; // the checkout root: who-iris is its own repository, its dependencies mounted inside it
-const HARNESS = join(REPO, "cat-harness");
-// The harness route `<harness>/<visualiser>/` became `<subject>/<visualiser>/` (cat-harness f999d7f6).
-const PAGE = join(HARNESS, siteDirFor(HARNESS), "who-iris", "catalogue", "index.html");
+const REPO = resolve(INSTANCE, "..");
+// The route who-iris DECLARES for its catalogue visualiser (owner, 2026-10-09),
+// under the site's docs layer — read, never spelled.
+const PAGE = join(siteOwnerDir(REPO), ...(declaredRoute(INSTANCE, "iris-pages") ?? "who-iris/catalogue").split("/"), "index.html");
 const html = existsSync(PAGE) ? readFileSync(PAGE, "utf-8") : "";
 // Matched by TEXT, not by exact markup: the heading carries an id
 // (`<h2 id="…">Every node</h2>`), which is not what this test is about.
