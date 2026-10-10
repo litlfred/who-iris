@@ -88,11 +88,12 @@ import remarkHtml from "remark-html";
 
 const INSTANCE = resolve(import.meta.dir, "..");
 /**
- * The checkout root, which IS this instance's own repository since its cutover
- * (bean g8jp): the platform it reads (`cat-harness/`, the architecture
- * drawing) is a remote mount inside it, not a sibling of it.
+ * The checkout root. Standing alone, it IS this instance's own repository
+ * (bean g8jp) and the platform it reads (`cat-harness/`, the architecture
+ * drawing) is a remote mount inside it; in the index checkout the platform is
+ * its sibling. Whichever directory holds cat-harness is the checkout.
  */
-const REPO_ROOT = INSTANCE;
+const REPO_ROOT = existsSync(join(INSTANCE, "cat-harness")) ? INSTANCE : resolve(INSTANCE, "..");
 
 const NODES = join(INSTANCE, "catalogue", "nodes");
 /**
