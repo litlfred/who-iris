@@ -1835,6 +1835,67 @@ function heldAs(id: string, opts: CatalogueViewerOptions): string {
 /** Materialized first, then referenced, then unknown — bean `kx0p` finding 4. */
 const STATE_ORDER = ["materialized", "referenced", "unknown"];
 
+/**
+ * The "Every node" columns, each with the row attribute it sorts by (bean
+ * `kx0p` finding 4: the list could be neither filtered nor sorted). `rank` is
+ * the held-first order the rows are written in, so the page opens sorted by it.
+ */
+const NODE_COLUMNS: { key: string; label: string; numeric?: boolean }[] = [
+  { key: "rank", label: "state", numeric: true },
+  { key: "kind", label: "kind" },
+  { key: "node", label: "node" },
+  { key: "held", label: "held as", numeric: true },
+  { key: "record", label: "record", numeric: true },
+  { key: "bitstreams", label: "bitstreams", numeric: true },
+];
+
+/**
+ * Filter by state and by title or id, and sort by any column (bean `kx0p`).
+ * The controls are hidden until this runs, so a reader without scripts sees
+ * the table as it was, in held-first order, and no control that does nothing.
+ * No backticks in the script body, and no dollar-brace but the one that inlines
+ * which columns sort as numbers.
+ */
+const CATALOGUE_TABLE_SCRIPT = `<script>
+(function () {
+  var table = document.getElementById("ic-node-table");
+  var bar = document.getElementById("ic-filter");
+  if (!table || !bar) return;
+  var body = table.tBodies[0];
+  var numeric = ${JSON.stringify(Object.fromEntries(NODE_COLUMNS.map((c) => [c.key, !!c.numeric])))};
+  var state = document.getElementById("ic-filter-state");
+  var q = document.getElementById("ic-filter-q");
+  var shown = document.getElementById("ic-shown");
+  function filter() {
+    var s = state.value, t = q.value.trim().toLowerCase(), n = 0;
+    Array.prototype.forEach.call(body.rows, function (r) {
+      var ok = (!s || r.dataset.state === s) && (!t || r.dataset.node.indexOf(t) >= 0);
+      r.hidden = !ok; if (ok) n++;
+    });
+    shown.textContent = String(n);
+  }
+  function sortBy(btn) {
+    var key = btn.dataset.key, th = btn.parentNode;
+    var dir = th.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
+    Array.prototype.forEach.call(table.tHead.rows[0].cells, function (c) { c.removeAttribute("aria-sort"); });
+    th.setAttribute("aria-sort", dir);
+    var rows = Array.prototype.slice.call(body.rows).map(function (r, i) { return { r: r, i: i }; });
+    rows.sort(function (a, b) {
+      var x = a.r.dataset[key], y = b.r.dataset[key];
+      var c = numeric[key] ? Number(x) - Number(y) : x.localeCompare(y, "en", { numeric: true });
+      return (dir === "ascending" ? c : -c) || a.i - b.i;
+    });
+    rows.forEach(function (o) { body.appendChild(o.r); });
+  }
+  state.addEventListener("change", filter);
+  q.addEventListener("input", filter);
+  Array.prototype.forEach.call(table.querySelectorAll("button.ic-sort"), function (b) {
+    b.addEventListener("click", function () { sortBy(b); });
+  });
+  bar.hidden = false;
+})();
+</script>`;
+
 function cataloguePage(all: Node[], opts: CatalogueViewerOptions): string {
   const c = catalogue();
   const byState = (s: string): Node[] => all.filter((n) => (n.materialization?.state ?? "unknown") === s);
@@ -1886,9 +1947,12 @@ function cataloguePage(all: Node[], opts: CatalogueViewerOptions): string {
       const held = n.libraryId ? heldAs(n.libraryId, opts) : "—";
       const rec = n.metadataRef ? "yes" : "—";
       const bs = (n.bitstreams ?? []).length;
-      return `<tr>
+      const kind = n.flavour ?? n.kind ?? "?";
+      // What the filter and the sort read (bean `kx0p` finding 4): the cells
+      // carry markup, so the values a reader filters and sorts by ride on the row.
+      return `<tr data-state="${esc(state)}" data-rank="${rank(n)}" data-kind="${esc(kind)}" data-node="${esc(`${n.title} ${n.id}`.toLowerCase())}" data-held="${n.libraryId ? 1 : 0}" data-record="${n.metadataRef ? 1 : 0}" data-bitstreams="${bs}">
   <td>${stateBadge(state)}</td>
-  <td><code>${esc(n.flavour ?? n.kind ?? "?")}</code></td>
+  <td><code>${esc(kind)}</code></td>
   <td>${replicaPageOf(n) ? `<a href="${esc(`${REPLICA_FROM_CATALOGUE}/${replicaPageOf(n)}`)}">${esc(n.title)}</a>` : esc(n.title)}<br><code class="dim">${esc(n.id)}</code></td>
   <td>${held}</td>
   <td>${rec}</td>
@@ -1944,10 +2008,19 @@ ${gateRows}
 
 <h2 id="ic-nodes">Every node</h2>
 
-<table class="kg">
-<tr><th>state</th><th>kind</th><th>node</th><th>held as</th><th>record</th><th>bitstreams</th></tr>
+<p class="ic-filter" id="ic-filter" hidden>
+<label>State <select id="ic-filter-state"><option value="">every state</option>${STATE_ORDER.map((st) => `<option value="${st}">${st}</option>`).join("")}</select></label>
+<label>Find <input id="ic-filter-q" type="search" placeholder="title or id" autocomplete="off"></label>
+<span class="dim" role="status"><span id="ic-shown">${all.length}</span> of ${all.length} shown</span>
+</p>
+
+<table class="kg" id="ic-node-table">
+<thead><tr>${NODE_COLUMNS.map((c) => `<th${c.key === "rank" ? ' aria-sort="ascending"' : ""}><button type="button" class="ic-sort" data-key="${c.key}">${c.label}</button></th>`).join("")}</tr></thead>
+<tbody>
 ${nodeRows}
+</tbody>
 </table>
+${CATALOGUE_TABLE_SCRIPT}
 
 <p class="caveat">Generated from <code>catalogue/</code> by
 <code>who-iris/scripts/gen-iris-pages.ts</code>. Every count above is derived from the
@@ -2006,6 +2079,11 @@ export function catalogueViewer(all: Node[], opts: CatalogueViewerOptions = { li
   border-bottom: 1px solid var(--ic-edge); vertical-align: top; background: transparent; }
 .ic-page .kg th { font-weight: 600; white-space: nowrap; }
 .ic-page .dim { opacity: .9; font-size: .85em; }
+.ic-page .ic-filter { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin: .5rem 0 0; }
+.ic-page .ic-filter select, .ic-page .ic-filter input { font: inherit; margin-inline-start: .3rem; }
+.ic-page button.ic-sort { font: inherit; font-weight: 600; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.ic-page th[aria-sort="ascending"] button.ic-sort::after { content: " \\25B2"; font-size: .7em; }
+.ic-page th[aria-sort="descending"] button.ic-sort::after { content: " \\25BC"; font-size: .7em; }
 .ic-page .caveat { border-inline-start: 4px solid var(--ic-current); background: var(--ic-wash);
   padding: .9rem 1.1rem; margin: 1.6rem 0; font-size: .95rem; }
 </style>
