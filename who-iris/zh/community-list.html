@@ -513,7 +513,7 @@
 <div class="caveat">
   <p><strong>一个条目三条途径，这正是要点。</strong>目录只记录此条目一次；字节可以<em>在世卫组织上游</em>、<em>在此处的副本页面</em>以及<em>从 CDN 边缘节点</em>获取——jsDelivr 为任何公开存储库提供服务，因此最后一条途径不会给本项目带来任何托管成本。知识图谱说明存在什么以及在哪里；CDN 不作任何说明，只负责提供文件。</p>
   <p><strong>两种链接形式均已确认可用。</strong><code>raw.githubusercontent.com</code> 链接已实际获取，返回 200，字节数与目录完全一致。<em>经由 CDN</em> 的链接无法在生成本页面的环境中检查——那里禁止访问 <code>cdn.jsdelivr.net</code>——因此按 jsDelivr 文档规定的 URL 形式构造，并由所有者于 2026-09-20 手动试用了其中一个。两种都予以保留：一种对本项目而言零成本提供，而发现其中一种不可用的读者仍可使用另一种。</p>
-  <p><strong>保存的副本实际位于何处——任务 <code>yl5w</code>。</strong>目录将其中每一份都记录在相对于 <code>who-iris/</code> 的 <code>uploads/&lt;name&gt;.pdf</code>，而<em>这三个路径全部缺失</em>：#477 将 <code>library/</code> 移入了本实例，却把 <code>uploads/</code> 留在了 <code>cat-harness/</code>。</p>
+  <p><strong>保存的副本实际位于何处——bean <code>yl5w</code>。</strong>目录将其中每一份都记录在相对于 <code>who-iris/</code> 的 <code>uploads/&lt;name&gt;.pdf</code>，而<em>这三个路径全部缺失</em>：#477 将 <code>library/</code> 移入了本实例，却把 <code>uploads/</code> 留在了 <code>cat-harness/</code>。</p>
   <p>上面的下载链接指向字节<em>实际所在</em>的位置，因此可以使用。错的是目录中的声明，而 <code>check:catalogue</code> 根本不检查 <code>localPath</code>——它只核对 <code>metadataRef</code> 和 <code>libraryId</code>，并对三条指向空处的 <code>materialized</code> 声明报告检查通过。</p>
 </div>
 
