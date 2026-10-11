@@ -136,6 +136,28 @@
           }
         }
       }
+    },
+    {
+      "name": "folio-assistant-sci",
+      "source": {
+        "remote": {
+          "repository": "litlfred/folio-assistant-sci",
+          "ref": "5bc2c90bbf29759d480330aa457885719cef1054",
+          "overrides": {
+            "folio-assistant-sci": {
+              "whole": true
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-11",
+              "ref": "5bc2c90bbf29759d480330aa457885719cef1054",
+              "evidence": "owner, session_017fFnGmbJcfqqrHXz9oqxdG 2026-10-11: 'repin as neede. merge all ready green next 4hrs, continue' and 'merge and continue' — mount folio-assistant-sci at 5bc2c90 (the pin smart-ra mounts): it declares the `paper` content adapter that core's block kinds name (bean bzwk); without it gen-library-jsonld drops every block's @type (bean j3ls) and library promotion (bean turh) regresses"
+            }
+          }
+        }
+      }
     }
   ],
   "site": {
