@@ -91,9 +91,9 @@ msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than
 msgstr "<strong>لا يوجد سجل دبلن كور.</strong> يذكر الفهرس ذلك بدلًا من توليد بيانات وصفية من ملف PDF — وهي القاعدة R8 من مهارة <code>iris-dspace</code>: <em>لا تستنتج البيانات الوصفية من ملف PDF أبدًا حين يوجد سجل</em>، وعكسها أن السجل الغائب يبقى غائبًا."
 
 #: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is a work item; keep everything in <code> as written.
+#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). Keep everything in <code> as written.
 msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>هذه هي البوابة الأمامية، لا أداة عرض المكتبة.</strong> أداة العرض الكاملة لـ <code>library/</code> هي المهمة <code>jbx2</code>، ويجري بناؤها على نحو منفصل. تحاكي هذه الصفحة الصفحة الرئيسية لـ IRIS وتحيل إلى ما بعدها، بدلًا من أن تصبح إجابة ثانية عن السؤال نفسه."
+msgstr "<strong>هذه هي البوابة الأمامية، لا أداة عرض المكتبة.</strong> أداة العرض الكاملة لـ <code>library/</code> هي bean <code>jbx2</code>، ويجري بناؤها على نحو منفصل. تحاكي هذه الصفحة الصفحة الرئيسية لـ IRIS وتحيل إلى ما بعدها، بدلًا من أن تصبح إجابة ثانية عن السؤال نفسه."
 
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
@@ -101,9 +101,9 @@ msgid "<strong>Three routes to one item, which is the point.</strong> The catalo
 msgstr "<strong>ثلاثة طرق إلى مادة واحدة، وهذا هو المقصود.</strong> لا يعرف الفهرس هذه المادة إلا مرة واحدة؛ والبايتات متاحة <em>في المصدر الأصلي لدى منظمة الصحة العالمية</em>، و<em>هنا بوصفها صفحة نسخة مستنسخة</em>، و<em>من عقدة طرفية في شبكة CDN</em> — إذ تخدم jsDelivr أي مستودع عام، فلا يكلّف الطريق الأخير هذا المشروع أي استضافة. يقول الرسم البياني المعرفي ما الموجود وأين؛ أما شبكة CDN فلا تقول شيئًا وتكتفي بتقديمه."
 
 #: who-iris/scripts/gen-iris-pages.ts:789
-#. Note under the held-items table. A 'bean' is a work item in this repository's tracker; #477 is a pull request number. Keep everything in <code> as written.
+#. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
 msgid "<strong>Where the held copies actually live — bean <code>yl5w</code>.</strong> The catalogue records each of these at <code>uploads/&lt;name&gt;.pdf</code> relative to <code>who-iris/</code>, and <em>all three of those paths are missing</em>: #477 moved <code>library/</code> into this instance and left <code>uploads/</code> in <code>cat-harness/</code>."
-msgstr "<strong>أين توجد النسخ المحفوظة فعلًا — المهمة <code>yl5w</code>.</strong> يسجّل الفهرس كل واحدة منها في <code>uploads/&lt;name&gt;.pdf</code> نسبةً إلى <code>who-iris/</code>، و<em>المسارات الثلاثة كلها مفقودة</em>: نقل #477 الدليل <code>library/</code> إلى هذا المثيل وترك <code>uploads/</code> في <code>cat-harness/</code>."
+msgstr "<strong>أين توجد النسخ المحفوظة فعلًا — bean <code>yl5w</code>.</strong> يسجّل الفهرس كل واحدة منها في <code>uploads/&lt;name&gt;.pdf</code> نسبةً إلى <code>who-iris/</code>، و<em>المسارات الثلاثة كلها مفقودة</em>: نقل #477 الدليل <code>library/</code> إلى هذا المثيل وترك <code>uploads/</code> في <code>cat-harness/</code>."
 
 #: who-iris/scripts/gen-iris-pages.ts:838
 #. Tooltip on a withheld cover. {gates} names the publication gates that refused it, which are not translated.
