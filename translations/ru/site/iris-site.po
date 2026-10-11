@@ -91,9 +91,9 @@ msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than
 msgstr "<strong>Записи Dublin Core нет.</strong> Каталог сообщает об этом, а не синтезирует метаданные из PDF: таково правило R8 навыка <code>iris-dspace</code>, <em>никогда не выводить метаданные из PDF, если запись существует</em>, обратная сторона которого — отсутствующая запись остаётся отсутствующей."
 
 #: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is a work item; keep everything in <code> as written.
+#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). Keep everything in <code> as written.
 msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>Это главный вход, а не визуализатор библиотеки.</strong> Полный визуализатор <code>library/</code> — это задача <code>jbx2</code>, и он создаётся отдельно. Эта страница воспроизводит главную страницу IRIS и ведёт дальше, а не становится вторым ответом на тот же вопрос."
+msgstr "<strong>Это главный вход, а не визуализатор библиотеки.</strong> Полный визуализатор <code>library/</code> — это bean <code>jbx2</code>, и он создаётся отдельно. Эта страница воспроизводит главную страницу IRIS и ведёт дальше, а не становится вторым ответом на тот же вопрос."
 
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
@@ -101,9 +101,9 @@ msgid "<strong>Three routes to one item, which is the point.</strong> The catalo
 msgstr "<strong>Три пути к одной записи — в этом и смысл.</strong> Каталог знает эту запись один раз; байты доступны <em>у первоисточника в ВОЗ</em>, <em>здесь в виде страницы реплики</em> и <em>с узла CDN</em> — jsDelivr обслуживает любой открытый репозиторий, поэтому последний путь не стоит этому проекту ничего за хостинг. Граф знаний говорит, что существует и где; CDN ничего не говорит и просто отдаёт файлы."
 
 #: who-iris/scripts/gen-iris-pages.ts:789
-#. Note under the held-items table. A 'bean' is a work item in this repository's tracker; #477 is a pull request number. Keep everything in <code> as written.
+#. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
 msgid "<strong>Where the held copies actually live — bean <code>yl5w</code>.</strong> The catalogue records each of these at <code>uploads/&lt;name&gt;.pdf</code> relative to <code>who-iris/</code>, and <em>all three of those paths are missing</em>: #477 moved <code>library/</code> into this instance and left <code>uploads/</code> in <code>cat-harness/</code>."
-msgstr "<strong>Где на самом деле лежат хранимые копии — задача <code>yl5w</code>.</strong> Каталог указывает для каждой из них путь <code>uploads/&lt;name&gt;.pdf</code> относительно <code>who-iris/</code>, и <em>все три этих пути отсутствуют</em>: #477 перенёс <code>library/</code> в этот экземпляр и оставил <code>uploads/</code> в <code>cat-harness/</code>."
+msgstr "<strong>Где на самом деле лежат хранимые копии — bean <code>yl5w</code>.</strong> Каталог указывает для каждой из них путь <code>uploads/&lt;name&gt;.pdf</code> относительно <code>who-iris/</code>, и <em>все три этих пути отсутствуют</em>: #477 перенёс <code>library/</code> в этот экземпляр и оставил <code>uploads/</code> в <code>cat-harness/</code>."
 
 #: who-iris/scripts/gen-iris-pages.ts:838
 #. Tooltip on a withheld cover. {gates} names the publication gates that refused it, which are not translated.

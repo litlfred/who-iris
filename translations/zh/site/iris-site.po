@@ -91,9 +91,9 @@ msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than
 msgstr "<strong>无都柏林核心记录。</strong>目录如实说明这一点，而不是从 PDF 合成元数据——这是 <code>iris-dspace</code> 技能的 R8 规则：<em>存在记录时，绝不从 PDF 推断元数据</em>；其反面是，缺失的记录仍保持缺失。"
 
 #: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is a work item; keep everything in <code> as written.
+#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). Keep everything in <code> as written.
 msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>这里是入口页，不是图书馆可视化工具。</strong>完整的 <code>library/</code> 可视化工具是任务 <code>jbx2</code>，正在另行构建。本页面模仿 IRIS 首页并链接到其他页面，而不是成为同一问题的第二个答案。"
+msgstr "<strong>这里是入口页，不是图书馆可视化工具。</strong>完整的 <code>library/</code> 可视化工具是 bean <code>jbx2</code>，正在另行构建。本页面模仿 IRIS 首页并链接到其他页面，而不是成为同一问题的第二个答案。"
 
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
@@ -101,9 +101,9 @@ msgid "<strong>Three routes to one item, which is the point.</strong> The catalo
 msgstr "<strong>一个条目三条途径，这正是要点。</strong>目录只记录此条目一次；字节可以<em>在世卫组织上游</em>、<em>在此处的副本页面</em>以及<em>从 CDN 边缘节点</em>获取——jsDelivr 为任何公开存储库提供服务，因此最后一条途径不会给本项目带来任何托管成本。知识图谱说明存在什么以及在哪里；CDN 不作任何说明，只负责提供文件。"
 
 #: who-iris/scripts/gen-iris-pages.ts:789
-#. Note under the held-items table. A 'bean' is a work item in this repository's tracker; #477 is a pull request number. Keep everything in <code> as written.
+#. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
 msgid "<strong>Where the held copies actually live — bean <code>yl5w</code>.</strong> The catalogue records each of these at <code>uploads/&lt;name&gt;.pdf</code> relative to <code>who-iris/</code>, and <em>all three of those paths are missing</em>: #477 moved <code>library/</code> into this instance and left <code>uploads/</code> in <code>cat-harness/</code>."
-msgstr "<strong>保存的副本实际位于何处——任务 <code>yl5w</code>。</strong>目录将其中每一份都记录在相对于 <code>who-iris/</code> 的 <code>uploads/&lt;name&gt;.pdf</code>，而<em>这三个路径全部缺失</em>：#477 将 <code>library/</code> 移入了本实例，却把 <code>uploads/</code> 留在了 <code>cat-harness/</code>。"
+msgstr "<strong>保存的副本实际位于何处——bean <code>yl5w</code>。</strong>目录将其中每一份都记录在相对于 <code>who-iris/</code> 的 <code>uploads/&lt;name&gt;.pdf</code>，而<em>这三个路径全部缺失</em>：#477 将 <code>library/</code> 移入了本实例，却把 <code>uploads/</code> 留在了 <code>cat-harness/</code>。"
 
 #: who-iris/scripts/gen-iris-pages.ts:838
 #. Tooltip on a withheld cover. {gates} names the publication gates that refused it, which are not translated.
