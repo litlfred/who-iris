@@ -469,7 +469,7 @@
 </ul>
 
 <h2>Conservés ici — 3 document(s) matérialisé(s)</h2>
-<p>Chaque ligne offre <strong>trois accès au même document</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un nœud de CDN.</p>
+<p>Chaque ligne offre <strong>trois accès au même document</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un serveur de périphérie du CDN.</p>
 
 <table class="items">
 <thead><tr><th>Document</th><th>Collection</th><th>État</th><th>En amont</th><th>Copie conservée</th><th>Notice de métadonnées</th></tr></thead>
@@ -511,9 +511,9 @@
 </table>
 
 <div class="caveat">
-  <p><strong>Trois accès à un même document, et c’est voulu.</strong> Le catalogue ne connaît ce document qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un nœud de CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir.</p>
+  <p><strong>Trois accès à un même document, et c’est voulu.</strong> Le catalogue ne connaît ce document qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un serveur de périphérie du CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir.</p>
   <p><strong>Les deux formes de lien fonctionnent, c’est vérifié.</strong> Les liens <code>raw.githubusercontent.com</code> ont été récupérés et ont renvoyé 200, avec des tailles en octets correspondant exactement au catalogue. Les liens <em>via le CDN</em> n’ont pas pu être vérifiés depuis l’environnement qui a généré cette page — <code>cdn.jsdelivr.net</code> y est bloqué en sortie — ils ont donc été composés selon la forme d’URL documentée par jsDelivr, et le propriétaire en a testé un à la main le 2026-09-20. Les deux sont conservés : l’un ne coûte rien à servir à ce projet, et un lecteur qui trouve l’un indisponible dispose encore de l’autre.</p>
-  <p><strong>Où se trouvent réellement les copies conservées — bean <code>yl5w</code>.</strong> Le catalogue enregistre chacune d’elles à <code>uploads/&lt;name&gt;.pdf</code> relativement à <code>who-iris/</code>, et <em>ces trois chemins sont tous absents</em> : la #477 a déplacé <code>library/</code> dans cette instance et laissé <code>uploads/</code> dans <code>cat-harness/</code>.</p>
+  <p><strong>Où se trouvent réellement les copies conservées — grain <code>yl5w</code>.</strong> Le catalogue enregistre chacune d’elles à <code>uploads/&lt;name&gt;.pdf</code> relativement à <code>who-iris/</code>, et <em>ces trois chemins sont tous absents</em> : la #477 a déplacé <code>library/</code> dans cette instance et laissé <code>uploads/</code> dans <code>cat-harness/</code>.</p>
   <p>Les liens de téléchargement ci-dessus pointent vers l’endroit où les octets <em>se trouvent</em>, ils fonctionnent donc. C’est l’affirmation du catalogue qui est fausse, et <code>check:catalogue</code> ne vérifie pas du tout <code>localPath</code> : il vérifie <code>metadataRef</code> et <code>libraryId</code>, et signale une exécution sans erreur sur trois affirmations <code>materialized</code> qui ne renvoient à rien.</p>
 </div>
 

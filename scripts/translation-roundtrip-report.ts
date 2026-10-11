@@ -158,6 +158,7 @@ export function buildReport(instance = INSTANCE): Record<string, unknown> {
       supersedes_note: "folio-assistant-lffo's 580/580 was self-checked by the translating agent; this run is independent",
       reruns: [
         "2026-10-11: indexes 15 and 17 in all five locales, after the owner ruled that 'bean' is never translated as 'task' (a Task is its own term) and stays untranslated. Same two-agent protocol, on those 10 strings only (folio-core-2mb0).",
+        "2026-10-11, second ruling: 'bean' is translated after all, as each language's ordinary word for a bean or kernel (ar حبة, es grano, fr grain, ru зерно, zh 豆); DSpace 'Bundle' as 'File Set' (all five); ru 'item' as «единица хранения»; 'CDN edge' as the CDN's edge server (es, fr, ru); ru 12's catalogue made folio-assistant's own; zh 'size' as 大小, not 容量. 39 strings re-run; the adjudicator was given these rulings as a glossary.",
       ],
     },
     catalogues,
