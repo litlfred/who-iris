@@ -91,19 +91,19 @@ msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than
 msgstr "<strong>Aucune notice Dublin Core.</strong> Le catalogue l’indique plutôt que de synthétiser des métadonnées à partir du PDF — la règle R8 de la compétence <code>iris-dspace</code>, <em>ne jamais déduire les métadonnées du PDF lorsqu’une notice existe</em>, dont la réciproque est qu’une notice absente reste absente."
 
 #: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). Keep everything in <code> as written.
+#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). Keep everything in <code> as written.
 msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>Ceci est la porte d’entrée, pas le visualiseur de la bibliothèque.</strong> Le visualiseur complet de <code>library/</code> correspond au bean <code>jbx2</code> et est développé séparément. Cette page imite la page d’accueil d’IRIS et renvoie plus loin, plutôt que de devenir une seconde réponse à la même question."
+msgstr "<strong>Ceci est la porte d’entrée, pas le visualiseur de la bibliothèque.</strong> Le visualiseur complet de <code>library/</code> correspond au grain <code>jbx2</code> et est développé séparément. Cette page imite la page d’accueil d’IRIS et renvoie plus loin, plutôt que de devenir une seconde réponse à la même question."
 
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
 msgid "<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it."
-msgstr "<strong>Trois accès à un même document, et c’est voulu.</strong> Le catalogue ne connaît ce document qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un nœud de CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir."
+msgstr "<strong>Trois accès à un même document, et c’est voulu.</strong> Le catalogue ne connaît ce document qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un serveur de périphérie du CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir."
 
 #: who-iris/scripts/gen-iris-pages.ts:789
-#. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
+#. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
 msgid "<strong>Where the held copies actually live — bean <code>yl5w</code>.</strong> The catalogue records each of these at <code>uploads/&lt;name&gt;.pdf</code> relative to <code>who-iris/</code>, and <em>all three of those paths are missing</em>: #477 moved <code>library/</code> into this instance and left <code>uploads/</code> in <code>cat-harness/</code>."
-msgstr "<strong>Où se trouvent réellement les copies conservées — bean <code>yl5w</code>.</strong> Le catalogue enregistre chacune d’elles à <code>uploads/&lt;name&gt;.pdf</code> relativement à <code>who-iris/</code>, et <em>ces trois chemins sont tous absents</em> : la #477 a déplacé <code>library/</code> dans cette instance et laissé <code>uploads/</code> dans <code>cat-harness/</code>."
+msgstr "<strong>Où se trouvent réellement les copies conservées — grain <code>yl5w</code>.</strong> Le catalogue enregistre chacune d’elles à <code>uploads/&lt;name&gt;.pdf</code> relativement à <code>who-iris/</code>, et <em>ces trois chemins sont tous absents</em> : la #477 a déplacé <code>library/</code> dans cette instance et laissé <code>uploads/</code> dans <code>cat-harness/</code>."
 
 #: who-iris/scripts/gen-iris-pages.ts:838
 #. Tooltip on a withheld cover. {gates} names the publication gates that refused it, which are not translated.
@@ -153,7 +153,7 @@ msgstr "Parcourir IRIS"
 #: who-iris/scripts/gen-iris-pages.ts:805
 #. Table column heading: the DSpace bundle a file belongs to (ORIGINAL, THUMBNAIL — those values are not translated).
 msgid "Bundle"
-msgstr "Paquet"
+msgstr "Ensemble de fichiers"
 
 #: who-iris/scripts/gen-iris-pages.ts:753
 #. Table column heading; also the badge on a collection in the search results.
@@ -223,7 +223,7 @@ msgstr "Dublin Core XML"
 #: who-iris/scripts/gen-iris-pages.ts:786
 #. Paragraph under that heading.
 msgid "Each row carries <strong>three routes to the same item</strong>: the <strong>IRIS source</strong> upstream at WHO, this repository's own <strong>local replica</strong> page, and the <strong>asset itself</strong> — downloadable from the repository and, separately, from a CDN edge."
-msgstr "Chaque ligne offre <strong>trois accès au même document</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un nœud de CDN."
+msgstr "Chaque ligne offre <strong>trois accès au même document</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un serveur de périphérie du CDN."
 
 #: who-iris/scripts/gen-iris-pages.ts:784
 #. Introduction to the community list. {referenced} and {materialized} are the state badges, already translated.

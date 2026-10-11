@@ -38,17 +38,17 @@ msgstr "{link} — реплика {url} с состоянием материал
 #: who-iris/scripts/gen-iris-pages.ts:783
 #. Beside a collection: how many of its items the catalogue models, and how many are held here. Both are numbers; rephrase freely to avoid plural agreement.
 msgid "{modelled} item(s) modelled, {held} held here"
-msgstr "смоделировано записей: {modelled}, хранится здесь: {held}"
+msgstr "смоделировано единиц хранения: {modelled}, хранится здесь: {held}"
 
 #: who-iris/scripts/gen-iris-pages.ts:726
 #. Inside the banner. {nodes} is how many catalogue nodes exist here, {items} how many items IRIS holds upstream, {size} a size such as '361.55 GiB', {held} how many items are held here (2 or more).
 msgid "{nodes} nodes of a {items}-item {size} repository, of which <strong>{held} items</strong> are held here"
-msgstr "узлов: {nodes}, в репозитории записей: {items}, объём: {size}; из них <strong>хранятся здесь: {held}</strong>"
+msgstr "узлов: {nodes}, в репозитории единиц хранения: {items}, объём: {size}; из них <strong>хранятся здесь: {held}</strong>"
 
 #: who-iris/scripts/gen-iris-pages.ts:727
 #. As above, when exactly one item is held here.
 msgid "{nodes} nodes of a {items}-item {size} repository, of which <strong>1 item</strong> is held here"
-msgstr "узлов: {nodes}, в репозитории записей: {items}, объём: {size}; из них <strong>здесь хранится одна запись</strong>"
+msgstr "узлов: {nodes}, в репозитории единиц хранения: {items}, объём: {size}; из них <strong>здесь хранится одна единица хранения</strong>"
 
 #: who-iris/scripts/gen-iris-pages.ts:728
 #. As above, when the upstream size was never measured.
@@ -78,7 +78,7 @@ msgstr "<strong>Как был установлен этот узел.</strong> {
 #: who-iris/scripts/gen-iris-pages.ts:725
 #. The banner at the top of every page. {folioAssistant} and {iris} are links whose text is a name (folio-assistant, WHO IRIS) and is not translated. {figures} is the sentence about node counts below.
 msgid "<strong>INGESTED COPY — not WHO, and not live.</strong> This page is rendered by {folioAssistant} from its own catalogue of {iris}, modelled <em>by reference</em>: {figures}. The WHO logo is deliberately omitted, and the rendered covers are withheld from display for the same reason — they carry the emblem printed on the publications."
-msgstr "<strong>ИМПОРТИРОВАННАЯ КОПИЯ — это не ВОЗ и не действующий сайт.</strong> Эта страница создана инструментом {folioAssistant} на основе собственного каталога {iris}, смоделированного <em>по ссылке</em>: {figures}. Логотип ВОЗ намеренно опущен, а созданные обложки не показываются по той же причине: на них напечатана эмблема с изданий."
+msgstr "<strong>ИМПОРТИРОВАННАЯ КОПИЯ — это не ВОЗ и не действующий сайт.</strong> Эта страница создана инструментом {folioAssistant} на основе собственного каталога этого инструмента, описывающего {iris} и смоделированного <em>по ссылке</em>: {figures}. Логотип ВОЗ намеренно опущен, а созданные обложки не показываются по той же причине: на них напечатана эмблема с изданий."
 
 #: who-iris/scripts/gen-iris-pages.ts:740
 #. Footer, first paragraph. {catalogue} and {generator} are file paths in code type; {iris} is a link to iris.who.int. None are translated.
@@ -91,19 +91,19 @@ msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than
 msgstr "<strong>Записи Dublin Core нет.</strong> Каталог сообщает об этом, а не синтезирует метаданные из PDF: таково правило R8 навыка <code>iris-dspace</code>, <em>никогда не выводить метаданные из PDF, если запись существует</em>, обратная сторона которого — отсутствующая запись остаётся отсутствующей."
 
 #: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). Keep everything in <code> as written.
+#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). Keep everything in <code> as written.
 msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>Это главный вход, а не визуализатор библиотеки.</strong> Полный визуализатор <code>library/</code> — это bean <code>jbx2</code>, и он создаётся отдельно. Эта страница воспроизводит главную страницу IRIS и ведёт дальше, а не становится вторым ответом на тот же вопрос."
+msgstr "<strong>Это главный вход, а не визуализатор библиотеки.</strong> Полный визуализатор <code>library/</code> — это зерно <code>jbx2</code>, и он создаётся отдельно. Эта страница воспроизводит главную страницу IRIS и ведёт дальше, а не становится вторым ответом на тот же вопрос."
 
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
 msgid "<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it."
-msgstr "<strong>Три пути к одной записи — в этом и смысл.</strong> Каталог знает эту запись один раз; байты доступны <em>у первоисточника в ВОЗ</em>, <em>здесь в виде страницы реплики</em> и <em>с узла CDN</em> — jsDelivr обслуживает любой открытый репозиторий, поэтому последний путь не стоит этому проекту ничего за хостинг. Граф знаний говорит, что существует и где; CDN ничего не говорит и просто отдаёт файлы."
+msgstr "<strong>Три пути к одной единице хранения — в этом и смысл.</strong> Каталог знает эту единицу хранения один раз; байты доступны <em>у первоисточника в ВОЗ</em>, <em>здесь в виде страницы реплики</em> и <em>с пограничного сервера CDN</em> — jsDelivr обслуживает любой открытый репозиторий, поэтому последний путь не стоит этому проекту ничего за хостинг. Граф знаний говорит, что существует и где; CDN ничего не говорит и просто отдаёт файлы."
 
 #: who-iris/scripts/gen-iris-pages.ts:789
-#. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Keep the word 'bean' untranslated, in Latin script (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
+#. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
 msgid "<strong>Where the held copies actually live — bean <code>yl5w</code>.</strong> The catalogue records each of these at <code>uploads/&lt;name&gt;.pdf</code> relative to <code>who-iris/</code>, and <em>all three of those paths are missing</em>: #477 moved <code>library/</code> into this instance and left <code>uploads/</code> in <code>cat-harness/</code>."
-msgstr "<strong>Где на самом деле лежат хранимые копии — bean <code>yl5w</code>.</strong> Каталог указывает для каждой из них путь <code>uploads/&lt;name&gt;.pdf</code> относительно <code>who-iris/</code>, и <em>все три этих пути отсутствуют</em>: #477 перенёс <code>library/</code> в этот экземпляр и оставил <code>uploads/</code> в <code>cat-harness/</code>."
+msgstr "<strong>Где на самом деле лежат хранимые копии — зерно <code>yl5w</code>.</strong> Каталог указывает для каждой из них путь <code>uploads/&lt;name&gt;.pdf</code> относительно <code>who-iris/</code>, и <em>все три этих пути отсутствуют</em>: #477 перенёс <code>library/</code> в этот экземпляр и оставил <code>uploads/</code> в <code>cat-harness/</code>."
 
 #: who-iris/scripts/gen-iris-pages.ts:838
 #. Tooltip on a withheld cover. {gates} names the publication gates that refused it, which are not translated.
@@ -113,7 +113,7 @@ msgstr "Обложка создана и хранится здесь. Она н�
 #: who-iris/scripts/gen-iris-pages.ts:844
 #. Tooltip on a cover the replica chooses not to display.
 msgid "A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO."
-msgstr "Обложка для этой записи создана и учтена. Она не показывается: на обложке издания есть эмблема ВОЗ, а эта реплика не опубликована от имени ВОЗ."
+msgstr "Обложка для этой единицы хранения создана и учтена. Она не показывается: на обложке издания есть эмблема ВОЗ, а эта реплика не опубликована от имени ВОЗ."
 
 #: who-iris/scripts/gen-iris-pages.ts:724
 #. The page's meta description, read by search engines and link previews.
@@ -153,7 +153,7 @@ msgstr "Обзор IRIS"
 #: who-iris/scripts/gen-iris-pages.ts:805
 #. Table column heading: the DSpace bundle a file belongs to (ORIGINAL, THUMBNAIL — those values are not translated).
 msgid "Bundle"
-msgstr "Пакет"
+msgstr "Набор файлов"
 
 #: who-iris/scripts/gen-iris-pages.ts:753
 #. Table column heading; also the badge on a collection in the search results.
@@ -223,7 +223,7 @@ msgstr "Dublin Core XML"
 #: who-iris/scripts/gen-iris-pages.ts:786
 #. Paragraph under that heading.
 msgid "Each row carries <strong>three routes to the same item</strong>: the <strong>IRIS source</strong> upstream at WHO, this repository's own <strong>local replica</strong> page, and the <strong>asset itself</strong> — downloadable from the repository and, separately, from a CDN edge."
-msgstr "Каждая строка даёт <strong>три пути к одной и той же записи</strong>: <strong>источник в IRIS</strong> у первоисточника в ВОЗ, страницу <strong>локальной реплики</strong> этого репозитория и <strong>сам ресурс</strong> — его можно скачать из репозитория и, отдельно, с узла CDN."
+msgstr "Каждая строка даёт <strong>три пути к одной и той же единице хранения</strong>: <strong>источник в IRIS</strong> у первоисточника в ВОЗ, страницу <strong>локальной реплики</strong> этого репозитория и <strong>сам ресурс</strong> — его можно скачать из репозитория и, отдельно, с пограничного сервера CDN."
 
 #: who-iris/scripts/gen-iris-pages.ts:784
 #. Introduction to the community list. {referenced} and {materialized} are the state badges, already translated.
@@ -243,7 +243,7 @@ msgstr "Хранимая копия"
 #: who-iris/scripts/gen-iris-pages.ts:785
 #. Heading of the table of held items. {n} is a number.
 msgid "Held here — {n} materialized item(s)"
-msgstr "Хранятся здесь — материализованных записей: {n}"
+msgstr "Хранятся здесь — материализованных единиц хранения: {n}"
 
 #: who-iris/scripts/gen-iris-pages.ts:812
 #. Row label: the copy held in this repository. folio-assistant is a name.
@@ -308,12 +308,12 @@ msgstr "Источник в IRIS →"
 #: who-iris/scripts/gen-iris-pages.ts:752
 #. Table column heading; also the badge on an item in the search results.
 msgid "Item"
-msgstr "Запись"
+msgstr "Единица хранения"
 
 #: who-iris/scripts/gen-iris-pages.ts:796
 #. DSpace heading over a collection's item list.
 msgid "Items in this Collection"
-msgstr "Записи в этой коллекции"
+msgstr "Единицы хранения в этой коллекции"
 
 #: who-iris/scripts/gen-iris-pages.ts:770
 #. Link to the item's record as JSON-LD.
@@ -393,7 +393,7 @@ msgstr "обложка не создана"
 #: who-iris/scripts/gen-iris-pages.ts:851
 #. When nothing matches. {q} is what the reader typed.
 msgid "No materialized items or collections matched “<strong>{q}</strong>”."
-msgstr "Ни одна материализованная запись или коллекция не соответствует запросу «<strong>{q}</strong>»."
+msgstr "Ни одна материализованная единица хранения или коллекция не соответствует запросу «<strong>{q}</strong>»."
 
 #: who-iris/scripts/gen-iris-pages.ts:766
 #. In the Dublin Core renderings row when the item has no record.
@@ -453,7 +453,7 @@ msgstr "Постоянный URI этой коллекции"
 #: who-iris/scripts/gen-iris-pages.ts:800
 #. DSpace label before the item's handle URL.
 msgid "Permanent URI for this item"
-msgstr "Постоянный URI этой записи"
+msgstr "Постоянный URI этой единицы хранения"
 
 #: who-iris/scripts/gen-iris-pages.ts:837
 #. In a recent submission's byline, as IRIS labels it. {date} is a date such as 2020-05-14.
@@ -493,7 +493,7 @@ msgstr "Найти"
 #: who-iris/scripts/gen-iris-pages.ts:826
 #. Note under the search box. {held} and {referenced} are numbers; {lookup} is a link whose text is the next string.
 msgid "Search across <strong>{held}</strong> items held by value and referenced communities/collections. To look up any of the <strong>{referenced}</strong> referenced nodes by identifier, search here or open the {lookup}."
-msgstr "Поиск по записям, хранимым по значению (<strong>{held}</strong>), а также по сообществам и коллекциям, на которые есть ссылки. Чтобы найти по идентификатору любой из узлов, на которые есть ссылки (<strong>{referenced}</strong>), ищите здесь или откройте {lookup}."
+msgstr "Поиск по единицам хранения, хранимым по значению (<strong>{held}</strong>), а также по сообществам и коллекциям, на которые есть ссылки. Чтобы найти по идентификатору любой из узлов, на которые есть ссылки (<strong>{referenced}</strong>), ищите здесь или откройте {lookup}."
 
 #: who-iris/scripts/gen-iris-pages.ts:852
 #. Link shown when nothing matches. {q} is what the reader typed, {n} a number. Flip the arrow for right-to-left.
@@ -503,12 +503,12 @@ msgstr "Найти «{q}» в поиске по идентификаторам �
 #: who-iris/scripts/gen-iris-pages.ts:824
 #. Accessible name of the search box.
 msgid "Search through the repository items and referenced identifier lookup"
-msgstr "Поиск по записям репозитория и по идентификаторам узлов, на которые есть ссылки"
+msgstr "Поиск по единицам хранения репозитория и по идентификаторам узлов, на которые есть ссылки"
 
 #: who-iris/scripts/gen-iris-pages.ts:823
 #. Placeholder text inside the search box. {n} is a number, written without separators.
 msgid "Search through the repository’s {n} items"
-msgstr "Поиск по записям репозитория (всего: {n})"
+msgstr "Поиск по единицам хранения репозитория (всего: {n})"
 
 #: who-iris/scripts/gen-iris-pages.ts:806
 #. Table column heading: a file's size.
@@ -573,7 +573,7 @@ msgstr "Первоисточник"
 #: who-iris/scripts/gen-iris-pages.ts:828
 #. Continues the note above. {items} and {files} are numbers.
 msgid "Upstream IRIS reports <strong>{items}</strong> items across <strong>{files}</strong> files."
-msgstr "IRIS у первоисточника сообщает: записей — <strong>{items}</strong>, файлов — <strong>{files}</strong>."
+msgstr "IRIS у первоисточника сообщает: единиц хранения — <strong>{items}</strong>, файлов — <strong>{files}</strong>."
 
 #: who-iris/scripts/gen-iris-pages.ts:811
 #. Row label: the item's address at WHO.
