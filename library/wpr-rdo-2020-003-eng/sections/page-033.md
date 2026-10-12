@@ -1,14 +1,13 @@
 ---
 doc_id: wpr-rdo-2020-003-eng
-doc_title: "Publication and Information Products Style Guide (WHO Western Pacific Region)"
+doc_title: "PUBLICATION AND INFORMATION PRODUCTS STYLE GUIDE"
 section_id: page-033
 section_title: "Page 33"
+section_number: null
 pages: 33-33
-pdf_page: 33
 source_pdf: WPR-RDO-2020-003-eng.pdf
 source_sha256: 5021518ccd91e26a
-text_source: embedded
-granularity: page
+toc_source: undetermined
 ---
 31
 Region

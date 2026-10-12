@@ -1,14 +1,13 @@
 ---
 doc_id: wpr-rdo-2020-003-eng
-doc_title: "Publication and Information Products Style Guide (WHO Western Pacific Region)"
+doc_title: "PUBLICATION AND INFORMATION PRODUCTS STYLE GUIDE"
 section_id: page-008
 section_title: "Page 8"
+section_number: null
 pages: 8-8
-pdf_page: 8
 source_pdf: WPR-RDO-2020-003-eng.pdf
 source_sha256: 5021518ccd91e26a
-text_source: embedded
-granularity: page
+toc_source: undetermined
 ---
 6
 Clear space should be equal on all sides. This ratio of space should be applied to the logo in all sizes and for all 
