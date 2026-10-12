@@ -1,14 +1,13 @@
 ---
 doc_id: wpr-rdo-2020-003-eng
-doc_title: "Publication and Information Products Style Guide (WHO Western Pacific Region)"
+doc_title: "PUBLICATION AND INFORMATION PRODUCTS STYLE GUIDE"
 section_id: page-031
 section_title: "Page 31"
+section_number: null
 pages: 31-31
-pdf_page: 31
 source_pdf: WPR-RDO-2020-003-eng.pdf
 source_sha256: 5021518ccd91e26a
-text_source: embedded
-granularity: page
+toc_source: undetermined
 ---
 29
 Note:  Spine must be minimum 3/8” W to print type/logo.

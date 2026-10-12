@@ -1,329 +1,31 @@
 {
-  "_schema": "pdf-structure/v1",
-  "doc_id": "who-pub-tps-931",
   "source": {
     "file": "WHO_PUB_TPS_93.1.pdf",
     "sha256": "ecc88eee9975675557d007de7acab9107d5bbd5e2b83cd15e483f1dfafe3f490",
     "bytes": 3293424,
-    "pages": 121,
-    "text_source": "ocr",
-    "extractor": "pymupdf",
-    "mtime": "2026-09-19T05:54:37Z",
+    "mtime": "2026-10-11T07:07:28Z",
     "mimetype_sniffed": "application/pdf",
-    "mimetype_source": "magic-bytes"
+    "mimetype_source": "magic-bytes",
+    "text_source": "ocr"
   },
   "metadata": {
-    "arxiv": null,
-    "doi": null,
-    "title": "Abies",
-    "authors_raw": "Cpe N",
-    "title_lines": [
-      "Abies"
-    ],
-    "abstract": null,
+    "title": null,
     "docinfo": {
       "Producer": "Pixel Translations (PIXPDF Ver.4.2.48)",
       "CreationDate": "Tue Apr 10 09:08:19 2001\n"
     },
-    "title_raw": "Abies",
-    "title_source": "text",
+    "title_raw": null,
+    "title_source": "filename",
     "title_verified": false,
     "title_evidence": {
-      "text": "Abies",
       "corroborated_by": [],
       "browser_print": false
     }
   },
-  "toc": [
-    {
-      "level": 1,
-      "title": "Introduction",
-      "page": 2,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "Spelling",
-      "page": 2,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "Punctuation",
-      "page": 2,
-      "source": "inferred",
-      "number": "3"
-    },
-    {
-      "level": 1,
-      "title": "Footnotes",
-      "page": 2,
-      "source": "inferred",
-      "number": "5"
-    },
-    {
-      "level": 1,
-      "title": "Quotations",
-      "page": 2,
-      "source": "inferred",
-      "number": "6"
-    },
-    {
-      "level": 1,
-      "title": "Copyright and disclaimers",
-      "page": 2,
-      "source": "inferred",
-      "number": "8"
-    },
-    {
-      "level": 1,
-      "title": "Reference lists and bibliographies",
-      "page": 3,
-      "source": "inferred",
-      "number": "9"
-    },
-    {
-      "level": 1,
-      "title": "References",
-      "page": 3,
-      "source": "inferred",
-      "number": null
-    },
-    {
-      "level": 1,
-      "title": "Manuscript mark-up and layout",
-      "page": 3,
-      "source": "inferred",
-      "number": "10"
-    },
-    {
-      "level": 1,
-      "title": "Mathematics and statistics",
-      "page": 3,
-      "source": "inferred",
-      "number": "13"
-    },
-    {
-      "level": 1,
-      "title": "Non-discriminatory language",
-      "page": 4,
-      "source": "inferred",
-      "number": "15"
-    },
-    {
-      "level": 1,
-      "title": "Politically and legally sensitive topics",
-      "page": 4,
-      "source": "inferred",
-      "number": "16"
-    },
-    {
-      "level": 1,
-      "title": "Useful reference books",
-      "page": 4,
-      "source": "inferred",
-      "number": "18"
-    },
-    {
-      "level": 1,
-      "title": "To mark the antithesis between two statements more sharply",
-      "page": 18,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "To indicate that the second statement is an explanation or",
-      "page": 18,
-      "source": "inferred",
-      "number": "3"
-    },
-    {
-      "level": 1,
-      "title": "To introduce an explanation or amplification of what immedi-",
-      "page": 19,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "Italics",
-      "page": 22,
-      "source": "inferred",
-      "number": "4"
-    },
-    {
-      "level": 1,
-      "title": "Transliteration",
-      "page": 28,
-      "source": "inferred",
-      "number": "7"
-    },
-    {
-      "level": 1,
-      "title": "List all authors when three or fewer; when four or more, give only",
-      "page": 33,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "Write out journal names in full. This is particularly helpful to",
-      "page": 33,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "Explanations of abbreviations and notes on levels of statistical",
-      "page": 37,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "Source and general notes. If data for a table are not the author’s",
-      "page": 37,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "Acknowledgements. If the entire table is reproduced with little",
-      "page": 38,
-      "source": "inferred",
-      "number": "4"
-    },
-    {
-      "level": 1,
-      "title": "Where subsequent reference makes it essential that items ina list be",
-      "page": 39,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "Items of this sort will often contain more than one sentence. They",
-      "page": 39,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "Where more than one line of text is involved, second and subse-",
-      "page": 39,
-      "source": "inferred",
-      "number": "3"
-    },
-    {
-      "level": 1,
-      "title": "All the rules set out in Format 1 apply in this Format, which deals",
-      "page": 39,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "When an individual item in a list is to be broken down beyond the",
-      "page": 39,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "By omitting the end of a word, which should be replaced by a full",
-      "page": 42,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "By suppressing the middle of a word: Dr, Mr (a full stop is not",
-      "page": 42,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "By combining the initial letters of the main words, or compo-",
-      "page": 42,
-      "source": "inferred",
-      "number": "3"
-    },
-    {
-      "level": 1,
-      "title": "By using one or more letters of the word in question, or even",
-      "page": 42,
-      "source": "inferred",
-      "number": "4"
-    },
-    {
-      "level": 1,
-      "title": "To be used (when appropriate to the style of the book) for a figure, and in cross-",
-      "page": 43,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "Numbers, dates, time and units",
-      "page": 52,
-      "source": "inferred",
-      "number": "12"
-    },
-    {
-      "level": 1,
-      "title": "Scientific terminology",
-      "page": 56,
-      "source": "inferred",
-      "number": "14"
-    },
-    {
-      "level": 1,
-      "title": "Technical reports",
-      "page": 78,
-      "source": "inferred",
-      "number": "17"
-    },
-    {
-      "level": 1,
-      "title": "EVALUATION OF CERTAIN FOOD ADDITIVES AND",
-      "page": 78,
-      "source": "inferred",
-      "number": "1"
-    },
-    {
-      "level": 1,
-      "title": "ENVIRONMENTAL HEALTH IN URBAN DEVELOPMENT",
-      "page": 78,
-      "source": "inferred",
-      "number": "2"
-    },
-    {
-      "level": 1,
-      "title": "WHO EXPERT COMMITTEE ON DRUG DEPENDENCE",
-      "page": 78,
-      "source": "inferred",
-      "number": "3"
-    },
-    {
-      "level": 1,
-      "title": "Usetul reference books",
-      "page": 82,
-      "source": "inferred",
-      "number": "18"
-    },
-    {
-      "level": 1,
-      "title": "Seat of Government: La Paz,",
-      "page": 105,
-      "source": "inferred",
-      "number": "1"
-    }
-  ],
+  "_schema": "pdf-structure/v1",
+  "doc_id": "who-pub-tps-931",
   "toc_source": "none",
+  "granularity": "page",
   "sections": [
     {
       "id": "page-001",
@@ -1536,13 +1238,5 @@
       "n_words": 106
     }
   ],
-  "diagnostics": {
-    "pages_without_text": 12,
-    "likely_scanned": false,
-    "toc_entries": 41,
-    "sections": 42,
-    "chars_total": 173718
-  },
-  "granularity": "page",
   "structure_note": "Ingested at PAGE granularity by scripts/pdf-pages.py. This PDF carries no embedded outline and its inferred chapter structure was measurably wrong (bean 6xaz), so no chapter tree is claimed. A page is a determined division; an inferred chapter was not."
 }
