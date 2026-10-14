@@ -154,7 +154,10 @@ export function buildReport(instance = INSTANCE): Record<string, unknown> {
       session: SESSION,
       back_translator: "roundtrip-back-translator: saw msgstr only; one Read, one Write",
       adjudicator: "roundtrip-adjudicator: saw msgid, translator note and back-translation; never msgstr",
-      model: "not recorded",
+      // The registry's one word for "the run did not say which model"
+      // (bootstrap's NOT_DISCLOSED). "not recorded" said the same in prose, and
+      // is not a model id, so `check-model-languages` could not resolve it.
+      model: "not-disclosed",
       supersedes_note: "folio-assistant-lffo's 580/580 was self-checked by the translating agent; this run is independent",
       reruns: [
         "2026-10-11: indexes 15 and 17 in all five locales, after the owner ruled that 'bean' is never translated as 'task' (a Task is its own term) and stays untranslated. Same two-agent protocol, on those 10 strings only (folio-core-2mb0).",
