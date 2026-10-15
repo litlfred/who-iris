@@ -17,4 +17,5 @@ Held in the library [`who-iris/library/`](../README.md) as `9789241548960-eng`.
 | [sections](sections/) | 500 |
 | [blocks](blocks/) | 252 |
 | images | 2 |
+
 <!-- kg:subgraph:end -->
