@@ -3716,10 +3716,17 @@ function main(): number {
       console.error("--catalogue-into needs an existing site source directory (the tree `compose-docs --shell` wrote)");
       return 2;
     }
-    const dest = catalogueInto(resolve(site));
-    mkdirSync(dirname(dest), { recursive: true });
-    writeFileSync(dest, rebaseRelative(catalogueViewer(nodes(), { libraryViewer: false }), CATALOGUE_ROUTE, ownSiteRoute()));
-    console.log(`  wrote ${relative(resolve(site), dest)} into the site source`);
+    const root = resolve(site);
+    const page = catalogueViewer(nodes(), { libraryViewer: false });
+    const declaredPageRoute = `en/${CATALOGUE_ROUTE}`;
+    for (const [to, dest] of [
+      [ownSiteRoute(), catalogueInto(root)],
+      [declaredPageRoute, join(root, ...declaredPageRoute.split("/"), "index.html")],
+    ] as const) {
+      mkdirSync(dirname(dest), { recursive: true });
+      writeFileSync(dest, rebaseRelative(page, CATALOGUE_ROUTE, to));
+      console.log(`  wrote ${relative(root, dest)} into the site source`);
+    }
     return 0;
   }
   const all = nodes();
