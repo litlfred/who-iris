@@ -354,6 +354,7 @@
 </style>
 </head>
 <body>
+<script type="application/json" data-fa-visualiser-nav>[{"label":"Главная","href":"index.html"},{"label":"Список сообществ","href":"community-list.html"},{"label":"Publications","href":"collection-collection-hq-publications.html","items":[{"label":"WHO handbook for guideline development","href":"item-item-63e14c27-7448-41ec-be08-a96a25a47db6.html"},{"label":"WHO editorial style manual","href":"item-item-b08c6c19-315a-41a4-a9cb-8edabdbc6791.html"}]},{"label":"Information products","href":"collection-collection-wpro-information-products.html","items":[{"label":"Publication and information products style guide","href":"item-item-18892cf3-5a4f-42a4-923c-a93f4a594dec.html"}]}]</script>
 
 <div class="ingested"><div class="wrap">
   <strong>ИМПОРТИРОВАННАЯ КОПИЯ — это не ВОЗ и не действующий сайт.</strong> Эта страница создана инструментом <a href="https://github.com/litlfred/folio-assistant">folio-assistant</a> на основе собственного каталога этого инструмента, описывающего <a href="https://iris.who.int/">WHO IRIS</a> и смоделированного <em>по ссылке</em>: узлов: 13, в репозитории единиц хранения: 273 559, объём: 361,55 GiB; из них <strong>хранятся здесь: 3</strong>. Логотип ВОЗ намеренно опущен, а созданные обложки не показываются по той же причине: на них напечатана эмблема с изданий.
@@ -441,7 +442,7 @@ var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/(?!.*who-
 if(!f)return;
 if(!m||m[1]==null){f.srcdoc="<p style=\"font:1rem system-ui\">The viewer could not find this site's root from the page address. Use the links below.</p>";return;}
 var lm=Date.parse(document.lastModified);
-var url=m[1]+"assets/vendor/pdfjs/web/viewer.html"+"?src="+encodeURIComponent(f.getAttribute("data-src"))+"&v="+"aa67404ffe"+"."+(lm>0?lm.toString(36):"0")+f.getAttribute("data-hash");
+var url=m[1]+"assets/vendor/pdfjs/web/viewer.html"+"?src="+encodeURIComponent(f.getAttribute("data-src"))+"&v="+"f7d9f9a1bc"+"."+(lm>0?lm.toString(36):"0")+f.getAttribute("data-hash");
 if(!("IntersectionObserver" in window)){f.src=url;return;}
 var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting;})){io.disconnect();f.src=url;}},{rootMargin:"200px"});
 io.observe(f);

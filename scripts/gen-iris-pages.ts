@@ -1672,7 +1672,7 @@ function page(
 </style>
 </head>
 <body>
-
+${side === "site" ? replicaNav() : ""}
 <div class="ingested"><div class="wrap">
   ${t("<strong>INGESTED COPY — not WHO, and not live.</strong> This page is rendered by {folioAssistant} from its own catalogue of {iris}, modelled <em>by reference</em>: {figures}. The WHO logo is deliberately omitted, and the rendered covers are withheld from display for the same reason — they carry the emblem printed on the publications.", {
     folioAssistant: `<a href="https://github.com/litlfred/folio-assistant">folio-assistant</a>`,
@@ -2177,6 +2177,36 @@ ${table}
   <p>${t("The download links above point at where the bytes <em>are</em>, so they work. The claim in the catalogue is what is wrong, and <code>check:catalogue</code> does not check <code>localPath</code> at all — it verifies <code>metadataRef</code> and <code>libraryId</code>, and reports a clean run over three <code>materialized</code> claims that resolve to nothing.")}</p>
 </div>
 `;
+}
+
+/**
+ * The replica's own page tree, for the harness rail's section (owner,
+ * 2026-10-15: the rail on who-iris's site showed no contents, only the
+ * Graphs and Harnesses groups). These pages are mounted as finished HTML, so
+ * no Jekyll sidebar lists them, and their headings carry no ids for the rail
+ * to index; the page itself has to say what the replica holds.
+ *
+ * The format is the platform's visualiser-nav declaration (cat-harness-tools
+ * `lib/navbar.ts`: `visualiserNavDeclaration` writes it, `visualiserNavOf`
+ * reads it at mount time). Written here rather than imported because this
+ * checkout resolves cat-harness-tools only through folio-assistant-core's
+ * facade, which does not re-export it. Every page of one locale sits in the
+ * same directory, so each href is a bare file name.
+ */
+let REPLICA_NAV_ALL: Node[] = [];
+function replicaNav(): string {
+  const all = REPLICA_NAV_ALL;
+  const entries: { label: string; href?: string; items?: { label: string; href?: string }[] }[] = [
+    { label: t("Home"), href: "index.html" },
+    { label: t("Community List"), href: "community-list.html" },
+  ];
+  for (const c of all.filter((n) => n.flavour === "collection")) {
+    const items = all
+      .filter((n) => n.flavour === "item" && n.parents.some((p) => p.includes(c.id)))
+      .map((n) => ({ label: n.title, href: replicaPageOf(n)! }));
+    entries.push({ label: c.title, href: replicaPageOf(c)!, ...(items.length ? { items } : {}) });
+  }
+  return `<script type="application/json" data-fa-visualiser-nav>${JSON.stringify(entries).replace(/</g, "\\u003c")}</script>\n`;
 }
 
 function slug(id: string): string {
@@ -3776,6 +3806,7 @@ function main(): number {
   // `site/<locale>/`. The docs and harness pages above are English only and
   // were rendered before the first switch, which is the only reason the
   // module-level LOCALE is safe here: nothing renders across the loop.
+  REPLICA_NAV_ALL = all;
   for (const locale of ["en", ...SITE_LOCALES] as Locale[]) {
     LOCALE = locale;
     const at = locale === "en" ? "site" : `site/${locale}`;
