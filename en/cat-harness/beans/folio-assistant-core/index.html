@@ -560,33 +560,33 @@
   them: those are versioned in their own URLs already.
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="/who-iris/assets/css/navbar-row.css?v=1792091090">
-<link rel="stylesheet" href="/who-iris/assets/css/docs-ui.css?v=1792091090">
+<link rel="stylesheet" href="/who-iris/assets/css/navbar-row.css?v=1792096002">
+<link rel="stylesheet" href="/who-iris/assets/css/docs-ui.css?v=1792096002">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="/who-iris/assets/css/narrow-viewport.css?v=1792091090">
+<link rel="stylesheet" href="/who-iris/assets/css/narrow-viewport.css?v=1792096002">
 
 <!--
   The work-plan dashboard's styles, split from docs-ui.css so that
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="/who-iris/assets/css/work-plan.css?v=1792091090">
+<link rel="stylesheet" href="/who-iris/assets/css/work-plan.css?v=1792096002">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="/who-iris/assets/css/themes.css?v=1792091090">
+<link rel="stylesheet" href="/who-iris/assets/css/themes.css?v=1792096002">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="/who-iris/assets/css/uml.css?v=1792091090">
+<link rel="stylesheet" href="/who-iris/assets/css/uml.css?v=1792096002">
 <!-- Kind avatars. GENERATED from `schemas/avatars.ts` by `bun run cat avatars:css`;
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="/who-iris/assets/css/avatars.css?v=1792091090">
+<link rel="stylesheet" href="/who-iris/assets/css/avatars.css?v=1792096002">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -607,12 +607,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="/who-iris/assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="/who-iris/assets/js/navbar-row.js?v=1792091090" defer></script>
-<script src="/who-iris/assets/js/docs-ui.js?v=1792091090" defer></script>
+<script src="/who-iris/assets/js/navbar-row.js?v=1792096002" defer></script>
+<script src="/who-iris/assets/js/docs-ui.js?v=1792096002" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="/who-iris/assets/js/edit-links.js?v=1792091090" defer></script>
+<script src="/who-iris/assets/js/edit-links.js?v=1792096002" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -699,7 +699,7 @@
 
 <link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-15s6c624lyt.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-platform-base" content="https://litlfred.github.io/folio-assistant" data-fa-platform-ui><link rel="stylesheet" href="../../../../assets/css/docs-ui.css" data-fa-platform-ui><script src="../../../../assets/js/docs-ui.js" defer data-fa-platform-ui></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-15s6c624lyt","here":"/en/cat-harness/beans/folio-assistant-core/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-15s6c624lyt","here":"/en/cat-harness/beans/folio-assistant-core/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#bean-notes","label":"Bean notes — 6"},{"href":"#workflow-state","label":"Workflow instances — 0"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -837,14 +837,30 @@
   
 </h2>
     <div class="table-wrapper"><table><thead><tr><th>id</th><th>title</th><th>status</th><th>type</th><th>priority</th></tr></thead><tbody><tr><td><code>folio-assistant-cpe7</code></td><td>PR CHECKS: core judges its own graph and QA on every pull request</td><td>in-progress</td><td>feature</td><td>high</td></tr><tr><td><code>folio-assistant-dt15</code></td><td>SEARCH: a collapsible magnifier at the top of the display window, full width when open (#1715)</td><td>in-progress</td><td>feature</td><td>high</td></tr><tr><td><code>folio-assistant-q2wm</code></td><td>RENDER SAFETY: declared XSS hints on tools and skills, lazy loading, and dynamic render from the graph</td><td>in-progress</td><td>task</td><td>high</td></tr><tr><td><code>folio-assistant-q4jm</code></td><td>LARGE-DOCUMENT REVIEW: a review/ visualiser for a folio's diff from main — pluggable renderers, heat maps, navigation and review comments, keyed on folio/ block ids</td><td>todo</td><td>epic</td><td>high</td></tr><tr><td><code>folio-assistant-rwmf</code></td><td>GOAL 4 / PLATFORM: the harness's own reliability — gates, process, QA, merge pipeline, deployment — which every GOAL stands on</td><td>in-progress</td><td>milestone</td><td>high</td></tr><tr><td><code>folio-assistant-0lmb</code></td><td>CONTENT MODEL: block kinds, adapters and the authoring surface</td><td>in-progress</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-1r0p</code></td><td>INGEST: audio — transcription and translation</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-2i5f</code></td><td>TERMINOLOGY / adjudication: the extractor vs the terminology, and judge vs judge — call the existing process, restate nothing</td><td>in-progress</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-423d</code></td><td>REVIEW COMMENTS: anchored to block id as 9gyz Findings, surviving moves — and the write path a static page lacks</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-4ccr</code></td><td>WIREFRAME FINDINGS: usability and accessibility defects the as-is wireframes observed (#1023)</td><td>todo</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-5yhm</code></td><td>TERMINOLOGY: identification, mapping and adjudication — a glossary term is CHECKED against an existing terminology, never only minted</td><td>in-progress</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-6h47</code></td><td>RENDER STAGE 3: the dynamic-state export has a position but no filename — the owner left it open on purpose</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-6lb8</code></td><td>FOLIO BOARD: a resizable Miro-style board, notes that move and attach, and semantic zoom to avatars</td><td>in-progress</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-72gk</code></td><td>todos visualiser: 5 wireframe findings</td><td>in-progress</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-ckej</code></td><td>CONJECTURE REGISTER: a register node per open problem, and a formal|identification field on conjecture() (folio-assistant-sci)</td><td>todo</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-cp3v</code></td><td>TOC extractor: benchmark methods against PDF outlines and add a font-metric (layout) method (#2302)</td><td>in-progress</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-cz17</code></td><td>Migrate dak.json in: the DAK type is ours, and its Logical Model is pending upstream</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-d5f1</code></td><td>INGEST: narrative description per image, localized, including images extracted from PDFs</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-dp1j</code></td><td>KG AFFORDANCES: browse, materialise, instantiate, copy-into-my-folio — as processes and skills, gated by write capability</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-f327</code></td><td>DIFF RENDERER: structural diff for DAK artefacts — a decision-table row, data element, indicator or FHIR profile element compared as fields, not text</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-hf2q</code></td><td>PROGRAMME PROGRESS: an epic burn-down and a math-progress heat map as a board feed</td><td>todo</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-kx6i</code></td><td>PAPER SITE in the harness rendering (yj32): math, Lean links and notation macros, blocking qou's legacy-render retirement</td><td>todo</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-mcsm</code></td><td>Voice docs pages + WHO library ingestion: per-voice documentation, PDF extraction, JSON-LD graph (issue #208 follow-up)</td><td>in-progress</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-mwzd</code></td><td>INGEST trust + origin sources (#1614 item 4): WHO SMART Trust IG, C2PA spec, DSpace 7 REST contract</td><td>in-progress</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-npuo</code></td><td>GOAL 5 / CONTENT: the content model and the ingest pipeline that feeds it</td><td>todo</td><td>milestone</td><td>normal</td></tr><tr><td><code>folio-assistant-o3xy</code></td><td>UI &amp; ACCESSIBILITY: the rendered site is the artefact a reader judges</td><td>in-progress</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-o7eq</code></td><td>URL SPACE: rendered assets mirror the instantiation structure — &lt;baseurl&gt;/ for the root, &lt;baseurl&gt;/&lt;instance&gt;/&lt;path&gt; for every enabled harness</td><td>todo</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-scfh</code></td><td>INGEST SLIDES: pptx+odp rung, a11y probe, KG/folio-asst deck into library, methodology gaps, docs (#1614)</td><td>in-progress</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-slw1</code></td><td>INGEST: one pipeline from uploads/ to a complete L1 library</td><td>todo</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-supn</code></td><td>HARNESS CARDS BECOME TODOS: outstanding work, a next-action recommendation from initialisation state, and health badges</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-v49e</code></td><td>WORKFLOW VIEW: cat-harness folio shows where todos and beans sit in the BPMN/DMN, and where a process is breaking down</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-x80s</code></td><td>INGEST: agent summaries of prose blocks, a QA sidecar drained slowly during ingestion</td><td>in-progress</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-xp72</code></td><td>SCALE FIXTURE: a before/after large-document pair with a golden ChangeSet and a measured performance budget</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-y4uj</code></td><td>Ingest #1614 item 4 sources 7, 8, 11: FHIR TestPlan, ITB docs, CWA 16408, Gherkin ref, MCP spec, hmans/beans README</td><td>in-progress</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-yj32</code></td><td>HARNESS AS INTERFACE: a harness instance's default rendering is LHS + docs/ + a themed folio board, and it is a KG-DS management system</td><td>todo</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-turh</code></td><td>Library asset viewer: TOC, pages with labels, figures/tables, section extracts — for any ingested library/ entry (#2302)</td><td>in-progress</td><td>feature</td><td></td></tr><tr><td><code>folio-core-2mb0</code></td><td>Adjudicate the 68 round-trip findings on who-iris's catalogues (66 warn, 2 fail)</td><td>todo</td><td>task</td><td></td></tr><tr><td><code>folio-core-shsz</code></td><td>Translation info drawer on every translation warning (pointer → cat-tools-bbnd)</td><td>todo</td><td>feature</td><td></td></tr><tr><td><code>folio-core-urat</code></td><td>Migrate folio-tabular-records/v1 to folio-tabular-csvw/v1, measured on real tabular sources</td><td>todo</td><td>task</td><td></td></tr></tbody></table></div>
-<h2 class="sv-h2">
+<h2 class="sv-h2" id="bean-notes">
   
   
-    <a href="#beans-folio-assistant-core" class="anchor-heading" aria-labelledby="beans-folio-assistant-core"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Instances holding a work plan of their own
+    <a href="#bean-notes" class="anchor-heading" aria-labelledby="bean-notes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Bean notes — 6
   
   
 </h2>
-    <ul class="sv-list"><li><a href="../cat-harness-tools/">cat-harness-tools</a></li><li><span class="sv-here">folio-assistant-core</span></li></ul>
+    <div class="table-wrapper"><table><thead><tr><th>bean</th><th>date</th><th>branch</th></tr></thead><tbody><tr><td><code>folio-assistant-72gk</code></td><td>2026-10-02</td><td>claude-todos-page-stickies</td></tr><tr><td><code>folio-assistant-dxje</code></td><td>2026-10-02</td><td>claude-stickies-one-component</td></tr><tr><td><code>folio-assistant-ob3m</code></td><td>2026-10-02</td><td>claude-quirky-hypatia-k3aoh4-sidebar-rail</td></tr><tr><td><code>folio-assistant-ob3m</code></td><td>2026-10-02</td><td>claude-quirky-hypatia-k3aoh4</td></tr><tr><td><code>folio-assistant-rc1e</code></td><td>2026-10-04</td><td>claude-gracious-mendel-du6nn8</td></tr><tr><td><code>folio-assistant-y7b3</code></td><td>2026-10-04</td><td>claude-gracious-mendel-du6nn8</td></tr></tbody></table></div>
+<h2 class="sv-h2" id="workflow-state">
+  
+  
+    <a href="#workflow-state" class="anchor-heading" aria-labelledby="workflow-state"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Workflow instances — 0
+  
+  
+</h2>
+    <p class="sv-sub">No BPMN instance recorded in this store.</p>
+<h2 class="sv-h2">
+  
+  
+    <a href="#workflow-state" class="anchor-heading" aria-labelledby="workflow-state"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Instances holding a work plan of their own
+  
+  
+</h2>
+    <ul class="sv-list"><li><a href="../cat-harness/">cat-harness</a></li><li><a href="../cat-harness-tools/">cat-harness-tools</a></li><li><span class="sv-here">folio-assistant-core</span></li></ul>
 </div>
 
           
