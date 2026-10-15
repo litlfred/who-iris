@@ -73,6 +73,8 @@ export {
   defineTool,
   type ToolDefinition,
   toolTypeIri,
+  toolFactory,
+  toolsFromFolders,
 } from "@litlfred/folio-assistant-core/scripts/platform.ts";
 export { bytesFor, repoRelative } from "@litlfred/folio-assistant-core/scripts/lib/bytes.ts";
 export { resolvableIri, type CatalogueNode } from "@litlfred/folio-assistant-core/schemas/catalogue.ts";
