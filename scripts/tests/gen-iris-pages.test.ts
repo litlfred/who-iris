@@ -73,9 +73,13 @@ function sortedIds(): string[] {
     .sort((a, b) => a.localeCompare(b, "en"));
 }
 
-/** The item slugs a page links to, in the order it first links to each. */
+/**
+ * The item slugs a page links to, in the order it first links to each.
+ * The rail's page tree (`data-fa-visualiser-nav`) is left out: it is the
+ * replica's chrome, grouped by collection, not one of the page's lists.
+ */
 function itemOrderIn(page: string): string[] {
-  const html = readFileSync(join(sideOf(page), page), "utf-8");
+  const html = readFileSync(join(sideOf(page), page), "utf-8").replace(/<script type="application\/json" data-fa-visualiser-nav>[^<]*<\/script>/, "");
   const seen: string[] = [];
   for (const m of html.matchAll(/item-(item-[a-z0-9-]+)\.html/g)) {
     if (!seen.includes(m[1]!)) seen.push(m[1]!);
@@ -404,6 +408,25 @@ describe("the IRIS home replica", () => {
     expect(home).toContain("WHO handbook for guideline development");
     expect(home).toContain("WHO editorial style manual");
     expect(home).toContain("../id-lookup/?index=who-iris/");
+  });
+});
+
+describe("the rail's page tree (owner, 2026-10-15: the rail showed no contents)", () => {
+  it("every replica page declares the tree, and it names every collection and item page", () => {
+    const pages = readdirSync(SITE).filter((f) => f.endsWith(".html"));
+    const wanted = sortedIds()
+      .filter((id) => id.startsWith("item/") || id.startsWith("collection/"))
+      .map((id) => `${id.split("/")[0]}-${slug(id)}.html`);
+    for (const page of pages) {
+      const m = /<script type="application\/json" data-fa-visualiser-nav>([^<]*)<\/script>/.exec(readFileSync(join(SITE, page), "utf-8"));
+      expect(m).not.toBeNull();
+      const entries = JSON.parse(m![1]!) as { href?: string; items?: { href?: string }[] }[];
+      const hrefs = entries.flatMap((e) => [e.href, ...(e.items ?? []).map((i) => i.href)]);
+      expect(hrefs).toContain("index.html");
+      expect(hrefs).toContain("community-list.html");
+      for (const f of wanted) expect(hrefs).toContain(f);
+      for (const h of hrefs) expect(existsSync(join(SITE, h!))).toBe(true);
+    }
   });
 });
 
