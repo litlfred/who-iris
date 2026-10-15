@@ -2479,15 +2479,19 @@ ${rows}
  * says. Only PDFs: the viewer is pdf.js, and a held `.docx` in a PDF frame is
  * an error page.
  *
- * The CDN URL rather than the raw one, for the reason the page already offers
- * it — it is the one that serves the bytes with a cache in front.
+ * The RAW URL, not the CDN one (owner, 2026-10-15). The CDN link reached
+ * readers as an empty viewer ("0 of 0"): jsDelivr's answer for this repository
+ * cannot be verified from the environment that writes this page, and the raw
+ * one demonstrably serves the bytes (200, `application/pdf` bytes, `access-
+ * control-allow-origin: *`, ranges). The CDN link stays offered in the Files
+ * table; the viewer reads the source that is known to serve.
  * `FOLIO_ROUTE` finds the site root for the same reason it does for the folio
  * mount: one page, several depths.
  */
 function readHere(n: Node, a: ReturnType<typeof assetHref>): string {
   if (!a || a.withheld.length > 0 || !/\.pdf$/i.test(a.name)) return "";
   return `<h2>${t("Read it here")}</h2>
-${pdfViewer({ src: a.cdn, title: n.title, route: FOLIO_ROUTE })}
+${pdfViewer({ src: a.href, title: n.title, route: FOLIO_ROUTE })}
 
 `;
 }
