@@ -44,6 +44,36 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-dmn-decisions/decision_mergeauthorisation",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-dmn-decisions"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Is this merge authorised?"
+        }
+      ],
+      "skos:notation": "Decision_MergeAuthorisation",
+      "dcterms:source": "cat-harness/processes/sdlc/decisions/merge-authorisation.dmn#Decision_MergeAuthorisation",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-dmn-decisions/decision_mergeevidence",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-dmn-decisions"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "What does the head's evidence say?"
+        }
+      ],
+      "skos:notation": "Decision_MergeEvidence",
+      "dcterms:source": "cat-harness/processes/sdlc/decisions/merge-evidence.dmn#Decision_MergeEvidence",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/0.1.0/ns#glossary/kg-dmn-decisions/decision_mergepriority",
       "@type": "skos:Concept",
       "skos:inScheme": {

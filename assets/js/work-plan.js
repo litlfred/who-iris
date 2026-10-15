@@ -118,14 +118,28 @@
    */
   var repoWeb = "";
 
-  /** `<repo>/blob/main/<file>`, or `null` when either half is missing. */
-  function viewHref(file) {
-    return repoWeb && file ? repoWeb + "/blob/main/" + file : null;
+  /**
+   * The repository and BRANCH every bean `file` is a path on — read off the
+   * projection (`fileWeb`, `fileRef`), never assumed. Since the state cutover
+   * the bean store is kept on `cat/cat-harness/beans` and untracked on
+   * `main`, and a hard-coded `/blob/main/` sent every bean link to a 404.
+   * A projection older than these keys falls back to the old answer.
+   */
+  var fileWeb = "";
+  var fileRef = "main";
+
+  function forgePath(file) {
+    return encodeURI(fileRef) + "/" + String(file).split("/").map(encodeURIComponent).join("/");
   }
 
-  /** `<repo>/edit/main/<file>` — where writing actually happens. */
+  /** `<repo>/blob/<ref>/<file>`, or `null` when either half is missing. */
+  function viewHref(file) {
+    return fileWeb && file ? fileWeb + "/blob/" + forgePath(file) : null;
+  }
+
+  /** `<repo>/edit/<ref>/<file>` — where writing actually happens. */
   function editHrefFor(file) {
-    return repoWeb && file ? repoWeb + "/edit/main/" + file : null;
+    return fileWeb && file ? fileWeb + "/edit/" + forgePath(file) : null;
   }
 
   /**
@@ -1194,6 +1208,8 @@
         // detects it once. Taking the first that has it means a todos-only
         // page still gets its links.
         repoWeb = (beanDoc && beanDoc.repoWeb) || (todoDoc && todoDoc.repoWeb) || "";
+        fileWeb = (beanDoc && beanDoc.fileWeb) || repoWeb;
+        fileRef = (beanDoc && beanDoc.fileRef) || "main";
 
         var todoItems = todoDoc === undefined ? undefined : (todoDoc ? todoDoc.items : null);
 

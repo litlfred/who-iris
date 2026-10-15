@@ -5,7 +5,7 @@
       "@base": "https://litlfred.github.io/folio/"
     }
   ],
-  "@id": "https://litlfred.github.io/folio-assistant/assets/library/jsonld/cat-harness-8107/arxiv-2404.04834v4/manifest.jsonld",
+  "@id": "https://litlfred.github.io/folio-assistant/assets/library/jsonld/cat-harness/arxiv-2404.04834v4/manifest.jsonld",
   "@type": [
     "cat-harness:SourceDocument"
   ],
@@ -36,6 +36,7 @@
     "library/arxiv-2404.04834v4/sections/sec-021"
   ],
   "provenance": "ingested",
+  "inSubgraph": "https://litlfred.github.io/folio-assistant/cat-harness.jsonld#directory/library",
   "licenceRecord": {
     "status": "unknown",
     "searched": [

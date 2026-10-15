@@ -163,7 +163,7 @@
     '<path d="M7.2 10.2l2 2m0-2l-2 2" fill="none" stroke="currentColor" ' +
     'stroke-width="1.6" stroke-linecap="round"/></svg>';
   var QR_GLYPH =
-    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">' +
     '<path d="M3 3h7v7H3V3zm2 2v3h3V5H5zm9-2h7v7h-7V3zm2 2v3h3V5h-3zM3 14h7v7H3v-7zm2 2v3h3v-3H5z"/>' +
     '<path d="M13 13h3v3h-3v-3zm5 0h3v2h-3v-2zm-5 5h2v3h-2v-3zm4 1h4v2h-4v-2zm2-3h2v2h-2v-2z"/>' +
     "</svg>";
@@ -189,6 +189,17 @@
     var node = document.getElementById("fa-navbar-row");
     if (!node) return undefined;
     var text = (node.textContent || "").trim();
+    // SHARED ROW DATA THAT DID NOT ARRIVE. A folio's railed page keeps the
+    // island empty and names the file that fills it (`data-fa-row-src`,
+    // `withNavbarRow` in harness-rail.ts); the file drops the name once it
+    // has. Still named and still empty, the load FAILED — and that is not
+    // "declared nothing", which an empty island otherwise means.
+    if (text === "" && node.hasAttribute("data-fa-row-src")) {
+      node.setAttribute("data-fa-row-state", "failed");
+      console.warn("navbar-row: the navbar icon row's shared data (" +
+                   node.getAttribute("data-fa-row-src") + ".js) did not load; the row was not mounted.");
+      return undefined;
+    }
     if (text === "" || text === "null") return null;   // declared nothing
     try {
       var parsed = JSON.parse(text);
@@ -432,22 +443,53 @@
             document.head.appendChild(s1);
           }
 
+          /* THE CODE NEEDS THE BAR OPEN (bean 5rmf, measured 2026-10-12). The
+           * panel lives inside the bar, and the pointer that clicked the icon
+           * is on the icon column, where `.fa-nav-tip-hold` keeps the strip
+           * shut — so on a wide screen the code opened as a 56px sliver. Opening
+           * it pins the bar; closing it unpins only a pin it made, so a bar the
+           * reader pinned stays pinned. */
+          var pinnedByQr = false;
+          function pin(on) {
+            var box = document.getElementById("fa-nav-open");
+            var wide = window.matchMedia && window.matchMedia("(min-width: 50rem)").matches;
+            if (!box || !wide) return;
+            if (on && !box.checked) {
+              box.checked = true;
+              pinnedByQr = true;
+              box.dispatchEvent(new Event("change"));
+            } else if (!on && pinnedByQr) {
+              pinnedByQr = false;
+              if (box.checked) {
+                box.checked = false;
+                box.dispatchEvent(new Event("change"));
+              }
+            }
+          }
+
           function setOpen(isOpen) {
             if (isOpen) {
               ensure(function () {
                 render();
                 panel.setAttribute("data-open", "true");
                 btn.setAttribute("aria-expanded", "true");
+                pin(true);
               });
             } else {
               panel.setAttribute("data-open", "false");
               btn.setAttribute("aria-expanded", "false");
+              pin(false);
             }
           }
 
-          btn.addEventListener("click", function () {
+          btn.addEventListener("click", function (e) {
             var isOpen = panel.getAttribute("data-open") === "true";
             setOpen(!isOpen);
+            // A POINTER close drops focus too, as the avatar's does: the bar
+            // also opens on `:focus-within`, so a focused icon held it open
+            // after the click that closed the code. A keyboard close (detail 0)
+            // keeps focus where the reader is.
+            if (isOpen && e.detail > 0) btn.blur();
           });
 
           panel.addEventListener("click", function () {
@@ -504,7 +546,7 @@
         // the page the slot is LEFT OUT (owner, 2026-10-05).
         if (typeof hooks.launcher !== "function") continue;
         var tip = LABELS.launcher + " — settings, discarded items";
-        var proxy = el("button", { type: "button", class: "fa-nav-icon", "aria-label": LABELS.launcher, title: tip, "data-fa-tip": tip });
+        var proxy = el("button", { type: "button", class: "fa-nav-icon", "aria-label": tip, title: tip, "data-fa-tip": tip });
         proxy.innerHTML = rowGlyph("launcher");
         proxy.addEventListener("click", hooks.launcher);
         host.appendChild(proxy);

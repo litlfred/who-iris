@@ -505,7 +505,10 @@
     // a page nobody said anything about, and it keeps its layout.
     var mainContent = document.querySelector(".main-content, #main-content") ||
       (meta ? document.querySelector("main") : null);
-    if (!mainContent) return;
+    // A page that offers the bar a place of its own (`localeSlot`) needs no
+    // content column: the slot is where it goes.
+    var slot = localeSlot();
+    if (!mainContent && !slot) return;
 
     // No inline colours, here or below. Every one of this bar's pairs is a
     // per-scheme token in `docs-ui.css` with its measured ratio written beside
@@ -600,7 +603,28 @@
     // made `insertBefore` throw and took the rest of `init()` down with it
     // (2026-09-22, 2026-09-27). Appending to a slot this file created has no
     // reference node to go stale.
-    glassBandSlot("start").appendChild(container);
+    //
+    // OR IN THE PAGE'S OWN SLOT (owner, 2026-10-15: "move the language
+    // picker into the IG top bar"). A page whose own bar already holds its
+    // search box marks a place beside it, `data-fa-slot="locale"`, and the
+    // bar goes there instead of the band. A page without one keeps the band,
+    // so every folio site that has no such bar is unchanged.
+    if (slot) {
+      container.setAttribute("data-fa-slotted", "");
+      slot.appendChild(container);
+    } else {
+      glassBandSlot("start").appendChild(container);
+    }
+  }
+
+  /**
+   * The place a page set aside for the language picker, or null: the first
+   * element marked `data-fa-slot="locale"`. The page writes the slot and this
+   * file fills it; nothing here knows which page, or which layer's bar,
+   * offers one.
+   */
+  function localeSlot() {
+    return document.querySelector('[data-fa-slot="locale"]');
   }
 
   /* ── Colour scheme ───────────────────────────────────────────────────── */
@@ -764,7 +788,7 @@
     for (var i = 0; i < schemePainters.length; i++) schemePainters[i](next);
 
     // No reload. Diagrams are pinned to Mermaid's LIGHT palette on a white
-    // card in both schemes (docs/_includes/mermaid_config.js), so nothing on
+    // card in both schemes (site-chrome/_includes/mermaid_config.js), so nothing on
     // the page needs re-rendering when the scheme changes. An earlier version
     // reloaded here because the diagram palette followed the scheme; that
     // coupling is gone and the reload went with it.
@@ -833,7 +857,7 @@
   // A static glyph: three finder squares and a scatter of modules. Inline so
   // it needs no extra request and inherits the header's colour.
   var QR_GLYPH =
-    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">' +
     '<path d="M3 3h7v7H3V3zm2 2v3h3V5H5zm9-2h7v7h-7V3zm2 2v3h3V5h-3zM3 14h7v7H3v-7zm2 2v3h3v-3H5z"/>' +
     '<path d="M13 13h3v3h-3v-3zm5 0h3v2h-3v-2zm-5 5h2v3h-2v-3zm4 1h4v2h-4v-2zm2-3h2v2h-2v-2z"/>' +
     "</svg>";
@@ -10274,9 +10298,14 @@
   // on smart-immunizations' business-processes page). Each inlined drawing
   // therefore gets its own prefix on every class and id, and its `<style>`
   // selectors, `url(#…)` references and `#…` hrefs are rewritten to match.
+  // The harness's OWN classes (`fa-…`, e.g. render-bpmn's `fa-subprocess-link`)
+  // are not the file's private names: the page's stylesheet and scripts select
+  // them, so they are left as written. Prefixing them broke every subprocess
+  // link on the processes pages (subprocess-links.e2e.ts, 2026-10-10).
   var svgScopeSeq = 0;
   function scopeSvg(svg) {
     var pfx = "fa-svg" + ++svgScopeSeq + "-";
+    function scoped(c) { return /^fa-/.test(c) ? c : pfx + c; }
     var ids = {};
     [].forEach.call(svg.querySelectorAll("[id]"), function (el) {
       var id = el.getAttribute("id");
@@ -10291,7 +10320,7 @@
     [].forEach.call(svg.querySelectorAll("*"), function (el) {
       var cls = el.getAttribute("class");
       if (cls) {
-        el.setAttribute("class", cls.split(/\s+/).filter(Boolean).map(function (c) { return pfx + c; }).join(" "));
+        el.setAttribute("class", cls.split(/\s+/).filter(Boolean).map(scoped).join(" "));
       }
       [].forEach.call([].slice.call(el.attributes), function (a) {
         if (a.value.indexOf("url(") !== -1) el.setAttribute(a.name, reId(a.value));
@@ -10301,7 +10330,7 @@
       });
     });
     var rootCls = svg.getAttribute("class");
-    if (rootCls) svg.setAttribute("class", rootCls.split(/\s+/).filter(Boolean).map(function (c) { return pfx + c; }).join(" "));
+    if (rootCls) svg.setAttribute("class", rootCls.split(/\s+/).filter(Boolean).map(scoped).join(" "));
     // Selectors are rewritten only OUTSIDE the declaration blocks, so a value
     // such as `font-size:0.83em` is never mistaken for a class.
     [].forEach.call(svg.querySelectorAll("style"), function (st) {
@@ -10311,7 +10340,7 @@
         if (ch === "{") {
           if (depth === 0) {
             out += buf.replace(/([.#])(-?[A-Za-z_][\w-]*)/g, function (m, sigil, name) {
-              return sigil === "." ? "." + pfx + name : (ids[name] ? "#" + ids[name] : m);
+              return sigil === "." ? "." + scoped(name) : (ids[name] ? "#" + ids[name] : m);
             });
             buf = "";
           }
@@ -11749,6 +11778,17 @@
     var node = document.getElementById("fa-navbar-row");
     if (!node) return undefined;
     var text = (node.textContent || "").trim();
+    // SHARED ROW DATA THAT DID NOT ARRIVE. A folio's railed page keeps the
+    // island empty and names the file that fills it (`data-fa-row-src`,
+    // `withNavbarRow` in harness-rail.ts); the file drops the name once it
+    // has. Still named and still empty, the load FAILED — and that is not
+    // "declared nothing", which an empty island otherwise means.
+    if (text === "" && node.hasAttribute("data-fa-row-src")) {
+      node.setAttribute("data-fa-row-state", "failed");
+      console.warn("docs-ui: the navbar icon row's shared data (" +
+                   node.getAttribute("data-fa-row-src") + ".js) did not load; the row was not mounted.");
+      return undefined;
+    }
     if (text === "" || text === "null") return null;   // declared nothing
     try {
       var parsed = JSON.parse(text);
@@ -12434,13 +12474,19 @@
     // The class the stylesheet keys the hover-case `[x]` on. Set FIRST, so a
     // control that needs this handler never appears without it.
     bar.classList.add("fa-nav-js");
-    applyNavPref(readNavPref());
+    /* STAY-CLOSED IS NO LONGER REMEMBERED — owner, 2026-10-12: *"when LHS
+     * navbar is slid open, the navbar remains collapsed. you then have to
+     * click the avatar to open it"*. Once `[x]` went (#1762) the avatar was
+     * the only close, so EVERY close stored "closed" and the hover peek was
+     * withheld on every page after it. A close now holds the bar shut only
+     * until the pointer leaves it (below), and a "closed" an earlier visit
+     * stored is cleared rather than obeyed. */
+    if (readNavPref() === "closed") writeNavPref(null);
+    applyNavPref(null);
 
     var box = document.getElementById("fa-nav-open");
     // NO ☰ AND NO [x] (#1757 on the rail, ob3m finding 8 here). The avatar
-    // below is the one control: it pins the bar open, lifting stay-closed, and
-    // closes it, setting stay-closed -- so the preference keeps both of its
-    // directions (`l4zi`) with one control instead of three.
+    // below is the one control: it pins the bar open and closes it.
 
     /* THE AVATAR OPENS AND CLOSES THE BAR — owner, 2026-09-27: *"navbar
      * starts hidden, click avatar opens for a split second then returns to
@@ -12473,8 +12519,15 @@
         if (!wide.matches) return;
         e.preventDefault();
         box.checked = !box.checked;
-        writeNavPref(box.checked ? null : "closed");
+        // Closed under the pointer, the hover peek would hold it open, so the
+        // peek is withheld -- until the pointer leaves the bar, not for good.
         applyNavPref(box.checked ? null : "closed");
+        if (!box.checked) {
+          bar.addEventListener("pointerleave", function release() {
+            bar.removeEventListener("pointerleave", release);
+            if (!box.checked) applyNavPref(null);
+          });
+        }
         label();
         // Closing must drop focus too: the bar also opens on `:focus-within`
         // (the keyboard path), so a focused avatar held it open after the

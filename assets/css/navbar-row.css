@@ -184,8 +184,10 @@ button.fa-nav-icon {
 @media (max-width: 50rem) {
   .fa-qr-panel {
     position: fixed;
-    top: 0.75rem;
-    top: max(0.75rem, env(safe-area-inset-top, 0px));
+    /* Below the fixed top bar (language, ▾ Folio), which sat over the code's top
+       rows at 390px (bean 5rmf, measured 2026-10-12). */
+    top: 3rem;
+    top: calc(3rem + env(safe-area-inset-top, 0px));
     left: 50%;
     transform: translateX(-50%);
     width: auto;
