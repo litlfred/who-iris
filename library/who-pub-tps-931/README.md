@@ -9,6 +9,7 @@ Held in the library [`who-iris/library/`](../README.md) as `who-pub-tps-931`.
 |---|---|
 | document id | `who-pub-tps-931` |
 | source file | `WHO_PUB_TPS_93.1.pdf` (sha256 `ecc88eee9975…`) |
+| pages | 121 |
 | provenance | ingested |
 
 | holds | count |

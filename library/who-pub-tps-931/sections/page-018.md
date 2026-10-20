@@ -3,12 +3,11 @@ doc_id: who-pub-tps-931
 doc_title: "WHO Editorial Style Manual"
 section_id: page-018
 section_title: "Page 18"
+section_number: null
 pages: 18-18
-pdf_page: 18
 source_pdf: WHO_PUB_TPS_93.1.pdf
 source_sha256: ecc88eee99756755
-text_source: ocr
-granularity: page
+toc_source: undetermined
 ---
 1. To mark the antithesis between two statements more sharply
 than a semicolon.
