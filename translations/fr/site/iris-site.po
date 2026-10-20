@@ -98,7 +98,7 @@ msgstr "<strong>Ceci est la porte d’entrée, pas le visualiseur de la biblioth
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
 msgid "<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it."
-msgstr "<strong>Trois accès à un même document, et c’est voulu.</strong> Le catalogue ne connaît ce document qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un serveur de périphérie du CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir."
+msgstr "<strong>Trois accès à un même item, et c’est voulu.</strong> Le catalogue ne connaît cet item qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un serveur de périphérie du CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir."
 
 #: who-iris/scripts/gen-iris-pages.ts:789
 #. Note under the held-items table. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). #477 is a pull request number. Keep everything in <code> as written.
@@ -113,7 +113,7 @@ msgstr "Une couverture est générée et conservée ici. Elle n’est pas publi�
 #: who-iris/scripts/gen-iris-pages.ts:844
 #. Tooltip on a cover the replica chooses not to display.
 msgid "A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO."
-msgstr "Une couverture est générée et enregistrée pour ce document. Elle n’est pas affichée : la couverture de la publication porte l’emblème de l’OMS, et cette réplique n’est pas publiée sous l’égide de l’OMS."
+msgstr "Une couverture est générée et inscrite au catalogue pour cet item. Elle n’est pas affichée : la couverture de la publication porte l’emblème de l’OMS, et cette réplique n’est pas publiée sous l’égide de l’OMS."
 
 #: who-iris/scripts/gen-iris-pages.ts:724
 #. The page's meta description, read by search engines and link previews.
@@ -128,7 +128,7 @@ msgstr "À propos"
 #: who-iris/scripts/gen-iris-pages.ts:835
 #. Continues the note above. Keep everything in <code> as written.
 msgid "Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on."
-msgstr "L’adressage suit la règle du propriétaire — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — de sorte qu’une instance qui instancie un répertoire obtient un visualiseur monté sous le type de ce répertoire : <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, etc."
+msgstr "L’adressage suit la règle du propriétaire — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — de sorte qu’une instance qui instancie un répertoire obtient un visualiseur monté sous le genre (kind) de ce répertoire : <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, etc."
 
 #: who-iris/scripts/gen-iris-pages.ts:849
 #. Before a link that repeats the search in the identifier lookup.
@@ -223,7 +223,7 @@ msgstr "Dublin Core XML"
 #: who-iris/scripts/gen-iris-pages.ts:786
 #. Paragraph under that heading.
 msgid "Each row carries <strong>three routes to the same item</strong>: the <strong>IRIS source</strong> upstream at WHO, this repository's own <strong>local replica</strong> page, and the <strong>asset itself</strong> — downloadable from the repository and, separately, from a CDN edge."
-msgstr "Chaque ligne offre <strong>trois accès au même document</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un serveur de périphérie du CDN."
+msgstr "Chaque ligne offre <strong>trois accès au même item</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un serveur de périphérie du CDN."
 
 #: who-iris/scripts/gen-iris-pages.ts:784
 #. Introduction to the community list. {referenced} and {materialized} are the state badges, already translated.
@@ -518,7 +518,7 @@ msgstr "Taille"
 #: who-iris/scripts/gen-iris-pages.ts:782
 #. Under a community whose size at WHO was never measured.
 msgid "size upstream <strong>unknown</strong> — the storage report's second page was never read, and a number interpolated from the first would look measured"
-msgstr "taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre extrapolé à partir de la première aurait l’air mesuré"
+msgstr "taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre interpolé à partir de la première aurait l’air mesuré"
 
 #: who-iris/scripts/gen-iris-pages.ts:741
 #. Footer, second paragraph. {iris} is a link to iris.who.int.

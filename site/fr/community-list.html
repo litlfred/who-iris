@@ -427,7 +427,7 @@
   <div class="row"><span class="chev" aria-hidden="true">&rsaquo;</span>
     <span class="title"><a href="https://iris.who.int/communities/270bee8e-d535-4512-86a2-b01850407a23"><bdi>3. Regional Office for the Americas</bdi></a>
     <span class="state referenced">référencé</span></span></div>
-  <p class="note">taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre extrapolé à partir de la première aurait l’air mesuré</p>
+  <p class="note">taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre interpolé à partir de la première aurait l’air mesuré</p>
   
 </li>
 <li>
@@ -448,7 +448,7 @@
   <div class="row"><span class="chev" aria-hidden="true">&rsaquo;</span>
     <span class="title"><a href="https://iris.who.int/communities/8f327840-b0f3-4769-a1c2-270b2b5ce7da"><bdi>6. Regional Office for South-East Asia</bdi></a>
     <span class="state referenced">référencé</span></span></div>
-  <p class="note">taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre extrapolé à partir de la première aurait l’air mesuré</p>
+  <p class="note">taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre interpolé à partir de la première aurait l’air mesuré</p>
   
 </li>
 <li>
@@ -464,13 +464,13 @@
   <div class="row"><span class="chev" aria-hidden="true">&rsaquo;</span>
     <span class="title"><a href="https://iris.who.int/communities/28b22be0-5864-409c-9b83-0442e2a7ca0e"><bdi>8. WHO Framework Convention on Tobacco Control (FCTC)</bdi></a>
     <span class="state referenced">référencé</span></span></div>
-  <p class="note">taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre extrapolé à partir de la première aurait l’air mesuré</p>
+  <p class="note">taille en amont <strong>inconnue</strong> — la deuxième page du rapport de stockage n’a jamais été lue, et un chiffre interpolé à partir de la première aurait l’air mesuré</p>
   
 </li>
 </ul>
 
 <h2>Conservés ici — 3 document(s) matérialisé(s)</h2>
-<p>Chaque ligne offre <strong>trois accès au même document</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un serveur de périphérie du CDN.</p>
+<p>Chaque ligne offre <strong>trois accès au même item</strong> : la <strong>source IRIS</strong> en amont à l’OMS, la page de <strong>réplique locale</strong> propre à ce dépôt, et <strong>la ressource elle-même</strong> — téléchargeable depuis le dépôt et, séparément, depuis un serveur de périphérie du CDN.</p>
 
 <table class="items">
 <thead><tr><th>Document</th><th>Collection</th><th>État</th><th>En amont</th><th>Copie conservée</th><th>Notice de métadonnées</th></tr></thead>
@@ -512,7 +512,7 @@
 </table>
 
 <div class="caveat">
-  <p><strong>Trois accès à un même document, et c’est voulu.</strong> Le catalogue ne connaît ce document qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un serveur de périphérie du CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir.</p>
+  <p><strong>Trois accès à un même item, et c’est voulu.</strong> Le catalogue ne connaît cet item qu’une fois ; les octets sont accessibles <em>en amont à l’OMS</em>, <em>ici sous forme de page de réplique</em> et <em>depuis un serveur de périphérie du CDN</em> — jsDelivr sert tout dépôt public, si bien que le dernier ne coûte à ce projet aucun hébergement. Le graphe de connaissances dit ce qui existe et où ; le CDN ne dit rien et se contente de servir.</p>
   <p><strong>Les deux formes de lien fonctionnent, c’est vérifié.</strong> Les liens <code>raw.githubusercontent.com</code> ont été récupérés et ont renvoyé 200, avec des tailles en octets correspondant exactement au catalogue. Les liens <em>via le CDN</em> n’ont pas pu être vérifiés depuis l’environnement qui a généré cette page — <code>cdn.jsdelivr.net</code> y est bloqué en sortie — ils ont donc été composés selon la forme d’URL documentée par jsDelivr, et le propriétaire en a testé un à la main le 2026-09-20. Les deux sont conservés : l’un ne coûte rien à servir à ce projet, et un lecteur qui trouve l’un indisponible dispose encore de l’autre.</p>
   <p><strong>Où se trouvent réellement les copies conservées — grain <code>yl5w</code>.</strong> Le catalogue enregistre chacune d’elles à <code>uploads/&lt;name&gt;.pdf</code> relativement à <code>who-iris/</code>, et <em>ces trois chemins sont tous absents</em> : la #477 a déplacé <code>library/</code> dans cette instance et laissé <code>uploads/</code> dans <code>cat-harness/</code>.</p>
   <p>Les liens de téléchargement ci-dessus pointent vers l’endroit où les octets <em>se trouvent</em>, ils fonctionnent donc. C’est l’affirmation du catalogue qui est fausse, et <code>check:catalogue</code> ne vérifie pas du tout <code>localPath</code> : il vérifie <code>metadataRef</code> et <code>libraryId</code>, et signale une exécution sans erreur sur trois affirmations <code>materialized</code> qui ne renvoient à rien.</p>
