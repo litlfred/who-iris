@@ -3,12 +3,11 @@ doc_id: who-pub-tps-931
 doc_title: "WHO Editorial Style Manual"
 section_id: page-034
 section_title: "Page 34"
+section_number: null
 pages: 34-34
-pdf_page: 34
 source_pdf: WHO_PUB_TPS_93.1.pdf
 source_sha256: ecc88eee99756755
-text_source: ocr
-granularity: page
+toc_source: undetermined
 ---
 Reference lists and bibliographies
 
