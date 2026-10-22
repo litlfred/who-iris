@@ -73,12 +73,13 @@ import {
   repoRootFor,
   resolvableIri,
   declaredRoute,
-  siteOwnerDir,
+  siteDirFor,
   withRenderedBy,
   withRenderedByFrontMatter,
   withInlineCode,
   withRoutes,
   themedPage,
+  visualiserRoute,
   type CatalogueNode,
   type PotEntry,
 } from "../platform.ts";
@@ -147,21 +148,28 @@ const DOCS = join(INSTANCE, "docs");
  * A THIRD SIDE: the catalogue VISUALISER, which who-iris DECLARES.
  *
  * `library/` and `docs/` above are who-iris's own tree, which the build MOUNTS.
- * This one is written straight into the built site, at the route of the
- * visualiser `who-iris.json` declares in `visualisers` — `catalogue`,
- * `renderedBy: iris-pages` — which `visualiserRoute` makes
+ * This page is the visualiser `who-iris.json` declares in `visualisers` —
+ * `catalogue`, `renderedBy: iris-pages` — which `visualiserRoute` makes
  * `who-iris/catalogue/` (owner, 2026-10-09: *"I still want the harness to be
  * where specific visualizers/pages are declared for the harness at the
- * level"*). Until then this page was written under cat-harness's handler, at
- * `/cat-harness/catalogue/who-iris/`: a who-iris page squatting on another
- * harness's route because the tile model looked there by CONVENTION (bean
- * `ha78`, issue #886). Now the tile model reads the declaration, so the page
- * goes where its own harness says.
+ * level"*).
+ *
+ * IT IS COMMITTED HERE, in who-iris's own site directory at
+ * `<site>/catalogue/` — the declared route with this instance's own name
+ * dropped — and no longer in cat-harness's tree (wrong-direction move M1,
+ * 2026-10-20). Written into cat-harness's site directory, the page made the
+ * platform name the layer above it, and in the index checkout, where
+ * cat-harness is a remote mount, this generator could not write it at all
+ * (bean `kx0p`), so the platform's copy was nobody's to regenerate. Here it is
+ * this generator's own output, checked by `iris:pages:check` like every other
+ * page. The site build publishes it at its declared route through Jekyll
+ * (`compose-docs` lays a visualiser page a harness holds in its own site
+ * directory there), and the docs mount leaves it out, so it is published once.
  *
  * NOTHING HERE IS SPELLED. The route comes from the declaration through
- * `declaredRoute`, and the site directory from `siteOwnerDir` — the same two
- * answers every reader uses, so this generator and the tiles cannot drift
- * into disagreeing about where the page is.
+ * `declaredRoute`, and the site directory from `siteDirFor` — the same answers
+ * every reader uses, so this generator and the tiles cannot drift into
+ * disagreeing about where the page is.
  */
 const HARNESS_ROOT = join(REPO_ROOT, "cat-harness");
 /** This generator's Tool node (`who-iris/tools/`), the one who-iris's catalogue visualiser is `renderedBy`. */
@@ -178,24 +186,8 @@ const CATALOGUE_ROUTE = ((): string => {
   }
   return r;
 })();
-/** `<site>/who-iris/catalogue/index.html`, absolute. */
-const CATALOGUE_VIEWER = join(siteOwnerDir(REPO_ROOT), ...CATALOGUE_ROUTE.split("/"), "index.html");
-/**
- * Is cat-harness a REMOTE MOUNT here (named in `index.lock.json`)? Then its
- * site — not this generator — builds the catalogue viewer, and writing one
- * into the mount would edit a tree the lock hashes (bean `kx0p`). Who-iris's
- * own site gets the page through `--catalogue-into` instead.
- */
-const HARNESS_IS_MOUNTED = ((): boolean => {
-  const lock = join(REPO_ROOT, "index.lock.json");
-  if (!existsSync(lock)) return false;
-  try {
-    const m = (JSON.parse(readFileSync(lock, "utf-8")) as { mounts?: { harness?: string }[] }).mounts ?? [];
-    return m.some((x) => x.harness === "cat-harness");
-  } catch {
-    return false;
-  }
-})();
+/** `who-iris/<site>/catalogue/index.html`, absolute: the declared route under this instance's own site directory. */
+export const CATALOGUE_VIEWER = join(INSTANCE, siteDirFor(INSTANCE), ...ownSiteRoute().split("/"), "index.html");
 
 // No `outDirFor(name)` helper: the map key carries the side, so nothing has to
 // infer it from a filename. An inference would have to be kept in step with
@@ -1819,12 +1811,13 @@ export interface CatalogueViewerOptions {
  * made relative to this page. An id nothing resolves stays code.
  */
 function heldAs(id: string, opts: CatalogueViewerOptions): string {
-  const l = LIBRARY_LINKS.links(id, SUBJECT);
   const code = `<code>${esc(id)}</code>`;
+  const l = HELD_ITEM_LINKS(id) ?? LIBRARY_LINKS.links(id, SUBJECT);
   if (l === undefined) return code;
   const from = CATALOGUE_ROUTE;
-  const parts = [l.viewer === undefined || !opts.libraryViewer ? code : (() => {
-    const [path, hash] = l.viewer!.split("#");
+  const viewer = l.viewer;
+  const parts = [viewer === undefined || !opts.libraryViewer ? code : (() => {
+    const [path, hash] = viewer.split("#");
     return `<a href="${esc(`${posix.relative(from, path!)}/#${hash}`)}">${code}</a>`;
   })()];
   if (l.readme !== undefined) parts.push(`<a href="${esc(l.readme)}">item page</a>`);
@@ -2238,6 +2231,60 @@ function replicaPageOf(n: Node): string | undefined {
  * under the bare site, the project baseurl and a staging preview alike.
  */
 const LIBRARY_LINKS = libraryResolver(repoRootFor(HARNESS_ROOT), HARNESS_ROOT);
+
+/**
+ * The library viewer's page for an item this instance holds, at the route the
+ * platform DECLARES for it — `<locale>/<harness>/<library>/<instance>/#<instance>/<id>`,
+ * the same href `LIBRARY_LINKS` gives when the page is on disk.
+ *
+ * Needed because the catalogue page is COMMITTED (move M1) while the viewer is
+ * built at publish: `LIBRARY_LINKS` links the viewer only where its page is on
+ * disk, so a committed page drawn from it would depend on whether the
+ * checkout happened to hold a built site — current in one composition and
+ * stale in the next, under the same `iris:pages:check`. The site that
+ * publishes this page builds the viewer, so the declared route is where the
+ * link lands. The locale is the page's own: the catalogue page is English.
+ * `undefined` when the platform declares no library directory.
+ */
+const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
+  const decl = readDeclaration(HARNESS_ROOT);
+  const lib = decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library"));
+  if (decl?.name === undefined || lib === undefined) return () => undefined;
+  const visualiser = basename(lib.path.replace(/\/+$/, ""));
+  const route = visualiserRoute({ locale: "en", harness: decl.name, visualiser, subgraph: SUBJECT });
+  return (id) => `${route}/#${encodeURIComponent(`${SUBJECT}/${id}`)}`;
+})();
+
+/**
+ * The links of an item this instance's own library holds (`<library>/<id>/`),
+ * read from who-iris's committed tree and declaration only: the viewer at its
+ * declared route ({@link DECLARED_LIBRARY_VIEWER}) and the item's README in
+ * this repository. `undefined` for an id the library does not hold.
+ *
+ * Not `LIBRARY_LINKS`, because the catalogue page is COMMITTED (move M1) and
+ * what that resolver returns depends on the composition it runs in: the
+ * library projection and viewer page are built at publish (`derive:publish`),
+ * and the README resolves only where the checkout root holds who-iris as a
+ * subdirectory. The same commit was drawn three ways (no links; viewer only;
+ * viewer and item page) and `iris:pages:check` could not pass in all of them.
+ * The resolver's `source` (an arXiv or DOI id from the item's manifest) is
+ * not drawn here: no item this instance holds carries one.
+ */
+const HELD_ITEM_LINKS = ((): ((id: string) => { viewer?: string; readme?: string } | undefined) => {
+  const dirs = (readDeclaration(INSTANCE)?.directories ?? [])
+    .filter((d) => (d.graphTypologies ?? []).includes("library"))
+    .map((d) => d.path.replace(/\/+$/, ""));
+  return (id) => {
+    if (id === "" || id.includes("/")) return undefined;
+    const dir = dirs.find((d) => statSync(join(INSTANCE, d, id), { throwIfNoEntry: false })?.isDirectory() === true);
+    if (dir === undefined) return undefined;
+    const readme = `${dir}/${id}/README.md`;
+    return {
+      viewer: DECLARED_LIBRARY_VIEWER(id),
+      readme: REPOSITORY && existsSync(join(INSTANCE, readme)) ? `https://github.com/${REPOSITORY}/blob/main/${readme}` : undefined,
+    };
+  };
+})();
 
 /** The replica's route from the site root (no slashes), as `withRoutes` gives it. */
 const REPLICA_ROUTE = (() => {
@@ -3663,10 +3710,13 @@ from it is this instance&rsquo;s own front page.</p>
  * conventional route as {@link CATALOGUE_VIEWER}, under a site source this
  * run is GIVEN — bean `kx0p`.
  *
- * In this instance's own repository the harness is a remote mount, so the
- * default run (rightly) writes no catalogue page, and who-iris's own site
- * published none: the one view of what the catalogue knows and does not know
- * was missing from the site built around it. That site's Jekyll source is the
+ * Until 2026-10-20 the default run wrote no catalogue page in this
+ * instance's own repository, and who-iris's own site published none: the one
+ * view of what the catalogue knows and does not know was missing from the
+ * site built around it. The default run now commits the page, drawn for the
+ * platform's site (it links the library viewer, which that site builds); this
+ * one is drawn for who-iris's own site, which builds no library viewer, so the
+ * build still writes it here rather than reusing that copy. That site's Jekyll source is the
  * tree `compose-docs --shell` writes, which this repository does not hold, so
  * the build hands it over and only this page is written there — at the
  * route `harnessTiles` discovers, so tiles and links agree without a second
@@ -3796,10 +3846,10 @@ function main(): number {
    * the cross-route problem #879 is solving properly; a crumb that reads as a
    * link and returns you to where you already are is worse than a plain label.
    */
-  // THEMED since 2026-10-07 (catalogueViewer): on cat-harness's site, it
-  // wears that site's layout rather than the replica's page chrome.
-  if (!HARNESS_IS_MOUNTED) siteFiles.set(CATALOGUE_VIEWER, ((page: string) => (page.startsWith("---\n") ? withRenderedByFrontMatter(page, VIEWER_TOOL) : withRenderedBy(page, VIEWER_TOOL)))(catalogueViewer(all)));
-  else console.log(`  skipped ${relative(REPO_ROOT, CATALOGUE_VIEWER)} — cat-harness is a remote mount here (index.lock.json); its site builds that page`);
+  // THEMED since 2026-10-07 (catalogueViewer): on the platform's site, it
+  // wears that site's layout rather than the replica's page chrome. Drawn for
+  // its declared route, where the site publishes it.
+  siteFiles.set(CATALOGUE_VIEWER, ((page: string) => (page.startsWith("---\n") ? withRenderedByFrontMatter(page, VIEWER_TOOL) : withRenderedBy(page, VIEWER_TOOL)))(catalogueViewer(all)));
 
   // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
   // top level, where it always was; then each translation beneath
@@ -3884,8 +3934,9 @@ function main(): number {
     // folio-assistant's CHROME GOES ON THE SITE SIDE ONLY — bean `edx7`.
     //
     // The split is already here and it is the right one. `siteFiles` are
-    // cat-harness's own viewers of this catalogue, and the owner named
-    // `/cat-harness/catalogue/who-iris/` as a page that SHOULD carry the
+    // the site's viewers of this catalogue (since 2026-10-20 committed under
+    // this instance's own site directory, published at their declared route),
+    // and the owner named the catalogue viewer as a page that SHOULD carry the
     // site's navigation: since 2026-10-07 it is themed, so the theme's layout
     // brings it and there is no rail to inject. `files` are the REPLICA,
     // copied to look like IRIS; folio-assistant's chrome on those would be
