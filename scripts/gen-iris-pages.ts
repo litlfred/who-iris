@@ -79,6 +79,7 @@ import {
   withInlineCode,
   withRoutes,
   themedPage,
+  visualiserRoute,
   type CatalogueNode,
   type PotEntry,
 } from "../platform.ts";
@@ -1810,12 +1811,13 @@ export interface CatalogueViewerOptions {
  * made relative to this page. An id nothing resolves stays code.
  */
 function heldAs(id: string, opts: CatalogueViewerOptions): string {
-  const l = LIBRARY_LINKS.links(id, SUBJECT);
   const code = `<code>${esc(id)}</code>`;
+  const l = LIBRARY_LINKS.links(id, SUBJECT) ?? (HOLDS_LIBRARY_ITEM(id) ? {} : undefined);
   if (l === undefined) return code;
   const from = CATALOGUE_ROUTE;
-  const parts = [l.viewer === undefined || !opts.libraryViewer ? code : (() => {
-    const [path, hash] = l.viewer!.split("#");
+  const viewer = l.viewer ?? DECLARED_LIBRARY_VIEWER(id);
+  const parts = [viewer === undefined || !opts.libraryViewer ? code : (() => {
+    const [path, hash] = viewer.split("#");
     return `<a href="${esc(`${posix.relative(from, path!)}/#${hash}`)}">${code}</a>`;
   })()];
   if (l.readme !== undefined) parts.push(`<a href="${esc(l.readme)}">item page</a>`);
@@ -2229,6 +2231,43 @@ function replicaPageOf(n: Node): string | undefined {
  * under the bare site, the project baseurl and a staging preview alike.
  */
 const LIBRARY_LINKS = libraryResolver(repoRootFor(HARNESS_ROOT), HARNESS_ROOT);
+
+/**
+ * The library viewer's page for an item this instance holds, at the route the
+ * platform DECLARES for it — `<locale>/<harness>/<library>/<instance>/#<instance>/<id>`,
+ * the same href `LIBRARY_LINKS` gives when the page is on disk.
+ *
+ * Needed because the catalogue page is COMMITTED (move M1) while the viewer is
+ * built at publish: `LIBRARY_LINKS` links the viewer only where its page is on
+ * disk, so a committed page drawn from it would depend on whether the
+ * checkout happened to hold a built site — current in one composition and
+ * stale in the next, under the same `iris:pages:check`. The site that
+ * publishes this page builds the viewer, so the declared route is where the
+ * link lands. The locale is the page's own: the catalogue page is English.
+ * `undefined` when the platform declares no library directory.
+ */
+const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
+  const decl = readDeclaration(HARNESS_ROOT);
+  const lib = decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library"));
+  if (decl?.name === undefined || lib === undefined) return () => undefined;
+  const visualiser = basename(lib.path.replace(/\/+$/, ""));
+  const route = visualiserRoute({ locale: "en", harness: decl.name, visualiser, subgraph: SUBJECT });
+  return (id) => `${route}/#${encodeURIComponent(`${SUBJECT}/${id}`)}`;
+})();
+
+/**
+ * Does this instance's own library hold `id` (`<library>/<id>/`)? Read from
+ * who-iris's committed tree, so the answer is the same in every composition —
+ * unlike the library projection `LIBRARY_LINKS` reads, which is also built at
+ * publish. It is what lets {@link DECLARED_LIBRARY_VIEWER} link an item when
+ * the projection is not on disk; an id it does not find stays text.
+ */
+const HOLDS_LIBRARY_ITEM = ((): ((id: string) => boolean) => {
+  const dirs = (readDeclaration(INSTANCE)?.directories ?? [])
+    .filter((d) => (d.graphTypologies ?? []).includes("library"))
+    .map((d) => join(INSTANCE, d.path));
+  return (id) => id !== "" && !id.includes("/") && dirs.some((d) => statSync(join(d, id), { throwIfNoEntry: false })?.isDirectory() === true);
+})();
 
 /** The replica's route from the site root (no slashes), as `withRoutes` gives it. */
 const REPLICA_ROUTE = (() => {
