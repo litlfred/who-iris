@@ -1812,10 +1812,10 @@ export interface CatalogueViewerOptions {
  */
 function heldAs(id: string, opts: CatalogueViewerOptions): string {
   const code = `<code>${esc(id)}</code>`;
-  const l = LIBRARY_LINKS.links(id, SUBJECT) ?? (HOLDS_LIBRARY_ITEM(id) ? {} : undefined);
+  const l = HELD_ITEM_LINKS(id) ?? LIBRARY_LINKS.links(id, SUBJECT);
   if (l === undefined) return code;
   const from = CATALOGUE_ROUTE;
-  const viewer = l.viewer ?? DECLARED_LIBRARY_VIEWER(id);
+  const viewer = l.viewer;
   const parts = [viewer === undefined || !opts.libraryViewer ? code : (() => {
     const [path, hash] = viewer.split("#");
     return `<a href="${esc(`${posix.relative(from, path!)}/#${hash}`)}">${code}</a>`;
@@ -2256,17 +2256,34 @@ const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
 })();
 
 /**
- * Does this instance's own library hold `id` (`<library>/<id>/`)? Read from
- * who-iris's committed tree, so the answer is the same in every composition —
- * unlike the library projection `LIBRARY_LINKS` reads, which is also built at
- * publish. It is what lets {@link DECLARED_LIBRARY_VIEWER} link an item when
- * the projection is not on disk; an id it does not find stays text.
+ * The links of an item this instance's own library holds (`<library>/<id>/`),
+ * read from who-iris's committed tree and declaration only: the viewer at its
+ * declared route ({@link DECLARED_LIBRARY_VIEWER}) and the item's README in
+ * this repository. `undefined` for an id the library does not hold.
+ *
+ * Not `LIBRARY_LINKS`, because the catalogue page is COMMITTED (move M1) and
+ * what that resolver returns depends on the composition it runs in: the
+ * library projection and viewer page are built at publish (`derive:publish`),
+ * and the README resolves only where the checkout root holds who-iris as a
+ * subdirectory. The same commit was drawn three ways (no links; viewer only;
+ * viewer and item page) and `iris:pages:check` could not pass in all of them.
+ * The resolver's `source` (an arXiv or DOI id from the item's manifest) is
+ * not drawn here: no item this instance holds carries one.
  */
-const HOLDS_LIBRARY_ITEM = ((): ((id: string) => boolean) => {
+const HELD_ITEM_LINKS = ((): ((id: string) => { viewer?: string; readme?: string } | undefined) => {
   const dirs = (readDeclaration(INSTANCE)?.directories ?? [])
     .filter((d) => (d.graphTypologies ?? []).includes("library"))
-    .map((d) => join(INSTANCE, d.path));
-  return (id) => id !== "" && !id.includes("/") && dirs.some((d) => statSync(join(d, id), { throwIfNoEntry: false })?.isDirectory() === true);
+    .map((d) => d.path.replace(/\/+$/, ""));
+  return (id) => {
+    if (id === "" || id.includes("/")) return undefined;
+    const dir = dirs.find((d) => statSync(join(INSTANCE, d, id), { throwIfNoEntry: false })?.isDirectory() === true);
+    if (dir === undefined) return undefined;
+    const readme = `${dir}/${id}/README.md`;
+    return {
+      viewer: DECLARED_LIBRARY_VIEWER(id),
+      readme: REPOSITORY && existsSync(join(INSTANCE, readme)) ? `https://github.com/${REPOSITORY}/blob/main/${readme}` : undefined,
+    };
+  };
 })();
 
 /** The replica's route from the site root (no slashes), as `withRoutes` gives it. */
