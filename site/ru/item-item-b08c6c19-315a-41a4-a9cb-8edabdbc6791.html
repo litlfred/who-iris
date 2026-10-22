@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WHO editorial style manual — импортированная реплика IRIS</title>
-<meta name="description" content="Реплика страницы IRIS ВОЗ, созданная на основе импортированного каталога этого репозитория. Это не ВОЗ и не действующий сайт.">
+<title>WHO editorial style manual — реплика IRIS, принятая на хранение</title>
+<meta name="description" content="Реплика страницы IRIS ВОЗ, созданная на основе каталога, принятого на хранение в этот репозиторий. Это не ВОЗ и не действующий сайт.">
 <link rel="alternate" hreflang="ar" href="../ar/item-item-b08c6c19-315a-41a4-a9cb-8edabdbc6791.html">
 <link rel="alternate" hreflang="zh" href="../zh/item-item-b08c6c19-315a-41a4-a9cb-8edabdbc6791.html">
 <link rel="alternate" hreflang="en" href="../item-item-b08c6c19-315a-41a4-a9cb-8edabdbc6791.html">
@@ -396,7 +396,7 @@
 -->
 <nav class="main"><div class="wrap">
   <a href="community-list.html">Сообщества и коллекции</a>
-  <span>Обзор IRIS</span><span>Статистика</span><span>О репозитории</span><span>Контакты</span><span>Справка</span>
+  <span>Просмотр IRIS</span><span>Статистика</span><span>О репозитории</span><span>Контакты</span><span>Справка</span>
 </div></nav>
 
 <div class="crumbs"><div class="wrap"><a href="community-list.html">Главная</a><span class="sep">•</span><span class="here"><bdi lang="en">WHO editorial style manual</bdi></span></div></div>
@@ -438,11 +438,14 @@
   &middot; <a href="https://raw.githubusercontent.com/litlfred/who-iris/main/uploads/who-pub-tps-931/WHO_PUB_TPS_93.1.pdf" download>Download</a></figcaption>
 <script>(function(){
 var f=document.currentScript.parentNode.querySelector("iframe[data-src]");
-var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/(?!.*who-iris\\/)"));
 if(!f)return;
+var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/(?!.*who-iris\\/)"));
 if(!m||m[1]==null){f.srcdoc="<p style=\"font:1rem system-ui\">The viewer could not find this site's root from the page address. Use the links below.</p>";return;}
+var v=m[1]+"assets/vendor/pdfjs/web/viewer.html";
 var lm=Date.parse(document.lastModified);
-var url=m[1]+"assets/vendor/pdfjs/web/viewer.html"+"?src="+encodeURIComponent(f.getAttribute("data-src"))+"&v="+"f7d9f9a1bc"+"."+(lm>0?lm.toString(36):"0")+f.getAttribute("data-hash");
+var url=v+"?src="+encodeURIComponent(f.getAttribute("data-src"))+"&v="+"f7d672e0d6"+"."+(lm>0?lm.toString(36):"0")+f.getAttribute("data-hash");
+var d=f.closest?f.closest("details"):null;
+if(d&&!d.open){d.addEventListener("toggle",function h(){if(d.open){d.removeEventListener("toggle",h);f.src=url;}});return;}
 if(!("IntersectionObserver" in window)){f.src=url;return;}
 var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting;})){io.disconnect();f.src=url;}},{rootMargin:"200px"});
 io.observe(f);
@@ -457,7 +460,7 @@ io.observe(f);
 <tr><td>Хранится здесь, в folio-assistant</td>
     <td><a href="https://raw.githubusercontent.com/litlfred/who-iris/main/uploads/who-pub-tps-931/WHO_PUB_TPS_93.1.pdf">WHO_PUB_TPS_93.1.pdf</a> &middot; <a class="cdn" href="https://cdn.jsdelivr.net/gh/litlfred/who-iris@main/uploads/who-pub-tps-931/WHO_PUB_TPS_93.1.pdf">через CDN</a></td></tr>
 <tr><td>В коллекции</td><td><a href="collection-collection-hq-publications.html"><bdi>Publications</bdi></a><br><code class="ui">в <bdi>1. Headquarters</bdi></code></td></tr>
-<tr><td>Импортированный текст (L1)</td>
+<tr><td>Текст, принятый на хранение (L1)</td>
     <td><a href="https://github.com/litlfred/who-iris/tree/main/library/who-pub-tps-931/sections"><bdi dir="ltr">library/who-pub-tps-931/sections/</bdi></a></td></tr>
 <tr><td>Запись Dublin Core</td><td><a href="https://raw.githubusercontent.com/litlfred/who-iris/main/catalogue/records/who-pub-tps-931.dc.json">Скачать <bdi>who-pub-tps-931.dc.json</bdi></a>
       <br><a class="cdn" href="https://cdn.jsdelivr.net/gh/litlfred/who-iris@main/catalogue/records/who-pub-tps-931.dc.json">через CDN</a>
@@ -472,9 +475,9 @@ io.observe(f);
 </main>
 
 <footer class="mast"><div class="wrap">
-  <p><strong>Импортированная реплика.</strong> Создана на основе <code dir="ltr">who-iris/catalogue/</code> с помощью <code dir="ltr">who-iris/scripts/gen-iris-pages.ts</code>. Макет по образцу <a href="https://iris.who.int/community-list">iris.who.int</a>; каждое число на этой странице прочитано из каталога, а не скопировано со снимка экрана.</p>
+  <p><strong>Реплика, принятая на хранение.</strong> Создана на основе <code dir="ltr">who-iris/catalogue/</code> с помощью <code dir="ltr">who-iris/scripts/gen-iris-pages.ts</code>. Макет по образцу <a href="https://iris.who.int/community-list">iris.who.int</a>; каждое число на этой странице прочитано из каталога, а не скопировано со снимка экрана.</p>
   <div class="rule"></div>
-  <p>Первоисточник: <a href="https://iris.who.int/">iris.who.int</a> — © ВОЗ. Эта копия не заявляет о каком-либо одобрении и не несёт никаких знаков ВОЗ.</p>
+  <p>Авторитетный источник: <a href="https://iris.who.int/">iris.who.int</a> — © ВОЗ. Эта копия не заявляет о каком-либо одобрении и не несёт никаких знаков ВОЗ.</p>
 </div></footer>
 <script data-fa-folio-mount>(function(){
 var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/(?!.*who-iris\\/)"));

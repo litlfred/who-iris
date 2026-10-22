@@ -3,12 +3,11 @@ doc_id: who-pub-tps-931
 doc_title: "WHO Editorial Style Manual"
 section_id: page-038
 section_title: "Page 38"
+section_number: null
 pages: 38-38
-pdf_page: 38
 source_pdf: WHO_PUB_TPS_93.1.pdf
 source_sha256: ecc88eee99756755
-text_source: ocr
-granularity: page
+toc_source: undetermined
 ---
 Manuscript mark-up and layout
 

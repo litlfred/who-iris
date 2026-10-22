@@ -3,12 +3,11 @@ doc_id: who-pub-tps-931
 doc_title: "WHO Editorial Style Manual"
 section_id: page-086
 section_title: "Page 86"
+section_number: null
 pages: 86-86
-pdf_page: 86
 source_pdf: WHO_PUB_TPS_93.1.pdf
 source_sha256: ecc88eee99756755
-text_source: ocr
-granularity: page
+toc_source: undetermined
 ---
 Useful reference books
 

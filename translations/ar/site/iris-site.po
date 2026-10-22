@@ -73,7 +73,7 @@ msgstr "<strong>ثبت أن شكلي الرابط كليهما يعملان.</st
 #: who-iris/scripts/gen-iris-pages.ts:795
 #. Box above a collection's items. {note} is the catalogue's own note, which is not translated.
 msgid "<strong>How this node was established.</strong> {note}"
-msgstr "<strong>كيف أُثبتت هذه العقدة.</strong> {note}"
+msgstr "<strong>كيف حُدِّدت هذه العقدة.</strong> {note}"
 
 #: who-iris/scripts/gen-iris-pages.ts:725
 #. The banner at the top of every page. {folioAssistant} and {iris} are links whose text is a name (folio-assistant, WHO IRIS) and is not translated. {figures} is the sentence about node counts below.
@@ -213,7 +213,7 @@ msgstr "سجل دبلن كور"
 #: who-iris/scripts/gen-iris-pages.ts:817
 #. Row label: the record rendered as XML and JSON-LD.
 msgid "Dublin Core renderings"
-msgstr "عروض دبلن كور"
+msgstr "تمثيلات دبلن كور"
 
 #: who-iris/scripts/gen-iris-pages.ts:769
 #. Link to the item's record as XML.
@@ -398,7 +398,7 @@ msgstr "لا توجد مواد أو مجموعات مُجسَّدة تطابق �
 #: who-iris/scripts/gen-iris-pages.ts:766
 #. In the Dublin Core renderings row when the item has no record.
 msgid "no record, so nothing to render"
-msgstr "لا يوجد سجل، فلا شيء لعرضه"
+msgstr "لا يوجد سجل، فلا شيء يُولَّد"
 
 #: who-iris/scripts/gen-iris-pages.ts:773
 #. In the Upstream column when the catalogue has no WHO address for the item.
@@ -418,7 +418,7 @@ msgstr "غير مسجَّل"
 #: who-iris/scripts/gen-iris-pages.ts:801
 #. In place of the item's URL when it has none.
 msgid "none recorded — ingested from a local copy, not resolved from IRIS"
-msgstr "غير مسجَّل — استُوعب من نسخة محلية، ولم يُستَدَلّ عليه من IRIS"
+msgstr "لم يُسجَّل شيء — استُوعب من نسخة محلية، ولم يُحَلّ معرّفه عبر IRIS"
 
 #: who-iris/scripts/gen-iris-pages.ts:813
 #. In the row above when nothing is held.
@@ -473,7 +473,7 @@ msgstr "اقرأها هنا"
 #: who-iris/scripts/gen-iris-pages.ts:829
 #. DSpace heading on the home page.
 msgid "Recent Submissions"
-msgstr "أحدث الإيداعات"
+msgstr "أحدث التقديمات"
 
 #: who-iris/scripts/gen-iris-pages.ts:748
 #. State badge: known to the catalogue, held upstream at WHO only.

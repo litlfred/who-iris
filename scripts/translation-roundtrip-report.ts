@@ -162,6 +162,7 @@ export function buildReport(instance = INSTANCE): Record<string, unknown> {
       reruns: [
         "2026-10-11: indexes 15 and 17 in all five locales, after the owner ruled that 'bean' is never translated as 'task' (a Task is its own term) and stays untranslated. Same two-agent protocol, on those 10 strings only (folio-core-2mb0).",
         "2026-10-11, second ruling: 'bean' is translated after all, as each language's ordinary word for a bean or kernel (ar حبة, es grano, fr grain, ru зерно, zh 豆); DSpace 'Bundle' as 'File Set' (all five); ru 'item' as «единица хранения»; 'CDN edge' as the CDN's edge server (es, fr, ru); ru 12's catalogue made folio-assistant's own; zh 'size' as 大小, not 容量. 39 strings re-run; the adjudicator was given these rulings as a glossary.",
+        "2026-10-20, third ruling (owner: fix all 34 remaining warnings): 'ingest' is one fixed term per locale (ru «принятый на хранение», zh 摄取); fr DSpace 'item' is «item»; 'kind' is fr «genre (kind)», ru «вид (kind)», zh 种类（kind）; zh 'directory' is 文件目录, distinct from 目录 'catalogue'; state names are labels (ru «ссылочное», zh 已引用; es 'State' «Estado de materialización»); zh 'captured' is 捕获, not 采集 'harvested'; and the 12 sense drifts (ar 11, 39, 76, 80, 91; es 23, 95; fr 100; ru 25, 26, 76, 101) are corrected. 34 strings re-run; the adjudicator was given all rulings as a glossary.",
       ],
     },
     catalogues,

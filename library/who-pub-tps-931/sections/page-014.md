@@ -3,12 +3,11 @@ doc_id: who-pub-tps-931
 doc_title: "WHO Editorial Style Manual"
 section_id: page-014
 section_title: "Page 14"
+section_number: null
 pages: 14-14
-pdf_page: 14
 source_pdf: WHO_PUB_TPS_93.1.pdf
 source_sha256: ecc88eee99756755
-text_source: ocr
-granularity: page
+toc_source: undetermined
 ---
 The following words and expressions do not normally require capitali-
 zation:
