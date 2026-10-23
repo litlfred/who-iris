@@ -63,7 +63,7 @@ msgstr "{size} MB"
 #: who-iris/scripts/gen-iris-pages.ts:723
 #. The browser tab title of every replica page. {title} is the page's own title (a collection or item name from the catalogue, which is not translated).
 msgid "{title} — ingested IRIS replica"
-msgstr "{title} — 已收录的 IRIS 副本"
+msgstr "{title} — 已摄取的 IRIS 副本"
 
 #: who-iris/scripts/gen-iris-pages.ts:788
 #. Note under the held-items table. Keep everything in <code> as written.
@@ -78,12 +78,12 @@ msgstr "<strong>此节点的确立方式。</strong>{note}"
 #: who-iris/scripts/gen-iris-pages.ts:725
 #. The banner at the top of every page. {folioAssistant} and {iris} are links whose text is a name (folio-assistant, WHO IRIS) and is not translated. {figures} is the sentence about node counts below.
 msgid "<strong>INGESTED COPY — not WHO, and not live.</strong> This page is rendered by {folioAssistant} from its own catalogue of {iris}, modelled <em>by reference</em>: {figures}. The WHO logo is deliberately omitted, and the rendered covers are withheld from display for the same reason — they carry the emblem printed on the publications."
-msgstr "<strong>收录副本——并非世卫组织网站，也非实时内容。</strong>本页面由 {folioAssistant} 根据其自有的 {iris} 目录生成，该目录<em>以引用方式</em>建模：{figures}。世卫组织标志被刻意省略，生成的封面出于同样原因不予显示——封面上印有出版物上的会徽。"
+msgstr "<strong>摄取副本——并非世卫组织，也非实时内容。</strong>本页面由 {folioAssistant} 根据其自有的 {iris} 目录生成，该目录<em>以引用方式</em>建模：{figures}。世卫组织标志被刻意省略，生成的封面出于同样原因不予显示——封面上印有出版物上的会徽。"
 
 #: who-iris/scripts/gen-iris-pages.ts:740
 #. Footer, first paragraph. {catalogue} and {generator} are file paths in code type; {iris} is a link to iris.who.int. None are translated.
 msgid "<strong>Ingested replica.</strong> Rendered from {catalogue} by {generator}. Layout after {iris}; every figure on this page is read out of the catalogue, not copied from a screenshot."
-msgstr "<strong>收录副本。</strong>由 {generator} 根据 {catalogue} 生成。版式参照 {iris}；本页面上的每个数字都读取自目录，而非从屏幕截图复制。"
+msgstr "<strong>摄取副本。</strong>由 {generator} 根据 {catalogue} 生成。版式参照 {iris}；本页面上的每个数字都读取自目录，而非从屏幕截图复制。"
 
 #: who-iris/scripts/gen-iris-pages.ts:818
 #. Shown on an item with no metadata record. iris-dspace is the name of a skill and R8 a rule number; keep both.
@@ -118,7 +118,7 @@ msgstr "已为本条目生成并记录封面，但不予显示：该出版物的
 #: who-iris/scripts/gen-iris-pages.ts:724
 #. The page's meta description, read by search engines and link previews.
 msgid "A replica of a WHO IRIS page, rendered from this repository's ingested catalogue. Not WHO, and not live."
-msgstr "世卫组织 IRIS 页面的副本，根据本存储库收录的目录生成。并非世卫组织网站，也非实时内容。"
+msgstr "世卫组织 IRIS 页面的副本，根据本存储库摄取的目录生成。并非世卫组织，也非实时内容。"
 
 #: who-iris/scripts/gen-iris-pages.ts:735
 #. Navbar item (shown, not a link, in the replica).
@@ -128,7 +128,7 @@ msgstr "关于"
 #: who-iris/scripts/gen-iris-pages.ts:835
 #. Continues the note above. Keep everything in <code> as written.
 msgid "Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on."
-msgstr "寻址遵循所有者的规则——<code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code>——因此，实例化某个目录的实例会获得一个挂载在该目录类型之下的可视化工具：<code>/library/who-iris/</code>、<code>/docs/who-iris/</code> 等。"
+msgstr "寻址遵循所有者的规则——<code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code>——因此，实例化某个文件目录（directory）的实例会获得一个挂载在该文件目录的种类（kind）之下的可视化工具：<code>/library/who-iris/</code>、<code>/docs/who-iris/</code> 等。"
 
 #: who-iris/scripts/gen-iris-pages.ts:849
 #. Before a link that repeats the search in the identifier lookup.
@@ -288,7 +288,7 @@ msgstr "位于：{path}"
 #: who-iris/scripts/gen-iris-pages.ts:815
 #. Row label: the item's text as extracted into this repository's library. L1 is a level name; keep it.
 msgid "Ingested text (L1)"
-msgstr "收录的文本（L1）"
+msgstr "摄取的文本（L1）"
 
 #: who-iris/scripts/gen-iris-pages.ts:730
 #. What the letters IRIS stand for, under the 'iris.' wordmark. Use the name WHO uses for IRIS in your language if there is one; the <br> may move.
@@ -368,7 +368,7 @@ msgstr "名称"
 #: who-iris/scripts/gen-iris-pages.ts:845
 #. In place of an abstract the record does not carry. Keep the field name in <code> as written.
 msgid "No <code>dc.description.abstract</code> in the captured record."
-msgstr "采集的记录中没有 <code>dc.description.abstract</code>。"
+msgstr "捕获的记录中没有 <code>dc.description.abstract</code>。"
 
 #: who-iris/scripts/gen-iris-pages.ts:836
 #. In a recent submission's byline when the record names no author.
@@ -408,7 +408,7 @@ msgstr "未记录上游 URI"
 #: who-iris/scripts/gen-iris-pages.ts:761
 #. In the Metadata record column when no record was captured.
 msgid "none captured"
-msgstr "未采集"
+msgstr "未捕获"
 
 #: who-iris/scripts/gen-iris-pages.ts:794
 #. In place of a URL or link the catalogue does not record.
@@ -418,7 +418,7 @@ msgstr "未记录"
 #: who-iris/scripts/gen-iris-pages.ts:801
 #. In place of the item's URL when it has none.
 msgid "none recorded — ingested from a local copy, not resolved from IRIS"
-msgstr "未记录——从本地副本收录，并非经 IRIS 解析"
+msgstr "未记录——从本地副本摄取，并非经 IRIS 解析"
 
 #: who-iris/scripts/gen-iris-pages.ts:813
 #. In the row above when nothing is held.
@@ -478,7 +478,7 @@ msgstr "最近提交的条目"
 #: who-iris/scripts/gen-iris-pages.ts:748
 #. State badge: known to the catalogue, held upstream at WHO only.
 msgid "referenced"
-msgstr "仅引用"
+msgstr "已引用"
 
 #: who-iris/scripts/gen-iris-pages.ts:822
 #. Small print under the hero paragraph. {theme} is a theme's name in code type.

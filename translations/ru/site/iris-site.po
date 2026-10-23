@@ -63,7 +63,7 @@ msgstr "{size} МБ"
 #: who-iris/scripts/gen-iris-pages.ts:723
 #. The browser tab title of every replica page. {title} is the page's own title (a collection or item name from the catalogue, which is not translated).
 msgid "{title} — ingested IRIS replica"
-msgstr "{title} — импортированная реплика IRIS"
+msgstr "{title} — реплика IRIS, принятая на хранение"
 
 #: who-iris/scripts/gen-iris-pages.ts:788
 #. Note under the held-items table. Keep everything in <code> as written.
@@ -83,7 +83,7 @@ msgstr "<strong>ИМПОРТИРОВАННАЯ КОПИЯ — это не ВОЗ
 #: who-iris/scripts/gen-iris-pages.ts:740
 #. Footer, first paragraph. {catalogue} and {generator} are file paths in code type; {iris} is a link to iris.who.int. None are translated.
 msgid "<strong>Ingested replica.</strong> Rendered from {catalogue} by {generator}. Layout after {iris}; every figure on this page is read out of the catalogue, not copied from a screenshot."
-msgstr "<strong>Импортированная реплика.</strong> Создана на основе {catalogue} с помощью {generator}. Макет по образцу {iris}; каждое число на этой странице прочитано из каталога, а не скопировано со снимка экрана."
+msgstr "<strong>Реплика, принятая на хранение.</strong> Создана на основе {catalogue} с помощью {generator}. Макет по образцу {iris}; каждое число на этой странице прочитано из каталога, а не скопировано со снимка экрана."
 
 #: who-iris/scripts/gen-iris-pages.ts:818
 #. Shown on an item with no metadata record. iris-dspace is the name of a skill and R8 a rule number; keep both.
@@ -118,7 +118,7 @@ msgstr "Обложка для этой единицы хранения созд�
 #: who-iris/scripts/gen-iris-pages.ts:724
 #. The page's meta description, read by search engines and link previews.
 msgid "A replica of a WHO IRIS page, rendered from this repository's ingested catalogue. Not WHO, and not live."
-msgstr "Реплика страницы IRIS ВОЗ, созданная на основе импортированного каталога этого репозитория. Это не ВОЗ и не действующий сайт."
+msgstr "Реплика страницы IRIS ВОЗ, созданная на основе каталога, принятого на хранение в этот репозиторий. Это не ВОЗ и не действующий сайт."
 
 #: who-iris/scripts/gen-iris-pages.ts:735
 #. Navbar item (shown, not a link, in the replica).
@@ -128,7 +128,7 @@ msgstr "О репозитории"
 #: who-iris/scripts/gen-iris-pages.ts:835
 #. Continues the note above. Keep everything in <code> as written.
 msgid "Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on."
-msgstr "Адресация следует правилу владельца — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code>, — так что экземпляр, который инстанцирует директорию, получает визуализатор, смонтированный под типом этой директории: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code> и так далее."
+msgstr "Адресация следует правилу владельца — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code>, — так что экземпляр, который инстанцирует директорию, получает визуализатор, смонтированный под видом (kind) этой директории: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code> и так далее."
 
 #: who-iris/scripts/gen-iris-pages.ts:849
 #. Before a link that repeats the search in the identifier lookup.
@@ -143,12 +143,12 @@ msgstr "Обе ссылки, как и просили"
 #: who-iris/scripts/gen-iris-pages.ts:831
 #. Heading on the home page.
 msgid "Browse"
-msgstr "Обзор"
+msgstr "Просмотр"
 
 #: who-iris/scripts/gen-iris-pages.ts:733
 #. Navbar item (shown, not a link, in the replica).
 msgid "Browse IRIS"
-msgstr "Обзор IRIS"
+msgstr "Просмотр IRIS"
 
 #: who-iris/scripts/gen-iris-pages.ts:805
 #. Table column heading: the DSpace bundle a file belongs to (ORIGINAL, THUMBNAIL — those values are not translated).
@@ -288,7 +288,7 @@ msgstr "В: {path}"
 #: who-iris/scripts/gen-iris-pages.ts:815
 #. Row label: the item's text as extracted into this repository's library. L1 is a level name; keep it.
 msgid "Ingested text (L1)"
-msgstr "Импортированный текст (L1)"
+msgstr "Текст, принятый на хранение (L1)"
 
 #: who-iris/scripts/gen-iris-pages.ts:730
 #. What the letters IRIS stand for, under the 'iris.' wordmark. Use the name WHO uses for IRIS in your language if there is one; the <br> may move.
@@ -398,7 +398,7 @@ msgstr "Ни одна материализованная единица хран
 #: who-iris/scripts/gen-iris-pages.ts:766
 #. In the Dublin Core renderings row when the item has no record.
 msgid "no record, so nothing to render"
-msgstr "записи нет, поэтому отображать нечего"
+msgstr "записи нет, поэтому формировать нечего"
 
 #: who-iris/scripts/gen-iris-pages.ts:773
 #. In the Upstream column when the catalogue has no WHO address for the item.
@@ -418,7 +418,7 @@ msgstr "не указан"
 #: who-iris/scripts/gen-iris-pages.ts:801
 #. In place of the item's URL when it has none.
 msgid "none recorded — ingested from a local copy, not resolved from IRIS"
-msgstr "не указан — импортировано из локальной копии, не разрешено через IRIS"
+msgstr "не указан — принято на хранение из локальной копии, не разрешено через IRIS"
 
 #: who-iris/scripts/gen-iris-pages.ts:813
 #. In the row above when nothing is held.
@@ -478,7 +478,7 @@ msgstr "Недавние поступления"
 #: who-iris/scripts/gen-iris-pages.ts:748
 #. State badge: known to the catalogue, held upstream at WHO only.
 msgid "referenced"
-msgstr "по ссылке"
+msgstr "ссылочное"
 
 #: who-iris/scripts/gen-iris-pages.ts:822
 #. Small print under the hero paragraph. {theme} is a theme's name in code type.
@@ -523,7 +523,7 @@ msgstr "объём в первоисточнике <strong>неизвестен<
 #: who-iris/scripts/gen-iris-pages.ts:741
 #. Footer, second paragraph. {iris} is a link to iris.who.int.
 msgid "Source of record: {iris} — © WHO. This copy asserts no endorsement and carries no WHO mark."
-msgstr "Первоисточник: {iris} — © ВОЗ. Эта копия не заявляет о каком-либо одобрении и не несёт никаких знаков ВОЗ."
+msgstr "Авторитетный источник: {iris} — © ВОЗ. Эта копия не заявляет о каком-либо одобрении и не несёт никаких знаков ВОЗ."
 
 #: who-iris/scripts/gen-iris-pages.ts:755
 #. Table column heading: the materialisation state.
