@@ -5,8 +5,8 @@
  * page, since what a reader follows is what was published.
  */
 import { describe, expect, it } from "bun:test";
-import { existsSync, readFileSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { dirname, join, relative, resolve } from "node:path";
 
 import { declaredRoute, siteOwnerDir } from "../../platform.ts";
 import { CATALOGUE_VIEWER } from "../gen-iris-pages.ts";
@@ -22,6 +22,26 @@ const REPO = existsSync(join(INSTANCE, "cat-harness")) ? INSTANCE : resolve(INST
 // follows them.
 const PAGE = CATALOGUE_VIEWER;
 const PUBLISHED = join(siteOwnerDir(REPO), ...(declaredRoute(INSTANCE, "iris-pages") ?? "who-iris/catalogue").split("/"));
+// The library viewer is built at publish since cat-harness#363: the site's
+// owner declares it in `builtAtPublish`, so it is never committed and is on
+// disk only after `derive:publish`. Read from the owner's declaration, never
+// spelled here.
+const OWNER = dirname(siteOwnerDir(REPO));
+const builtAtPublish: string[] = readdirSync(OWNER)
+  .filter((n) => n.endsWith(".json"))
+  .flatMap((n) => {
+    try {
+      const d = JSON.parse(readFileSync(join(OWNER, n), "utf-8")) as { $schema?: unknown; builtAtPublish?: Array<{ path?: unknown }> };
+      if (typeof d.$schema !== "string" || !d.$schema.startsWith("cat-harness-declaration")) return [];
+      return (d.builtAtPublish ?? []).map((e) => e.path).filter((x): x is string => typeof x === "string");
+    } catch {
+      return [];
+    }
+  });
+const declaredBuiltAtPublish = (abs: string): boolean => {
+  const rel = relative(OWNER, abs).split("\\").join("/");
+  return builtAtPublish.some((p) => (p.endsWith("/") ? rel.startsWith(p) : rel === p));
+};
 const html = existsSync(PAGE) ? readFileSync(PAGE, "utf-8") : "";
 // Matched by TEXT, not by exact markup: the heading carries an id
 // (`<h2 id="…">Every node</h2>`), which is not what this test is about.
@@ -37,11 +57,12 @@ describe("the catalogue's rows lead somewhere (qgjh)", () => {
     for (const p of pages) expect(existsSync(join(INSTANCE, "site", p)), p).toBe(true);
   });
 
-  it("links a held-as library id to the viewer page, which exists", () => {
+  it("links a held-as library id to the viewer page, which exists or is built at publish", () => {
     const viewers = [...nodes.matchAll(/href="([^"#]*)#[^"]+"><code>/g)].map((m) => m[1]!);
     expect(viewers.length).toBeGreaterThan(0);
     for (const v of new Set(viewers)) {
-      expect(existsSync(join(PUBLISHED, v, "index.html")), v).toBe(true);
+      const page = join(PUBLISHED, v, "index.html");
+      expect(existsSync(page) || declaredBuiltAtPublish(page), v).toBe(true);
     }
   });
 });
