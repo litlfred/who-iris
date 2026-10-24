@@ -10,5 +10,6 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `glossary`, holding `glossar
 
 | file | what it is | used by |
 |---|---|---|
+| [`generated/`](generated/) | _nothing declares what this holds_ | |
 | [`who-iris.glossary.json`](who-iris.glossary.json) | WHO house terms |  |
 <!-- kg:subgraph:end -->
