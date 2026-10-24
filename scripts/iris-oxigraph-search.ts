@@ -376,7 +376,7 @@ export class IrisOxigraphEngine {
       PREFIX dspace: <https://iris.who.int/ns/dspace#>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX dspaceNs: <https://litlfred.github.io/folio-assistant-core/0.1.0/ns/dspace#>
+      PREFIX dspaceNs: <https://litlfred.github.io/folio-assistant-core/v0/ns/dspace#>
 
       SELECT DISTINCT ?handle ?title ?creator ?issued ?year ?spatial ?abstract
                       ?commName ?collName ?pdfName ?pdfBytes ?copyrightGate
@@ -445,8 +445,8 @@ export class IrisOxigraphEngine {
               ?handle dcterms:spatial ?spNode .
               ?spNode rdf:value ?spatial .
             }
-            OPTIONAL { ?handle <https://litlfred.github.io/folio-assistant-core/0.1.0/ns/dspace#dc.identifier.govdoc> ?govdoc }
-            OPTIONAL { ?handle <https://litlfred.github.io/folio-assistant-core/0.1.0/ns/dspace#dc.identifier.isbn> ?isbn }
+            OPTIONAL { ?handle <https://litlfred.github.io/folio-assistant-core/v0/ns/dspace#dc.identifier.govdoc> ?govdoc }
+            OPTIONAL { ?handle <https://litlfred.github.io/folio-assistant-core/v0/ns/dspace#dc.identifier.isbn> ?isbn }
             OPTIONAL {
               ?handle dcterms:subject ?sNode .
               ?sNode rdf:value ?subject .
