@@ -13,7 +13,7 @@ on:
     branches: [claude/iris-cover-pdfs]
     paths: [".github/workflows/iris-cover-pdfs.yml", "scripts/iris-covers/**"]
 permissions:
-  contents: read
+  contents: write
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -27,6 +27,23 @@ jobs:
         run: |
           only="${{ inputs.only }}"
           python3 scripts/iris-covers/fetch-referenced-pdfs.py . out ${only:+--only "$only"}
+      - name: Render masked cover previews
+        run: |
+          pip install --quiet pymupdf
+          curl -sSfL -o /tmp/pdf-cover.py https://raw.githubusercontent.com/litlfred/cat-harness-tools/main/scripts/pdf-cover.py
+          python3 scripts/iris-covers/render-previews.py out /tmp/pdf-cover.py covers-review
+          cp out/report.json covers-review/fetch-report.json
+      # Only the masked PNGs and the two reports are committed, to this branch
+      # only, for review. The PDFs stay in the artifact below.
+      - name: Commit the review folder to this branch
+        if: github.ref != 'refs/heads/main'
+        run: |
+          git config user.name "who-iris cover renderer"
+          git config user.email "iris-covers@users.noreply.github.com"
+          git add covers-review
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Masked cover previews for review (run ${GITHUB_RUN_ID})"
+          git push origin HEAD:${GITHUB_REF_NAME}
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: iris-cover-pdfs
