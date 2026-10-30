@@ -75,13 +75,13 @@
     {
       "id": "who-iris-site",
       "path": "site/",
-      "description": "The IRIS REPLICA: the home page, the community list, and one page per collection and per item, themed as IRIS and generated from `catalogue/` by `scripts/gen-iris-pages.ts` (gated by `bun run cat iris:pages:check`). It is what `/who-iris/` serves. Moved out of `library/` on 2026-09-30 (bean 2b5s) so that the corpus and its rendering are separate directories: before, the mount copied the corpus along with the pages. A page shows an item's cover by referencing `../library/<slug>-cover.png`; the build publishes exactly the files a page embeds, beside the replica, and not the directory they sit in.",
+      "description": "REDIRECTS left where the IRIS replica was. The replica (home page, community list, one page per collection and per item, themed as IRIS) was retired on 2026-10-30 (owner, option C: \"i want consitent bevarioior for things nuders librayr/\"), because its item pages duplicated the library entry pages without a locale in the URL. `scripts/gen-iris-pages.ts` now writes only redirects here (gated by `bun run cat iris:pages:check`): `index.html` to this instance's library listing, and each held item's old `item-item-<uuid>.html`, in every language it was built in, to its library entry page, so no published link breaks. It is what `/who-iris/` serves. History: Moved out of `library/` on 2026-09-30 (bean 2b5s) so that the corpus and its rendering are separate directories: before, the mount copied the corpus along with the pages. A page shows an item's cover by referencing `../library/<slug>-cover.png`; the build publishes exactly the files a page embeds, beside the replica, and not the directory they sit in.",
       "graphTypologies": [
         "docs"
       ],
       "_graphTypologies_comment": "`docs`, the one renderable kind the harness owns, because the mount publishes only renderable directories' pages and the replica is a finished HTML rendering of this instance's catalogue -- `folio` is authored block content with viewers, LaTeX and QA badges, which this is not. It shares the kind with `docs/`, and `withRoutes` settles which answers where: this directory is the instance root and serves /who-iris/, and the kind route /docs/who-iris/ stays with the sibling that is not the root, so the replica is published once rather than twice.",
       "instanceRoot": true,
-      "_comment_instanceRoot": "The themed replica is what /who-iris/ serves — the owner's ruling, 'who-iris themed at /who-iris/'. Moved here from the `library` entry with the pages (bean 2b5s)."
+      "_comment_instanceRoot": "Since 2026-10-30 /who-iris/ serves the redirect to the library listing. Before, the themed replica was what /who-iris/ served — the owner's ruling, 'who-iris themed at /who-iris/'. Moved here from the `library` entry with the pages (bean 2b5s)."
     },
     {
       "id": "who-iris-catalogue",

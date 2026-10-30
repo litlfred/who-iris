@@ -4,15 +4,12 @@
 
 # who-iris-site
 
-The IRIS REPLICA: the home page, the community list, and one page per collection and per item, themed as IRIS and generated from `catalogue/` by `scripts/gen-iris-pages.ts` (gated by `bun run cat iris:pages:check`). It is what `/who-iris/` serves. Moved out of `library/` on 2026-09-30 (bean 2b5s) so that the corpus and its rendering are separate directories: before, the mount copied the corpus along with the pages. A page shows an item's cover by referencing `../library/<slug>-cover.png`; the build publishes exactly the files a page embeds, beside the replica, and not the directory they sit in.
+REDIRECTS left where the IRIS replica was. The replica (home page, community list, one page per collection and per item, themed as IRIS) was retired on 2026-10-30 (owner, option C: "i want consitent bevarioior for things nuders librayr/"), because its item pages duplicated the library entry pages without a locale in the URL. `scripts/gen-iris-pages.ts` now writes only redirects here (gated by `bun run cat iris:pages:check`): `index.html` to this instance's library listing, and each held item's old `item-item-<uuid>.html`, in every language it was built in, to its library entry page, so no published link breaks. It is what `/who-iris/` serves. History: Moved out of `library/` on 2026-09-30 (bean 2b5s) so that the corpus and its rendering are separate directories: before, the mount copied the corpus along with the pages. A page shows an item's cover by referencing `../library/<slug>-cover.png`; the build publishes exactly the files a page embeds, beside the replica, and not the directory they sit in.
 
 Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-site`, holding `docs`.
 
 | file | what it is | used by |
 |---|---|---|
-| [`collection-collection-hq-publications.html`](collection-collection-hq-publications.html) | a file |  |
-| [`collection-collection-wpro-information-products.html`](collection-collection-wpro-information-products.html) | a file |  |
-| [`community-list.html`](community-list.html) | a file |  |
 | [`index.html`](index.html) | a file |  |
 | [`item-item-18892cf3-5a4f-42a4-923c-a93f4a594dec.html`](item-item-18892cf3-5a4f-42a4-923c-a93f4a594dec.html) | a file |  |
 | [`item-item-63e14c27-7448-41ec-be08-a96a25a47db6.html`](item-item-63e14c27-7448-41ec-be08-a96a25a47db6.html) | a file |  |

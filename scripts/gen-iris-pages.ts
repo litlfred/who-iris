@@ -60,13 +60,11 @@ import { basename, dirname, join, posix, relative, resolve, sep } from "path";
 
 import {
   bytesFor,
-  dcRenderingsFor,
   folioMountFragment,
   formatPot,
   libraryResolver,
   parsePo,
   parsePoEntries,
-  pdfViewer,
   publicationBlockers,
   readDeclaration,
   repoRelative,
@@ -76,7 +74,6 @@ import {
   siteDirFor,
   withRenderedBy,
   withRenderedByFrontMatter,
-  withInlineCode,
   withRoutes,
   themedPage,
   visualiserRoute,
@@ -498,30 +495,6 @@ function crumbLabel(c: { label: string; record?: { lang?: string } }): string {
   return c.record === undefined ? esc(c.label) : data(c.label, c.record.lang);
 }
 
-/** The attributes for an element whose whole content is record data. */
-function dataBlock(lang?: string): string {
-  return ` dir="auto"${langAttr(lang)}`;
-}
-
-/**
- * The language a node's own record declares — `dc.language.iso` — or nothing.
- *
- * Shape-checked as a BCP 47 primary tag with optional subtags, because the
- * value is emitted into a `lang` attribute and a malformed one is worse than
- * none: a reader's tools act on it.
- */
-function langOf(n: Node): string | undefined {
-  const iso = dc(n, "language", "iso")[0]?.trim();
-  return iso !== undefined && /^[a-z]{2,3}(-[A-Za-z0-9]{1,8})*$/.test(iso) ? iso : undefined;
-}
-
-/**
- * The language of a catalogue NOTE: English. Notes are not WHO's data — they
- * are written in this repository, in its working language, by whoever
- * catalogued the node — so unlike a record field this one is known.
- */
-const NOTE_LANG = "en";
-
 /**
  * Bytes, in the units that round-trip the source.
  *
@@ -614,11 +587,11 @@ export function withheldManifest(all: Node[]): string {
         .join(", ")}`;
       // The ENTRY carries its gates and its catalogue record as data (issue
       // #1794), so the library viewer can say which gate refused and send the
-      // reader to the record without parsing `reason`. The record page is the
-      // replica's item page, at the route the declaration gives it; the URI is
-      // the item's own resolvable IRI, absent when it records none.
+      // reader to the record without parsing `reason`. The URI is the item's
+      // own resolvable IRI, absent when it records none. No record PAGE since
+      // 2026-10-30: the IRIS replica's item pages are gone (owner, option C),
+      // and the library entry page is the item's one page.
       if (b.bundle === "ORIGINAL" && n.libraryId) {
-        const page = replicaPageOf(n);
         const uri = sourceOf(n);
         paths.push({
           path: `${n.libraryId}/`,
@@ -626,7 +599,6 @@ export function withheldManifest(all: Node[]): string {
           gates: blocked.map((k) => ({ gate: k, verdict: b.materialization?.gates?.[k]?.verdict ?? "not recorded" })),
           record: {
             id: n.id,
-            ...(page ? { page: `/${REPLICA_ROUTE}/${page}` } : {}),
             ...(uri ? { uri } : {}),
           },
         });
@@ -662,57 +634,6 @@ function linkOrWithheld(a: NonNullable<ReturnType<typeof assetHref>>, withSize: 
     `<a href="${esc(a.href)}">${esc(a.name)}</a> &middot; <a class="cdn" href="${esc(a.cdn)}">${t("via CDN")}</a>` +
     (withSize ? ` &middot; <code class="ui">${esc(mb(a.bytes))}</code>` : "")
   );
-}
-
-/**
- * The cover thumbnail, or nothing.
- *
- * A THUMBNAIL-bundle bitstream **this repository rendered itself** — not the
- * one DSpace generates upstream. `folio-assistant-core/scripts/gen-covers.ts` writes the
- * bytes and the node records the derivation; here it is only read.
- *
- * Nothing is invented when it is absent, and nothing is guessed when it is
- * present: the box comes from `pixelWidth`/`pixelHeight` on the bitstream, so
- * a listing reserves the right space before the image loads. The three covers
- * are 2:3, 0.705:1 and a scanned page — any default would be wrong about two
- * of them, and a wrong box is a reflow rather than a missing image, which is
- * the harder failure to notice.
- */
-/**
- * Are the rendered covers SHOWN on the replica?
- *
- * **Yes, with the emblem masked — the owner's ruling of 2026-09-21.**
- *
- * The question first put to them was whether the emblem printed on a WHO
- * publication reads as *content* — the document's own cover — or as *branding*
- * this page is wearing. They named it with the logo: *"logo and other
- * branding"*, and the covers were withheld. Asked again whether to show them
- * masked, they chose masking over withholding.
- *
- * So the standing instruction is still honoured — *"leave off WHO logo (as
- * with all who-pages for now, not until published under WHO, just use
- * colors)"* — and the covers are back. The emblem never reaches this page:
- * `pdf-cover.py` blanks it **before the PNG is written**, so the committed
- * bytes do not contain it and no display flag can leak it. The regions and
- * their reason are declared on each THUMBNAIL bitstream as `maskedRegions`.
- *
- * **The TITLE is not masked where it contains "WHO"** — *WHO Editorial Style
- * Manual*, *WHO Handbook for Guideline Development*. That is the work's name,
- * a bibliographic fact about the publication, not branding this replica is
- * wearing. Masking it would leave a cover that names no book.
- *
- * `false` still works and still says *"cover withheld"* rather than *"no
- * cover"*, because those remain different facts. It is no longer the position
- * the covers are in, only the switch that would put them back.
- */
-const COVERS_SHOWN = true;
-
-/** Why a rendered cover is withheld by its publication gates, or undefined when it is not (bean `cw35`). */
-function coverWithheld(n: Node): string | undefined {
-  const b = n.bitstreams?.find((x) => x.bundle === "THUMBNAIL");
-  if (!b?.materialization?.localPath) return undefined;
-  const blocked = publicationBlockers(b.materialization.gates);
-  return blocked.length ? blocked.map((k) => `${k}: ${b.materialization?.gates?.[k]?.verdict ?? "not recorded"}`).join(", ") : undefined;
 }
 
 function coverSrc(n: Node): { src: string; w: number; h: number; masked: boolean } | undefined {
@@ -1664,7 +1585,6 @@ function page(
 </style>
 </head>
 <body>
-${side === "site" ? replicaNav() : ""}
 <div class="ingested"><div class="wrap">
   ${t("<strong>INGESTED COPY — not WHO, and not live.</strong> This page is rendered by {folioAssistant} from its own catalogue of {iris}, modelled <em>by reference</em>: {figures}. The WHO logo is deliberately omitted, and the rendered covers are withheld from display for the same reason — they carry the emblem printed on the publications.", {
     folioAssistant: `<a href="https://github.com/litlfred/folio-assistant">folio-assistant</a>`,
@@ -1705,9 +1625,7 @@ ${side === "site" ? replicaNav() : ""}
   failing at a line far from the mistake.)
 -->
 <nav class="main"><div class="wrap">
-  ${side === "site"
-    ? `<a href="community-list.html">${t("Communities &amp; Collections")}</a>`
-    : `<span>${t("Communities &amp; Collections")}</span>`}
+  <span>${t("Communities &amp; Collections")}</span>
   <span>${t("Browse IRIS")}</span><span>${t("Statistics")}</span><span>${t("About")}</span><span>${t("Contact")}</span><span>${t("Help")}</span>
 </div></nav>
 
@@ -1946,7 +1864,7 @@ function cataloguePage(all: Node[], opts: CatalogueViewerOptions): string {
       return `<tr data-state="${esc(state)}" data-rank="${rank(n)}" data-kind="${esc(kind)}" data-node="${esc(`${n.title} ${n.id}`.toLowerCase())}" data-held="${n.libraryId ? 1 : 0}" data-record="${n.metadataRef ? 1 : 0}" data-bitstreams="${bs}">
   <td>${stateBadge(state)}</td>
   <td><code>${esc(kind)}</code></td>
-  <td>${replicaPageOf(n) ? `<a href="${esc(`${REPLICA_FROM_CATALOGUE}/${replicaPageOf(n)}`)}">${esc(n.title)}</a>` : esc(n.title)}<br><code class="dim">${esc(n.id)}</code></td>
+  <td>${titleCell(n)}<br><code class="dim">${esc(n.id)}</code></td>
   <td>${held}</td>
   <td>${rec}</td>
   <td>${bs || "—"}</td>
@@ -2084,124 +2002,6 @@ ${cataloguePage(all, opts)}`,
   });
 }
 
-/** The community list — the page the owner named. */
-function communityList(all: Node[]): string {
-  const communities = all
-    .filter((n) => n.flavour === "community")
-    .sort((a, b) => a.title.localeCompare(b.title, "en", { numeric: true }));
-
-  const items = all.filter((n) => n.flavour === "item");
-  const collections = all.filter((n) => n.flavour === "collection");
-
-  const rows = communities
-    .map((c) => {
-      const m = c.materialization;
-      const kidCollections = collections.filter((k) =>
-        k.parents.some((p) => p.includes(c.id)),
-      );
-      const known =
-        c.childCountUpstream !== undefined && m?.collectionBytes !== undefined
-          ? t("{files} files · {size} upstream", { files: num(c.childCountUpstream), size: gb(m.collectionBytes) })
-          : t("size upstream <strong>unknown</strong> — the storage report's second page was never read, and a number interpolated from the first would look measured");
-
-      const kids = kidCollections.length
-        ? `<ul class="kids">${kidCollections
-            .map((k) => {
-              const inIt = items.filter((i) => i.parents.some((p) => p.includes(k.id)));
-              const held = inIt.filter((i) => assetHref(i)).length;
-              return `<li><a href="collection-${esc(slug(k.id))}.html">${data(k.title)}</a>
-                ${stateBadge(k.materialization?.state ?? "unknown")}
-                <span class="note" style="margin:0;margin-inline-start:.4rem;display:inline">${t("{modelled} item(s) modelled, {held} held here", { modelled: num(inIt.length), held: num(held) })}</span></li>`;
-            })
-            .join("\n")}</ul>`
-        : "";
-
-      return `<li>
-  <div class="row"><span class="chev" aria-hidden="true">&rsaquo;</span>
-    <span class="title"><a href="${esc(m?.provenance?.upstream ?? "https://iris.who.int/")}">${data(c.title)}</a>
-    ${stateBadge(m?.state ?? "unknown")}</span></div>
-  <p class="note">${known}</p>
-  ${kids}
-</li>`;
-    })
-    .join("\n");
-
-  const held = items.map((i) => ({ n: i, a: assetHref(i) })).filter((x) => x.a);
-
-  const table = held
-    .map(
-      ({ n, a }) => `<tr>
-  <td><a href="item-${esc(slug(n.id))}.html">${data(n.title, langOf(n))}</a><br>
-      <code>${esc(n.libraryId ?? n.id)}</code></td>
-  <td>${collectionCell(n, all)}</td>
-  <td>${stateBadge("materialized")}</td>
-  <td class="dl">${upstreamCell(n)}</td>
-  <td class="dl">${linkOrWithheld(a!, true)}</td>
-  <td class="dl">${metadataCell(n)}</td>
-</tr>`,
-    )
-    .join("\n");
-
-  return `<h1>${t("List of Communities")}</h1>
-
-<p>${t("Every row below is <strong>live</strong>. A row is not greyed out when this repository does not hold it — it says {referenced} instead, which is the actual state and the whole point of a catalogue modelled by reference. {materialized} means the bytes are here.", {
-    referenced: stateBadge("referenced"),
-    materialized: stateBadge("materialized"),
-  })}</p>
-
-<ul class="communities">
-${rows}
-</ul>
-
-<h2>${t("Held here — {n} materialized item(s)", { n: num(held.length) })}</h2>
-<p>${t("Each row carries <strong>three routes to the same item</strong>: the <strong>IRIS source</strong> upstream at WHO, this repository's own <strong>local replica</strong> page, and the <strong>asset itself</strong> — downloadable from the repository and, separately, from a CDN edge.")}</p>
-
-<table class="items">
-<thead><tr><th>${t("Item")}</th><th>${t("Collection")}</th><th>${t("State")}</th><th>${t("Upstream")}</th><th>${t("Held copy")}</th><th>${t("Metadata record")}</th></tr></thead>
-<tbody>
-${table}
-</tbody>
-</table>
-
-<div class="caveat">
-  <p>${t("<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it.")}</p>
-  <p>${t("<strong>Both link forms are confirmed working.</strong> The <code>raw.githubusercontent.com</code> links were fetched and returned 200 with byte counts matching the catalogue exactly. The <em>via CDN</em> links could not be checked from the environment that generated this page — <code>cdn.jsdelivr.net</code> is egress-blocked there — so they were composed from jsDelivr's documented URL form and the owner exercised one by hand on 2026-09-20. Both are kept: one costs this project nothing to serve, and a reader who finds either unavailable still has the other.")}</p>
-  <p>${t("<strong>Where the held copies actually live — bean <code>yl5w</code>.</strong> The catalogue records each of these at <code>uploads/&lt;name&gt;.pdf</code> relative to <code>who-iris/</code>, and <em>all three of those paths are missing</em>: #477 moved <code>library/</code> into this instance and left <code>uploads/</code> in <code>cat-harness/</code>.")}</p>
-  <p>${t("The download links above point at where the bytes <em>are</em>, so they work. The claim in the catalogue is what is wrong, and <code>check:catalogue</code> does not check <code>localPath</code> at all — it verifies <code>metadataRef</code> and <code>libraryId</code>, and reports a clean run over three <code>materialized</code> claims that resolve to nothing.")}</p>
-</div>
-`;
-}
-
-/**
- * The replica's own page tree, for the harness rail's section (owner,
- * 2026-10-15: the rail on who-iris's site showed no contents, only the
- * Graphs and Harnesses groups). These pages are mounted as finished HTML, so
- * no Jekyll sidebar lists them, and their headings carry no ids for the rail
- * to index; the page itself has to say what the replica holds.
- *
- * The format is the platform's visualiser-nav declaration (cat-harness-tools
- * `lib/navbar.ts`: `visualiserNavDeclaration` writes it, `visualiserNavOf`
- * reads it at mount time). Written here rather than imported because this
- * checkout resolves cat-harness-tools only through folio-assistant-core's
- * facade, which does not re-export it. Every page of one locale sits in the
- * same directory, so each href is a bare file name.
- */
-let REPLICA_NAV_ALL: Node[] = [];
-function replicaNav(): string {
-  const all = REPLICA_NAV_ALL;
-  const entries: { label: string; href?: string; items?: { label: string; href?: string }[] }[] = [
-    { label: t("Home"), href: "index.html" },
-    { label: t("Community List"), href: "community-list.html" },
-  ];
-  for (const c of all.filter((n) => n.flavour === "collection")) {
-    const items = all
-      .filter((n) => n.flavour === "item" && n.parents.some((p) => p.includes(c.id)))
-      .map((n) => ({ label: n.title, href: replicaPageOf(n)! }));
-    entries.push({ label: c.title, href: replicaPageOf(c)!, ...(items.length ? { items } : {}) });
-  }
-  return `<script type="application/json" data-fa-visualiser-nav>${JSON.stringify(entries).replace(/</g, "\\u003c")}</script>\n`;
-}
-
 function slug(id: string): string {
   return id.replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase();
 }
@@ -2256,6 +2056,55 @@ const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
 })();
 
 /**
+ * The library listing for this instance, and one entry's page under it,
+ * relative to the site root (`<locale>/<harness>/<library>/<instance>/` and
+ * `.../<id>/`, the routes `gen-library-viz` publishes). `undefined` when the
+ * platform declares no library directory. What the replica's old addresses
+ * redirect to (owner, 2026-10-30).
+ */
+const LIBRARY_LISTING_ROUTE = ((): string | undefined => {
+  const decl = readDeclaration(HARNESS_ROOT);
+  const lib = decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library"));
+  if (decl?.name === undefined || lib === undefined) return undefined;
+  return visualiserRoute({ locale: "en", harness: decl.name, visualiser: basename(lib.path.replace(/\/+$/, "")), subgraph: SUBJECT });
+})();
+/**
+ * A catalogue row's title: a held item links to its library entry page, the
+ * item's one page since the replica went (owner, 2026-10-30); anything else
+ * is plain text.
+ */
+function titleCell(n: Node): string {
+  const to = n.flavour === "item" && n.libraryId && HELD_ITEM_LINKS(n.libraryId) ? libraryEntryRoute(n.libraryId) : undefined;
+  return to === undefined ? esc(n.title) : `<a href="${esc(`${posix.relative(CATALOGUE_ROUTE, to)}/`)}">${esc(n.title)}</a>`;
+}
+function libraryEntryRoute(id: string): string | undefined {
+  return LIBRARY_LISTING_ROUTE === undefined ? undefined : `${LIBRARY_LISTING_ROUTE}${encodeURIComponent(id)}/`;
+}
+
+/**
+ * A page that sends the reader on: a meta refresh, a canonical link, and a
+ * plain link for a reader whose browser refuses the refresh. No script, so the
+ * site's script policy is not relaxed for it.
+ */
+function redirectPage(href: string, title: string): string {
+  const h = esc(href);
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=${h}">
+<link rel="canonical" href="${h}">
+<title>${esc(title)}</title>
+</head>
+<body>
+<p>This page has moved to the library: <a href="${h}">${esc(title)}</a>.</p>
+</body>
+</html>
+`;
+}
+
+/**
  * The links of an item this instance's own library holds (`<library>/<id>/`),
  * read from who-iris's committed tree and declaration only: the viewer at its
  * declared route ({@link DECLARED_LIBRARY_VIEWER}) and the item's README in
@@ -2302,13 +2151,6 @@ const REPLICA_ROUTE = (() => {
   return root.route;
 })();
 
-/* Relative from the catalogue page, built on the one route above, which the
-   withheld list also uses (issue #1794) — two consumers, one route. */
-const REPLICA_FROM_CATALOGUE = posix.relative(
-  CATALOGUE_ROUTE,
-  REPLICA_ROUTE,
-);
-
 /**
  * The item's upstream URI, or undefined when it has none.
  *
@@ -2332,35 +2174,6 @@ function sourceOf(n: Node): string | undefined {
   // Bean `08u4`: the Handle IRI first (it outlives the host), the host URL
   // second, never the front page — one definition, in the schema.
   return resolvableIri(n);
-}
-
-/**
- * The collection(s) an item is in, as named links — or a statement that the
- * catalogue records none.
- *
- * **Two of the three held items have `parents: []`, and that is real.** They
- * were ingested from a PDF somebody had, not walked down from a collection, so
- * the catalogue knows the bytes and not the shelf. Rendering them under a
- * plausible collection would be inventing containment, which is the same class
- * of error as inventing an upstream URI.
- */
-function collectionCell(n: Node, all: Node[]): string {
-  const containers = (n.parents[0] ?? [])
-    .map((id) => all.find((x) => x.id === id))
-    .filter((x): x is Node => x !== undefined);
-  const collections = containers.filter((c) => c.flavour === "collection");
-  if (collections.length === 0) {
-    return `<span class="none">${t("no collection recorded")}</span>`;
-  }
-  return collections
-    .map(
-      (c) =>
-        `<a href="collection-${esc(slug(c.id))}.html">${data(c.title)}</a>` +
-        (containers.filter((x) => x.flavour === "community").length
-          ? `<br><code class="ui">${t("in {communities}", { communities: data(containers.filter((x) => x.flavour === "community").map((x) => x.title).join(" / ")) })}</code>`
-          : ""),
-    )
-    .join("<br>");
 }
 
 /**
@@ -2426,690 +2239,6 @@ function dc(n: Node, element: string, qualifier?: string): string[] {
 function accessioned(n: Node): string | undefined {
   const all = dc(n, "date", "accessioned");
   return all.length ? all.slice().sort()[all.length - 1] : undefined;
-}
-
-/**
- * Recent submissions, in the order IRIS would show them.
- *
- * Descending accession, **with the catalogue id as the tie-break** — and the
- * tie-break is not decoration. `readdirSync` order already produced a
- * generator that emitted different bytes from identical inputs once this
- * session (`gen-iris-pages.test.ts`); a sort with ties is the same defect with
- * a smaller blast radius. Items with no captured accession sort last, together,
- * by id: unknown is a position, not a zero.
- */
-export function recentOrder(items: Node[]): Node[] {
-  return items.slice().sort((a, b) => {
-    const da = accessioned(a);
-    const db = accessioned(b);
-    if (da !== db) {
-      if (da === undefined) return 1;
-      if (db === undefined) return -1;
-      return db.localeCompare(da, "en");
-    }
-    return a.id.localeCompare(b.id, "en");
-  });
-}
-
-/** A date as IRIS prints it in a submission line: the day, not the timestamp. */
-function day(iso: string | undefined): string | undefined {
-  return iso?.slice(0, 10);
-}
-
-function metadataCell(n: Node): string {
-  if (!n.metadataRef) return `<span class="none">${t("none captured")}</span>`;
-  const abs = join(INSTANCE, n.metadataRef);
-  if (!existsSync(abs)) return `<span class="none">${t("declared, but missing on disk")}</span>`;
-  const rel = encPath(n.metadataRef);
-  const bytes = readFileSync(abs, "utf-8").length;
-  return `<a href="${esc(`${RAW}/${rel}`)}">${t("Download {file}", { file: data(n.metadataRef.split("/").pop()!) })}</a>
-      <br><a class="cdn" href="${esc(`${CDN}/${rel}`)}">${t("via CDN")}</a>
-      <br><code class="ui">${t("qualified Dublin Core · {size} KB", { size: num(bytes / 1024, 1) })}</code>`;
-}
-
-/**
- * The record's two standard renderings — DC XML and DCMI-Terms JSON-LD —
- * written by `dc-render.ts` beside these pages (bean `7eak`, owner:
- * *"who-iris should link to json and xml renderings"*).
- *
- * The path comes from `dcRenderingsFor`, the same function the renderer
- * writes with, so the link and the file cannot name two places. A file that
- * is not there is NOT linked: a link to a rendering nobody wrote reads exactly
- * like one that works. `dc:render:check` is what makes "not there" a failure.
- */
-function renderingsCell(n: Node): string {
-  if (!n.metadataRef) return `<span class="none">${t("no record, so nothing to render")}</span>`;
-  const r = dcRenderingsFor(INSTANCE, n.metadataRef);
-  if (r === undefined) return `<span class="none">${t("this instance declares no published root")}</span>`;
-  const link = (abs: string, label: string): string =>
-    existsSync(abs)
-      ? `<a href="${esc(encPath(relative(siteDir(), abs).split(sep).join("/")))}">${label}</a>`
-      : `<span class="none">${t("{label}: not rendered (run {command})", { label, command: "<code>bun run cat dc:render</code>" })}</span>`;
-  return `${link(r.xml, t("Dublin Core XML"))}
-      <br>${link(r.jsonld, t("JSON-LD (DCMI Terms)"))}`;
-}
-
-/**
- * Where this item can be read FROM — upstream and here, side by side.
- *
- * The owner's *"both links there"*: the IRIS source, and this repository's own
- * replica page for the same item. Putting them in one cell is the whole
- * demonstration — the catalogue knows one item, and it is reachable at WHO and
- * reachable here, with the second not depending on the first being up.
- */
-function upstreamCell(n: Node): string {
-  const u = sourceOf(n);
-  const replica = `<a href="item-${esc(slug(n.id))}.html">${t("Local replica →")}</a>`;
-  if (u) return `<a href="${esc(u)}">${t("IRIS source →")}</a><br>${replica}`;
-  // The LOCAL original, now asked for by name. This read `of` — the same field
-  // `sourceOf` had just rejected — so it showed whatever was left over rather
-  // than the local reference it claims to show.
-  const local = n.bitstreams?.find((b) => b.materialization?.provenance?.local)?.materialization
-    ?.provenance?.local;
-  return `<span class="none">${t("no upstream URI recorded")}</span>${
-    local ? `<br><code>${esc(local)}</code>` : ""
-  }<br>${replica}`;
-}
-
-/** A collection page — the drill-down the owner's second screenshot shows. */
-function collectionPage(c: Node, all: Node[]): string {
-  const items = all.filter((n) => n.parents.some((p) => p.includes(c.id)));
-  const rows = items
-    .map((n) => {
-      const a = assetHref(n);
-      return `<tr>
-  <td><a href="item-${esc(slug(n.id))}.html">${data(n.title, langOf(n))}</a><br><code>${esc(n.libraryId ?? n.id)}</code></td>
-  <td>${stateBadge(a ? "materialized" : (n.materialization?.state ?? "unknown"))}</td>
-  <td class="dl">${upstreamCell(n)}</td>
-  <td class="dl">${a ? linkOrWithheld(a, true) : t("not held here")}</td>
-  <td class="dl">${metadataCell(n)}</td>
-</tr>`;
-    })
-    .join("\n");
-
-  return `<h1${dataBlock()}>${esc(c.title)}</h1>
-<p>${t("Permanent URI for this collection")}
-  ${c.materialization?.provenance?.upstream ? `<a href="${esc(c.materialization.provenance.upstream)}">${data(c.materialization.provenance.upstream)}</a>` : `<span class="none">${t("none recorded")}</span>`}
-  ${stateBadge(c.materialization?.state ?? "unknown")}</p>
-
-${c.materialization?.note ? `<div class="caveat"><p>${t("<strong>How this node was established.</strong> {note}", { note: `<bdi${langAttr(NOTE_LANG)}>${withInlineCode(c.materialization.note, esc)}</bdi>` })}</p></div>` : ""}
-
-<h2>${t("Items in this Collection")}</h2>
-<p>${t("Now showing 1 – {n} of {n} <em>modelled</em>. The upstream collection is larger; this catalogue holds what was materialised, and says so per row.", { n: num(items.length) })}</p>
-
-<table class="items">
-<thead><tr><th>${t("Item")}</th><th>${t("State")}</th><th>${t("Upstream")}</th><th>${t("Held copy")}</th><th>${t("Metadata record")}</th></tr></thead>
-<tbody>
-${rows}
-</tbody>
-</table>
-`;
-}
-
-/**
- * The held PDF, readable in place — or nothing (bean `folio-assistant-5ea6`).
- *
- * Gated by the SAME decision as the download link: {@link linkOrWithheld}
- * refuses to link bytes whose publication gates block, and an embedded viewer
- * is a link that also renders. So a withheld item gets no viewer, and its page
- * says nothing more than the "held here, not published" the Files row already
- * says. Only PDFs: the viewer is pdf.js, and a held `.docx` in a PDF frame is
- * an error page.
- *
- * The RAW URL, not the CDN one (owner, 2026-10-15). The CDN link reached
- * readers as an empty viewer ("0 of 0"): jsDelivr's answer for this repository
- * cannot be verified from the environment that writes this page, and the raw
- * one demonstrably serves the bytes (200, `application/pdf` bytes, `access-
- * control-allow-origin: *`, ranges). The CDN link stays offered in the Files
- * table; the viewer reads the source that is known to serve.
- * `FOLIO_ROUTE` finds the site root for the same reason it does for the folio
- * mount: one page, several depths.
- */
-function readHere(n: Node, a: ReturnType<typeof assetHref>): string {
-  if (!a || a.withheld.length > 0 || !/\.pdf$/i.test(a.name)) return "";
-  return `<h2>${t("Read it here")}</h2>
-${pdfViewer({ src: a.href, title: n.title, route: FOLIO_ROUTE })}
-
-`;
-}
-
-/** An item page — where both links land on the real thing. */
-function itemPage(n: Node, all: Node[]): string {
-  const a = assetHref(n);
-  const dc = n.metadataRef ? join(INSTANCE, n.metadataRef) : undefined;
-  const hasDc = dc !== undefined && existsSync(dc);
-  const parents = n.parents[0] ?? [];
-  const named = parents
-    .map((p) => all.find((x) => x.id === p))
-    .filter((x): x is Node => x !== undefined);
-
-  const bits = (n.bitstreams ?? [])
-    .map(
-      (b) => `<tr>
-  <td><code>${esc(b.name)}</code></td>
-  <td>${esc(b.bundle)}</td>
-  <td>${esc(mb(b.bytes))}</td>
-  <td>${stateBadge(b.materialization?.state ?? "unknown")}</td>
-</tr>`,
-    )
-    .join("\n");
-
-  return `<h1${dataBlock(langOf(n))}>${esc(n.title)}</h1>
-<p>${t("Permanent URI for this item")}
-  ${sourceOf(n) ? `<a href="${esc(sourceOf(n)!)}">${data(sourceOf(n)!)}</a>` : `<span class="none">${t("none recorded — ingested from a local copy, not resolved from IRIS")}</span>`}
-  ${stateBadge(a ? "materialized" : (n.materialization?.state ?? "unknown"))}</p>
-
-${named.length ? `<p class="note" style="margin-inline-start:0">${t("In: {path}", { path: named.map((p) => data(p.title)).join(" &rsaquo; ") })}</p>` : ""}
-
-<h2>${t("Files")}</h2>
-<table class="items">
-<thead><tr><th>${t("Name")}</th><th>${t("Bundle")}</th><th>${t("Size")}</th><th>${t("State")}</th></tr></thead>
-<tbody>
-${bits}
-</tbody>
-</table>
-
-${readHere(n, a)}<h3>${t("Both links, as asked for")}</h3>
-<table class="items">
-<thead><tr><th>${t("Where")}</th><th>${t("Link")}</th></tr></thead>
-<tbody>
-<tr><td>${t("Upstream, at WHO")}</td><td>${sourceOf(n) ? `<a href="${esc(sourceOf(n)!)}">${data(sourceOf(n)!)}</a>` : t("none recorded")}</td></tr>
-<tr><td>${t("Held here, in folio-assistant")}</td>
-    <td>${a ? linkOrWithheld(a, false) : t("not held")}</td></tr>
-<tr><td>${t("In collection")}</td><td>${collectionCell(n, all)}</td></tr>
-<tr><td>${t("Ingested text (L1)")}</td>
-    <td>${n.libraryId ? `<a href="https://github.com/litlfred/who-iris/tree/main/library/${esc(n.libraryId)}/sections"><bdi dir="ltr">library/${esc(n.libraryId)}/sections/</bdi></a>` : "—"}</td></tr>
-<tr><td>${t("Dublin Core record")}</td><td>${metadataCell(n)}</td></tr>
-<tr><td>${t("Dublin Core renderings")}</td><td>${renderingsCell(n)}</td></tr>
-</tbody>
-</table>
-
-${
-  hasDc
-    ? ""
-    : `<div class="caveat"><p>${t("<strong>No Dublin Core record.</strong> The catalogue says so rather than synthesising metadata from the PDF — the <code>iris-dspace</code> skill's R8, <em>never infer metadata from the PDF when a record exists</em>, whose converse is that an absent record stays absent.")}</p></div>`
-}
-`;
-}
-
-/**
- * The instance's front door — `<base-url>/<kind>/<instance>/`.
- *
- * Owner, 2026-09-20: *"`<baseurl>/who-iris` should be defaul harness
- * behaviour, themed. that default harness benafour shoud show lassets in
- * library"*, and then the addressing rule: *"`<path-to-kind-or-node>`"*, with
- * `library/who-iris` as the worked example.
- *
- * **This is a front door, not the library visualiser.** The library
- * visualiser is bean `jbx2` and belongs to another agent — the owner said so
- * in the same session: *"library is another agent."* So this lists what is
- * held and links onward; it does not try to be the thing somebody else is
- * building, which would be two answers to one question.
- *
- * It exists for a second, mechanical reason: `mount-instance-docs.ts` mounts a
- * directory only when it carries an `index.html` at its root, because "has a
- * front door" is the difference between a built visualiser and a directory of
- * source files served under a URL that promises one.
- */
-/**
- * The IRIS home page, replicated.
- *
- * Owner, 2026-09-20, on finding the generic index here:
- *
- * > *"i would have expected to go to the harness defaiult landing page = folio
- * > show pages (or am i wrong), or to have a designated landing page whcih
- * > mocks the iris landing page. … go back to orinal .pdf of iris pages and
- * > validate look."*
- *
- * Validated against `who-iris/uploads/iris-home/iris-capture/IRIS-Home.pdf`,
- * page 1, rendered at 900px on 2026-09-20. Five bands, in the source's order:
- * masthead, hero, search, Recent Submissions, footer. Everything below is
- * either read off that capture or read out of the catalogue; nothing is
- * remembered.
- *
- * ## What is copied, and what deliberately is not
- *
- * **No WHO logo and no hero photograph.** The real page sets its hero over a
- * photograph of the Geneva headquarters with the WHO emblem on the facade. A
- * replica carrying either would be indistinguishable from the real site at a
- * glance, which is the whole reason the instruction exists. The hero is a
- * gradient in the `iris-web` theme's own measured colours instead — owner:
- * *"just use colors."*
- *
- * **Item covers ARE shown, with the emblem masked out of the bytes.** This
- * took two rulings. The covers are the publications' own and the emblem on
- * them is printed on the documents, so the file first argued they were content
- * rather than chrome; the owner read it otherwise on 2026-09-21, naming the
- * emblem with the logo — *"logo and other branding"* — and they were withheld.
- * Asked then whether to show them masked, they chose masking.
- *
- * The emblem is blanked by `pdf-cover.py` **before the PNG is written**, from
- * regions declared per item as `maskedRegions`, so the committed bytes do not
- * contain it. Not a display rule: nothing downstream can leak what is not in
- * the file. The publication's TITLE is untouched where it contains "WHO" —
- * that names the work and is not branding this page wears.
- *
- * ## Search across held items and referenced identifier lookup
- *
- * The placeholder reads `Search through the repository's 273559 items`,
- * transcribed from the capture, because that is the sentence IRIS shows and it
- * is where this repository's item count came from at all. The form actively
- * searches across the held catalogue items, collections and communities, and
- * links onward to the prefix-sharded identifier lookup for referenced nodes
- * (`id-lookup`).
- */
-function landingPage(all: Node[]): string {
-  const items = all.filter((n) => n.flavour === "item");
-  const communities = all.filter((n) => n.flavour === "community");
-  const collections = all.filter((n) => n.flavour === "collection");
-  const held = items.filter((n) => assetHref(n) !== undefined);
-  const cat = catalogue();
-  // The nodes held by REFERENCE: every node but the items held by value. This
-  // was the literal 10 until 2026-10-05, true when it was typed; counted now,
-  // so the sentence stays true when the catalogue grows.
-  const REFERENCED_NODES = all.length - held.length;
-
-  const submissions = recentOrder(items).map((n) => submission(n)).join("\n");
-
-  const itemsUpstream = cat.totalItemsUpstream;
-  const filesUpstream = cat.totalFilesUpstream;
-
-  const byId = new Map(all.map((n) => [n.id, n]));
-  const searchEntries = all
-    .map((n) => {
-      if (n.flavour === "item") {
-        const authors = dc(n, "contributor", "author");
-        const issued = day(dc(n, "date", "issued")[0]);
-        const year = issued ? parseInt(issued.slice(0, 4), 10) : undefined;
-        const abstract = dc(n, "description", "abstract")[0] ?? "";
-        const cite = dc(n, "identifier", "citation")[0] ?? dc(n, "identifier", "govdoc")[0] ?? "";
-        const spatial = dc(n, "spatial")[0] ?? "";
-        const subjects = dc(n, "subject", "mesh");
-        const bitstreams = n.bitstreams ?? [];
-        const originalPdf = bitstreams.find((b) => b.bundle === "ORIGINAL" && (b.mediaType === "application/pdf" || b.name.endsWith(".pdf")));
-        const copyrightGate = originalPdf?.materialization?.gates?.copyright?.verdict;
-        const parentComm = (n.parents?.[0] ?? []).find((p) => p.startsWith("community/"));
-        const parentColl = (n.parents?.[0] ?? []).find((p) => p.startsWith("collection/"));
-        const commTitle = parentComm ? byId.get(parentComm)?.title : undefined;
-        const collTitle = parentColl ? byId.get(parentColl)?.title : undefined;
-        const meta = [authors.join("; "), cite, issued].filter(Boolean).join(" · ");
-        const text = [n.title, n.id, n.libraryId ?? "", authors.join(" "), cite, issued, spatial, commTitle ?? "", subjects.join(" "), abstract].join(" ").toLowerCase();
-        return {
-          title: n.title,
-          href: `item-${slug(n.id)}.html`,
-          badge: t("Item"),
-          meta,
-          lang: langOf(n) !== LOCALE ? langOf(n) : undefined,
-          abstract: abstract.slice(0, 240),
-          text,
-          creator: authors.join("; "),
-          year,
-          spatial,
-          community: commTitle,
-          collection: collTitle,
-          subjects,
-          hasPdf: !!originalPdf,
-          copyrightGate,
-        };
-      }
-      if (n.flavour === "collection") {
-        return {
-          title: n.title,
-          href: `collection-${slug(n.id)}.html`,
-          badge: t("Collection"),
-          meta: n.id,
-          abstract: n.materialization?.note ?? "",
-          text: [n.title, n.id, n.materialization?.note ?? ""].join(" ").toLowerCase(),
-        };
-      }
-      return {
-        title: n.title,
-        href: "community-list.html",
-        badge: t("Community"),
-        meta: n.id,
-        abstract: "",
-        text: [n.title, n.id].join(" ").toLowerCase(),
-      };
-    })
-    .sort((a, b) => a.title.localeCompare(b.title, "en"));
-
-  return `
-<section class="hero">
-  <div class="hero-in">
-    <h1>IRIS</h1>
-    <p>${t("The primary objective of the Institutional Repository for Information Sharing (IRIS) is to provide free digital access to the scientific and technical publications of the World Health Organization (WHO), including contributions from its Country Offices, Regional Offices, and Headquarters. Additionally, IRIS encompasses the mandates established by the Organization’s Governing Bodies in collaboration with its Member States.")}</p>
-  </div>
-  <p class="hero-note">${t("Replica. No WHO emblem, no photograph — colour only, from the {theme} theme measured off the site’s own stylesheet.", { theme: "<code>iris-web</code>" })}</p>
-</section>
-
-<form class="searchbar" id="iris-search-form" action="${toSiteRoot()}../id-lookup/" method="get">
-  <input type="hidden" name="index" value="who-iris/">
-  <input type="text" id="iris-search-input" name="q"
-    placeholder="${esc(t("Search through the repository’s {n} items", { n: itemsUpstream !== undefined ? String(itemsUpstream) : "?" }))}"
-    aria-label="${esc(t("Search through the repository items and referenced identifier lookup"))}"
-    autocomplete="off" spellcheck="false">
-  <button type="submit" id="iris-search-btn">${t("Search")}</button>
-</form>
-
-<div class="iris-facet-chips" id="iris-facet-chips" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.6rem 0 0.8rem;align-items:center;">
-  <span style="font-size:0.85rem;color:var(--iris-muted);font-weight:600;">Facets:</span>
-  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Guidelines as Topic" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Guidelines as Topic</button>
-  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Publishing" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Publishing</button>
-  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Western Pacific" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Western Pacific</button>
-  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Headquarters" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Headquarters</button>
-  <button type="button" class="iris-chip" data-facet-type="access" data-facet-val="open-access" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid #94BA65;color:#1d5c1d;background:#f0f6e9;cursor:pointer;">Open Access PDF</button>
-</div>
-
-<details id="iris-adv-filters" style="margin:0 0 1rem;font-size:0.9rem;border:1px solid var(--iris-edge);border-radius:4px;padding:0.5rem 0.8rem;background:var(--iris-wash);">
-  <summary style="cursor:pointer;font-weight:600;color:var(--iris-dark);">Complex Search &amp; KG Filters (Oxigraph)</summary>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.7rem;margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--iris-edge);">
-    <div>
-      <label for="iris-filter-subject" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Subject (MeSH)</label>
-      <select id="iris-filter-subject" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <option value="">All Subjects</option>
-        <option value="Guidelines as Topic">Guidelines as Topic</option>
-        <option value="Publishing">Publishing</option>
-        <option value="Evidence-Based Medicine">Evidence-Based Medicine</option>
-        <option value="Information Systems and Communication">Information Systems</option>
-        <option value="Writing">Writing</option>
-      </select>
-    </div>
-    <div>
-      <label for="iris-filter-community" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Community</label>
-      <select id="iris-filter-community" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <option value="">All Communities</option>
-        <option value="Headquarters">Headquarters</option>
-        <option value="Western Pacific">Western Pacific</option>
-      </select>
-    </div>
-    <div>
-      <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Year Range</label>
-      <div style="display:flex;gap:0.3rem;">
-        <input type="number" id="iris-filter-year-from" placeholder="From" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <input type="number" id="iris-filter-year-to" placeholder="To" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-      </div>
-    </div>
-    <div style="display:flex;align-items:flex-end;">
-      <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.88rem;">
-        <input type="checkbox" id="iris-filter-open-access">
-        <span>Open Access PDF only</span>
-      </label>
-    </div>
-  </div>
-</details>
-
-<div id="iris-search-results" class="search-results-panel" role="region" aria-live="polite" style="display:none"></div>
-<p class="searchnote" id="iris-search-note">${t("Search across <strong>{held}</strong> items held by value and referenced communities/collections. To look up any of the <strong>{referenced}</strong> referenced nodes by identifier, search here or open the {lookup}.", {
-    held: num(held.length),
-    referenced: num(REFERENCED_NODES),
-    lookup: `<a href="${toSiteRoot()}../id-lookup/?index=who-iris/">${t("identifier lookup")}</a>`,
-  })}${itemsUpstream !== undefined && filesUpstream !== undefined
-    ? `\n${t("Upstream IRIS reports <strong>{items}</strong> items across <strong>{files}</strong> files.", { items: num(itemsUpstream), files: num(filesUpstream) })}`
-    : ""}</p>
-
-<h2>${t("Recent Submissions")}</h2>
-<p class="ordering">${t("Ordered by {key}, latest first — the key IRIS’s own list sorts on. Where a record carries several accessions the latest is used; the WPRO item has two, five days apart, the second being the regional-IRIS merge.", { key: "<code>dc.date.accessioned</code>" })}</p>
-
-<div class="subs">
-${submissions}
-</div>
-
-<h2>${t("Browse")}</h2>
-<ul class="kids" style="margin-inline-start:0">
-  <li>${t("{link} — the replica of {url}, with every node’s materialisation state ({communities} communities, {collections} collections)", {
-    link: `<a href="community-list.html">${t("List of Communities")}</a>`,
-    url: "<code>iris.who.int/community-list</code>",
-    communities: num(communities.length),
-    collections: num(collections.length),
-  })}</li>
-${collections
-  .map((c) => `  <li>${t("{link} — collection", { link: `<a href="collection-${esc(slug(c.id))}.html">${data(c.title)}</a>` })}</li>`)
-  .join("\n")}
-</ul>
-
-<div class="caveat">
-  <p>${t("<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question.")}</p>
-  <p>${t("Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on.")}</p>
-</div>
-
-<script>
-(function() {
-  var index = ${JSON.stringify(searchEntries)};
-  var T = ${JSON.stringify({
-    matching: t("Matching catalogue nodes ({n}):"),
-    also: t("Also search identifier lookup:"),
-    lookUp: t("Look up “{q}” in referenced nodes →"),
-    none: t("No materialized items or collections matched “<strong>{q}</strong>”."),
-    searchFor: t("Search for “{q}” in the referenced identifier lookup ({n} nodes) →", { n: num(REFERENCED_NODES) }),
-  })};
-  function fill(s, q, n) { return s.split("{q}").join(q).split("{n}").join(n); }
-  var form = document.getElementById("iris-search-form");
-  var input = document.getElementById("iris-search-input");
-  var results = document.getElementById("iris-search-results");
-  var fSubj = document.getElementById("iris-filter-subject");
-  var fComm = document.getElementById("iris-filter-community");
-  var fYFrom = document.getElementById("iris-filter-year-from");
-  var fYTo = document.getElementById("iris-filter-year-to");
-  var fOA = document.getElementById("iris-filter-open-access");
-  var chips = document.querySelectorAll(".iris-chip");
-  if (!form || !input || !results) return;
-
-  function escapeHtml(s) {
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  }
-
-  function highlight(text, terms) {
-    if (!terms.length) return escapeHtml(text);
-    var escaped = escapeHtml(text);
-    for (var i = 0; i < terms.length; i++) {
-      var t = terms[i];
-      if (!t) continue;
-      var regex = new RegExp("(" + t.replace(/[.*+?^\${}()|[\\]\\\\]/g, "\\\\$&") + ")", "gi");
-      escaped = escaped.replace(regex, "<mark class=\\"search-mark\\">$1</mark>");
-    }
-    return escaped;
-  }
-
-  function update() {
-    var raw = input.value.trim();
-    var subj = fSubj ? fSubj.value.trim() : "";
-    var comm = fComm ? fComm.value.trim() : "";
-    var yFrom = fYFrom && fYFrom.value ? parseInt(fYFrom.value, 10) : 0;
-    var yTo = fYTo && fYTo.value ? parseInt(fYTo.value, 10) : 0;
-    var oaOnly = fOA ? fOA.checked : false;
-
-    var hasActive = raw || subj || comm || yFrom || yTo || oaOnly;
-    if (!hasActive) {
-      results.style.display = "none";
-      results.replaceChildren();
-      return;
-    }
-
-    var terms = raw.toLowerCase().split(/\\s+/).filter(Boolean);
-    var matches = [];
-    for (var i = 0; i < index.length; i++) {
-      var entry = index[i];
-      var ok = true;
-      for (var t = 0; t < terms.length; t++) {
-        if (entry.text.indexOf(terms[t]) < 0) {
-          ok = false;
-          break;
-        }
-      }
-      if (!ok) continue;
-
-      if (subj && (!entry.subjects || entry.subjects.indexOf(subj) < 0)) {
-        continue;
-      }
-      if (comm && (!entry.community || entry.community.indexOf(comm) < 0)) {
-        continue;
-      }
-      if (yFrom && (!entry.year || entry.year < yFrom)) {
-        continue;
-      }
-      if (yTo && (!entry.year || entry.year > yTo)) {
-        continue;
-      }
-      if (oaOnly && !(entry.hasPdf && entry.copyrightGate === "permitted")) {
-        continue;
-      }
-
-      matches.push(entry);
-    }
-
-    var lookupUrl = "${toSiteRoot()}../id-lookup/?index=who-iris/&q=" + encodeURIComponent(raw);
-    var html = "";
-
-    if (matches.length > 0) {
-      html += "<h3 style=\\"margin:0 0 0.8rem;font-size:1.05rem;color:var(--iris-dark);\\">" + fill(T.matching, "", String(matches.length)) + "</h3>";
-      html += "<ul class=\\"search-results-list\\" style=\\"list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.75rem;\\">";
-      for (var m = 0; m < matches.length; m++) {
-        var it = matches[m];
-        var la = it.lang ? " lang=\\"" + it.lang + "\\"" : "";
-        html += "<li class=\\"search-result-item\\" style=\\"padding:0.6rem 0.8rem;border:1px solid var(--iris-edge);border-radius:4px;background:var(--iris-wash);\\">";
-        html += "<div style=\\"display:flex;align-items:center;flex-wrap:wrap;gap:0.35rem;\\"><span class=\\"search-result-badge\\" style=\\"display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;padding:0.15rem 0.45rem;border-radius:3px;background:var(--iris-accent);color:#fff;margin-inline-end:0.3rem;\\">" + escapeHtml(it.badge) + "</span>";
-        if (it.copyrightGate === "permitted") {
-          html += "<span class=\\"state materialized\\" style=\\"font-size:0.72rem;\\">PDF Permitted</span>";
-        } else if (it.hasPdf) {
-          html += "<span class=\\"state referenced\\" style=\\"font-size:0.72rem;\\">PDF Held (Restricted)</span>";
-        }
-        html += "<a href=\\"" + it.href + "\\" dir=\\"auto\\"" + la + " style=\\"font-weight:600;font-size:1.02rem;\\">" + highlight(it.title, terms) + "</a></div>";
-        if (it.meta) {
-          html += "<div class=\\"search-result-meta\\" dir=\\"auto\\"" + la + " style=\\"font-size:0.88rem;color:var(--iris-muted);margin-top:0.25rem;\\">" + highlight(it.meta, terms) + "</div>";
-        }
-        if (it.subjects && it.subjects.length > 0) {
-          html += "<div style=\\"margin-top:0.3rem;display:flex;flex-wrap:wrap;gap:0.25rem;\\">";
-          for (var s = 0; s < it.subjects.length; s++) {
-            html += "<span style=\\"font-size:0.75rem;background:#e2eaf0;color:var(--iris-dark);padding:0.1rem 0.4rem;border-radius:3px;\\">#" + escapeHtml(it.subjects[s]) + "</span>";
-          }
-          html += "</div>";
-        }
-        if (it.abstract) {
-          var snip = it.abstract.length > 180 ? it.abstract.slice(0, 180) + "…" : it.abstract;
-          html += "<div class=\\"search-result-meta\\" dir=\\"auto\\"" + la + " style=\\"font-size:0.88rem;color:var(--iris-ink);margin-top:0.35rem;\\">" + highlight(snip, terms) + "</div>";
-        }
-        html += "</li>";
-      }
-      html += "</ul>";
-      html += "<div class=\\"search-remote-box\\" style=\\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\\">";
-      html += T.also + " <a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\">" + fill(T.lookUp, escapeHtml(raw || subj || comm), "") + "</a>";
-      html += "</div>";
-    } else {
-      html += "<p style=\\"margin:0 0 0.5rem;\\">" + fill(T.none, escapeHtml(raw || subj || comm), "") + "</p>";
-      html += "<div class=\\"search-remote-box\\" style=\\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\\">";
-      html += "<a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\" style=\\"font-weight:600;\\">" + fill(T.searchFor, escapeHtml(raw || subj || comm), "") + "</a>";
-      html += "</div>";
-    }
-
-    results.innerHTML = html;
-    results.style.display = "block";
-  }
-
-  input.addEventListener("input", update);
-  if (fSubj) fSubj.addEventListener("change", update);
-  if (fComm) fComm.addEventListener("change", update);
-  if (fYFrom) fYFrom.addEventListener("input", update);
-  if (fYTo) fYTo.addEventListener("input", update);
-  if (fOA) fOA.addEventListener("change", update);
-
-  chips.forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      var t = btn.getAttribute("data-facet-type");
-      var v = btn.getAttribute("data-facet-val");
-      var adv = document.getElementById("iris-adv-filters");
-      if (adv) adv.open = true;
-      if (t === "subject" && fSubj) { fSubj.value = v; }
-      else if (t === "community" && fComm) { fComm.value = v; }
-      else if (t === "access" && fOA) { fOA.checked = !fOA.checked; }
-      update();
-    });
-  });
-
-  form.addEventListener("submit", function(e) {
-    var raw = input.value.trim();
-    if (!raw && !fSubj.value && !fComm.value) { e.preventDefault(); return; }
-    var hasLocal = results.querySelector(".search-result-item");
-    var firstLink = results.querySelector(".search-result-item a");
-    if (hasLocal && firstLink) {
-      e.preventDefault();
-      firstLink.focus();
-    }
-  });
-
-  var urlParams = new URLSearchParams(window.location.search);
-  var initQ = urlParams.get("q");
-  if (initQ) {
-    input.value = initQ;
-    update();
-  }
-  try { window.__irisSearch = { index: index, update: update }; } catch (e) {}
-})();
-</script>
-`;
-}
-
-/**
- * One row of Recent Submissions, laid out as the capture lays it out.
- *
- * Cover at the left, title as a link, then the author line with the publication
- * date in parentheses, then the abstract. The capture shows a "Show more"
- * control under a truncated abstract; this truncates in CSS and says so in the
- * title attribute rather than shipping a disclosure widget, because the owner
- * asked for *"a special viusalize … dont need working functionality, just
- * links to working assets."*
- *
- * Every string here comes from the Dublin Core record. **Where the record is
- * silent the row says so rather than falling back to the node's title** — R15
- * generalised: a plausible substitute is worse than a stated absence, because
- * a reader cannot tell it apart from a transcription.
- */
-function submission(n: Node): string {
-  const cov = coverSrc(n);
-  const a = assetHref(n);
-  const authors = dc(n, "contributor", "author");
-  const issued = day(dc(n, "date", "issued")[0]);
-  const abstract = dc(n, "description", "abstract")[0];
-  const cite = dc(n, "identifier", "citation")[0] ?? dc(n, "identifier", "govdoc")[0];
-  const lang = langOf(n);
-
-  const byline = [
-    authors.length ? data(authors.join("; "), lang) : `<span class="none">${t("no author recorded")}</span>`,
-    `(${[cite ? data(cite, lang) : undefined, issued ? t("Publication Date: {date}", { date: data(issued) }) : undefined]
-      .filter(Boolean)
-      .join(", ")})`,
-  ].join(" ");
-
-  // Three states, not two. A withheld cover and an absent one look the same
-  // in a layout and mean opposite things about the catalogue.
-  const withheldBy = coverWithheld(n);
-  const coverCell = withheldBy
-    ? `<span class="nocover" title="${esc(t("A cover is rendered and held here. It is not published: {gates}.", { gates: withheldBy }))}">${t("cover<br>withheld")}</span>`
-    : !cov
-    ? `<span class="nocover" title="${esc(t("no cover rendered"))}">${t("no cover")}</span>`
-    : COVERS_SHOWN
-      ? `<a href="item-${esc(slug(n.id))}.html"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
-        alt="${esc(cov.masked
-          ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
-          : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }))}" loading="lazy"></a>`
-      : `<span class="nocover" title="${esc(t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO."))}">${t("cover<br>withheld")}</span>`;
-
-  return `<article class="sub">
-  <div class="sub-cover">${coverCell}</div>
-  <div class="sub-body">
-    <a class="sub-title"${dataBlock(lang)} href="item-${esc(slug(n.id))}.html">${esc(n.title)}</a>
-    <p class="sub-by">${byline}</p>
-    ${
-      abstract
-        ? `<p class="sub-abs"${dataBlock(lang)}>${esc(abstract)}</p>`
-        : `<p class="sub-abs none">${t("No <code>dc.description.abstract</code> in the captured record.")}</p>`
-    }
-    <p class="sub-links">${
-      a
-        ? linkOrWithheld(a, true)
-        : `<span class="none">${t("not held here")}</span>`
-    }</p>
-  </div>
-</article>`;
 }
 
 /** Where the skill itself is readable, for a reader who wants the full text. */
@@ -3851,31 +2980,26 @@ function main(): number {
   // its declared route, where the site publishes it.
   siteFiles.set(CATALOGUE_VIEWER, ((page: string) => (page.startsWith("---\n") ? withRenderedByFrontMatter(page, VIEWER_TOOL) : withRenderedBy(page, VIEWER_TOOL)))(catalogueViewer(all)));
 
-  // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
-  // top level, where it always was; then each translation beneath
-  // `site/<locale>/`. The docs and harness pages above are English only and
-  // were rendered before the first switch, which is the only reason the
-  // module-level LOCALE is safe here: nothing renders across the loop.
-  REPLICA_NAV_ALL = all;
+  // THE IRIS REPLICA IS GONE -- owner, 2026-10-30, option C: "i want
+  // consitent bevarioior for things nuders librayr/". Its item pages
+  // duplicated the library entry pages without a locale in the URL, so the
+  // library page is now the item's one page. What stays at the replica's
+  // route is REDIRECTS, so no published link breaks (option A of the
+  // follow-up): the instance root goes to this instance's library listing,
+  // and each old item page, in every language it was built in, to its
+  // entry's page. The orphan sweep below prunes every other replica page
+  // (community list, collections), because PAGES.site still owns them.
   for (const locale of ["en", ...SITE_LOCALES] as Locale[]) {
-    LOCALE = locale;
     const at = locale === "en" ? "site" : `site/${locale}`;
-    const home = { label: t("Home"), href: "community-list.html" };
-    files.set(`${at}/index.html`, page("who-iris", [{ label: t("Home") }], landingPage(all), "site", [], "index.html"));
-    files.set(
-      `${at}/community-list.html`,
-      page(t("List of Communities"), [home, { label: t("Community List") }], communityList(all), "site", [], "community-list.html"),
-    );
-    for (const c of all.filter((n) => n.flavour === "collection")) {
-      const f = replicaPageOf(c)!;
-      files.set(`${at}/${f}`, page(c.title, [home, { label: c.title, record: {} }], collectionPage(c, all), "site", [], f));
+    const up = "../".repeat(REPLICA_ROUTE.split("/").length + (locale === "en" ? 0 : 1));
+    if (locale === "en" && LIBRARY_LISTING_ROUTE !== undefined) {
+      files.set(`${at}/index.html`, redirectPage(`${up}${LIBRARY_LISTING_ROUTE}`, "who-iris library"));
     }
     for (const n of all.filter((x) => x.flavour === "item")) {
-      const f = replicaPageOf(n)!;
-      files.set(`${at}/${f}`, page(n.title, [home, { label: n.title, record: { lang: langOf(n) } }], itemPage(n, all), "site", [], f));
+      const to = n.libraryId && HELD_ITEM_LINKS(n.libraryId) ? libraryEntryRoute(n.libraryId) : undefined;
+      if (to !== undefined) files.set(`${at}/${replicaPageOf(n)!}`, redirectPage(`${up}${to}`, n.title));
     }
   }
-  LOCALE = "en";
 
   const check = process.argv.includes("--check");
   let stale = 0;
