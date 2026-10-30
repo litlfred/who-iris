@@ -8,10 +8,10 @@
   "terms": [
     {
       "id": "iris-pages",
-      "prefLabel": "IRIS replica and catalogue pages",
-      "definition": "Render who-iris's replica of the IRIS site, its docs pages, and the catalogue visualiser who-iris declares — what the catalogue knows and what it records that it does not know — at that visualiser's declared route.",
+      "prefLabel": "who-iris catalogue and docs pages",
+      "definition": "Render who-iris's docs pages and the catalogue visualiser who-iris declares — what the catalogue knows and what it records that it does not know — at that visualiser's declared route, plus the library's withheld list and the IRIS replica's home page, the one replica page left (owner, 2026-10-30).",
       "notation": "iris-pages",
-      "source": "who-iris/tools/index.ts#iris-pages",
+      "source": "who-iris/tools/iris-pages/iris-pages.ts#iris-pages",
       "status": "candidate"
     }
   ]
