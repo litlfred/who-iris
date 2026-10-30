@@ -104,8 +104,6 @@ small, and a preview always shows what the CDN actually serves.
 - **Q10, the domain.** The DID is tied to the domain, so this has to be
   settled before the first signed release. The recommendation is a domain the
   owner adds to Cloudflare.
-- **Q4, per-item signatures.** The recommendation is a JWS per library item
-  plus one per release.
 - **The live DSpace REST shapes** have not been checked, because iris.who.int
   was unreachable from the sandbox where this was written. The first manual
   run must confirm them.

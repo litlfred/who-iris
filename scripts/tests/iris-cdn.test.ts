@@ -223,3 +223,22 @@ describe("x5c trust chain up to WHO's key", () => {
     expect(await verifyDetached("payload", jws, doc, { anchors: [whoJwk], at: new Date("2099-01-01") })).toMatchObject({ state: "failed", reason: expect.stringContaining("validity") });
   });
 });
+
+describe("per-item manifests (Q4 A)", () => {
+  test("an item's manifest holds its record and files only, and is stable", async () => {
+    const { itemManifest, itemManifestPath } = await import("../iris-cdn/bag.ts");
+    const all = [e("records/10665/1.json", "r1"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf"), e("records/10665/12.json", "r12"), e("bitstreams/10665/12/ORIGINAL/b.pdf", "x")];
+    const m = itemManifest("10665/1", all);
+    expect(m.split("\n").filter(Boolean).map((l) => l.split(" ")[1])).toEqual(["data/bitstreams/10665/1/ORIGINAL/a.pdf", "data/records/10665/1.json"]);
+    expect(itemManifest("10665/1", [...all].reverse())).toBe(m);
+    expect(itemManifestPath("10665/1")).toBe("items/10665/1/manifest-sha256.txt");
+    expect(() => itemManifest("10665/9", all)).toThrow(/no record/);
+  });
+
+  test("a metadata-only change moves the record digest and not the PDF's", async () => {
+    const { itemManifest, parsePayloadManifest } = await import("../iris-cdn/bag.ts");
+    const before = parsePayloadManifest(itemManifest("10665/1", [e("records/10665/1.json", "title A"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf")]));
+    const after = parsePayloadManifest(itemManifest("10665/1", [e("records/10665/1.json", "title B"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf")]));
+    expect(diffManifests(before, after)).toEqual({ added: [], changed: ["records/10665/1.json"], removed: [], unchanged: 1 });
+  });
+});

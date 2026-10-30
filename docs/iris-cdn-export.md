@@ -21,6 +21,7 @@ and where the keys live is covered in [deployment](iris-cdn-deployment.md).
 | How is the graph regenerated? | **Full rebuild every night.** Sorted output keeps unchanged partitions byte-identical |
 | What runs the exporter? | **GitHub Actions**, writing to Cloudflare |
 | Where is the signing key? | A GitHub **environment secret** (`iris-cdn-release`, `main` only) |
+| How is each item signed? | A **detached JWS per library item**, over a manifest of its record and files, **plus one over the release** (Q4 A). Only changed items are re-signed |
 | How are keys published? | As `verificationMethod`s of a **`did:web`** DID document, with `publicKeyJwk.x5c` chaining to WHO's signing DID. Publishing is an **offline** step. GDHCN is not assumed |
 | Standing requirement | **No churn**: content that has not changed is not rewritten, re-uploaded or re-signed |
 
@@ -65,8 +66,10 @@ Withdrawn items are marked as withdrawn and their bytes stay addressable.
 
 ## 4. Sign and publish (called by all three)
 
-`processes/iris-cdn-sign-publish.bpmn`. Each release is a BagIt bag (RFC 8493)
-with one detached JWS (RFC 7515 Appendix F, ES256) over its tag manifest. Payload objects go to R2 first. The tag files and the signature are
+`processes/iris-cdn-sign-publish.bpmn`. Each changed library item gets a
+detached JWS (RFC 7515 Appendix F, ES256) over its own manifest. The release
+is a BagIt bag (RFC 8493) whose tag manifest pins every item manifest and
+signature, and the tag manifest is signed once. Payload objects go to R2 first. The tag files and the signature are
 committed to Cloudflare git last, in one commit. A release that does not verify
 is reverted, and the previous release stays served.
 
@@ -125,8 +128,6 @@ distribute and verify pattern).
 
 ## Still open
 
-- **Signing per library item.** The proposal is a JWS per item over a manifest
-  of its record and files, plus one over the release.
 - **CDN and DID domain.** The proposal is a stable domain the owner adds to
   Cloudflare.
 - **Live endpoint shapes.** iris.who.int could not be reached from the sandbox

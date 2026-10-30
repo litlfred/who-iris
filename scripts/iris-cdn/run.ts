@@ -22,10 +22,10 @@
  *  - the IRIS REST shapes are unconfirmed against the live API.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { createHash } from "node:crypto";
+import { createHash, type webcrypto } from "node:crypto";
 import { join } from "node:path";
 import { S3Client } from "bun";
-import { diffManifests, isEmptyDiff, parsePayloadManifest, sha256Hex, tagFiles, type PayloadEntry } from "./bag.ts";
+import { diffManifests, isEmptyDiff, itemManifest, itemManifestPath, parsePayloadManifest, sha256Hex, tagFiles, type PayloadEntry } from "./bag.ts";
 import { didWebUrl, importPrivateJwk, signDetached, verifyDetached, type DidDocument } from "./signing.ts";
 import { allContainers, allItems, bitstreamContentUrl, changedSince, IRIS_API, itemBitstreams, metadataSha, withdrawnOrHidden, type Fetcher } from "./rest-feed.ts";
 
@@ -118,6 +118,7 @@ async function ingestItem(uuid: string, entries: Map<string, PayloadEntry>, stor
   const record = new TextEncoder().encode(canonicalJson(recordOf(item)));
   const path = `records/${handle}.json`;
   report.uuids[uuid] = path;
+  report.touched.add(handle);
   report.metadataSha[uuid] = metadataSha(item.metadata);
   entries.set(path, { path, sha256: await storeBytes(store, record, "application/json", report.objects), bytes: record.byteLength });
 
@@ -163,10 +164,43 @@ interface Report {
   /** item uuid → hash of its metadata as last ingested (the weekly check). */
   metadataSha: Record<string, string>;
   containersChanged: number;
+  /** handles of items ingested this run; only these can need a new item signature. */
+  touched: Set<string>;
+  itemsSigned: number;
 }
 
-/** Write the bag; sign only if the payload changed. Returns whether anything changed. */
-async function publish(release: string, previous: Map<string, PayloadEntry>, next: Map<string, PayloadEntry>): Promise<boolean> {
+let signer: { key: webcrypto.CryptoKey; kid: string } | null = null;
+async function getSigner(): Promise<{ key: webcrypto.CryptoKey; kid: string }> {
+  if (signer) return signer;
+  const did = process.env.IRIS_CDN_DID;
+  const jwk = process.env.IRIS_CDN_SIGNING_JWK;
+  if (!did || !jwk) throw new Error("IRIS_CDN_DID and IRIS_CDN_SIGNING_JWK must be set to sign");
+  signer = { key: await importPrivateJwk(JSON.parse(jwk)), kid: `${did}#${process.env.IRIS_CDN_KEY_ID ?? "release-1"}` };
+  return signer;
+}
+
+/**
+ * A detached JWS on each touched library item's own manifest. An item whose
+ * manifest bytes did not change keeps its existing signature: ES256 is
+ * randomised, so re-signing would change bytes for nothing.
+ */
+async function signItems(entries: Map<string, PayloadEntry>, store: Store, report: Report): Promise<void> {
+  for (const handle of [...report.touched].sort()) {
+    const text = itemManifest(handle, entries.values());
+    const mpath = itemManifestPath(handle);
+    const bytes = new TextEncoder().encode(text);
+    if (entries.get(mpath)?.sha256 === sha256Hex(bytes) && entries.has(`${mpath}.jws`)) continue;
+    const { key, kid } = await getSigner();
+    const jws = new TextEncoder().encode((await signDetached(text, key, kid)) + "\n");
+    entries.set(mpath, { path: mpath, sha256: await storeBytes(store, bytes, "text/plain", report.objects), bytes: bytes.byteLength });
+    entries.set(`${mpath}.jws`, { path: `${mpath}.jws`, sha256: await storeBytes(store, jws, "application/jose", report.objects), bytes: jws.byteLength });
+    report.itemsSigned++;
+  }
+}
+
+/** Sign changed items, write the bag, and sign the release only if the payload changed. */
+async function publish(release: string, previous: Map<string, PayloadEntry>, next: Map<string, PayloadEntry>, store: Store, report: Report): Promise<boolean> {
+  await signItems(next, store, report);
   const prevMap = new Map([...previous].map(([p, e]) => [p, e.sha256]));
   const nextMap = new Map([...next].map(([p, e]) => [p, e.sha256]));
   const diff = diffManifests(prevMap, nextMap);
@@ -174,11 +208,8 @@ async function publish(release: string, previous: Map<string, PayloadEntry>, nex
   if (isEmptyDiff(diff)) return false;
   const tags = tagFiles([...next.values()], { "Source-Organization": "WHO IRIS (ingested copy)", "External-Identifier": "https://iris.who.int" });
   for (const [name, text] of Object.entries(tags)) writeFileSync(join(release, name), text);
-  const did = process.env.IRIS_CDN_DID;
-  const jwk = process.env.IRIS_CDN_SIGNING_JWK;
-  if (!did || !jwk) throw new Error("IRIS_CDN_DID and IRIS_CDN_SIGNING_JWK must be set to sign");
-  const key = await importPrivateJwk(JSON.parse(jwk));
-  writeFileSync(join(release, "tagmanifest-sha256.txt.jws"), (await signDetached(tags["tagmanifest-sha256.txt"], key, `${did}#${process.env.IRIS_CDN_KEY_ID ?? "release-1"}`)) + "\n");
+  const { key, kid } = await getSigner();
+  writeFileSync(join(release, "tagmanifest-sha256.txt.jws"), (await signDetached(tags["tagmanifest-sha256.txt"], key, kid)) + "\n");
   mkdirSync(join(release, "state"), { recursive: true });
   writeFileSync(join(release, "state", "sizes.json"), canonicalJson(Object.fromEntries([...next].map(([p, e]) => [p, e.bytes]))));
   return true;
@@ -225,7 +256,7 @@ async function main(): Promise<void> {
   const store = r2Store();
   const previous = heldEntries(release);
   const next = new Map(previous);
-  const report: Report = { mode, changedItems: 0, objects: { stored: 0, skipped: 0 }, quarantined: [], withdrawn: [], md5: readJson(md5Path, {}), uuids: readJson(uuidsPath, {}), metadataSha: readJson(metaPath, {}), containersChanged: 0 };
+  const report: Report = { mode, changedItems: 0, objects: { stored: 0, skipped: 0 }, quarantined: [], withdrawn: [], md5: readJson(md5Path, {}), uuids: readJson(uuidsPath, {}), metadataSha: readJson(metaPath, {}), containersChanged: 0, touched: new Set(), itemsSigned: 0 };
   const saveState = (): void => {
     mkdirSync(join(release, "state"), { recursive: true });
     writeFileSync(md5Path, canonicalJson(report.md5));
@@ -240,7 +271,7 @@ async function main(): Promise<void> {
     report.changedItems = changed.length;
     for (const it of changed) await ingestItem(it.uuid, next, store, report);
     await ingestContainers(next, store, report);
-    const changedAnything = await publish(release, previous, next);
+    const changedAnything = await publish(release, previous, next, store, report);
     if (changed.length > 0) state.cursor = changed[changed.length - 1].lastModified;
     if (changedAnything || changed.length > 0) {
       saveState();
@@ -269,11 +300,11 @@ async function main(): Promise<void> {
     }
     // Withdrawn items keep their record and bytes in the manifest: a citation may point at them.
     if (report.withdrawn.length > 0) writeFileSync(withdrawnPath, canonicalJson(withdrawn));
-    if ((await publish(release, previous, next)) || report.withdrawn.length > 0) saveState();
+    if ((await publish(release, previous, next, store, report)) || report.withdrawn.length > 0) saveState();
   } else {
     throw new Error(`mode ${mode}: not built yet (see the header of this file)`);
   }
-  const { md5: _md5, ...summary } = report;
+  const { md5: _md5, uuids: _u, metadataSha: _m, touched: _t, ...summary } = report;
   console.log(canonicalJson(summary));
 }
 

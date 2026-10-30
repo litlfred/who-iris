@@ -132,3 +132,21 @@ export function diffManifests(previous: ReadonlyMap<string, string>, next: Reado
 
 export const isEmptyDiff = (d: ManifestDiff): boolean =>
   d.added.length === 0 && d.changed.length === 0 && d.removed.length === 0;
+
+/**
+ * One library item's own manifest (owner, 2026-10-30, Q4 A: a signature on
+ * each library item): the `manifest-sha256.txt` lines of its record and of
+ * every file under it, nothing else. It lives in the payload at
+ * `items/<handle>/manifest-sha256.txt`, its detached JWS beside it, so the
+ * release manifest covers both. Same item content, same bytes — so an
+ * unchanged item's manifest digest does not move and it is never re-signed.
+ */
+export const itemManifestPath = (handle: string): string => `items/${handle}/manifest-sha256.txt`;
+
+export function itemManifest(handle: string, entries: Iterable<PayloadEntry>): string {
+  const record = `records/${handle}.json`;
+  const files = `bitstreams/${handle}/`;
+  const mine = [...entries].filter((e) => e.path === record || e.path.startsWith(files));
+  if (!mine.some((e) => e.path === record)) throw new Error(`item ${handle} has no record in the payload`);
+  return payloadManifest(mine);
+}

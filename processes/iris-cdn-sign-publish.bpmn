@@ -29,7 +29,7 @@
   <bpmn:resource id="cloudflare-git" name="Cloudflare git (Artifacts)"/>
   <bpmn:resource id="verifier" name="Verifier"/>
   <bpmn:process id="Process_IrisCdnSignPublish" name="Sign and publish an IRIS CDN release" isExecutable="false">
-    <bpmn:documentation>Turn a candidate payload into a signed release on Cloudflare: a BagIt bag (RFC 8493) whose tagmanifest is signed once with a detached JWS (RFC 7515 Appendix F, ES256 per RFC 7518), the key published as a verificationMethod of a did:web DID document whose publicKeyJwk carries an x5c chain to the WHO signing key. Nothing unchanged is re-uploaded or re-signed; an empty diff ends the process with no commit.</bpmn:documentation>
+    <bpmn:documentation>Turn a candidate payload into a signed release on Cloudflare: each changed library item gets a detached JWS over its own manifest, and the BagIt bag (RFC 8493) whose tagmanifest pins every item manifest and signature is signed once with a detached JWS (RFC 7515 Appendix F, ES256 per RFC 7518), the key published as a verificationMethod of a did:web DID document whose publicKeyJwk carries an x5c chain to the WHO signing key. Nothing unchanged is re-uploaded or re-signed; an empty diff ends the process with no commit.</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_IrisCdnSignPublish">
       <bpmn:lane id="Lane_Pipeline" name="Build pipeline" partitionElementRef="build-pipeline">
         <bpmn:documentation>Deterministic scripts in scripts/iris-cdn/, run by the nightly runner. Same input, same bytes.</bpmn:documentation>
@@ -40,7 +40,8 @@
         <bpmn:flowNodeRef>End_Unchanged</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Signer" name="Release signer" partitionElementRef="release-signer">
-        <bpmn:documentation>Holds the P-256 private key (GitHub environment secret IRIS_CDN_SIGNING_JWK). Signs exactly one thing: the bag's tagmanifest-sha256.txt.</bpmn:documentation>
+        <bpmn:documentation>Holds the P-256 private key (GitHub environment secret IRIS_CDN_SIGNING_JWK). Signs each changed item manifest and the release tag manifest.</bpmn:documentation>
+        <bpmn:flowNodeRef>Task_SignItems</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_Sign</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_CfStore" name="Cloudflare R2 + CDN" partitionElementRef="cloudflare-r2-cdn">
@@ -74,7 +75,11 @@
       <bpmn:documentation>Content-addressed: an object whose SHA-256 is already stored is skipped. Published objects are never deleted by a nightly run.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
     </bpmn:task>
-    <bpmn:task id="Task_Sign" name="Sign the tag manifest&#10;(detached JWS, ES256)">
+    <bpmn:task id="Task_SignItems" name="Sign each changed&#10;item manifest (ES256)">
+      <bpmn:documentation>Owner, Q4 A: a signature on each library item. items/&lt;handle&gt;/manifest-sha256.txt lists the item record and its files; its detached JWS sits beside it. Only items whose manifest bytes changed are signed: ES256 is randomised, so re-signing an unchanged item would be churn. The item manifests and their signatures join the payload, so the tag files are refreshed to cover them before the release is signed.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-signing"/></bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:task id="Task_Sign" name="Sign the release&#10;tag manifest (ES256)">
       <bpmn:documentation>scripts/iris-cdn/signing.ts signDetached. kid is a did:web DID URL listed under assertionMethod.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-signing"/></bpmn:extensionElements>
     </bpmn:task>
@@ -95,7 +100,8 @@
     <bpmn:sequenceFlow id="P3" sourceRef="Task_Diff" targetRef="GW_Empty"/>
     <bpmn:sequenceFlow id="P4" name="no" sourceRef="GW_Empty" targetRef="End_Unchanged"/>
     <bpmn:sequenceFlow id="P5" name="yes" sourceRef="GW_Empty" targetRef="Task_Upload"/>
-    <bpmn:sequenceFlow id="P6" sourceRef="Task_Upload" targetRef="Task_Sign"/>
+    <bpmn:sequenceFlow id="P6" sourceRef="Task_Upload" targetRef="Task_SignItems"/>
+    <bpmn:sequenceFlow id="P6b" sourceRef="Task_SignItems" targetRef="Task_Sign"/>
     <bpmn:sequenceFlow id="P7" sourceRef="Task_Sign" targetRef="Task_PublishTags"/>
     <bpmn:sequenceFlow id="P8" sourceRef="Task_PublishTags" targetRef="Task_Verify"/>
     <bpmn:sequenceFlow id="P9" sourceRef="Task_Verify" targetRef="GW_Verified"/>
@@ -105,36 +111,38 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_IrisCdnSignPublish">
     <bpmndi:BPMNPlane id="Plane_IrisCdnSignPublish" bpmnElement="Process_IrisCdnSignPublish">
-      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="60" width="2210" height="280"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_Signer" bpmnElement="Lane_Signer" isHorizontal="true"><dc:Bounds x="160" y="340" width="2210" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_CfStore" bpmnElement="Lane_CfStore" isHorizontal="true"><dc:Bounds x="160" y="480" width="2210" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_CfGit" bpmnElement="Lane_CfGit" isHorizontal="true"><dc:Bounds x="160" y="620" width="2210" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_Verifier" bpmnElement="Lane_Verifier" isHorizontal="true"><dc:Bounds x="160" y="760" width="2210" height="280"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="60" width="2400" height="280"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Signer" bpmnElement="Lane_Signer" isHorizontal="true"><dc:Bounds x="160" y="340" width="2400" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_CfStore" bpmnElement="Lane_CfStore" isHorizontal="true"><dc:Bounds x="160" y="480" width="2400" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_CfGit" bpmnElement="Lane_CfGit" isHorizontal="true"><dc:Bounds x="160" y="620" width="2400" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Verifier" bpmnElement="Lane_Verifier" isHorizontal="true"><dc:Bounds x="160" y="760" width="2400" height="280"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Start_Candidate" bpmnElement="Start_Candidate"><dc:Bounds x="297" y="112" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="255" y="152" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_BuildBag" bpmnElement="Task_BuildBag"><dc:Bounds x="430" y="90" width="150" height="80"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_Diff" bpmnElement="Task_Diff"><dc:Bounds x="620" y="90" width="150" height="80"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_GW_Empty" bpmnElement="GW_Empty" isMarkerVisible="true"><dc:Bounds x="860" y="105" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="825" y="159" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_End_Unchanged" bpmnElement="End_Unchanged"><dc:Bounds x="1057" y="252" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1015" y="292" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_Upload" bpmnElement="Task_Upload"><dc:Bounds x="1000" y="510" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_Sign" bpmnElement="Task_Sign"><dc:Bounds x="1190" y="370" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_PublishTags" bpmnElement="Task_PublishTags"><dc:Bounds x="1380" y="650" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_Verify" bpmnElement="Task_Verify"><dc:Bounds x="1570" y="790" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_GW_Verified" bpmnElement="GW_Verified" isMarkerVisible="true"><dc:Bounds x="1810" y="805" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="1775" y="859" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_End_Published" bpmnElement="End_Published"><dc:Bounds x="2007" y="812" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1965" y="852" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_Revert" bpmnElement="Task_Revert"><dc:Bounds x="1950" y="930" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_End_Failed" bpmnElement="End_Failed"><dc:Bounds x="2197" y="952" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="2155" y="992" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_SignItems" bpmnElement="Task_SignItems"><dc:Bounds x="1190" y="370" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_Sign" bpmnElement="Task_Sign"><dc:Bounds x="1380" y="370" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_PublishTags" bpmnElement="Task_PublishTags"><dc:Bounds x="1570" y="650" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_Verify" bpmnElement="Task_Verify"><dc:Bounds x="1760" y="790" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_GW_Verified" bpmnElement="GW_Verified" isMarkerVisible="true"><dc:Bounds x="2000" y="805" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="1965" y="859" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_End_Published" bpmnElement="End_Published"><dc:Bounds x="2197" y="812" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="2155" y="852" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_Revert" bpmnElement="Task_Revert"><dc:Bounds x="2140" y="930" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_End_Failed" bpmnElement="End_Failed"><dc:Bounds x="2387" y="952" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="2345" y="992" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="E_P1" bpmnElement="P1"><di:waypoint x="333" y="130"/><di:waypoint x="430" y="130"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_P2" bpmnElement="P2"><di:waypoint x="580" y="130"/><di:waypoint x="620" y="130"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_P3" bpmnElement="P3"><di:waypoint x="770" y="130"/><di:waypoint x="860" y="130"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_P4" bpmnElement="P4"><di:waypoint x="910" y="130"/><di:waypoint x="1037" y="130"/><di:waypoint x="1037" y="270"/><di:waypoint x="1057" y="270"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_P5" bpmnElement="P5"><di:waypoint x="910" y="130"/><di:waypoint x="980" y="130"/><di:waypoint x="980" y="550"/><di:waypoint x="1000" y="550"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_P6" bpmnElement="P6"><di:waypoint x="1150" y="550"/><di:waypoint x="1170" y="550"/><di:waypoint x="1170" y="410"/><di:waypoint x="1190" y="410"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_P7" bpmnElement="P7"><di:waypoint x="1340" y="410"/><di:waypoint x="1360" y="410"/><di:waypoint x="1360" y="690"/><di:waypoint x="1380" y="690"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_P8" bpmnElement="P8"><di:waypoint x="1530" y="690"/><di:waypoint x="1550" y="690"/><di:waypoint x="1550" y="830"/><di:waypoint x="1570" y="830"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_P9" bpmnElement="P9"><di:waypoint x="1720" y="830"/><di:waypoint x="1810" y="830"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_P10" bpmnElement="P10"><di:waypoint x="1860" y="830"/><di:waypoint x="2007" y="830"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_P11" bpmnElement="P11"><di:waypoint x="1860" y="830"/><di:waypoint x="1930" y="830"/><di:waypoint x="1930" y="970"/><di:waypoint x="1950" y="970"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_P12" bpmnElement="P12"><di:waypoint x="2100" y="970"/><di:waypoint x="2197" y="970"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_P6b" bpmnElement="P6b"><di:waypoint x="1340" y="410"/><di:waypoint x="1380" y="410"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_P7" bpmnElement="P7"><di:waypoint x="1530" y="410"/><di:waypoint x="1550" y="410"/><di:waypoint x="1550" y="690"/><di:waypoint x="1570" y="690"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_P8" bpmnElement="P8"><di:waypoint x="1720" y="690"/><di:waypoint x="1740" y="690"/><di:waypoint x="1740" y="830"/><di:waypoint x="1760" y="830"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_P9" bpmnElement="P9"><di:waypoint x="1910" y="830"/><di:waypoint x="2000" y="830"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_P10" bpmnElement="P10"><di:waypoint x="2050" y="830"/><di:waypoint x="2197" y="830"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_P11" bpmnElement="P11"><di:waypoint x="2050" y="830"/><di:waypoint x="2120" y="830"/><di:waypoint x="2120" y="970"/><di:waypoint x="2140" y="970"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_P12" bpmnElement="P12"><di:waypoint x="2290" y="970"/><di:waypoint x="2387" y="970"/></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

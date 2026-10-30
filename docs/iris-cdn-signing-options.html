@@ -392,6 +392,15 @@
 
 <main class="wrap">
 <h1>IRIS CDN Exporter: signing options</h1>
+<blockquote>
+<p><strong>Decided 2026-10-30 (Q4, option A):</strong> a detached JWS (ES256) on <strong>each
+library item</strong>, over a manifest of its record and files, <strong>plus</strong> one over the
+release. The key's <code>publicKeyJwk.x5c</code> chains to WHO's signing DID, and
+publishing the key is an offline step. The analysis below compared one
+signature per release against Data Integrity. Per-item signing keeps option
+A's reasons: WHO's key works as published, <code>x5c</code> fits JWS, and no new schema
+is needed.</p>
+</blockquote>
 <p>Analysis behind Q4: how to sign an IRIS CDN release, using either a detached
 JWS (A) or a W3C Data Integrity proof (C). The signing key is to be
 <strong>subordinate to WHO's signing DID</strong> (owner, 2026-10-30):</p>

@@ -438,6 +438,10 @@ and where the keys live is covered in <a href="iris-cdn-deployment.html">deploym
 <td>A GitHub <strong>environment secret</strong> (<code>iris-cdn-release</code>, <code>main</code> only)</td>
 </tr>
 <tr>
+<td>How is each item signed?</td>
+<td>A <strong>detached JWS per library item</strong>, over a manifest of its record and files, <strong>plus one over the release</strong> (Q4 A). Only changed items are re-signed</td>
+</tr>
+<tr>
 <td>How are keys published?</td>
 <td>As <code>verificationMethod</code>s of a <strong><code>did:web</code></strong> DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing DID. Publishing is an <strong>offline</strong> step. GDHCN is not assumed</td>
 </tr>
@@ -505,8 +509,10 @@ held items are missing, the listing is treated as faulty and nothing is marked.
 Withdrawn items are marked as withdrawn and their bytes stay addressable.</p>
 <img src="assets/img/processes/iris-cdn-reconcile.svg" alt="BPMN: IRIS CDN weekly reconciliation" style="max-width:100%">
 <h2>4. Sign and publish (called by all three)</h2>
-<p><code>processes/iris-cdn-sign-publish.bpmn</code>. Each release is a BagIt bag (RFC 8493)
-with one detached JWS (RFC 7515 Appendix F, ES256) over its tag manifest. Payload objects go to R2 first. The tag files and the signature are
+<p><code>processes/iris-cdn-sign-publish.bpmn</code>. Each changed library item gets a
+detached JWS (RFC 7515 Appendix F, ES256) over its own manifest. The release
+is a BagIt bag (RFC 8493) whose tag manifest pins every item manifest and
+signature, and the tag manifest is signed once. Payload objects go to R2 first. The tag files and the signature are
 committed to Cloudflare git last, in one commit. A release that does not verify
 is reverted, and the previous release stays served.</p>
 <img src="assets/img/processes/iris-cdn-sign-publish.svg" alt="BPMN: Sign and publish an IRIS CDN release" style="max-width:100%">
@@ -577,8 +583,6 @@ Its tests are <code>scripts/tests/iris-cdn.test.ts</code>.</p>
 distribute and verify pattern).</p>
 <h2>Still open</h2>
 <ul>
-<li><strong>Signing per library item.</strong> The proposal is a JWS per item over a manifest
-of its record and files, plus one over the release.</li>
 <li><strong>CDN and DID domain.</strong> The proposal is a stable domain the owner adds to
 Cloudflare.</li>
 <li><strong>Live endpoint shapes.</strong> iris.who.int could not be reached from the sandbox

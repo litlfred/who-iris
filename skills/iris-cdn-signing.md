@@ -45,9 +45,23 @@ ECDSA signatures are randomized. Signing the same bytes twice gives two
 different signatures, so unchanged content is **never re-signed**. Only what
 the manifest diff reports as changed gets a new signature.
 
-Whether each library item also gets its own signature, over a per-item
-manifest of its record and files, is the owner's open question Q4. See
-`docs/iris-cdn-signing-options.md`.
+## A signature on each library item
+
+The owner chose this on 2026-10-30 (Q4, option A). Every library item has its
+own manifest at `items/<handle>/manifest-sha256.txt`, in the same line format
+as the BagIt payload manifest. It lists the item's record,
+`records/<handle>.json`, and every file under `bitstreams/<handle>/`. The
+item's detached JWS is stored beside it as `manifest-sha256.txt.jws`.
+
+- **An item verifies on its own.** Fetch its manifest and JWS, verify the JWS
+  against the DID document and its `x5c` chain, then check each digest.
+- **The release signature proves completeness.** The item manifests and their
+  JWSs are payload files, so the release tag manifest pins them all. Nothing
+  can be added or removed without breaking the release signature.
+- **Only changed items are signed.** If an item's manifest bytes did not
+  change, its existing JWS is kept (`signItems` in `scripts/iris-cdn/run.ts`).
+  A metadata-only edit changes the record digest, so that item is re-signed
+  while its PDF digest stays the same.
 
 An unchanged night produces the same tag manifest, so it gets no new
 signature.
