@@ -18,6 +18,7 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-scripts`, holding 
 | [`iris-oxigraph-search.ts`](iris-oxigraph-search.ts) | a file |  |
 | [`translation-roundtrip-report.ts`](translation-roundtrip-report.ts) | a file |  |
 | [`iris-cdn/`](iris-cdn/) | _nothing declares what this holds_ | |
+| [`iris-covers/`](iris-covers/) | _nothing declares what this holds_ | |
 | [`tests/`](tests/) | _nothing declares what this holds_ | |
 
 <!-- kg:subgraph:end -->

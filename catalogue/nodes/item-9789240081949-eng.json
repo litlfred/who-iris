@@ -1,9 +1,16 @@
 {
   "$schema": "folio-catalogue-node/v1",
-  "id": "item/isbn:9789240081949",
+  "id": "item/08c17880-005f-41a2-87f0-14f2bc1761bb",
   "kind": "item",
   "flavour": "item",
   "title": "Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health",
+  "parents": [
+    [
+      "community/5bff2c18-6c2b-4658-9087-93811d2399c0",
+      "collection/hq-publications"
+    ]
+  ],
+  "handle": "10665/373581",
   "libraryId": "9789240081949-eng",
   "bitstreams": [
     {
@@ -14,20 +21,20 @@
       "materialization": {
         "state": "referenced",
         "provenance": {
-          "local": "library/9789240081949-eng/structure.json#source"
+          "upstream": "https://iris.who.int/items/08c17880-005f-41a2-87f0-14f2bc1761bb"
         },
         "fixity": {
           "algorithm": "sha256",
           "digest": "af6fd10ed03d5ee370499eb555d769d287e64f0f935dc9f0ea63f3af973e060a"
         },
-        "note": "Size and sha256 are those recorded when the PDF was ingested. The PDF itself was never committed anywhere; the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104)."
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789240081949-eng/intake.json, verified equal to library/9789240081949-eng/structure.json#source."
       }
     }
   ],
   "materialization": {
     "state": "materialized",
     "provenance": {
-      "local": "library/9789240081949-eng/structure.json#source"
+      "upstream": "https://iris.who.int/items/08c17880-005f-41a2-87f0-14f2bc1761bb"
     },
     "localPath": "library/9789240081949-eng",
     "purpose": "working",
@@ -57,6 +64,7 @@
         "decidedBy": "litlfred"
       }
     },
-    "note": "Moved in on 2026-10-30 from https://github.com/litlfred/smart-base smart-base/library/9789240081949-eng (who-iris#107). IRIS IDENTIFIERS NOT YET RECORDED: this ISBN 9789240081949 publication was ingested from an uploaded PDF, so no DSpace UUID, Handle, collection or Dublin Core record was captured, and iris.who.int is egress-blocked from the cloud sandbox. Keyed by its ISBN until the lookup is done, rather than by an invented UUID."
-  }
+    "note": "Moved in on 2026-10-30 from https://github.com/litlfred/smart-base smart-base/library/9789240081949-eng (who-iris#107). IRIS UUID, Handle, intake and Dublin Core record fetched from https://iris.who.int/handle/10665/373581 on 2026-10-30 (bean folio-assistant-5bkm)."
+  },
+  "metadataRef": "catalogue/records/9789240081949-eng.dc.json"
 }

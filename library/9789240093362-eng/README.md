@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Digital transformation handbook for primary health care
+# Digital transformation handbook for primary health care: optimizing person-centred point of service systems
 
 ingested source material — attributed to its document, not folio content
 

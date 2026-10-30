@@ -1,9 +1,16 @@
 {
   "$schema": "folio-catalogue-node/v1",
-  "id": "item/isbn:9789241511766",
+  "id": "item/53de8b1c-5a9a-40b7-8a48-9d1717de4cb7",
   "kind": "item",
   "flavour": "item",
   "title": "Monitoring and Evaluating Digital Health Interventions: A practical guide to conducting research and assessment",
+  "parents": [
+    [
+      "community/5bff2c18-6c2b-4658-9087-93811d2399c0",
+      "collection/hq-publications"
+    ]
+  ],
+  "handle": "10665/252183",
   "libraryId": "9789241511766-eng",
   "bitstreams": [
     {
@@ -14,20 +21,20 @@
       "materialization": {
         "state": "referenced",
         "provenance": {
-          "local": "library/9789241511766-eng/structure.json#source"
+          "upstream": "https://iris.who.int/items/53de8b1c-5a9a-40b7-8a48-9d1717de4cb7"
         },
         "fixity": {
           "algorithm": "sha256",
           "digest": "934bdf1193c16ee539a90dd4a8c3e98e004b4a01680902b3401b5acf829a52c5"
         },
-        "note": "Size and sha256 are those recorded when the PDF was ingested. The PDF itself was never committed anywhere; the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104)."
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789241511766-eng/intake.json, verified equal to library/9789241511766-eng/structure.json#source."
       }
     }
   ],
   "materialization": {
     "state": "materialized",
     "provenance": {
-      "local": "library/9789241511766-eng/structure.json#source"
+      "upstream": "https://iris.who.int/items/53de8b1c-5a9a-40b7-8a48-9d1717de4cb7"
     },
     "localPath": "library/9789241511766-eng",
     "purpose": "working",
@@ -57,6 +64,7 @@
         "decidedBy": "litlfred"
       }
     },
-    "note": "Moved in on 2026-10-30 from https://github.com/litlfred/smart-base smart-base/library/9789241511766-eng (who-iris#107). IRIS IDENTIFIERS NOT YET RECORDED: this ISBN 9789241511766 publication was ingested from an uploaded PDF, so no DSpace UUID, Handle, collection or Dublin Core record was captured, and iris.who.int is egress-blocked from the cloud sandbox. Keyed by its ISBN until the lookup is done, rather than by an invented UUID."
-  }
+    "note": "Moved in on 2026-10-30 from https://github.com/litlfred/smart-base smart-base/library/9789241511766-eng (who-iris#107). IRIS UUID, Handle, intake and Dublin Core record fetched from https://iris.who.int/handle/10665/252183 on 2026-10-30 (bean folio-assistant-5bkm)."
+  },
+  "metadataRef": "catalogue/records/9789241511766-eng.dc.json"
 }

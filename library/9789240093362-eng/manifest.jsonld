@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Digital transformation handbook for primary health care",
+  "title": "Digital transformation handbook for primary health care: optimizing person-centred point of service systems",
   "contains": [
     "library/9789240093362-eng/sections/sec-front-matter",
     "library/9789240093362-eng/sections/sec-000",
@@ -64,9 +64,8 @@
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
   "meta": {
     "doc_id": "9789240093362-eng",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/9789240093362-eng.dc.json dc.title",
     "source_file": "9789240093362-eng.pdf",
     "source_sha256": "0d47d98390b1451d01fafd27b017a6edcccf6effda4830d531b685b4cc85114a",
     "pages": 98,
