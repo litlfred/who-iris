@@ -60,13 +60,11 @@ import { basename, dirname, join, posix, relative, resolve, sep } from "path";
 
 import {
   bytesFor,
-  dcRenderingsFor,
   folioMountFragment,
   formatPot,
   libraryResolver,
   parsePo,
   parsePoEntries,
-  pdfViewer,
   publicationBlockers,
   readDeclaration,
   repoRelative,
@@ -76,7 +74,6 @@ import {
   siteDirFor,
   withRenderedBy,
   withRenderedByFrontMatter,
-  withInlineCode,
   withRoutes,
   themedPage,
   visualiserRoute,
@@ -514,13 +511,6 @@ function langOf(n: Node): string | undefined {
   const iso = dc(n, "language", "iso")[0]?.trim();
   return iso !== undefined && /^[a-z]{2,3}(-[A-Za-z0-9]{1,8})*$/.test(iso) ? iso : undefined;
 }
-
-/**
- * The language of a catalogue NOTE: English. Notes are not WHO's data — they
- * are written in this repository, in its working language, by whoever
- * catalogued the node — so unlike a record field this one is known.
- */
-const NOTE_LANG = "en";
 
 /**
  * Bytes, in the units that round-trip the source.
@@ -2148,10 +2138,6 @@ function replicaNav(): string {
     if (href !== undefined) entries.push({ label: n.title, href });
   }
   return `<script type="application/json" data-fa-visualiser-nav>${JSON.stringify(entries).replace(/</g, "\\u003c")}</script>\n`;
-}
-
-function slug(id: string): string {
-  return id.replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase();
 }
 
 /**

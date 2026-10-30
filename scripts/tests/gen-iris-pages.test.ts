@@ -325,8 +325,6 @@ describe("library/withheld.json is the catalogue's gates, for the mount — bean
 });
 
 describe("the replica in the six UN languages — issue #2228", () => {
-  const english = readdirSync(SITE).filter((f) => f.endsWith(".html")).sort();
-
   it("every catalogue is complete, unfuzzy and keeps its placeholders and markup", () => {
     expect(SITE_STRINGS.length).toBeGreaterThan(0);
     expect(catalogueProblems().problems).toEqual([]);
