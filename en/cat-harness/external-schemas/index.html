@@ -13,7 +13,7 @@
   
 
     
-    .site-nav > ul.nav-list:first-child > li:not(:nth-child(70)) > a,
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(81)) > a,
     .site-nav > ul.nav-list:first-child > li > ul > li a {
       background-image: none;
     }
@@ -23,12 +23,12 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(70) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(81) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(70) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(81) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(70) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(81) > ul.nav-list {
       display: block;
     }
   </style>
@@ -431,7 +431,7 @@
   instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
   nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
 -->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;who-iris-processes&quot;]">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
 
 <!--
   THE SITE'S BASEURL, for the tiles above.
@@ -644,7 +644,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -752,9 +752,9 @@
   is broken when it is doing exactly what it can.
 -->
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-151x9a609ug.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-151x9a609ug","here":"/en/cat-harness/external-schemas/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#the-specifications","label":"The specifications"},{"href":"#who-declares-each-specification","label":"Who declares each specification"},{"href":"#namespaces-the-corpus-uses-against-the-ones-it-declares","label":"Namespaces the corpus uses against the ones it declares"},{"href":"#each-specification","label":"Each specification","children":[{"href":"#dcmi-terms","label":"DCMI Metadata Terms","depth":1},{"href":"#hl7-fhir","label":"HL7 FHIR","depth":1},{"href":"#ietf-handle-system","label":"Handle System Overview (RFC 3650), with its namespace (RFC 3651) and protocol (RFC 3652)","depth":1},{"href":"#omg-bpmn-2.0","label":"Business Process Model and Notation (BPMN)","depth":1},{"href":"#omg-dd-1.0","label":"Diagram Definition (DD)","depth":1},{"href":"#omg-dmn-1.3","label":"Decision Model and Notation (DMN)","depth":1},{"href":"#opengroup-archimate-3.0","label":"ArchiMate® Model Exchange File Format","depth":1},{"href":"#purl-bibo","label":"The Bibliographic Ontology (BIBO)","depth":1},{"href":"#schema-org","label":"Schema.org","depth":1},{"href":"#spar-doco-deo-cito","label":"SPAR Ontologies: DoCO, DEO and CiTO","depth":1},{"href":"#spar-fabio","label":"SPAR Ontologies: FaBiO, the FRBR-aligned Bibliographic Ontology","depth":1},{"href":"#spdx-license-list","label":"SPDX License List","depth":1},{"href":"#w3c-csvw","label":"Metadata Vocabulary for Tabular Data","depth":1},{"href":"#w3c-hydra","label":"Hydra Core Vocabulary","depth":1},{"href":"#w3c-n-quads","label":"RDF 1.1 N-Quads: A line-based syntax for RDF datasets","depth":1},{"href":"#w3c-odrl","label":"ODRL Information Model 2.2","depth":1},{"href":"#w3c-owl2","label":"OWL 2 Web Ontology Language Document Overview (Second Edition)","depth":1},{"href":"#w3c-prov-jsonld","label":"The PROV-JSONLD Serialization: A JSON-LD Representation for the PROV Data Model","depth":1},{"href":"#w3c-prov-o","label":"PROV-O: The PROV Ontology","depth":1},{"href":"#w3c-rdf-calendar","label":"RDF Calendar — an application of the Resource Description Framework to iCalendar Data","depth":1},{"href":"#w3c-rdf","label":"RDF 1.1 Concepts and Abstract Syntax","depth":1},{"href":"#w3c-rdfs","label":"RDF Schema 1.1","depth":1},{"href":"#w3c-skos","label":"SKOS Simple Knowledge Organization System Reference","depth":1},{"href":"#w3c-sparql-1.1-query","label":"SPARQL 1.1 Query Language","depth":1},{"href":"#w3c-web-annotation","label":"Web Annotation Vocabulary","depth":1},{"href":"#w3c-xsd11-datatypes","label":"XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes","depth":1},{"href":"#w3c-xsd11-structures","label":"W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures","depth":1},{"href":"#who-smart-base","label":"WHO SMART Guidelines base IG","depth":1}],"fold":"28 sub-sections"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/external-schemas/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#the-specifications","label":"The specifications"},{"href":"#who-declares-each-specification","label":"Who declares each specification"},{"href":"#namespaces-the-corpus-uses-against-the-ones-it-declares","label":"Namespaces the corpus uses against the ones it declares"},{"href":"#each-specification","label":"Each specification","children":[{"href":"#dcmi-terms","label":"DCMI Metadata Terms","depth":1},{"href":"#hl7-fhir","label":"HL7 FHIR","depth":1},{"href":"#ietf-handle-system","label":"Handle System Overview (RFC 3650), with its namespace (RFC 3651) and protocol (RFC 3652)","depth":1},{"href":"#omg-bpmn-2.0","label":"Business Process Model and Notation (BPMN)","depth":1},{"href":"#omg-dd-1.0","label":"Diagram Definition (DD)","depth":1},{"href":"#omg-dmn-1.3","label":"Decision Model and Notation (DMN)","depth":1},{"href":"#opengroup-archimate-3.0","label":"ArchiMate® Model Exchange File Format","depth":1},{"href":"#purl-bibo","label":"The Bibliographic Ontology (BIBO)","depth":1},{"href":"#schema-org","label":"Schema.org","depth":1},{"href":"#spar-doco-deo-cito","label":"SPAR Ontologies: DoCO, DEO and CiTO","depth":1},{"href":"#spar-fabio","label":"SPAR Ontologies: FaBiO, the FRBR-aligned Bibliographic Ontology","depth":1},{"href":"#spdx-license-list","label":"SPDX License List","depth":1},{"href":"#w3c-csvw","label":"Metadata Vocabulary for Tabular Data","depth":1},{"href":"#w3c-hydra","label":"Hydra Core Vocabulary","depth":1},{"href":"#w3c-n-quads","label":"RDF 1.1 N-Quads: A line-based syntax for RDF datasets","depth":1},{"href":"#w3c-odrl","label":"ODRL Information Model 2.2","depth":1},{"href":"#w3c-owl2","label":"OWL 2 Web Ontology Language Document Overview (Second Edition)","depth":1},{"href":"#w3c-prov-jsonld","label":"The PROV-JSONLD Serialization: A JSON-LD Representation for the PROV Data Model","depth":1},{"href":"#w3c-prov-o","label":"PROV-O: The PROV Ontology","depth":1},{"href":"#w3c-rdf-calendar","label":"RDF Calendar — an application of the Resource Description Framework to iCalendar Data","depth":1},{"href":"#w3c-rdf","label":"RDF 1.1 Concepts and Abstract Syntax","depth":1},{"href":"#w3c-rdfs","label":"RDF Schema 1.1","depth":1},{"href":"#w3c-skos","label":"SKOS Simple Knowledge Organization System Reference","depth":1},{"href":"#w3c-sparql-1.1-query","label":"SPARQL 1.1 Query Language","depth":1},{"href":"#w3c-web-annotation","label":"Web Annotation Vocabulary","depth":1},{"href":"#w3c-xsd11-datatypes","label":"XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes","depth":1},{"href":"#w3c-xsd11-structures","label":"W3C XML Schema Definition Language (XSD) 1.1 Part 1: Structures","depth":1},{"href":"#who-smart-base","label":"WHO SMART Guidelines base IG","depth":1}],"fold":"28 sub-sections"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -883,7 +883,7 @@ depends on it</strong>, and <strong>which of its terms this repository branches 
 <div class="xs-grid">
 <div class="xs-stat"><b>28</b><span>specifications</span></div>
 <div class="xs-stat"><b>121</b><span>operative terms in graph (65 described, 56 pending)</span></div>
-<div class="xs-stat"><b>284</b><span>declared uses</span></div>
+<div class="xs-stat"><b>286</b><span>declared uses</span></div>
 <div class="xs-stat"><b>0</b><span>declarations naming no record</span></div>
 </div>
 
@@ -1499,7 +1499,7 @@ graph. That is a determined zero, not an unfilled field.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/*.bpmn (7)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/*.bpmn (8)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
@@ -1744,7 +1744,7 @@ a subset of the edition rather than a transcription of it.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/*.bpmn (7)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/*.bpmn (8)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>

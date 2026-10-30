@@ -42,9 +42,6 @@
       "name": "harness-projections"
      },
      {
-      "name": "ig-ast-delta"
-     },
-     {
       "name": "kg-separation"
      },
      {
@@ -396,6 +393,41 @@
    "name": "Confirm main's CI on the merge commit",
    "type": "bpmn:Task",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeToMain/node/Task_ConfirmBase",
+   "lane": "Merging session",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeToMain/lane/Lane_Merger",
+   "skills": [
+    {
+     "name": "merge-to-main"
+    }
+   ],
+   "role": {
+    "name": "merge-steward",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/merge-steward",
+    "title": "Merge steward",
+    "skills": [
+     {
+      "name": "merge-conflict-patterns"
+     },
+     {
+      "name": "merge-queue"
+     },
+     {
+      "name": "merge-to-main"
+     },
+     {
+      "name": "prepare-merge"
+     },
+     {
+      "name": "ref-stewardship"
+     }
+    ]
+   }
+  },
+  "Task_Republish": {
+   "id": "Task_Republish",
+   "name": "Rebuild and republish the repository's site",
+   "type": "bpmn:Task",
+   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeToMain/node/Task_Republish",
    "lane": "Merging session",
    "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeToMain/lane/Lane_Merger",
    "skills": [

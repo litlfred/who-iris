@@ -154,6 +154,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/block-change-summary",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "block-change-summary"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Post-delivery content block change summary for a folio edit-set: extract changed block labels across `.md`, `.ts` and content-type sibling files, present a per-chapter table with `.md`-first GitHub blob links, modified sibling links, local viewer anchors, and change categories. Refines `delivery-summary` for content folios."
+        }
+      ],
+      "skos:notation": "block-change-summary",
+      "dcterms:source": "folio-assistant-core/skills/content/content-lifecycle-ext/block-change-summary.md",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/corpus-commit-contract",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -296,6 +316,146 @@
       ],
       "skos:notation": "filing-dublin-core",
       "dcterms:source": "folio-assistant-core/skills/library/cataloguing/filing-dublin-core.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/folio-board-diagram-interchange",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "folio-board-diagram-interchange"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The content-folio half of the harness's board-diagram-interchange skill: binds processes/ui/board-place-note.bpmn and board-relocate.bpmn, folio board filters over pages and block kinds, and note-to-board arrow direction."
+        }
+      ],
+      "skos:notation": "folio-board-diagram-interchange",
+      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-board-diagram-interchange.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/folio-board-windows",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "folio-board-windows"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The content-folio half of the harness's board-windows skill: binds processes/ui/board-open-close.bpmn, folio-glass pinning (todo/<id> and landing/<slot>), and content-type card chrome ([x], [linksrc], [edit])."
+        }
+      ],
+      "skos:notation": "folio-board-windows",
+      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-board-windows.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/folio-content-lifecycle",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "folio-content-lifecycle"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The content-folio half of the harness's content-lifecycle skills (content-author, content-feedback, content-plan, content-publish, content-review, content-test, content-validate, evidence-appraisal): binds core lifecycle diagrams, quality-control and review-comments gates, and empirical vs. formal evidence rules."
+        }
+      ],
+      "skos:notation": "folio-content-lifecycle",
+      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-content-lifecycle.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/folio-content-profiles",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "folio-content-profiles"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The content-folio half of the harness's content-profiles skill: how a document folio is structured prose and how a paper folio extends it, block-kind discovery across block-kinds/ graphs, profile-check enforcement, and the TeX-free document render path."
+        }
+      ],
+      "skos:notation": "folio-content-profiles",
+      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-content-profiles.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/folio-editorial-workflow",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "folio-editorial-workflow"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The content-folio half of the harness's editor, content-graph, md-authoring, canonical-watcher, and uses-editorial-review skills: routes glossary and notation work to ontologist and glossary-build, bibliography audits to bib-qa, and term-ordering checks to glossary-terms."
+        }
+      ],
+      "skos:notation": "folio-editorial-workflow",
+      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-editorial-workflow.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/folio-getting-started",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "folio-getting-started"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The content-folio half of the harness's getting-started skill: binds processes/conduct/getting-started.bpmn and decisions/folio-intent.dmn, interprets describeRepository() content-type markers (folio, harness, dak, sushi), and routes new-content and specialised IG/DAK creation requests."
+        }
+      ],
+      "skos:notation": "folio-getting-started",
+      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-getting-started.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills/folio-repo-conversion",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns#glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "folio-repo-conversion"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The content-folio half of the harness's repo-conversion skill: outside-content evidence and refutation candidate scanning, content-type marker declarations, and dispatching library and content buckets to document-intake and folio authoring."
+        }
+      ],
+      "skos:notation": "folio-repo-conversion",
+      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-repo-conversion.md",
       "skos:note": "candidate"
     },
     {

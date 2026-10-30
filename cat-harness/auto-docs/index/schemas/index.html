@@ -36,8 +36,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Schemas · auto-docs" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized." />
-<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized." />
+<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
+<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
 <link rel="canonical" href="https://litlfred.github.io/who-iris/cat-harness/auto-docs/index/schemas/" />
 <meta property="og:url" content="https://litlfred.github.io/who-iris/cat-harness/auto-docs/index/schemas/" />
 <meta property="og:site_name" content="WHO IRIS" />
@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Schemas · auto-docs" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized.","headline":"Schemas · auto-docs","url":"https://litlfred.github.io/who-iris/cat-harness/auto-docs/index/schemas/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.","headline":"Schemas · auto-docs","url":"https://litlfred.github.io/who-iris/cat-harness/auto-docs/index/schemas/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -415,7 +415,7 @@
   instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
   nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
 -->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;who-iris-processes&quot;]">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
 
 <!--
   THE SITE'S BASEURL, for the tiles above.
@@ -628,7 +628,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -736,9 +736,9 @@
   is broken when it is doing exactly what it can.
 -->
 
-<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-151x9a609ug.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
+<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-151x9a609ug","here":"/cat-harness/auto-docs/index/schemas/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-29b6qoh3um2","here":"/cat-harness/auto-docs/index/schemas/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -920,7 +920,7 @@
 <li><a href="archimate-schemas/">archimate-schemas</a> <span class="p">cat-harness/archimate/schemas</span> <span class="n">1</span></li>
 <li><a href="core-schemas/">core-schemas</a> <span class="p">folio-assistant-core/schemas</span> <span class="n">16</span></li>
 <li><a href="openapi-schemas/">openapi-schemas</a> <span class="p">cat-harness/openapi/schemas</span> <span class="n">1</span></li>
-<li><a href="schemas/">schemas</a> <span class="p">cat-harness/schemas</span> <span class="n">402</span></li>
+<li><a href="schemas/">schemas</a> <span class="p">cat-harness/schemas</span> <span class="n">206</span></li>
 </ul>
 
 <div class="fa-table-filter">
@@ -940,74 +940,6 @@
   <td>The OpenAPI harness's shapes: what an instance declares, what an ingest records, and how an OpenAPI document's OPERATIONS become nodes with IRIs.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/actor-reach.ts"><code>actor-reach</code></a><br><span class="p">cat-harness/schemas/actor-reach.ts</span></td>
-  <td>Moved to <code>./process/actor-reach.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/adversarial-checklist.ts"><code>adversarial-checklist</code></a><br><span class="p">cat-harness/schemas/adversarial-checklist.ts</span></td>
-  <td>Moved to <code>./sdlc/adversarial-checklist.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/archive-contents.ts"><code>archive-contents</code></a><br><span class="p">cat-harness/schemas/archive-contents.ts</span></td>
-  <td>Moved to <code>./library/archive-contents.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/artifact-store.ts"><code>artifact-store</code></a><br><span class="p">cat-harness/schemas/artifact-store.ts</span></td>
-  <td>Moved to <code>./sdlc/artifact-store.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/assistant-package.ts"><code>assistant-package</code></a><br><span class="p">cat-harness/schemas/assistant-package.ts</span></td>
-  <td>Moved to <code>./conduct/assistant-package.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/assistant-types.ts"><code>assistant-types</code></a><br><span class="p">cat-harness/schemas/assistant-types.ts</span></td>
-  <td>Moved to <code>./conduct/assistant-types.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/assistant-workflow.ts"><code>assistant-workflow</code></a><br><span class="p">cat-harness/schemas/assistant-workflow.ts</span></td>
-  <td>Moved to <code>./process/assistant-workflow.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/attribution.ts"><code>attribution</code></a><br><span class="p">cat-harness/schemas/attribution.ts</span></td>
-  <td>Moved to <code>./content/attribution.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/avatars.ts"><code>avatars</code></a><br><span class="p">cat-harness/schemas/avatars.ts</span></td>
-  <td>Moved to <code>./content/avatars.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/bean-graph.ts"><code>bean-graph</code></a><br><span class="p">cat-harness/schemas/bean-graph.ts</span></td>
-  <td>Moved to <code>./sdlc/bean-graph.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/bean-note.ts"><code>bean-note</code></a><br><span class="p">cat-harness/schemas/bean-note.ts</span></td>
-  <td>Moved to <code>./sdlc/bean-note.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/bib-attestations.ts"><code>bib-attestations</code></a><br><span class="p">cat-harness/schemas/bib-attestations.ts</span></td>
-  <td>Moved to <code>./library/bib-attestations.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/bib-verification.ts"><code>bib-verification</code></a><br><span class="p">cat-harness/schemas/bib-verification.ts</span></td>
-  <td>Moved to <code>./library/bib-verification.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/binary-release.ts"><code>binary-release</code></a><br><span class="p">cat-harness/schemas/binary-release.ts</span></td>
-  <td>Moved to <code>./sdlc/binary-release.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/blank-avatar.ts"><code>blank-avatar</code></a><br><span class="p">cat-harness/schemas/blank-avatar.ts</span></td>
-  <td>Moved to <code>./ui/blank-avatar.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/block-kind-node.ts"><code>block-kind-node</code></a><br><span class="p">cat-harness/schemas/block-kind-node.ts</span></td>
-  <td>Moved to <code>./kg/block-kind-node.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/block-kinds.ts"><code>block-kinds</code></a><br><span class="p">cat-harness/schemas/block-kinds.ts</span></td>
-  <td>Moved to <code>./content/block-kinds.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/block-qa-schema/dist/index.d.ts"><code>index.d</code></a><br><span class="p">cat-harness/schemas/block-qa-schema/dist/index.d.ts</span></td>
   <td>The canonical schemas are <code>schemas/block-qa-schema/schema/block-qa.schema.json</code> (the per-block <code>&lt;block&gt;.qa.json</code> report) and <code>schemas/block-qa-schema/schema/qa-script.schema.json</code> (the per-criterion `&lt;criterion-id&gt;.scri…</td>
 </tr>
@@ -1016,52 +948,12 @@
   <td>The canonical schemas are <code>schemas/block-qa-schema/schema/block-qa.schema.json</code> (the per-block <code>&lt;block&gt;.qa.json</code> report) and <code>schemas/block-qa-schema/schema/qa-script.schema.json</code> (the per-criterion `&lt;criterion-id&gt;.scri…</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/block-qa.ts"><code>block-qa</code></a><br><span class="p">cat-harness/schemas/block-qa.ts</span></td>
-  <td>Moved to <code>./sdlc/block-qa.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/block-summary.ts"><code>block-summary</code></a><br><span class="p">cat-harness/schemas/block-summary.ts</span></td>
-  <td>Moved to <code>./content/block-summary.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/board-positions.ts"><code>board-positions</code></a><br><span class="p">cat-harness/schemas/board-positions.ts</span></td>
-  <td>Moved to <code>./ui/board-positions.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/board.ts"><code>board</code></a><br><span class="p">cat-harness/schemas/board.ts</span></td>
-  <td>Moved to <code>./ui/board.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/builders.ts"><code>builders</code></a><br><span class="p">cat-harness/schemas/builders.ts</span></td>
   <td>Each builder validates the input against its Zod schema and returns the typed object, providing compile-time AND runtime safety.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/built-at-publish.ts"><code>built-at-publish</code></a><br><span class="p">cat-harness/schemas/built-at-publish.ts</span></td>
-  <td>Moved to <code>./kg/built-at-publish.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/carried-note.ts"><code>carried-note</code></a><br><span class="p">cat-harness/schemas/carried-note.ts</span></td>
-  <td>Moved to <code>./kg/carried-note.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/cat-harness.ts"><code>cat-harness</code></a><br><span class="p">cat-harness/schemas/cat-harness.ts</span></td>
-  <td>Moved to <code>./kg/cat-harness.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/change-size.ts"><code>change-size</code></a><br><span class="p">cat-harness/schemas/change-size.ts</span></td>
-  <td>Moved to <code>./sdlc/change-size.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/code-list.ts"><code>code-list</code></a><br><span class="p">cat-harness/schemas/code-list.ts</span></td>
-  <td>Moved to <code>./library/code-list.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/computation-witness.ts"><code>computation-witness</code></a><br><span class="p">cat-harness/schemas/computation-witness.ts</span></td>
   <td><code>computation-witness/v1</code> — the runtime schema for a folio's <code>&lt;name&gt;.witness.json</code>: the record a computation writes of what it computed, with what, and whether its assertions held.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/concern-groups.ts"><code>concern-groups</code></a><br><span class="p">cat-harness/schemas/concern-groups.ts</span></td>
-  <td>Moved to <code>./kg/concern-groups.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/conduct/assistant-package.ts"><code>assistant-package</code></a><br><span class="p">cat-harness/schemas/conduct/assistant-package.ts</span></td>
@@ -1090,22 +982,6 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/constraints.ts"><code>constraints</code></a><br><span class="p">cat-harness/schemas/constraints.ts</span></td>
   <td>These schemas provide runtime validation and are used by the schema generation scripts to produce JSON Schema files.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/content-adapter-node.ts"><code>content-adapter-node</code></a><br><span class="p">cat-harness/schemas/content-adapter-node.ts</span></td>
-  <td>Moved to <code>./kg/content-adapter-node.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/content-context.ts"><code>content-context</code></a><br><span class="p">cat-harness/schemas/content-context.ts</span></td>
-  <td>Moved to <code>./content/content-context.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/content-type.ts"><code>content-type</code></a><br><span class="p">cat-harness/schemas/content-type.ts</span></td>
-  <td>Moved to <code>./content/content-type.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/content-types-base.ts"><code>content-types-base</code></a><br><span class="p">cat-harness/schemas/content-types-base.ts</span></td>
-  <td>Moved to <code>./content/content-types-base.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/content/attribution.ts"><code>attribution</code></a><br><span class="p">cat-harness/schemas/content/attribution.ts</span></td>
@@ -1244,176 +1120,12 @@
   <td><code>folio-withheld/v1</code> — what a mounted directory must NOT publish.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/contribution-nodes.ts"><code>contribution-nodes</code></a><br><span class="p">cat-harness/schemas/contribution-nodes.ts</span></td>
-  <td>Moved to <code>./kg/contribution-nodes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/contributions.ts"><code>contributions</code></a><br><span class="p">cat-harness/schemas/contributions.ts</span></td>
-  <td>Moved to <code>./content/contributions.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/convention.ts"><code>convention</code></a><br><span class="p">cat-harness/schemas/convention.ts</span></td>
-  <td>Moved to <code>./process/convention.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/decision-methodology-context.ts"><code>decision-methodology-context</code></a><br><span class="p">cat-harness/schemas/decision-methodology-context.ts</span></td>
-  <td>Moved to <code>./process/decision-methodology-context.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/decision-request.ts"><code>decision-request</code></a><br><span class="p">cat-harness/schemas/decision-request.ts</span></td>
-  <td>Moved to <code>./process/decision-request.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/declared-nodes.ts"><code>declared-nodes</code></a><br><span class="p">cat-harness/schemas/declared-nodes.ts</span></td>
-  <td>Moved to <code>./kg/declared-nodes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/dependency-order.ts"><code>dependency-order</code></a><br><span class="p">cat-harness/schemas/dependency-order.ts</span></td>
-  <td>Moved to <code>./kg/dependency-order.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/depends-on.ts"><code>depends-on</code></a><br><span class="p">cat-harness/schemas/depends-on.ts</span></td>
-  <td>Moved to <code>./kg/depends-on.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/deployment-description.ts"><code>deployment-description</code></a><br><span class="p">cat-harness/schemas/deployment-description.ts</span></td>
-  <td>Moved to <code>./process/deployment-description.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/deployment-resolver.ts"><code>deployment-resolver</code></a><br><span class="p">cat-harness/schemas/deployment-resolver.ts</span></td>
-  <td>Moved to <code>./process/deployment-resolver.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/detangle-sidecar.ts"><code>detangle-sidecar</code></a><br><span class="p">cat-harness/schemas/detangle-sidecar.ts</span></td>
-  <td>Moved to <code>./kg/detangle-sidecar.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/detangle.ts"><code>detangle</code></a><br><span class="p">cat-harness/schemas/detangle.ts</span></td>
-  <td>Moved to <code>./kg/detangle.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/diff-renderers.ts"><code>diff-renderers</code></a><br><span class="p">cat-harness/schemas/diff-renderers.ts</span></td>
-  <td>Moved to <code>./ui/diff-renderers.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/document-image.ts"><code>document-image</code></a><br><span class="p">cat-harness/schemas/document-image.ts</span></td>
-  <td>Moved to <code>./content/document-image.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/document-kind.ts"><code>document-kind</code></a><br><span class="p">cat-harness/schemas/document-kind.ts</span></td>
-  <td>Moved to <code>./content/document-kind.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/document-structure.ts"><code>document-structure</code></a><br><span class="p">cat-harness/schemas/document-structure.ts</span></td>
-  <td>Moved to <code>./content/document-structure.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/external-schema.ts"><code>external-schema</code></a><br><span class="p">cat-harness/schemas/external-schema.ts</span></td>
-  <td>Moved to <code>./kg/external-schema.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/extraction.ts"><code>extraction</code></a><br><span class="p">cat-harness/schemas/extraction.ts</span></td>
-  <td>Moved to <code>./content/extraction.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/figure-description.ts"><code>figure-description</code></a><br><span class="p">cat-harness/schemas/figure-description.ts</span></td>
-  <td>Moved to <code>./content/figure-description.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/folio-graph-typology.ts"><code>folio-graph-typology</code></a><br><span class="p">cat-harness/schemas/folio-graph-typology.ts</span></td>
-  <td>Moved to <code>./kg/folio-graph-typology.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/formal-ref.ts"><code>formal-ref</code></a><br><span class="p">cat-harness/schemas/formal-ref.ts</span></td>
   <td><span class="none">no description in the artefact</span></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/formalization-types.ts"><code>formalization-types</code></a><br><span class="p">cat-harness/schemas/formalization-types.ts</span></td>
   <td>Formalization Pipeline Types — Proof Objects, Glossary, and Test Reports.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/front-matter.ts"><code>front-matter</code></a><br><span class="p">cat-harness/schemas/front-matter.ts</span></td>
-  <td>Moved to <code>./kg/front-matter.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/fsh-guts.ts"><code>fsh-guts</code></a><br><span class="p">cat-harness/schemas/fsh-guts.ts</span></td>
-  <td>Moved to <code>./kg/fsh-guts.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/git-corpus.ts"><code>git-corpus</code></a><br><span class="p">cat-harness/schemas/git-corpus.ts</span></td>
-  <td>Moved to <code>./sdlc/git-corpus.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/glossary-ledger.ts"><code>glossary-ledger</code></a><br><span class="p">cat-harness/schemas/glossary-ledger.ts</span></td>
-  <td>Moved to <code>./library/glossary-ledger.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/graph-typology-node.ts"><code>graph-typology-node</code></a><br><span class="p">cat-harness/schemas/graph-typology-node.ts</span></td>
-  <td>Moved to <code>./kg/graph-typology-node.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/graph-typology-registry.ts"><code>graph-typology-registry</code></a><br><span class="p">cat-harness/schemas/graph-typology-registry.ts</span></td>
-  <td>Moved to <code>./kg/graph-typology-registry.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/harness-config.ts"><code>harness-config</code></a><br><span class="p">cat-harness/schemas/harness-config.ts</span></td>
-  <td>Moved to <code>./kg/harness-config.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/health-report.ts"><code>health-report</code></a><br><span class="p">cat-harness/schemas/health-report.ts</span></td>
-  <td>Moved to <code>./sdlc/health-report.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/id-lookup.ts"><code>id-lookup</code></a><br><span class="p">cat-harness/schemas/id-lookup.ts</span></td>
-  <td>Moved to <code>./kg/id-lookup.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/index-config.ts"><code>index-config</code></a><br><span class="p">cat-harness/schemas/index-config.ts</span></td>
-  <td>Moved to <code>./kg/index-config.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/index.ts"><code>index</code></a><br><span class="p">cat-harness/schemas/index.ts</span></td>
-  <td>Re-exports all types, Zod validation schemas, and builder functions.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/inline-code.ts"><code>inline-code</code></a><br><span class="p">cat-harness/schemas/inline-code.ts</span></td>
-  <td>Moved to <code>./content/inline-code.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/input-trace.ts"><code>input-trace</code></a><br><span class="p">cat-harness/schemas/input-trace.ts</span></td>
-  <td>Moved to <code>./sdlc/input-trace.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/instance-repositories.ts"><code>instance-repositories</code></a><br><span class="p">cat-harness/schemas/instance-repositories.ts</span></td>
-  <td>Moved to <code>./kg/instance-repositories.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/instance-roots.ts"><code>instance-roots</code></a><br><span class="p">cat-harness/schemas/instance-roots.ts</span></td>
-  <td>Moved to <code>./kg/instance-roots.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/intake.ts"><code>intake</code></a><br><span class="p">cat-harness/schemas/intake.ts</span></td>
-  <td>Moved to <code>./library/intake.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/interaction.ts"><code>interaction</code></a><br><span class="p">cat-harness/schemas/interaction.ts</span></td>
-  <td>Moved to <code>./conduct/interaction.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/jsonld-prefixes.ts"><code>jsonld-prefixes</code></a><br><span class="p">cat-harness/schemas/jsonld-prefixes.ts</span></td>
-  <td>Moved to <code>./kg/jsonld-prefixes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/jsonld.ts"><code>jsonld</code></a><br><span class="p">cat-harness/schemas/jsonld.ts</span></td>
-  <td>Moved to <code>./kg/jsonld.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/kg-node.ts"><code>kg-node</code></a><br><span class="p">cat-harness/schemas/kg-node.ts</span></td>
-  <td>Moved to <code>./kg/kg-node.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/kg-qa.ts"><code>kg-qa</code></a><br><span class="p">cat-harness/schemas/kg-qa.ts</span></td>
-  <td>Moved to <code>./sdlc/kg-qa.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/kg/block-kind-node.ts"><code>block-kind-node</code></a><br><span class="p">cat-harness/schemas/kg/block-kind-node.ts</span></td>
@@ -1640,32 +1352,8 @@
   <td>Where a declared visualiser is published — THE one function every generator and every reader computes a visualiser's URL with.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/kind-validator.ts"><code>kind-validator</code></a><br><span class="p">cat-harness/schemas/kind-validator.ts</span></td>
-  <td>Moved to <code>./kg/kind-validator.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/landing-sticky.ts"><code>landing-sticky</code></a><br><span class="p">cat-harness/schemas/landing-sticky.ts</span></td>
-  <td>Moved to <code>./content/landing-sticky.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/layer-direction.ts"><code>layer-direction</code></a><br><span class="p">cat-harness/schemas/layer-direction.ts</span></td>
-  <td>Moved to <code>./kg/layer-direction.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/lean-packages.ts"><code>lean-packages</code></a><br><span class="p">cat-harness/schemas/lean-packages.ts</span></td>
   <td>The <code>lean.ref</code> grammar and the package registry it resolves against.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/library-iri.ts"><code>library-iri</code></a><br><span class="p">cat-harness/schemas/library-iri.ts</span></td>
-  <td>Moved to <code>./library/library-iri.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/library-keywords.ts"><code>library-keywords</code></a><br><span class="p">cat-harness/schemas/library-keywords.ts</span></td>
-  <td>Moved to <code>./library/library-keywords.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/library-nodes.ts"><code>library-nodes</code></a><br><span class="p">cat-harness/schemas/library-nodes.ts</span></td>
-  <td>Moved to <code>./library/library-nodes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/library/archive-contents.ts"><code>archive-contents</code></a><br><span class="p">cat-harness/schemas/library/archive-contents.ts</span></td>
@@ -1752,102 +1440,6 @@
   <td>Content-type-specific translation tool registry.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/log-entry.ts"><code>log-entry</code></a><br><span class="p">cat-harness/schemas/log-entry.ts</span></td>
-  <td>Moved to <code>./sdlc/log-entry.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/materialization-state.ts"><code>materialization-state</code></a><br><span class="p">cat-harness/schemas/materialization-state.ts</span></td>
-  <td>Moved to <code>./kg/materialization-state.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/memory.ts"><code>memory</code></a><br><span class="p">cat-harness/schemas/memory.ts</span></td>
-  <td>Moved to <code>./conduct/memory.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/merge-queue.ts"><code>merge-queue</code></a><br><span class="p">cat-harness/schemas/merge-queue.ts</span></td>
-  <td>Moved to <code>./sdlc/merge-queue.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/merge-review.ts"><code>merge-review</code></a><br><span class="p">cat-harness/schemas/merge-review.ts</span></td>
-  <td>Moved to <code>./sdlc/merge-review.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/methodology.ts"><code>methodology</code></a><br><span class="p">cat-harness/schemas/methodology.ts</span></td>
-  <td>Moved to <code>./process/methodology.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/model-capabilities.ts"><code>model-capabilities</code></a><br><span class="p">cat-harness/schemas/model-capabilities.ts</span></td>
-  <td>Moved to <code>./conduct/model-capabilities.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/mount-trust.ts"><code>mount-trust</code></a><br><span class="p">cat-harness/schemas/mount-trust.ts</span></td>
-  <td>Moved to <code>./kg/mount-trust.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/namespaces.ts"><code>namespaces</code></a><br><span class="p">cat-harness/schemas/namespaces.ts</span></td>
-  <td>Moved to <code>./kg/namespaces.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/narrative.ts"><code>narrative</code></a><br><span class="p">cat-harness/schemas/narrative.ts</span></td>
-  <td>Moved to <code>./content/narrative.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/node-kind-index.ts"><code>node-kind-index</code></a><br><span class="p">cat-harness/schemas/node-kind-index.ts</span></td>
-  <td>Moved to <code>./kg/node-kind-index.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/node-kind-nodes.ts"><code>node-kind-nodes</code></a><br><span class="p">cat-harness/schemas/node-kind-nodes.ts</span></td>
-  <td>Moved to <code>./kg/node-kind-nodes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/node-kind.ts"><code>node-kind</code></a><br><span class="p">cat-harness/schemas/node-kind.ts</span></td>
-  <td>Moved to <code>./kg/node-kind.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/note-anchor.ts"><code>note-anchor</code></a><br><span class="p">cat-harness/schemas/note-anchor.ts</span></td>
-  <td>Moved to <code>./ui/note-anchor.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/nquads-distribution.ts"><code>nquads-distribution</code></a><br><span class="p">cat-harness/schemas/nquads-distribution.ts</span></td>
-  <td>Moved to <code>./kg/nquads-distribution.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/odrl.ts"><code>odrl</code></a><br><span class="p">cat-harness/schemas/odrl.ts</span></td>
-  <td>Moved to <code>./content/odrl.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/outside-software.ts"><code>outside-software</code></a><br><span class="p">cat-harness/schemas/outside-software.ts</span></td>
-  <td>Moved to <code>./library/outside-software.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/panel-chrome.ts"><code>panel-chrome</code></a><br><span class="p">cat-harness/schemas/panel-chrome.ts</span></td>
-  <td>Moved to <code>./ui/panel-chrome.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/pdf-structure.ts"><code>pdf-structure</code></a><br><span class="p">cat-harness/schemas/pdf-structure.ts</span></td>
-  <td>Moved to <code>./ui/pdf-structure.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/pinned-terminology.ts"><code>pinned-terminology</code></a><br><span class="p">cat-harness/schemas/pinned-terminology.ts</span></td>
-  <td>Moved to <code>./content/pinned-terminology.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/po-strings.ts"><code>po-strings</code></a><br><span class="p">cat-harness/schemas/po-strings.ts</span></td>
-  <td>Moved to <code>./content/po-strings.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/portable-path.ts"><code>portable-path</code></a><br><span class="p">cat-harness/schemas/portable-path.ts</span></td>
-  <td>Moved to <code>./kg/portable-path.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/precision-scalar.ts"><code>precision-scalar</code></a><br><span class="p">cat-harness/schemas/precision-scalar.ts</span></td>
-  <td>§S7 — <code>PrecisionScalar</code> envelope for round-tripping high-precision values through witness JSON without going through <code>f64</code>.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/process-element-id.ts"><code>process-element-id</code></a><br><span class="p">cat-harness/schemas/process-element-id.ts</span></td>
-  <td>Moved to <code>./process/process-element-id.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/process/actor-reach.ts"><code>actor-reach</code></a><br><span class="p">cat-harness/schemas/process/actor-reach.ts</span></td>
   <td>**Network reach is a property of an ACTOR**, and how it composes with the deployment's.</td>
 </tr>
@@ -1894,110 +1486,6 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/process/user-story.ts"><code>user-story</code></a><br><span class="p">cat-harness/schemas/process/user-story.ts</span></td>
   <td>User stories — what a reader acting in a role is trying to do.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/property-skills.ts"><code>property-skills</code></a><br><span class="p">cat-harness/schemas/property-skills.ts</span></td>
-  <td>Moved to <code>./kg/property-skills.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/prov-jsonld.ts"><code>prov-jsonld</code></a><br><span class="p">cat-harness/schemas/prov-jsonld.ts</span></td>
-  <td>Moved to <code>./kg/prov-jsonld.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/prov.ts"><code>prov</code></a><br><span class="p">cat-harness/schemas/prov.ts</span></td>
-  <td>Moved to <code>./content/prov.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/python-deps.ts"><code>python-deps</code></a><br><span class="p">cat-harness/schemas/python-deps.ts</span></td>
-  <td>Moved to <code>./sdlc/python-deps.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/qa-attestations.ts"><code>qa-attestations</code></a><br><span class="p">cat-harness/schemas/qa-attestations.ts</span></td>
-  <td>Moved to <code>./sdlc/qa-attestations.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/qa-record-shapes.ts"><code>qa-record-shapes</code></a><br><span class="p">cat-harness/schemas/qa-record-shapes.ts</span></td>
-  <td>Moved to <code>./kg/qa-record-shapes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/qa-report.ts"><code>qa-report</code></a><br><span class="p">cat-harness/schemas/qa-report.ts</span></td>
-  <td>Moved to <code>./sdlc/qa-report.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/qa-review.ts"><code>qa-review</code></a><br><span class="p">cat-harness/schemas/qa-review.ts</span></td>
-  <td>Moved to <code>./sdlc/qa-review.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/reader-filter.ts"><code>reader-filter</code></a><br><span class="p">cat-harness/schemas/reader-filter.ts</span></td>
-  <td>Moved to <code>./content/reader-filter.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/red-flag.ts"><code>red-flag</code></a><br><span class="p">cat-harness/schemas/red-flag.ts</span></td>
-  <td>Moved to <code>./sdlc/red-flag.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/ref-window.ts"><code>ref-window</code></a><br><span class="p">cat-harness/schemas/ref-window.ts</span></td>
-  <td>Moved to <code>./sdlc/ref-window.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/refactor-strategy.ts"><code>refactor-strategy</code></a><br><span class="p">cat-harness/schemas/refactor-strategy.ts</span></td>
-  <td>Lean proof-refactoring strategy database.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/reference-direction.ts"><code>reference-direction</code></a><br><span class="p">cat-harness/schemas/reference-direction.ts</span></td>
-  <td>Moved to <code>./kg/reference-direction.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/referenced-source.ts"><code>referenced-source</code></a><br><span class="p">cat-harness/schemas/referenced-source.ts</span></td>
-  <td>Moved to <code>./library/referenced-source.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/remote-mount.ts"><code>remote-mount</code></a><br><span class="p">cat-harness/schemas/remote-mount.ts</span></td>
-  <td>Moved to <code>./kg/remote-mount.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/render-log.ts"><code>render-log</code></a><br><span class="p">cat-harness/schemas/render-log.ts</span></td>
-  <td>Moved to <code>./ui/render-log.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/render-output.ts"><code>render-output</code></a><br><span class="p">cat-harness/schemas/render-output.ts</span></td>
-  <td>Moved to <code>./ui/render-output.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/render-targets.ts"><code>render-targets</code></a><br><span class="p">cat-harness/schemas/render-targets.ts</span></td>
-  <td>Moved to <code>./ui/render-targets.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/rendered-impact.ts"><code>rendered-impact</code></a><br><span class="p">cat-harness/schemas/rendered-impact.ts</span></td>
-  <td>Moved to <code>./ui/rendered-impact.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/repo-full-name.ts"><code>repo-full-name</code></a><br><span class="p">cat-harness/schemas/repo-full-name.ts</span></td>
-  <td>Moved to <code>./kg/repo-full-name.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/role-graph.ts"><code>role-graph</code></a><br><span class="p">cat-harness/schemas/role-graph.ts</span></td>
-  <td>Moved to <code>./process/role-graph.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/run-context.ts"><code>run-context</code></a><br><span class="p">cat-harness/schemas/run-context.ts</span></td>
-  <td>Moved to <code>./sdlc/run-context.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/safe-url.ts"><code>safe-url</code></a><br><span class="p">cat-harness/schemas/safe-url.ts</span></td>
-  <td>Moved to <code>./ui/safe-url.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/scenario-overlay.ts"><code>scenario-overlay</code></a><br><span class="p">cat-harness/schemas/scenario-overlay.ts</span></td>
-  <td>Moved to <code>./process/scenario-overlay.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/script-qa.ts"><code>script-qa</code></a><br><span class="p">cat-harness/schemas/script-qa.ts</span></td>
-  <td>Moved to <code>./sdlc/script-qa.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/script-table.ts"><code>script-table</code></a><br><span class="p">cat-harness/schemas/script-table.ts</span></td>
-  <td>Moved to <code>./sdlc/script-table.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/sdlc/adversarial-checklist.ts"><code>adversarial-checklist</code></a><br><span class="p">cat-harness/schemas/sdlc/adversarial-checklist.ts</span></td>
@@ -2148,208 +1636,12 @@
   <td>The viewer-navbar audit — **what the owner's rule looks like as data**.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/section-verdicts.ts"><code>section-verdicts</code></a><br><span class="p">cat-harness/schemas/section-verdicts.ts</span></td>
-  <td>Moved to <code>./content/section-verdicts.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/semantic-zoom.ts"><code>semantic-zoom</code></a><br><span class="p">cat-harness/schemas/semantic-zoom.ts</span></td>
-  <td>Moved to <code>./kg/semantic-zoom.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/session-context.ts"><code>session-context</code></a><br><span class="p">cat-harness/schemas/session-context.ts</span></td>
-  <td>Moved to <code>./sdlc/session-context.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/session-survey.ts"><code>session-survey</code></a><br><span class="p">cat-harness/schemas/session-survey.ts</span></td>
-  <td>Moved to <code>./sdlc/session-survey.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/site-indexes.ts"><code>site-indexes</code></a><br><span class="p">cat-harness/schemas/site-indexes.ts</span></td>
-  <td>Moved to <code>./ui/site-indexes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/site.ts"><code>site</code></a><br><span class="p">cat-harness/schemas/site.ts</span></td>
-  <td>Moved to <code>./kg/site.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/skill-definitions-dir.ts"><code>skill-definitions-dir</code></a><br><span class="p">cat-harness/schemas/skill-definitions-dir.ts</span></td>
-  <td>Moved to <code>./kg/skill-definitions-dir.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/skill-package.ts"><code>skill-package</code></a><br><span class="p">cat-harness/schemas/skill-package.ts</span></td>
-  <td>Moved to <code>./kg/skill-package.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/skill-topics.ts"><code>skill-topics</code></a><br><span class="p">cat-harness/schemas/skill-topics.ts</span></td>
-  <td>Moved to <code>./kg/skill-topics.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/slides-accessibility.ts"><code>slides-accessibility</code></a><br><span class="p">cat-harness/schemas/slides-accessibility.ts</span></td>
-  <td>Moved to <code>./ui/slides-accessibility.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/software-library.ts"><code>software-library</code></a><br><span class="p">cat-harness/schemas/software-library.ts</span></td>
-  <td>Moved to <code>./library/software-library.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/source-descriptor.ts"><code>source-descriptor</code></a><br><span class="p">cat-harness/schemas/source-descriptor.ts</span></td>
-  <td>Moved to <code>./library/source-descriptor.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/source-licence.ts"><code>source-licence</code></a><br><span class="p">cat-harness/schemas/source-licence.ts</span></td>
-  <td>Moved to <code>./library/source-licence.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/source-provenance.ts"><code>source-provenance</code></a><br><span class="p">cat-harness/schemas/source-provenance.ts</span></td>
-  <td>Moved to <code>./library/source-provenance.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/spdx-license-expression.ts"><code>spdx-license-expression</code></a><br><span class="p">cat-harness/schemas/spdx-license-expression.ts</span></td>
-  <td>Moved to <code>./library/spdx-license-expression.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/spec-template.ts"><code>spec-template</code></a><br><span class="p">cat-harness/schemas/spec-template.ts</span></td>
-  <td>Moved to <code>./sdlc/spec-template.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/staging-preview.ts"><code>staging-preview</code></a><br><span class="p">cat-harness/schemas/staging-preview.ts</span></td>
-  <td>Moved to <code>./sdlc/staging-preview.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/staging.ts"><code>staging</code></a><br><span class="p">cat-harness/schemas/staging.ts</span></td>
-  <td>Moved to <code>./sdlc/staging.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/state-manifest.ts"><code>state-manifest</code></a><br><span class="p">cat-harness/schemas/state-manifest.ts</span></td>
-  <td>Moved to <code>./kg/state-manifest.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/sticky-contribution.ts"><code>sticky-contribution</code></a><br><span class="p">cat-harness/schemas/sticky-contribution.ts</span></td>
-  <td>Moved to <code>./content/sticky-contribution.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/subgraph-manifest.ts"><code>subgraph-manifest</code></a><br><span class="p">cat-harness/schemas/subgraph-manifest.ts</span></td>
-  <td>Moved to <code>./kg/subgraph-manifest.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/subgraph-source.ts"><code>subgraph-source</code></a><br><span class="p">cat-harness/schemas/subgraph-source.ts</span></td>
-  <td>Moved to <code>./kg/subgraph-source.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/substrate-snapshot.ts"><code>substrate-snapshot</code></a><br><span class="p">cat-harness/schemas/substrate-snapshot.ts</span></td>
-  <td>Moved to <code>./kg/substrate-snapshot.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/sweep-mark.ts"><code>sweep-mark</code></a><br><span class="p">cat-harness/schemas/sweep-mark.ts</span></td>
-  <td>Moved to <code>./sdlc/sweep-mark.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tabular-csvw.ts"><code>tabular-csvw</code></a><br><span class="p">cat-harness/schemas/tabular-csvw.ts</span></td>
-  <td>Moved to <code>./library/tabular-csvw.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tabular-records.ts"><code>tabular-records</code></a><br><span class="p">cat-harness/schemas/tabular-records.ts</span></td>
-  <td>Moved to <code>./library/tabular-records.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/term-adjudication.ts"><code>term-adjudication</code></a><br><span class="p">cat-harness/schemas/term-adjudication.ts</span></td>
-  <td>Moved to <code>./content/term-adjudication.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/term-mapping.ts"><code>term-mapping</code></a><br><span class="p">cat-harness/schemas/term-mapping.ts</span></td>
-  <td>Moved to <code>./content/term-mapping.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/test-data.ts"><code>test-data</code></a><br><span class="p">cat-harness/schemas/test-data.ts</span></td>
-  <td>Moved to <code>./sdlc/test-data.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/test-fixture-preload.ts"><code>test-fixture-preload</code></a><br><span class="p">cat-harness/schemas/test-fixture-preload.ts</span></td>
   <td>Point node discovery at the standalone fixture when the checkout holds no vocabulary — the first test preload, ahead of <code>test-preload.ts</code>.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/test-plan.ts"><code>test-plan</code></a><br><span class="p">cat-harness/schemas/test-plan.ts</span></td>
-  <td>Moved to <code>./sdlc/test-plan.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/test-preload.ts"><code>test-preload</code></a><br><span class="p">cat-harness/schemas/test-preload.ts</span></td>
   <td>Register core's graph typologies before any test reads a declaration.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/test-report.ts"><code>test-report</code></a><br><span class="p">cat-harness/schemas/test-report.ts</span></td>
-  <td>Moved to <code>./sdlc/test-report.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/test-run.ts"><code>test-run</code></a><br><span class="p">cat-harness/schemas/test-run.ts</span></td>
-  <td>Moved to <code>./sdlc/test-run.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/theme-art-intake.ts"><code>theme-art-intake</code></a><br><span class="p">cat-harness/schemas/theme-art-intake.ts</span></td>
-  <td>Moved to <code>./library/theme-art-intake.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/theme-by-ref.ts"><code>theme-by-ref</code></a><br><span class="p">cat-harness/schemas/theme-by-ref.ts</span></td>
-  <td>Moved to <code>./ui/theme-by-ref.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/theme.ts"><code>theme</code></a><br><span class="p">cat-harness/schemas/theme.ts</span></td>
-  <td>Moved to <code>./ui/theme.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/themes.ts"><code>themes</code></a><br><span class="p">cat-harness/schemas/themes.ts</span></td>
-  <td>Moved to <code>./ui/themes.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tile-count.ts"><code>tile-count</code></a><br><span class="p">cat-harness/schemas/tile-count.ts</span></td>
-  <td>Moved to <code>./ui/tile-count.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/to-json-schema.ts"><code>to-json-schema</code></a><br><span class="p">cat-harness/schemas/to-json-schema.ts</span></td>
-  <td>Moved to <code>./kg/to-json-schema.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/todo-graph.ts"><code>todo-graph</code></a><br><span class="p">cat-harness/schemas/todo-graph.ts</span></td>
-  <td>Moved to <code>./sdlc/todo-graph.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/todo-index.ts"><code>todo-index</code></a><br><span class="p">cat-harness/schemas/todo-index.ts</span></td>
-  <td>Moved to <code>./sdlc/todo-index.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/todo.ts"><code>todo</code></a><br><span class="p">cat-harness/schemas/todo.ts</span></td>
-  <td>Moved to <code>./sdlc/todo.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool-folders.ts"><code>tool-folders</code></a><br><span class="p">cat-harness/schemas/tool-folders.ts</span></td>
-  <td>Moved to <code>./tools/tool-folders.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool-id.ts"><code>tool-id</code></a><br><span class="p">cat-harness/schemas/tool-id.ts</span></td>
-  <td>Moved to <code>./tools/tool-id.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool-invocation.ts"><code>tool-invocation</code></a><br><span class="p">cat-harness/schemas/tool-invocation.ts</span></td>
-  <td>Moved to <code>./tools/tool-invocation.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool-profile.ts"><code>tool-profile</code></a><br><span class="p">cat-harness/schemas/tool-profile.ts</span></td>
-  <td>Moved to <code>./tools/tool-profile.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool-release.ts"><code>tool-release</code></a><br><span class="p">cat-harness/schemas/tool-release.ts</span></td>
-  <td>Moved to <code>./tools/tool-release.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool-run.ts"><code>tool-run</code></a><br><span class="p">cat-harness/schemas/tool-run.ts</span></td>
-  <td>Moved to <code>./tools/tool-run.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool-types.ts"><code>tool-types</code></a><br><span class="p">cat-harness/schemas/tool-types.ts</span></td>
-  <td>Moved to <code>./tools/tool-types.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tool.ts"><code>tool</code></a><br><span class="p">cat-harness/schemas/tool.ts</span></td>
-  <td>Moved to <code>./tools/tool.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tools/tool-folders.ts"><code>tool-folders</code></a><br><span class="p">cat-harness/schemas/tools/tool-folders.ts</span></td>
@@ -2382,14 +1674,6 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/tools/tool.ts"><code>tool</code></a><br><span class="p">cat-harness/schemas/tools/tool.ts</span></td>
   <td>What a Tool is.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/translation-tools.ts"><code>translation-tools</code></a><br><span class="p">cat-harness/schemas/translation-tools.ts</span></td>
-  <td>Moved to <code>./library/translation-tools.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/translation.ts"><code>translation</code></a><br><span class="p">cat-harness/schemas/translation.ts</span></td>
-  <td>Moved to <code>./content/translation.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/types.ts"><code>types</code></a><br><span class="p">cat-harness/schemas/types.ts</span></td>
@@ -2476,76 +1760,8 @@
   <td>Which cards are OPEN on a board, and in what order they stack.</td>
 </tr>
 <tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/url-space.ts"><code>url-space</code></a><br><span class="p">cat-harness/schemas/url-space.ts</span></td>
-  <td>Moved to <code>./kg/url-space.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/user-story.ts"><code>user-story</code></a><br><span class="p">cat-harness/schemas/user-story.ts</span></td>
-  <td>Moved to <code>./process/user-story.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/validator-node.ts"><code>validator-node</code></a><br><span class="p">cat-harness/schemas/validator-node.ts</span></td>
-  <td>Moved to <code>./kg/validator-node.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/vector-figure.ts"><code>vector-figure</code></a><br><span class="p">cat-harness/schemas/vector-figure.ts</span></td>
-  <td>Moved to <code>./content/vector-figure.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/vector-labels.ts"><code>vector-labels</code></a><br><span class="p">cat-harness/schemas/vector-labels.ts</span></td>
-  <td>Moved to <code>./content/vector-labels.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/version-bump.ts"><code>version-bump</code></a><br><span class="p">cat-harness/schemas/version-bump.ts</span></td>
-  <td>Moved to <code>./kg/version-bump.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/viewer-nav-qa.ts"><code>viewer-nav-qa</code></a><br><span class="p">cat-harness/schemas/viewer-nav-qa.ts</span></td>
-  <td>Moved to <code>./sdlc/viewer-nav-qa.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/visualiser-route.ts"><code>visualiser-route</code></a><br><span class="p">cat-harness/schemas/visualiser-route.ts</span></td>
-  <td>Moved to <code>./kg/visualiser-route.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/vocab-mapping-fhir.ts"><code>vocab-mapping-fhir</code></a><br><span class="p">cat-harness/schemas/vocab-mapping-fhir.ts</span></td>
   <td>FHIR ConceptMap ⇄ vocabulary mapping tables: ι (represent) and π (produce).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/vocab-mapping.ts"><code>vocab-mapping</code></a><br><span class="p">cat-harness/schemas/vocab-mapping.ts</span></td>
-  <td>Moved to <code>./content/vocab-mapping.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/vocabulary-modules.ts"><code>vocabulary-modules</code></a><br><span class="p">cat-harness/schemas/vocabulary-modules.ts</span></td>
-  <td>Moved to <code>./content/vocabulary-modules.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/vocabulary.ts"><code>vocabulary</code></a><br><span class="p">cat-harness/schemas/vocabulary.ts</span></td>
-  <td>Moved to <code>./content/vocabulary.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/voice-skill.ts"><code>voice-skill</code></a><br><span class="p">cat-harness/schemas/voice-skill.ts</span></td>
-  <td>Moved to <code>./content/voice-skill.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/voices.ts"><code>voices</code></a><br><span class="p">cat-harness/schemas/voices.ts</span></td>
-  <td>Moved to <code>./content/voices.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/waiver.ts"><code>waiver</code></a><br><span class="p">cat-harness/schemas/waiver.ts</span></td>
-  <td>Moved to <code>./conduct/waiver.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/webpage.ts"><code>webpage</code></a><br><span class="p">cat-harness/schemas/webpage.ts</span></td>
-  <td>Moved to <code>./ui/webpage.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/window-stack.ts"><code>window-stack</code></a><br><span class="p">cat-harness/schemas/window-stack.ts</span></td>
-  <td>Moved to <code>./ui/window-stack.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/schemas/withheld.ts"><code>withheld</code></a><br><span class="p">cat-harness/schemas/withheld.ts</span></td>
-  <td>Moved to <code>./content/withheld.ts</code> (bean <code>f8wp</code>, placement PR8).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/schemas/adjudication.ts"><code>adjudication</code></a><br><span class="p">folio-assistant-core/schemas/adjudication.ts</span></td>

@@ -190,93 +190,12 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/actor-reach.ts",
-      "instance": "cat-harness",
-      "name": "actor-reach",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/actor-reach.js`",
-      "summary": "Moved to `./process/actor-reach.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/adversarial-checklist.ts",
-      "instance": "cat-harness",
-      "name": "adversarial-checklist",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/adversarial-checklist.js`",
-      "summary": "Moved to `./sdlc/adversarial-checklist.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/archive-contents.ts",
-      "instance": "cat-harness",
-      "name": "archive-contents",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/archive-contents.js`",
-      "summary": "Moved to `./library/archive-contents.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/artifact-store.ts",
-      "instance": "cat-harness",
-      "name": "artifact-store",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/artifact-store.js`",
-      "summary": "Moved to `./sdlc/artifact-store.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/assistant-package.ts",
-      "instance": "cat-harness",
-      "name": "assistant-package",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./conduct/assistant-package.js`",
-      "summary": "Moved to `./conduct/assistant-package.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/assistant-types.ts",
-      "instance": "cat-harness",
-      "name": "assistant-types",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./conduct/assistant-types.js`",
-      "summary": "Moved to `./conduct/assistant-types.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/assistant-workflow.ts",
-      "instance": "cat-harness",
-      "name": "assistant-workflow",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/assistant-workflow.js`",
-      "summary": "Moved to `./process/assistant-workflow.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/attribution.ts",
-      "instance": "cat-harness",
-      "name": "attribution",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/attribution.js`",
-      "summary": "Moved to `./content/attribution.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/avatar-region.test.ts",
       "instance": "cat-harness",
       "name": "avatar-region.test",
       "graphNode": "undeclared",
       "summary": "`avatarRegion` — declared per image, square in pixels, and checkable.",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/avatars.ts",
-      "instance": "cat-harness",
-      "name": "avatars",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/avatars.js`",
-      "summary": "Moved to `./content/avatars.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/bean-and-declaration-kinds.test.ts",
@@ -287,120 +206,12 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/bean-graph.ts",
-      "instance": "cat-harness",
-      "name": "bean-graph",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/bean-graph.js`",
-      "summary": "Moved to `./sdlc/bean-graph.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/bean-note.ts",
-      "instance": "cat-harness",
-      "name": "bean-note",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/bean-note.js`",
-      "summary": "Moved to `./sdlc/bean-note.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/bib-attestations.ts",
-      "instance": "cat-harness",
-      "name": "bib-attestations",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/bib-attestations.js`",
-      "summary": "Moved to `./library/bib-attestations.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/bib-verification.ts",
-      "instance": "cat-harness",
-      "name": "bib-verification",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/bib-verification.js`",
-      "summary": "Moved to `./library/bib-verification.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/binary-release.ts",
-      "instance": "cat-harness",
-      "name": "binary-release",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/binary-release.js`",
-      "summary": "Moved to `./sdlc/binary-release.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/blank-avatar.ts",
-      "instance": "cat-harness",
-      "name": "blank-avatar",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/blank-avatar.js`",
-      "summary": "Moved to `./ui/blank-avatar.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/block-kind-node.ts",
-      "instance": "cat-harness",
-      "name": "block-kind-node",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/block-kind-node.js`",
-      "summary": "Moved to `./kg/block-kind-node.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/block-kind-nodes.test.ts",
       "instance": "cat-harness",
       "name": "block-kind-nodes.test",
       "graphNode": "undeclared",
       "summary": "The block kinds are DISCOVERED from `folio-block-kind/v1` nodes (bean riit,",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/block-kinds.ts",
-      "instance": "cat-harness",
-      "name": "block-kinds",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/block-kinds.js`",
-      "summary": "Moved to `./content/block-kinds.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/block-qa.ts",
-      "instance": "cat-harness",
-      "name": "block-qa",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/block-qa.js`",
-      "summary": "Moved to `./sdlc/block-qa.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/block-summary.ts",
-      "instance": "cat-harness",
-      "name": "block-summary",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/block-summary.js`",
-      "summary": "Moved to `./content/block-summary.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/board-positions.ts",
-      "instance": "cat-harness",
-      "name": "board-positions",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/board-positions.js`",
-      "summary": "Moved to `./ui/board-positions.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/board.ts",
-      "instance": "cat-harness",
-      "name": "board",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/board.js`",
-      "summary": "Moved to `./ui/board.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/bootstrap-reading.test.ts",
@@ -420,65 +231,11 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/built-at-publish.ts",
-      "instance": "cat-harness",
-      "name": "built-at-publish",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/built-at-publish.js`",
-      "summary": "Moved to `./kg/built-at-publish.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/carried-note.ts",
-      "instance": "cat-harness",
-      "name": "carried-note",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/carried-note.js`",
-      "summary": "Moved to `./kg/carried-note.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/cat-harness.ts",
-      "instance": "cat-harness",
-      "name": "cat-harness",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/cat-harness.js`",
-      "summary": "Moved to `./kg/cat-harness.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/change-size.ts",
-      "instance": "cat-harness",
-      "name": "change-size",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/change-size.js`",
-      "summary": "Moved to `./sdlc/change-size.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/code-list.ts",
-      "instance": "cat-harness",
-      "name": "code-list",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/code-list.js`",
-      "summary": "Moved to `./library/code-list.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/computation-witness.ts",
       "instance": "cat-harness",
       "name": "computation-witness",
       "graphNode": "schema",
       "summary": "`computation-witness/v1` — the runtime schema for a folio's",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/concern-groups.ts",
-      "instance": "cat-harness",
-      "name": "concern-groups",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/concern-groups.js`",
-      "summary": "Moved to `./kg/concern-groups.ts` (bean `f8wp`, placement PR8).",
       "isTest": false
     },
     {
@@ -546,48 +303,12 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/content-adapter-node.ts",
-      "instance": "cat-harness",
-      "name": "content-adapter-node",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/content-adapter-node.js`",
-      "summary": "Moved to `./kg/content-adapter-node.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/content-axes.test.ts",
       "instance": "cat-harness",
       "name": "content-axes.test",
       "graphNode": "undeclared",
       "summary": "The four axes stay four, and each keeps the property that makes it useful.",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/content-context.ts",
-      "instance": "cat-harness",
-      "name": "content-context",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/content-context.js`",
-      "summary": "Moved to `./content/content-context.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/content-type.ts",
-      "instance": "cat-harness",
-      "name": "content-type",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/content-type.js`",
-      "summary": "Moved to `./content/content-type.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/content-types-base.ts",
-      "instance": "cat-harness",
-      "name": "content-types-base",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/content-types-base.js`",
-      "summary": "Moved to `./content/content-types-base.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/content/attribution.ts",
@@ -935,102 +656,12 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/contribution-nodes.ts",
-      "instance": "cat-harness",
-      "name": "contribution-nodes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/contribution-nodes.js`",
-      "summary": "Moved to `./kg/contribution-nodes.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/contributions.ts",
-      "instance": "cat-harness",
-      "name": "contributions",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/contributions.js`",
-      "summary": "Moved to `./content/contributions.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/convention.ts",
-      "instance": "cat-harness",
-      "name": "convention",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/convention.js`",
-      "summary": "Moved to `./process/convention.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/decision-methodology-context.ts",
-      "instance": "cat-harness",
-      "name": "decision-methodology-context",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/decision-methodology-context.js`",
-      "summary": "Moved to `./process/decision-methodology-context.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/decision-request.ts",
-      "instance": "cat-harness",
-      "name": "decision-request",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/decision-request.js`",
-      "summary": "Moved to `./process/decision-request.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/declared-nodes.ts",
-      "instance": "cat-harness",
-      "name": "declared-nodes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/declared-nodes.js`",
-      "summary": "Moved to `./kg/declared-nodes.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/dependency-order.ts",
-      "instance": "cat-harness",
-      "name": "dependency-order",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/dependency-order.js`",
-      "summary": "Moved to `./kg/dependency-order.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/depends-on.ts",
-      "instance": "cat-harness",
-      "name": "depends-on",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/depends-on.js`",
-      "summary": "Moved to `./kg/depends-on.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/deployment-description.ts",
-      "instance": "cat-harness",
-      "name": "deployment-description",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/deployment-description.js`",
-      "summary": "Moved to `./process/deployment-description.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/deployment-examples.test.ts",
       "instance": "cat-harness",
       "name": "deployment-examples.test",
       "graphNode": "undeclared",
       "summary": "The example deployment descriptions (bean `jog4`) in",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/deployment-resolver.ts",
-      "instance": "cat-harness",
-      "name": "deployment-resolver",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/deployment-resolver.js`",
-      "summary": "Moved to `./process/deployment-resolver.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/derived-from.test.ts",
@@ -1041,102 +672,12 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/detangle-sidecar.ts",
-      "instance": "cat-harness",
-      "name": "detangle-sidecar",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/detangle-sidecar.js`",
-      "summary": "Moved to `./kg/detangle-sidecar.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/detangle.ts",
-      "instance": "cat-harness",
-      "name": "detangle",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/detangle.js`",
-      "summary": "Moved to `./kg/detangle.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/diff-renderers.ts",
-      "instance": "cat-harness",
-      "name": "diff-renderers",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/diff-renderers.js`",
-      "summary": "Moved to `./ui/diff-renderers.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/document-image.ts",
-      "instance": "cat-harness",
-      "name": "document-image",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/document-image.js`",
-      "summary": "Moved to `./content/document-image.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/document-kind.ts",
-      "instance": "cat-harness",
-      "name": "document-kind",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/document-kind.js`",
-      "summary": "Moved to `./content/document-kind.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/document-structure.ts",
-      "instance": "cat-harness",
-      "name": "document-structure",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/document-structure.js`",
-      "summary": "Moved to `./content/document-structure.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/external-registry-contract.test.ts",
       "instance": "cat-harness",
       "name": "external-registry-contract.test",
       "graphNode": "undeclared",
       "summary": "The `external-registry` role held to its contract,",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/external-schema.ts",
-      "instance": "cat-harness",
-      "name": "external-schema",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/external-schema.js`",
-      "summary": "Moved to `./kg/external-schema.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/extraction.ts",
-      "instance": "cat-harness",
-      "name": "extraction",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/extraction.js`",
-      "summary": "Moved to `./content/extraction.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/figure-description.ts",
-      "instance": "cat-harness",
-      "name": "figure-description",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/figure-description.js`",
-      "summary": "Moved to `./content/figure-description.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/folio-graph-typology.ts",
-      "instance": "cat-harness",
-      "name": "folio-graph-typology",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/folio-graph-typology.js`",
-      "summary": "Moved to `./kg/folio-graph-typology.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/forge-location.test.ts",
@@ -1163,33 +704,6 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/front-matter.ts",
-      "instance": "cat-harness",
-      "name": "front-matter",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/front-matter.js`",
-      "summary": "Moved to `./kg/front-matter.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/fsh-guts.ts",
-      "instance": "cat-harness",
-      "name": "fsh-guts",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/fsh-guts.js`",
-      "summary": "Moved to `./kg/fsh-guts.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/git-corpus.ts",
-      "instance": "cat-harness",
-      "name": "git-corpus",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/git-corpus.js`",
-      "summary": "Moved to `./sdlc/git-corpus.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/git-scan.test.ts",
       "instance": "cat-harness",
       "name": "git-scan.test",
@@ -1202,68 +716,6 @@
       "instance": "cat-harness",
       "name": "gitlab-username.test",
       "graphNode": "undeclared",
-      "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/glossary-ledger.ts",
-      "instance": "cat-harness",
-      "name": "glossary-ledger",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/glossary-ledger.js`",
-      "summary": "Moved to `./library/glossary-ledger.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/graph-typology-node.ts",
-      "instance": "cat-harness",
-      "name": "graph-typology-node",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/graph-typology-node.js`",
-      "summary": "Moved to `./kg/graph-typology-node.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/graph-typology-registry.ts",
-      "instance": "cat-harness",
-      "name": "graph-typology-registry",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/graph-typology-registry.js`",
-      "summary": "Moved to `./kg/graph-typology-registry.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/harness-config.ts",
-      "instance": "cat-harness",
-      "name": "harness-config",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/harness-config.js`",
-      "summary": "Moved to `./kg/harness-config.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/health-report.ts",
-      "instance": "cat-harness",
-      "name": "health-report",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/health-report.js`",
-      "summary": "Moved to `./sdlc/health-report.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/id-lookup.ts",
-      "instance": "cat-harness",
-      "name": "id-lookup",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/id-lookup.js`",
-      "summary": "Moved to `./kg/id-lookup.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/ig-publisher-service-contract.test.ts",
-      "instance": "cat-harness",
-      "name": "ig-publisher-service-contract.test",
-      "graphNode": "undeclared",
-      "summary": "The `ig-publisher-service` role held to its contract,",
       "isTest": true
     },
     {
@@ -1283,84 +735,12 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/index-config.ts",
-      "instance": "cat-harness",
-      "name": "index-config",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/index-config.js`",
-      "summary": "Moved to `./kg/index-config.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/index.ts",
-      "instance": "cat-harness",
-      "name": "index",
-      "graphNode": "none",
-      "reason": "a re-export barrel: it defines nothing of its own",
-      "summary": "Re-exports all types, Zod validation schemas, and builder functions.",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/inline-code.ts",
-      "instance": "cat-harness",
-      "name": "inline-code",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/inline-code.js`",
-      "summary": "Moved to `./content/inline-code.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/input-trace.ts",
-      "instance": "cat-harness",
-      "name": "input-trace",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/input-trace.js`",
-      "summary": "Moved to `./sdlc/input-trace.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/instance-repositories.ts",
-      "instance": "cat-harness",
-      "name": "instance-repositories",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/instance-repositories.js`",
-      "summary": "Moved to `./kg/instance-repositories.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/instance-root-named.test.ts",
       "instance": "cat-harness",
       "name": "instance-root-named.test",
       "graphNode": "undeclared",
       "summary": "`instanceRootNamed` — one rule for both layouts (bean `uxn1`).",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/instance-roots.ts",
-      "instance": "cat-harness",
-      "name": "instance-roots",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/instance-roots.js`",
-      "summary": "Moved to `./kg/instance-roots.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/intake.ts",
-      "instance": "cat-harness",
-      "name": "intake",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/intake.js`",
-      "summary": "Moved to `./library/intake.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/interaction.ts",
-      "instance": "cat-harness",
-      "name": "interaction",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./conduct/interaction.js`",
-      "summary": "Moved to `./conduct/interaction.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/jsonld-base.test.ts",
@@ -1371,48 +751,12 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/jsonld-prefixes.ts",
-      "instance": "cat-harness",
-      "name": "jsonld-prefixes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/jsonld-prefixes.js`",
-      "summary": "Moved to `./kg/jsonld-prefixes.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/jsonld.ts",
-      "instance": "cat-harness",
-      "name": "jsonld",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/jsonld.js`",
-      "summary": "Moved to `./kg/jsonld.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/kg-affordances.test.ts",
       "instance": "cat-harness",
       "name": "kg-affordances.test",
       "graphNode": "undeclared",
       "summary": "Bean `folio-assistant-dp1j` — the four affordances of a conformant knowledge",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/kg-node.ts",
-      "instance": "cat-harness",
-      "name": "kg-node",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/kg-node.js`",
-      "summary": "Moved to `./kg/kg-node.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/kg-qa.ts",
-      "instance": "cat-harness",
-      "name": "kg-qa",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/kg-qa.js`",
-      "summary": "Moved to `./sdlc/kg-qa.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/kg/block-kind-node.ts",
@@ -2019,65 +1363,11 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/kind-validator.ts",
-      "instance": "cat-harness",
-      "name": "kind-validator",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/kind-validator.js`",
-      "summary": "Moved to `./kg/kind-validator.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/landing-sticky.ts",
-      "instance": "cat-harness",
-      "name": "landing-sticky",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/landing-sticky.js`",
-      "summary": "Moved to `./content/landing-sticky.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/layer-direction.ts",
-      "instance": "cat-harness",
-      "name": "layer-direction",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/layer-direction.js`",
-      "summary": "Moved to `./kg/layer-direction.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/lean-packages.ts",
       "instance": "cat-harness",
       "name": "lean-packages",
       "graphNode": "schema",
       "summary": "The `lean.ref` grammar and the package registry it resolves against.",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/library-iri.ts",
-      "instance": "cat-harness",
-      "name": "library-iri",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/library-iri.js`",
-      "summary": "Moved to `./library/library-iri.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/library-keywords.ts",
-      "instance": "cat-harness",
-      "name": "library-keywords",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/library-keywords.js`",
-      "summary": "Moved to `./library/library-keywords.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/library-nodes.ts",
-      "instance": "cat-harness",
-      "name": "library-nodes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/library-nodes.js`",
-      "summary": "Moved to `./library/library-nodes.ts` (bean `f8wp`, placement PR8).",
       "isTest": false
     },
     {
@@ -2298,93 +1588,12 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/log-entry.ts",
-      "instance": "cat-harness",
-      "name": "log-entry",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/log-entry.js`",
-      "summary": "Moved to `./sdlc/log-entry.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/materialization-state.ts",
-      "instance": "cat-harness",
-      "name": "materialization-state",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/materialization-state.js`",
-      "summary": "Moved to `./kg/materialization-state.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/memory.ts",
-      "instance": "cat-harness",
-      "name": "memory",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./conduct/memory.js`",
-      "summary": "Moved to `./conduct/memory.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/merge-queue.ts",
-      "instance": "cat-harness",
-      "name": "merge-queue",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/merge-queue.js`",
-      "summary": "Moved to `./sdlc/merge-queue.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/merge-review.ts",
-      "instance": "cat-harness",
-      "name": "merge-review",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/merge-review.js`",
-      "summary": "Moved to `./sdlc/merge-review.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/methodology.ts",
-      "instance": "cat-harness",
-      "name": "methodology",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/methodology.js`",
-      "summary": "Moved to `./process/methodology.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/model-capabilities.ts",
-      "instance": "cat-harness",
-      "name": "model-capabilities",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./conduct/model-capabilities.js`",
-      "summary": "Moved to `./conduct/model-capabilities.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/mount-trust.ts",
-      "instance": "cat-harness",
-      "name": "mount-trust",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/mount-trust.js`",
-      "summary": "Moved to `./kg/mount-trust.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/namespaces-legacy.test.ts",
       "instance": "cat-harness",
       "name": "namespaces-legacy.test",
       "graphNode": "undeclared",
       "summary": "The reader's TRANSITION tolerance for legacy exact-semver extension",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/namespaces.ts",
-      "instance": "cat-harness",
-      "name": "namespaces",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/namespaces.js`",
-      "summary": "Moved to `./kg/namespaces.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/narrative-slots.test.ts",
@@ -2395,84 +1604,12 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/narrative.ts",
-      "instance": "cat-harness",
-      "name": "narrative",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/narrative.js`",
-      "summary": "Moved to `./content/narrative.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/navbar-icons.test.ts",
       "instance": "cat-harness",
       "name": "navbar-icons.test",
       "graphNode": "undeclared",
       "summary": "The navbar icon row — WHICH icons, and whose answer it is.",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/node-kind-index.ts",
-      "instance": "cat-harness",
-      "name": "node-kind-index",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/node-kind-index.js`",
-      "summary": "Moved to `./kg/node-kind-index.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/node-kind-nodes.ts",
-      "instance": "cat-harness",
-      "name": "node-kind-nodes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/node-kind-nodes.js`",
-      "summary": "Moved to `./kg/node-kind-nodes.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/node-kind.ts",
-      "instance": "cat-harness",
-      "name": "node-kind",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/node-kind.js`",
-      "summary": "Moved to `./kg/node-kind.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/note-anchor.ts",
-      "instance": "cat-harness",
-      "name": "note-anchor",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/note-anchor.js`",
-      "summary": "Moved to `./ui/note-anchor.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/nquads-distribution.ts",
-      "instance": "cat-harness",
-      "name": "nquads-distribution",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/nquads-distribution.js`",
-      "summary": "Moved to `./kg/nquads-distribution.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/odrl.ts",
-      "instance": "cat-harness",
-      "name": "odrl",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/odrl.js`",
-      "summary": "Moved to `./content/odrl.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/outside-software.ts",
-      "instance": "cat-harness",
-      "name": "outside-software",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/outside-software.js`",
-      "summary": "Moved to `./library/outside-software.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/overlay-resolution.test.ts",
@@ -2489,68 +1626,6 @@
       "graphNode": "undeclared",
       "summary": "The pages-serving observation (bean `folio-assistant-1dre`): what a CI job",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/panel-chrome.ts",
-      "instance": "cat-harness",
-      "name": "panel-chrome",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/panel-chrome.js`",
-      "summary": "Moved to `./ui/panel-chrome.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/pdf-structure.ts",
-      "instance": "cat-harness",
-      "name": "pdf-structure",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/pdf-structure.js`",
-      "summary": "Moved to `./ui/pdf-structure.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/pinned-terminology.ts",
-      "instance": "cat-harness",
-      "name": "pinned-terminology",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/pinned-terminology.js`",
-      "summary": "Moved to `./content/pinned-terminology.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/po-strings.ts",
-      "instance": "cat-harness",
-      "name": "po-strings",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/po-strings.js`",
-      "summary": "Moved to `./content/po-strings.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/portable-path.ts",
-      "instance": "cat-harness",
-      "name": "portable-path",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/portable-path.js`",
-      "summary": "Moved to `./kg/portable-path.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/precision-scalar.ts",
-      "instance": "cat-harness",
-      "name": "precision-scalar",
-      "graphNode": "schema",
-      "summary": "§S7 — `PrecisionScalar` envelope for round-tripping high-precision",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/process-element-id.ts",
-      "instance": "cat-harness",
-      "name": "process-element-id",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/process-element-id.js`",
-      "summary": "Moved to `./process/process-element-id.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/process/actor-reach.test.ts",
@@ -2696,146 +1771,12 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/property-skills.ts",
-      "instance": "cat-harness",
-      "name": "property-skills",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/property-skills.js`",
-      "summary": "Moved to `./kg/property-skills.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/prov-jsonld.ts",
-      "instance": "cat-harness",
-      "name": "prov-jsonld",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/prov-jsonld.js`",
-      "summary": "Moved to `./kg/prov-jsonld.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/prov.ts",
-      "instance": "cat-harness",
-      "name": "prov",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/prov.js`",
-      "summary": "Moved to `./content/prov.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/python-deps.ts",
-      "instance": "cat-harness",
-      "name": "python-deps",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/python-deps.js`",
-      "summary": "Moved to `./sdlc/python-deps.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/qa-attestations.ts",
-      "instance": "cat-harness",
-      "name": "qa-attestations",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/qa-attestations.js`",
-      "summary": "Moved to `./sdlc/qa-attestations.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/qa-record-shapes.ts",
-      "instance": "cat-harness",
-      "name": "qa-record-shapes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/qa-record-shapes.js`",
-      "summary": "Moved to `./kg/qa-record-shapes.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/qa-report.ts",
-      "instance": "cat-harness",
-      "name": "qa-report",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/qa-report.js`",
-      "summary": "Moved to `./sdlc/qa-report.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/qa-review.ts",
-      "instance": "cat-harness",
-      "name": "qa-review",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/qa-review.js`",
-      "summary": "Moved to `./sdlc/qa-review.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/reader-filter.ts",
-      "instance": "cat-harness",
-      "name": "reader-filter",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/reader-filter.js`",
-      "summary": "Moved to `./content/reader-filter.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/red-flag.ts",
-      "instance": "cat-harness",
-      "name": "red-flag",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/red-flag.js`",
-      "summary": "Moved to `./sdlc/red-flag.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/ref-window.ts",
-      "instance": "cat-harness",
-      "name": "ref-window",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/ref-window.js`",
-      "summary": "Moved to `./sdlc/ref-window.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/refactor-strategy.ts",
-      "instance": "cat-harness",
-      "name": "refactor-strategy",
-      "graphNode": "schema",
-      "summary": "Lean proof-refactoring strategy database.",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/reference-direction.ts",
-      "instance": "cat-harness",
-      "name": "reference-direction",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/reference-direction.js`",
-      "summary": "Moved to `./kg/reference-direction.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/referenced-source.ts",
-      "instance": "cat-harness",
-      "name": "referenced-source",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/referenced-source.js`",
-      "summary": "Moved to `./library/referenced-source.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/remote-mount-tools.test.ts",
       "instance": "cat-harness",
       "name": "remote-mount-tools.test",
       "graphNode": "undeclared",
       "summary": "`overrides.<instance>.tools` — Tools chosen by id for a runnable mount",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/remote-mount.ts",
-      "instance": "cat-harness",
-      "name": "remote-mount",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/remote-mount.js`",
-      "summary": "Moved to `./kg/remote-mount.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/render-exemption.test.ts",
@@ -2846,65 +1787,11 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/render-log.ts",
-      "instance": "cat-harness",
-      "name": "render-log",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/render-log.js`",
-      "summary": "Moved to `./ui/render-log.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/render-output.ts",
-      "instance": "cat-harness",
-      "name": "render-output",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/render-output.js`",
-      "summary": "Moved to `./ui/render-output.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/render-targets.ts",
-      "instance": "cat-harness",
-      "name": "render-targets",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/render-targets.js`",
-      "summary": "Moved to `./ui/render-targets.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/rendered-impact.ts",
-      "instance": "cat-harness",
-      "name": "rendered-impact",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/rendered-impact.js`",
-      "summary": "Moved to `./ui/rendered-impact.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/repo-full-name.ts",
-      "instance": "cat-harness",
-      "name": "repo-full-name",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/repo-full-name.js`",
-      "summary": "Moved to `./kg/repo-full-name.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/review-thread-id.test.ts",
       "instance": "cat-harness",
       "name": "review-thread-id.test",
       "graphNode": "undeclared",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/role-graph.ts",
-      "instance": "cat-harness",
-      "name": "role-graph",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/role-graph.js`",
-      "summary": "Moved to `./process/role-graph.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/route-member.test.ts",
@@ -2915,57 +1802,12 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/run-context.ts",
-      "instance": "cat-harness",
-      "name": "run-context",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/run-context.js`",
-      "summary": "Moved to `./sdlc/run-context.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/safe-url.ts",
-      "instance": "cat-harness",
-      "name": "safe-url",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/safe-url.js`",
-      "summary": "Moved to `./ui/safe-url.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/scenario-overlay-needed.test.ts",
       "instance": "cat-harness",
       "name": "scenario-overlay-needed.test",
       "graphNode": "undeclared",
       "summary": "An instance audit resolves actors from the platform, every instance the",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/scenario-overlay.ts",
-      "instance": "cat-harness",
-      "name": "scenario-overlay",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/scenario-overlay.js`",
-      "summary": "Moved to `./process/scenario-overlay.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/script-qa.ts",
-      "instance": "cat-harness",
-      "name": "script-qa",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/script-qa.js`",
-      "summary": "Moved to `./sdlc/script-qa.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/script-table.ts",
-      "instance": "cat-harness",
-      "name": "script-table",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/script-table.js`",
-      "summary": "Moved to `./sdlc/script-table.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "cat-harness/schemas/sdlc/adversarial-checklist.test.ts",
@@ -3362,42 +2204,6 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/section-verdicts.ts",
-      "instance": "cat-harness",
-      "name": "section-verdicts",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/section-verdicts.js`",
-      "summary": "Moved to `./content/section-verdicts.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/semantic-zoom.ts",
-      "instance": "cat-harness",
-      "name": "semantic-zoom",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/semantic-zoom.js`",
-      "summary": "Moved to `./kg/semantic-zoom.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/session-context.ts",
-      "instance": "cat-harness",
-      "name": "session-context",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/session-context.js`",
-      "summary": "Moved to `./sdlc/session-context.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/session-survey.ts",
-      "instance": "cat-harness",
-      "name": "session-survey",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/session-survey.js`",
-      "summary": "Moved to `./sdlc/session-survey.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/site-build-recipe.test.ts",
       "instance": "cat-harness",
       "name": "site-build-recipe.test",
@@ -3422,191 +2228,11 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/site-indexes.ts",
-      "instance": "cat-harness",
-      "name": "site-indexes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/site-indexes.js`",
-      "summary": "Moved to `./ui/site-indexes.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/site.ts",
-      "instance": "cat-harness",
-      "name": "site",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/site.js`",
-      "summary": "Moved to `./kg/site.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/skill-definitions-dir.ts",
-      "instance": "cat-harness",
-      "name": "skill-definitions-dir",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/skill-definitions-dir.js`",
-      "summary": "Moved to `./kg/skill-definitions-dir.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/skill-package.ts",
-      "instance": "cat-harness",
-      "name": "skill-package",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/skill-package.js`",
-      "summary": "Moved to `./kg/skill-package.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/skill-topics.ts",
-      "instance": "cat-harness",
-      "name": "skill-topics",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/skill-topics.js`",
-      "summary": "Moved to `./kg/skill-topics.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/slides-accessibility.ts",
-      "instance": "cat-harness",
-      "name": "slides-accessibility",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/slides-accessibility.js`",
-      "summary": "Moved to `./ui/slides-accessibility.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/software-library.ts",
-      "instance": "cat-harness",
-      "name": "software-library",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/software-library.js`",
-      "summary": "Moved to `./library/software-library.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/source-descriptor.ts",
-      "instance": "cat-harness",
-      "name": "source-descriptor",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/source-descriptor.js`",
-      "summary": "Moved to `./library/source-descriptor.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/source-licence.ts",
-      "instance": "cat-harness",
-      "name": "source-licence",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/source-licence.js`",
-      "summary": "Moved to `./library/source-licence.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/source-provenance.ts",
-      "instance": "cat-harness",
-      "name": "source-provenance",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/source-provenance.js`",
-      "summary": "Moved to `./library/source-provenance.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/spdx-license-expression.ts",
-      "instance": "cat-harness",
-      "name": "spdx-license-expression",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/spdx-license-expression.js`",
-      "summary": "Moved to `./library/spdx-license-expression.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/spec-template.ts",
-      "instance": "cat-harness",
-      "name": "spec-template",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/spec-template.js`",
-      "summary": "Moved to `./sdlc/spec-template.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/staging-comparison.schema.json",
       "instance": "cat-harness",
       "name": "staging-comparison",
       "graphNode": "schema",
       "summary": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is skills/sdlc/sdlc-core/staging-review.md §\"The deep-link rule\". Copied inline as `definitions.stagingLinks` into every skill contract that carries it; ",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/staging-preview.ts",
-      "instance": "cat-harness",
-      "name": "staging-preview",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/staging-preview.js`",
-      "summary": "Moved to `./sdlc/staging-preview.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/staging.ts",
-      "instance": "cat-harness",
-      "name": "staging",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/staging.js`",
-      "summary": "Moved to `./sdlc/staging.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/state-manifest.ts",
-      "instance": "cat-harness",
-      "name": "state-manifest",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/state-manifest.js`",
-      "summary": "Moved to `./kg/state-manifest.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/sticky-contribution.ts",
-      "instance": "cat-harness",
-      "name": "sticky-contribution",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/sticky-contribution.js`",
-      "summary": "Moved to `./content/sticky-contribution.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/subgraph-manifest.ts",
-      "instance": "cat-harness",
-      "name": "subgraph-manifest",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/subgraph-manifest.js`",
-      "summary": "Moved to `./kg/subgraph-manifest.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/subgraph-source.ts",
-      "instance": "cat-harness",
-      "name": "subgraph-source",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/subgraph-source.js`",
-      "summary": "Moved to `./kg/subgraph-source.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/substrate-snapshot.ts",
-      "instance": "cat-harness",
-      "name": "substrate-snapshot",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/substrate-snapshot.js`",
-      "summary": "Moved to `./kg/substrate-snapshot.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/sweep-mark.ts",
-      "instance": "cat-harness",
-      "name": "sweep-mark",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/sweep-mark.js`",
-      "summary": "Moved to `./sdlc/sweep-mark.ts` (bean `f8wp`, placement PR8).",
       "isTest": false
     },
     {
@@ -3618,51 +2244,6 @@
       "isTest": true
     },
     {
-      "module": "cat-harness/schemas/tabular-csvw.ts",
-      "instance": "cat-harness",
-      "name": "tabular-csvw",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/tabular-csvw.js`",
-      "summary": "Moved to `./library/tabular-csvw.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tabular-records.ts",
-      "instance": "cat-harness",
-      "name": "tabular-records",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/tabular-records.js`",
-      "summary": "Moved to `./library/tabular-records.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/term-adjudication.ts",
-      "instance": "cat-harness",
-      "name": "term-adjudication",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/term-adjudication.js`",
-      "summary": "Moved to `./content/term-adjudication.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/term-mapping.ts",
-      "instance": "cat-harness",
-      "name": "term-mapping",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/term-mapping.js`",
-      "summary": "Moved to `./content/term-mapping.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/test-data.ts",
-      "instance": "cat-harness",
-      "name": "test-data",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/test-data.js`",
-      "summary": "Moved to `./sdlc/test-data.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/test-fixture-preload.ts",
       "instance": "cat-harness",
       "name": "test-fixture-preload",
@@ -3672,191 +2253,11 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/test-plan.ts",
-      "instance": "cat-harness",
-      "name": "test-plan",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/test-plan.js`",
-      "summary": "Moved to `./sdlc/test-plan.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/test-preload.ts",
       "instance": "cat-harness",
       "name": "test-preload",
       "graphNode": "schema",
       "summary": "Register core's graph typologies before any test reads a declaration.",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/test-report.ts",
-      "instance": "cat-harness",
-      "name": "test-report",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/test-report.js`",
-      "summary": "Moved to `./sdlc/test-report.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/test-run.ts",
-      "instance": "cat-harness",
-      "name": "test-run",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/test-run.js`",
-      "summary": "Moved to `./sdlc/test-run.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/theme-art-intake.ts",
-      "instance": "cat-harness",
-      "name": "theme-art-intake",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/theme-art-intake.js`",
-      "summary": "Moved to `./library/theme-art-intake.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/theme-by-ref.ts",
-      "instance": "cat-harness",
-      "name": "theme-by-ref",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/theme-by-ref.js`",
-      "summary": "Moved to `./ui/theme-by-ref.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/theme.ts",
-      "instance": "cat-harness",
-      "name": "theme",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/theme.js`",
-      "summary": "Moved to `./ui/theme.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/themes.ts",
-      "instance": "cat-harness",
-      "name": "themes",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/themes.js`",
-      "summary": "Moved to `./ui/themes.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tile-count.ts",
-      "instance": "cat-harness",
-      "name": "tile-count",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/tile-count.js`",
-      "summary": "Moved to `./ui/tile-count.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/to-json-schema.ts",
-      "instance": "cat-harness",
-      "name": "to-json-schema",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/to-json-schema.js`",
-      "summary": "Moved to `./kg/to-json-schema.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/todo-graph.ts",
-      "instance": "cat-harness",
-      "name": "todo-graph",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/todo-graph.js`",
-      "summary": "Moved to `./sdlc/todo-graph.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/todo-index.ts",
-      "instance": "cat-harness",
-      "name": "todo-index",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/todo-index.js`",
-      "summary": "Moved to `./sdlc/todo-index.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/todo.ts",
-      "instance": "cat-harness",
-      "name": "todo",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/todo.js`",
-      "summary": "Moved to `./sdlc/todo.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool-folders.ts",
-      "instance": "cat-harness",
-      "name": "tool-folders",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool-folders.js`",
-      "summary": "Moved to `./tools/tool-folders.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool-id.ts",
-      "instance": "cat-harness",
-      "name": "tool-id",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool-id.js`",
-      "summary": "Moved to `./tools/tool-id.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool-invocation.ts",
-      "instance": "cat-harness",
-      "name": "tool-invocation",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool-invocation.js`",
-      "summary": "Moved to `./tools/tool-invocation.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool-profile.ts",
-      "instance": "cat-harness",
-      "name": "tool-profile",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool-profile.js`",
-      "summary": "Moved to `./tools/tool-profile.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool-release.ts",
-      "instance": "cat-harness",
-      "name": "tool-release",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool-release.js`",
-      "summary": "Moved to `./tools/tool-release.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool-run.ts",
-      "instance": "cat-harness",
-      "name": "tool-run",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool-run.js`",
-      "summary": "Moved to `./tools/tool-run.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool-types.ts",
-      "instance": "cat-harness",
-      "name": "tool-types",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool-types.js`",
-      "summary": "Moved to `./tools/tool-types.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/tool.ts",
-      "instance": "cat-harness",
-      "name": "tool",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./tools/tool.js`",
-      "summary": "Moved to `./tools/tool.ts` (bean `f8wp`, placement PR8).",
       "isTest": false
     },
     {
@@ -3931,24 +2332,6 @@
       "name": "tool",
       "graphNode": "schema",
       "summary": "What a Tool is.",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/translation-tools.ts",
-      "instance": "cat-harness",
-      "name": "translation-tools",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./library/translation-tools.js`",
-      "summary": "Moved to `./library/translation-tools.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/translation.ts",
-      "instance": "cat-harness",
-      "name": "translation",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/translation.js`",
-      "summary": "Moved to `./content/translation.ts` (bean `f8wp`, placement PR8).",
       "isTest": false
     },
     {
@@ -4218,110 +2601,12 @@
       "isTest": false
     },
     {
-      "module": "cat-harness/schemas/url-space.ts",
-      "instance": "cat-harness",
-      "name": "url-space",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/url-space.js`",
-      "summary": "Moved to `./kg/url-space.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/user-story.ts",
-      "instance": "cat-harness",
-      "name": "user-story",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./process/user-story.js`",
-      "summary": "Moved to `./process/user-story.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/validator-node.ts",
-      "instance": "cat-harness",
-      "name": "validator-node",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/validator-node.js`",
-      "summary": "Moved to `./kg/validator-node.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/vector-figure.ts",
-      "instance": "cat-harness",
-      "name": "vector-figure",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/vector-figure.js`",
-      "summary": "Moved to `./content/vector-figure.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/vector-labels.ts",
-      "instance": "cat-harness",
-      "name": "vector-labels",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/vector-labels.js`",
-      "summary": "Moved to `./content/vector-labels.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/version-bump.ts",
-      "instance": "cat-harness",
-      "name": "version-bump",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/version-bump.js`",
-      "summary": "Moved to `./kg/version-bump.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/viewer-nav-qa.ts",
-      "instance": "cat-harness",
-      "name": "viewer-nav-qa",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./sdlc/viewer-nav-qa.js`",
-      "summary": "Moved to `./sdlc/viewer-nav-qa.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/visualiser-route.ts",
-      "instance": "cat-harness",
-      "name": "visualiser-route",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./kg/visualiser-route.js`",
-      "summary": "Moved to `./kg/visualiser-route.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
       "module": "cat-harness/schemas/vocab-mapping-fhir.ts",
       "instance": "cat-harness",
       "name": "vocab-mapping-fhir",
-      "graphNode": "schema",
+      "graphNode": "none",
+      "reason": "moved to the FHIR IG layer's schemas/vocab-mapping-fhir.ts (bean f8wp); retained for one release while lower-layer callers repoint to schemas/content/vocab-mapping.ts",
       "summary": "FHIR ConceptMap ⇄ vocabulary mapping tables: ι (represent) and π (produce).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/vocab-mapping.ts",
-      "instance": "cat-harness",
-      "name": "vocab-mapping",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/vocab-mapping.js`",
-      "summary": "Moved to `./content/vocab-mapping.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/vocabulary-modules.ts",
-      "instance": "cat-harness",
-      "name": "vocabulary-modules",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/vocabulary-modules.js`",
-      "summary": "Moved to `./content/vocabulary-modules.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/vocabulary.ts",
-      "instance": "cat-harness",
-      "name": "vocabulary",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/vocabulary.js`",
-      "summary": "Moved to `./content/vocabulary.ts` (bean `f8wp`, placement PR8).",
       "isTest": false
     },
     {
@@ -4331,60 +2616,6 @@
       "graphNode": "undeclared",
       "summary": "Voice inheritance, applicability and provenance.",
       "isTest": true
-    },
-    {
-      "module": "cat-harness/schemas/voice-skill.ts",
-      "instance": "cat-harness",
-      "name": "voice-skill",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/voice-skill.js`",
-      "summary": "Moved to `./content/voice-skill.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/voices.ts",
-      "instance": "cat-harness",
-      "name": "voices",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/voices.js`",
-      "summary": "Moved to `./content/voices.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/waiver.ts",
-      "instance": "cat-harness",
-      "name": "waiver",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./conduct/waiver.js`",
-      "summary": "Moved to `./conduct/waiver.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/webpage.ts",
-      "instance": "cat-harness",
-      "name": "webpage",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/webpage.js`",
-      "summary": "Moved to `./ui/webpage.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/window-stack.ts",
-      "instance": "cat-harness",
-      "name": "window-stack",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./ui/window-stack.js`",
-      "summary": "Moved to `./ui/window-stack.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
-    },
-    {
-      "module": "cat-harness/schemas/withheld.ts",
-      "instance": "cat-harness",
-      "name": "withheld",
-      "graphNode": "none",
-      "reason": "a one-release re-export at the old path; import from `./content/withheld.js`",
-      "summary": "Moved to `./content/withheld.ts` (bean `f8wp`, placement PR8).",
-      "isTest": false
     },
     {
       "module": "folio-assistant-core/schemas/adjudication.test.ts",
@@ -15306,6 +13537,21 @@
       "exported": true
     },
     {
+      "id": "cat-harness/schemas/content/odrl.ts#ConsentInput",
+      "name": "ConsentInput",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [
+        "null"
+      ],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
       "id": "cat-harness/schemas/content/odrl.ts#Decision",
       "name": "Decision",
       "module": "cat-harness/schemas/content/odrl.ts",
@@ -15324,8 +13570,166 @@
       "exported": true
     },
     {
+      "id": "cat-harness/schemas/content/odrl.ts#DutyStatus",
+      "name": "DutyStatus",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [
+        "satisfied",
+        "unmet",
+        "unknowable"
+      ],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": false
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#FhirConsentLike",
+      "name": "FhirConsentLike",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "interface",
+      "doc": "Minimal structural shape of a FHIR R4 `Consent` resource accepted directly",
+      "fields": [
+        {
+          "name": "resourceType",
+          "type": "\"Consent\"",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "meta",
+          "type": "{ versionId?: string; profile?: readonly string[] }",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "status",
+          "type": "PcfConsentStatus",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "patient",
+          "type": "{ reference?: string; identifier?: { system?: string; value?: string } }",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "performer",
+          "type": "readonly { reference?: string; identifier?: { system?: string; value?: string } }[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "provision",
+          "type": "FhirConsentProvisionLike",
+          "optional": true,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness/schemas/content/odrl.ts#FhirConsentProvisionLike",
+        "cat-harness/schemas/content/odrl.ts#PcfConsentStatus"
+      ],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#FhirConsentProvisionLike",
+      "name": "FhirConsentProvisionLike",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "interface",
+      "fields": [
+        {
+          "name": "type",
+          "type": "\"permit\" | \"deny\"",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "period",
+          "type": "{ start?: string; end?: string }",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "actor",
+          "type": "readonly { role?: unknown; reference?: { reference?: string; identifier?: { system?: string; value?: string } } }[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "action",
+          "type": "readonly { coding?: readonly { system?: string; code?: string }[] }[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "securityLabel",
+          "type": "readonly { system?: string; code?: string }[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "purpose",
+          "type": "readonly { system?: string; code?: string }[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "dataPeriod",
+          "type": "{ start?: string; end?: string }",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "data",
+          "type": "readonly { meaning?: string; reference?: { reference?: string; identifier?: { system?: string; value?: string } } }[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "provision",
+          "type": "readonly FhirConsentProvisionLike[]",
+          "optional": true,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
       "id": "cat-harness/schemas/content/odrl.ts#FolioLeftOperand",
       "name": "FolioLeftOperand",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#OdrlConstraint",
+      "name": "OdrlConstraint",
       "module": "cat-harness/schemas/content/odrl.ts",
       "kind": "type-alias",
       "fields": [],
@@ -15370,6 +13774,100 @@
         "ODRL_OPERATORS",
         "z"
       ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#OdrlDuty",
+      "name": "OdrlDuty",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#OdrlDutyAction",
+      "name": "OdrlDutyAction",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#OdrlDutySchema",
+      "name": "OdrlDutySchema",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "uid",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "action",
+          "type": "z.enum(ODRL_DUTY_ACTIONS)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "target",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "assigner",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "assignee",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "constraint",
+          "type": "z.array(OdrlConstraintSchema).optional()",
+          "optional": true,
+          "array": true
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness/schemas/content/odrl.ts#OdrlConstraintSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "ODRL_DUTY_ACTIONS",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#OdrlOperator",
+      "name": "OdrlOperator",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
       "exported": true
     },
     {
@@ -15434,7 +13932,14 @@
           "type": "z.string().min(1).optional()",
           "optional": true,
           "array": false,
-          "doc": "An Agreement names who grants it. A Set does not have to."
+          "doc": "An Agreement names who grants it (ODRL 2.2 §2.1.3). A Set does not have to."
+        },
+        {
+          "name": "assignee",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "An Agreement names who receives it (ODRL 2.2 §2.1.3). A Set does not have to."
         },
         {
           "name": "permission",
@@ -15447,11 +13952,19 @@
           "type": "z.array(OdrlRuleSchema).default([])",
           "optional": true,
           "array": true
+        },
+        {
+          "name": "obligation",
+          "type": "z.array(OdrlDutySchema).min(1).optional()",
+          "optional": true,
+          "array": true,
+          "doc": "Policy-level duties (ODRL 2.2 §2.6.4)."
         }
       ],
       "extendsNames": [],
       "values": [],
       "refs": [
+        "cat-harness/schemas/content/odrl.ts#OdrlDutySchema",
         "cat-harness/schemas/content/odrl.ts#OdrlRuleSchema"
       ],
       "unresolved": [],
@@ -15485,7 +13998,7 @@
           "type": "z.string().min(1)",
           "optional": false,
           "array": false,
-          "doc": "An actor id, or {@link ANYONE}."
+          "doc": "An actor id, a party IRI/DID, or {@link ANYONE}."
         },
         {
           "name": "action",
@@ -15505,18 +14018,103 @@
           "type": "z.array(OdrlConstraintSchema).optional()",
           "optional": true,
           "array": true
+        },
+        {
+          "name": "duty",
+          "type": "z.array(OdrlDutySchema).min(1).optional()",
+          "optional": true,
+          "array": true,
+          "doc": "Duties attached to a Permission rule (ODRL 2.2 §2.6.5)."
         }
       ],
       "extendsNames": [],
       "values": [],
       "refs": [
-        "cat-harness/schemas/content/odrl.ts#OdrlConstraintSchema"
+        "cat-harness/schemas/content/odrl.ts#OdrlConstraintSchema",
+        "cat-harness/schemas/content/odrl.ts#OdrlDutySchema"
       ],
       "unresolved": [],
       "external": [
         "z"
       ],
       "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#PcfConsentPolicy",
+      "name": "PcfConsentPolicy",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "interface",
+      "doc": "An ODRL `Set` policy representing a translated IHE PCF / FHIR R4 `Consent`",
+      "fields": [
+        {
+          "name": "status",
+          "type": "PcfConsentStatus",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "versionId",
+          "type": "string",
+          "optional": true,
+          "array": false
+        }
+      ],
+      "extendsNames": [
+        "OdrlPolicy"
+      ],
+      "values": [],
+      "refs": [
+        "cat-harness/schemas/content/odrl.ts#OdrlPolicy",
+        "cat-harness/schemas/content/odrl.ts#PcfConsentStatus"
+      ],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#PcfConsentStatus",
+      "name": "PcfConsentStatus",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "doc": "Status codes of a FHIR R4 `Consent` resource (`http://hl7.org/fhir/ValueSet/consent-state-codes`).",
+      "fields": [],
+      "extendsNames": [],
+      "values": [
+        "draft",
+        "proposed",
+        "active",
+        "rejected",
+        "inactive",
+        "entered-in-error"
+      ],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#PermissionOutcome",
+      "name": "PermissionOutcome",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [
+        "no-match",
+        "permitted",
+        "violated",
+        "unknown"
+      ],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": false
     },
     {
       "id": "cat-harness/schemas/content/odrl.ts#PermitRequest",
@@ -15539,6 +14137,13 @@
           "doc": "The roles the actor may act as (`ActorDef.roles`); empty or absent means unconstrained."
         },
         {
+          "name": "actorGroups",
+          "type": "readonly string[]",
+          "optional": true,
+          "array": false,
+          "doc": "Groups or organizations the actor belongs to (e.g. PCF `Group/ex-privilegedUsers`)."
+        },
+        {
           "name": "action",
           "type": "string",
           "optional": false,
@@ -15549,13 +14154,135 @@
           "type": "RequestScope",
           "optional": true,
           "array": false
+        },
+        {
+          "name": "provRecords",
+          "type": "readonly ProvDutyRecord[]",
+          "optional": true,
+          "array": false,
+          "doc": "PROV-O activity records used to verify whether duties on a matching"
+        },
+        {
+          "name": "consent",
+          "type": "ConsentInput",
+          "optional": true,
+          "array": false,
+          "doc": "Active IHE PCF / FHIR R4 `Consent` resource or translated ODRL `Set` policy"
+        },
+        {
+          "name": "consents",
+          "type": "ConsentInput",
+          "optional": true,
+          "array": false,
+          "doc": "Collection of IHE PCF / FHIR R4 `Consent` resources or translated ODRL `Set`"
         }
       ],
       "extendsNames": [],
       "values": [],
       "refs": [
+        "cat-harness/schemas/content/odrl.ts#ConsentInput",
+        "cat-harness/schemas/content/odrl.ts#ProvDutyRecord",
         "cat-harness/schemas/content/odrl.ts#RequestScope"
       ],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#ProvDutyRecord",
+      "name": "ProvDutyRecord",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "interface",
+      "doc": "A PROV-O activity record (compatible with `ProvActivity` in `./prov.ts`)",
+      "fields": [
+        {
+          "name": "@type",
+          "type": "\"prov:Activity\" | string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "@id",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:startedAtTime",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:endedAtTime",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:qualifiedAssociation",
+          "type": "{ \"prov:agent\": string; \"prov:hadRole\"?: string; \"prov:hadPlan\"?: string; }",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:agent",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:actedOnBehalfOf",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:used",
+          "type": "readonly string[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:generated",
+          "type": "readonly string[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "prov:invalidated",
+          "type": "readonly string[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "cat-harness:underPolicy",
+          "type": "string | readonly string[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "odrl:action",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "optional": true,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
       "unresolved": [],
       "external": [],
       "exported": true
@@ -15565,7 +14292,6 @@
       "name": "RequestScope",
       "module": "cat-harness/schemas/content/odrl.ts",
       "kind": "interface",
-      "doc": "The scope a request is made in. Every field is optional, and an absent one satisfies no constraint on it.",
       "fields": [
         {
           "name": "cat-harness:process",
@@ -15586,12 +14312,133 @@
           "array": false
         },
         {
+          "name": "odrl:purpose",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "purpose",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "odrl:dateTime",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "dateTime",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "odrl:elapsedTime",
+          "type": "string | number",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "elapsedTime",
+          "type": "string | number",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "pcf:securityLabel",
+          "type": "string | readonly string[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "securityLabel",
+          "type": "string | readonly string[]",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "pcf:dataPeriod",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "dataPeriod",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "pcf:author",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "pcf:encounter",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "encounter",
+          "type": "string",
+          "optional": true,
+          "array": false
+        },
+        {
           "name": "target",
           "type": "string",
           "optional": true,
           "array": false
+        },
+        {
+          "name": "provRecords",
+          "type": "readonly ProvDutyRecord[]",
+          "optional": true,
+          "array": false,
+          "doc": "Optional PROV-O records for duty verification when passed inside scope."
+        },
+        {
+          "name": "consent",
+          "type": "ConsentInput",
+          "optional": true,
+          "array": false,
+          "doc": "Optional PCF Consent policy/resource (or collection) used to evaluate `odrl:obtainConsent` duties (PCF6, bean `a7c1`)."
+        },
+        {
+          "name": "consents",
+          "type": "ConsentInput",
+          "optional": true,
+          "array": false,
+          "doc": "Optional PCF Consent policies/resources used to evaluate `odrl:obtainConsent` duties (PCF6, bean `a7c1`)."
         }
       ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness/schemas/content/odrl.ts#ConsentInput",
+        "cat-harness/schemas/content/odrl.ts#ProvDutyRecord"
+      ],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness/schemas/content/odrl.ts#SingleConsentInput",
+      "name": "SingleConsentInput",
+      "module": "cat-harness/schemas/content/odrl.ts",
+      "kind": "type-alias",
+      "fields": [],
       "extendsNames": [],
       "values": [],
       "refs": [],
@@ -17268,7 +16115,7 @@
       "name": "TranslationNode",
       "module": "cat-harness/schemas/content/translation.ts",
       "kind": "interface",
-      "doc": "A **TranslationNode** is a `.ts` manifest that wraps a `.po`/`.pot` pair",
+      "doc": "A **TranslationNode** is a `.json` manifest that wraps a `.po`/`.pot` pair",
       "fields": [
         {
           "name": "label",
@@ -22606,108 +21453,6 @@
       "unresolved": [],
       "external": [],
       "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/ig-publisher-service-contract.test.ts#Capability",
-      "name": "Capability",
-      "module": "cat-harness/schemas/ig-publisher-service-contract.test.ts",
-      "kind": "interface",
-      "fields": [
-        {
-          "name": "id",
-          "type": "string",
-          "optional": false,
-          "array": false
-        },
-        {
-          "name": "detection",
-          "type": "{ method: string; command?: string }",
-          "optional": true,
-          "array": false
-        },
-        {
-          "name": "requires",
-          "type": "string[]",
-          "optional": true,
-          "array": true
-        },
-        {
-          "name": "satisfies",
-          "type": "string[]",
-          "optional": true,
-          "array": true
-        }
-      ],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": false
-    },
-    {
-      "id": "cat-harness/schemas/ig-publisher-service-contract.test.ts#Role",
-      "name": "Role",
-      "module": "cat-harness/schemas/ig-publisher-service-contract.test.ts",
-      "kind": "interface",
-      "fields": [
-        {
-          "name": "id",
-          "type": "string",
-          "optional": false,
-          "array": false
-        },
-        {
-          "name": "actorKinds",
-          "type": "string[]",
-          "optional": false,
-          "array": true
-        },
-        {
-          "name": "skills",
-          "type": "string[]",
-          "optional": false,
-          "array": true
-        }
-      ],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": false
-    },
-    {
-      "id": "cat-harness/schemas/ig-publisher-service-contract.test.ts#Statement",
-      "name": "Statement",
-      "module": "cat-harness/schemas/ig-publisher-service-contract.test.ts",
-      "kind": "interface",
-      "fields": [
-        {
-          "name": "key",
-          "type": "string",
-          "optional": false,
-          "array": false
-        },
-        {
-          "name": "requirement",
-          "type": "string",
-          "optional": false,
-          "array": false
-        },
-        {
-          "name": "dependsOn",
-          "type": "string[]",
-          "optional": true,
-          "array": true
-        }
-      ],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": false
     },
     {
       "id": "cat-harness/schemas/kg/block-kind-node.ts#BlockKindNode",
@@ -42272,78 +41017,6 @@
       "exported": true
     },
     {
-      "id": "cat-harness/schemas/precision-scalar.ts#precisionScalar",
-      "name": "precisionScalar",
-      "module": "cat-harness/schemas/precision-scalar.ts",
-      "kind": "zod-object",
-      "doc": "Decimal-string + dps-tag envelope.",
-      "fields": [
-        {
-          "name": "value",
-          "type": "z.string().regex(/^-?\\d+(\\.\\d+)?([eE][+-]?\\d+)?$/)",
-          "optional": false,
-          "array": false,
-          "doc": "Signed decimal: optional `-`, integer part, optional `.<frac>`,"
-        },
-        {
-          "name": "dps",
-          "type": "z.number().int().positive()",
-          "optional": false,
-          "array": false,
-          "doc": "Significant decimal digits in `value`."
-        }
-      ],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [
-        "z"
-      ],
-      "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/precision-scalar.ts#PrecisionScalar",
-      "name": "PrecisionScalar",
-      "module": "cat-harness/schemas/precision-scalar.ts",
-      "kind": "type-alias",
-      "doc": "Convenience type for downstream consumers.",
-      "fields": [],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/precision-scalar.ts#precisionScalarOrNumber",
-      "name": "precisionScalarOrNumber",
-      "module": "cat-harness/schemas/precision-scalar.ts",
-      "kind": "zod-union",
-      "doc": "Witness JSON scalar fields should accept either the legacy",
-      "fields": [],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/precision-scalar.ts#PrecisionScalarOrNumber",
-      "name": "PrecisionScalarOrNumber",
-      "module": "cat-harness/schemas/precision-scalar.ts",
-      "kind": "type-alias",
-      "fields": [],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
       "id": "cat-harness/schemas/process/actor-reach.ts#ActorReachSchema",
       "name": "ActorReachSchema",
       "module": "cat-harness/schemas/process/actor-reach.ts",
@@ -45263,215 +43936,6 @@
       "exported": true
     },
     {
-      "id": "cat-harness/schemas/refactor-strategy.ts#LeanVersionRange",
-      "name": "LeanVersionRange",
-      "module": "cat-harness/schemas/refactor-strategy.ts",
-      "kind": "interface",
-      "doc": "Inclusive-lower, exclusive-upper Lean version range.",
-      "fields": [
-        {
-          "name": "min",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "e.g. `\"4.17.0\"`. Omit for \"no lower bound known\"."
-        },
-        {
-          "name": "max",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "e.g. `\"4.30.0\"`. Omit for \"no known upper bound\"."
-        },
-        {
-          "name": "note",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "Free-text note on why a bound exists (which lemma moved, etc.)."
-        }
-      ],
-      "extendsNames": [],
-      "values": [],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/refactor-strategy.ts#RefactorConfidence",
-      "name": "RefactorConfidence",
-      "module": "cat-harness/schemas/refactor-strategy.ts",
-      "kind": "type-alias",
-      "doc": "How far a strategy can be trusted.",
-      "fields": [],
-      "extendsNames": [],
-      "values": [
-        "verified",
-        "proposed",
-        "deprecated"
-      ],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/refactor-strategy.ts#RefactorObjective",
-      "name": "RefactorObjective",
-      "module": "cat-harness/schemas/refactor-strategy.ts",
-      "kind": "type-alias",
-      "doc": "What a strategy optimises. Refactoring is genuinely multi-objective",
-      "fields": [],
-      "extendsNames": [],
-      "values": [
-        "length",
-        "compile-cost",
-        "portability",
-        "legibility"
-      ],
-      "refs": [],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy",
-      "name": "RefactorStrategy",
-      "module": "cat-harness/schemas/refactor-strategy.ts",
-      "kind": "interface",
-      "fields": [
-        {
-          "name": "id",
-          "type": "string",
-          "optional": false,
-          "array": false,
-          "doc": "Stable kebab-case id, e.g. `drop-by-exact-wrapper`."
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "optional": false,
-          "array": false,
-          "doc": "One-line statement of the rewrite."
-        },
-        {
-          "name": "objectives",
-          "type": "RefactorObjective[]",
-          "optional": false,
-          "array": true
-        },
-        {
-          "name": "confidence",
-          "type": "RefactorConfidence",
-          "optional": false,
-          "array": false
-        },
-        {
-          "name": "lean",
-          "type": "LeanVersionRange",
-          "optional": false,
-          "array": false,
-          "doc": "Lean versions this is known-good for. An empty/absent range means"
-        },
-        {
-          "name": "match",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "Regex (JS syntax, source form) matching the shape to rewrite."
-        },
-        {
-          "name": "replace",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "Replacement template, when the rewrite is purely mechanical."
-        },
-        {
-          "name": "example",
-          "type": "{ before: string; after: string }",
-          "optional": false,
-          "array": false,
-          "doc": "Illustrative before/after, always populated — it is the doc."
-        },
-        {
-          "name": "expected_gain",
-          "type": "number",
-          "optional": true,
-          "array": false,
-          "doc": "Expected gain, as a rough multiplier on the affected span"
-        },
-        {
-          "name": "caveat",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "Why NOT to apply this in some cases. Populated where known."
-        },
-        {
-          "name": "superseded_by",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "For `deprecated`: the strategy that replaces this one."
-        },
-        {
-          "name": "source",
-          "type": "string",
-          "optional": true,
-          "array": false,
-          "doc": "Provenance — paper, PR, or observation that produced it."
-        }
-      ],
-      "extendsNames": [],
-      "values": [],
-      "refs": [
-        "cat-harness/schemas/refactor-strategy.ts#LeanVersionRange",
-        "cat-harness/schemas/refactor-strategy.ts#RefactorConfidence",
-        "cat-harness/schemas/refactor-strategy.ts#RefactorObjective"
-      ],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
-      "id": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategyFile",
-      "name": "RefactorStrategyFile",
-      "module": "cat-harness/schemas/refactor-strategy.ts",
-      "kind": "interface",
-      "fields": [
-        {
-          "name": "$schema",
-          "type": "\"refactor-strategy/v1\"",
-          "optional": false,
-          "array": false,
-          "doc": "Schema marker — value: `refactor-strategy/v1`."
-        },
-        {
-          "name": "family",
-          "type": "string",
-          "optional": false,
-          "array": false,
-          "doc": "Grouping label, e.g. `mechanical`, `structural`."
-        },
-        {
-          "name": "strategies",
-          "type": "RefactorStrategy[]",
-          "optional": false,
-          "array": true
-        }
-      ],
-      "extendsNames": [],
-      "values": [],
-      "refs": [
-        "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy"
-      ],
-      "unresolved": [],
-      "external": [],
-      "exported": true
-    },
-    {
       "id": "cat-harness/schemas/sdlc/adversarial-checklist.ts#AdversarialChecklistItem",
       "name": "AdversarialChecklistItem",
       "module": "cat-harness/schemas/sdlc/adversarial-checklist.ts",
@@ -45596,7 +44060,7 @@
         },
         {
           "name": "references",
-          "type": "z.array(z.string().regex(/^(?:(?:skill|schema):[a-z0-9][a-z0-9-]*|code:[a-z0-9][a-z0-9-]*\\/[\\w./-]+\\.ts)$/, \"a referenc…",
+          "type": "z.array(z.string().regex(/^(?:skill:[a-z0-9][a-z0-9-]*|schema:(?:[a-z0-9][a-z0-9-]*\\/)?[a-z0-9][a-z0-9-]*|code:[a-z0-9]…",
           "optional": true,
           "array": true
         }
@@ -57894,6 +56358,35 @@
       "exported": true
     },
     {
+      "id": "cat-harness/schemas/tools/tool-folders.ts#ToolDefinitionFile",
+      "name": "ToolDefinitionFile",
+      "module": "cat-harness/schemas/tools/tool-folders.ts",
+      "kind": "interface",
+      "doc": "A Tool declared as data rather than as a `.ts` module (bean `y9r6`: a",
+      "fields": [
+        {
+          "name": "$schema",
+          "type": "typeof TOOL_DEFINITION_SCHEMA",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "tool",
+          "type": "unknown",
+          "optional": false,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "TOOL_DEFINITION_SCHEMA"
+      ],
+      "exported": true
+    },
+    {
       "id": "cat-harness/schemas/tools/tool-folders.ts#ToolFactory",
       "name": "ToolFactory",
       "module": "cat-harness/schemas/tools/tool-folders.ts",
@@ -69661,6 +68154,74 @@
       "exported": true
     },
     {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ChangeSetCommitteeMove",
+      "name": "ChangeSetCommitteeMove",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ChangeSetCommitteeMoveSchema",
+      "name": "ChangeSetCommitteeMoveSchema",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "zod-object",
+      "doc": "One manual re-route of a change-set to another committee (bean `se3i`,",
+      "fields": [
+        {
+          "name": "who",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "when",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "from",
+          "type": "z.enum(TWG_GROUPS).nullable()",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "to",
+          "type": "z.enum(TWG_GROUPS)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "why",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "url",
+          "type": "z.string().url().optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The GitHub comment or issue it came from, when moved on GitHub."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "TWG_GROUPS",
+        "z"
+      ],
+      "exported": true
+    },
+    {
       "id": "folio-assistant-core/schemas/public-comment.ts#ChangeSetFields",
       "name": "ChangeSetFields",
       "module": "folio-assistant-core/schemas/public-comment.ts",
@@ -70517,6 +69078,19 @@
       "external": [
         "z"
       ],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/public-comment.ts#TwgGroup",
+      "name": "TwgGroup",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
       "exported": true
     },
     {
@@ -73907,6 +72481,38 @@
       "array": false
     },
     {
+      "from": "cat-harness/schemas/content/odrl.ts#FhirConsentLike",
+      "to": "cat-harness/schemas/content/odrl.ts#FhirConsentProvisionLike",
+      "via": "provision",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#FhirConsentLike",
+      "to": "cat-harness/schemas/content/odrl.ts#PcfConsentStatus",
+      "via": "status",
+      "kind": "field",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#OdrlDutySchema",
+      "to": "cat-harness/schemas/content/odrl.ts#OdrlConstraintSchema",
+      "via": "constraint",
+      "kind": "field",
+      "optional": true,
+      "array": true
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#OdrlPolicySchema",
+      "to": "cat-harness/schemas/content/odrl.ts#OdrlDutySchema",
+      "via": "obligation",
+      "kind": "field",
+      "optional": true,
+      "array": true
+    },
+    {
       "from": "cat-harness/schemas/content/odrl.ts#OdrlPolicySchema",
       "to": "cat-harness/schemas/content/odrl.ts#OdrlRuleSchema",
       "via": "permission",
@@ -73931,9 +72537,81 @@
       "array": true
     },
     {
+      "from": "cat-harness/schemas/content/odrl.ts#OdrlRuleSchema",
+      "to": "cat-harness/schemas/content/odrl.ts#OdrlDutySchema",
+      "via": "duty",
+      "kind": "field",
+      "optional": true,
+      "array": true
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#PcfConsentPolicy",
+      "to": "cat-harness/schemas/content/odrl.ts#OdrlPolicy",
+      "via": "",
+      "kind": "extends",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#PcfConsentPolicy",
+      "to": "cat-harness/schemas/content/odrl.ts#PcfConsentStatus",
+      "via": "status",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#PermitRequest",
+      "to": "cat-harness/schemas/content/odrl.ts#ConsentInput",
+      "via": "consent",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#PermitRequest",
+      "to": "cat-harness/schemas/content/odrl.ts#ConsentInput",
+      "via": "consents",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#PermitRequest",
+      "to": "cat-harness/schemas/content/odrl.ts#ProvDutyRecord",
+      "via": "provRecords",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
       "from": "cat-harness/schemas/content/odrl.ts#PermitRequest",
       "to": "cat-harness/schemas/content/odrl.ts#RequestScope",
       "via": "scope",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#RequestScope",
+      "to": "cat-harness/schemas/content/odrl.ts#ConsentInput",
+      "via": "consent",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#RequestScope",
+      "to": "cat-harness/schemas/content/odrl.ts#ConsentInput",
+      "via": "consents",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness/schemas/content/odrl.ts#RequestScope",
+      "to": "cat-harness/schemas/content/odrl.ts#ProvDutyRecord",
+      "via": "provRecords",
       "kind": "field",
       "optional": true,
       "array": false
@@ -78635,38 +77313,6 @@
       "array": false
     },
     {
-      "from": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy",
-      "to": "cat-harness/schemas/refactor-strategy.ts#LeanVersionRange",
-      "via": "lean",
-      "kind": "field",
-      "optional": false,
-      "array": false
-    },
-    {
-      "from": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy",
-      "to": "cat-harness/schemas/refactor-strategy.ts#RefactorConfidence",
-      "via": "confidence",
-      "kind": "field",
-      "optional": false,
-      "array": false
-    },
-    {
-      "from": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy",
-      "to": "cat-harness/schemas/refactor-strategy.ts#RefactorObjective",
-      "via": "objectives",
-      "kind": "field",
-      "optional": false,
-      "array": true
-    },
-    {
-      "from": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategyFile",
-      "to": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy",
-      "via": "strategies",
-      "kind": "field",
-      "optional": false,
-      "array": true
-    },
-    {
       "from": "cat-harness/schemas/sdlc/adversarial-checklist.ts#AdversarialChecklistItem",
       "to": "cat-harness/schemas/sdlc/adversarial-checklist.ts#AdversarialContentKind",
       "via": "kind",
@@ -83202,7 +81848,8 @@
       "instance": "cat-harness",
       "typologies": [
         "uploads"
-      ]
+      ],
+      "note": "its validator schemas/extraction.ts#ExtractionSchema could not be resolved"
     },
     {
       "id": "folio-figure-descriptions/v1",
@@ -83254,7 +81901,8 @@
       "instance": "cat-harness",
       "typologies": [
         "uploads"
-      ]
+      ],
+      "note": "its validator schemas/intake.ts#IntakeSchema could not be resolved"
     },
     {
       "id": "folio-interaction/v1",

@@ -23954,6 +23954,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.odrlpolicyschema.assignee",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "OdrlPolicySchema.assignee"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "An Agreement names who receives it (ODRL 2.2 §2.1.3). A Set does not have to."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#OdrlPolicySchema.assignee",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.odrlpolicyschema.assigner",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -23966,7 +23985,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "An Agreement names who grants it. A Set does not have to."
+          "@value": "An Agreement names who grants it (ODRL 2.2 §2.1.3). A Set does not have to."
         }
       ],
       "dcterms:source": "cat-harness/schemas/content/odrl.ts#OdrlPolicySchema.assigner",
@@ -23989,6 +24008,25 @@
         }
       ],
       "dcterms:source": "cat-harness/schemas/content/odrl.ts#OdrlPolicySchema.inheritFrom",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.odrlpolicyschema.obligation",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "OdrlPolicySchema.obligation"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Policy-level duties (ODRL 2.2 §2.6.4)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#OdrlPolicySchema.obligation",
       "skos:note": "candidate"
     },
     {
@@ -24023,10 +24061,29 @@
       ],
       "skos:definition": [
         {
-          "@value": "An actor id, or {@link ANYONE}."
+          "@value": "An actor id, a party IRI/DID, or {@link ANYONE}."
         }
       ],
       "dcterms:source": "cat-harness/schemas/content/odrl.ts#OdrlRuleSchema.assignee",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.odrlruleschema.duty",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "OdrlRuleSchema.duty"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Duties attached to a Permission rule (ODRL 2.2 §2.6.5)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#OdrlRuleSchema.duty",
       "skos:note": "candidate"
     },
     {
@@ -24068,6 +24125,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.permitrequest.actorgroups",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PermitRequest.actorGroups"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Groups or organizations the actor belongs to (e.g. PCF `Group/ex-privilegedUsers`)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#PermitRequest.actorGroups",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.permitrequest.actorroles",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -24084,6 +24160,120 @@
         }
       ],
       "dcterms:source": "cat-harness/schemas/content/odrl.ts#PermitRequest.actorRoles",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.permitrequest.consent",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PermitRequest.consent"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Active IHE PCF / FHIR R4 `Consent` resource or translated ODRL `Set` policy (or collection) consulted to evaluate an `odrl:obtainConsent` duty (PCF6, bean `a7c1`)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#PermitRequest.consent",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.permitrequest.consents",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PermitRequest.consents"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Collection of IHE PCF / FHIR R4 `Consent` resources or translated ODRL `Set` policies consulted to evaluate an `odrl:obtainConsent` duty (PCF6, bean `a7c1`)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#PermitRequest.consents",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.permitrequest.provrecords",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PermitRequest.provRecords"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "PROV-O activity records used to verify whether duties on a matching permission have been fulfilled. When omitted (`undefined`) and a duty is due, `permits()` returns `\"unknown\"`."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#PermitRequest.provRecords",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.requestscope.consent",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "RequestScope.consent"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Optional PCF Consent policy/resource (or collection) used to evaluate `odrl:obtainConsent` duties (PCF6, bean `a7c1`)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#RequestScope.consent",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.requestscope.consents",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "RequestScope.consents"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Optional PCF Consent policies/resources used to evaluate `odrl:obtainConsent` duties (PCF6, bean `a7c1`)."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#RequestScope.consents",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/odrl.requestscope.provrecords",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "RequestScope.provRecords"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Optional PROV-O records for duty verification when passed inside scope."
+        }
+      ],
+      "dcterms:source": "cat-harness/schemas/content/odrl.ts#RequestScope.provRecords",
       "skos:note": "candidate"
     },
     {
@@ -25110,44 +25300,6 @@
         }
       ],
       "dcterms:source": "cat-harness/schemas/content/pinned-terminology.ts#PinnedTerminologySchema.version",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/precision-scalar.precisionscalar.dps",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "precisionScalar.dps"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Significant decimal digits in `value`."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/precision-scalar.ts#precisionScalar.dps",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/precision-scalar.precisionscalar.value",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "precisionScalar.value"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Signed decimal: optional `-`, integer part, optional `.<frac>`, optional `[eE][+-]?<int>` exponent. Includes uppercase `E` and explicit positive sign on the exponent — both produced by various MPFR / mpmath formatting paths."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/precision-scalar.ts#precisionScalar.value",
       "skos:note": "candidate"
     },
     {
@@ -26877,291 +27029,6 @@
         }
       ],
       "dcterms:source": "cat-harness/schemas/sdlc/ref-window.ts#WriteRequestSchema.route",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.leanversionrange.max",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "LeanVersionRange.max"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "e.g. `\"4.30.0\"`. Omit for \"no known upper bound\"."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#LeanVersionRange.max",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.leanversionrange.min",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "LeanVersionRange.min"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "e.g. `\"4.17.0\"`. Omit for \"no lower bound known\"."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#LeanVersionRange.min",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.leanversionrange.note",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "LeanVersionRange.note"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Free-text note on why a bound exists (which lemma moved, etc.)."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#LeanVersionRange.note",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.caveat",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.caveat"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Why NOT to apply this in some cases. Populated where known."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.caveat",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.description",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.description"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "One-line statement of the rewrite."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.description",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.example",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.example"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Illustrative before/after, always populated — it is the doc."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.example",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.expected_gain",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.expected_gain"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Expected gain, as a rough multiplier on the affected span (0.5 = \"about half the length/cost\"). Indicative only; the measured `proof-compile-cost` metric is the real evidence."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.expected_gain",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.id",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.id"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Stable kebab-case id, e.g. `drop-by-exact-wrapper`."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.id",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.lean",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.lean"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Lean versions this is known-good for. An empty/absent range means UNKNOWN, not \"all versions\" — the query treats it as non-applicable under strict gating, because an unbounded claim is exactly the assumption that breaks on upgrade."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.lean",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.match",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.match"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Regex (JS syntax, source form) matching the shape to rewrite. Optional: some strategies are structural and only an agent can recognise them."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.match",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.replace",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.replace"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Replacement template, when the rewrite is purely mechanical."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.replace",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.source",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.source"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Provenance — paper, PR, or observation that produced it."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.source",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategy.superseded_by",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategy.superseded_by"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "For `deprecated`: the strategy that replaces this one."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategy.superseded_by",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategyfile.dollar-schema",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategyFile.$schema"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Schema marker — value: `refactor-strategy/v1`."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategyFile.$schema",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields/refactor-strategy.refactorstrategyfile.family",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns#glossary/kg-schema-fields"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "RefactorStrategyFile.family"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Grouping label, e.g. `mechanical`, `structural`."
-        }
-      ],
-      "dcterms:source": "cat-harness/schemas/refactor-strategy.ts#RefactorStrategyFile.family",
       "skos:note": "candidate"
     },
     {

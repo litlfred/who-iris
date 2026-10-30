@@ -14,6 +14,16 @@ DA  - D:20261001
 ER  - 
 
 TY  - GEN
+ID  - 9789240101197-eng
+TI  - 9789240101197-eng
+ER  - 
+
+TY  - GEN
+ID  - 9789240116191-eng
+TI  - 9789240116191-eng
+ER  - 
+
+TY  - GEN
 ID  - agent-skill-best-practices---gemini-cli
 TI  - Agent Skill best practices
 DA  - D:20260920
@@ -112,6 +122,18 @@ UR  - https://arxiv.org/abs/2605.03537
 AB  - This paper presents a modular AI agentic skill pipeline for au- tomating subject indexing with Library of Congress Subject Headings (LCSH). Subject indexing—the process of analyzing a work’s aboutness, selecting controlled vocabulary terms, and encoding them as MARC 21 subject access fields—is one of the most time-consuming components of library cataloging. The system decomposes this process into four discrete, sequentially executed agent skills: conceptual analysis, quantitative filtering, authority validation, and MARC field synthesis. Each skill encodes domain knowledge drawn directly from Library of Congress Subject Headings Manual (SHM) instruction sheets and subject analysis theory. The pipeline was evaluated against a corpus of ten titles whose existing subject headings were captured from the Harvard Library bibliographic dataset (a snapshot of their Alma ILS). Results demonstrate strong con- ceptual alignment with professional subject indexing practice, with notable differences in specificity, subdivision practice, and the agent’s adherence to the 2026 LC policy discontinuing form subdivisions ($v) in favor of LCGFT 655 fields.
 ER  - 
 
+TY  - GEN
+ID  - who-rhr-1806-eng
+TI  - Classification of Digital Health Interventions v1.0
+DA  - D:20180427
+ER  - 
+
+TY  - GEN
+ID  - 9789240081949-eng
+TI  - Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health
+DA  - D:20231023
+ER  - 
+
 TY  - JOUR
 ID  - arxiv-2503.18813v2
 AU  - Debenedetti1, Edoardo
@@ -137,6 +159,24 @@ AU  - Destefanis, Giuseppe
 TI  - Authoring Agent Skills: A Software-Engineering Approach
 UR  - https://arxiv.org/abs/2607.25032
 AB  - Agent Skills are an emerging way to extend large language model agents with reusable procedural knowledge that the agent loads on demand. Anthropic introduced Agent Skills and published the format as an open specification supported across several agent tools. This note argues that a skill is a software artefact and that its construction should follow software-engineering principles, with qualifications: single responsibility, separation of interface from implementation, low coupling, and economy in a shared token budget, together with behavioural evaluation in place of deterministic testing. Using Claude Code as the reference implementation, it describes how a skill is structured, how its contents are loaded in stages, and how to write the description on which selection depends. It places skills against the other mechanisms a developer can use to shape agent behaviour, like project memory files, slash commands, subagents, external tool connections, and hooks, and gives a rule for choosing between them based on who decides that a mechanism runs and what guarantee it provides. It then sets out an evaluation-driven authoring process, a set of patterns and faults commonly encountered in authoring, and the trust question raised by using skills from third parties. We illustrate the comparison drawn in UML class style, the loading model, the anatomy of a skill, the relative position of each mechanism, and the points at which skills and hooks act during a session. Note on sources This note draws on Anthropic’s official documentation1 for Agent Skills, Claude Code skills, hooks, and skill authoring best practices, together with the open Agent Skills specification.
+ER  - 
+
+TY  - GEN
+ID  - 9789240010567-eng
+TI  - Digital implementation investment guide (DIIG): integrating digital interventions into health programmes
+DA  - D:20201007
+ER  - 
+
+TY  - GEN
+ID  - 9789240093362-eng
+TI  - Digital transformation handbook for primary health care
+DA  - D:20241014
+ER  - 
+
+TY  - GEN
+ID  - 9789240120747-eng
+TI  - Digital transformation handbook for reporting substandard and falsified medical products
+DA  - D:20260514
 ER  - 
 
 TY  - JOUR
@@ -339,6 +379,12 @@ DA  - D:20231214
 UR  - https://arxiv.org/abs/2312.07755
 ER  - 
 
+TY  - GEN
+ID  - 9789241511766-eng
+TI  - Monitoring and Evaluating Digital Health Interventions: A practical guide to conducting research and assessment
+DA  - D:20170212
+ER  - 
+
 TY  - JOUR
 ID  - arxiv-2601.04544v1
 AU  - Multi-Agent Collaboration
@@ -465,6 +511,12 @@ AB  - This paper presents our system, Homa, for SemEval-2025 Task 5: Subject Tag
 ER  - 
 
 TY  - GEN
+ID  - 9789241509510-eng
+TI  - The MAPS Toolkit: mHealth Assessment and Planning for Scale
+DA  - D:20150922
+ER  - 
+
+TY  - GEN
 ID  - w3c-2024-prov-jsonld
 TI  - The PROV-JSONLD Serialization: A JSON-LD Representation for the PROV Data Model
 PY  - 2024
@@ -489,6 +541,18 @@ AU  - Wagner1, David
 TI  - Defending Against Prompt Injection with DataFilter
 UR  - https://arxiv.org/abs/2510.19207
 AB  - When large language model (LLM) agents are in- creasingly deployed to automate tasks and interact with untrusted external data, prompt injection emerges as a significant security threat. By injecting malicious instructions into the data that LLMs access, an attacker can arbitrarily override the original user task and redirect the agent toward unintended, potentially harmful actions. Existing defenses either require access to model weights (fine-tuning), incur substantial utility loss (detection- based), or demand non-trivial system redesign (system-level). Motivated by this, we propose DataFilter, a test-time model- agnostic defense that removes malicious instructions from the data before it reaches the backend LLM. DataFilter is trained with supervised fine-tuning on simulated injections and leverages both the user’s instruction and the data to selectively strip adversarial content while preserving benign information. Across multiple benchmarks, DataFilter consistently reduces the prompt injection attack success rates to near zero while maintaining the LLMs’ utility. DataFilter delivers strong security, high utility, and plug-and-play deployment, making it a strong practical defense to secure black-box commercial LLMs against prompt injection. Our DataFilter model is released here for immediate use, with the code to reproduce our results here. 1 Index Terms—Large Language Models (LLMs), Prompt Injec- tion, Data Filtering, LLM Security I. INTRODUCTION AI agents [1, 2] have automated diverse tasks like web- navigation and tool-calling. In agents, the Large Language Model (LLM) interacts with the external environment (web- sites, documents, emails, etc.), where the data is untrusted and may contain a prompt injection attack [3, 4]. By injecting a prompt into the data that LLMs access, an attacker can arbitrarily override the original user task and redirect the agent system towards unintended and potentially harmful actions. Successful prompt injection attacks against
+ER  - 
+
+TY  - GEN
+ID  - 9789241549912-websupplement-eng
+TI  - Web supplement WHO recommendations on antenatal care for a positive pregnancy experience: evidence base*
+DA  - D:20161128
+ER  - 
+
+TY  - GEN
+ID  - 9789241549912-webannexes-eng
+TI  - WHO recommendations on antenatal care for a positive pregnancy experience: web annexes *
+DA  - D:20161108
 ER  - 
 
 TY  - GEN

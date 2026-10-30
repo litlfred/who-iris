@@ -36,8 +36,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Merge to main" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized." />
-<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized." />
+<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
+<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
 <link rel="canonical" href="https://litlfred.github.io/who-iris/en/cat-harness/processes/merge-to-main.html" />
 <meta property="og:url" content="https://litlfred.github.io/who-iris/en/cat-harness/processes/merge-to-main.html" />
 <meta property="og:site_name" content="WHO IRIS" />
@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Merge to main" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized.","headline":"Merge to main","url":"https://litlfred.github.io/who-iris/en/cat-harness/processes/merge-to-main.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.","headline":"Merge to main","url":"https://litlfred.github.io/who-iris/en/cat-harness/processes/merge-to-main.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -415,7 +415,7 @@
   instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
   nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
 -->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;who-iris-processes&quot;]">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
 
 <!--
   THE SITE'S BASEURL, for the tiles above.
@@ -628,7 +628,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -736,9 +736,9 @@
   is broken when it is doing exactly what it can.
 -->
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-151x9a609ug.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-151x9a609ug","here":"/en/cat-harness/processes/merge-to-main.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/processes/merge-to-main.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -847,9 +847,9 @@
 </h1>
     
 
-<p><code class="language-plaintext highlighter-rouge">Process_MergeToMain</code> · strict · 12 step(s)</p>
+<p><code class="language-plaintext highlighter-rouge">Process_MergeToMain</code> · strict · 13 step(s)</p>
 
-<p>Land ONE pull request on <code class="language-plaintext highlighter-rouge">main</code>, in any repository, as its own step with its own gate: read the head’s evidence live, establish that the owner authorised THIS merge, record the authorisation, merge pinned to the evaluated head, then confirm the base, re-pin downstream mounts and report. Every process that ends in a write to <code class="language-plaintext highlighter-rouge">main</code> CALLS this rather than inlining it: <code class="language-plaintext highlighter-rouge">merge-train.bpmn</code> (Call_MergeToMain, once per member, in train order) and <code class="language-plaintext highlighter-rouge">crdm-close.bpmn</code> (Call_MergeToMain, after the sign-off is recorded); <code class="language-plaintext highlighter-rouge">prepare-merge-auto</code> Phase 4 runs it by hand. Skill: <code class="language-plaintext highlighter-rouge">merge-to-main</code>.</p>
+<p>Land ONE pull request on <code class="language-plaintext highlighter-rouge">main</code>, in any repository, as its own step with its own gate: read the head’s evidence live, establish that the owner authorised THIS merge, record the authorisation, merge pinned to the evaluated head, then confirm the base, republish the repository’s site, re-pin downstream mounts and report. Every process that ends in a write to <code class="language-plaintext highlighter-rouge">main</code> CALLS this rather than inlining it: <code class="language-plaintext highlighter-rouge">merge-train.bpmn</code> (Call_MergeToMain, once per member, in train order) and <code class="language-plaintext highlighter-rouge">crdm-close.bpmn</code> (Call_MergeToMain, after the sign-off is recorded); <code class="language-plaintext highlighter-rouge">prepare-merge-auto</code> Phase 4 runs it by hand. Skill: <code class="language-plaintext highlighter-rouge">merge-to-main</code>.</p>
 
 <p>WHY IT EXISTS. 2026-10-09: one session merged seven PRs into <code class="language-plaintext highlighter-rouge">main</code> across seven repositories that run no CI, reading the owner’s “fix all issues until green” as permission to merge; a safety classifier flagged it as “Merge Without Review”. Until then merging was a line at the end of other procedures, and no step could refuse it.</p>
 
@@ -872,8 +872,9 @@
 <button type="button" class="pt-mark" data-task="Task_RecordAuthorisation" style="left:65.26%;top:19.16%" aria-expanded="false" aria-label="About step: Record who authorised, when, and the quote" title="About: Record who authorised, when, and the quote">i</button>
 <button type="button" class="pt-mark" data-task="Task_Merge" style="left:71.51%;top:19.16%" aria-expanded="false" aria-label="About step: Merge, pinned to the evaluated head" title="About: Merge, pinned to the evaluated head">i</button>
 <button type="button" class="pt-mark" data-task="Task_ConfirmBase" style="left:77.76%;top:19.16%" aria-expanded="false" aria-label="About step: Confirm main's CI on the merge commit" title="About: Confirm main's CI on the merge commit">i</button>
-<button type="button" class="pt-mark" data-task="Task_Repin" style="left:84.01%;top:19.16%" aria-expanded="false" aria-label="About step: Re-pin downstream mounts, as PRs" title="About: Re-pin downstream mounts, as PRs">i</button>
-<button type="button" class="pt-mark" data-task="Task_Report" style="left:90.26%;top:19.16%" aria-expanded="false" aria-label="About step: Note the bean, summarise on the issue" title="About: Note the bean, summarise on the issue">i</button>
+<button type="button" class="pt-mark" data-task="Task_Republish" style="left:84.01%;top:19.16%" aria-expanded="false" aria-label="About step: Rebuild and republish the repository's site" title="About: Rebuild and republish the repository's site">i</button>
+<button type="button" class="pt-mark" data-task="Task_Repin" style="left:90.26%;top:19.16%" aria-expanded="false" aria-label="About step: Re-pin downstream mounts, as PRs" title="About: Re-pin downstream mounts, as PRs">i</button>
+<button type="button" class="pt-mark" data-task="Task_Report" style="left:96.51%;top:19.16%" aria-expanded="false" aria-label="About step: Note the bean, summarise on the issue" title="About: Note the bean, summarise on the issue">i</button>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
 <script>(function () {
@@ -1027,7 +1028,7 @@
 </h2>
     
 
-<p>Every one of the 12 step(s) is documented.</p>
+<p>Every one of the 13 step(s) is documented.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -1098,6 +1099,12 @@
       <td>Merging session</td>
       <td><code class="language-plaintext highlighter-rouge">merge-to-main</code></td>
       <td>Read the runs on the merge commit. Red is fixed forward (continual-progress). With no CI the report reads “not verified: no CI”, never green.</td>
+    </tr>
+    <tr>
+      <td><strong>Rebuild and republish the repository’s site</strong><br /><code class="language-plaintext highlighter-rouge">Task_Republish</code></td>
+      <td>Merging session</td>
+      <td><code class="language-plaintext highlighter-rouge">merge-to-main</code></td>
+      <td>A merge that changes what a published site shows is not done until the site shows it (owner, 2026-10-30: “merged PRs by agent should trigger page rebuild in process”). When the merged repository declares <code class="language-plaintext highlighter-rouge">site.build</code> in its <code class="language-plaintext highlighter-rouge">index.config.json</code>, the merging session rebuilds the site from the merge commit and publishes it: <code class="language-plaintext highlighter-rouge">bun run cat-harness-tools/scripts/build-instance-site.ts --root . --instance &lt;name&gt; --publish --remote &lt;repository&gt;</code>. It is agent-run, never a GitHub Actions workflow (owner). The build’s own gates stay in force: an unresolved link refuses the publish, and the refusal is reported on the issue and fixed forward, never published over. A repository whose site is published by its own workflow (docs-site-publish) needs nothing here. A repository that declares no <code class="language-plaintext highlighter-rouge">site.build</code> records “no site to republish”.</td>
     </tr>
     <tr>
       <td><strong>Re-pin downstream mounts, as PRs</strong><br /><code class="language-plaintext highlighter-rouge">Task_Repin</code></td>

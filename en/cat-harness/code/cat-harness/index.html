@@ -36,8 +36,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="cat-harness — Code" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized." />
-<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized." />
+<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
+<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
 <link rel="canonical" href="https://litlfred.github.io/who-iris/en/cat-harness/code/cat-harness/" />
 <meta property="og:url" content="https://litlfred.github.io/who-iris/en/cat-harness/code/cat-harness/" />
 <meta property="og:site_name" content="WHO IRIS" />
@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="cat-harness — Code" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized.","headline":"cat-harness — Code","url":"https://litlfred.github.io/who-iris/en/cat-harness/code/cat-harness/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.","headline":"cat-harness — Code","url":"https://litlfred.github.io/who-iris/en/cat-harness/code/cat-harness/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -415,7 +415,7 @@
   instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
   nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
 -->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;who-iris-processes&quot;]">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
 
 <!--
   THE SITE'S BASEURL, for the tiles above.
@@ -628,7 +628,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -736,9 +736,9 @@
   is broken when it is doing exactly what it can.
 -->
 
-<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-151x9a609ug.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
+<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-151x9a609ug","here":"/en/cat-harness/code/cat-harness/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/code/cat-harness/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -875,7 +875,7 @@
   
   
 </h3>
-    <p class="sv-sub">The harness's own minimal folio renderer (bean ohx6, owner ruling 2026-10-10): `file-list.ts`, which renders the folio as the list of files it holds into `folio/index.md`, and the skill that says when to run it. Code and a skill, not folio content: the folio reader reads only `folio/*.json`, and the renderer skips this directory.</p><p class="sv-sub">4 files</p><ul><li><a href="https://github.com/litlfred/cat-harness/blob/14c45e1a89c0cfeb9cab03a4bbb749099c8b36d3/folio-render/README.md"><code>README.md</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/14c45e1a89c0cfeb9cab03a4bbb749099c8b36d3/folio-render/file-list.test.ts"><code>file-list.test.ts</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/14c45e1a89c0cfeb9cab03a4bbb749099c8b36d3/folio-render/file-list.ts"><code>file-list.ts</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/14c45e1a89c0cfeb9cab03a4bbb749099c8b36d3/folio-render/folio-file-list.md"><code>folio-file-list.md</code></a></li></ul></section>
+    <p class="sv-sub">The harness's own minimal folio renderer (bean ohx6, owner ruling 2026-10-10): `file-list.ts`, which renders the folio as the list of files it holds into `folio/index.md`, and the skill that says when to run it. Code and a skill, not folio content: the folio reader reads only `folio/*.json`, and the renderer skips this directory.</p><p class="sv-sub">4 files</p><ul><li><a href="https://github.com/litlfred/cat-harness/blob/2a922e8c36e1f58d33e6f4c4eedbe4da83f98812/folio-render/README.md"><code>README.md</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/2a922e8c36e1f58d33e6f4c4eedbe4da83f98812/folio-render/file-list.test.ts"><code>file-list.test.ts</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/2a922e8c36e1f58d33e6f4c4eedbe4da83f98812/folio-render/file-list.ts"><code>file-list.ts</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/2a922e8c36e1f58d33e6f4c4eedbe4da83f98812/folio-render/folio-file-list.md"><code>folio-file-list.md</code></a></li></ul></section>
 <section class="sv-item">
 <h3>
   
@@ -884,7 +884,7 @@
   
   
 </h3>
-    <p class="sv-sub">The pinned-upstream registry, `upstream-pins.json` (`&quot;$schema&quot;: &quot;folio-upstream-pins/v1&quot;`): one row per upstream dependency the build pins — such as the just-the-docs theme and the Bun runtime — naming the file the pin is READ from (`pinnedIn`, resolved against this instance's root), the pattern that reads it, what of ours binds to the dependency and the MVP that must pass before it moves. It deliberately holds no version: that lives in the file the build reads. Read by `bun run cat check:upstream-pins` (weekly, `.github/workflows/upstream-pins.yml`) and worked by the `upstream-pin-watch` / `upstream-version-adoption` processes and skill this instance owns. Moved here from the repository root on 2026-10-06 (bean `ar1s`, phase 3: tooling leaves the root before the repo split). HERE rather than in the tool layer because this instance's processes, skills and scripts name it, and a harness file naming a file in the layer above is a wrong-direction reference (`check:reference-direction`). `code`: the checker's input table, authored beside the processes that read it, not content any reader renders.</p><p class="sv-sub">2 files</p><ul><li><a href="https://github.com/litlfred/cat-harness/blob/14c45e1a89c0cfeb9cab03a4bbb749099c8b36d3/upstream/README.md"><code>README.md</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/14c45e1a89c0cfeb9cab03a4bbb749099c8b36d3/upstream/upstream-pins.json"><code>upstream-pins.json</code></a></li></ul></section>
+    <p class="sv-sub">The pinned-upstream registry, `upstream-pins.json` (`&quot;$schema&quot;: &quot;folio-upstream-pins/v1&quot;`): one row per upstream dependency the build pins — such as the just-the-docs theme and the Bun runtime — naming the file the pin is READ from (`pinnedIn`, resolved against this instance's root), the pattern that reads it, what of ours binds to the dependency and the MVP that must pass before it moves. It deliberately holds no version: that lives in the file the build reads. Read by `bun run cat check:upstream-pins` (weekly, `.github/workflows/upstream-pins.yml`) and worked by the `upstream-pin-watch` / `upstream-version-adoption` processes and skill this instance owns. Moved here from the repository root on 2026-10-06 (bean `ar1s`, phase 3: tooling leaves the root before the repo split). HERE rather than in the tool layer because this instance's processes, skills and scripts name it, and a harness file naming a file in the layer above is a wrong-direction reference (`check:reference-direction`). `code`: the checker's input table, authored beside the processes that read it, not content any reader renders.</p><p class="sv-sub">2 files</p><ul><li><a href="https://github.com/litlfred/cat-harness/blob/2a922e8c36e1f58d33e6f4c4eedbe4da83f98812/upstream/README.md"><code>README.md</code></a></li><li><a href="https://github.com/litlfred/cat-harness/blob/2a922e8c36e1f58d33e6f4c4eedbe4da83f98812/upstream/upstream-pins.json"><code>upstream-pins.json</code></a></li></ul></section>
 <h2 class="sv-h2">
   
   

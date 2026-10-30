@@ -2,7 +2,7 @@
   "$schema": "folio-voices-index/v1",
   "tile": {
     "voices": {
-      "count": 43,
+      "count": 42,
       "unit": "voices"
     }
   },
@@ -34,7 +34,6 @@
         "address-editorial-authoring-agent",
         "address-evidence-agent",
         "address-feedback-provider",
-        "address-fhir-modeller",
         "address-ingestion-agent",
         "address-integration-watcher",
         "address-librarian",
@@ -496,39 +495,6 @@
           "cites": "scenarios/roles.json",
           "citesInstance": "litlfred/cat-harness",
           "quote": "May be a program that cannot be argued with, or a reader with no context for why the artefact is as it is. Either way it knows one thing the adjudicator does not — what it actually looked at — and the process is worthless if that does not reach the lane below."
-        }
-      ]
-    },
-    {
-      "id": "address-fhir-modeller",
-      "title": "Addressing the FHIR modeller",
-      "description": "How to write for a reader acting as FHIR modeller. One rule, moved out of the role's own `voice` field (#1168): a voice points at the role it addresses, so the role names no voice and a second voice for the same reader is added without editing the role.",
-      "instance": "folio-assistant-core",
-      "path": "folio-assistant-core/skills/voices/address-fhir-modeller",
-      "provenance": "house",
-      "overlaySeverity": "major",
-      "criterion": "voice-overlay-address-fhir-modeller",
-      "sources": [
-        {
-          "title": "Role `fhir-modeller` — its persona, in the cat-harness role graph"
-        }
-      ],
-      "hasInstructions": false,
-      "provenanceFlags": [],
-      "rules": [
-        {
-          "id": "address-fhir-modeller-register",
-          "title": "Specification register",
-          "description": "Specification register. Cardinalities, invariants, must-support. Assume the standard is known.",
-          "category": "register",
-          "severity": "minor",
-          "patterns": 0,
-          "terminology": 0,
-          "judgementOnly": true,
-          "citation": "kg-node",
-          "cites": "scenarios/roles.json",
-          "citesInstance": "litlfred/cat-harness",
-          "quote": "Builds the L3 profiles. Fluent in FHIR and in the tooling; wants the model's constraints and invariants, not an introduction to the resource."
         }
       ]
     },
@@ -3010,10 +2976,10 @@
     }
   ],
   "totals": {
-    "voices": 43,
-    "rules": 148,
+    "voices": 42,
+    "rules": 147,
     "citingLibrary": 109,
-    "citingKgNode": 39,
+    "citingKgNode": 38,
     "mechanical": 25
   }
 }

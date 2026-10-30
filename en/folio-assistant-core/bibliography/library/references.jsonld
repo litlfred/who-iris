@@ -42,6 +42,26 @@
       "dcterms:hasVersion": "cat-harness/library/w3c-2020-json-ld-1-1"
     },
     {
+      "@id": "references/9789240101197-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "9789240101197-eng",
+      "dcterms:source": "library/9789240101197-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789240101197-eng"
+    },
+    {
+      "@id": "references/9789240116191-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "9789240116191-eng",
+      "dcterms:source": "library/9789240116191-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789240116191-eng"
+    },
+    {
       "@id": "references/agent-skill-best-practices---gemini-cli",
       "@type": [
         "fabio:Work",
@@ -218,6 +238,28 @@
       "dcterms:hasVersion": "cat-harness/library/arxiv-2605.03537v1"
     },
     {
+      "@id": "references/who-rhr-1806-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Classification of Digital Health Interventions v1.0",
+      "dcterms:issued": "D:20180427",
+      "dcterms:source": "library/who-rhr-1806-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/who-rhr-1806-eng"
+    },
+    {
+      "@id": "references/9789240081949-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health",
+      "dcterms:issued": "D:20231023",
+      "dcterms:source": "library/9789240081949-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789240081949-eng"
+    },
+    {
       "@id": "references/arxiv-2503.18813v2",
       "@type": [
         "fabio:Work",
@@ -261,6 +303,39 @@
       "dcterms:abstract": "Agent Skills are an emerging way to extend large language model agents with reusable procedural knowledge that the agent loads on demand. Anthropic introduced Agent Skills and published the format as an open specification supported across several agent tools. This note argues that a skill is a software artefact and that its construction should follow software-engineering principles, with qualifications: single responsibility, separation of interface from implementation, low coupling, and economy in a shared token budget, together with behavioural evaluation in place of deterministic testing. Using Claude Code as the reference implementation, it describes how a skill is structured, how its contents are loaded in stages, and how to write the description on which selection depends. It places skills against the other mechanisms a developer can use to shape agent behaviour, like project memory files, slash commands, subagents, external tool connections, and hooks, and gives a rule for choosing between them based on who decides that a mechanism runs and what guarantee it provides. It then sets out an evaluation-driven authoring process, a set of patterns and faults commonly encountered in authoring, and the trust question raised by using skills from third parties. We illustrate the comparison drawn in UML class style, the loading model, the anatomy of a skill, the relative position of each mechanism, and the points at which skills and hooks act during a session. Note on sources This note draws on Anthropic’s official documentation1 for Agent Skills, Claude Code skills, hooks, and skill authoring best practices, together with the open Agent Skills specification.",
       "dcterms:source": "cat-harness/library/arxiv-2607.25032v1/manifest.jsonld",
       "dcterms:hasVersion": "cat-harness/library/arxiv-2607.25032v1"
+    },
+    {
+      "@id": "references/9789240010567-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Digital implementation investment guide (DIIG): integrating digital interventions into health programmes",
+      "dcterms:issued": "D:20201007",
+      "dcterms:source": "library/9789240010567-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789240010567-eng"
+    },
+    {
+      "@id": "references/9789240093362-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Digital transformation handbook for primary health care",
+      "dcterms:issued": "D:20241014",
+      "dcterms:source": "library/9789240093362-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789240093362-eng"
+    },
+    {
+      "@id": "references/9789240120747-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Digital transformation handbook for reporting substandard and falsified medical products",
+      "dcterms:issued": "D:20260514",
+      "dcterms:source": "library/9789240120747-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789240120747-eng"
     },
     {
       "@id": "references/arxiv-2608.18294v2",
@@ -597,6 +672,17 @@
       "dcterms:hasVersion": "cat-harness/library/arxiv-2312.07755v1"
     },
     {
+      "@id": "references/9789241511766-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Monitoring and Evaluating Digital Health Interventions: A practical guide to conducting research and assessment",
+      "dcterms:issued": "D:20170212",
+      "dcterms:source": "library/9789241511766-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789241511766-eng"
+    },
+    {
       "@id": "references/arxiv-2601.04544v1",
       "@type": [
         "fabio:Work",
@@ -817,6 +903,17 @@
       "dcterms:hasVersion": "cat-harness/library/arxiv-2504.21474v1"
     },
     {
+      "@id": "references/9789241509510-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "The MAPS Toolkit: mHealth Assessment and Planning for Scale",
+      "dcterms:issued": "D:20150922",
+      "dcterms:source": "library/9789241509510-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789241509510-eng"
+    },
+    {
       "@id": "references/w3c-2024-prov-jsonld",
       "@type": [
         "fabio:Work",
@@ -860,6 +957,28 @@
       "dcterms:abstract": "When large language model (LLM) agents are in- creasingly deployed to automate tasks and interact with untrusted external data, prompt injection emerges as a significant security threat. By injecting malicious instructions into the data that LLMs access, an attacker can arbitrarily override the original user task and redirect the agent toward unintended, potentially harmful actions. Existing defenses either require access to model weights (fine-tuning), incur substantial utility loss (detection- based), or demand non-trivial system redesign (system-level). Motivated by this, we propose DataFilter, a test-time model- agnostic defense that removes malicious instructions from the data before it reaches the backend LLM. DataFilter is trained with supervised fine-tuning on simulated injections and leverages both the user’s instruction and the data to selectively strip adversarial content while preserving benign information. Across multiple benchmarks, DataFilter consistently reduces the prompt injection attack success rates to near zero while maintaining the LLMs’ utility. DataFilter delivers strong security, high utility, and plug-and-play deployment, making it a strong practical defense to secure black-box commercial LLMs against prompt injection. Our DataFilter model is released here for immediate use, with the code to reproduce our results here. 1 Index Terms—Large Language Models (LLMs), Prompt Injec- tion, Data Filtering, LLM Security I. INTRODUCTION AI agents [1, 2] have automated diverse tasks like web- navigation and tool-calling. In agents, the Large Language Model (LLM) interacts with the external environment (web- sites, documents, emails, etc.), where the data is untrusted and may contain a prompt injection attack [3, 4]. By injecting a prompt into the data that LLMs access, an attacker can arbitrarily override the original user task and redirect the agent system towards unintended and potentially harmful actions. Successful prompt injection attacks against",
       "dcterms:source": "cat-harness/library/arxiv-2510.19207v2/manifest.jsonld",
       "dcterms:hasVersion": "cat-harness/library/arxiv-2510.19207v2"
+    },
+    {
+      "@id": "references/9789241549912-websupplement-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Web supplement WHO recommendations on antenatal care for a positive pregnancy experience: evidence base*",
+      "dcterms:issued": "D:20161128",
+      "dcterms:source": "library/9789241549912-websupplement-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789241549912-websupplement-eng"
+    },
+    {
+      "@id": "references/9789241549912-webannexes-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "WHO recommendations on antenatal care for a positive pregnancy experience: web annexes *",
+      "dcterms:issued": "D:20161108",
+      "dcterms:source": "library/9789241549912-webannexes-eng/manifest.jsonld",
+      "dcterms:hasVersion": "library/9789241549912-webannexes-eng"
     },
     {
       "@id": "references/kg-folio-asst-2026-09-30",
