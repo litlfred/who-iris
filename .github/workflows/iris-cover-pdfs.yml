@@ -21,7 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Can a runner reach IRIS?
-        run: curl -sS -o /dev/null -w "iris.who.int: HTTP %{http_code}\n" -A "litlfred-who-iris-covers/0.1" https://iris.who.int/server/api || true
+        run: |
+          curl -sS -o /dev/null -w "iris.who.int HTTP %{http_code}\n" -A "litlfred-who-iris-covers/0.1" https://iris.who.int/server/api || true
       - name: Fetch referenced PDFs
         run: |
           only="${{ inputs.only }}"
