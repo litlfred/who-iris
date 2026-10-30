@@ -614,11 +614,11 @@ export function withheldManifest(all: Node[]): string {
         .join(", ")}`;
       // The ENTRY carries its gates and its catalogue record as data (issue
       // #1794), so the library viewer can say which gate refused and send the
-      // reader to the record without parsing `reason`. The record page is the
-      // replica's item page, at the route the declaration gives it; the URI is
-      // the item's own resolvable IRI, absent when it records none.
+      // reader to the record without parsing `reason`. The URI is the item's
+      // own resolvable IRI, absent when it records none. No record PAGE since
+      // 2026-10-30: the IRIS replica's item pages are gone (owner), and the
+      // library entry page is the item's one page.
       if (b.bundle === "ORIGINAL" && n.libraryId) {
-        const page = replicaPageOf(n);
         const uri = sourceOf(n);
         paths.push({
           path: `${n.libraryId}/`,
@@ -626,7 +626,6 @@ export function withheldManifest(all: Node[]): string {
           gates: blocked.map((k) => ({ gate: k, verdict: b.materialization?.gates?.[k]?.verdict ?? "not recorded" })),
           record: {
             id: n.id,
-            ...(page ? { page: `/${REPLICA_ROUTE}/${page}` } : {}),
             ...(uri ? { uri } : {}),
           },
         });
@@ -1706,7 +1705,7 @@ ${side === "site" ? replicaNav() : ""}
 -->
 <nav class="main"><div class="wrap">
   ${side === "site"
-    ? `<a href="community-list.html">${t("Communities &amp; Collections")}</a>`
+    ? `<a href="${esc(cataloguePageHref())}">${t("Communities &amp; Collections")}</a>`
     : `<span>${t("Communities &amp; Collections")}</span>`}
   <span>${t("Browse IRIS")}</span><span>${t("Statistics")}</span><span>${t("About")}</span><span>${t("Contact")}</span><span>${t("Help")}</span>
 </div></nav>
@@ -1946,7 +1945,7 @@ function cataloguePage(all: Node[], opts: CatalogueViewerOptions): string {
       return `<tr data-state="${esc(state)}" data-rank="${rank(n)}" data-kind="${esc(kind)}" data-node="${esc(`${n.title} ${n.id}`.toLowerCase())}" data-held="${n.libraryId ? 1 : 0}" data-record="${n.metadataRef ? 1 : 0}" data-bitstreams="${bs}">
   <td>${stateBadge(state)}</td>
   <td><code>${esc(kind)}</code></td>
-  <td>${replicaPageOf(n) ? `<a href="${esc(`${REPLICA_FROM_CATALOGUE}/${replicaPageOf(n)}`)}">${esc(n.title)}</a>` : esc(n.title)}<br><code class="dim">${esc(n.id)}</code></td>
+  <td>${titleCell(n)}<br><code class="dim">${esc(n.id)}</code></td>
   <td>${held}</td>
   <td>${rec}</td>
   <td>${bs || "—"}</td>
@@ -2084,94 +2083,6 @@ ${cataloguePage(all, opts)}`,
   });
 }
 
-/** The community list — the page the owner named. */
-function communityList(all: Node[]): string {
-  const communities = all
-    .filter((n) => n.flavour === "community")
-    .sort((a, b) => a.title.localeCompare(b.title, "en", { numeric: true }));
-
-  const items = all.filter((n) => n.flavour === "item");
-  const collections = all.filter((n) => n.flavour === "collection");
-
-  const rows = communities
-    .map((c) => {
-      const m = c.materialization;
-      const kidCollections = collections.filter((k) =>
-        k.parents.some((p) => p.includes(c.id)),
-      );
-      const known =
-        c.childCountUpstream !== undefined && m?.collectionBytes !== undefined
-          ? t("{files} files · {size} upstream", { files: num(c.childCountUpstream), size: gb(m.collectionBytes) })
-          : t("size upstream <strong>unknown</strong> — the storage report's second page was never read, and a number interpolated from the first would look measured");
-
-      const kids = kidCollections.length
-        ? `<ul class="kids">${kidCollections
-            .map((k) => {
-              const inIt = items.filter((i) => i.parents.some((p) => p.includes(k.id)));
-              const held = inIt.filter((i) => assetHref(i)).length;
-              return `<li><a href="collection-${esc(slug(k.id))}.html">${data(k.title)}</a>
-                ${stateBadge(k.materialization?.state ?? "unknown")}
-                <span class="note" style="margin:0;margin-inline-start:.4rem;display:inline">${t("{modelled} item(s) modelled, {held} held here", { modelled: num(inIt.length), held: num(held) })}</span></li>`;
-            })
-            .join("\n")}</ul>`
-        : "";
-
-      return `<li>
-  <div class="row"><span class="chev" aria-hidden="true">&rsaquo;</span>
-    <span class="title"><a href="${esc(m?.provenance?.upstream ?? "https://iris.who.int/")}">${data(c.title)}</a>
-    ${stateBadge(m?.state ?? "unknown")}</span></div>
-  <p class="note">${known}</p>
-  ${kids}
-</li>`;
-    })
-    .join("\n");
-
-  const held = items.map((i) => ({ n: i, a: assetHref(i) })).filter((x) => x.a);
-
-  const table = held
-    .map(
-      ({ n, a }) => `<tr>
-  <td><a href="item-${esc(slug(n.id))}.html">${data(n.title, langOf(n))}</a><br>
-      <code>${esc(n.libraryId ?? n.id)}</code></td>
-  <td>${collectionCell(n, all)}</td>
-  <td>${stateBadge("materialized")}</td>
-  <td class="dl">${upstreamCell(n)}</td>
-  <td class="dl">${linkOrWithheld(a!, true)}</td>
-  <td class="dl">${metadataCell(n)}</td>
-</tr>`,
-    )
-    .join("\n");
-
-  return `<h1>${t("List of Communities")}</h1>
-
-<p>${t("Every row below is <strong>live</strong>. A row is not greyed out when this repository does not hold it — it says {referenced} instead, which is the actual state and the whole point of a catalogue modelled by reference. {materialized} means the bytes are here.", {
-    referenced: stateBadge("referenced"),
-    materialized: stateBadge("materialized"),
-  })}</p>
-
-<ul class="communities">
-${rows}
-</ul>
-
-<h2>${t("Held here — {n} materialized item(s)", { n: num(held.length) })}</h2>
-<p>${t("Each row carries <strong>three routes to the same item</strong>: the <strong>IRIS source</strong> upstream at WHO, this repository's own <strong>local replica</strong> page, and the <strong>asset itself</strong> — downloadable from the repository and, separately, from a CDN edge.")}</p>
-
-<table class="items">
-<thead><tr><th>${t("Item")}</th><th>${t("Collection")}</th><th>${t("State")}</th><th>${t("Upstream")}</th><th>${t("Held copy")}</th><th>${t("Metadata record")}</th></tr></thead>
-<tbody>
-${table}
-</tbody>
-</table>
-
-<div class="caveat">
-  <p>${t("<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it.")}</p>
-  <p>${t("<strong>Both link forms are confirmed working.</strong> The <code>raw.githubusercontent.com</code> links were fetched and returned 200 with byte counts matching the catalogue exactly. The <em>via CDN</em> links could not be checked from the environment that generated this page — <code>cdn.jsdelivr.net</code> is egress-blocked there — so they were composed from jsDelivr's documented URL form and the owner exercised one by hand on 2026-09-20. Both are kept: one costs this project nothing to serve, and a reader who finds either unavailable still has the other.")}</p>
-  <p>${t("<strong>Where the held copies actually live — bean <code>yl5w</code>.</strong> The catalogue records each of these at <code>uploads/&lt;name&gt;.pdf</code> relative to <code>who-iris/</code>, and <em>all three of those paths are missing</em>: #477 moved <code>library/</code> into this instance and left <code>uploads/</code> in <code>cat-harness/</code>.")}</p>
-  <p>${t("The download links above point at where the bytes <em>are</em>, so they work. The claim in the catalogue is what is wrong, and <code>check:catalogue</code> does not check <code>localPath</code> at all — it verifies <code>metadataRef</code> and <code>libraryId</code>, and reports a clean run over three <code>materialized</code> claims that resolve to nothing.")}</p>
-</div>
-`;
-}
-
 /**
  * The replica's own page tree, for the harness rail's section (owner,
  * 2026-10-15: the rail on who-iris's site showed no contents, only the
@@ -2191,30 +2102,19 @@ function replicaNav(): string {
   const all = REPLICA_NAV_ALL;
   const entries: { label: string; href?: string; items?: { label: string; href?: string }[] }[] = [
     { label: t("Home"), href: "index.html" },
-    { label: t("Community List"), href: "community-list.html" },
+    { label: t("Community List"), href: cataloguePageHref() },
   ];
-  for (const c of all.filter((n) => n.flavour === "collection")) {
-    const items = all
-      .filter((n) => n.flavour === "item" && n.parents.some((p) => p.includes(c.id)))
-      .map((n) => ({ label: n.title, href: replicaPageOf(n)! }));
-    entries.push({ label: c.title, href: replicaPageOf(c)!, ...(items.length ? { items } : {}) });
+  // The held items, each to its library entry page: since 2026-10-30 that is
+  // the item's one page (owner), and the replica keeps only its home page.
+  for (const n of all.filter((x) => x.flavour === "item")) {
+    const href = itemPageHref(n);
+    if (href !== undefined) entries.push({ label: n.title, href });
   }
   return `<script type="application/json" data-fa-visualiser-nav>${JSON.stringify(entries).replace(/</g, "\\u003c")}</script>\n`;
 }
 
 function slug(id: string): string {
   return id.replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase();
-}
-
-/**
- * The replica page this run writes for a node, or `undefined` for a flavour
- * that has none. ONE answer for the writer below and for the catalogue page's
- * links (bean `qgjh`), so a link cannot name a page nobody wrote.
- */
-function replicaPageOf(n: Node): string | undefined {
-  if (n.flavour === "collection") return `collection-${slug(n.id)}.html`;
-  if (n.flavour === "item") return `item-${slug(n.id)}.html`;
-  return undefined;
 }
 
 /**
@@ -2302,12 +2202,48 @@ const REPLICA_ROUTE = (() => {
   return root.route;
 })();
 
-/* Relative from the catalogue page, built on the one route above, which the
-   withheld list also uses (issue #1794) — two consumers, one route. */
-const REPLICA_FROM_CATALOGUE = posix.relative(
-  CATALOGUE_ROUTE,
-  REPLICA_ROUTE,
-);
+/**
+ * The library listing for this instance, and one entry's page under it,
+ * relative to the site root (`<locale>/<harness>/<library>/<instance>/` and
+ * `.../<id>/`, the routes `gen-library-viz` publishes). `undefined` when the
+ * platform declares no library directory. Since 2026-10-30 an entry's page is
+ * a held item's one page (owner): the catalogue and the replica's home link
+ * there.
+ */
+const LIBRARY_LISTING_ROUTE = ((): string | undefined => {
+  const decl = readDeclaration(HARNESS_ROOT);
+  const lib = decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library"));
+  if (decl?.name === undefined || lib === undefined) return undefined;
+  return visualiserRoute({ locale: "en", harness: decl.name, visualiser: basename(lib.path.replace(/\/+$/, "")), subgraph: SUBJECT });
+})();
+function libraryEntryRoute(n: Node): string | undefined {
+  const id = n.flavour === "item" ? n.libraryId : undefined;
+  if (!id || !HELD_ITEM_LINKS(id) || LIBRARY_LISTING_ROUTE === undefined) return undefined;
+  return `${LIBRARY_LISTING_ROUTE}${encodeURIComponent(id)}/`;
+}
+/** A catalogue row's title: a held item links to its library entry page; anything else is plain text. */
+function titleCell(n: Node): string {
+  const to = libraryEntryRoute(n);
+  return to === undefined ? esc(n.title) : `<a href="${esc(`${posix.relative(CATALOGUE_ROUTE, to)}/`)}">${esc(n.title)}</a>`;
+}
+/**
+ * From a replica page (the home page, in English at the replica's route or in
+ * a translation one level below it) up to the site root. Read off `LOCALE`,
+ * the language the page is being rendered in.
+ */
+function replicaUp(): string {
+  return "../".repeat(REPLICA_ROUTE.split("/").length + (LOCALE === "en" ? 0 : 1));
+}
+/** A held item's library entry page, from a replica page; `undefined` for an item with none. */
+function itemPageHref(n: Node): string | undefined {
+  const to = libraryEntryRoute(n);
+  return to === undefined ? undefined : `${replicaUp()}${to}`;
+}
+/** The catalogue page, from a replica page: where its communities and collections now go. */
+function cataloguePageHref(): string {
+  return `${replicaUp()}${CATALOGUE_ROUTE}/`;
+}
+
 
 /**
  * The item's upstream URI, or undefined when it has none.
@@ -2332,35 +2268,6 @@ function sourceOf(n: Node): string | undefined {
   // Bean `08u4`: the Handle IRI first (it outlives the host), the host URL
   // second, never the front page — one definition, in the schema.
   return resolvableIri(n);
-}
-
-/**
- * The collection(s) an item is in, as named links — or a statement that the
- * catalogue records none.
- *
- * **Two of the three held items have `parents: []`, and that is real.** They
- * were ingested from a PDF somebody had, not walked down from a collection, so
- * the catalogue knows the bytes and not the shelf. Rendering them under a
- * plausible collection would be inventing containment, which is the same class
- * of error as inventing an upstream URI.
- */
-function collectionCell(n: Node, all: Node[]): string {
-  const containers = (n.parents[0] ?? [])
-    .map((id) => all.find((x) => x.id === id))
-    .filter((x): x is Node => x !== undefined);
-  const collections = containers.filter((c) => c.flavour === "collection");
-  if (collections.length === 0) {
-    return `<span class="none">${t("no collection recorded")}</span>`;
-  }
-  return collections
-    .map(
-      (c) =>
-        `<a href="collection-${esc(slug(c.id))}.html">${data(c.title)}</a>` +
-        (containers.filter((x) => x.flavour === "community").length
-          ? `<br><code class="ui">${t("in {communities}", { communities: data(containers.filter((x) => x.flavour === "community").map((x) => x.title).join(" / ")) })}</code>`
-          : ""),
-    )
-    .join("<br>");
 }
 
 /**
@@ -2454,182 +2361,6 @@ export function recentOrder(items: Node[]): Node[] {
 /** A date as IRIS prints it in a submission line: the day, not the timestamp. */
 function day(iso: string | undefined): string | undefined {
   return iso?.slice(0, 10);
-}
-
-function metadataCell(n: Node): string {
-  if (!n.metadataRef) return `<span class="none">${t("none captured")}</span>`;
-  const abs = join(INSTANCE, n.metadataRef);
-  if (!existsSync(abs)) return `<span class="none">${t("declared, but missing on disk")}</span>`;
-  const rel = encPath(n.metadataRef);
-  const bytes = readFileSync(abs, "utf-8").length;
-  return `<a href="${esc(`${RAW}/${rel}`)}">${t("Download {file}", { file: data(n.metadataRef.split("/").pop()!) })}</a>
-      <br><a class="cdn" href="${esc(`${CDN}/${rel}`)}">${t("via CDN")}</a>
-      <br><code class="ui">${t("qualified Dublin Core · {size} KB", { size: num(bytes / 1024, 1) })}</code>`;
-}
-
-/**
- * The record's two standard renderings — DC XML and DCMI-Terms JSON-LD —
- * written by `dc-render.ts` beside these pages (bean `7eak`, owner:
- * *"who-iris should link to json and xml renderings"*).
- *
- * The path comes from `dcRenderingsFor`, the same function the renderer
- * writes with, so the link and the file cannot name two places. A file that
- * is not there is NOT linked: a link to a rendering nobody wrote reads exactly
- * like one that works. `dc:render:check` is what makes "not there" a failure.
- */
-function renderingsCell(n: Node): string {
-  if (!n.metadataRef) return `<span class="none">${t("no record, so nothing to render")}</span>`;
-  const r = dcRenderingsFor(INSTANCE, n.metadataRef);
-  if (r === undefined) return `<span class="none">${t("this instance declares no published root")}</span>`;
-  const link = (abs: string, label: string): string =>
-    existsSync(abs)
-      ? `<a href="${esc(encPath(relative(siteDir(), abs).split(sep).join("/")))}">${label}</a>`
-      : `<span class="none">${t("{label}: not rendered (run {command})", { label, command: "<code>bun run cat dc:render</code>" })}</span>`;
-  return `${link(r.xml, t("Dublin Core XML"))}
-      <br>${link(r.jsonld, t("JSON-LD (DCMI Terms)"))}`;
-}
-
-/**
- * Where this item can be read FROM — upstream and here, side by side.
- *
- * The owner's *"both links there"*: the IRIS source, and this repository's own
- * replica page for the same item. Putting them in one cell is the whole
- * demonstration — the catalogue knows one item, and it is reachable at WHO and
- * reachable here, with the second not depending on the first being up.
- */
-function upstreamCell(n: Node): string {
-  const u = sourceOf(n);
-  const replica = `<a href="item-${esc(slug(n.id))}.html">${t("Local replica →")}</a>`;
-  if (u) return `<a href="${esc(u)}">${t("IRIS source →")}</a><br>${replica}`;
-  // The LOCAL original, now asked for by name. This read `of` — the same field
-  // `sourceOf` had just rejected — so it showed whatever was left over rather
-  // than the local reference it claims to show.
-  const local = n.bitstreams?.find((b) => b.materialization?.provenance?.local)?.materialization
-    ?.provenance?.local;
-  return `<span class="none">${t("no upstream URI recorded")}</span>${
-    local ? `<br><code>${esc(local)}</code>` : ""
-  }<br>${replica}`;
-}
-
-/** A collection page — the drill-down the owner's second screenshot shows. */
-function collectionPage(c: Node, all: Node[]): string {
-  const items = all.filter((n) => n.parents.some((p) => p.includes(c.id)));
-  const rows = items
-    .map((n) => {
-      const a = assetHref(n);
-      return `<tr>
-  <td><a href="item-${esc(slug(n.id))}.html">${data(n.title, langOf(n))}</a><br><code>${esc(n.libraryId ?? n.id)}</code></td>
-  <td>${stateBadge(a ? "materialized" : (n.materialization?.state ?? "unknown"))}</td>
-  <td class="dl">${upstreamCell(n)}</td>
-  <td class="dl">${a ? linkOrWithheld(a, true) : t("not held here")}</td>
-  <td class="dl">${metadataCell(n)}</td>
-</tr>`;
-    })
-    .join("\n");
-
-  return `<h1${dataBlock()}>${esc(c.title)}</h1>
-<p>${t("Permanent URI for this collection")}
-  ${c.materialization?.provenance?.upstream ? `<a href="${esc(c.materialization.provenance.upstream)}">${data(c.materialization.provenance.upstream)}</a>` : `<span class="none">${t("none recorded")}</span>`}
-  ${stateBadge(c.materialization?.state ?? "unknown")}</p>
-
-${c.materialization?.note ? `<div class="caveat"><p>${t("<strong>How this node was established.</strong> {note}", { note: `<bdi${langAttr(NOTE_LANG)}>${withInlineCode(c.materialization.note, esc)}</bdi>` })}</p></div>` : ""}
-
-<h2>${t("Items in this Collection")}</h2>
-<p>${t("Now showing 1 – {n} of {n} <em>modelled</em>. The upstream collection is larger; this catalogue holds what was materialised, and says so per row.", { n: num(items.length) })}</p>
-
-<table class="items">
-<thead><tr><th>${t("Item")}</th><th>${t("State")}</th><th>${t("Upstream")}</th><th>${t("Held copy")}</th><th>${t("Metadata record")}</th></tr></thead>
-<tbody>
-${rows}
-</tbody>
-</table>
-`;
-}
-
-/**
- * The held PDF, readable in place — or nothing (bean `folio-assistant-5ea6`).
- *
- * Gated by the SAME decision as the download link: {@link linkOrWithheld}
- * refuses to link bytes whose publication gates block, and an embedded viewer
- * is a link that also renders. So a withheld item gets no viewer, and its page
- * says nothing more than the "held here, not published" the Files row already
- * says. Only PDFs: the viewer is pdf.js, and a held `.docx` in a PDF frame is
- * an error page.
- *
- * The RAW URL, not the CDN one (owner, 2026-10-15). The CDN link reached
- * readers as an empty viewer ("0 of 0"): jsDelivr's answer for this repository
- * cannot be verified from the environment that writes this page, and the raw
- * one demonstrably serves the bytes (200, `application/pdf` bytes, `access-
- * control-allow-origin: *`, ranges). The CDN link stays offered in the Files
- * table; the viewer reads the source that is known to serve.
- * `FOLIO_ROUTE` finds the site root for the same reason it does for the folio
- * mount: one page, several depths.
- */
-function readHere(n: Node, a: ReturnType<typeof assetHref>): string {
-  if (!a || a.withheld.length > 0 || !/\.pdf$/i.test(a.name)) return "";
-  return `<h2>${t("Read it here")}</h2>
-${pdfViewer({ src: a.href, title: n.title, route: FOLIO_ROUTE })}
-
-`;
-}
-
-/** An item page — where both links land on the real thing. */
-function itemPage(n: Node, all: Node[]): string {
-  const a = assetHref(n);
-  const dc = n.metadataRef ? join(INSTANCE, n.metadataRef) : undefined;
-  const hasDc = dc !== undefined && existsSync(dc);
-  const parents = n.parents[0] ?? [];
-  const named = parents
-    .map((p) => all.find((x) => x.id === p))
-    .filter((x): x is Node => x !== undefined);
-
-  const bits = (n.bitstreams ?? [])
-    .map(
-      (b) => `<tr>
-  <td><code>${esc(b.name)}</code></td>
-  <td>${esc(b.bundle)}</td>
-  <td>${esc(mb(b.bytes))}</td>
-  <td>${stateBadge(b.materialization?.state ?? "unknown")}</td>
-</tr>`,
-    )
-    .join("\n");
-
-  return `<h1${dataBlock(langOf(n))}>${esc(n.title)}</h1>
-<p>${t("Permanent URI for this item")}
-  ${sourceOf(n) ? `<a href="${esc(sourceOf(n)!)}">${data(sourceOf(n)!)}</a>` : `<span class="none">${t("none recorded — ingested from a local copy, not resolved from IRIS")}</span>`}
-  ${stateBadge(a ? "materialized" : (n.materialization?.state ?? "unknown"))}</p>
-
-${named.length ? `<p class="note" style="margin-inline-start:0">${t("In: {path}", { path: named.map((p) => data(p.title)).join(" &rsaquo; ") })}</p>` : ""}
-
-<h2>${t("Files")}</h2>
-<table class="items">
-<thead><tr><th>${t("Name")}</th><th>${t("Bundle")}</th><th>${t("Size")}</th><th>${t("State")}</th></tr></thead>
-<tbody>
-${bits}
-</tbody>
-</table>
-
-${readHere(n, a)}<h3>${t("Both links, as asked for")}</h3>
-<table class="items">
-<thead><tr><th>${t("Where")}</th><th>${t("Link")}</th></tr></thead>
-<tbody>
-<tr><td>${t("Upstream, at WHO")}</td><td>${sourceOf(n) ? `<a href="${esc(sourceOf(n)!)}">${data(sourceOf(n)!)}</a>` : t("none recorded")}</td></tr>
-<tr><td>${t("Held here, in folio-assistant")}</td>
-    <td>${a ? linkOrWithheld(a, false) : t("not held")}</td></tr>
-<tr><td>${t("In collection")}</td><td>${collectionCell(n, all)}</td></tr>
-<tr><td>${t("Ingested text (L1)")}</td>
-    <td>${n.libraryId ? `<a href="https://github.com/litlfred/who-iris/tree/main/library/${esc(n.libraryId)}/sections"><bdi dir="ltr">library/${esc(n.libraryId)}/sections/</bdi></a>` : "—"}</td></tr>
-<tr><td>${t("Dublin Core record")}</td><td>${metadataCell(n)}</td></tr>
-<tr><td>${t("Dublin Core renderings")}</td><td>${renderingsCell(n)}</td></tr>
-</tbody>
-</table>
-
-${
-  hasDc
-    ? ""
-    : `<div class="caveat"><p>${t("<strong>No Dublin Core record.</strong> The catalogue says so rather than synthesising metadata from the PDF — the <code>iris-dspace</code> skill's R8, <em>never infer metadata from the PDF when a record exists</em>, whose converse is that an absent record stays absent.")}</p></div>`
-}
-`;
 }
 
 /**
@@ -2736,7 +2467,7 @@ function landingPage(all: Node[]): string {
         const text = [n.title, n.id, n.libraryId ?? "", authors.join(" "), cite, issued, spatial, commTitle ?? "", subjects.join(" "), abstract].join(" ").toLowerCase();
         return {
           title: n.title,
-          href: `item-${slug(n.id)}.html`,
+          href: itemPageHref(n) ?? cataloguePageHref(),
           badge: t("Item"),
           meta,
           lang: langOf(n) !== LOCALE ? langOf(n) : undefined,
@@ -2755,7 +2486,7 @@ function landingPage(all: Node[]): string {
       if (n.flavour === "collection") {
         return {
           title: n.title,
-          href: `collection-${slug(n.id)}.html`,
+          href: cataloguePageHref(),
           badge: t("Collection"),
           meta: n.id,
           abstract: n.materialization?.note ?? "",
@@ -2764,7 +2495,7 @@ function landingPage(all: Node[]): string {
       }
       return {
         title: n.title,
-        href: "community-list.html",
+        href: cataloguePageHref(),
         badge: t("Community"),
         meta: n.id,
         abstract: "",
@@ -2857,13 +2588,13 @@ ${submissions}
 <h2>${t("Browse")}</h2>
 <ul class="kids" style="margin-inline-start:0">
   <li>${t("{link} — the replica of {url}, with every node’s materialisation state ({communities} communities, {collections} collections)", {
-    link: `<a href="community-list.html">${t("List of Communities")}</a>`,
+    link: `<a href="${esc(cataloguePageHref())}">${t("List of Communities")}</a>`,
     url: "<code>iris.who.int/community-list</code>",
     communities: num(communities.length),
     collections: num(collections.length),
   })}</li>
 ${collections
-  .map((c) => `  <li>${t("{link} — collection", { link: `<a href="collection-${esc(slug(c.id))}.html">${data(c.title)}</a>` })}</li>`)
+  .map((c) => `  <li>${t("{link} — collection", { link: `<a href="${esc(cataloguePageHref())}">${data(c.title)}</a>` })}</li>`)
   .join("\n")}
 </ul>
 
@@ -3087,7 +2818,7 @@ function submission(n: Node): string {
     : !cov
     ? `<span class="nocover" title="${esc(t("no cover rendered"))}">${t("no cover")}</span>`
     : COVERS_SHOWN
-      ? `<a href="item-${esc(slug(n.id))}.html"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
+      ? `<a href="${esc(itemPageHref(n) ?? cataloguePageHref())}"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
         alt="${esc(cov.masked
           ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
           : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }))}" loading="lazy"></a>`
@@ -3096,7 +2827,7 @@ function submission(n: Node): string {
   return `<article class="sub">
   <div class="sub-cover">${coverCell}</div>
   <div class="sub-body">
-    <a class="sub-title"${dataBlock(lang)} href="item-${esc(slug(n.id))}.html">${esc(n.title)}</a>
+    <a class="sub-title"${dataBlock(lang)} href="${esc(itemPageHref(n) ?? cataloguePageHref())}">${esc(n.title)}</a>
     <p class="sub-by">${byline}</p>
     ${
       abstract
@@ -3743,6 +3474,31 @@ function ownSiteRoute(): string {
  * its RELATIVE links must say the same targets from the new place. Every
  * relative href/src is re-based; absolute, fragment and Liquid ones are left.
  */
+/**
+ * The replica's home page, written for this instance's OWN site root (owner,
+ * 2026-10-30: "https://litlfred.github.io/who-iris/ should instead be whats
+ * under https://litlfred.github.io/who-iris/who-iris/", option A).
+ *
+ * The page is drawn for the replica's route, so each relative link is read as
+ * a platform route and said again from the own site's root. The own site
+ * serves every `/<instance>/…` route at its root (the catalogue page is at
+ * `catalogue/`, see {@link ownSiteRoute}), EXCEPT the replica's own files,
+ * which stay mounted under `<instance>/`. The replica's home itself is this
+ * page, so a link to it becomes `./`.
+ */
+export function rebaseToOwnSiteRoot(html: string): string {
+  const own = `${SUBJECT}/`;
+  return html.replace(/\b(href|src|action)="([^"]*)"/g, (m, attr: string, u: string) => {
+    if (!u || /^(?:[a-z][a-z0-9+.-]*:|\/|#|\{\{|\{%)/i.test(u)) return m;
+    const [path, ...rest] = u.split(/(?=[?#])/);
+    let target = posix.normalize(posix.join(REPLICA_ROUTE, path!));
+    if (path!.endsWith("/") && !target.endsWith("/")) target += "/";
+    if (target === `${own}index.html` || target === own) target = "./";
+    else if (target.startsWith(own) && !existsSync(join(INSTANCE, "site", target.slice(own.length)))) target = target.slice(own.length);
+    return `${attr}="${target}${rest.join("")}"`;
+  });
+}
+
 export function rebaseRelative(html: string, from: string, to: string): string {
   return html.replace(/\b(href|src)="([^"]*)"/g, (m, attr: string, u: string) => {
     if (!u || /^(?:[a-z][a-z0-9+.-]*:|\/|#|\{\{|\{%)/i.test(u)) return m;
@@ -3757,6 +3513,21 @@ export function rebaseRelative(html: string, from: string, to: string): string {
 function main(): number {
   if (process.argv.includes("--extract-pot")) {
     extractPot();
+    return 0;
+  }
+  const home = process.argv.indexOf("--home-into");
+  if (home >= 0) {
+    const site = process.argv[home + 1];
+    if (!site || site.startsWith("--") || !existsSync(site)) {
+      console.error("--home-into needs an existing site source directory (the tree `compose-docs --shell` wrote)");
+      return 2;
+    }
+    const all = nodes();
+    REPLICA_NAV_ALL = all;
+    LOCALE = "en";
+    const dest = join(resolve(site), "index.html");
+    writeFileSync(dest, rebaseToOwnSiteRoot(page("who-iris", [{ label: t("Home") }], landingPage(all), "site", [], "index.html")));
+    console.log(`  wrote ${relative(resolve(site), dest)} into the site source`);
     return 0;
   }
   const into = process.argv.indexOf("--catalogue-into");
@@ -3851,29 +3622,20 @@ function main(): number {
   // its declared route, where the site publishes it.
   siteFiles.set(CATALOGUE_VIEWER, ((page: string) => (page.startsWith("---\n") ? withRenderedByFrontMatter(page, VIEWER_TOOL) : withRenderedBy(page, VIEWER_TOOL)))(catalogueViewer(all)));
 
-  // THE REPLICA, ONCE PER LANGUAGE (issue #2228). English first and at the
-  // top level, where it always was; then each translation beneath
-  // `site/<locale>/`. The docs and harness pages above are English only and
-  // were rendered before the first switch, which is the only reason the
-  // module-level LOCALE is safe here: nothing renders across the loop.
+  // THE REPLICA'S HOME PAGE, ONCE PER LANGUAGE (issue #2228), and nothing
+  // else of the replica. Owner, 2026-10-30: the item pages duplicated the
+  // library entry pages without a locale in the URL ("i want consitent
+  // bevarioior for things nuders librayr/"), so they are gone and the old
+  // addresses 404; the community list and collection pages went with them.
+  // The IRIS-style home stays (the owner's follow-up, option A): its items
+  // link to their library entry pages and its communities and collections to
+  // the catalogue page. The orphan sweep below prunes the rest, because
+  // PAGES.site still owns those names.
   REPLICA_NAV_ALL = all;
   for (const locale of ["en", ...SITE_LOCALES] as Locale[]) {
     LOCALE = locale;
     const at = locale === "en" ? "site" : `site/${locale}`;
-    const home = { label: t("Home"), href: "community-list.html" };
     files.set(`${at}/index.html`, page("who-iris", [{ label: t("Home") }], landingPage(all), "site", [], "index.html"));
-    files.set(
-      `${at}/community-list.html`,
-      page(t("List of Communities"), [home, { label: t("Community List") }], communityList(all), "site", [], "community-list.html"),
-    );
-    for (const c of all.filter((n) => n.flavour === "collection")) {
-      const f = replicaPageOf(c)!;
-      files.set(`${at}/${f}`, page(c.title, [home, { label: c.title, record: {} }], collectionPage(c, all), "site", [], f));
-    }
-    for (const n of all.filter((x) => x.flavour === "item")) {
-      const f = replicaPageOf(n)!;
-      files.set(`${at}/${f}`, page(n.title, [home, { label: n.title, record: { lang: langOf(n) } }], itemPage(n, all), "site", [], f));
-    }
   }
   LOCALE = "en";
 

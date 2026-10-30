@@ -200,8 +200,9 @@ skill carries the full rule.
 
 ## Covers: an artefact we made, filed where IRIS files its own
 
-The replica's Recent Submissions strip shows a cover beside each item, because
-the real page does. **None of them came from IRIS.** Each is page 1 of a PDF
+The replica's home page shows a cover beside each item in its Recent
+Submissions strip, because the real page does, and each held item's library
+entry page shows it too. **None of them came from IRIS.** Each is page 1 of a PDF
 this repository already holds, rasterised by
 `cat-harness-tools/scripts/pdf-cover.py` and filed as a `THUMBNAIL`-bundle bitstream
 — which is the bundle name DSpace uses for the thumbnails **it** generates.
