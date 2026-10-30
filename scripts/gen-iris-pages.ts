@@ -1338,6 +1338,43 @@ function page(
     --iris-ingested: #006666;      /* --info */
     --iris-col: ${(THEME.layouts as { laptop: { minWidth: string } }).laptop.minWidth};
     --iris-pad: ${(THEME.layouts as { laptop: { padding: string } }).laptop.padding};
+    /* TEXT roles, split from the grounds they share a colour with in light
+       mode, so dark mode can give each its own value. */
+    --iris-link: var(--iris-accent);
+    --iris-heading: var(--iris-dark);
+    --iris-paper: #fff;
+    --iris-cdn: var(--iris-ingested);
+    --iris-tag-bg: #e2eaf0;
+    --iris-mat: #1d5c1d; --iris-mat-edge: #94BA65; --iris-mat-bg: #f0f6e9;
+    --iris-unk: #7a4a10; --iris-unk-edge: #ec9433; --iris-unk-bg: #fdf4e8;
+  }
+  /* DARK MODE (owner, 2026-10-30: "dark mode of main display of who-iris is
+     still white"). The replica is IRIS's light page; in dark the same roles
+     take dark grounds and light inks, keyed on the site's scheme switch
+     (data-fa-scheme) and else the OS, as the rail and page-layout.css are.
+     Text pairs are at least 4.5:1 (WCAG AA); the accent ground darkens so
+     white on it is too. Same values in both blocks. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-fa-scheme="light"]) {
+      --iris-surface: #0d1117; --iris-ink: #e6edf3; --iris-edge: #3d444d;
+      --iris-wash: #151b23; --iris-breadcrumb-bg: #151b23; --iris-muted: #9198a1;
+      --iris-paper: #161b22; --iris-accent: #0b6a9a; --iris-link: #6cb6ff;
+      --iris-heading: #79c0ff; --iris-current: #f0883e; --iris-cdn: #56d4d4;
+      --iris-tag-bg: #1c2d3d;
+      --iris-mat: #8fd18f; --iris-mat-edge: #4d7a2a; --iris-mat-bg: rgba(148,186,101,.16);
+      --iris-unk: #f0c27a; --iris-unk-edge: #8a6420; --iris-unk-bg: rgba(236,148,51,.16);
+      color-scheme: dark;
+    }
+  }
+  :root[data-fa-scheme="dark"] {
+    --iris-surface: #0d1117; --iris-ink: #e6edf3; --iris-edge: #3d444d;
+    --iris-wash: #151b23; --iris-breadcrumb-bg: #151b23; --iris-muted: #9198a1;
+    --iris-paper: #161b22; --iris-accent: #0b6a9a; --iris-link: #6cb6ff;
+    --iris-heading: #79c0ff; --iris-current: #f0883e; --iris-cdn: #56d4d4;
+    --iris-tag-bg: #1c2d3d;
+    --iris-mat: #8fd18f; --iris-mat-edge: #4d7a2a; --iris-mat-bg: rgba(148,186,101,.16);
+    --iris-unk: #f0c27a; --iris-unk-edge: #8a6420; --iris-unk-bg: rgba(236,148,51,.16);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   body {
@@ -1354,7 +1391,7 @@ function page(
      pages are mounted verbatim, so the harness's narrow-viewport.css never
      reaches them. Breaking the string beats widening the page. */
   :not(pre) > code { overflow-wrap: anywhere; }
-  a { color: var(--iris-accent); text-decoration: none; }
+  a { color: var(--iris-link); text-decoration: none; }
   a:hover, a:focus { text-decoration: underline; }
 
   /* ── The banner. Not decoration: it is requirement 1. ───────────────── */
@@ -1371,21 +1408,21 @@ function page(
   .ingested .langnote { margin: 0.45rem 0 0; font-size: 0.88rem; }
 
   /* ── Masthead. NO WHO logo, by instruction — a wordmark in type. ────── */
-  header.mast { background: #fff; border-bottom: 1px solid var(--iris-edge); }
+  header.mast { background: var(--iris-paper); border-bottom: 1px solid var(--iris-edge); }
   .mast .wrap { display: flex; align-items: center; gap: 1rem; padding-top: 1.1rem; padding-bottom: 1.1rem; }
   .wordmark { display: flex; align-items: baseline; gap: 0.55rem; }
   .wordmark .org {
     font-size: 1.05rem; font-weight: 700; line-height: 1.15;
-    color: var(--iris-accent); max-width: 11rem;
+    color: var(--iris-link); max-width: 11rem;
   }
   .wordmark .bar { width: 1px; align-self: stretch; background: var(--iris-edge); }
   .wordmark .stack { display: flex; flex-direction: column; }
-  .wordmark .iris { font-size: 2.1rem; font-weight: 700; color: var(--iris-accent); letter-spacing: -0.02em; line-height: 1; }
+  .wordmark .iris { font-size: 2.1rem; font-weight: 700; color: var(--iris-link); letter-spacing: -0.02em; line-height: 1; }
   .wordmark .iris .dot { color: var(--iris-current); }
-  .wordmark .sub { font-size: 0.78rem; color: var(--iris-accent); line-height: 1.2; }
+  .wordmark .sub { font-size: 0.78rem; color: var(--iris-link); line-height: 1.2; }
   .none { color: var(--iris-muted); font-style: italic; }
   /* The CDN link is secondary to the one that is known to work. */
-  .cdn { font-size: 0.88em; color: var(--iris-ingested); }
+  .cdn { font-size: 0.88em; color: var(--iris-cdn); }
   /* TRANSLATED text set in the code face (a size, a container path). Arabic is
      cursive, and a monospace face gives every letter its own cell, so on the ar
      page "ميغابايت" rendered as eight separate letters (bean lffo). There it
@@ -1428,9 +1465,9 @@ function page(
     padding: 0.12rem 0.45rem; border-radius: 3px; border: 1px solid;
     vertical-align: 0.12em;
   }
-  .state.materialized { color: #1d5c1d; border-color: #94BA65; background: #f0f6e9; }
-  .state.referenced   { color: var(--iris-dark); border-color: var(--iris-edge); background: var(--iris-wash); }
-  .state.unknown      { color: #7a4a10; border-color: #ec9433; background: #fdf4e8; }
+  .state.materialized { color: var(--iris-mat); border-color: var(--iris-mat-edge); background: var(--iris-mat-bg); }
+  .state.referenced   { color: var(--iris-heading); border-color: var(--iris-edge); background: var(--iris-wash); }
+  .state.unknown      { color: var(--iris-unk); border-color: var(--iris-unk-edge); background: var(--iris-unk-bg); }
   /* The KG view's tables. Deliberately plainer than the replica's furniture:
      this page is ABOUT the catalogue rather than a mock of IRIS, and dressing
      it as IRIS would invite a reader to take its counts for IRIS's. */
@@ -1494,7 +1531,7 @@ function page(
     flex: 1; padding: 0.7rem 0.9rem; font-size: 1rem; font-family: inherit;
     border: 1px solid var(--iris-edge); border-inline-end: none;
     border-radius: 0; border-start-start-radius: 4px; border-end-start-radius: 4px;
-    background: #fff; color: var(--iris-ink);
+    background: var(--iris-paper); color: var(--iris-ink);
   }
   .searchbar button {
     padding: 0.7rem 1.4rem; font-size: 1rem; font-family: inherit; font-weight: 600;
@@ -1516,7 +1553,7 @@ function page(
   .search-results-panel h3 {
     margin: 0 0 0.8rem;
     font-size: 1.05rem;
-    color: var(--iris-dark);
+    color: var(--iris-heading);
   }
   .search-results-list {
     list-style: none;
@@ -1560,7 +1597,7 @@ function page(
   }
   mark.search-mark {
     background: #ffeb3b;
-    color: inherit;
+    color: #212529;
     padding: 0 2px;
     border-radius: 2px;
   }
@@ -1605,7 +1642,7 @@ function page(
   }
   table.reqs thead th { background: var(--iris-wash); font-weight: 700; }
   table.reqs th.rid {
-    width: 3.2rem; white-space: nowrap; font-weight: 700; color: var(--iris-accent);
+    width: 3.2rem; white-space: nowrap; font-weight: 700; color: var(--iris-link);
   }
   table.reqs td.why { color: var(--iris-muted); }
   table.reqs code { font-size: 0.87em; }
@@ -2528,11 +2565,11 @@ function landingPage(all: Node[]): string {
   <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Publishing" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Publishing</button>
   <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Western Pacific" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Western Pacific</button>
   <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Headquarters" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Headquarters</button>
-  <button type="button" class="iris-chip" data-facet-type="access" data-facet-val="open-access" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid #94BA65;color:#1d5c1d;background:#f0f6e9;cursor:pointer;">Open Access PDF</button>
+  <button type="button" class="iris-chip" data-facet-type="access" data-facet-val="open-access" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-mat-edge);color:var(--iris-mat);background:var(--iris-mat-bg);cursor:pointer;">Open Access PDF</button>
 </div>
 
 <details id="iris-adv-filters" style="margin:0 0 1rem;font-size:0.9rem;border:1px solid var(--iris-edge);border-radius:4px;padding:0.5rem 0.8rem;background:var(--iris-wash);">
-  <summary style="cursor:pointer;font-weight:600;color:var(--iris-dark);">Complex Search &amp; KG Filters (Oxigraph)</summary>
+  <summary style="cursor:pointer;font-weight:600;color:var(--iris-heading);">Complex Search &amp; KG Filters (Oxigraph)</summary>
   <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.7rem;margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--iris-edge);">
     <div>
       <label for="iris-filter-subject" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Subject (MeSH)</label>
@@ -2692,7 +2729,7 @@ ${collections
     var html = "";
 
     if (matches.length > 0) {
-      html += "<h3 style=\\"margin:0 0 0.8rem;font-size:1.05rem;color:var(--iris-dark);\\">" + fill(T.matching, "", String(matches.length)) + "</h3>";
+      html += "<h3 style=\\"margin:0 0 0.8rem;font-size:1.05rem;color:var(--iris-heading);\\">" + fill(T.matching, "", String(matches.length)) + "</h3>";
       html += "<ul class=\\"search-results-list\\" style=\\"list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.75rem;\\">";
       for (var m = 0; m < matches.length; m++) {
         var it = matches[m];
@@ -2711,7 +2748,7 @@ ${collections
         if (it.subjects && it.subjects.length > 0) {
           html += "<div style=\\"margin-top:0.3rem;display:flex;flex-wrap:wrap;gap:0.25rem;\\">";
           for (var s = 0; s < it.subjects.length; s++) {
-            html += "<span style=\\"font-size:0.75rem;background:#e2eaf0;color:var(--iris-dark);padding:0.1rem 0.4rem;border-radius:3px;\\">#" + escapeHtml(it.subjects[s]) + "</span>";
+            html += "<span style=\\"font-size:0.75rem;background:var(--iris-tag-bg);color:var(--iris-heading);padding:0.1rem 0.4rem;border-radius:3px;\\">#" + escapeHtml(it.subjects[s]) + "</span>";
           }
           html += "</div>";
         }
@@ -3497,16 +3534,30 @@ function isFile(p: string): boolean {
 
 export function rebaseToOwnSiteRoot(html: string): string {
   const own = `${SUBJECT}/`;
-  return html.replace(/\b(href|src|action)="([^"]*)"/g, (m, attr: string, u: string) => {
-    if (!u || /^(?:[a-z][a-z0-9+.-]*:|\/|#|\{\{|\{%)/i.test(u)) return m;
+  const rebase = (attr: string, u: string): string | undefined => {
+    if (!u || /^(?:[a-z][a-z0-9+.-]*:|\/|#|\{\{|\{%)/i.test(u)) return undefined;
     const [path, ...rest] = u.split(/(?=[?#])/);
     let target = posix.normalize(posix.join(REPLICA_ROUTE, path!));
     if (path!.endsWith("/") && !target.endsWith("/")) target += "/";
     if (target === `${own}index.html` || target === own) target = "./";
     else if (attr === "src" && !target.startsWith(own) && isFile(join(INSTANCE, target))) target = `${own}${target}`;
     else if (target.startsWith(own) && !existsSync(join(INSTANCE, "site", target.slice(own.length)))) target = target.slice(own.length);
-    return `${attr}="${target}${rest.join("")}"`;
-  });
+    return `${target}${rest.join("")}`;
+  };
+  // Attributes, AND the JSON the page carries in its scripts: the rail's
+  // "On this page" list (`data-fa-visualiser-nav`) and the search index. Only
+  // the attributes were re-based, so on the site root those links kept the
+  // replica's `../` and climbed out of the site (owner, 2026-10-30: the rail's
+  // library links gave 404 at /en/cat-harness/library/who-iris/<slug>/).
+  return html
+    .replace(/\b(href|src|action)="([^"]*)"/g, (m, attr: string, u: string) => {
+      const next = rebase(attr, u);
+      return next === undefined ? m : `${attr}="${next}"`;
+    })
+    .replace(/"href":"([^"\\]*)"/g, (m, u: string) => {
+      const next = rebase("href", u);
+      return next === undefined ? m : `"href":"${next}"`;
+    });
 }
 
 export function rebaseRelative(html: string, from: string, to: string): string {

@@ -450,4 +450,17 @@ describe("the replica keeps only its IRIS-style home page (owner, 2026-10-30)", 
     const html = rebaseToOwnSiteRoot('<a href="../who-iris/catalogue/">c</a><a href="index.html">h</a><a href="fr/index.html">fr</a><a href="../en/cat-harness/library/who-iris/x/">x</a><img src="../library/x-cover.png">');
     expect(html).toBe('<a href="catalogue/">c</a><a href="./">h</a><a href="who-iris/fr/index.html">fr</a><a href="en/cat-harness/library/who-iris/x/">x</a><img src="library/x-cover.png">');
   });
+
+  it("re-bases the links the page carries as JSON, so the rail's \"On this page\" list resolves", () => {
+    const html = rebaseToOwnSiteRoot(
+      '<script type="application/json" data-fa-visualiser-nav>[{"label":"Home","href":"index.html"},' +
+        '{"label":"Community List","href":"../who-iris/catalogue/"},{"label":"x","href":"../en/cat-harness/library/who-iris/x/"},' +
+        '{"label":"ext","href":"https://example.org/"}]</script>',
+    );
+    expect(html).toContain('"href":"./"');
+    expect(html).toContain('"href":"catalogue/"');
+    expect(html).toContain('"href":"en/cat-harness/library/who-iris/x/"');
+    expect(html).toContain('"href":"https://example.org/"');
+    expect(html).not.toContain('"href":"../');
+  });
 });
