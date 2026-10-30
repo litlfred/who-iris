@@ -11,6 +11,7 @@ export default toolFactory((t) =>
     io: {
       inputs: [
         { name: "check", schema: t("Flag"), required: false, arg: { flag: "--check" }, description: "Fail if a page is stale, instead of writing." },
+        { name: "site", schema: t("RepoPath"), required: false, arg: { flag: "--catalogue-into" }, description: "A site being built (the tree `compose-docs --shell` wrote): write only the catalogue page into it, at its route in who-iris's own site, plus a forwarding page at the declared route. A site build passes it (`visualiser-writers.ts`)." },
       ],
       outputs: [{ name: "pages", schema: t("RepoPath"), description: "The replica's home page at `site/index.html` (and its translations), the docs under `docs/`, and the catalogue page under the published site directory." }],
     },
