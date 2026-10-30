@@ -4,17 +4,17 @@
     {
       "harness": "folio-assistant-core",
       "repository": "litlfred/folio-assistant-core",
-      "ref": "cff15f44ab041016d6d038c03d46af161c5f3749"
+      "ref": "be4e571d8dad29db098542ede6d0979c24c0ea13"
     },
     {
       "harness": "cat-harness",
       "repository": "litlfred/cat-harness",
-      "ref": "2a922e8c36e1f58d33e6f4c4eedbe4da83f98812"
+      "ref": "f24a8886f94fff9ff4257dc7a1b4a3e4c847b14f"
     },
     {
       "harness": "cat-harness-tools",
       "repository": "litlfred/cat-harness-tools",
-      "ref": "ece9b85226e3c8284aed8d375c2bd904ab3671f6"
+      "ref": "ae83f0c11856ba614e8e93510cfe2cce74f75779"
     },
     {
       "harness": "bootstrap",
@@ -89,65 +89,65 @@
     {
       "instance": "cat-harness",
       "repository": "litlfred/cat-harness",
-      "sha": "2a922e8c36e1f58d33e6f4c4eedbe4da83f98812",
+      "sha": "f24a8886f94fff9ff4257dc7a1b4a3e4c847b14f",
       "upstreamRoot": "",
       "path": "cat-harness",
       "via": "cat-harness",
       "pinnedBy": "declared",
       "declaration": {
         "file": "cat-harness.json",
-        "sha256": "adf5b167a154db2684b9e03efab5cf49e33246e3eae73c2108bfd59273d1f81d"
+        "sha256": "09d9700f79de255d1eb828016fdfb06e6a8b47fa714f22914bb2b3d1fc4ef87e"
       },
       "directories": [
         {
           "id": "*",
           "path": "cat-harness",
           "upstreamPath": ".",
-          "treeDigest": "ee2f4822676c02baa03987570acc42c8b2eaaa9609f750f62fd0c5492e1ce320",
-          "files": 13276
+          "treeDigest": "35ffd2bf40d6c4e31e6fc8c46e75c88c434de3aa2104df3204c35600f2433e9e",
+          "files": 12863
         }
       ],
       "trust": {
         "basis": "consent",
         "by": "litlfred",
         "on": "2026-10-30",
-        "ref": "2a922e8c36e1f58d33e6f4c4eedbe4da83f98812",
+        "ref": "f24a8886f94fff9ff4257dc7a1b4a3e4c847b14f",
         "approver": "unverified"
       }
     },
     {
       "instance": "cat-harness-tools",
       "repository": "litlfred/cat-harness-tools",
-      "sha": "ece9b85226e3c8284aed8d375c2bd904ab3671f6",
+      "sha": "ae83f0c11856ba614e8e93510cfe2cce74f75779",
       "upstreamRoot": "",
       "path": "cat-harness-tools",
       "via": "cat-harness-tools",
       "pinnedBy": "declared",
       "declaration": {
         "file": "cat-harness-tools.json",
-        "sha256": "84f4aa64edc98fdbcc7a10da4ae897a9d395bcf7bf8d795ed58cf0cbfc7a794f"
+        "sha256": "07bc8745f4377cb38bee1183a1e900d515c8c55f7e29466489631d797951b349"
       },
       "directories": [
         {
           "id": "*",
           "path": "cat-harness-tools",
           "upstreamPath": ".",
-          "treeDigest": "f2f0b187fa6314c89a152e69efd898d6a0ba183f9f2fca0b4bd03619c1de1b7b",
-          "files": 2594
+          "treeDigest": "8e01e02bfa713a499f64e31c274c00653859a4311728ad5923e4f92acaba856f",
+          "files": 2987
         }
       ],
       "trust": {
         "basis": "consent",
         "by": "litlfred",
         "on": "2026-10-30",
-        "ref": "ece9b85226e3c8284aed8d375c2bd904ab3671f6",
+        "ref": "ae83f0c11856ba614e8e93510cfe2cce74f75779",
         "approver": "unverified"
       }
     },
     {
       "instance": "folio-assistant-core",
       "repository": "litlfred/folio-assistant-core",
-      "sha": "cff15f44ab041016d6d038c03d46af161c5f3749",
+      "sha": "be4e571d8dad29db098542ede6d0979c24c0ea13",
       "upstreamRoot": "",
       "path": "folio-assistant-core",
       "via": "folio-assistant-core",
@@ -161,15 +161,15 @@
           "id": "*",
           "path": "folio-assistant-core",
           "upstreamPath": ".",
-          "treeDigest": "167fa92aabf46ad4cd92350a2c3c352defb0d7ecbf95f65f95d8fa7ce8338176",
-          "files": 6130
+          "treeDigest": "0b5c0486c8c43e5a83f32b969570414515dee027e0be74c1093bedbea682907f",
+          "files": 6131
         }
       ],
       "trust": {
         "basis": "consent",
         "by": "litlfred",
         "on": "2026-10-30",
-        "ref": "cff15f44ab041016d6d038c03d46af161c5f3749",
+        "ref": "be4e571d8dad29db098542ede6d0979c24c0ea13",
         "approver": "unverified"
       }
     }
