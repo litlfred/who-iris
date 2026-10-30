@@ -3116,7 +3116,7 @@ generation time &mdash; not quoted, not remembered.</p>
 <h2>Trust: GDHCN, via WHO SMART Trust</h2>
 
 <p>Owner, 2026-09-20, in two messages: <code>propsal signing = GDHCN</code>, then
-<code>smart-trust</code> &mdash; which names where the first is specified. The
+<code>smart-trust</code> (<a href="https://github.com/litlfred/smart-trust">the trust layer</a>) &mdash; which names where the first is specified. The
 <strong>WHO SMART Trust Implementation Guide</strong>
 (<a href="https://smart.who.int/trust"><code>smart.who.int.trust</code></a>, FHIR R5,
 v1.8.0 as read) publishes GDHCN key material as
