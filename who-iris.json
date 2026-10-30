@@ -150,6 +150,14 @@
       }
     },
     {
+      "id": "who-iris-processes",
+      "path": "processes/",
+      "graphTypologies": [
+        "processes"
+      ],
+      "description": "The IRIS CDN Exporter's BPMN processes (issue #100): initial load, nightly change ingest over DSpace REST, weekly reconciliation, and sign-and-publish. Cloudflare git (Artifacts) and Cloudflare R2 + CDN are lanes, because the owner ruled 2026-10-30 that exports live on Cloudflare and GitHub Pages only previews. Each activity names the skill that carries it out; the platform's nquads-distribution process is called, not copied. Rendered drawings: docs/assets/img/processes/."
+    },
+    {
       "id": "who-iris-scripts",
       "path": "scripts/",
       "description": "The catalogue checker, the cover generator and `gen-iris-pages.ts` -- the instance-local generator `wjfu` cites as the precedent for every other one here (*\"instance-local generator, static HTML, committed, gated\"*). Cited as a model by another instance's bean while being undeclared itself, which is the sharpest form of the `ylj7` defect: a directory can be the corpus's own worked example and still be invisible to every consumer that walks declarations.",
