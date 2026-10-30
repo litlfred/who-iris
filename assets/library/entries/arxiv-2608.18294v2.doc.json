@@ -426,7 +426,10 @@
       "labelStart": "1",
       "labelEnd": "2",
       "words": 323,
-      "summary": null,
+      "summary": {
+        "text": "Front matter and abstract for Egami and Shin (MIT), 'Debiased Inference for AI-Generated Data without Gold-Standard Labels: Identification via Multiple Imperfect Measurements' (arXiv:2608.18294v2). Treating AI-measured variables as error-free biases downstream inference even above 90% accuracy, while existing corrections (DSL, PPI) require costly gold-standard labels. The authors propose debiased inference with multiple imperfect measurements (DMM), which combines three or more error-prone AI annotations under conditional independence given the latent true label and observed unit-level features (such as text embeddings), proves consistency and asymptotic normality via semiparametric inference theory, and introduces diagnostics for the conditional independence assumption.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Debiased Inference for AI-Generated Data without Gold-Standard Labels: Identification via Multiple Imperfect Measurements∗ Naoki Egami† Sooahn Shin‡ Abstract An increasing number of scholars use AI to measure variables they subsequently include in downstream analyses. Although AI-measured variables are often analyzed as if observed without error, ignoring prediction errors in automated measurement leads to",
       "extractCut": true
@@ -441,7 +444,10 @@
       "labelStart": "2",
       "labelEnd": "5",
       "words": 2410,
-      "summary": null,
+      "summary": {
+        "text": "Section 1 (Introduction) and Related Literature. Motivates how non-random, nonclassical errors in AI/LLM annotations bias downstream social-science regressions and harm replicability, and contrasts gold-standard validation methods (DSL, PPI, MAR-S) with the proposed DMM framework, which uses three or more imperfect proxies without gold-standard labels. Summarizes three main contributions—replacing gold-standard labels via conditional CP decomposition given the latent label and rich unit covariates, general moment-estimator applicability for categorical independent or dependent variables with J >= 3 proxies, and LLM-specific design and diagnostic strategies—before situating DMM relative to the AI-generated data, repeated-measurement identification (Kruskal, Hu, Allman–Matias–Rhodes, Dawid–Skene), and proxy-based causal inference literatures.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "One of the most common applications of AI in the social sciences has been in measurement. Re- searchers have used AI to measure a wide range of variables, such as sentiment, tone, topics (e.g., Gilardi, Alizadeh and Kubli, 2023; Ziems et al., 2024), protests, political violence (e.g., Halterman and Keith, 2026), and job types (e.g., Hansen et al., 2023), among others. Such measurement tasks are only the first step.",
       "extractCut": true
@@ -456,7 +462,10 @@
       "labelStart": "5",
       "labelEnd": "6",
       "words": 103,
-      "summary": null,
+      "summary": {
+        "text": "Section 2 opening (The Problem Setting and Existing Approaches). Notes that ignoring measurement error in machine or human annotations biases downstream analysis even when annotation accuracy exceeds 90%, and states that Section 2 and Section 3 first focus on a binary error-prone independent variable before Section 4 generalizes to multicategory independent or dependent variables.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Scholars often use machine or human annotations to measure key variables of interest that they want to analyze in downstream analysis. However, as recent papers theoretically and empirically show, 5 ignoring measurement errors in the annotation step can bias downstream inference, even when the accuracy of the annotation step is high, e.g., more than 90%. For clarity of presentation, we first focus on settings where",
       "extractCut": true
@@ -471,7 +480,10 @@
       "labelStart": "6",
       "labelEnd": "6",
       "words": 349,
-      "summary": null,
+      "summary": {
+        "text": "Section 2.1 (Setup). Formalizes the binary latent independent variable setting: for n units with unobserved true label X*_i in {0,1}, observed outcome Y_i, covariates W_i, and J >= 3 binary proxy labels X^(j)_i, the target parameter beta* uniquely solves the full-data moment equation E[psi_F(Y, X*, W; beta)] = 0. Illustrates psi_F for linear, logistic, and generalized linear models and notes that under model misspecification beta* represents the population projection parameter.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "For each unit i = 1, . . . , n, let X∗ i ∈{0, 1} denote an unobserved true label, Yi denote an observed downstream dependent variable, and Wi denote observed covariates in downstream analysis. Instead of observing the true label X∗ i , researchers observe J ≥3 error-prone proxy labels e Xi = \u0000X(1) i , . . . , X(J) i \u0001 , X(j) i ∈{0, 1}. The labels may, for example, be produced by different human annotators, machine",
       "extractCut": true
@@ -486,7 +498,10 @@
       "labelStart": "6",
       "labelEnd": "7",
       "words": 196,
-      "summary": null,
+      "summary": {
+        "text": "Section 2.2.1 (Naive Approaches Ignoring Measurement Errors). Shows that collapsing J proxy labels into a single index X-check (such as majority voting) and plugging it directly into the downstream moment equation yields a population moment bias E[(X-check - X*){psi_F(Y,1,W;beta) - psi_F(Y,0,W;beta)}], which remains nonzero even at high classification accuracy because classification errors are nonclassical and correlated with downstream variables.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "A common strategy first collapses the multiple labels to a single proxy, e.g., using majority voting ˇXi = 1{P j X(j) i > J/2}. More generally, ˇXi ∈{0, 1} may be any function of the multiple labels, 6 such as selecting one annotator or thresholding their average. The resulting ˇXi is then treated as if it were X∗ i . The naive estimator bβnaive solves 1 n n X i=1 ψF (Yi, ˇXi, Wi; β) = 0. This is exactly the",
       "extractCut": true
@@ -501,7 +516,10 @@
       "labelStart": "7",
       "labelEnd": "7",
       "words": 209,
-      "summary": null,
+      "summary": {
+        "text": "Section 2.2.2 (Gold-Standard-Only Estimation). Defines the inverse-probability-weighted gold-standard-only (GSO) estimator using units sampled for expert labeling with known researcher-controlled probabilities rho_i = Pr(R_i = 1 | Y_i, W_i, X-tilde_i). Notes that GSO is consistent and asymptotically normal for beta* but inefficient because it discards the proxy labels and all unlabeled units.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "To address non-random, nonclassical measurement errors, the most dominant existing approach is to rely on gold-standard labels. Such methods assume that X∗ i is observed for a small subset of units sampled according to a known sampling design. Let Ri ∈{0, 1} indicate whether X∗ i is observed, and define the sampling probability ρi := Pr(Ri = 1 | Yi, Wi, e Xi) ∈(0, 1]. We assume that the sampling probability is",
       "extractCut": true
@@ -516,7 +534,10 @@
       "labelStart": "7",
       "labelEnd": "8",
       "words": 533,
-      "summary": null,
+      "summary": {
+        "text": "Section 2.2.3 (Debiased Inference with Gold-Standard Labels). Reviews prediction-and-correction estimators (DSL, PPI, MAR-S) that combine large-scale proxy predictions with a gold-standard validation sample, presenting the cross-fitted doubly robust DSL moment function as a benchmark. Explains that DSL achieves unbiasedness for the oracle moment under a known sampling design without assumptions on LLM error structure, and contrasts the continuum of naive, GSO, and validation-based bias-correction approaches.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "More recently, a broad class of methods combines predictions available at scale with a smaller sample of gold-standard measurements to bias-correct downstream analysis. This class of bias-correction methods includes design-based supervised learning (DSL; Egami et al., 2023, 2026), prediction- powered inference (PPI; Angelopoulos et al., 2023), methods reviewed in Ludwig, Mullainathan and Rambachan (2026), MAR-S",
       "extractCut": true
@@ -531,7 +552,10 @@
       "labelStart": "8",
       "labelEnd": "8",
       "words": 40,
-      "summary": null,
+      "summary": {
+        "text": "Closing paragraph of Section 2.2.3 transitioning to Section 3. Observes that validation-based methods such as DSL and PPI require gold-standard labels for a subset of units—which can be prohibitively costly or infeasible—motivating Section 3's gold-standard-free approach.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "However, they assume access to gold-standard labels for a subset of units, which might be difficult or too costly for some applications. In the next section, we explore an alternative approach that does not assume access to gold-standard labels. 3",
       "extractCut": false
@@ -546,7 +570,10 @@
       "labelStart": "8",
       "labelEnd": "10",
       "words": 718,
-      "summary": null,
+      "summary": {
+        "text": "Section 3 opening and Section 3.1 (Assumptions). Reviews the classical conditional independence assumption X^(1) _||_ ... _||_ X^(J) | X* from the latent-class literature and explains why it fails when human or LLM annotators share input-driven or prompt-driven error sources. Introduces Assumption 3.1, which conditions on both the latent label X* and observed covariates D-tilde = (D, W, Y)—including task features such as text embeddings or prompt metadata—so misclassification rates can vary across both annotators and units.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "We now show how to use multiple imperfect labels to perform valid downstream inference without requiring gold-standard labels. In particular, building on established results on identification of latent variables, we use the joint distribution of multiple imperfect labels to recover the unbiased downstream moment under a conditional independence assumption. In Section 3.1, we begin by reviewing this classical",
       "extractCut": true
@@ -561,7 +588,10 @@
       "labelStart": "10",
       "labelEnd": "10",
       "words": 285,
-      "summary": null,
+      "summary": {
+        "text": "Section 3.2 opening (Identification overview). Outlines the two-step identification strategy under Assumption 3.1: first identifying each proxy's conditional true- and false-positive rates eta*_{j,a}(d) = Pr(X^(j) = 1 | X* = a, D-tilde = d) via array decomposition, and second constructing an unbiased bridge function H(X-tilde, D-tilde) satisfying E[H | X*, D-tilde] = X* to form the observed-data moment psi_DMM whose expectation matches the oracle full-data moment.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "We now discuss how to identify the downstream moment function under the conditional independence assumption. Here we provide an overview of the two steps, which we elaborate in the subsequent sections. The first step is to identify the conditional classification rate defined as η∗ j,a(d) = Pr(X(j) = 1 | X∗= a, eD = d), (3.2) where η∗ j,1(d) denotes the true positive rate and η∗ j,0(d) represents the false positive",
       "extractCut": true
@@ -576,7 +606,10 @@
       "labelStart": "10",
       "labelEnd": "12",
       "words": 721,
-      "summary": null,
+      "summary": {
+        "text": "Section 3.2.1 (Identification of Conditional Classification Rates). Adapts Allman, Matias, and Rhodes (2009) Theorem 4 and Kruskal's (1977) uniqueness theorem by partitioning the J >= 3 proxies into three nonempty subsets to form a three-way conditional probability tensor with a two-component CP decomposition. Shows that when each subset contains at least one informative proxy, Kruskal's rank condition k_1 + k_2 + k_3 >= 6 holds with equality, and combining this with an anchoring rule (such as eta*_{j+,1} > eta*_{j+,0}) uniquely identifies the mixing probabilities and all conditional classification rates eta*_{j,a}(d) (Result 1).",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "We start with identification of conditional classification rate η∗ j,a(d). Assumption 3.1 implies that the joint distribution of imperfect proxies can be factorized as follows. Pr( e X = ex | eD = d) = 1 X a=0 Pr(X∗= a | eD = d) J Y j=1 η∗ j,a(d)x(j){1 −η∗ j,a(d)}1−x(j). (3.3) This equation mirrors the classical latent-class decomposition and its identification through array decomposition under Kruskal’s uniqueness",
       "extractCut": true
@@ -591,7 +624,10 @@
       "labelStart": "12",
       "labelEnd": "14",
       "words": 1146,
-      "summary": null,
+      "summary": {
+        "text": "Section 3.2.2 (Identification via the Robust Bridge Function). Defines single-proxy bridges M_j = (X^(j) - eta*_{j,0})/(eta*_{j,1} - eta*_{j,0}) and combines pairwise and triplewise averages into the symmetric Neyman-orthogonal robust bridge H^R = 3 H_2 - 2 H_3 using at least three proxies. Proves Proposition 3.1 showing that H^R is unbiased for X* and has only second- and third-order conditional bias in cross-fitted first-stage nuisance errors (yielding O_p(delta_n^2) remainder), and proves Theorem 3.1 establishing identification of beta* via the DMM moment equation.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Given the identified conditional classification rate η∗ j,a( eD), we now construct a tailored bridge function to obtain an unbiased downstream moment function by building on the recent literature in causal inference (Zhou and Tchetgen Tchetgen, 2024; Guo et al., 2026). We first define a single-proxy bridge as Mj( eD; η∗) = X(j) −η∗ j,0( eD) η∗ j,1( eD) −η∗ j,0( eD) , which by construction satisfies E[Mj( eD; η∗) |",
       "extractCut": true
@@ -606,7 +642,10 @@
       "labelStart": "14",
       "labelEnd": "17",
       "words": 1500,
-      "summary": null,
+      "summary": {
+        "text": "Section 3.3 (Estimation and Inference). Defines the K-fold cross-fitted DMM estimator beta-hat_DMM using out-of-fold nuisance estimates (e.g., via EM or sieve methods) and proves Theorem 3.2: beta-hat_DMM is consistent when J - 1 proxy nuisance models converge (multiple robustness) and root-n asymptotically normal when nuisance errors converge at rate o_p(n^{-1/4}), with a plug-in sandwich variance estimator. Analyzes asymptotic efficiency as a function of proxy count J and single-bridge variances kappa_{j,a}(d), showing an O(J^{-2}) bridge-variance reduction under homogeneous proxies and noting that adding a very noisy proxy can increase variance unless it passes an explicit variance threshold.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Given the identification results in the previous section, this section proposes the DMM (debiased inference with multiple imperfect measurements) estimator and proves its consistency and asymptotic normality. First, to estimate the conditional classification rate, we use cross-fitting (Chernozhukov et al., 2018) and separate estimation of the nuisance function from evaluation of the downstream moment function.",
       "extractCut": true
@@ -621,7 +660,10 @@
       "labelStart": "17",
       "labelEnd": "17",
       "words": 46,
-      "summary": null,
+      "summary": {
+        "text": "Section 4 opening (Extensions). Outlines the two generalizations of the DMM framework developed in Section 4: binary latent dependent variables (Section 4.1) and multicategory latent independent or dependent variables (Section 4.2).",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "We now extend the proposed framework to settings in which an error-prone variable is a binary dependent variable (Section 4.1). We then provide the most general results where we extend our method to settings where either an independent or dependent variable is multicategory (Section 4.2). 4.1",
       "extractCut": false
@@ -636,7 +678,10 @@
       "labelStart": "17",
       "labelEnd": "17",
       "words": 1,
-      "summary": null,
+      "summary": {
+        "text": "Section 4.1 (Latent Dependent Variable) heading stub introducing Subsection 4.1.1.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "4.1.1",
       "extractCut": false
@@ -651,7 +696,10 @@
       "labelStart": "17",
       "labelEnd": "19",
       "words": 465,
-      "summary": null,
+      "summary": {
+        "text": "Section 4.1.1 (Setup and Identification for a Latent Dependent Variable). Formulates the binary latent outcome model where Y*_i in {0,1} is unobserved and J >= 3 binary outcome proxies Y^(j)_i are conditionally independent given (Y*, D-tilde) with D-tilde = (D, W) (Assumption 4.1). Constructs the outcome-proxy bridges M^Y_j, the symmetric robust outcome bridge H^R_Y, and the observed-data moment phi^DMM_Y, proving Proposition 4.1 that beta* is identified as the unique root of E[phi^DMM_Y] = 0.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Let Y ∗ i ∈{0, 1} denote the latent true outcome, and let Wi collect all observed variables entering the downstream analysis as before, including any focal independent variable and additional covariates. 17 Instead of Y ∗ i , the researcher observes J ≥3 imperfect labels eYi = \u0000Y (1) i , . . . , Y (J) i \u0001 , Y (j) i ∈{0, 1}. As in Section 3, let Di collect auxiliary information that may help account for heterogeneity",
       "extractCut": true
@@ -666,7 +714,10 @@
       "labelStart": "19",
       "labelEnd": "19",
       "words": 237,
-      "summary": null,
+      "summary": {
+        "text": "Section 4.1.2 (Estimation and Inference for a Latent Dependent Variable). Defines the cross-fitted estimator beta-hat^DMM_Y and states Theorem 4.1 establishing consistency under o_p(1) nuisance error and root-n asymptotic normality with sandwich variance A_{Y,0}^{-1} Omega_{Y,0} A_{Y,0}^{-T} when the outcome-proxy nuisance estimators converge at rate o_p(n^{-1/4}).",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Estimation follows Section 3. Within each training fold, estimate the conditional latent-class model of eY given eD, apply the same anchoring rule, and construct the out-of-fold bridge bHR Y,i. Define bϕDMM Y,i (β) = (1 −bHR Y,i)ϕF (0, Wi; β) + bHR Y,iϕF (1, Wi; β), and let bβDMM Y solve 1 n n X i=1 bϕDMM Y,i (β) = 0. Theorem 4.1 (Large-sample theory for a latent dependent variable). Suppose the direct analogs of",
       "extractCut": true
@@ -681,7 +732,10 @@
       "labelStart": "19",
       "labelEnd": "21",
       "words": 1166,
-      "summary": null,
+      "summary": {
+        "text": "Section 4.2 (Multicategory Labels). Extends DMM to a K*-category latent variable with J >= 3 proxies of potentially differing category counts K_j by defining class-specific bridge functions H_a(Y-tilde, D-tilde) via the left inverse S^+(d) of the conditional measurement matrix S(d) and combining single-proxy bridges into the Neyman-orthogonal robust bridge H^R_a = 3 H_{2,a} - 2 H_{3,a}. Discusses Kruskal rank conditions (3K* >= 2K* + 2 when three proxy groups have full column rank K*), composite proxy grouping when individual proxies have fewer than K* categories, anchoring across all K* classes, and uniform lower bounds on the smallest singular value sigma_min{S_j(d)}.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "So far we have focused on settings with a binary independent or dependent variable. In this sub- section, we discuss how our method can be generalized to the multicategory case. The downstream moment argument extends directly; the main additional challenge lies in identifying a vector of class- specific bridges under stronger rank and anchoring conditions. For the sake of clear presentation, here we present our",
       "extractCut": true
@@ -696,7 +750,10 @@
       "labelStart": "21",
       "labelEnd": "22",
       "words": 86,
-      "summary": null,
+      "summary": {
+        "text": "Section 5 opening (Designing and Assessing Conditional Independence). Emphasizes that conditional independence of measurement errors is a structural assumption not guaranteed by high proxy accuracy, and previews the three parts of Section 5: measurement design (Section 5.1), gold-standard-free diagnostics (Section 5.2), and direct testing plus DMM-assisted DSL bias correction when a small validation sample is available (Section 5.3).",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Conditional independence is a structural assumption about the residual errors of the measurements and is not guaranteed by high predictive accuracy of each imperfect measurement. We therefore first recommend explicitly designing multiple measurements to make the assumption as plausible as possible (Section 5.1). We then propose a diagnostic tool for the conditional independence assumption (Section 5.2). We finally",
       "extractCut": true
@@ -711,7 +768,10 @@
       "labelStart": "22",
       "labelEnd": "22",
       "words": 542,
-      "summary": null,
+      "summary": {
+        "text": "Section 5.1 (Making the Conditional Independence Assumption More Plausible). Recommends three practical strategies for LLM and human annotation designs: (1) enriching the conditioning set D-tilde with input features (text length, style, embeddings, or cross-LLM disagreement scores as task-difficulty proxies); (2) partitioning annotators into G >= 3 conditionally independent groups across distinct model families (e.g., GPT, Claude, open-weight LLMs, and blinded humans) while allowing arbitrary within-group error dependence; and (3) randomizing or recording prompt versions across annotators to prevent prompt-induced error correlation.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "The first approach is to judiciously create a conditioning set. Unlike the traditional conditional independence assumption that only conditions on the latent variable itself (equation (3.1)), our method explicitly allows for conditioning on auxiliary input- or annotation-level information Di and the downstream variables Wi. Therefore, by incorporating rich information about each annotation task, the proposed method",
       "extractCut": true
@@ -726,7 +786,10 @@
       "labelStart": "22",
       "labelEnd": "23",
       "words": 279,
-      "summary": null,
+      "summary": {
+        "text": "Section 5.2 (Diagnostics Without Gold-Standard Labels). Notes that three binary proxies with two latent classes are just-identified (7 degrees of freedom and 7 parameters), whereas J >= 4 proxies yield 2^J - 2J - 2 overidentifying restrictions at each covariate value d. Proposes two gold-standard-free specification diagnostics: goodness-of-fit / conditional moment tests comparing the fitted product-mixture distribution to the empirical joint label distribution, and multiplier-bootstrap stability tests comparing DMM parameter estimates across distinct subsets of three or more proxies.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "In most applications, researchers can also conduct a diagnostic test to evaluate the observable impli- cations of the conditional independence assumption. With exactly three binary proxies and two latent classes, the unrestricted latent-class model is generically just identified at each fixed value eD = d: the observed label distribution has 23 −1 = 7 degrees of freedom, equal to the 2J +1 = 7 latent-class and",
       "extractCut": true
@@ -741,7 +804,10 @@
       "labelStart": "23",
       "labelEnd": "24",
       "words": 535,
-      "summary": null,
+      "summary": {
+        "text": "Section 5.3 (Testing and Bias-Correction with Small Gold-Standard Data). Shows how a small validation sample with known sampling probabilities rho_i enables (1) a direct conditional moment test of zero residual products across proxy subsets given X* = a and D-tilde, and (2) a DMM-assisted DSL estimator that uses the cross-fitted DMM moment function as a full-sample imputation / control variate corrected by inverse-probability-weighted validation residuals, guaranteeing validity even if conditional independence fails while improving precision when DMM is informative.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "When the conditional independence assumption is in serious doubt, it is generally recommended to collect the gold-standard labels, even for a small amount of data, for two reasons: (a) direct testing of the conditional independence assumption and (b) bias correction without assuming the conditional independence assumption. First, a gold-standard sample permits a direct assessment of the conditional independence as-",
       "extractCut": true
@@ -756,7 +822,10 @@
       "labelStart": "24",
       "labelEnd": "24",
       "words": 133,
-      "summary": null,
+      "summary": {
+        "text": "Section 6 opening (Simulation and Empirical Validation). Previews the two empirical evaluations of DMM: a calibrated simulation study of political advertising tone based on Fowler et al. (2021) where conditional independence holds by construction for a latent dependent variable (Section 6.1), and a real-data validation study of online corruption complaints in China based on Pan and Chen (2018) with LLM proxy annotations for a latent independent variable without imposing conditional independence (Section 6.2).",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "We use simulation studies (Section 6.1) and real-world empirical validation (Section 6.2) to evaluate DMM. First, a simulation study calibrated based on an empirical study of political advertisements (Fowler et al., 2021) examines a latent dependent variable under a synthetic data-generating process that satisfies the conditional independence assumption. This simulation study evaluates the finite- sample performance",
       "extractCut": true
@@ -771,7 +840,10 @@
       "labelStart": "24",
       "labelEnd": "25",
       "words": 535,
-      "summary": null,
+      "summary": {
+        "text": "Section 6.1 (Simulation Study: Platform Differences in Political Advertising Tone). Evaluates DMM over 500 Monte Carlo replications calibrated to 12,973 ads from Fowler et al. (2021), estimating the Facebook coefficient (target 1.314) in a logistic regression for the binary Promote indicator as J increases from 3 to 15 F1-ranked proxies. Reports that with the top 3 proxies naive majority voting suffers severe bias (0.186) and near-zero 95% CI coverage (0.018), whereas DMM eliminates bias (0.002), achieves nominal coverage (0.948), cuts RMSE by two thirds (0.063 vs. 0.191), and approaches the infeasible oracle RMSE (0.045) as informative proxies are added.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Fowler et al. (2021) compare the tone of political advertisements on Facebook and television. We use the expert-coded “Promote” indicator as the latent dependent variable and target the coefficient on the Facebook indicator in an ad-level logistic regression adjusting for party, incumbency status, and office type. We hold the observed covariates for 12,973 advertisements fixed and simulate the latent outcome and",
       "extractCut": true
@@ -786,7 +858,10 @@
       "labelStart": "25",
       "labelEnd": "26",
       "words": 488,
-      "summary": null,
+      "summary": {
+        "text": "Section 6.2 (Empirical Validation: Accusations of Wrongdoing in China) and Figure 1 captions/labels. Evaluates DMM on 1,412 real citizen complaints from Pan and Chen (2018) using three LLM proxies (GPT-4.1 5-shot, GPT-4 5-shot, Llama-4 0-shot) for the latent prefecture-level wrongdoing regressor in a logistic regression of upward reporting (expert benchmark -1.039). Shows that single-proxy naive estimates are heavily biased (-1.869 to -0.388, coverage 0.154-0.572), while DMM without any expert labels yields -0.844 with 0.862 resample coverage, comparable to DSL using 500 expert labels (-1.279, coverage 0.981).",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Pan and Chen (2018) study whether Chinese officials conceal online complaints that accuse local officials of wrongdoing. We treat the expert-coded indicator of prefecture-level wrongdoing as the latent independent variable and upward reporting as the downstream dependent variable. The main estimand is the coefficient on prefecture-level wrongdoing in a logistic regression of upward reporting on the latent indicator",
       "extractCut": true
@@ -801,7 +876,10 @@
       "labelStart": "26",
       "labelEnd": "33",
       "words": 2160,
-      "summary": null,
+      "summary": {
+        "text": "Section 7 (Discussion), Figure 2 labels/caption, and References. Synthesizes DMM's methodological contributions—identifying conditional classification rates via covariate-conditioned latent-class decomposition, achieving Neyman orthogonality and single-proxy misspecification robustness via the symmetric bridge H^R, and analyzing how proxy count and quality govern asymptotic variance—alongside its main limitation (reliance on conditional independence) and complementarity with validation-based methods (DSL, PPI), followed by the full bibliography.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "In this paper, we proposed debiased inference with multiple imperfect measurements (DMM), a framework to conduct valid downstream inference without gold-standard labels. Under the condi- tional independence assumption given the latent variable and any observed features of annotation tasks, such as annotation difficulty, captured by text embeddings, DMM identifies the conditional classification rate model required",
       "extractCut": true
@@ -816,7 +894,10 @@
       "labelStart": "33",
       "labelEnd": "33",
       "words": 200,
-      "summary": null,
+      "summary": {
+        "text": "Appendix A opening (Proofs). Sets up K-fold cross-fitting notation, empirical and population expectation operators (P, P_{n,k}, P_n), and shorthand for the fold-specific fitted single-proxy bridges M-hat_{j,-k}, robust bridge H-hat^R_{-k}, and DMM moment function psi_DMM(O; beta, eta) used throughout the technical proofs.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Throughout this section, partition {1, . . . , n} into K folds I1, . . . , IK. For each fold k, let I−k = {1, . . . , n} \\ Ik denote the corresponding training indices and let nk = |Ik|, where Oi = (Yi, e Xi, eDi). Nuisance estimates indexed by (−k) are fitted using observations indexed by I−k. We take the number of folds and the fold proportions to be fixed. For any measurable function f, write Pf = E{f(O)}, Pn,kf",
       "extractCut": true
@@ -831,7 +912,10 @@
       "labelStart": "33",
       "labelEnd": "35",
       "words": 937,
-      "summary": null,
+      "summary": {
+        "text": "Appendix A.1 (Proof of Proposition 3.1: Bounds for the Robust Bridge). States and proves Lemma A.1 and Proposition 3.1, deriving exact pairwise and triplewise product expansions for the foldwise conditional bridge errors B^R_{1,-k}(D-tilde) and B^R_{0,-k}(D-tilde), proving that linear error terms cancel because 3(2/J) - 2(3/J) = 0, establishing L_2 bounds ||M-hat_{j,-k} - M_{j,0}||_{2,P} <= C delta_n and P|B^R_{a,-k}| <= C delta_n^2, and showing exact zero bridge bias when at most one proxy's nuisance model is misspecified.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "For a ∈{0, 1}, define the fold-specific single-bridge error e(−k) j,a ( eD) = E h c Mj,−k | X∗= a, eD, I−k i −a, and the corresponding robust bridge error BR a,−k( eD) = E h bHR −k | X∗= a, eD, I−k i −a. Lemma A.1 (Foldwise robust bridge error). Suppose Assumption 3.1 holds, J is fixed, and the true and fitted class contrasts, {η∗ j,1( eD) −η∗ j,0( eD)}J j=1 and {{bη(−k) j,1 ( eD) −bη(−k) j,0 ( eD)}J j=1}K k=1 , are",
       "extractCut": true
@@ -846,7 +930,10 @@
       "labelStart": "35",
       "labelEnd": "39",
       "words": 1203,
-      "summary": null,
+      "summary": {
+        "text": "Appendix A.2 (Proof of Theorem 3.2: Second-Order Remainder for the DMM Moment Function and Large-Sample Theory). Proves Lemma A.2 bounding the foldwise conditional population remainder ||R_{n,k}(beta)||_2 <= C delta_n^2 uniformly on B_0, and completes the proof of Theorem 3.2: establishes consistency (including multiple robustness when J - 1 proxies are consistently estimated) via an r-net union bound and Z-estimation, proves root-n asymptotic normality when delta_n = o_p(n^{-1/4}) via mean-value expansion and Slutsky's theorem, and verifies consistency of the plug-in sandwich covariance estimator V-hat.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Function and Large-Sample Theory Let B0 ⊂B be the compact neighborhood of β∗in Theorem 3.2. Under the bounded-envelope condition in Theorem 3.2, there exists a finite constant C such that sup β∈B0 ψF (Y, 1, W; β) −ψF (Y, 0, W; β) ≤C a.s. The remaining smoothness and envelope conditions are those stated in Theorem 3.2. For each fold, define the conditional population remainder Rn,k(β) = E \u0002 ψDMM(O; β, bη−k) −ψDMM(O;",
       "extractCut": true
@@ -861,7 +948,10 @@
       "labelStart": "39",
       "labelEnd": "41",
       "words": 864,
-      "summary": null,
+      "summary": {
+        "text": "Appendix B (Details for the Efficiency Discussion). Derives the oracle-plus-bridge-noise decomposition of the DMM meat matrix Omega^R_{0,J} (equations 3.17-3.19) and uses conditional orthogonality of centered single-bridge errors epsilon_j to obtain the exact conditional bridge variance formula v^R_{a,J}(d) in terms of elementary symmetric sums S_{1,a,J}, S_{2,a,J}, and S_{3,a,J} of single-proxy variances kappa_{j,a}(d). Derives the exact variance-reduction threshold kappa-bar_{J,a}(d) for adding a (J+1)-th proxy and shows that under homogeneous proxy variance kappa_a(d), v^R_{a,J}(d) decays at rate O(J^{-2}) and any new proxy with variance below asymptotically 2 kappa_a(d) improves precision.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Throughout this section, write HR 0,J when emphasizing that the robust bridge uses J proxies. Equa- tion (3.16) gives ψDMM J ( e X, eD; β∗, η∗) = ψF 0 + {HR 0,J −X∗}∆ψ0, where ψF 0 is a shorthand for the oracle full-data moment function evaluated at the true parameter. The unbiasedness of the bridge function E h HR 0,J | X∗, eD i = X∗implies equation (3.17). Expanding the product defining the meat matrix yields ΩR",
       "extractCut": true
@@ -876,7 +966,10 @@
       "labelStart": "41",
       "labelEnd": "41",
       "words": 52,
-      "summary": null,
+      "summary": {
+        "text": "Appendix C opening (Additional Details on the Experiments). Outlines the contents of Appendix C covering the relationship of the two Section 6 empirical exercises to their original studies, the shared low-dimensional logistic latent-class model and EM algorithm, and the application-specific simulation and validation protocols.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "This appendix provides additional information on the two studies in Section 6. We first clarify how our analyses relate to the original applications, then describe the logistic latent-class model and the expectation–maximization (EM) algorithm used in both studies, and finally give application-specific details. Throughout, an “expert label” denotes the benchmark annotation. C.1",
       "extractCut": false
@@ -891,7 +984,10 @@
       "labelStart": "41",
       "labelEnd": "41",
       "words": 292,
-      "summary": null,
+      "summary": {
+        "text": "Appendix C.1 (Scope and Relationship to the Original Applications). Clarifies how the two Section 6 studies simplify the original empirical specifications to isolate a single latent binary variable: using an ad-level logit on 12,973 complete-case ads without candidate fixed effects for Fowler et al. (2021), and focusing solely on the prefecture-level wrongdoing main effect without county-level wrongdoing interactions on 1,412 complaints for Pan and Chen (2018). Explains the three evaluation roles played by expert labels (oracle benchmark, synthetic DGP calibration, and retrospective F1 ranking of proxy sets).",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "The two analyses are numerical illustrations of DMM rather than exact replications of the origi- nal substantive studies. In the first application, the original analysis and the DSL validation study examine differences in political-advertising tone between Facebook and television using the original expert-coded corpus and a candidate-adjusted downstream analysis (Fowler et al., 2021; Egami et al., 2026). We instead",
       "extractCut": true
@@ -906,7 +1002,10 @@
       "labelStart": "41",
       "labelEnd": "42",
       "words": 253,
-      "summary": null,
+      "summary": {
+        "text": "Appendix C.2 (Model Specification). Specifies the shared parametric logistic latent-class nuisance model used in both applications, modeling latent prevalence Pr(L*_i = 1 | Z_i) = expit(Z_i^T alpha) and class-specific proxy response probabilities Pr(L^(j)_i = 1 | L*_i = a, Z_i) = expit(Z_i^T gamma_{j,a}) without including the downstream outcome Y_i in the Pan-Chen measurement likelihood.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Both applications use the same low-dimensional logistic latent-class model for the measurement nuisance functions. To describe the common implementation, let L∗ i ∈{0, 1} denote a generic latent binary label, let eLi = (L(1) i , . . . , L(J) i ) collect its binary proxy labels, and let Zi denote the nuisance- 41 model design vector, including an intercept. The correspondence is Fowler: L∗ i = Y ∗ i , Zi = (1, Ti, W",
       "extractCut": true
@@ -921,7 +1020,10 @@
       "labelStart": "42",
       "labelEnd": "43",
       "words": 551,
-      "summary": null,
+      "summary": {
+        "text": "Appendix C.2.1 (Expectation-Maximization Algorithm). Details the E-step log-sum-exp posterior responsibility update xi^(t)_i and M-step fractional/weighted logistic regressions for fitting the latent-class nuisance model, along with Table C.1's shared numerical settings (6 starts, 500 max iterations, 10^{-5} responsibility tolerance, 10^{-7} log-likelihood tolerance, [-20,20] coefficient clipping, [10^{-8}, 1-10^{-8}] probability clipping, and 0.05 bridge denominator floor) and post-EM sign orientation.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Let ξ(t) i = Prθ(t)(L∗ i = 1 | eLi, Zi) denote the posterior responsibility at iteration t. For compactness, define f(t) ij,a = {η(t) ij,a}L(j) i {1 −η(t) ij,a}1−L(j) i . The E-step is ξ(t) i = p(t) i QJ j=1 f(t) ij,1 (1 −p(t) i ) QJ j=1 f(t) ij,0 + p(t) i QJ j=1 f(t) ij,1 . (C.2) The production code evaluates equation (C.2) on the log scale using a log-sum-exp calculation. Given ξ(t) i , the M-step separates into",
       "extractCut": true
@@ -936,7 +1038,10 @@
       "labelStart": "43",
       "labelEnd": "44",
       "words": 174,
-      "summary": null,
+      "summary": {
+        "text": "Appendix C.2.2 (From the EM Nuisance Fit to DMM). Gives the exact finite-sample implementation formulas for converting EM nuisance fits into the stabilized single-proxy bridges M-hat_{ij} (with denominator floor epsilon = 0.05), the robust bridge H-hat^R_i, the generated-outcome quasi-score equation for the Fowler latent-outcome logit, the weighted moment equation for the Pan-Chen latent-regressor logit, and empirical sandwich standard errors.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Let b∆ij := bηij,1 −bηij,0. In the implementation, the denominator is stabilized as b∆ij,ϵ = ( max(b∆ij, ϵ), b∆ij ≥0, min(b∆ij, −ϵ), b∆ij < 0, ϵ = 0.05, and the fitted single-proxy bridge is c Mij = L(j) i −bηij,0 b∆ij,ϵ . The robust bridge is then bHR i = 3 \u0012J 2 \u0013−1 X j1<j2 c Mij1 c Mij2 −2 \u0012J 3 \u0013−1 X j1<j2<j3 c Mij1 c Mij2 c Mij3. 43 The floor is a finite-sample stabilization device rather than part of the",
       "extractCut": true
@@ -951,7 +1056,10 @@
       "labelStart": "44",
       "labelEnd": "45",
       "words": 723,
-      "summary": null,
+      "summary": {
+        "text": "Appendix C.3 (Monte Carlo Simulations). Documents the full calibration and evaluation protocol for the Fowler et al. (2021) simulation study (12,973 ads, Promote prevalence 0.756, target Facebook logit coefficient 1.3141, 500 replications per nested proxy count J, random tie-breaking for even-J majority vote) and summarizes additional simulations for the lower-prevalence Contrast (17.2%, target -1.029) and Attack (7.1%, target -1.334) tone indicators.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Data, annotation task, and downstream target. The annotation task follows the Wesleyan Media Project codebook used in Fowler et al. (2021): an ad is classified according to whether its primary purpose is to promote a candidate, attack a candidate, or contrast candidates. We convert each LLM response into the binary indicator that the ad is classified as Promote. The observed covariates are the Facebook indicator Ti,",
       "extractCut": true
@@ -966,7 +1074,10 @@
       "labelStart": "45",
       "labelEnd": "47",
       "words": 562,
-      "summary": null,
+      "summary": {
+        "text": "Appendix C.4 (Empirical Validation) and Tables C.2-C.3. Presents Table C.2 (Fowler simulation results for Attack and Contrast outcomes showing near-zero DMM bias and 0.942-0.962 coverage versus severe naive bias and undercoverage) and Table C.3 (accuracy, sensitivity, specificity, and weighted/positive F1 for the three LLM proxies in Pan and Chen 2018), and documents the 1,412-complaint logistic specification, the 500-label generalized-random-forest DSL benchmark, and the 500-draw nonparametric bootstrap coverage diagnostic.",
+        "status": "draft"
+      },
       "keywords": [],
       "extract": "Data and downstream model. The analysis uses 1,412 Chinese citizen complaints. The la- tent independent variable is the expert-coded indicator X∗ i = 1{prefecture-level wrongdoing}, and the downstream outcome Yi = SendOrNoti indicates whether the complaint was sent to higher-level authorities. The expert-coded positive-class prevalence is 0.055, and the mean of Yi is 0.418. 45 Table C.2: Fowler simulation results",
       "extractCut": true

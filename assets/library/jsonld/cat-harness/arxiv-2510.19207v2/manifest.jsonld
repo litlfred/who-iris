@@ -1,6 +1,6 @@
 {
   "@context": [
-    "https://litlfred.github.io/folio-assistant/ns/content/v1.jsonld",
+    "https://litlfred.github.io/cat-harness/ns/context/v1.jsonld",
     {
       "@base": "https://litlfred.github.io/folio/"
     }
@@ -43,7 +43,7 @@
     "library/arxiv-2510.19207v2/sections/sec-028"
   ],
   "provenance": "ingested",
-  "inSubgraph": "https://litlfred.github.io/folio-assistant/cat-harness.jsonld#directory/library",
+  "inSubgraph": "https://litlfred.github.io/folio-assistant/cat-harness/directory/library",
   "licenceRecord": {
     "status": "unknown",
     "searched": [

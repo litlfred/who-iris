@@ -1,1514 +1,709 @@
 <!DOCTYPE html>
-
-<html lang="en-US">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
 
-  <link rel="stylesheet" href="/who-iris/assets/css/just-the-docs-default.css">
-
-  <link rel="stylesheet" href="/who-iris/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
-
-  <style id="jtd-nav-activation">
-  
-
-    
-    .site-nav > ul.nav-list:first-child > li:not(:nth-child(1)) > a,
-    .site-nav > ul.nav-list:first-child > li > ul > li a {
-      background-image: none;
-    }
-
-    .site-nav > ul.nav-list:not(:first-child) a,
-    .site-nav li.external a {
-      background-image: none;
-    }
-
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > a {
-      font-weight: 600;
-      text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(1) > button svg {
-      transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list {
-      display: block;
-    }
-  </style>
-
-  
-
-  
-    <script src="/who-iris/assets/js/vendor/lunr.min.js"></script>
-  
-
-  <script src="/who-iris/assets/js/just-the-docs.js"></script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-
-
-
-  <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>Home | WHO IRIS</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Home" />
-<meta property="og:locale" content="en" />
-<meta name="description" content="WHO IRIS, catalogued by reference — an ingested copy, not WHO and not live." />
-<meta name="twitter:description" property="og:description" content="WHO IRIS, catalogued by reference — an ingested copy, not WHO and not live." />
-<link rel="canonical" href="https://litlfred.github.io/who-iris/" />
-<meta property="og:url" content="https://litlfred.github.io/who-iris/" />
-<meta property="og:site_name" content="WHO IRIS" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Home" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"WHO IRIS, catalogued by reference — an ingested copy, not WHO and not live.","headline":"Home","name":"WHO IRIS","url":"https://litlfred.github.io/who-iris/"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-  <!--
-  The configured colour scheme, published for site-chrome/assets/js/docs-ui.js.
-
-  just-the-docs' first stylesheet is `just-the-docs-default.css`, which is
-  whatever `color_scheme` in _config.yml compiled to -- so `jtd.getTheme()`
-  returns the string "default" on a fresh load, never "dark". The scheme
-  toggle needs to know what "default" MEANS here, and reading it from the
-  config is the one way that does not go stale when the config changes.
-
-  FIRST in this file since 2026-09-24, because the first-paint snippet below
-  reads it too, and a script can only read what the parser has already seen.
--->
-<script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script>
-<!--
-  THE FIRST PAINT IS DARK — owner, 2026-09-24: *"when any
-  page/foio-asst/cat-harness first loads if flashes white before goignt o
-  dark mode. instead it should deafult dark mode then turn to light mode to
-  prevent light flash in dark."*
-
-  WHY IT FLASHED. The site is configured dark, so the theme's first
-  stylesheet already paints dark. But `docs-ui.js` is deferred, and on load
-  it applied a STORED choice with `jtd.setTheme(name)`, which swaps that
-  stylesheet's href -- to the dark file, when the default file already was
-  dark. The swap unloads the sheet that was painting the ground, and until
-  the new one arrives the browser's WHITE canvas shows. Every reader who had
-  ever pressed the light/dark control got that on every page. And nothing
-  painted `html` at all, so any moment without the theme's sheet was white.
-
-  So, FIRST THING in this include, before every stylesheet it emits:
-
-  1. decide the scheme -- the reader's stored choice (`fa-color-scheme`, the
-     key `docs-ui.js` writes), else the OS, else LIGHT -- and put it on
-     `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
-     it ever paints the wrong way first;
-  2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
-  3. paint `html` itself, dark unless the scheme is light, so a sheet in
-     flight shows the page's ground rather than white.
-
-  The theme's own stylesheet link is ABOVE this include (just-the-docs emits
-  `head_custom.html` last in its head), which is why step 2 exists: there is
-  no hook before it, and none is needed -- nothing paints until the head is
-  parsed, and this runs while it is being parsed.
-
-  INLINE, which the rest of this file avoids so that no `script-src`
-  relaxation is ever needed. This is the one exception, and it is the only
-  way to run before first paint: a `src` script here is a network round-trip
-  on the critical path of every page. It interpolates nothing into markup,
-  and a CSP added later needs this block's hash.
-
-  ELSE LIGHT -- owner, 2026-10-15, "follow os else light". The declared
-  `color_scheme` only names the sheet shipped first. The ONE source: tools'
-  `scheme-css.ts` lifts this script; `docs-ui.js` reads its attribute.
-
-  NO LIQUID between the markers. `first-paint-scheme.e2e.ts` lifts these
-  exact bytes into a replica page, so the spec tests what ships.
-
-  The generated dashboards that write their OWN head (`state-visualizer.ts`,
-  `gen-translation-status.ts`) do not carry this. They switch nothing with
-  script, so they cannot flash: their first CSS paints dark, and the same spec
-  holds them to that. Giving them this snippet would switch ON their
-  `data-fa-scheme="light"` rules for the first time -- and those were never
-  finished (axe, 2026-09-24: 3 to 6 contrast failures per dashboard in light,
-  dark-scheme tag colours on a light ground). A light palette for them is its
-  own piece of work, not a side effect of this one.
--->
-<!-- fa-first-paint:begin -->
-<script>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
-<style>html{background-color:#27262b}html[data-fa-scheme="light"]{background-color:#ffffff}</style>
-<!-- fa-first-paint:end -->
-<!-- PROSE HERE IS NOT FREE: these are HTML comments, so every byte ships on
-     every page (2356 of them). A comment in this file is a POINTER; the
-     reasoning goes in the artefact. Measured, with the cost this change paid
-     before measuring, in assets/harness/site.json's front matter. -->
-<!-- THE RENDER STATE. pending here; ready/failed from assets/js/kg-render.js,
-     which carries the contract. No attribute = no dynamic region on this page.
-     The number is a MINIMUM cross-checking registrations, not a count. -->
-<meta name="fa-render-regions" content="1">
-<script>document.documentElement.setAttribute("data-fa-render","pending");</script>
-<!--
-  The browser-tab icon, from the same declared mark the sidebar title
-  (`title.html`) renders — reused rather than looked up by its own
-  `browser-icon` role. There WAS a second role for exactly that, on
-  `mark-small` in `harness.json`, and it went unread: nothing in this
-  repo ever emitted a favicon at all, `rel="icon"` included. It also could
-  not have driven this lookup as declared — `imagesForRole()`
-  (`schemas/kg-node.ts`) requires an image's `layout` field, which neither
-  mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
-  the already-resolved `icon` (the same field `title.html` reads) sidesteps
-  that and, more importantly, is what was asked for: the sidebar mark and the
-  tab icon are meant to be the SAME glyph, so one declaration driving both is
-  correct, not just convenient — flip `icon` in `harness.json` and both
-  follow in one edit, no template change needed.
-
-  SVG-only. No PNG/ICO fallback exists in the repo and none is generated
-  here — every browser this matters for (evergreen Chrome/Firefox/Edge, and
-  Safari since 16) reads `type="image/svg+xml"` directly; a raster fallback
-  would need generating actual image files, which is out of scope for this
-  change.
-
-  `relative_url`, same as `title.html` and `landing.html` — a bare
-  `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
-  for.
---><link rel="icon" type="image/svg+xml" href="/who-iris/assets/img/who-emblem.svg"><!--
-  Site-wide styling for the BPMN workflow figures.
-
-  just-the-docs pulls this file into <head> on every page. The diagrams are wide
-  (a swimlane process does not shrink well), so the figure scrolls horizontally
-  inside its own container rather than forcing the page body to scroll.
-
-  The SVGs carry their own white backdrop — see scripts/render-bpmn.ts — so they
-  stay legible under the dark colour scheme even if this stylesheet is missing.
--->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>who-iris — ingested IRIS replica</title>
+<meta name="description" content="A replica of a WHO IRIS page, rendered from this repository's ingested catalogue. Not WHO, and not live.">
+<link rel="alternate" hreflang="ar" href="who-iris/ar/index.html">
+<link rel="alternate" hreflang="zh" href="who-iris/zh/index.html">
+<link rel="alternate" hreflang="en" href="./">
+<link rel="alternate" hreflang="fr" href="who-iris/fr/index.html">
+<link rel="alternate" hreflang="ru" href="who-iris/ru/index.html">
+<link rel="alternate" hreflang="es" href="who-iris/es/index.html">
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["ar","zh","en","fr","ru","es"]}</script>
+<!-- Generated by who-iris/scripts/gen-iris-pages.ts. Do not hand-edit: the next run overwrites it, and `iris:pages:check` fails on the difference. -->
 <style>
-  .bpmn-figure {
-    overflow-x: auto;
-    background: #fff;
-    border: 1px solid rgba(128, 128, 128, 0.35);
-    border-radius: 6px;
-    margin: 1em 0 0.4em;
+  :root {
+    /* Measured in who-iris/themes/themes.ts from the captured client-theme.css. */
+    --iris-accent: #008dc9;
+    --iris-ink: #212529;
+    --iris-edge: #ced4da;
+    --iris-surface: #ffffff;
+    --iris-dark: #005072;          /* --dark */
+    --iris-deep: #2B4E72;          /* --blue */
+    --iris-breadcrumb-bg: #e9ecef; /* --ds-breadcrumb-bg */
+    --iris-wash: #FAFAFA;          /* --ds-almost-white */
+    --iris-current: #d86422;       /* --warning */
+    --iris-muted: #6c757d;         /* --gray */
+    --iris-ingested: #006666;      /* --info */
+    --iris-col: 1140px;
+    --iris-pad: 1.5rem;
   }
-  .bpmn-figure img {
-    display: block;
-    width: 100%;
-    min-width: 1200px;
-    max-width: none;
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    /* The stack the captured stylesheet declares, verbatim. */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    font-size: 1rem; font-weight: 400; line-height: 1.5;
+    color: var(--iris-ink); background: var(--iris-surface);
   }
-  .bpmn-source {
-    margin-top: 0;
+  .wrap { max-width: var(--iris-col); margin: 0 auto; padding: 0 var(--iris-pad); }
+  /* A long path in inline code has no break opportunity, and at a 390 px
+     viewport three of them made kg-to-portal 566 px wide (bean xwrt). These
+     pages are mounted verbatim, so the harness's narrow-viewport.css never
+     reaches them. Breaking the string beats widening the page. */
+  :not(pre) > code { overflow-wrap: anywhere; }
+  a { color: var(--iris-accent); text-decoration: none; }
+  a:hover, a:focus { text-decoration: underline; }
+
+  /* ── The banner. Not decoration: it is requirement 1. ───────────────── */
+  .ingested {
+    background: var(--iris-ingested); color: #fff;
+    padding: 0.7rem var(--iris-pad); font-size: 0.95rem;
+  }
+  .ingested strong { letter-spacing: 0.02em; }
+  .ingested .wrap { padding: 0; }
+  .ingested a { color: #fff; text-decoration: underline; }
+  /* The language row and, on a translated page, where its translation stops. */
+  .ingested .langs { margin: 0.45rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; font-size: 0.9rem; }
+  .ingested .langs [aria-current] { font-weight: 700; }
+  .ingested .langnote { margin: 0.45rem 0 0; font-size: 0.88rem; }
+
+  /* ── Masthead. NO WHO logo, by instruction — a wordmark in type. ────── */
+  header.mast { background: #fff; border-bottom: 1px solid var(--iris-edge); }
+  .mast .wrap { display: flex; align-items: center; gap: 1rem; padding-top: 1.1rem; padding-bottom: 1.1rem; }
+  .wordmark { display: flex; align-items: baseline; gap: 0.55rem; }
+  .wordmark .org {
+    font-size: 1.05rem; font-weight: 700; line-height: 1.15;
+    color: var(--iris-accent); max-width: 11rem;
+  }
+  .wordmark .bar { width: 1px; align-self: stretch; background: var(--iris-edge); }
+  .wordmark .stack { display: flex; flex-direction: column; }
+  .wordmark .iris { font-size: 2.1rem; font-weight: 700; color: var(--iris-accent); letter-spacing: -0.02em; line-height: 1; }
+  .wordmark .iris .dot { color: var(--iris-current); }
+  .wordmark .sub { font-size: 0.78rem; color: var(--iris-accent); line-height: 1.2; }
+  .none { color: var(--iris-muted); font-style: italic; }
+  /* The CDN link is secondary to the one that is known to work. */
+  .cdn { font-size: 0.88em; color: var(--iris-ingested); }
+  /* TRANSLATED text set in the code face (a size, a container path). Arabic is
+     cursive, and a monospace face gives every letter its own cell, so on the ar
+     page "ميغابايت" rendered as eight separate letters (bean lffo). There it
+     takes the page's face; Latin and CJK keep the code look. */
+  code.ui:lang(ar) { font-family: inherit; }
+  .nologo {
+    margin-inline-start: auto; font-size: 0.78rem; color: var(--iris-muted);
+    text-align: end; max-width: 16rem;
+  }
+
+  /* ── Navbar. Solid accent, white links, as the source page. ─────────── */
+  nav.main { background: var(--iris-accent); }
+  nav.main .wrap { display: flex; flex-wrap: wrap; gap: 1.6rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  nav.main a, nav.main span { color: #fff; font-weight: 700; font-size: 0.98rem; }
+  nav.main span { opacity: 0.75; font-weight: 400; }
+
+  .crumbs { background: var(--iris-breadcrumb-bg); }
+  .crumbs .wrap { padding-top: 0.8rem; padding-bottom: 0.8rem; font-size: 0.98rem; }
+  .crumbs .sep { color: var(--iris-muted); margin: 0 0.55rem; }
+  .crumbs .here { color: var(--iris-current); }
+
+  main.wrap { padding-top: 2rem; padding-bottom: 3rem; }
+  h1 { font-size: 2.6rem; font-weight: 500; line-height: 1.2; margin: 0 0 1.6rem; }
+  h2 { font-size: 1.85rem; font-weight: 500; line-height: 1.2; margin: 2.4rem 0 0.9rem; }
+  h3 { font-size: 1.15rem; font-weight: 600; margin: 1.6rem 0 0.5rem; }
+
+  ul.communities { list-style: none; margin: 0; padding: 0; }
+  ul.communities > li { padding: 0.55rem 0; }
+  .row { display: flex; align-items: baseline; gap: 0.7rem; }
+  .chev { color: var(--iris-ink); font-size: 1.05rem; line-height: 1; }
+  .row .title { font-size: 1.32rem; }
+  .note { color: var(--iris-muted); font-size: 0.95rem; margin: 0.2rem 0 0; margin-inline-start: 1.9rem; }
+  .kids { margin: 0.35rem 0 0.5rem; margin-inline-start: 1.9rem; padding: 0; list-style: none; }
+  .kids li { padding: 0.3rem 0; }
+
+  /* ── Materialisation state. A WORD, never a colour alone (SC 1.4.1). ── */
+  .state {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 0.12rem 0.45rem; border-radius: 3px; border: 1px solid;
+    vertical-align: 0.12em;
+  }
+  .state.materialized { color: #1d5c1d; border-color: #94BA65; background: #f0f6e9; }
+  .state.referenced   { color: var(--iris-dark); border-color: var(--iris-edge); background: var(--iris-wash); }
+  .state.unknown      { color: #7a4a10; border-color: #ec9433; background: #fdf4e8; }
+  /* The KG view's tables. Deliberately plainer than the replica's furniture:
+     this page is ABOUT the catalogue rather than a mock of IRIS, and dressing
+     it as IRIS would invite a reader to take its counts for IRIS's. */
+  .kg { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+  .kg th, .kg td { text-align: start; padding: .4rem .55rem; border-bottom: 1px solid var(--iris-edge); vertical-align: top; }
+  .kg th { font-weight: 600; white-space: nowrap; }
+  .dim { opacity: .65; font-size: .85em; }
+
+  table.items { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.97rem; }
+  table.items th, table.items td {
+    text-align: start; padding: 0.7rem 0.6rem; border-bottom: 1px solid var(--iris-edge);
+    vertical-align: top;
+  }
+  table.items th { font-weight: 700; background: var(--iris-wash); }
+  /* Six columns on the held-items table; without a floor the title and
+     collection cells wrap to one word per line. */
+  table.items td:first-child, table.items th:first-child { min-width: 13rem; }
+  table.items td:nth-child(2) { min-width: 9rem; }
+  table.items code { font-size: 0.86rem; color: var(--iris-muted); }
+  /* Wraps at EVERY width (bean on the 2026-09-30 QA re-run): nowrap held the
+     "Metadata record" column to its longest file name, so collection pages ran
+     1338-1475px wide at 1280 and 1162-1405px at 1024. #1592 fixed this only
+     below 640px. A long file name breaks inside the link; the short
+     format/size label stays on one line. */
+  .dl { white-space: normal; }
+  .dl a { overflow-wrap: anywhere; }
+  .dl code { white-space: nowrap; }
+
+  /* ── IRIS home replica ────────────────────────────────────────────────
+     Bands in the capture's order: hero, search, Recent Submissions. Measured
+     against who-iris/uploads/iris-home/iris-capture/IRIS-Home.pdf page 1.
+
+     The hero bleeds to the wrap's edges rather than to the viewport: 100vw
+     inside a centred column is the classic horizontal-scrollbar bug, and a
+     replica that scrolls sideways on a phone is a worse infidelity than a
+     hero 32px narrower than the original. */
+  .hero {
+    margin: 0 calc(-1 * var(--iris-pad)) 1.6rem;
+    padding: 3.2rem var(--iris-pad) 2.4rem;
+    /* Colour only. The real hero is a photograph of the Geneva headquarters
+       with the WHO emblem on the facade; see landingPage() for why neither is
+       here. Both stops are theme roles, not literals. */
+    background: linear-gradient(135deg, var(--iris-dark) 0%, var(--iris-accent) 55%, var(--iris-deep) 100%);
+    color: #fff;
+  }
+  .hero-in { max-width: 34rem; }
+  .hero h1 { font-size: 3.6rem; line-height: 1; margin: 0 0 1.2rem; color: #fff; font-weight: 400; }
+  .hero p { font-size: 1.06rem; line-height: 1.5; margin: 0; color: rgba(255,255,255,0.95); }
+  /* Two classes, not one: the rule .hero p is class+element and beat the bare
+     .hero-note, so the margin below was declared and never applied -- the
+     replica note sat flush against the last line of the hero paragraph and
+     read as part of it. */
+  .hero .hero-note {
+    margin: 1.6rem 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.8);
+    border-top: 1px solid rgba(255,255,255,0.25); padding-top: 0.9rem;
+  }
+  .hero-note code { color: #fff; }
+
+  .searchbar { display: flex; gap: 0; margin: 1.8rem 0 0.5rem; }
+  .searchbar input {
+    flex: 1; padding: 0.7rem 0.9rem; font-size: 1rem; font-family: inherit;
+    border: 1px solid var(--iris-edge); border-inline-end: none;
+    border-radius: 0; border-start-start-radius: 4px; border-end-start-radius: 4px;
+    background: #fff; color: var(--iris-ink);
+  }
+  .searchbar button {
+    padding: 0.7rem 1.4rem; font-size: 1rem; font-family: inherit; font-weight: 600;
+    border: 1px solid var(--iris-accent);
+    border-radius: 0; border-start-end-radius: 4px; border-end-end-radius: 4px;
+    background: var(--iris-accent); color: #fff; cursor: pointer;
+  }
+  .searchbar button:hover, .searchbar button:focus {
+    background: var(--iris-dark);
+  }
+  .search-results-panel {
+    margin: 1rem 0 1.5rem;
+    border: 1px solid var(--iris-edge);
+    border-radius: 4px;
+    background: var(--iris-surface);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 1rem;
+  }
+  .search-results-panel h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.05rem;
+    color: var(--iris-dark);
+  }
+  .search-results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .search-result-item {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--iris-edge);
+    border-radius: 4px;
+    background: var(--iris-wash);
+  }
+  .search-result-item a {
+    font-weight: 600;
+    font-size: 1.02rem;
+  }
+  .search-result-meta {
+    font-size: 0.88rem;
+    color: var(--iris-muted);
+    margin-top: 0.25rem;
+  }
+  .search-result-badge {
+    display: inline-block;
     font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    background: var(--iris-accent);
+    color: #fff;
+    margin-inline-end: 0.5rem;
+  }
+  .search-remote-box {
+    border-top: 1px solid var(--iris-edge);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    font-size: 0.92rem;
+  }
+  mark.search-mark {
+    background: #ffeb3b;
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+  .searchnote { font-size: 0.88rem; color: var(--iris-muted); margin: 0.4rem 0 2rem; }
+  .ordering { font-size: 0.88rem; color: var(--iris-muted); margin: 0.2rem 0 1.4rem; }
+
+  .subs { display: flex; flex-direction: column; gap: 1.8rem; }
+  .sub { display: flex; gap: 1.2rem; align-items: flex-start; }
+  /* A fixed column so a landscape cover and a portrait one start on the same
+     line. The IMAGE keeps its own aspect -- pixelWidth and pixelHeight are on
+     the tag, so the box is reserved before the bytes arrive and nothing
+     reflows. */
+  .sub-cover { flex: 0 0 104px; }
+  .sub-cover img { width: 104px; height: auto; display: block; border: 1px solid var(--iris-edge); }
+  /* Centred by FLEX, not by a line-height equal to the height: the withheld
+     placeholder is two lines, and a 140px line-height would put the first of
+     them below the box. */
+  .sub-cover .nocover {
+    display: flex; align-items: center; justify-content: center;
+    width: 104px; height: 140px; border: 1px dashed var(--iris-edge);
+    color: var(--iris-muted); font-size: 0.78rem; text-align: center; line-height: 1.3;
+  }
+  .sub-body { flex: 1; min-width: 0; }
+  .sub-title { font-size: 1.02rem; line-height: 1.35; text-decoration: underline; }
+  .sub-by { margin: 0.35rem 0 0.4rem; font-size: 0.9rem; color: var(--iris-ink); }
+  .sub-abs {
+    margin: 0 0 0.5rem; font-size: 0.93rem; line-height: 1.5;
+    /* The capture truncates each abstract under a "Show more" control. This
+       clamps instead of shipping a disclosure widget -- the owner asked for a
+       replica of the look, not working functionality. */
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .sub-abs.none { display: block; font-style: italic; color: var(--iris-muted); }
+  .sub-links { margin: 0; font-size: 0.88rem; }
+
+  p.lede { font-size: 1.05rem; line-height: 1.6; max-width: 46rem; }
+
+  table.reqs { width: 100%; border-collapse: collapse; margin-top: 0.9rem; font-size: 0.95rem; }
+  table.reqs th, table.reqs td {
+    text-align: start; padding: 0.65rem 0.7rem; border-bottom: 1px solid var(--iris-edge);
+    vertical-align: top;
+  }
+  table.reqs thead th { background: var(--iris-wash); font-weight: 700; }
+  table.reqs th.rid {
+    width: 3.2rem; white-space: nowrap; font-weight: 700; color: var(--iris-accent);
+  }
+  table.reqs td.why { color: var(--iris-muted); }
+  table.reqs code { font-size: 0.87em; }
+  table.reqs td .why { font-size: 0.88em; color: var(--iris-muted); }
+
+  /* The architecture drawing, inlined. Authored at 1000x432 and scaled down on
+     a narrow screen: an auto height keeps its aspect, which a figure of
+     labelled boxes cannot survive losing.
+     NOTE FOR ANYONE EDITING THESE COMMENTS: this whole stylesheet is inside a
+     JS template literal, so a backtick here ends the string and the generator
+     stops parsing. It has happened four times. Write CSS identifiers plainly. */
+  figure.arch { margin: 1.6rem 0; }
+  figure.arch svg { width: 100%; height: auto; max-width: 1000px; display: block; border: 1px solid var(--iris-edge); border-radius: 6px; }
+  figure.arch figcaption { font-size: 0.88rem; color: var(--iris-muted); margin-top: 0.6rem; }
+
+  .caveat {
+    border-inline-start: 4px solid var(--iris-current); background: var(--iris-wash);
+    padding: 0.9rem 1.1rem; margin: 1.6rem 0; font-size: 0.95rem;
+  }
+  .caveat p { margin: 0.4rem 0; }
+  .caveat p:first-child { margin-top: 0; }
+  .caveat p:last-child { margin-bottom: 0; }
+
+  footer.mast { background: var(--iris-accent); color: #fff; margin-top: 3rem; }
+  footer.mast .wrap { padding-top: 1.8rem; padding-bottom: 1.8rem; font-size: 0.93rem; }
+  footer.mast a { color: #fff; text-decoration: underline; }
+  footer.mast .rule { height: 1px; background: rgba(255,255,255,0.35); margin: 1rem 0; }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 1.9rem; }
+    /* .none and .cdn are defined above and were duplicated in here; the
+       copies said nothing the base rules did not. A .nologo display:none was
+       in here too, which HID the "replica, not published under WHO" notice on
+       exactly the screens where a reader is least able to tell a replica from
+       the real site. It shrinks now; it does not disappear. */
+    .nologo { font-size: 0.72rem; max-width: none; }
+    .wordmark .iris { font-size: 1.7rem; }
+    table.items, table.items tbody, table.items tr, table.items td { display: block; width: 100%; }
+    table.items thead { display: none; }
+    table.items td { border-bottom: none; padding: 0.25rem 0; }
+    /* The download-cell wrap that g9r2 put here (537 px wide at 390) now
+       applies at every width, in the `.dl` rule above: desktop overflowed
+       the same way, one column wider. */
+    table.items tr { border-bottom: 1px solid var(--iris-edge); padding: 0.7rem 0; }
+    table.reqs, table.reqs tbody, table.reqs tr, table.reqs td, table.reqs th { display: block; width: auto; }
+    table.reqs thead { display: none; }
+    table.reqs td, table.reqs th.rid { border-bottom: none; padding: 0.2rem 0; }
+    table.reqs tr { border-bottom: 1px solid var(--iris-edge); padding: 0.7rem 0; }
+    .hero h1 { font-size: 2.6rem; }
+    .searchbar { flex-direction: column; }
+    .searchbar input { border-inline-end: 1px solid var(--iris-edge); border-radius: 4px 4px 0 0; }
+    .searchbar button { border-radius: 0 0 4px 4px; }
+    .sub { flex-direction: column; }
   }
 </style>
-
-<!--
-  Site UI: a QR of the current page in the sidebar header, and zoom /
-  full-width controls on the figures.
-
-  Loaded as same-origin files with no inline script, so no script-src
-  relaxation is needed. The QR is generated in the browser from
-  window.location.href rather than baked per page at build time, so it is
-  right for anchors, query strings, and both the directory and .html forms of
-  the same page. The UTF-8 shim must come after the encoder: without it the
-  encoder's stringToBytes is single-byte and a non-ASCII character in a URL
-  silently encodes to mojibake.
--->
-<!--
-  The TRANSLATION INDEX — which source page has a translation in which locale.
-
-  `mountNavLocale` in docs-ui.js reads this to decide what the left-hand navbar
-  shows: with the source language selected it does nothing, and with `fr`
-  selected it swaps each nav item that HAS a French page for that page, IN
-  PLACE OF the English one. An item with no translation is left exactly as it
-  is — that is the fallback, and it is the absence of a rewrite rather than a
-  code path of its own.
-
-  Generated into `docs/_data/translations.json` by
-  `content/pipeline/translation-index.ts`, from what each page DECLARES about
-  itself: `lang`, and `translation_source` naming the page it expresses. NOT
-  from a scan for directories whose names look like language subtags — see
-  that module's header for why that inference is wrong in both directions.
-
-  THREE STATES, and the third is the reason this is a JSON island rather than
-  a conditional. (The tag name is written inside {% raw %}
-  below because LIQUID PARSES TAGS INSIDE AN HTML COMMENT — the comment
-  wrapper means nothing to it — so naming a tag in prose is a syntax error at
-  build time, and the message points at the THEME's head.html because Liquid
-  attributes an include's line to the includer. This comment cost one red
-  deploy.
-
-  AND THEN IT COST A SECOND ONE, differently, which is why this paragraph now
-  describes the wrapper rather than spelling it. It used to SPELL both halves
-  as an example — and the closing half ENDED THIS COMMENT eighteen lines
-  early, so every line below it rendered as visible body text at the top of
-  EVERY PAGE on the site. Reported by the owner from the staging URL,
-  2026-09-19.
-
-  The asymmetry is the lesson: a Liquid tag has an escape, and the closing
-  comment delimiter has NONE. There is no way to write those three characters
-  inside a comment and have the comment survive them, because the parser is
-  not looking for an escape — it stops at the first match. So the rule is not
-  "escape it carefully", it is DO NOT WRITE IT: describe it, or name it one
-  character at a time. Guarded by
-  scripts/tests/html-comment-delimiters.test.ts, which fails on an opening
-  delimiter appearing inside an open comment — the one machine-detectable
-  signature of somebody trying.)
-  A {% if %} would have to choose between the second and
-  third rows below, and there is no expression that can:
-
-    1. the data file is there      -> `index` is an object; filter the nav.
-    2. it is there and EMPTY       -> `pages` is `{}`; there is nothing to
-                                      swap, so every item correctly falls back
-                                      to the source language.
-    3. the data file is ABSENT     -> `jsonify` emits `null`, and docs-ui.js
-                                      leaves the navbar EXACTLY as built.
-
-  A build that could not determine the translation set must never render as a
-  folio that has no translations. `null` is how that is said.
-
-  `baseurl` travels with it because the client has no other way to strip the
-  site prefix off a nav `href` before matching it.
--->
-<!-- MOVED 2026-10-02 to assets/harness/site.json: fetched once instead of
-     inlined 2356x (9482 B/page, 22.34 MB, ONE payload). The three states above
-     are unchanged; a fourth — the file is unreachable — is data-fa-render. -->
-<!--
-  Translation metadata for this page, consumed by docs-ui.js to auto-render
-  language coverage and QA badges. The translation pipeline stamps front matter;
-  this block publishes it to the client. No manual editing needed.
--->
-<script type="application/json" id="fa-translation-meta">{
-  "lang": "en",
-  "translationStatus": "",
-  "translationSource": "",
-  "supportedLocales": ["ar","zh","en","fr","ru","es"],
-  "availableLocales": null,
-  "translationQa":{
-    "key": "page.translation",
-    "slug": "index",
-    "src": "/who-iris/assets/qa/index/page.translation.json",
-    "index": "/who-iris/assets/qa/index/qa-index.json",
-    "list": "/who-iris/assets/qa/translation-qa-pages.json"
-  },
-  "sweep":{
-    "absent": "who-iris publishes no translation QA sweep on this site",
-    "run": false,
-    "sweptAt": "",
-    "totalPages": 0,
-    "pagesWithTranslations": 0,
-    "complete": false
-  }
-}</script>
-<!--
-  Where the action tiles point.
-
-  RESOLVED, not composed. `scripts/sync-docs-harness.ts` writes
-  `docs/_data/harness.json` from the instance's own `cat-harness.json`,
-  through `siteLinks` in `scripts/site-links.ts` -- which computes every path
-  with `artefactStub` and `renderingPath`, the same functions the knowledge
-  graph exporter and the Pages workflow use. The tile therefore cannot
-  disagree with what is published.
-
-  This block previously wrote `/who-iris/kg/` by hand. Nothing
-  has ever been published at `<base>/kg/` -- the renderings sit at the base,
-  named after the stub -- so the only entry point to the viewer anywhere on
-  this site was a 404 from the day it was added. See bean `udx8`, and the
-  identical defect AGENTS.md records against the README's chapter PDFs. A
-  path built by convention is a claim; `bun run cat site:links --site _site`
-  checks it against the tree that actually ships, and the Pages workflow runs
-  that check after the export.
-
-  `path` is site-ROOT-relative and gets `relative_url`, which is what makes it
-  right under this site's `/folio-assistant/` baseurl. `url` is off-site and
-  is printed as-is. `source` is no longer taken from `aux_links`: those were
-  removed so the forge link stops appearing as text at the top of the main
-  panel (the owner asked for it as an icon, not a header), and the URL is
-  resolved from the git remote instead of written down twice.
--->
-<!--
-  THE NAVBAR ICON ROW — which icons this instance shows, and where each goes.
-
-  `null` when the instance has not decided, and that is NOT the same as an
-  empty list: `navbarIcons` absent means "inherit, and nothing up the chain has
-  said either", while `[]` means the instance chose to show none. docs-ui.js
-  reads the two apart, and `jsonify` emits `null` for the first exactly as the
-  translations block above relies on.
-
-  Resolved in `sync-docs-harness.ts`: the icon list walks `needs` with the site
-  owner as the floor, and the hrefs come from this instance's own declared
-  visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
-  or in JavaScript.
--->
-<script type="application/json" id="fa-navbar-row">{"icons":["close","todos","beans","fsh-guts","qr","launcher"],"hrefs":{},"notes":{},"folders":[{"kind":"catalogue","label":"Catalogue","path":"/catalogue/"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/folio/who-iris/"},{"kind":"glossary","label":"Glossary","note":"no viewer yet"},{"kind":"health","label":"Health","note":"who-iris's health graph is not published on this site"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/library/who-iris/"},{"kind":"qa","label":"QA","note":"who-iris's qa graph is not published on this site"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/who-iris/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"themes","label":"Themes","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/tools/who-iris/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/"},{"kind":"uploads","label":"Uploads","note":"who-iris's uploads graph is not published on this site"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/"}]}</script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
-     moving it, in assets/harness/site.json's front matter. -->
-<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
-
-<!--
-  The todo index — a PERSON's outstanding items, published by
-  `scripts/gen-docs-pages.ts` to `/assets/todos/index.json`.
-
-  `relative_url` for the same reason every other path here uses it: the site is
-  served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
-  404s on every deploy but one.
-
-  A URL rather than inline JSON, unlike `fa-site-links` above, because the
-  index grows with the todo corpus and inlining it would put the whole set into
-  every page's <head> whether the reader opens the board or not. A missing file
-  is reported by the fetch and the board is simply not mounted — a board that
-  opens empty is indistinguishable from a person with nothing outstanding, and
-  those are opposite facts.
-
-  `<meta>` and not a `<div>`: this is `<head>`, where flow content is not
-  permitted. A browser hoists a stray `<div>` into `<body>` and the code still
-  works, which is exactly what makes the mistake survive review.
--->
-<!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
-     page has one and falls back to this. Rationale and measurement are in that
-     file's front matter, which is not served. -->
-<meta name="fa-site-index-src" content="/who-iris/assets/harness/site.json">
-<meta name="fa-todo-src" content="/who-iris/assets/todos/index.json">
-<!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
-     filters and groups by, and each todo's own page. -->
-<meta name="fa-todo-graph" content="/who-iris/todos.jsonld">
-
-<!--
-  THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
-  becomes its avatar.
-
-  R2 of issue #602: *"The threshold SHALL be declared data, not a literal in
-  the renderer."* `gen-docs-pages.ts` publishes the folio's own
-  `semantic-zoom.json`, and publishes NOTHING when the folio has not declared
-  one. So this `<meta>` may point at a 404, and that is a real state rather
-  than a defect: `docs-ui.js` reports it could not determine a threshold and
-  leaves every card's words in place. A default in either file would be the
-  literal R2 forbids, one layer further from where anybody looks for it.
-
-  The pointer is emitted UNCONDITIONALLY because Liquid cannot see whether the
-  generator wrote the file, and a conditional that guessed would make "this
-  folio declares no threshold" and "the build did not run" the same page.
--->
-<meta name="fa-zoom-src" content="/who-iris/assets/semantic-zoom.json">
-
-<!--
-  THE DECLARED VISUALISATIONS, as tiles.
-
-  Owner, 2026-09-20: *"if harness declares visaluzers, those should have tile"*
-  — so the tile set is the `coverage.visualiser` obligation made reachable, not
-  a second registry. `graph-tiles.ts` derives it into `_data/harness.json`;
-  this hands it to `docs-ui.js` for BOTH surfaces, because a tile is declared
-  once and says where it shows.
-
-  INLINE rather than a second fetch, unlike the todo index above, and the two
-  are different for a reason worth stating: that index grows with the todo
-  corpus, while this one is bounded by the number of directories an instance
-  DECLARES — twelve here — and every page needs it before first paint or the
-  navbar would visibly grow tiles a moment after the reader arrives.
-
-  `jsonify` and not a hand-built string: a title carrying a quote would
-  otherwise close the attribute, and the quoting rule is Liquid's rather than
-  something this comment has to be right about.
--->
-<meta name="fa-tiles" content="[{&quot;id&quot;:&quot;library&quot;,&quot;directory&quot;:&quot;library&quot;,&quot;title&quot;:&quot;Library&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/en/cat-harness/library/who-iris/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;icon&quot;:&quot;library&quot;,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/en/cat-harness/library/who-iris/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-catalogue&quot;,&quot;directory&quot;:&quot;who-iris-catalogue&quot;,&quot;title&quot;:&quot;Catalogue&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/who-iris/catalogue/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;href&quot;:&quot;/catalogue/&quot;,&quot;hidden&quot;:false,&quot;readOnly&quot;:true},{&quot;id&quot;:&quot;who-iris-docs&quot;,&quot;directory&quot;:&quot;who-iris-docs&quot;,&quot;title&quot;:&quot;Docs&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/cat-harness/auto-docs/index/docs/who-iris-docs/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;icon&quot;:&quot;docs&quot;,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/who-iris-docs/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-site&quot;,&quot;directory&quot;:&quot;who-iris-site&quot;,&quot;title&quot;:&quot;Docs&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/cat-harness/auto-docs/index/docs/who-iris-site/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/who-iris-site/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-skills&quot;,&quot;directory&quot;:&quot;who-iris-skills&quot;,&quot;title&quot;:&quot;Skills&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/cat-harness/auto-docs/index/skills/who-iris-skills/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;icon&quot;:&quot;skills&quot;,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/who-iris-skills/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-translations&quot;,&quot;directory&quot;:&quot;who-iris-translations&quot;,&quot;title&quot;:&quot;Translation sources&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/en/cat-harness/translation-status/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-uploads&quot;,&quot;directory&quot;:&quot;who-iris-uploads&quot;,&quot;title&quot;:&quot;Uploads&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/en/cat-harness/uploads/who-iris/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;readOnly&quot;:false,&quot;icon&quot;:&quot;uploads&quot;}]">
-<!--
-  THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
-  finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
-  instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
-  nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
--->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;library&quot;,&quot;who-iris-skills&quot;]">
-
-<!--
-  THE SITE'S BASEURL, for the tiles above.
-
-  Every other site-root path on this page is composed by Liquid: `relative_url`
-  prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
-  it, because they reach the client as JSON and are composed in `docs-ui.js`
-  after Liquid has finished — so the base has to travel with them.
-
-  IT SHIPPED WITHOUT ONE AND EVERY TILE 404ed (issue #801). `graph-tiles.ts`
-  stores `/beans/`, which is correct as data and is what `harness.links[].path`
-  stores too; written into an `href` unprefixed, a browser resolves it against
-  the ORIGIN, so the beans tile pointed at `litlfred.github.io/beans/`. The
-  owner found it by going looking for the board and landing there.
-
-  A meta of its own rather than reading the site index, which also carries a
-  `baseurl`: that document reads as `null` when `_data/translations.json` was
-  not built, and since 2026-10-02 it is FETCHED, so it is also absent until a
-  request resolves and may never arrive. Composing links out of an optional
-  block means the day it goes missing every tile silently points at the origin
-  again — which is this defect, with a second way to reach it. Two reasons for
-  one answer now.
--->
-<meta name="fa-baseurl" content="/who-iris">
-
-<!--
-  WHETHER THIS IS A PREVIEW, for the tiles above.
-
-  `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
-  `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
-  or a local build.
-
-  It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
-  `publish: "staging-only"` page from the canonical tree; a tile still pointing
-  at it would be a link to a 404 — `pb04`, a dead link being worse than no
-  link, and worse than usual here because the tile ALSO advertises content the
-  declaration is deliberately not publishing.
-
-  The filtering is client-side rather than baked into `harness.json` because
-  that file is generated once and committed, so it cannot know which deploy
-  will serve it. The page can be withheld at compose time because compose runs
-  per deploy; the data file cannot.
-
-  EMPTY IS THE SAFE VALUE, and it is what an absent `_data/build.yml` yields:
-  a build that cannot say it is a preview is treated as canonical and hides
-  the tile. That matches `compose-docs.ts`, which withholds unless positively
-  told `--staging` — one direction in both places, so the page and its tile
-  cannot disagree about which deploy they are on.
--->
-<meta name="fa-staging" content="">
-
-<!--
-  WHICH SEARCH INDEX THIS PAGE IS SERVING.
-
-  `feature-staging.yml` fetches the PUBLISHED index before the build and
-  stamps what happened; `docs-site.yml` writes no such key, so the canonical
-  deploy leaves this empty and draws no warning. Bean `eof6`, on the owner's
-  ruling of 2026-09-22: *"staging uses last published index (w/ wanrnig)"*.
-
-  Three values, and the empty one is a real state rather than a fallback:
-
-    published    the preview serves the last published index. Results are
-                 about the MAIN SITE, not about this branch.
-    unavailable  the fetch failed; an empty index is served.
-    (empty)      not a staging build. No warning.
-
-  The bean this implements had first concluded that staging must disable
-  search outright, because a stale hit is "a wrong PASS, BELIEVED". The ruling
-  keeps search and attacks the belief instead — which is why the value is
-  emitted at all. An index swapped in with nothing on the page saying so would
-  be the unmarked staleness the bean was right to refuse.
--->
-<meta name="fa-search-index" content="">
-
-<!--
-  A page left out of the search index ON PURPOSE (`search_exclude: true`)
-  says so in what is built, so `publish:verify`'s search-index check can tell
-  a deliberate exclusion from a truncated index (#2233). Front matter is gone
-  once Jekyll has run; without this marker the ~2,800 IG artefact pages that
-  #2194 excluded read as "4,189 pages offer a search box, 1,003 indexed".
--->
-
-
-
-
-<!--
-  The bean index — the AGENT work plan, published by the same generator beside
-  the todo index above, for the same reason and read the same way. Separate
-  files rather than one combined document because the two stores are separate
-  graphs with separate declarations, and a consumer that wants only the human
-  half should not fetch 239 beans to get three todos.
--->
-<meta name="fa-beans-src" content="/who-iris/assets/beans/index.json">
-<!--
-  The process index's entry point — the REPOSITORY's named-subgraph index,
-  whose children are the harness roots this site frames (`bun run
-  subgraph:jsonld`; bean `ax6r`, owner 2026-10-03: "Move to JSON-LD").
-  Read by assets/js/process-index.js on the page carrying
-  `[data-fa-process-index]` (the publication-workflow page), which walks it
-  down to every `processes` subgraph's `index.hydrated.jsonld`.
--->
-<meta name="fa-processes-src" content="/who-iris/subgraph/index.jsonld">
-<!--
-  The deploy's stamp — when it was built and from which commit — which the
-  work-plan dashboard turns into "generated … · N commits behind main".
-  `build.json` on the main site, `staging.json` on a preview; written by the
-  deploy, never committed, because a committed timestamp is a merge conflict
-  on every pair of concurrent changes (bean `y7b3`).
--->
-<meta name="fa-build-src" content="/who-iris/build.json">
-
-<!--
-  The discarded-items document — `fsh-guts.jsonld`, published at the base by
-  `docs-site.yml`. A URL and not inline JSON, for the todo index's reason and
-  then some: it carries every node's BODY, which is 64 KB against a 5 KB
-  document without them. Inlining that into every page's <head> would be
-  absurd for content reached through one control inside Settings.
-
-  `.json` rather than `.jsonld`. Both are published and they are the same
-  bytes; Pages has no media type for `.jsonld` and serves it as
-  octet-stream. `fetch().json()` would parse it anyway, but every other
-  rendering here uses the alias and one that did not would be the odd case a
-  later reader has to work out.
-
-  The viewer fetches this WHEN SETTINGS OPENS, never on page load, and a
-  fetch that fails is reported rather than shown as an empty trashcan —
-  "nothing discarded" and "could not read the document" are opposite facts.
--->
-<!--
-  NOT on a folio's site that does not link its OWN fsh-guts (#2263 follow-up):
-  there this path is the folio's, where no document is published, and the
-  fetch's 404 painted "?" -- an error -- on the fish. With no meta the count is
-  ABSENT, and the row's fish is a link or an inert icon saying why
-  (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
--->
-<!--
-  ?v=<build time> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
-  failure, not a performance one.
-
-  These five are served from stable paths with no hash in the name, so a
-  browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
-  preview it is the whole point of the deployment: the reviewer opens the URL
-  they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
-  see changes" — which is indistinguishable from a deploy that never
-  happened, and sends the next hour after the wrong cause. Measured
-  2026-09-21 on this branch: every byte of the change was verified present in
-  the publish ref while the page rendered the previous build.
-
-  `site.time` is the BUILD's timestamp, so the query changes exactly when the
-  bytes might have, and never between two readers of the same build. A
-  content hash would be tighter and needs a pipeline step; this needs none
-  and closes the case that costs review time.
-
-  NOT a cache-busting strategy for third-party assets, and not applied to
-  them: those are versioned in their own URLs already.
--->
-<!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="/who-iris/assets/css/navbar-row.css?v=1792096002">
-<link rel="stylesheet" href="/who-iris/assets/css/docs-ui.css?v=1792096002">
-<!-- Narrow viewports: wide content scrolls in its own box, never the page
-     (bean `2r2n`). The standalone viewers inline the same file through
-     `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="/who-iris/assets/css/narrow-viewport.css?v=1792096002">
-
-<!--
-  The work-plan dashboard's styles, split from docs-ui.css so that
-  `state-visualizer.ts` can inline exactly these bytes into the generated
-  `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
--->
-<link rel="stylesheet" href="/who-iris/assets/css/work-plan.css?v=1792096002">
-<!-- Sticky themes. GENERATED from the theme nodes in `schemas/themes.ts` by
-     `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
-     Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
-     roles that docs-ui.css consumes, and a custom property has to be set on a
-     matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="/who-iris/assets/css/themes.css?v=1792096002">
-<!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
-     that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="/who-iris/assets/css/uml.css?v=1792096002">
-<!-- Kind avatars. GENERATED from `schemas/avatars.ts` by `bun run cat avatars:css`;
-     `avatars:css:check` fails the build when it is stale. One stylesheet
-     rather than 68 assets: the glyph is a mask and the colour is a property,
-     so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="/who-iris/assets/css/avatars.css?v=1792096002">
-
-<!--
-  The kinds THIS INSTANCE DECLARES, for the avatar fan.
-
-  Owner: "shows the DECLared kinds for that instance, not inheritance." Written
-  by `sync-docs-harness.ts` from the instance's own `harness.json`, BEFORE
-  `resolveDirectories` overlays a dependency's. The effective set is strictly
-  larger, and showing it would name kinds this repository never claimed.
-
-  Inline rather than a fetched URL, unlike the todo index and the discarded
-  document: this is a dozen short strings, it is needed to render the fan at
-  all, and a fetch for that would put a spinner in front of a badge.
--->
-<!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","qa","schemas","skills","themes","tools","translation-sources","uploads"]</script>
-<script src="/who-iris/assets/js/vendor/qrcode.js" defer></script>
-<script src="/who-iris/assets/js/vendor/qrcode_UTF8.js" defer></script>
-<!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
-<script src="/who-iris/assets/js/kg-render.js" defer></script>
-<!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="/who-iris/assets/js/navbar-row.js?v=1792096002" defer></script>
-<script src="/who-iris/assets/js/docs-ui.js?v=1792096002" defer></script>
-<!-- The edit, source and feedback links of every page, from the platform's one
-  recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
-  facts and this builds the hrefs. -->
-<script src="/who-iris/assets/js/edit-links.js?v=1792096002" defer></script>
-
-<!--
-  The work-plan dashboard. SELF-MOUNTING on any page carrying
-  `[data-fa-workplan]`, so docs-ui.js neither calls it nor knows it exists; a
-  page without that container pays one failed querySelector. The same file is
-  inlined verbatim into the generated state-visualiser pages.
--->
-<script src="/who-iris/assets/js/work-plan.js" defer></script>
-<!--
-  The process index, self-mounting on `[data-fa-process-index]` the same way.
-  Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
--->
-<script src="/who-iris/assets/js/process-index.js" defer></script>
-
-<!--
-  The landing panel — the instance's declared description drawn inside the
-  quiet part of its declared backdrop. Markup: `_includes/landing.html`.
-
-  The region comes in as custom properties (`--fl-x` …) set per instance from
-  `harness.json`, so this stylesheet knows nothing about where any
-  particular picture is quiet. That is the whole design: a downstream folio
-  swaps the art and the numbers and needs no CSS.
--->
-<style>
-  .folio-landing { position: relative; margin: 0 0 2rem; }
-
-  /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
-     `landing.html` emits exactly one folio-landing class —
-     `folio-landing folio-landing--plain` — the no-stickies fallback, which
-     renders the description and no art. The art path moved to the sticky
-     board (`fa-sticky--backdrop` in docs-ui.css), which composites text into
-     the picture through a declared `textRegion` and a scrim.
-
-     So this block used to carry fourteen selectors of which ELEVEN matched
-     nothing: every rule reaching for `folio-landing__art`,
-     `folio-landing__text` or `folio-landing--no-region`. Measured before they
-     were cut — those three classes appear in no markup in this repository and
-     on none of the 331 published pages that were inlining the CSS for them.
-     CSS has no error for a selector that matches nothing, which is the same
-     silence that let `.fa-sticky--backdrop > .fa-sticky-art` ship wrong.
-
-     The reasoning did not go with them. The blend-direction argument for the
-     fade is now at `.fa-sticky--backdrop::before`, where a scrim replaces it;
-     the region, overflow and breakpoint-parity lessons were already
-     re-derived and better stated on `.fa-landing-sticky--fixed`. What is NOT
-     carried over is the `cqw` container-query sizing: the successor scales
-     through `--fa-text-scale` rather than container queries, so a note about
-     `container-type` not being its own query container would be advice about
-     a mechanism nothing here uses. Bean `alox`, issue #873. */
-  .folio-landing--plain {
-    position: static; width: auto; height: auto; color: inherit;
-  }
-  .folio-landing--plain p { font-size: inherit; font-weight: inherit; }
-</style>
-
-<!--
-  AN INSTANCE'S OWN WEBPAGE THEME, scoped to its pages.
-
-  Bean `7h3u`, on the owner's 2026-09-30 ruling to wire this at the PLATFORM
-  layer so every ingested IG gets it, rather than in one instance's page
-  generator.
-
-  WHY LIQUID AND NOT CSS. A webpage theme dresses one instance's pages, so it
-  has to be scoped by URL — and CSS cannot select on a URL. Jekyll is what
-  knows which page is rendering, so the scope is applied here and the VALUES
-  come from `_data/instance-themes.json`, written by `gen-themes-css.ts` from
-  each instance's declared `themes/`. That is the `site.data` pass-through bean
-  `kott` settled, and the owner's own instruction for this work: "reuse all
-  existing justthedocs infra".
-
-  WHY INLINE AND NOT A LINKED STYLESHEET. The same first-paint reasoning this
-  file already carries for the colour scheme: a sheet arriving after first
-  paint flashes the unthemed colours, which is the defect this file was
-  rewritten to remove.
-
-  WHAT IT RETHEMES, AND WHAT IT CANNOT. These three names are read by
-  `docs-ui.css` at 29 of its 33 `var(--x, #literal)` sites and DEFINED by
-  nothing — just-the-docs is Sass, so its own chrome compiles to literals and
-  no custom property can reach it. So this dresses the surfaces the site owns,
-  the left-hand nav among them, and leaves just-the-docs' compiled chrome
-  alone. Stated here because the alternative is a reader concluding the theme
-  is broken when it is doing exactly what it can.
--->
-
-<link rel="stylesheet" href="./assets/css/navbar.css"><script src="./assets/navbar/rail-15s6c624lyt.js" defer></script><script src="./assets/js/navbar.js" defer></script><link rel="stylesheet" href="./assets/page-layout.css" data-fa-page-layout><script src="./assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-platform-base" content="https://litlfred.github.io/folio-assistant" data-fa-platform-ui><link rel="stylesheet" href="./assets/css/docs-ui.css" data-fa-platform-ui><script src="./assets/js/docs-ui.js" defer data-fa-platform-ui></script><meta name="fa-pinned-data" content="."></head>
-
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root=".">{"data":"rail-15s6c624lyt","here":"/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#fa-sticky-cat-harness-summary","label":"computable adjudication and agentic test harness"},{"href":"#fa-sticky-folio-assist-core-summary","label":"What a folio is"},{"href":"#fa-sticky-who-iris-summary","label":"A catalogue by reference"},{"href":"#harnesses-heading","label":"What each harness holds","children":[{"href":"#harness-who-iris-heading","label":"WHO IRIS","depth":1},{"href":"#harness-folio-assistant-core-heading","label":"Folio Assistant Core","depth":1},{"href":"#harness-cat-harness-tools-heading","label":"C@T Harness Tools","depth":1},{"href":"#harness-cat-harness-heading","label":"C@T Harness","depth":1},{"href":"#harness-bootstrap-tools-heading","label":"Bootstrap tools","depth":1},{"href":"#harness-bootstrap-heading","label":"Bootstrap","depth":1}],"fold":"6 sub-sections"},{"href":"#what-this-site-is","label":"What this site is"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="./">WHO IRIS</a></nav>
-  <a class="skip-to-main" href="#main-content">Skip to main content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-  <symbol id="svg-link" viewBox="0 0 24 24">
-  <title>Link</title>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
-    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-  </svg>
-</symbol>
-
-  <symbol id="svg-menu" viewBox="0 0 24 24">
-  <title>Menu</title>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
-    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-</symbol>
-
-  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
-  <title>Expand</title>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-    <polyline points="9 18 15 12 9 6"></polyline>
-  </svg>
-</symbol>
-
-  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
-<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
-  <title id="svg-external-link-title">(external link)</title>
-  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
-</symbol>
-
-  
-    <symbol id="svg-doc" viewBox="0 0 24 24">
-  <title>Document</title>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
-    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
-  </svg>
-</symbol>
-
-    <symbol id="svg-search" viewBox="0 0 24 24">
-  <title>Search</title>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
-    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-  </svg>
-</symbol>
-
-  
-  
-    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
-<symbol id="svg-copy" viewBox="0 0 16 16">
-  <title>Copy</title>
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
-    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-  </svg>
-</symbol>
-<symbol id="svg-copied" viewBox="0 0 16 16">
-  <title>Copied</title>
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
-    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
-    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
-  </svg>
-</symbol>
-
-  
-</svg>
-
-  
-    
-
-  
-  <div class="main" id="top">
-    <div id="main-header" class="main-header fa-site-bar fa-page-bar"><a class="fa-page-bar-home" href="./">WHO IRIS</a>
-  
-    
-
-<div class="search" role="search">
-  <div class="search-input-wrap">
-    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search WHO IRIS" autocomplete="off">
-    <label for="search-input" class="search-label">
-      <span class="sr-only">Search WHO IRIS</span>
-      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
-    </label>
+<link rel="stylesheet" href="./assets/css/navbar.css"><script src="./assets/navbar/rail-878xfoagqh.js" defer></script><script src="./assets/js/navbar.js" defer></script><script src="./assets/navbar/row-2fingarckyz.js" defer></script><link rel="stylesheet" href="./assets/css/navbar-row.css"><script src="./assets/js/navbar-row.js" defer></script><script src="./assets/js/vendor/lunr.min.js" defer></script><script src="./assets/js/just-the-docs.js" defer></script><link rel="stylesheet" href="./assets/page-layout.css" data-fa-page-layout><script src="./assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-platform-base" content="https://litlfred.github.io/folio-assistant" data-fa-platform-ui><link rel="stylesheet" href="./assets/css/docs-ui.css" data-fa-platform-ui><script src="./assets/js/docs-ui.js" defer data-fa-platform-ui></script><meta name="fa-pinned-data" content="."></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="." data-fa-row-src="row-2fingarckyz"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root=".">{"data":"rail-878xfoagqh","here":"/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="./">WHO IRIS</a></nav><div id="main-header" class="main-header fa-site-bar fa-page-bar"><a class="fa-page-bar-home" href="./">WHO IRIS</a><div class="search" role="search"><div class="search-input-wrap"><input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search this site" autocomplete="off"><label for="search-input" class="search-label"><span class="sr-only">Search this site</span></label></div><div id="search-results" class="search-results"></div></div><span class="fa-page-bar-locale" data-fa-slot="locale"></span></div>
+
+
+<div class="ingested"><div class="wrap">
+  <strong>INGESTED COPY — not WHO, and not live.</strong> This page is rendered by <a href="https://github.com/litlfred/folio-assistant">folio-assistant</a> from its own catalogue of <a href="https://iris.who.int/">WHO IRIS</a>, modelled <em>by reference</em>: 13 nodes of a 273,559-item 361.55 GiB repository, of which <strong>3 items</strong> are held here. The WHO logo is deliberately omitted, and the rendered covers are withheld from display for the same reason — they carry the emblem printed on the publications.
+  <nav class="langs" aria-label="Interface language"><a href="who-iris/ar/index.html" lang="ar" hreflang="ar">العربية</a><a href="who-iris/zh/index.html" lang="zh" hreflang="zh">中文</a><span lang="en" aria-current="page">English</span><a href="who-iris/fr/index.html" lang="fr" hreflang="fr">Français</a><a href="who-iris/ru/index.html" lang="ru" hreflang="ru">Русский</a><a href="who-iris/es/index.html" lang="es" hreflang="es">Español</a></nav>
+</div></div>
+
+<header class="mast"><div class="wrap">
+  <div class="wordmark">
+    <span class="org">World Health<br>Organization</span>
+    <span class="bar"></span>
+    <span class="stack">
+      <span class="iris">iris<span class="dot">.</span></span>
+      <span class="sub">Institutional Repository<br>for Information Sharing</span>
+    </span>
   </div>
-  <div id="search-results" class="search-results"></div>
+  <div class="nologo">Logo omitted, covers withheld — replica, not published under WHO</div>
+</div></header>
+
+<!--
+  THE DOCUMENTATION IS NOT IN THIS NAVBAR, and that is the owner's ruling of
+  2026-09-21: *"the docs/ should not be for the who-iris top navbar, instead,
+  f-a navbar should still be on the left, with who-iris and then link to docs
+  on side in navbar."*
+
+  This strip is the REPLICA's chrome -- it exists to look like the IRIS site,
+  and the IRIS site has no page about how this repository ingested it. The
+  ingestion notes and the portal proposal are reached from the folio-assistant
+  navbar on the left, through who-iris's own tile in harness-tiles.ts, which
+  is where a reader looking for documentation about this harness is standing.
+  Putting them here also meant linking across two mount points once the split
+  landed, which is a relative path that breaks the first time either route
+  moves.
+
+  (No backticks in this comment: it sits inside the page template literal, and
+  one here closes the string and turns the rest of the file into TypeScript,
+  failing at a line far from the mistake.)
+-->
+<nav class="main"><div class="wrap">
+  <a href="catalogue/">Communities &amp; Collections</a>
+  <span>Browse IRIS</span><span>Statistics</span><span>About</span><span>Contact</span><span>Help</span>
+</div></nav>
+
+<div class="crumbs"><div class="wrap"><span class="here">Home</span></div></div>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="hero-in">
+    <h1>IRIS</h1>
+    <p>The primary objective of the Institutional Repository for Information Sharing (IRIS) is to provide free digital access to the scientific and technical publications of the World Health Organization (WHO), including contributions from its Country Offices, Regional Offices, and Headquarters. Additionally, IRIS encompasses the mandates established by the Organization’s Governing Bodies in collaboration with its Member States.</p>
+  </div>
+  <p class="hero-note">Replica. No WHO emblem, no photograph — colour only, from the <code>iris-web</code> theme measured off the site’s own stylesheet.</p>
+</section>
+
+<form class="searchbar" id="iris-search-form" action="id-lookup/" method="get">
+  <input type="hidden" name="index" value="who-iris/">
+  <input type="text" id="iris-search-input" name="q"
+    placeholder="Search through the repository’s 273559 items"
+    aria-label="Search through the repository items and referenced identifier lookup"
+    autocomplete="off" spellcheck="false">
+  <button type="submit" id="iris-search-btn">Search</button>
+</form>
+
+<div class="iris-facet-chips" id="iris-facet-chips" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.6rem 0 0.8rem;align-items:center;">
+  <span style="font-size:0.85rem;color:var(--iris-muted);font-weight:600;">Facets:</span>
+  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Guidelines as Topic" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Guidelines as Topic</button>
+  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Publishing" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Publishing</button>
+  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Western Pacific" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Western Pacific</button>
+  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Headquarters" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Headquarters</button>
+  <button type="button" class="iris-chip" data-facet-type="access" data-facet-val="open-access" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid #94BA65;color:#1d5c1d;background:#f0f6e9;cursor:pointer;">Open Access PDF</button>
 </div>
 
-  
-  
-  
-<span class="fa-page-bar-locale" data-fa-slot="locale"></span></div>
-
-    <div class="main-content-wrap">
-      
-      <div id="main-content" class="main-content">
-        <main>
-          
-            <details class="fa-sticky-panel" lang="en" dir="ltr">
-  <summary class="fa-sticky-panel__handle"><svg class="fa-sticky-panel__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M5 3h14a2 2 0 0 1 2 2v9l-7 7H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
-      <path d="M21 14h-5a2 2 0 0 0-2 2v5z" opacity="0.55" />
-    </svg>
-    <span class="fa-sticky-panel__label">Stickies</span>
-    <span class="fa-sticky-panel__count" data-fa-sticky-count="3">3</span>
-  </summary>
-  <div class="fa-sticky-panel__body"><div class="fa-sticky-board fa-landing-board" data-fa-home-panel="landing"><div class="fa-sticky-cell" data-fa-home-slot="cat-harness">
-  <article class="fa-sticky fa-landing-sticky" data-fa-sticky-theme="grumpy-cyborg-agents" aria-labelledby="fa-sticky-cat-harness-summary">
-<h2 id="fa-sticky-cat-harness-summary" class="fa-sr-only">
-  
-  
-    <a href="#fa-sticky-cat-harness-summary" class="anchor-heading" aria-labelledby="fa-sticky-cat-harness-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> computable adjudication and agentic test harness
-  
-  
-</h2>
-    <div class="fa-landing-sticky__text">
-    <div class="fa-landing-sticky__body">
-      <p>Computable adjudication and agentic test harness.</p>
-
-<p>Also written: <code class="language-plaintext highlighter-rouge">caaat-harness</code>, <code class="language-plaintext highlighter-rouge">ca&amp;at-harness</code>, <code class="language-plaintext highlighter-rouge">.c&amp;at-harness</code>, <code class="language-plaintext highlighter-rouge">c@t-harness</code></p>
-
-<p>Please be introduced to a cat who acquires things, for whatever purpose — maybe somebody knows.</p>
-
-<p><strong>Scope:</strong> the platform — skills, schemas, processes, the MCP server and the pipeline. Not what a folio IS (that is folio-assist-core), and not any folio’s own content, which lives in its own repository.</p>
-
-    </div><ul class="fa-landing-sticky__links"><li>
-        <a href="https://github.com/litlfred/cat-harness" rel="noopener">cat-harness, in the source</a> <span class="fa-landing-sticky__note">Its own repository since the cutover; the in-tree copy is archived in folio-assistant’s fsh-guts.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/docs/cat-harness/concepts/agentic-harness.html" rel="noopener">RTFM — the cat-harness docs</a> <span class="fa-landing-sticky__note">The agent–user interaction model, and what this harness is for.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/docs/cat-harness/guides/beans-and-todos.html" rel="noopener">The work plan is where you say what you are doing</a> <span class="fa-landing-sticky__note">Claim a bean before you work, so a sibling session does not pick up the same item.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/docs/cat-harness/start/getting-started.html" rel="noopener">Make your first folio</a> <span class="fa-landing-sticky__note">This repository is the platform; your content lives in its own.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/docs/cat-harness/concepts/content-types.html" rel="noopener">Know which kind of thing you are writing</a> <span class="fa-landing-sticky__note">A document is structured prose; a paper adds the block kinds whose assertion is a formal claim.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/docs/cat-harness/guides/index.html" rel="noopener">The documentation you will never read</a> <span class="fa-landing-sticky__note">All of it. The honest expectation is that you arrive from a search engine when something breaks.</span></li></ul></div>
-  </article><p class="fa-sticky-links"><a class="fa-node-edit fa-sticky-view" href="https://github.com/litlfred/who-iris/blob/main/cat-harness.json" rel="noopener" title="View  on GitHub" aria-label="View the declaration of computable adjudication and agentic test harness"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5c-5 0-8.6 4.2-9.6 6a1 1 0 0 0 0 1c1 1.8 4.6 6 9.6 6s8.6-4.2 9.6-6a1 1 0 0 0 0-1c-1-1.8-4.6-6-9.6-6zm0 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2.2a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6z" /></svg></a><a class="fa-node-edit fa-sticky-edit" href="https://github.com/litlfred/who-iris/edit/main/cat-harness.json" rel="noopener" title="Edit  on GitHub" aria-label="Edit the declaration of computable adjudication and agentic test harness"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 16.5V20h3.5L17.8 9.7l-3.5-3.5L4 16.5zM20.7 7.3a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0l-1.7 1.7 3.5 3.5 1.7-1.7z" /></svg></a></p></div><div class="fa-sticky-cell" data-fa-home-slot="folio-assist-core">
-  <article class="fa-sticky fa-landing-sticky" data-fa-sticky-theme="grumpy-cat" aria-labelledby="fa-sticky-folio-assist-core-summary">
-<h2 id="fa-sticky-folio-assist-core-summary" class="fa-sr-only">
-  
-  
-    <a href="#fa-sticky-folio-assist-core-summary" class="anchor-heading" aria-labelledby="fa-sticky-folio-assist-core-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What a folio is
-  
-  
-</h2>
-    <div class="fa-landing-sticky__text">
-    <div class="fa-landing-sticky__body">
-      <p>The knowledge graph is four sub-graphs, and an instance declares which of them it holds.</p>
-
-<p><strong>Content</strong> is what somebody authors and a reader reads — this layer’s subject. <strong>Skills</strong> are the instructions an agent follows to do the work. <strong>Processes</strong> are the BPMN diagrams that say who does what, in which order, and where the gates are — they are executable, not illustrations. <strong>Tools</strong> are what an agent can call.</p>
-
-<p>Getting anything in is <strong>acquisition</strong>: unstructured and semi-structured sources arrive through <code class="language-plaintext highlighter-rouge">uploads/</code> or through the conversation, and are ingested into <code class="language-plaintext highlighter-rouge">library/</code>. It is a step rather than a graph typology of its own — there is no fifth directory to look for.</p>
-
-<p><strong>Scope:</strong> the content model — what a folio IS. Not the skills and tools that operate on it, and not any particular folio’s chapters.</p>
-
-    </div><ul class="fa-landing-sticky__links"><li>
-        <a href="https://litlfred.github.io/folio-assistant/concepts/content-types.html" rel="noopener">Content</a> <span class="fa-landing-sticky__note">A document is structured prose; a paper adds the block kinds whose assertion is a formal claim.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/concepts/skills.html" rel="noopener">Skills</a> <span class="fa-landing-sticky__note">Every skill and role, and how they fit together.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/process/publication-workflow.html" rel="noopener">Processes</a> <span class="fa-landing-sticky__note">The BPMN diagrams, which are the source of truth rather than a picture of it.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/concepts/architecture.html" rel="noopener">Tools</a> <span class="fa-landing-sticky__note">What an agent can call, served over MCP.</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/guides/document-ingestion.html" rel="noopener">Acquisition</a> <span class="fa-landing-sticky__note">How a source gets from uploads/ into library/.</span></li><li>
-        <a href="https://github.com/litlfred/folio-assistant/blob/main/folio-assistant-core/README.md" rel="noopener">RTFM — folio-assist-core</a> <span class="fa-landing-sticky__note">Its scope, in and out, and why it declares no directories yet.</span></li></ul></div>
-  </article><p class="fa-sticky-links"><a class="fa-node-edit fa-sticky-view" href="https://github.com/litlfred/who-iris/blob/main/folio-assistant-core.json" rel="noopener" title="View  on GitHub" aria-label="View the declaration of What a folio is"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5c-5 0-8.6 4.2-9.6 6a1 1 0 0 0 0 1c1 1.8 4.6 6 9.6 6s8.6-4.2 9.6-6a1 1 0 0 0 0-1c-1-1.8-4.6-6-9.6-6zm0 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2.2a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6z" /></svg></a><a class="fa-node-edit fa-sticky-edit" href="https://github.com/litlfred/who-iris/edit/main/folio-assistant-core.json" rel="noopener" title="Edit  on GitHub" aria-label="Edit the declaration of What a folio is"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 16.5V20h3.5L17.8 9.7l-3.5-3.5L4 16.5zM20.7 7.3a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0l-1.7 1.7 3.5 3.5 1.7-1.7z" /></svg></a></p></div><div class="fa-sticky-cell" data-fa-home-slot="who-iris">
-  <article class="fa-sticky fa-landing-sticky" data-fa-sticky-theme="iris-sticky" aria-labelledby="fa-sticky-who-iris-summary">
-<h2 id="fa-sticky-who-iris-summary" class="fa-sr-only">
-  
-  
-    <a href="#fa-sticky-who-iris-summary" class="anchor-heading" aria-labelledby="fa-sticky-who-iris-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A catalogue by reference
-  
-  
-</h2>
-    <div class="fa-landing-sticky__text">
-    <div class="fa-landing-sticky__body">
-      <p>The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized.</p>
-
-    </div><ul class="fa-landing-sticky__links"><li>
-        <a href="/who-iris/">WHO IRIS</a> <span class="fa-landing-sticky__note">The three materialized items, on IRIS's own theme.</span></li></ul></div>
-  </article><p class="fa-sticky-links"><a class="fa-node-edit fa-sticky-view" href="https://github.com/litlfred/who-iris/blob/main/who-iris.json" rel="noopener" title="View  on GitHub" aria-label="View the declaration of A catalogue by reference"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5c-5 0-8.6 4.2-9.6 6a1 1 0 0 0 0 1c1 1.8 4.6 6 9.6 6s8.6-4.2 9.6-6a1 1 0 0 0 0-1c-1-1.8-4.6-6-9.6-6zm0 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2.2a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6z" /></svg></a><a class="fa-node-edit fa-sticky-edit" href="https://github.com/litlfred/who-iris/edit/main/who-iris.json" rel="noopener" title="Edit  on GitHub" aria-label="Edit the declaration of A catalogue by reference"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 16.5V20h3.5L17.8 9.7l-3.5-3.5L4 16.5zM20.7 7.3a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0l-1.7 1.7 3.5 3.5 1.7-1.7z" /></svg></a></p></div></div>
-  </div>
-</details>
-<h1 class="fs-9" id="who-iris">
-  
-  
-    <a href="#who-iris" class="anchor-heading" aria-labelledby="who-iris"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> WHO IRIS
-  
-  
-</h1>
-    
-
-<p class="fs-6 fw-300">The WHO Institutional Repository for Information Sharing, <strong>catalogued by
-reference</strong>: the shape of the corpus is modelled here, and only a handful of
-its items are held.</p>
-
-<p><a href="/who-iris/who-iris/" class="btn btn-primary fs-5 mb-4 mb-md-0 mr-2">Browse the replica</a>
-<a href="/who-iris/docs/who-iris/" class="btn fs-5 mb-4 mb-md-0">The catalogue, as a graph</a></p>
-
-<section class="fa-harness-sections" id="harnesses" lang="en" dir="ltr">
-<h2 id="harnesses-heading">
-  
-  
-    <a href="#harnesses-heading" class="anchor-heading" aria-labelledby="harnesses-heading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What each harness holds
-  
-  
-</h2>
-    
-  <p class="fa-harness-sections__lead">
-    One section per instantiated harness, in the same order as the dividers in
-    the sidebar — the floor last.
-  </p><section class="fa-harness-section" id="harness-who-iris" style="--fa-tile-tone: 198; --fa-tile-on: 1">
-<h3 class="fa-harness-section__title" id="harness-who-iris-heading">
-  
-  
-    <a href="#harness-who-iris-heading" class="anchor-heading" aria-labelledby="harness-who-iris-heading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <a href="https://litlfred.github.io/folio-assistant/#harness-who-iris">WHO IRIS</a>
-  
-  
-</h3>
-    <p class="fa-harness-section__description">The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized.</p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
-        <dt>declared directories</dt>
-        <dd>17</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
-        <dt>declared graph typologies</dt>
-        <dd>15</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="views">
-        <dt>visualisations you can open</dt>
-        <dd>10</dd>
-      </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="/who-iris/catalogue/" data-fa-readonly="" title="materialized content: readable, not editable here">Catalogue</a><span class="fa-readonly-note">read-only</span></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/folio/who-iris/">Folio</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/health/who-iris/">Health</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/library/who-iris/">Library</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/qa/who-iris/">QA</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/who-iris/">Schemas</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/who-iris/">Tools</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/">Translation sources</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/uploads/who-iris/">Uploads</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 17 local, 0 remote</summary>
-      <ul><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-translations</code> <span class="fa-harness-section__via">translations/</span> <span class="fa-harness-section__kinds">· translation-sources</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>library</code> <span class="fa-harness-section__via">library/</span> <span class="fa-harness-section__kinds">· library</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-site</code> <span class="fa-harness-section__via">site/</span> <span class="fa-harness-section__kinds">· docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-catalogue</code> <span class="fa-harness-section__via">catalogue/</span> <span class="fa-harness-section__kinds">· catalogue</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-uploads</code> <span class="fa-harness-section__via">uploads/</span> <span class="fa-harness-section__kinds">· uploads</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-skills</code> <span class="fa-harness-section__via">skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>glossary</code> <span class="fa-harness-section__via">glossary/</span> <span class="fa-harness-section__kinds">· glossary</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-themes</code> <span class="fa-harness-section__via">themes/</span> <span class="fa-harness-section__kinds">· themes</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-docs</code> <span class="fa-harness-section__via">docs/</span> <span class="fa-harness-section__kinds">· docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-scripts</code> <span class="fa-harness-section__via">scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-sources</code> <span class="fa-harness-section__via">sources/</span> <span class="fa-harness-section__kinds">· schemas</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>id-lookup</code> <span class="fa-harness-section__via">id-lookup/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>qa</code> <span class="fa-harness-section__via">test/results/</span> <span class="fa-harness-section__kinds">· qa</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio</code> <span class="fa-harness-section__via">folio/</span> <span class="fa-harness-section__kinds">· folio</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-tools</code> <span class="fa-harness-section__via">tools/</span> <span class="fa-harness-section__kinds">· tools</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>health</code> <span class="fa-harness-section__via">test/health/results/</span> <span class="fa-harness-section__kinds">· health</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>voices</code> <span class="fa-harness-section__via">skills/voices/</span> <span class="fa-harness-section__kinds">· voices</span></li></ul>
-    </details><details class="fa-harness-section__findings">
-      <summary>Gaps in this instance's declaration (3)</summary>
-      <ul><li>who-iris: declares 5 graph(s) with no published viewer — code, docs, glossary, skills, themes. Declared and not rendered is a gap, not a dead link.</li><li>who-iris: 1 graph(s) hold materialized content and are READ-ONLY — catalogue. Readable, not editable here: copy one out to your own folio/ to work on it. Separate from whether a viewer is published.</li><li>who-iris/glossary: declares visualiser “Glossary” at “cat-harness/docs/en/folio-assistant-core/glossary/index.html”, which does not resolve on disk.</li></ul>
-    </details></section><section class="fa-harness-section" id="harness-folio-assistant-core" style="--fa-tile-tone: 212; --fa-tile-on: 1">
-<h3 class="fa-harness-section__title" id="harness-folio-assistant-core-heading">
-  
-  
-    <a href="#harness-folio-assistant-core-heading" class="anchor-heading" aria-labelledby="harness-folio-assistant-core-heading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <a href="https://litlfred.github.io/folio-assistant/folio-assistant-core/">Folio Assistant Core</a>
-  
-  
-</h3>
-    <p class="fa-harness-section__description">What a folio IS — the content-object model, the block kinds, the adapters, and the <code class="language-plaintext highlighter-rouge">folio</code> graph typology itself.</p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
-        <dt>declared directories</dt>
-        <dd>28</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
-        <dt>declared graph typologies</dt>
-        <dd>26</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="views">
-        <dt>visualisations you can open</dt>
-        <dd>12</dd>
-      </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/folio-assistant-core/">Beans</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/folio/folio-assistant-core/">Folio</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/health/folio-assistant-core/">Health</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/library/folio-assistant-core/">Library</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/methodologies/">Methodologies</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/qa/folio-assistant-core/">QA</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/folio-assistant-core/">Schemas</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/folio-assistant-core/">Tools</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/">Translation sources</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 28 local, 0 remote</summary>
-      <ul><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-assistant-core-docs</code> <span class="fa-harness-section__via">folio-assistant-core/docs/</span> <span class="fa-harness-section__kinds">· docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-assistant-core-translations</code> <span class="fa-harness-section__via">folio-assistant-core/translations/</span> <span class="fa-harness-section__kinds">· translation-sources</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-assistant-core-block-typologies</code> <span class="fa-harness-section__via">folio-assistant-core/block-kinds/</span> <span class="fa-harness-section__kinds">· block-kinds</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-assistant-core-content-adapters</code> <span class="fa-harness-section__via">folio-assistant-core/content-adapters/</span> <span class="fa-harness-section__kinds">· content-adapters</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-assistant-core-validators</code> <span class="fa-harness-section__via">folio-assistant-core/validators/</span> <span class="fa-harness-section__kinds">· validators</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-code-lists</code> <span class="fa-harness-section__via">folio-assistant-core/code-lists/</span> <span class="fa-harness-section__kinds">· code-list</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-qa-checkers</code> <span class="fa-harness-section__via">folio-assistant-core/qa-checkers/</span> <span class="fa-harness-section__kinds">· qa-checkers</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-pipeline</code> <span class="fa-harness-section__via">folio-assistant-core/pipeline/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-assistant-core-typologies</code> <span class="fa-harness-section__via">folio-assistant-core/typologies/</span> <span class="fa-harness-section__kinds">· typologies</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-schemas</code> <span class="fa-harness-section__via">folio-assistant-core/schemas/</span> <span class="fa-harness-section__kinds">· schemas, cat-harness</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folios</code> <span class="fa-harness-section__via">folio-assistant-core/folios/</span> <span class="fa-harness-section__kinds">· folio</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>glossary</code> <span class="fa-harness-section__via">folio-assistant-core/glossary/</span> <span class="fa-harness-section__kinds">· glossary</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-tools</code> <span class="fa-harness-section__via">folio-assistant-core/tools/</span> <span class="fa-harness-section__kinds">· tools</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-adapters</code> <span class="fa-harness-section__via">folio-assistant-core/adapters/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-src</code> <span class="fa-harness-section__via">folio-assistant-core/src/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-scripts</code> <span class="fa-harness-section__via">folio-assistant-core/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-library</code> <span class="fa-harness-section__via">folio-assistant-core/library/</span> <span class="fa-harness-section__kinds">· library</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-methodologies</code> <span class="fa-harness-section__via">folio-assistant-core/methodologies/</span> <span class="fa-harness-section__kinds">· methodology</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-skills</code> <span class="fa-harness-section__via">folio-assistant-core/skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>core-processes</code> <span class="fa-harness-section__via">folio-assistant-core/processes/</span> <span class="fa-harness-section__kinds">· processes</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>qa</code> <span class="fa-harness-section__via">folio-assistant-core/test/results/</span> <span class="fa-harness-section__kinds">· qa</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>memory</code> <span class="fa-harness-section__via">folio-assistant-core/memory/</span> <span class="fa-harness-section__kinds">· memory</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>beans</code> <span class="fa-harness-section__via">folio-assistant-core/beans/</span> <span class="fa-harness-section__kinds">· beans</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>health</code> <span class="fa-harness-section__via">folio-assistant-core/test/health/results/</span> <span class="fa-harness-section__kinds">· health</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>voices</code> <span class="fa-harness-section__via">folio-assistant-core/skills/voices/</span> <span class="fa-harness-section__kinds">· voices</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>defs</code> <span class="fa-harness-section__via">folio-assistant-core/beans/defs/</span> <span class="fa-harness-section__kinds">· bean-defs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>notes</code> <span class="fa-harness-section__via">folio-assistant-core/beans/notes/</span> <span class="fa-harness-section__kinds">· bean-notes</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>workflows</code> <span class="fa-harness-section__via">folio-assistant-core/beans/workflows/</span> <span class="fa-harness-section__kinds">· workflow-state</span></li></ul>
-    </details><details class="fa-harness-section__findings">
-      <summary>Gaps in this instance's declaration (4)</summary>
-      <ul><li>folio-assistant-core: declares 14 graph(s) with no published viewer — bean-defs, bean-notes, block-kinds, code, code-list, content-adapters, docs, glossary, memory, qa-checkers, skills, typologies, validators, workflow-state. Declared and not rendered is a gap, not a dead link.</li><li>folio-assistant-core/glossary: declares visualiser “Glossary” at “cat-harness/docs/en/folio-assistant-core/glossary/index.html”, which does not resolve on disk.</li><li>folio-assistant-core: a viewer is published at /en/cat-harness/uploads/folio-assistant-core/ by cat-harness’s <code class="language-plaintext highlighter-rouge">uploads</code> visualiser, which covers none of this instance’s directories. Declare one it covers and the tile links it.</li><li>folio-assistant-core: a viewer is published at /en/cat-harness/voices/folio-assistant-core/ by cat-harness’s <code class="language-plaintext highlighter-rouge">voices</code> visualiser, which covers none of this instance’s directories. Declare one it covers and the tile links it.</li></ul>
-    </details></section><section class="fa-harness-section" id="harness-cat-harness-tools" style="--fa-tile-tone: 268; --fa-tile-on: 1">
-<h3 class="fa-harness-section__title" id="harness-cat-harness-tools-heading">
-  
-  
-    <a href="#harness-cat-harness-tools-heading" class="anchor-heading" aria-labelledby="harness-cat-harness-tools-heading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <a href="https://litlfred.github.io/folio-assistant/#harness-cat-harness-tools">C@T Harness Tools</a>
-  
-  
-</h3>
-    <p class="fa-harness-section__description">What implements the harness’s Tool definitions: the MCP servers, their tool registrars and routes. Definitions stay in cat-harness; this layer runs them.</p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
-        <dt>declared directories</dt>
-        <dd>20</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
-        <dt>declared graph typologies</dt>
-        <dd>8</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="views">
-        <dt>visualisations you can open</dt>
-        <dd>4</dd>
-      </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/cat-harness-tools/">Beans</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/cat-harness-tools/">Code</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/health/cat-harness-tools/">Health</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 20 local, 0 remote</summary>
-      <ul><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-adapters</code> <span class="fa-harness-section__via">cat-harness-tools/adapters/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-schemas</code> <span class="fa-harness-section__via">cat-harness-tools/schemas/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-scripts</code> <span class="fa-harness-section__via">cat-harness-tools/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-id-lookup</code> <span class="fa-harness-section__via">cat-harness-tools/id-lookup/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-tests</code> <span class="fa-harness-section__via">cat-harness-tools/test/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-src</code> <span class="fa-harness-section__via">cat-harness-tools/src/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-tools</code> <span class="fa-harness-section__via">cat-harness-tools/tools/</span> <span class="fa-harness-section__kinds">· tools, code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-python</code> <span class="fa-harness-section__via">cat-harness-tools/python/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>beans</code> <span class="fa-harness-section__via">cat-harness-tools/beans/</span> <span class="fa-harness-section__kinds">· beans</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-pipeline</code> <span class="fa-harness-section__via">cat-harness-tools/pipeline/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-content-pipeline-link</code> <span class="fa-harness-section__via">cat-harness-tools/content/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-templates</code> <span class="fa-harness-section__via">cat-harness-tools/templates/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-deploy</code> <span class="fa-harness-section__via">cat-harness-tools/deploy/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-archimate</code> <span class="fa-harness-section__via">cat-harness-tools/archimate/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-openapi</code> <span class="fa-harness-section__via">cat-harness-tools/openapi/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>health</code> <span class="fa-harness-section__via">cat-harness-tools/health/</span> <span class="fa-harness-section__kinds">· health</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>defs</code> <span class="fa-harness-section__via">cat-harness-tools/beans/defs/</span> <span class="fa-harness-section__kinds">· bean-defs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>notes</code> <span class="fa-harness-section__via">cat-harness-tools/beans/notes/</span> <span class="fa-harness-section__kinds">· bean-notes</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>workflows</code> <span class="fa-harness-section__via">cat-harness-tools/beans/workflows/</span> <span class="fa-harness-section__kinds">· workflow-state</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>marks</code> <span class="fa-harness-section__via">cat-harness-tools/beans/marks/</span> <span class="fa-harness-section__kinds">· sweep-marks</span></li></ul>
-    </details><details class="fa-harness-section__findings">
-      <summary>Gaps in this instance's declaration (2)</summary>
-      <ul><li>cat-harness-tools: declares 4 graph(s) with no published viewer — bean-defs, bean-notes, sweep-marks, workflow-state. Declared and not rendered is a gap, not a dead link.</li><li>cat-harness-tools: has no docs/ of its own, so the tile opens its section of the landing (/#harness-cat-harness-tools) rather than the instance’s own themed root.</li></ul>
-    </details></section><section class="fa-harness-section" id="harness-cat-harness" style="--fa-tile-tone: 268; --fa-tile-on: 1">
-<h3 class="fa-harness-section__title" id="harness-cat-harness-heading">
-  
-  
-    <a href="#harness-cat-harness-heading" class="anchor-heading" aria-labelledby="harness-cat-harness-heading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <a href="https://litlfred.github.io/folio-assistant/#harness-cat-harness">C@T Harness</a>
-  
-  
-</h3>
-    <p class="fa-harness-section__description">Computable adjudication and agentic test harness.</p><p class="fa-harness-section__also">Also written: <code>caaat-harness</code>, <code>ca&amp;at-harness</code>, <code>.c&amp;at-harness</code>, <code>c@t-harness</code></p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
-        <dt>declared directories</dt>
-        <dd>68</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
-        <dt>declared graph typologies</dt>
-        <dd>41</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="views">
-        <dt>visualisations you can open</dt>
-        <dd>22</dd>
-      </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/attestations/cat-harness/">Attestations</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/">Beans</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/start/">Doc group</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/external-schemas/">External schemas</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/folio/">Folio</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/fsh-guts/">FSH guts</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/health/cat-harness/">Health</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/issue-marks/">Issue marks</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/library/cat-harness/">Library</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/methodologies/">Methodologies</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/proposals/">Proposals</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/lsi/">QA</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/requirements/">Requirements</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/cat-harness/">Schemas</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/swimlane-glossary/">Swimlane glossary</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/todos/">Todos</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/cat-harness/">Tools</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/">Translation sources</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/uploads/cat-harness/">Uploads</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 68 local, 0 remote</summary>
-      <ul><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-validators</code> <span class="fa-harness-section__via">cat-harness/validators/</span> <span class="fa-harness-section__kinds">· validators</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>tools</code> <span class="fa-harness-section__via">cat-harness/tools/</span> <span class="fa-harness-section__kinds">· tools</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>external-schemas</code> <span class="fa-harness-section__via">cat-harness/external-schemas/</span> <span class="fa-harness-section__kinds">· external-schema</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>subscriptions</code> <span class="fa-harness-section__via">cat-harness/subscriptions/</span> <span class="fa-harness-section__kinds">· substrate-snapshot</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>code-lists</code> <span class="fa-harness-section__via">cat-harness/code-lists/</span> <span class="fa-harness-section__kinds">· code-list</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>vocab-mappings</code> <span class="fa-harness-section__via">cat-harness/vocab-mappings/</span> <span class="fa-harness-section__kinds">· vocab-mapping</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>tool-releases</code> <span class="fa-harness-section__via">cat-harness/tool-releases/</span> <span class="fa-harness-section__kinds">· tool-release</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>schemas</code> <span class="fa-harness-section__via">cat-harness/schemas/</span> <span class="fa-harness-section__kinds">· schemas, cat-harness</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>uml</code> <span class="fa-harness-section__via">cat-harness/uml/</span> <span class="fa-harness-section__kinds">· uml</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>skills</code> <span class="fa-harness-section__via">cat-harness/skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>scenarios</code> <span class="fa-harness-section__via">cat-harness/scenarios/</span> <span class="fa-harness-section__kinds">· scenarios</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>policies</code> <span class="fa-harness-section__via">cat-harness/policies/</span> <span class="fa-harness-section__kinds">· policies</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>processes</code> <span class="fa-harness-section__via">cat-harness/processes/</span> <span class="fa-harness-section__kinds">· processes</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>methodologies</code> <span class="fa-harness-section__via">cat-harness/methodologies/</span> <span class="fa-harness-section__kinds">· methodology</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>qa</code> <span class="fa-harness-section__via">cat-harness/test/results/</span> <span class="fa-harness-section__kinds">· qa</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>attestations</code> <span class="fa-harness-section__via">cat-harness/test/attestations/</span> <span class="fa-harness-section__kinds">· attestations</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>test-plans</code> <span class="fa-harness-section__via">cat-harness/test/plans/</span> <span class="fa-harness-section__kinds">· test-plan</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>health</code> <span class="fa-harness-section__via">cat-harness/test/health/results/</span> <span class="fa-harness-section__kinds">· health</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>uploads</code> <span class="fa-harness-section__via">cat-harness/uploads/</span> <span class="fa-harness-section__kinds">· uploads</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>library</code> <span class="fa-harness-section__via">cat-harness/library/</span> <span class="fa-harness-section__kinds">· library</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>translation-sources</code> <span class="fa-harness-section__via">cat-harness/translations/</span> <span class="fa-harness-section__kinds">· translation-sources</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio</code> <span class="fa-harness-section__via">cat-harness/folio/</span> <span class="fa-harness-section__kinds">· folio</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>folio-render</code> <span class="fa-harness-section__via">cat-harness/folio-render/</span> <span class="fa-harness-section__kinds">· cat-harness, code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>site-chrome</code> <span class="fa-harness-section__via">cat-harness/site-chrome/</span> <span class="fa-harness-section__kinds">· docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs</code> <span class="fa-harness-section__via">cat-harness/docs/</span> <span class="fa-harness-section__kinds">· docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>site</code> <span class="fa-harness-section__via">cat-harness/site/</span> <span class="fa-harness-section__kinds">· basic-cdn-site</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>swimlane-glossary</code> <span class="fa-harness-section__via">cat-harness/glossary/</span> <span class="fa-harness-section__kinds">· swimlane-glossary</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-upstream</code> <span class="fa-harness-section__via">cat-harness/upstream/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>openapi</code> <span class="fa-harness-section__via">cat-harness/openapi/</span> <span class="fa-harness-section__kinds">· cat-harness</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>archimate</code> <span class="fa-harness-section__via">cat-harness/archimate/</span> <span class="fa-harness-section__kinds">· cat-harness</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>memory</code> <span class="fa-harness-section__via">cat-harness/memory/</span> <span class="fa-harness-section__kinds">· memory, waiver, interaction</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>fsh-guts</code> <span class="fa-harness-section__via">cat-harness/fsh-guts/</span> <span class="fa-harness-section__kinds">· fsh-guts</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>beans</code> <span class="fa-harness-section__via">cat-harness/beans/</span> <span class="fa-harness-section__kinds">· beans</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>todos</code> <span class="fa-harness-section__via">cat-harness/todos/</span> <span class="fa-harness-section__kinds">· todos</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>checkout-uploads</code> <span class="fa-harness-section__via">cat-harness/uploads/</span> <span class="fa-harness-section__kinds">· uploads</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>issue-marks</code> <span class="fa-harness-section__via">cat-harness/issue-marks/</span> <span class="fa-harness-section__kinds">· issue-marks</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/proposals</code> <span class="fa-harness-section__via">cat-harness/docs/proposals/</span> <span class="fa-harness-section__kinds">· proposals</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/requirements</code> <span class="fa-harness-section__via">cat-harness/docs/requirements/</span> <span class="fa-harness-section__kinds">· requirements</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/start</code> <span class="fa-harness-section__via">cat-harness/docs/start/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/concepts</code> <span class="fa-harness-section__via">cat-harness/docs/concepts/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/guides</code> <span class="fa-harness-section__via">cat-harness/docs/guides/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/process</code> <span class="fa-harness-section__via">cat-harness/docs/process/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/fhir</code> <span class="fa-harness-section__via">cat-harness/docs/fhir/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/auto-docs</code> <span class="fa-harness-section__via">cat-harness/docs/cat-harness/auto-docs/</span> <span class="fa-harness-section__kinds">· auto-docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/uml-overview-pages</code> <span class="fa-harness-section__via">cat-harness/docs/uml/overview/</span> <span class="fa-harness-section__kinds">· auto-docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs/uml-overview-svgs</code> <span class="fa-harness-section__via">cat-harness/docs/assets/img/uml/overview/</span> <span class="fa-harness-section__kinds">· auto-docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>voices</code> <span class="fa-harness-section__via">cat-harness/skills/voices/</span> <span class="fa-harness-section__kinds">· voices</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>vendors</code> <span class="fa-harness-section__via">cat-harness/skills/voices/vendors/</span> <span class="fa-harness-section__kinds">· voice-vendors</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>agent-skill-authoring-claude</code> <span class="fa-harness-section__via">cat-harness/skills/voices/vendors/agent-skill-authoring-claude/</span> <span class="fa-harness-section__kinds">· voice-vendors</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>agent-skill-authoring-gemini-cli</code> <span class="fa-harness-section__via">cat-harness/skills/voices/vendors/agent-skill-authoring-gemini-cli/</span> <span class="fa-harness-section__kinds">· voice-vendors</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>agent-skill-authoring-openai</code> <span class="fa-harness-section__via">cat-harness/skills/voices/vendors/agent-skill-authoring-openai/</span> <span class="fa-harness-section__kinds">· voice-vendors</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>proposals</code> <span class="fa-harness-section__via">cat-harness/docs/proposals/</span> <span class="fa-harness-section__kinds">· proposals</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>requirements</code> <span class="fa-harness-section__via">cat-harness/docs/requirements/</span> <span class="fa-harness-section__kinds">· requirements</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>start</code> <span class="fa-harness-section__via">cat-harness/docs/start/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>concepts</code> <span class="fa-harness-section__via">cat-harness/docs/concepts/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>guides</code> <span class="fa-harness-section__via">cat-harness/docs/guides/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>process</code> <span class="fa-harness-section__via">cat-harness/docs/process/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>fhir</code> <span class="fa-harness-section__via">cat-harness/docs/fhir/</span> <span class="fa-harness-section__kinds">· doc-group</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>auto-docs</code> <span class="fa-harness-section__via">cat-harness/docs/cat-harness/auto-docs/</span> <span class="fa-harness-section__kinds">· auto-docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>uml-overview-pages</code> <span class="fa-harness-section__via">cat-harness/docs/uml/overview/</span> <span class="fa-harness-section__kinds">· auto-docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>uml-overview-svgs</code> <span class="fa-harness-section__via">cat-harness/docs/assets/img/uml/overview/</span> <span class="fa-harness-section__kinds">· auto-docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>docs-source</code> <span class="fa-harness-section__via">cat-harness/docs/source/</span> <span class="fa-harness-section__kinds">· docs</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>openapi-validators</code> <span class="fa-harness-section__via">cat-harness/openapi/validators/</span> <span class="fa-harness-section__kinds">· validators</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>openapi-typologies</code> <span class="fa-harness-section__via">cat-harness/openapi/typologies/</span> <span class="fa-harness-section__kinds">· typologies</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>openapi-schemas</code> <span class="fa-harness-section__via">cat-harness/openapi/schemas/</span> <span class="fa-harness-section__kinds">· schemas</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>archimate-validators</code> <span class="fa-harness-section__via">cat-harness/archimate/validators/</span> <span class="fa-harness-section__kinds">· validators</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>archimate-typologies</code> <span class="fa-harness-section__via">cat-harness/archimate/typologies/</span> <span class="fa-harness-section__kinds">· typologies</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>archimate-schemas</code> <span class="fa-harness-section__via">cat-harness/archimate/schemas/</span> <span class="fa-harness-section__kinds">· schemas</span></li></ul>
-    </details><details class="fa-harness-section__findings">
-      <summary>Gaps in this instance's declaration (2)</summary>
-      <ul><li>cat-harness: declares 19 graph(s) with no published viewer — auto-docs, basic-cdn-site, code, code-list, docs, interaction, memory, policies, scenarios, skills, substrate-snapshot, test-plan, tool-release, typologies, uml, validators, vocab-mapping, voice-vendors, waiver. Declared and not rendered is a gap, not a dead link.</li><li>cat-harness: a viewer is published at /en/cat-harness/voices/cat-harness/ by cat-harness’s <code class="language-plaintext highlighter-rouge">voices</code> visualiser, which covers none of this instance’s directories. Declare one it covers and the tile links it.</li></ul>
-    </details></section><section class="fa-harness-section" id="harness-bootstrap-tools" style="--fa-tile-tone: 96; --fa-tile-on: 1">
-<h3 class="fa-harness-section__title" id="harness-bootstrap-tools-heading">
-  
-  
-    <a href="#harness-bootstrap-tools-heading" class="anchor-heading" aria-labelledby="harness-bootstrap-tools-heading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <a href="https://litlfred.github.io/folio-assistant/#harness-bootstrap-tools">Bootstrap tools</a>
-  
-  
-</h3>
-    <p class="fa-harness-section__description">The Zod source of bootstrap’s schemas, the generators that write bootstrap’s JSON Schemas, schema page and READMEs, and the checks bootstrap’s content must pass — runnable by an agent, with zod, liquidjs, Playwright and bpmn-js as its dependencies.</p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
-        <dt>declared directories</dt>
-        <dd>5</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
-        <dt>declared graph typologies</dt>
-        <dd>5</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="views">
-        <dt>visualisations you can open</dt>
-        <dd>2</dd>
-      </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/bootstrap-tools/">Schemas</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 5 local, 0 remote</summary>
-      <ul><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>bootstrap-tools-schemas</code> <span class="fa-harness-section__via">bootstrap-tools/schemas/</span> <span class="fa-harness-section__kinds">· schemas</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>bootstrap-tools-scripts</code> <span class="fa-harness-section__via">bootstrap-tools/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>bootstrap-tools-skills</code> <span class="fa-harness-section__via">bootstrap-tools/skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>bootstrap-tools-processes</code> <span class="fa-harness-section__via">bootstrap-tools/processes/</span> <span class="fa-harness-section__kinds">· processes</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>bootstrap-tools-scenarios</code> <span class="fa-harness-section__via">bootstrap-tools/scenarios/</span> <span class="fa-harness-section__kinds">· scenarios</span></li></ul>
-    </details><details class="fa-harness-section__findings">
-      <summary>Gaps in this instance's declaration (2)</summary>
-      <ul><li>bootstrap-tools: declares 3 graph(s) with no published viewer — code, scenarios, skills. Declared and not rendered is a gap, not a dead link.</li><li>bootstrap-tools: has no docs/ of its own, so the tile opens its section of the landing (/#harness-bootstrap-tools) rather than the instance’s own themed root.</li></ul>
-    </details></section><section class="fa-harness-section" id="harness-bootstrap" style="--fa-tile-tone: 96; --fa-tile-on: 1">
-<h3 class="fa-harness-section__title" id="harness-bootstrap-heading">
-  
-  
-    <a href="#harness-bootstrap-heading" class="anchor-heading" aria-labelledby="harness-bootstrap-heading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <a href="https://litlfred.github.io/folio-assistant/#harness-bootstrap">Bootstrap</a>
-  
-  
-</h3>
-    <p class="fa-harness-section__description">The graph an agent reads before it knows what this repository is.</p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
-        <dt>declared directories</dt>
-        <dd>5</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
-        <dt>declared graph typologies</dt>
-        <dd>5</dd>
-      </div><div class="fa-harness-section__stat" data-fa-stat="views">
-        <dt>visualisations you can open</dt>
-        <dd>2</dd>
-      </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/bootstrap/">Schemas</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 5 local, 0 remote</summary>
-      <ul><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>skills</code> <span class="fa-harness-section__via">bootstrap/skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>schemas</code> <span class="fa-harness-section__via">bootstrap/schemas/</span> <span class="fa-harness-section__kinds">· schemas</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>scenarios</code> <span class="fa-harness-section__via">bootstrap/scenarios/</span> <span class="fa-harness-section__kinds">· scenarios</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>processes</code> <span class="fa-harness-section__via">bootstrap/processes/</span> <span class="fa-harness-section__kinds">· processes</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>models</code> <span class="fa-harness-section__via">bootstrap/models/</span> <span class="fa-harness-section__kinds">· models</span></li></ul>
-    </details><details class="fa-harness-section__findings">
-      <summary>Gaps in this instance's declaration (2)</summary>
-      <ul><li>bootstrap: 3 graph(s) render no viewer — models, scenarios, skills — under a declared <code class="language-plaintext highlighter-rouge">renderExemption</code>. Not a gap: it owes Its own Knowledge Graph, written out as <code class="language-plaintext highlighter-rouge">.jsonld</code> with a <code class="language-plaintext highlighter-rouge">.json</code> copy and published at <code class="language-plaintext highlighter-rouge">&lt;base&gt;/bootstrap/bootstrap.jsonld</code>, the exact address its <code class="language-plaintext highlighter-rouge">@id</code> names. Governed by <code class="language-plaintext highlighter-rouge">skills/bootstrap-graph-emission.md</code> and <code class="language-plaintext highlighter-rouge">skills/bootstrap-graph-publication.md</code>.</li><li>bootstrap: has no docs/ of its own, so the tile opens its section of the landing (/#harness-bootstrap) rather than the instance’s own themed root.</li></ul>
-    </details></section></section>
-<h2 id="what-this-site-is">
-  
-  
-    <a href="#what-this-site-is" class="anchor-heading" aria-labelledby="what-this-site-is"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What this site is
-  
-  
-</h2>
-    
-
-<ul>
-  <li><strong><a href="/who-iris/who-iris/">The replica</a></strong> — IRIS’s home page,
-community list, collections and items, rendered from this repository’s
-catalogue and themed as IRIS. It is an <strong>ingested copy</strong>: not WHO, and not
-live.</li>
-  <li><strong><a href="/who-iris/docs/who-iris/">The catalogue</a></strong> — what the
-catalogue knows, and what it records that it does not know. Every node
-declares whether its bytes are here (<code class="language-plaintext highlighter-rouge">materialized</code>), elsewhere
-(<code class="language-plaintext highlighter-rouge">referenced</code>) or unestablished (<code class="language-plaintext highlighter-rouge">unknown</code>), and there is no default.</li>
-  <li><strong>The gap is the point.</strong> IRIS reports its own figures for items and files;
-the catalogue holds a few and models the rest by reference. The census is
-<code class="language-plaintext highlighter-rouge">bun run check:catalogue</code>, never a number written into a page.</li>
-</ul>
-
-<p>This repository is the development home of the instance; an official copy is
-expected to live under WHO’s own account.</p>
-
-          
-
-          
-            
-          
-        </main>
-        
-<hr>
-<footer>
-  
-
-  <p class="text-small mb-0">WHO IRIS — built with <a href="https://litlfred.github.io/folio-assistant/">folio-assistant</a>.</p><p class="text-small mb-0 fa-build-stamp">
-  deployed
-  <a href="https://github.com/litlfred/folio-assistant/actions"><code>dev</code></a></p>
-
-
-  
-</footer>
-
+<details id="iris-adv-filters" style="margin:0 0 1rem;font-size:0.9rem;border:1px solid var(--iris-edge);border-radius:4px;padding:0.5rem 0.8rem;background:var(--iris-wash);">
+  <summary style="cursor:pointer;font-weight:600;color:var(--iris-dark);">Complex Search &amp; KG Filters (Oxigraph)</summary>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.7rem;margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--iris-edge);">
+    <div>
+      <label for="iris-filter-subject" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Subject (MeSH)</label>
+      <select id="iris-filter-subject" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
+        <option value="">All Subjects</option>
+        <option value="Guidelines as Topic">Guidelines as Topic</option>
+        <option value="Publishing">Publishing</option>
+        <option value="Evidence-Based Medicine">Evidence-Based Medicine</option>
+        <option value="Information Systems and Communication">Information Systems</option>
+        <option value="Writing">Writing</option>
+      </select>
+    </div>
+    <div>
+      <label for="iris-filter-community" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Community</label>
+      <select id="iris-filter-community" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
+        <option value="">All Communities</option>
+        <option value="Headquarters">Headquarters</option>
+        <option value="Western Pacific">Western Pacific</option>
+      </select>
+    </div>
+    <div>
+      <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Year Range</label>
+      <div style="display:flex;gap:0.3rem;">
+        <input type="number" id="iris-filter-year-from" placeholder="From" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
+        <input type="number" id="iris-filter-year-to" placeholder="To" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
       </div>
     </div>
-    
-      
-
-<div class="search-overlay"></div>
-
-    
+    <div style="display:flex;align-items:flex-end;">
+      <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.88rem;">
+        <input type="checkbox" id="iris-filter-open-access">
+        <span>Open Access PDF only</span>
+      </label>
+    </div>
   </div>
+</details>
 
-  
-    
+<div id="iris-search-results" class="search-results-panel" role="region" aria-live="polite" style="display:none"></div>
+<p class="searchnote" id="iris-search-note">Search across <strong>3</strong> items held by value and referenced communities/collections. To look up any of the <strong>10</strong> referenced nodes by identifier, search here or open the <a href="id-lookup/?index=who-iris/">identifier lookup</a>.
+Upstream IRIS reports <strong>273,559</strong> items across <strong>1,057,223</strong> files.</p>
 
+<h2>Recent Submissions</h2>
+<p class="ordering">Ordered by <code>dc.date.accessioned</code>, latest first — the key IRIS’s own list sorts on. Where a record carries several accessions the latest is used; the WPRO item has two, five days apart, the second being the regional-IRIS merge.</p>
 
+<div class="subs">
+<article class="sub">
+  <div class="sub-cover"><a href="en/cat-harness/library/who-iris/wpr-rdo-2020-003-eng/"><img src="who-iris/library/wpr-rdo-2020-003-eng-cover.png" width="300" height="212"
+        alt="Cover of Publication and information products style guide, rendered here from page 1 of the held PDF, with the WHO emblem masked out" loading="lazy"></a></div>
+  <div class="sub-body">
+    <a class="sub-title" dir="auto" href="en/cat-harness/library/who-iris/wpr-rdo-2020-003-eng/">Publication and information products style guide</a>
+    <p class="sub-by"><bdi>World Health Organization. Regional Office for the Western Pacific</bdi> (<bdi>WPR/RDO/2020/003</bdi>, Publication Date: <bdi>2020-05-12</bdi>)</p>
+    <p class="sub-abs" dir="auto">This is the style guide for WPRO publications and information products. All designers working on WHO WPRO publication and information products should use this as reference for design and layout. Templates and further guidelines are also available. For more information on WPRO publications guidelines, please contact wpropuballstaff@who.int</p>
+    <p class="sub-links"><a href="https://raw.githubusercontent.com/litlfred/who-iris/main/uploads/wpr-rdo-2020-003-eng/WPR-RDO-2020-003-eng.pdf">WPR-RDO-2020-003-eng.pdf</a> &middot; <a class="cdn" href="https://cdn.jsdelivr.net/gh/litlfred/who-iris@main/uploads/wpr-rdo-2020-003-eng/WPR-RDO-2020-003-eng.pdf">via CDN</a> &middot; <code class="ui">2.68 MB</code></p>
+  </div>
+</article>
+<article class="sub">
+  <div class="sub-cover"><a href="en/cat-harness/library/who-iris/9789241548960-eng/"><img src="who-iris/library/9789241548960-eng-cover.png" width="300" height="450"
+        alt="Cover of WHO handbook for guideline development, rendered here from page 1 of the held PDF, with the WHO emblem masked out" loading="lazy"></a></div>
+  <div class="sub-body">
+    <a class="sub-title" dir="auto" href="en/cat-harness/library/who-iris/9789241548960-eng/">WHO handbook for guideline development</a>
+    <p class="sub-by"><bdi>World Health Organization</bdi> (Publication Date: <bdi>2014-12-18</bdi>)</p>
+    <p class="sub-abs" dir="auto">This handbook provides comprehensive guidance on the planning, development, publication, implementation, adaptation and updating of WHO guidelines. Intended for WHO technical units, guideline developers, members of guideline development and external review groups, and other contributors, it describes the principles, methods and governance processes required to produce transparent, evidence-informed recommendations for clinical practice and public health policy that meet WHO standards.</p>
+    <p class="sub-links"><a href="https://raw.githubusercontent.com/litlfred/who-iris/main/uploads/9789241548960-eng/9789241548960_eng.pdf">9789241548960_eng.pdf</a> &middot; <a class="cdn" href="https://cdn.jsdelivr.net/gh/litlfred/who-iris@main/uploads/9789241548960-eng/9789241548960_eng.pdf">via CDN</a> &middot; <code class="ui">2.04 MB</code></p>
+  </div>
+</article>
+<article class="sub">
+  <div class="sub-cover"><a href="en/cat-harness/library/who-iris/who-pub-tps-931/"><img src="who-iris/library/who-pub-tps-931-cover.png" width="300" height="424"
+        alt="Cover of WHO editorial style manual, rendered here from page 1 of the held PDF, with the WHO emblem masked out" loading="lazy"></a></div>
+  <div class="sub-body">
+    <a class="sub-title" dir="auto" href="en/cat-harness/library/who-iris/who-pub-tps-931/">WHO editorial style manual</a>
+    <p class="sub-by"><bdi>World Health Organization. Technical Publications Unit</bdi> (<bdi>WHO/PUB/TPS/93.1</bdi>, Publication Date: <bdi>1993-12-31</bdi>)</p>
+    <p class="sub-abs none">No <code>dc.description.abstract</code> in the captured record.</p>
+    <p class="sub-links"><a href="https://raw.githubusercontent.com/litlfred/who-iris/main/uploads/who-pub-tps-931/WHO_PUB_TPS_93.1.pdf">WHO_PUB_TPS_93.1.pdf</a> &middot; <a class="cdn" href="https://cdn.jsdelivr.net/gh/litlfred/who-iris@main/uploads/who-pub-tps-931/WHO_PUB_TPS_93.1.pdf">via CDN</a> &middot; <code class="ui">3.14 MB</code></p>
+  </div>
+</article>
+</div>
 
+<h2>Browse</h2>
+<ul class="kids" style="margin-inline-start:0">
+  <li><a href="catalogue/">List of Communities</a> — the replica of <code>iris.who.int/community-list</code>, with every node’s materialisation state (8 communities, 2 collections)</li>
+  <li><a href="catalogue/"><bdi>Publications</bdi></a> — collection</li>
+  <li><a href="catalogue/"><bdi>Information products</bdi></a> — collection</li>
+</ul>
 
+<div class="caveat">
+  <p><strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question.</p>
+  <p>Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on.</p>
+</div>
 
-<script type="module">
-  
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs';
-  
+<script>
+(function() {
+  var index = [{"title":"1. Headquarters","href":"../who-iris/catalogue/","badge":"Community","meta":"community/5bff2c18-6c2b-4658-9087-93811d2399c0","abstract":"","text":"1. headquarters community/5bff2c18-6c2b-4658-9087-93811d2399c0"},{"title":"2. Regional Office for Africa","href":"../who-iris/catalogue/","badge":"Community","meta":"community/e1b206b7-fd4c-4b93-972a-be07850a1cdd","abstract":"","text":"2. regional office for africa community/e1b206b7-fd4c-4b93-972a-be07850a1cdd"},{"title":"3. Regional Office for the Americas","href":"../who-iris/catalogue/","badge":"Community","meta":"community/270bee8e-d535-4512-86a2-b01850407a23","abstract":"","text":"3. regional office for the americas community/270bee8e-d535-4512-86a2-b01850407a23"},{"title":"4. Regional Office for the Eastern Mediterranean","href":"../who-iris/catalogue/","badge":"Community","meta":"community/f005d7fc-da21-4f55-9e06-9f65c49b2184","abstract":"","text":"4. regional office for the eastern mediterranean community/f005d7fc-da21-4f55-9e06-9f65c49b2184"},{"title":"5. Regional Office for Europe","href":"../who-iris/catalogue/","badge":"Community","meta":"community/fb66a624-a5dc-4576-8b6b-929639e552d8","abstract":"","text":"5. regional office for europe community/fb66a624-a5dc-4576-8b6b-929639e552d8"},{"title":"6. Regional Office for South-East Asia","href":"../who-iris/catalogue/","badge":"Community","meta":"community/8f327840-b0f3-4769-a1c2-270b2b5ce7da","abstract":"","text":"6. regional office for south-east asia community/8f327840-b0f3-4769-a1c2-270b2b5ce7da"},{"title":"7. Regional Office for the Western Pacific","href":"../who-iris/catalogue/","badge":"Community","meta":"community/ebd3b191-c322-4754-9415-469a1a0eb0c3","abstract":"","text":"7. regional office for the western pacific community/ebd3b191-c322-4754-9415-469a1a0eb0c3"},{"title":"8. WHO Framework Convention on Tobacco Control (FCTC)","href":"../who-iris/catalogue/","badge":"Community","meta":"community/28b22be0-5864-409c-9b83-0442e2a7ca0e","abstract":"","text":"8. who framework convention on tobacco control (fctc) community/28b22be0-5864-409c-9b83-0442e2a7ca0e"},{"title":"Information products","href":"../who-iris/catalogue/","badge":"Collection","meta":"collection/wpro-information-products","abstract":"Measured from the breadcrumb on the captured item page: 'Home > 7. Regional Office for the ... > Regional Office for the W... > Information products'. FOUR levels, of which the middle two are communities -- which is why `parents` is a list of PATHS rather than a single id. The collection's own UUID is NOT in anything captured and iris.who.int is egress-blocked from this environment (CONNECT tunnel failed, response 403 -- the same block bean r1lz recorded on 2026-09-19), so the node is keyed by its path rather than by an invented identifier.","text":"information products collection/wpro-information-products measured from the breadcrumb on the captured item page: 'home > 7. regional office for the ... > regional office for the w... > information products'. four levels, of which the middle two are communities -- which is why `parents` is a list of paths rather than a single id. the collection's own uuid is not in anything captured and iris.who.int is egress-blocked from this environment (connect tunnel failed, response 403 -- the same block bean r1lz recorded on 2026-09-19), so the node is keyed by its path rather than by an invented identifier."},{"title":"Publication and information products style guide","href":"../en/cat-harness/library/who-iris/wpr-rdo-2020-003-eng/","badge":"Item","meta":"World Health Organization. Regional Office for the Western Pacific · WPR/RDO/2020/003 · 2020-05-12","abstract":"This is the style guide for WPRO publications and information products. All designers working on WHO WPRO publication and information products should use this as reference for design and layout. Templates and further guidelines are also ava","text":"publication and information products style guide item/18892cf3-5a4f-42a4-923c-a93f4a594dec wpr-rdo-2020-003-eng world health organization. regional office for the western pacific wpr/rdo/2020/003 2020-05-12  7. regional office for the western pacific publishing guidelines as topic this is the style guide for wpro publications and information products. all designers working on who wpro publication and information products should use this as reference for design and layout. templates and further guidelines are also available. for more information on wpro publications guidelines, please contact wpropuballstaff@who.int","creator":"World Health Organization. Regional Office for the Western Pacific","year":2020,"spatial":"","community":"7. Regional Office for the Western Pacific","collection":"Information products","subjects":["Publishing","Guidelines as Topic"],"hasPdf":true,"copyrightGate":"permitted"},{"title":"Publications","href":"../who-iris/catalogue/","badge":"Collection","meta":"collection/hq-publications","abstract":"Established by TWO independent statements in the source, 2026-09-20. The breadcrumb on both captured full item records reads 'Home > 1. Headquarters > Publications', and the handbook's record additionally carries an explicit 'Collections: Publications' block. One reading of one page would have been weaker evidence than this is. THE COLLECTION'S OWN UUID IS NOT IN EITHER CAPTURE -- only its name and its place in the hierarchy are -- and iris.who.int is egress-blocked from this environment, so the node is keyed by its PATH exactly as `collection/wpro-information-products` is, and for the same stated reason: inventing a UUID to fill the slot produces an identifier that resolves to nothing while looking authoritative. The collection's item count is likewise UNKNOWN; neither capture states one, and it is not interpolated.","text":"publications collection/hq-publications established by two independent statements in the source, 2026-09-20. the breadcrumb on both captured full item records reads 'home > 1. headquarters > publications', and the handbook's record additionally carries an explicit 'collections: publications' block. one reading of one page would have been weaker evidence than this is. the collection's own uuid is not in either capture -- only its name and its place in the hierarchy are -- and iris.who.int is egress-blocked from this environment, so the node is keyed by its path exactly as `collection/wpro-information-products` is, and for the same stated reason: inventing a uuid to fill the slot produces an identifier that resolves to nothing while looking authoritative. the collection's item count is likewise unknown; neither capture states one, and it is not interpolated."},{"title":"WHO editorial style manual","href":"../en/cat-harness/library/who-iris/who-pub-tps-931/","badge":"Item","meta":"World Health Organization. Technical Publications Unit · WHO/PUB/TPS/93.1 · 1993-12-31","abstract":"","text":"who editorial style manual item/b08c6c19-315a-41a4-a9cb-8edabdbc6791 who-pub-tps-931 world health organization. technical publications unit who/pub/tps/93.1 1993-12-31  1. headquarters writing publishing ","creator":"World Health Organization. Technical Publications Unit","year":1993,"spatial":"","community":"1. Headquarters","collection":"Publications","subjects":["Writing","Publishing"],"hasPdf":true,"copyrightGate":"permitted"},{"title":"WHO handbook for guideline development","href":"../en/cat-harness/library/who-iris/9789241548960-eng/","badge":"Item","meta":"World Health Organization · 2014-12-18","abstract":"This handbook provides comprehensive guidance on the planning, development, publication, implementation, adaptation and updating of WHO guidelines. Intended for WHO technical units, guideline developers, members of guideline development and","text":"who handbook for guideline development item/63e14c27-7448-41ec-be08-a96a25a47db6 9789241548960-eng world health organization  2014-12-18  1. headquarters world health organization guidelines as topic review meta-analysis peer review evidence-based medicine handbook this handbook provides comprehensive guidance on the planning, development, publication, implementation, adaptation and updating of who guidelines. intended for who technical units, guideline developers, members of guideline development and external review groups, and other contributors, it describes the principles, methods and governance processes required to produce transparent, evidence-informed recommendations for clinical practice and public health policy that meet who standards.","creator":"World Health Organization","year":2014,"spatial":"","community":"1. Headquarters","collection":"Publications","subjects":["World Health Organization","Guidelines as Topic","Review","Meta-Analysis","Peer Review","Evidence-Based Medicine","Handbook"],"hasPdf":true,"copyrightGate":"permitted"}];
+  var T = {"matching":"Matching catalogue nodes ({n}):","also":"Also search identifier lookup:","lookUp":"Look up “{q}” in referenced nodes →","none":"No materialized items or collections matched “<strong>{q}</strong>”.","searchFor":"Search for “{q}” in the referenced identifier lookup (10 nodes) →"};
+  function fill(s, q, n) { return s.split("{q}").join(q).split("{n}").join(n); }
+  var form = document.getElementById("iris-search-form");
+  var input = document.getElementById("iris-search-input");
+  var results = document.getElementById("iris-search-results");
+  var fSubj = document.getElementById("iris-filter-subject");
+  var fComm = document.getElementById("iris-filter-community");
+  var fYFrom = document.getElementById("iris-filter-year-from");
+  var fYTo = document.getElementById("iris-filter-year-to");
+  var fOA = document.getElementById("iris-filter-open-access");
+  var chips = document.querySelectorAll(".iris-chip");
+  if (!form || !input || !results) return;
 
-  var config = /* Mermaid configuration for this docs site.
+  function escapeHtml(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
 
-   just-the-docs interpolates this file's contents directly into
-   `var config = <here>; mermaid.initialize(config);`
-   — see that theme's `_includes/components/mermaid.html` — so this must be a
-   bare JavaScript object literal. No `export`, no statements, no semicolon.
+  function highlight(text, terms) {
+    if (!terms.length) return escapeHtml(text);
+    var escaped = escapeHtml(text);
+    for (var i = 0; i < terms.length; i++) {
+      var t = terms[i];
+      if (!t) continue;
+      var regex = new RegExp("(" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+      escaped = escaped.replace(regex, "<mark class=\"search-mark\">$1</mark>");
+    }
+    return escaped;
+  }
 
-   DIAGRAMS ARE ALWAYS LIGHT, IN BOTH COLOUR SCHEMES. The site's stylesheet
-   follows the reader's choice; the drawings do not. They render in Mermaid's
-   light palette on a white card supplied by `.fa-figure-wrap`
-   (site-chrome/assets/css/docs-ui.css), exactly like the BPMN exports beside them,
-   which carry their own white backdrop and cannot follow a scheme at all.
+  function update() {
+    var raw = input.value.trim();
+    var subj = fSubj ? fSubj.value.trim() : "";
+    var comm = fComm ? fComm.value.trim() : "";
+    var yFrom = fYFrom && fYFrom.value ? parseInt(fYFrom.value, 10) : 0;
+    var yTo = fYTo && fYTo.value ? parseInt(fYTo.value, 10) : 0;
+    var oaOnly = fOA ? fOA.checked : false;
 
-   This reverses a decision made an hour earlier in this session, and the
-   reversal is the whole point of the comment. Setting `theme: "dark"` did fix
-   the ORIGINAL complaint — pale nodes glaring on a dark page — and replaced it
-   with a worse one: dark-on-dark, the diagram's own near-black background
-   dissolving into the page and the text with it. Owner's call, and it is the
-   right one: a schematic is a figure, figures are printed on white, and one
-   consistent treatment across BPMN and Mermaid beats two that each look
-   correct only in one mode.
+    var hasActive = raw || subj || comm || yFrom || yTo || oaOnly;
+    if (!hasActive) {
+      results.style.display = "none";
+      results.replaceChildren();
+      return;
+    }
 
-   Consequence worth knowing: the palette no longer depends on the reader's
-   scheme, so the header's light/dark toggle does not need to re-render
-   anything and no longer reloads the page on diagram pages.
+    var terms = raw.toLowerCase().split(/\s+/).filter(Boolean);
+    var matches = [];
+    for (var i = 0; i < index.length; i++) {
+      var entry = index[i];
+      var ok = true;
+      for (var t = 0; t < terms.length; t++) {
+        if (entry.text.indexOf(terms[t]) < 0) {
+          ok = false;
+          break;
+        }
+      }
+      if (!ok) continue;
 
-   The PARENTHESES are load-bearing. A bare `{ "theme": ... }` at the start of
-   a statement parses as a BLOCK, not an object, so eslint rejects it with
-   "';' expected" — and eslint lints this file, which is free syntax checking
-   worth keeping. `var config = ({ ... });` is exactly as valid as without
-   them, so the wrapper costs nothing and buys the linter. */
-(({
-  "theme": "default",
-  "themeVariables": {
-    /* Match the card the diagram sits on, so its own backdrop and the
-       wrapper's are the same white rather than two near-whites with a seam. */
-    "background": "#ffffff"
-  },
-  /* Long swimlane labels wrap rather than forcing the diagram wider than the
-     zoom controls can usefully bring back. */
-  "flowchart": { "useMaxWidth": true }
-}))
-;
-  mermaid.initialize(config);
-  mermaid.run({
-    querySelector: '.language-mermaid',
+      if (subj && (!entry.subjects || entry.subjects.indexOf(subj) < 0)) {
+        continue;
+      }
+      if (comm && (!entry.community || entry.community.indexOf(comm) < 0)) {
+        continue;
+      }
+      if (yFrom && (!entry.year || entry.year < yFrom)) {
+        continue;
+      }
+      if (yTo && (!entry.year || entry.year > yTo)) {
+        continue;
+      }
+      if (oaOnly && !(entry.hasPdf && entry.copyrightGate === "permitted")) {
+        continue;
+      }
+
+      matches.push(entry);
+    }
+
+    var lookupUrl = "../id-lookup/?index=who-iris/&q=" + encodeURIComponent(raw);
+    var html = "";
+
+    if (matches.length > 0) {
+      html += "<h3 style=\"margin:0 0 0.8rem;font-size:1.05rem;color:var(--iris-dark);\">" + fill(T.matching, "", String(matches.length)) + "</h3>";
+      html += "<ul class=\"search-results-list\" style=\"list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.75rem;\">";
+      for (var m = 0; m < matches.length; m++) {
+        var it = matches[m];
+        var la = it.lang ? " lang=\"" + it.lang + "\"" : "";
+        html += "<li class=\"search-result-item\" style=\"padding:0.6rem 0.8rem;border:1px solid var(--iris-edge);border-radius:4px;background:var(--iris-wash);\">";
+        html += "<div style=\"display:flex;align-items:center;flex-wrap:wrap;gap:0.35rem;\"><span class=\"search-result-badge\" style=\"display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;padding:0.15rem 0.45rem;border-radius:3px;background:var(--iris-accent);color:#fff;margin-inline-end:0.3rem;\">" + escapeHtml(it.badge) + "</span>";
+        if (it.copyrightGate === "permitted") {
+          html += "<span class=\"state materialized\" style=\"font-size:0.72rem;\">PDF Permitted</span>";
+        } else if (it.hasPdf) {
+          html += "<span class=\"state referenced\" style=\"font-size:0.72rem;\">PDF Held (Restricted)</span>";
+        }
+        html += "<a href=\"" + it.href + "\" dir=\"auto\"" + la + " style=\"font-weight:600;font-size:1.02rem;\">" + highlight(it.title, terms) + "</a></div>";
+        if (it.meta) {
+          html += "<div class=\"search-result-meta\" dir=\"auto\"" + la + " style=\"font-size:0.88rem;color:var(--iris-muted);margin-top:0.25rem;\">" + highlight(it.meta, terms) + "</div>";
+        }
+        if (it.subjects && it.subjects.length > 0) {
+          html += "<div style=\"margin-top:0.3rem;display:flex;flex-wrap:wrap;gap:0.25rem;\">";
+          for (var s = 0; s < it.subjects.length; s++) {
+            html += "<span style=\"font-size:0.75rem;background:#e2eaf0;color:var(--iris-dark);padding:0.1rem 0.4rem;border-radius:3px;\">#" + escapeHtml(it.subjects[s]) + "</span>";
+          }
+          html += "</div>";
+        }
+        if (it.abstract) {
+          var snip = it.abstract.length > 180 ? it.abstract.slice(0, 180) + "…" : it.abstract;
+          html += "<div class=\"search-result-meta\" dir=\"auto\"" + la + " style=\"font-size:0.88rem;color:var(--iris-ink);margin-top:0.35rem;\">" + highlight(snip, terms) + "</div>";
+        }
+        html += "</li>";
+      }
+      html += "</ul>";
+      html += "<div class=\"search-remote-box\" style=\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\">";
+      html += T.also + " <a href=\"" + lookupUrl + "\" class=\"search-remote-link\">" + fill(T.lookUp, escapeHtml(raw || subj || comm), "") + "</a>";
+      html += "</div>";
+    } else {
+      html += "<p style=\"margin:0 0 0.5rem;\">" + fill(T.none, escapeHtml(raw || subj || comm), "") + "</p>";
+      html += "<div class=\"search-remote-box\" style=\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\">";
+      html += "<a href=\"" + lookupUrl + "\" class=\"search-remote-link\" style=\"font-weight:600;\">" + fill(T.searchFor, escapeHtml(raw || subj || comm), "") + "</a>";
+      html += "</div>";
+    }
+
+    results.innerHTML = html;
+    results.style.display = "block";
+  }
+
+  input.addEventListener("input", update);
+  if (fSubj) fSubj.addEventListener("change", update);
+  if (fComm) fComm.addEventListener("change", update);
+  if (fYFrom) fYFrom.addEventListener("input", update);
+  if (fYTo) fYTo.addEventListener("input", update);
+  if (fOA) fOA.addEventListener("change", update);
+
+  chips.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var t = btn.getAttribute("data-facet-type");
+      var v = btn.getAttribute("data-facet-val");
+      var adv = document.getElementById("iris-adv-filters");
+      if (adv) adv.open = true;
+      if (t === "subject" && fSubj) { fSubj.value = v; }
+      else if (t === "community" && fComm) { fComm.value = v; }
+      else if (t === "access" && fOA) { fOA.checked = !fOA.checked; }
+      update();
+    });
   });
+
+  form.addEventListener("submit", function(e) {
+    var raw = input.value.trim();
+    if (!raw && !fSubj.value && !fComm.value) { e.preventDefault(); return; }
+    var hasLocal = results.querySelector(".search-result-item");
+    var firstLink = results.querySelector(".search-result-item a");
+    if (hasLocal && firstLink) {
+      e.preventDefault();
+      firstLink.focus();
+    }
+  });
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var initQ = urlParams.get("q");
+  if (initQ) {
+    input.value = initQ;
+    update();
+  }
+  try { window.__irisSearch = { index: index, update: update }; } catch (e) {}
+})();
 </script>
 
+</main>
 
-
-  
+<footer class="mast"><div class="wrap">
+  <p><strong>Ingested replica.</strong> Rendered from <code dir="ltr">who-iris/catalogue/</code> by <code dir="ltr">who-iris/scripts/gen-iris-pages.ts</code>. Layout after <a href="https://iris.who.int/community-list">iris.who.int</a>; every figure on this page is read out of the catalogue, not copied from a screenshot.</p>
+  <div class="rule"></div>
+  <p>Source of record: <a href="https://iris.who.int/">iris.who.int</a> — © WHO. This copy asserts no endorsement and carries no WHO mark.</p>
+</div></footer>
+<script data-fa-folio-mount>(function(){
+var m=location.pathname.match(new RegExp("^(.*?)(?:docs\\/)?who-iris\\/(?!.*who-iris\\/)"));
+if(!m||m[1]==null)return;
+var r=m[1];
+var l=document.createElement('link');
+l.rel='stylesheet';l.href=r+'assets/css/docs-ui.css';
+document.head.appendChild(l);
+var s=document.createElement('script');
+s.src=r+'assets/js/docs-ui.js';s.defer=true;
+document.head.appendChild(s);
+})();</script>
 </body>
 </html>

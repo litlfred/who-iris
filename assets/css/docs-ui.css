@@ -2247,6 +2247,42 @@ button.fa-qa-badge[aria-busy="true"] { opacity: 0.6; }
   color: var(--fa-trbadge-idle-fg);
 }
 
+/* THE TRANSLATION DRAWER'S CONTROL — bean `cat-tools-bbnd`. A button, so it
+   looks pressable where the badges beside it deliberately do not: the idle
+   pair's colours (already measured above, in both schemes) with a pointer and
+   an underline-free focus ring. */
+.fa-tr-drawer-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--fa-trbadge-idle-border);
+  border-radius: 4px;
+  background: var(--fa-trbadge-idle-bg);
+  color: var(--fa-trbadge-idle-fg);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.fa-tr-drawer-toggle:focus-visible { outline: 2px solid currentcolor; outline-offset: 2px; }
+.fa-tr-drawer-toggle[aria-expanded="true"] { border-style: solid; border-width: 2px; padding: 1px 7px; }
+
+/* The drawer itself is a `fa-qa-panel` (owner ruling: reuse the QA panel), so
+   its box, border and focus ring are that panel's. Only its two sections are
+   new: a fact list for the page and a table for the site. */
+.fa-tr-drawer h3 { font-size: 0.85rem; margin: 0.8em 0 0.3em; }
+.fa-tr-drawer__facts { display: grid; grid-template-columns: max-content 1fr; gap: 0.15em 0.8em; margin: 0; }
+.fa-tr-drawer__facts dt { font-weight: 600; }
+.fa-tr-drawer__facts dd { margin: 0; }
+.fa-tr-drawer__table { border-collapse: collapse; font-size: 0.8rem; }
+.fa-tr-drawer__table th, .fa-tr-drawer__table td { padding: 0.2em 0.6em; text-align: start; border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
+.fa-tr-drawer__table td[data-fa-tr-officiality="disagree"],
+.fa-tr-drawer__table td[data-fa-tr-officiality="unreadable"] { font-weight: 600; }
+.fa-tr-drawer__more { margin: 0.6em 0 0; }
+/* The text's own colour, underlined: the theme's link blue measured 2.6:1 on
+   the dark panel in the drawer's first screenshot (2026-10-20). */
+.fa-tr-drawer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
 /* The unverified-translation notice. It is the `partial` pair at panel size,
    not a fourth palette: it says the same thing the amber badge says, at more
    length, and a second set of oranges would be two answers to one question.
@@ -2342,7 +2378,8 @@ button.fa-qa-badge[aria-busy="true"] { opacity: 0.6; }
    `currentcolor` throughout, so it inherits the notice's per-scheme ink and
    cannot be legible in one scheme and invisible in the other — the `23bc`
    failure, which this file has now paid for three times. */
-.fa-translation-warning__report {
+.fa-translation-warning__report,
+.fa-translation-warning__details {
   min-height: 1.75rem;
   padding: 0.2rem 0.6rem;
   border: 1px solid currentcolor;
@@ -2354,12 +2391,15 @@ button.fa-qa-badge[aria-busy="true"] { opacity: 0.6; }
 }
 
 .fa-translation-warning__report:hover,
-.fa-translation-warning__report:focus-visible {
+.fa-translation-warning__report:focus-visible,
+.fa-translation-warning__details:hover,
+.fa-translation-warning__details:focus-visible {
   background: rgba(128, 128, 128, 0.18);
   outline: none;
 }
 
-.fa-translation-warning__report:focus-visible {
+.fa-translation-warning__report:focus-visible,
+.fa-translation-warning__details:focus-visible {
   outline: 2px solid currentcolor;
   outline-offset: 2px;
 }
@@ -2550,7 +2590,7 @@ button.fa-qa-badge[aria-busy="true"] { opacity: 0.6; }
  * is fixed sage in both schemes … left as-is deliberately … recorded here
  * rather than silently corrected."* It also ends a disagreement nothing had
  * recorded — `cat-harness` declares tone **268** and its mark was sage, two
- * colour vocabularies for one instance, which is the drift `schemas/theme.ts`
+ * colour vocabularies for one instance, which is the drift `schemas/ui/theme.ts`
  * exists to have ended.
  *
  * THE TWO COLOURS ARE THE AVATAR GENERATOR'S OWN TARGETS, not new ones:
@@ -3138,7 +3178,7 @@ a.fa-tile[data-fa-readonly]:focus-visible {
 }
 
 /* Themed: every colour here is a ROLE supplied by themes.css, which is
- * generated from the theme nodes in `schemas/themes.ts`. The fallbacks after
+ * generated from the theme nodes in `schemas/ui/themes.ts`. The fallbacks after
  * each `var()` are the pre-theme neutrals, so a board still renders if
  * themes.css has not loaded — an unstyled sticky reads as broken, and "no
  * theme yet" is a state rather than an error. */
@@ -3985,6 +4025,9 @@ a.fa-glass-asset-name { text-decoration: underline; text-underline-offset: 2px; 
   font-size: 1.2rem;
   cursor: pointer;
 }
+/* The eye is a link, so it is centred as the buttons' text is. */
+a.fa-glass-asset-tool { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; }
+a.fa-glass-asset-tool svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
 .fa-glass-notes { max-width: 40rem; margin: 1rem auto 0; }
 .fa-glass-notes p { padding: 0.5rem 0.75rem; margin: 0 0 0.5rem; font-size: 0.85rem; }
 
@@ -5353,7 +5396,7 @@ html:has(.fa-glass-band[data-fa-band-tools]) .main-content * {
  *
  * The obvious implementation is "docked stickies use the `card` aspect",
  * and it would work today: the card crop is square on 3 of 3 stickies in
- * `_data/stickies.json`. Three is the whole corpus, and `schemas/theme.ts`
+ * `_data/stickies.json`. Three is the whole corpus, and `schemas/ui/theme.ts`
  * does not REQUIRE a card crop to be square — `ThemeGeometrySchema` takes
  * whatever aspect a theme declares.
  *
@@ -5499,7 +5542,7 @@ html:has(.fa-glass-band[data-fa-band-tools]) .main-content * {
  * pointer-target floor at the default root size.
  *
  * THEMED means the avatar's declared hue, passed in as `--fa-tile-tone` by
- * `harness-tiles.ts` from `schemas/avatars.ts`. It is the mechanism this
+ * `harness-tiles.ts` from `schemas/content/avatars.ts`. It is the mechanism this
  * repository already has: one declared hue, from which both schemes are
  * derived, so no tile can be authored legible in one mode and invisible in
  * the other. A per-instance palette would have been a second colour
@@ -5708,7 +5751,7 @@ html:has(.fa-glass-band[data-fa-band-tools]) .main-content * {
  * presentation of a fact rather than a fact of its own.
  *
  * THEMED means the avatar's declared hue, passed in as `--fa-tile-tone` by
- * `harness-tiles.ts` from `schemas/avatars.ts`: one declared hue from which
+ * `harness-tiles.ts` from `schemas/content/avatars.ts`: one declared hue from which
  * both schemes are derived, so no tab can be authored legible in one mode and
  * invisible in the other.
  * ───────────────────────────────────────────────────────────────────────── */
@@ -8644,8 +8687,8 @@ table[data-fa-filtered] tr[hidden] { display: none !important; }
  * two things the static one gave for free", owner 2026-10-02: print and PDF
  * SHALL wait for load and render, and a load that FAILS SHALL say so.
  *
- * For a HEADLESS run the wait is enforceable, and `scripts/dak-pdf.ts`
- * enforces it: it waits on `data-fa-render` and REFUSES to emit over a page
+ * For a HEADLESS run the wait is enforceable, and the platform's headless
+ * PDF path (its render wait) enforces it: it waits on `data-fa-render` and REFUSES to emit over a page
  * that is `pending` or `failed`, because a PDF is not re-checkable after the
  * fact the way a web page is.
  *

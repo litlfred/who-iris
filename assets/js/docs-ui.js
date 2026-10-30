@@ -58,6 +58,16 @@
     }
   })();
 
+  /* The address this document was fetched from: what a page-relative base
+   * resolves against, even after a `history.replaceState` (see `absoluteBase`). */
+  var LOADED_FROM = (function () {
+    try {
+      var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      if (nav && nav.name) return nav.name;
+    } catch (_e) { /* older engines: the address bar at load is the best there is */ }
+    return location.href;
+  })();
+
   var ZOOM_STEPS = [0.5, 0.67, 0.8, 1, 1.25, 1.5, 2, 3, 4];
   var DEFAULT_STEP = 3; // index of 1.0
 
@@ -274,7 +284,7 @@
     "fr": "Fran\u00E7ais", "ru": "\u0420\u0443\u0441\u0441\u043A\u0438\u0439", "es": "Espa\u00F1ol"
   };
 
-  /* The six UN languages, matching `UN_LOCALES` in `schemas/translation.ts`.
+  /* The six UN languages, matching `UN_LOCALES` in `schemas/content/translation.ts`.
 
      A FALLBACK, never the answer: `fa-translation-meta` carries the instance's
      own `supportedLocales`, and an instance may support more or fewer. This is
@@ -2894,7 +2904,7 @@
    * and this file must never turn that into a number: with no declaration
    * every card keeps its words, and the console says why once.
    *
-   * ## This mirrors `schemas/window-stack.ts`, and that is a real cost
+   * ## This mirrors `schemas/ui/window-stack.ts`, and that is a real cost
    *
    * The model is specified and unit-tested there; this is a browser script and
    * cannot import it. Two implementations of one rule can drift, so the
@@ -2920,7 +2930,7 @@
    * cannot perform 404s for exactly the reader who cannot edit, which reads as
    * "this page is broken" rather than "you cannot do this".
    *
-   * Mirrors `schemas/panel-chrome.ts`, which this file cannot import. Same
+   * Mirrors `schemas/ui/panel-chrome.ts`, which this file cannot import. Same
    * cost, same mitigation as `window-stack.ts`: the e2e asserts the browser's
    * answer against the model's, case for case.
    */
@@ -2996,7 +3006,7 @@
    * Owner: *"be able to filter out by kind properties things on miror board"*.
    *
    * TWO FILTERS, AND THEY MUST NOT BECOME ONE FIELD. A board carries a
-   * DECLARED filter (`schemas/board.ts`) that says what the board IS, and it
+   * DECLARED filter (`schemas/ui/board.ts`) that says what the board IS, and it
    * lives in `boards/<id>.json` where everyone opening that board gets it.
    * This is the other one: a reader narrowing their own view, at view time.
    * Conflating them would make one reader's temporary view edit the board
@@ -3007,7 +3017,7 @@
    * persists. It is session state, like the window stack, and the absence is
    * the design rather than an omission.
    *
-   * Mirrors `schemas/reader-filter.ts`, which this file cannot import — same
+   * Mirrors `schemas/content/reader-filter.ts`, which this file cannot import — same
    * cost and same mitigation as its siblings: the e2e checks the browser's
    * answer against the model's.
    */
@@ -3104,7 +3114,36 @@
   function siteBaseurl() {
     var meta = document.querySelector('meta[name="fa-baseurl"]');
     var v = (meta && meta.getAttribute("content")) || "";
-    return v ? v.replace(/\/+$/, "") : (baseurlFromTodoSrc() || SCRIPT_BASE);
+    return v ? absoluteBase(v) : (absoluteBase(baseurlFromTodoSrc()) || SCRIPT_BASE);
+  }
+
+  /**
+   * A base the page wrote RELATIVE to itself (`.`, `../..`), as the absolute
+   * path every caller of `siteBaseurl` has always been given.
+   *
+   * Since bean `g196` (2026-10-23) a Jekyll page writes its same-site links
+   * relative to itself, so a page that did not change is byte-identical in
+   * every STAGING preview and on the live site; `fa-baseurl` and
+   * `fa-todo-src` are relative too. Resolving here, once, keeps every
+   * consumer's arithmetic as it was (`withBase`, `baseurlResolved`'s
+   * prefix guard, `navKey`'s strip).
+   *
+   * Resolved against the address the document was LOADED from, not the
+   * address bar: a page may `history.replaceState` to a different depth
+   * before this runs, and a relative base resolved after that is one level
+   * off (the same trap `navbar-row.js`'s `loadedFrom` records).
+   * An absolute value, or `""`, comes back as it was, trailing slash dropped.
+   */
+  function absoluteBase(v) {
+    if (!v) return "";
+    if (v.charAt(0) === "/" || /^[a-z][a-z0-9+.-]*:/i.test(v)) return v.replace(/\/+$/, "");
+    try {
+      var u = new URL(v.replace(/\/*$/, "/"), LOADED_FROM);
+      var path = u.pathname.replace(/\/+$/, "");
+      return u.origin === location.origin ? path : u.origin + path;
+    } catch (_e) {
+      return v.replace(/\/+$/, "");
+    }
   }
 
   /* ── Is this a STAGING preview? ──────────────────────────────────────
@@ -3218,7 +3257,7 @@
    *
    * ## Absent is not zero, and this function is where that is enforced
    *
-   * `schemas/tile-count.ts` carries the argument: a projection that declares
+   * `schemas/ui/tile-count.ts` carries the argument: a projection that declares
    * no count, declares a malformed one, or could not be read is NOT a
    * projection over an empty graph. They are opposite facts, and `dh4f` is
    * this repository's name for scanning nothing and calling it clean.
@@ -3246,6 +3285,13 @@
   function declaredTilesFromMeta() {
     var meta = document.querySelector('meta[name="fa-tiles"]');
     var raw = meta && meta.getAttribute("content");
+    // Filled by `assets/js/harness-data.js` (bean `gp2f`). Still named and
+    // empty: that file did not load, which is not "declared no tiles".
+    if (!raw && meta && meta.hasAttribute("data-fa-src")) {
+      console.warn("docs-ui: the tiles' shared data (" + meta.getAttribute("data-fa-src") +
+                   ".js) did not load; no tiles were mounted.");
+      return null;
+    }
     if (!raw) return null;
     try {
       var tiles = JSON.parse(raw);
@@ -3350,7 +3396,7 @@
 
   /* ═══ Which URL schemes may reach an `href` ══════════════════════════
    *
-   * R17, the owner: *"skill tool hints for XSSrsiction"*. `schemas/safe-url.ts`
+   * R17, the owner: *"skill tool hints for XSSrsiction"*. `schemas/ui/safe-url.ts`
    * carries the argument; this is its mirror, and the rule is one line long:
    * **default-deny**. A blocklist has to enumerate every dangerous scheme and
    * is wrong the day a browser ships a new one; an allow-list is wrong only
@@ -3383,7 +3429,7 @@
    * A todo's values for one property, as a list. MULTI-VALUED properties — the
    * assignees and beans `todos.jsonld` gives a todo — are lists already; a
    * single value is a list of one; absent or empty is the empty list.
-   * Mirrors `haveOf` in `schemas/reader-filter.ts`.
+   * Mirrors `haveOf` in `schemas/content/reader-filter.ts`.
    */
   function valuesOf(todo, name) {
     var v = todo[name];
@@ -3441,7 +3487,7 @@
    *
    * ## SESSION-ONLY, like the stack above it
    *
-   * `schemas/board-positions.ts` is where a move becomes durable, and
+   * `schemas/ui/board-positions.ts` is where a move becomes durable, and
    * `moveBy` is the function that does it — for a tool or an agent, against
    * the repository. A published page cannot write that file, and the lesson
    * `db7g` settled applies unchanged: it is better to be a control over this
@@ -3903,7 +3949,7 @@
    * The declared threshold for a kind, with where it came from — or null.
    *
    * Returns the SOURCE alongside the number for the reason
-   * `schemas/semantic-zoom.ts` gives: an inherited value is still a fact
+   * `schemas/kg/semantic-zoom.ts` gives: an inherited value is still a fact
    * somebody must be able to trace, and a reviewer looking at a card that
    * flipped too early needs to tell a deliberate override from the folio's
    * default landing somewhere it does not fit.
@@ -4283,6 +4329,139 @@
       last = re.lastIndex;
     }
     if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  /**
+   * Browser mirror of `schemas/ui/render-output.ts` (`renderToolOutput`, bean
+   * `q2wm`, R17): renders one tool/skill output value according to its declared
+   * `RENDER_AS` hint (`text`, `url`, `markdown`, `json`) as DOM nodes with no
+   * raw HTML injection.
+   */
+  function renderToolOutput(value, hint) {
+    var str = String(value == null ? "" : value);
+    var as = (hint && hint.as) || "text";
+    if (as === "url") {
+      var outUrl = safeHref(str);
+      return outUrl
+        ? el("a", { href: outUrl, rel: "noopener noreferrer" }, str)
+        : el("span", { class: "fa-tool-output-refused" }, str);
+    }
+    if (as === "markdown") {
+      var md = el("div", { class: "fa-tool-output-markdown" });
+      renderMarkdownInto(md, str);
+      return md;
+    }
+    if (as === "json") {
+      return el("pre", { class: "fa-tool-output-json" }, str);
+    }
+    return el("span", { class: "fa-tool-output-text" }, str);
+  }
+
+  function renderWindowOutputs(outputs) {
+    if (!Array.isArray(outputs) || outputs.length === 0) return null;
+    var box = el("div", { class: "fa-sticky-outputs" });
+    for (var i = 0; i < outputs.length; i++) {
+      var item = outputs[i];
+      if (!item) continue;
+      var as = (item.render && item.render.as) || "text";
+      var row = el("div", { class: "fa-sticky-output", "data-render-as": as });
+      if (item.name) {
+        row.appendChild(el("span", { class: "fa-sticky-output-name" }, String(item.name)));
+      }
+      row.appendChild(renderToolOutput(item.value, item.render));
+      box.appendChild(row);
+    }
+    return box;
+  }
+
+  /**
+   * Lazy window detail fetch — bean `q2wm`:
+   *
+   * Rendering the board with `N` cards makes 0 per-card detail fetches up
+   * front (`todoSlot` renders only the avatar/tile). When a reader opens a
+   * card window (`openCard`), `fetchCardDetail` fetches that card's detail URL
+   * once, caches the result by `todo.id`, and renders any body/tool outputs
+   * through `renderBody(..., { markdown: true })` and `renderToolOutput`.
+   */
+  var cardDetailCache = {};
+  var cardDetailPending = {};
+
+  function cardDetailUrl(todo) {
+    if (!todo) return undefined;
+    return (
+      todo.detailHref ||
+      todo.bodyHref ||
+      todo.artifactHref ||
+      (!todo.comment ? todo.jsonldHref : undefined)
+    );
+  }
+
+  function fetchCardDetail(todo, done) {
+    if (!todo || !todo.id) return done(null, false);
+    if (Object.prototype.hasOwnProperty.call(cardDetailCache, todo.id)) {
+      return done(cardDetailCache[todo.id], true);
+    }
+    var rawUrl = cardDetailUrl(todo);
+    if (!rawUrl) return done(null, false);
+    var safeUrl = safeHref(rawUrl);
+    if (!safeUrl) {
+      var refused = {
+        outputs: [{ name: "detail", value: rawUrl, render: { as: "url" } }],
+      };
+      cardDetailCache[todo.id] = refused;
+      return done(refused, false);
+    }
+    if (cardDetailPending[todo.id]) {
+      cardDetailPending[todo.id].push(done);
+      return;
+    }
+    cardDetailPending[todo.id] = [done];
+    fetch(safeUrl, { credentials: "same-origin" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      })
+      .then(function (raw) {
+        var parsed;
+        var trimmed = String(raw || "").trim();
+        if (trimmed.charAt(0) === "{") {
+          try {
+            parsed = JSON.parse(trimmed);
+          } catch (_e) {
+            parsed = { body: raw };
+          }
+        } else {
+          parsed = { body: raw };
+        }
+        cardDetailCache[todo.id] = parsed;
+        var waiters = cardDetailPending[todo.id] || [];
+        delete cardDetailPending[todo.id];
+        for (var w = 0; w < waiters.length; w++) waiters[w](parsed, false);
+      })
+      .catch(function (e) {
+        console.warn("docs-ui: could not read detail for " + todo.id + " (" + e.message + ")");
+        var waiters = cardDetailPending[todo.id] || [];
+        delete cardDetailPending[todo.id];
+        for (var w = 0; w < waiters.length; w++) waiters[w](null, false);
+      });
+  }
+
+  function applyWindowDetail(cardEl, todo, detail) {
+    var bodyText =
+      (detail && (detail.comment || detail.description || detail.body)) ||
+      todo.comment ||
+      "";
+    var oldBody = cardEl.querySelector(".fa-sticky-body");
+    if (bodyText && oldBody && oldBody.parentNode) {
+      var nextBody = renderBody(bodyText, { markdown: true });
+      if (oldBody.hasAttribute("hidden")) nextBody.setAttribute("hidden", "hidden");
+      oldBody.parentNode.replaceChild(nextBody, oldBody);
+    }
+    var outputs = (detail && detail.outputs) || todo.outputs;
+    var oldOut = cardEl.querySelector(".fa-sticky-outputs");
+    if (oldOut && oldOut.parentNode) oldOut.parentNode.removeChild(oldOut);
+    var outBox = renderWindowOutputs(outputs);
+    if (outBox) cardEl.appendChild(outBox);
   }
 
 
@@ -6942,6 +7121,26 @@
             var link = card.querySelector("a.fa-glass-asset-name");
             if (link) link.setAttribute("href", opens);
           }
+          /* THE EYE — owner, 2026-10-16: *"if somehting on folio has a viewer
+           * (e.g. PDF) then there should be [eye] icon to look at it"*. Only
+           * when the index says the entry's source has a viewer (`viewable`,
+           * written by the library generator); it opens the entry page's own
+           * view panel (`#lib-view`), which loads the viewer on arrival. */
+          var viewable = entry.viewable === "pdf" || entry.viewable === "image" ? entry.viewable : "";
+          var lookAt = safeHref(opens + "#lib-view");
+          if (viewable && lookAt && !tools.querySelector('[data-fa-control="view"]')) {
+            var word = viewable === "pdf" ? "the PDF" : "the image";
+            var named = String(entry.title && entry.title !== entry.id ? entry.title : label).replace(/\s+/g, " ").trim();
+            var eye = el("a", {
+              class: "fa-glass-asset-tool",
+              "data-fa-control": "view",
+              href: lookAt,
+              "aria-label": "View " + word + " of " + named,
+              title: "View " + word,
+            });
+            eye.innerHTML = EYE_GLYPH;
+            tools.insertBefore(eye, tools.firstChild);
+          }
           /* THE INDEX'S TITLE WINS whenever it has a real one — issue #1900:
            * *"Title in popup is right but not avatar"*. The popover already
            * read the index; the caption only did when the stored title was
@@ -7875,7 +8074,10 @@
           status.textContent = "The harness configuration could not be read. That is not the same as there being none.";
           return;
         }
-        status.textContent = c.harnesses.length + " harnesses here, " + c.associated.length + " associated.";
+        // `subscribed` (issue #1719) is absent from a harness.json built before
+        // the field existed; absent reads as none, never as an error.
+        var subscribed = c.subscribed || [];
+        status.textContent = c.harnesses.length + " harnesses here, " + c.associated.length + " associated, " + subscribed.length + " subscribed.";
         var wrap = el("div", { class: "fa-hc", "data-fa-hc-view": selected ? "detail" : "list" });
         var list = el("div", { class: "fa-hc-list" });
         var detail = el("div", { class: "fa-hc-detail", "aria-live": "polite" });
@@ -7940,7 +8142,28 @@
           h.appendChild(el("code", {}, item.name));
           detail.appendChild(h);
           var acts = el("p", { class: "fa-hc-actions" });
-          if (kind === "associated") {
+          if (kind === "subscribed") {
+            acts.appendChild(link(item.url, "Open at the pin ↗", "Open " + item.title + " at its pinned commit"));
+            acts.appendChild(editLink(link(item.editHref, "✎ Its repository", "Edit " + item.title + " in its own repository")));
+            detail.appendChild(acts);
+            var srows = [
+              { key: "name", value: item.name },
+              { key: "repository", value: item.repository },
+              { key: "ref", value: item.ref },
+              { key: "subscription", value: item.subscription },
+              { key: "harness", value: item.chosen ? "chosen, not yet instantiated" : "not chosen: referenced only" },
+            ];
+            if (item.note) srows.push({ key: "note", value: item.note });
+            srows.push({ key: "declared by", value: item.declaredBy.join(", ") });
+            var st = table(srows);
+            // The rows of a subscription are edited where it is DECLARED.
+            Array.prototype.forEach.call(st.querySelectorAll("tbody td.fa-hc-skills"), function (td) {
+              td.appendChild(link(withBase("/reference/skill-instructions/kg-subscription.html"), "kg-subscription"));
+            });
+            detail.appendChild(st);
+            detail.appendChild(el("p", { class: "fa-hc-note" },
+              "Subscribed: pinned, and not instantiated here. Its parts are copied only when chosen, through the five gates."));
+          } else if (kind === "associated") {
             acts.appendChild(link(item.url, "Open ↗", "Open " + item.title + " (its own site)"));
             if (item.editHref) acts.appendChild(editLink(link(item.editHref, "✎ Its repository", "Edit " + item.title + " in its own repository")));
             detail.appendChild(acts);
@@ -7982,6 +8205,7 @@
           { id: "instantiated", label: "Instantiated here", items: c.harnesses.filter(function (x) { return x.group === "instantiated"; }) },
           { id: "checkout", label: "In this checkout", items: c.harnesses.filter(function (x) { return x.group === "checkout"; }) },
           { id: "associated", label: "Associated ↗ remote", items: c.associated },
+          { id: "subscribed", label: "Subscribed ↗ remote", items: subscribed },
         ];
         var chosen = null;
         groups.forEach(function (g) {
@@ -7994,7 +8218,7 @@
             var li = el("li", {});
             var b = el("button", { type: "button", class: "fa-hc-item", "aria-current": "false" }, item.title);
             if (item.title !== item.name) b.appendChild(el("code", {}, item.name));
-            var kind = g.id === "associated" ? "associated" : "local";
+            var kind = g.id === "associated" || g.id === "subscribed" ? g.id : "local";
             b.addEventListener("click", function () { show(kind, item, b); });
             buttons.push(b);
             li.appendChild(b);
@@ -9512,7 +9736,18 @@
       // already carries the frame's `[x]` — a second Close inside it would be
       // two controls for one act, and they would not agree about what they
       // close. Which controls a kind may declare here is `t4my`'s.
-      panel.appendChild(buildSticky(todo));
+      var cardEl = buildSticky(todo);
+      panel.appendChild(cardEl);
+      if (todo.outputs && todo.outputs.length) {
+        applyWindowDetail(cardEl, todo, null);
+      }
+      if (cardDetailUrl(todo)) {
+        panel.setAttribute("data-fa-detail-state", "loading");
+        fetchCardDetail(todo, function (detail, fromCache) {
+          if (detail) applyWindowDetail(cardEl, todo, detail);
+          panel.setAttribute("data-fa-detail-state", fromCache ? "cached" : "loaded");
+        });
+      }
       // SELECTING ANY PART RAISES — the owner's words, so the listener is on
       // the panel rather than on its title bar. `mousedown` and not `click`,
       // so the raise happens before a control inside the panel acts on it.
@@ -9660,7 +9895,7 @@
   function mountPageStickies(items, board) {
     /* ── The two relations, from ONE pass ─────────────────────────────────
      *
-     * Mirrors `notesAt()` in `schemas/note-anchor.ts`, including the rule
+     * Mirrors `notesAt()` in `schemas/ui/note-anchor.ts`, including the rule
      * that decides the overlap: a note both attached here AND also-about
      * here counts ONCE, as attached — the stronger relation wins, so a
      * self-referential declaration cannot inflate a badge past the length of
@@ -10713,6 +10948,297 @@
     try { return JSON.parse(node.textContent); } catch (_e) { return null; }
   }
 
+  /* ── Translation drawer — bean `cat-tools-bbnd` ──────────────────────
+   *
+   * Owner, 2026-10-10: *"i want to see in the translations warning somewhere
+   * the ability to open panel w/ more translation info … on content blocks,
+   * on a harnessed (sub)graph, etc."* Rulings: an inline drawer reusing the
+   * QA panel (`fa-qa-panel`, `qaToggle`'s open/close contract); rendered by
+   * JavaScript from data the page already points at, so the HTML stays slim;
+   * officiality read from BOTH the PO headers and `status.json`, and a
+   * disagreement shown as one (2026-10-11: one drawer per harness instance).
+   *
+   * Two scopes in one panel: THIS PAGE (from `fa-translation-meta`, already
+   * inline) and THIS SITE (the instance's `folio-translation-status/v1`
+   * projection, fetched on open). The projection's officiality is computed by
+   * `check-translation-officiality.ts`'s own reader, so the drawer and the
+   * gate cannot answer differently.
+   */
+  var TR_STATUS = {};
+  var TR_SEQ = 0;
+
+  var TR_PAGE_STATE = {
+    unverified: "translated automatically; not reviewed by a subject-matter expert",
+    verified: "reviewed and signed off",
+    stale: "the source changed after this translation was made",
+    missing: "not translated"
+  };
+
+  /** One line on who signed a locale off — the same words as the status page. */
+  function trOfficialityLabel(o) {
+    if (!o) return "not recorded";
+    if (o.state === "official") return "official, signed off by " + (o.signedOffBy || "?") + " on " + (o.signedOffAt || "?");
+    if (o.state === "disagree") return "records disagree (" + o.findings + "); run check:translation-officiality";
+    if (o.state === "unreadable") return "status.json unreadable: could not determine";
+    return "not signed off (machine or agent translation)";
+  }
+
+  function trPct(n, d) {
+    return d > 0 ? Math.round((100 * n) / d) + "%" : "–";
+  }
+
+  /** The THIS-SITE half, from the fetched projection (or why it is absent). */
+  function trSiteSection(status, src, err) {
+    var sec = el("section", { class: "fa-tr-drawer__site" });
+    sec.appendChild(el("h3", null, "This site’s translations"));
+    if (err) {
+      // 404 is a real state, "this site publishes no translation status";
+      // anything else is "could not determine", and the two are kept apart.
+      sec.appendChild(el("p", { class: "fa-qa-absent" }, err === "HTTP 404"
+        ? "This site publishes no translation status."
+        : "Could not load the translation status (" + err + ")."));
+      sec.appendChild(el("code", null, src));
+      return sec;
+    }
+    var locales = (status && status.locales) || [];
+    if (!locales.length) {
+      sec.appendChild(el("p", { class: "fa-qa-absent" }, "No locale is translated on this site."));
+      return sec;
+    }
+    var table = el("table", { class: "fa-tr-drawer__table" });
+    var head = el("tr");
+    ["locale", "strings translated", "fuzzy", "signed off"].forEach(function (h) {
+      head.appendChild(el("th", { scope: "col" }, h));
+    });
+    var thead = el("thead"); thead.appendChild(head); table.appendChild(thead);
+    var tbody = el("tbody");
+    locales.forEach(function (l) {
+      var tr = el("tr", { "data-fa-tr-locale": l.locale });
+      tr.appendChild(el("th", { scope: "row" }, l.locale));
+      tr.appendChild(el("td", null, l.translated + " / " + l.entries + " (" + trPct(l.translated, l.entries) + ")"));
+      tr.appendChild(el("td", null, String(l.fuzzy)));
+      tr.appendChild(el("td", { "data-fa-tr-officiality": (l.officiality && l.officiality.state) || "absent" },
+        trOfficialityLabel(l.officiality)));
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    sec.appendChild(table);
+    if (status.page) {
+      var root = src.replace(/assets\/translation-status\/index\.json$/, "");
+      var more = el("p", { class: "fa-tr-drawer__more" });
+      more.appendChild(el("a", { href: safeHref(root + status.page) }, "Full translation status \u2192"));
+      sec.appendChild(more);
+    }
+    return sec;
+  }
+
+  /** The THIS-PAGE half, from the inline meta. */
+  function trPageSection(meta, available, supported) {
+    var sec = el("section", { class: "fa-tr-drawer__page" });
+    sec.appendChild(el("h3", null, "This page"));
+    var dl = el("dl", { class: "fa-tr-drawer__facts" });
+    function fact(k, v) { dl.appendChild(el("dt", null, k)); dl.appendChild(el("dd", null, v)); }
+    fact("Language", meta.lang || "en");
+    if (meta.translationSource) fact("Translation of", meta.translationSource);
+    if (meta.translationStatus) {
+      fact("State", meta.translationStatus + (TR_PAGE_STATE[meta.translationStatus] ? " — " + TR_PAGE_STATE[meta.translationStatus] : ""));
+    }
+    var missing = supported.filter(function (l) { return available.indexOf(l) < 0; });
+    fact("Available in", available.length ? available.join(", ") : "its source language only");
+    if (missing.length) fact("Not yet in", missing.join(", "));
+    sec.appendChild(dl);
+    return sec;
+  }
+
+  function trBuildDrawer(meta, available, supported, panelId, toggle, status, err) {
+    var panel = chromeText(el("div", {
+      class: "fa-qa-panel fa-tr-drawer",
+      id: panelId,
+      role: "region",
+      "aria-label": "Translation details",
+      tabindex: "-1"
+    }));
+    var head = el("div", { class: "fa-qa-panel-head" });
+    head.appendChild(el("strong", null, "Translations"));
+    var close = el("button", { type: "button", class: "fa-qa-close", title: "Close this panel" }, "✕ Close");
+    close.addEventListener("click", function () { trToggle(toggle, meta, available, supported); });
+    head.appendChild(close);
+    panel.appendChild(head);
+    panel.appendChild(trPageSection(meta, available, supported));
+    panel.appendChild(trSiteSection(status, meta.statusSrc || "", err));
+    return panel;
+  }
+
+  /** The instance's status projection, fetched once per page: `cb(doc, err)`. */
+  function trStatusFetch(src, cb) {
+    if (!src) { cb(null, "no status path on this page"); return; }
+    if (TR_STATUS[src]) { cb(TR_STATUS[src].doc || null, TR_STATUS[src].err || null); return; }
+    fetch(src, { credentials: "same-origin" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (doc) { TR_STATUS[src] = { doc: doc }; cb(doc, null); })
+      .catch(function (e) { TR_STATUS[src] = { err: e.message }; cb(null, e.message); });
+  }
+
+  /**
+   * THE BLOCK SCOPE (bean `cat-tools-bbnd`): what a `TR` panel adds, per
+   * locale its verdicts cover. Whether the verdict is STALE (a witness whose
+   * `freshness` is not `fresh` judged a source that has since moved), and the
+   * locale's signed-off state from the same projection the page drawer reads.
+   * Plus the control that opens the page drawer, so a block reaches the rest.
+   */
+  function trBlockSection(doc) {
+    var byLocale = {};
+    (doc.criteria || []).forEach(function (c) {
+      if (!c.locale) return;
+      var e = byLocale[c.locale] || (byLocale[c.locale] = { stale: 0, witnesses: 0 });
+      (c.witnesses || []).forEach(function (w) {
+        e.witnesses += 1;
+        if (w.freshness && w.freshness !== "fresh") e.stale += 1;
+      });
+    });
+    var locales = Object.keys(byLocale).sort();
+    var sec = el("section", { class: "fa-tr-drawer__block" });
+    sec.appendChild(el("h3", null, "Translation of this block"));
+    if (!locales.length) {
+      sec.appendChild(el("p", { class: "fa-qa-absent" }, "No verdict here names a locale."));
+      return sec;
+    }
+    var dl = el("dl", { class: "fa-tr-drawer__facts" });
+    var cells = {};
+    locales.forEach(function (l) {
+      var e = byLocale[l];
+      dl.appendChild(el("dt", null, l));
+      var dd = el("dd", { "data-fa-tr-locale": l });
+      dd.appendChild(el("span", { class: "fa-tr-drawer__fresh", "data-fa-tr-fresh": e.stale ? "stale" : "fresh" },
+        e.stale
+          ? "stale: the source changed after " + e.stale + " of " + e.witnesses + " verdict(s) were reached"
+          : "current: every verdict was reached on the source as it is now"));
+      var off = el("span", { class: "fa-tr-drawer__official" }, " \u00B7 signed off: \u2026");
+      dd.appendChild(off);
+      cells[l] = off;
+      dl.appendChild(dd);
+    });
+    sec.appendChild(dl);
+    var meta = getTranslationMeta() || {};
+    trStatusFetch(meta.statusSrc, function (status, err) {
+      var byL = {};
+      ((status && status.locales) || []).forEach(function (x) { byL[x.locale] = x; });
+      locales.forEach(function (l) {
+        var x = byL[l];
+        cells[l].textContent = " \u00B7 signed off: " +
+          (err ? (err === "HTTP 404" ? "not published for this site" : "could not determine (" + err + ")")
+               : x ? trOfficialityLabel(x.officiality) : "this site has no catalogue for " + l);
+        if (x && x.officiality) cells[l].setAttribute("data-fa-tr-officiality", x.officiality.state);
+      });
+    });
+    var open = el("button", { type: "button", class: "fa-translation-warning__details" }, "Open translation details");
+    open.addEventListener("click", function () {
+      var t = document.querySelector(".fa-tr-drawer-toggle");
+      if (t && t.getAttribute("aria-expanded") !== "true") t.click();
+      else if (t) { var d = document.getElementById(t.getAttribute("aria-controls")); if (d) d.focus(); }
+    });
+    sec.appendChild(open);
+    return sec;
+  }
+
+  /** Open or close the drawer: `qaToggle`'s contract, so one behaviour for both. */
+  function trToggle(toggle, meta, available, supported) {
+    var panelId = toggle.getAttribute("aria-controls");
+    var open = panelId && document.getElementById(panelId);
+    if (open) {
+      open.parentNode.removeChild(open);
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+      return;
+    }
+    if (!panelId) {
+      panelId = "fa-tr-drawer-" + (++TR_SEQ);
+      toggle.setAttribute("aria-controls", panelId);
+    }
+    toggle.setAttribute("aria-expanded", "true");
+    var anchor = toggle.closest(".fa-translation-badges") || toggle;
+    function mount(node) {
+      toggle.removeAttribute("aria-busy");
+      if (anchor.nextSibling) anchor.parentNode.insertBefore(node, anchor.nextSibling);
+      else anchor.parentNode.appendChild(node);
+      node.focus();
+    }
+    toggle.setAttribute("aria-busy", "true");
+    trStatusFetch(meta.statusSrc, function (doc, err) {
+      mount(trBuildDrawer(meta, available, supported, panelId, toggle, doc, err));
+    });
+  }
+
+  /**
+   * THE STATUS PAGE'S PER-ROW DRAWER (bean `cat-tools-bbnd`): each locale row
+   * the translation-status visualiser draws (`tr[data-fa-tr-locale]`) gets a
+   * control that opens, under it, the catalogues behind the row's numbers,
+   * each with its own counts and `X-Folio-Official` header. Read from the same
+   * projection as every other scope, so the row and its drawer cannot differ.
+   */
+  function mountTranslationStatusRows() {
+    var rows = document.querySelectorAll(".ts-page tr[data-fa-tr-locale]");
+    if (!rows.length) return;
+    var meta = getTranslationMeta() || {};
+    rows.forEach(function (row) {
+      var locale = row.getAttribute("data-fa-tr-locale");
+      var cell = row.querySelector("th");
+      if (!cell || row.querySelector(".fa-tr-row-toggle")) return;
+      var btn = chromeText(el("button", {
+        type: "button", class: "fa-tr-drawer-toggle fa-tr-row-toggle", "aria-expanded": "false",
+        title: "Catalogues behind the " + locale + " numbers"
+      }, "ⓘ Details"));
+      cell.appendChild(document.createTextNode(" "));
+      cell.appendChild(btn);
+      btn.addEventListener("click", function () {
+        var next = row.nextElementSibling;
+        if (next && next.classList.contains("fa-tr-row-drawer")) {
+          next.parentNode.removeChild(next);
+          btn.setAttribute("aria-expanded", "false");
+          btn.focus();
+          return;
+        }
+        btn.setAttribute("aria-expanded", "true");
+        trStatusFetch(meta.statusSrc, function (status, err) {
+          var tr = el("tr", { class: "fa-tr-row-drawer" });
+          var td = el("td", { colspan: String(row.children.length) });
+          var panel = chromeText(el("div", { class: "fa-qa-panel fa-tr-drawer", role: "region", "aria-label": "Catalogues for " + locale, tabindex: "-1" }));
+          var loc = null;
+          ((status && status.locales) || []).forEach(function (x) { if (x.locale === locale) loc = x; });
+          if (err || !loc) {
+            panel.appendChild(el("p", { class: "fa-qa-absent" }, err ? "Could not load the catalogue detail (" + err + ")." : "The status projection has no row for " + locale + "."));
+          } else if (!loc.files) {
+            panel.appendChild(el("p", { class: "fa-qa-absent" }, "This projection predates per-catalogue detail; regenerate it with translation:status."));
+          } else {
+            panel.appendChild(el("p", null, trOfficialityLabel(loc.officiality)));
+            var t = el("table", { class: "fa-tr-drawer__table" });
+            var h = el("tr");
+            ["catalogue", "translated", "fuzzy", "X-Folio-Official"].forEach(function (x) { h.appendChild(el("th", { scope: "col" }, x)); });
+            var th = el("thead"); th.appendChild(h); t.appendChild(th);
+            var tb = el("tbody");
+            loc.files.forEach(function (f) {
+              var r = el("tr");
+              r.appendChild(el("th", { scope: "row" }, f.path));
+              r.appendChild(el("td", null, f.translated + " / " + f.entries + " (" + trPct(f.translated, f.entries) + ")"));
+              r.appendChild(el("td", null, String(f.fuzzy)));
+              r.appendChild(el("td", null, f.official || "(absent)"));
+              tb.appendChild(r);
+            });
+            t.appendChild(tb);
+            panel.appendChild(t);
+            if (loc.unreadable && loc.unreadable.length) {
+              panel.appendChild(el("p", { class: "fa-qa-absent" }, "Unreadable, so not counted: " + loc.unreadable.join(", ")));
+            }
+          }
+          td.appendChild(panel);
+          tr.appendChild(td);
+          row.parentNode.insertBefore(tr, row.nextSibling);
+          panel.focus();
+        });
+      });
+    });
+  }
+
   function mountTranslationBadges() {
     var meta = getTranslationMeta();
     if (!meta) return;
@@ -10836,6 +11362,18 @@
     chromeText(sweepBadge);
     container.appendChild(sweepBadge);
 
+    // The drawer's control (bean `cat-tools-bbnd`). A separate BUTTON, not the
+    // coverage badge made clickable: the badges stay inert spans (`cursor:
+    // default`, see docs-ui.css), and a control should look like one.
+    var trToggleBtn = chromeText(el("button", {
+      type: "button",
+      class: "fa-tr-drawer-toggle",
+      "aria-expanded": "false",
+      title: "Translation details for this page and this site"
+    }, "\u24D8 Translation details"));
+    trToggleBtn.addEventListener("click", function () { trToggle(trToggleBtn, meta, available, supported); });
+    container.appendChild(trToggleBtn);
+
     /* Unverified translation notice — ONE LINE, opening to the detail.
      *
      * Owner, 2026-09-21, on a translated page: *"should be a slim one line
@@ -10914,6 +11452,18 @@
       howP.appendChild(el("code", null, "translation_validate"));
       howP.appendChild(document.createTextNode(" to check for staleness and coverage."));
       warnBody.appendChild(howP);
+      // THE WARNING OPENS THE DRAWER (bean `cat-tools-bbnd`, owner 2026-10-10:
+      // "in the translations warning … the ability to open panel w/ more
+      // translation info"). The control is looked up at click time: it is
+      // built further down this function, after the badge row exists.
+      var openDrawer = el("button", { type: "button", class: "fa-translation-warning__details" },
+        "Open translation details");
+      openDrawer.addEventListener("click", function () {
+        var t = document.querySelector(".fa-tr-drawer-toggle");
+        if (t && t.getAttribute("aria-expanded") !== "true") t.click();
+        else if (t) { var d = document.getElementById(t.getAttribute("aria-controls")); if (d) d.focus(); }
+      });
+      warnBody.appendChild(openDrawer);
       warning.appendChild(warnBody);
 
       if (meta.translationQa && meta.translationQa.src) {
@@ -11381,6 +11931,12 @@
       panel.appendChild(el("p", { class: "fa-qa-absent" },
         "The sidecar holds no criteria — nothing about this subject has been checked."));
     }
+    // A TRANSLATION panel is also the translation drawer's block scope (bean
+    // `cat-tools-bbnd`): staleness and officiality per locale, one more control.
+    if (doc.family === "translation" || badge.getAttribute("data-qa-family") === "translation") {
+      panel.classList.add("fa-tr-drawer");
+      panel.appendChild(trBlockSection(doc));
+    }
     return panel;
   }
 
@@ -11732,7 +12288,7 @@
    * already makes — the row is a layout, and a control does not have to be
    * built by the thing that positions it.
    */
-  function readNavbarRow() {
+  function _readNavbarRow() {
     var node = document.getElementById("fa-navbar-row");
     if (!node) return undefined;
     var text = (node.textContent || "").trim();
@@ -11897,7 +12453,7 @@
 
     var box = document.getElementById("fa-nav-open");
     // NO ☰ AND NO [x] (#1757 on the rail, ob3m finding 8 here). The avatar
-    // below is the one control: it pins the bar open and closes it.
+    // below pins a closed bar open, and goes home from an open one.
 
     /* THE AVATAR OPENS AND CLOSES THE BAR — owner, 2026-09-27: *"navbar
      * starts hidden, click avatar opens for a split second then returns to
@@ -11907,7 +12463,8 @@
      *
      * From 50rem up it is now the bar's toggle: pin open (lifting stay-closed),
      * or close (setting it, so the hover peek does not hold it open under the
-     * pointer). Home is still one click away, as ⌂ at the foot of the bar and
+     * pointer). (Superseded 2026-10-30, below: the ⌂ row is gone and an open
+     * bar's avatar goes home.) Home was one click away, as ⌂ at the foot and
      * as the first page. Below 50rem the theme's ☰ owns the menu and the
      * avatar stays the home link. With no script it is the home link too. */
     var avatar = bar.querySelector(".site-title");
@@ -11921,29 +12478,27 @@
         }
         avatar.setAttribute("aria-controls", bar.id || "");
         avatar.setAttribute("aria-expanded", box.checked ? "true" : "false");
-        avatar.title = box.checked ? "Close navigation" : "Open navigation";
+        avatar.title = box.checked ? "Go to the landing page" : "Open navigation, or go to the landing page once it is open";
       };
       if (!bar.id) bar.id = "fa-side-bar";
       label();
       box.addEventListener("change", label);
+      /* AN OPEN BAR'S AVATAR GOES HOME -- owner, 2026-10-30: *"who eblmen not
+       * clicable to go to landing page. also dont need home on bottomof
+       * harnes navbars."* The ⌂ row at the foot is gone, so the avatar is the
+       * way home. It still pins a CLOSED bar open, which is the touch case
+       * (no hover to peek it open); once the bar is open, by hover, focus or
+       * the pin, the click is the theme's home link. */
       avatar.addEventListener("click", function (e) {
         if (!wide.matches) return;
+        // `(hover: hover)`: a touch screen reports :hover on the tap itself,
+        // which would send its first tap home instead of opening the bar.
+        var canHover = window.matchMedia("(hover: hover)").matches;
+        if (box.checked || (canHover && bar.matches(":hover")) || bar.matches(":focus-visible, :has(:focus-visible)")) return;
         e.preventDefault();
-        box.checked = !box.checked;
-        // Closed under the pointer, the hover peek would hold it open, so the
-        // peek is withheld -- until the pointer leaves the bar, not for good.
-        applyNavPref(box.checked ? null : "closed");
-        if (!box.checked) {
-          bar.addEventListener("pointerleave", function release() {
-            bar.removeEventListener("pointerleave", release);
-            if (!box.checked) applyNavPref(null);
-          });
-        }
+        box.checked = true;
+        applyNavPref(null);
         label();
-        // Closing must drop focus too: the bar also opens on `:focus-within`
-        // (the keyboard path), so a focused avatar held it open after the
-        // click that closed it. Measured: 264px wide with the pointer away.
-        if (!box.checked) avatar.blur();
       });
     }
   }
@@ -12055,6 +12610,7 @@
     // was a preference about paint rather than a dependency.
     withSiteIndex(mountNavLocale);
     mountTranslationBadges();
+    mountTranslationStatusRows();
     mountQaPanels();
     paintQaBadges();
     // THE GLASS FIRST, and unconditionally. It is the reader's folio rather

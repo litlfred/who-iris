@@ -10,6 +10,17 @@ var CONFIG = (function(){
   try { return JSON.parse(el ? el.textContent : "{}") || {}; } catch (_e) { return {}; }
 })();
 var DATA_HREF = new URL(String(CONFIG.data || ""), location.href).href;
+/* ARRIVING AT #lib-view OPENS THE VIEW PANEL -- the folio glass's eye links
+   here (owner, 2026-10-16: "there should be [eye] icon to look at it"), and a
+   reader who pressed it came to look, not to press a second toggle. Opening
+   the panel is what loads the viewer (pdf-viewer's toggle rule). */
+function openViewPanel(){
+  if (location.hash !== "#lib-view") return;
+  var d = document.querySelector("#lib-view details");
+  if (d && !d.open) d.open = true;
+}
+openViewPanel();
+window.addEventListener("hashchange", openViewPanel);
 /* The SUBJECT this page is scoped to, or "" for the handler's whole view.
    One projection serves both — a second JSON per subject would be the same
    facts written N+1 times, free to disagree the moment one is regenerated. */
@@ -127,8 +138,8 @@ function uploadState(e){
 
 var COLS = [
   /* THE SLUG OPENS THE ENTRY'S VISUALISER -- e.view, generated per entry by
-     the projection (owner, 2026-10-02: "click on smart-trust slug and open
-     up the visualizer"). A site-root path, composed like an avatar; an entry
+     the projection (owner, 2026-10-02, paraphrased: clicking an entry's slug
+     should open its visualiser). A site-root path, composed like an avatar; an entry
      whose projection carries none keeps a plain slug. */
   { k:"id",       t:"slug",     n:false, f:function(e){
       var v = typeof e.view === "string" && e.view.charAt(0) === "/" ? SITE_ROOT + e.view.slice(1) : "";
@@ -141,7 +152,7 @@ var COLS = [
   { k:"title",    t:"title",    n:false, c:"t-title", f:function(e){
       /* THE TITLE OPENS THE ENTRY'S OWN PAGE -- its path IRI (#1881). It
          used to open the item's README on GitHub, which a referenced entry
-         may not have (owner, 2026-10-02: the smart-trust title went to a
+         may not have (owner, 2026-10-02: a DAK IG's title went to a
          404). The README stays as a secondary link, only when one exists. */
       var t = '<a class="lib-title" href="'+esc(entryHref(e))+'">'+esc(e.title)+"</a>";
       var src = e.arxiv ? "https://arxiv.org/abs/"+encodeURIComponent(e.arxiv) : e.doi ? "https://doi.org/"+e.doi : "";
@@ -166,8 +177,16 @@ var COLS = [
       if (!refs.length) return pill;
       return '<details class="refs"><summary>'+pill+'</summary><ul>' + refs.map(function(r){
         return "<li>"+esc(r.from)+" ("+r.count+")</li>"; }).join("") + "</ul></details>"; } },
+  /* THE SOURCE FILE NAME OPENS IT -- owner, 2026-10-30: "the link to the
+     source should be clickable to view under source". An entry whose held
+     source has a viewer (e.viewable, set by the projection from viewableOf)
+     links to its own page's view panel, #lib-view, which opens on arrival,
+     in a NEW TAB (owner, 2026-10-30, option B) so the listing stays where the
+     reader left it. Any other entry keeps the plain name. */
   { k:"upload",   t:"source",   n:false, c:"t-source", f:function(e){ var s=uploadState(e);
-      return '<span class="pill '+s.cls+'">'+esc(s.label)+"</span>"+(e.sourceFile?'<br><span class="slug" style="font-size:.72rem;color:var(--muted)">'+esc(e.sourceFile)+"</span>":""); } }
+      var name = '<span class="slug" style="font-size:.72rem;color:var(--muted)">'+esc(e.sourceFile)+"</span>";
+      if (e.sourceFile && e.viewable) name = '<a class="src lib-src" href="'+esc(entryHref(e))+'#lib-view" target="_blank" rel="noopener">'+esc(e.sourceFile)+"</a>";
+      return '<span class="pill '+s.cls+'">'+esc(s.label)+"</span>"+(e.sourceFile?"<br>"+name:""); } }
 ];
 
 function rows(){
@@ -426,7 +445,7 @@ function renderBlocks(id, data, err, entry){
    as text rather than colour alone, and none is styled as an error: "not yet
    summarised" is the drain's backlog, which is expected and slow on purpose.
    A draft names its MODEL, because "a model wrote this" without which one is
-   the provenance gap schemas/attribution.ts closes. */
+   the provenance gap schemas/content/attribution.ts closes. */
 function summaryLabel(s){
   var d = s.draftedBy;
   switch (s.status) {
@@ -676,6 +695,24 @@ function withheldBanner(e, bs){
     }
     return best === null ? null : location.origin + best + "assets/vendor/crepe/";
   };
+  // The site's editor bundle (suggest-editor.ts), fetched once: on the first
+  // hover or focus of a ✍ suggest link, so it is usually ready by the click.
+  // A failed fetch is forgotten, so the next open tries again.
+  let bundle = null;
+  const editorBundle = () => {
+    const sc = config().suggest || {};
+    const vb = vendorBase();
+    const moduleUrl = sc.module || (vb && vb + "crepe.js");
+    if (!moduleUrl) return Promise.reject(new Error("this site has no editor bundle (assets/vendor/crepe/)"));
+    const cssUrl = sc.css || (vb && !sc.module ? vb + "crepe.css" : null);
+    if (cssUrl && !document.querySelector('link[href="' + cssUrl + '"]')) document.head.append(el("link", { rel: "stylesheet", href: cssUrl }));
+    if (!bundle) bundle = import(moduleUrl).catch((e) => { bundle = null; throw e; });
+    return bundle;
+  };
+  // How long the visual editor may take to open before the dialog falls back
+  // to the raw Markdown: a slow link or a stalled import must not leave the
+  // reader looking at an empty editor (smart-ra, 2026-10-26).
+  const VISUAL_WAIT_MS = 20000;
   // The KG labels and bibliography keys a profile's checker warns against, read once from the page's graph.
   let kgRefs;
   const kgReferences = async (c) => {
@@ -925,6 +962,7 @@ function withheldBanner(e, bs){
       if (!r.ok) throw new Error(r.status + " reading " + path);
       original = await r.text();
     } catch (e) { status.textContent = "Could not load the block: " + e.message; return; }
+    status.textContent = "Loaded " + path + ". Opening the editor …";
     const fm = FRONT_MATTER.exec(original);
     const head = fm ? fm[0] : "", body = original.slice(head.length);
     // The site's variable values, as KG nodes (values.jsonld), when it publishes them.
@@ -1037,6 +1075,10 @@ function withheldBanner(e, bs){
     const syntaxErrors = (t) => tokens.errors(t, !!mod);
     const wrapped = shield(body);
     let katex = null, lib = null, visualBase = null;
+    // Each surface choice takes a ticket; a visual editor still opening when
+    // a newer choice (a timeout, Raw, closing the dialog) is made is dropped.
+    let ticket = 0;
+    const abandoned = () => new Error("abandoned");
     // The visual surface: Crepe, with the profile's feature settings, node views
     // and first remark transformer, the toolbar's commands and the change
     // marks. Its base is Crepe's round-trip of the SOURCE, kept across a
@@ -1046,14 +1088,12 @@ function withheldBanner(e, bs){
       // The site's own bundle (suggest-editor.ts): Crepe and KaTeX from one
       // copy of ProseMirror, its stylesheet with every import resolved.
       const sc = c.suggest || {};
-      const vb = vendorBase();
-      const moduleUrl = sc.module || (vb && vb + "crepe.js");
-      if (!moduleUrl) throw new Error("this site has no editor bundle (assets/vendor/crepe/)");
-      const cssUrl = sc.css || (vb && !sc.module ? vb + "crepe.css" : null);
-      if (cssUrl && !document.querySelector('link[href="' + cssUrl + '"]')) document.head.append(el("link", { rel: "stylesheet", href: cssUrl }));
-      lib = lib || (await import(moduleUrl));
+      const mine = ++ticket;
+      const live = () => mine === ticket && dlg.isConnected;
+      lib = lib || (await editorBundle());
       const Crepe = lib.Crepe;
       if (mod && mod.nodeViews && !katex) katex = sc.katex ? (await import(sc.katex)).default : lib.default;
+      if (!live()) throw abandoned();
       const box = el("div");
       host.replaceChildren(box);
       // The dialog's own toolbar replaces Crepe's selection toolbar, and
@@ -1077,6 +1117,7 @@ function withheldBanner(e, bs){
         };
       });
       await crepe.create();
+      if (!live()) { try { crepe.destroy(); } catch {} throw abandoned(); }
       const view = crepe.editor.action((ctx) => ctx.get("editorView"));
       const run = (cmd, payload) => { view.focus(); crepe.editor.action(lib.callCommand(cmd.key, payload)); };
       const get = () => unwrap(crepe.getMarkdown());
@@ -1093,6 +1134,7 @@ function withheldBanner(e, bs){
         if (visualBase === null) visualBase = unwrap(probe.getMarkdown());
         if (marks) baseBlocks = baseBlocksOf(probe.editor.action((ctx) => ctx.get("editorView")).state.doc);
         probe.destroy();
+        if (!live()) { try { crepe.destroy(); } catch {} throw abandoned(); }
       }
       if (marks) view.dispatch(view.state.tr.setMeta(marks.key, true));
       return {
@@ -1106,6 +1148,7 @@ function withheldBanner(e, bs){
     };
     // The raw surface: the block's Markdown exactly as it is; the toolbar types Markdown.
     const rawSurface = (text) => {
+      ticket++;
       const ta = el("textarea", { value: text });
       ta.setAttribute("aria-label", "The block's Markdown");
       host.replaceChildren(ta);
@@ -1136,8 +1179,13 @@ function withheldBanner(e, bs){
       visualBtn.setAttribute("aria-pressed", String(surface.name === "visual"));
       rawBtn.setAttribute("aria-pressed", String(surface.name === "raw"));
     };
+    // The visual editor, unless it does not open in time: then the raw pane.
+    const visualInTime = (text) => new Promise((resolve, reject) => {
+      const t = setTimeout(() => reject(new Error("it did not open within " + VISUAL_WAIT_MS / 1000 + " seconds; press Visual to try again")), VISUAL_WAIT_MS);
+      visual(text).then((v) => { clearTimeout(t); resolve(v); }, (e) => { clearTimeout(t); reject(e); });
+    });
     try {
-      surface = rawFirst ? rawSurface(body) : await visual(wrapped);
+      surface = rawFirst ? rawSurface(body) : await visualInTime(wrapped);
     } catch (e) {
       // No editor bundle, or it failed: the same flow over plain Markdown.
       surface = rawSurface(body);
@@ -1150,7 +1198,8 @@ function withheldBanner(e, bs){
       if (surface.name === next) return;
       const text = surface.get();
       surface.destroy();
-      try { surface = next === "raw" ? rawSurface(text) : await visual(shield(text)); }
+      status.textContent = next === "raw" ? "" : "Opening the visual editor …";
+      try { surface = next === "raw" ? rawSurface(text) : await visualInTime(shield(text)); }
       catch (e) { surface = rawSurface(text); notes.push("The visual editor did not load (" + e.message + ")."); }
       show();
       status.textContent = notes.concat([describe()]).filter(Boolean).join(" ");
@@ -1225,6 +1274,7 @@ function withheldBanner(e, bs){
       const a = e.target.closest("a[data-fa-link]"), h = e.target.closest("[data-src]");
       if (a) ready(a);
       if (h && h !== a) ready(h);
+      if (a && a.dataset.faLink === "suggest") editorBundle().catch(() => {});
     }, { passive: true });
 })();
 

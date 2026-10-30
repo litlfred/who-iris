@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <link rel="stylesheet" href="/who-iris/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="../../../assets/css/just-the-docs-default.css">
 
-  <link rel="stylesheet" href="/who-iris/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
   <style id="jtd-nav-activation">
   
@@ -20,10 +20,10 @@
   
 
   
-    <script src="/who-iris/assets/js/vendor/lunr.min.js"></script>
+    <script src="../../../assets/js/vendor/lunr.min.js"></script>
   
 
-  <script src="/who-iris/assets/js/just-the-docs.js"></script>
+  <script src="../../../assets/js/just-the-docs.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -137,7 +137,7 @@
   `mark-small` in `harness.json`, and it went unread: nothing in this
   repo ever emitted a favicon at all, `rel="icon"` included. It also could
   not have driven this lookup as declared — `imagesForRole()`
-  (`schemas/kg-node.ts`) requires an image's `layout` field, which neither
+  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
   mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
   the already-resolved `icon` (the same field `title.html` reads) sidesteps
   that and, more importantly, is what was asked for: the sidebar mark and the
@@ -154,7 +154,7 @@
   `relative_url`, same as `title.html` and `landing.html` — a bare
   `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
   for.
---><link rel="icon" type="image/svg+xml" href="/who-iris/assets/img/who-emblem.svg"><!--
+--><!--
   Site-wide styling for the BPMN workflow figures.
 
   just-the-docs pulls this file into <head> on every page. The diagrams are wide
@@ -269,9 +269,9 @@
   "translationQa":{
     "key": "page.translation",
     "slug": "en-cat-harness-processes-review-task",
-    "src": "/who-iris/assets/qa/en-cat-harness-processes-review-task/page.translation.json",
-    "index": "/who-iris/assets/qa/en-cat-harness-processes-review-task/qa-index.json",
-    "list": "/who-iris/assets/qa/translation-qa-pages.json"
+    "src": "../../../assets/qa/en-cat-harness-processes-review-task/page.translation.json",
+    "index": "../../../assets/qa/en-cat-harness-processes-review-task/qa-index.json",
+    "list": "../../../assets/qa/translation-qa-pages.json"
   },
   "sweep":{
     "absent": "who-iris publishes no translation QA sweep on this site",
@@ -280,7 +280,8 @@
     "totalPages": 0,
     "pagesWithTranslations": 0,
     "complete": false
-  }
+  },
+  "statusSrc":"../../../assets/translation-status/index.json"
 }</script>
 <!--
   Where the action tiles point.
@@ -292,7 +293,7 @@
   graph exporter and the Pages workflow use. The tile therefore cannot
   disagree with what is published.
 
-  This block previously wrote `/who-iris/kg/` by hand. Nothing
+  This block previously wrote `../../../kg/` by hand. Nothing
   has ever been published at `<base>/kg/` -- the renderings sit at the base,
   named after the stub -- so the only entry point to the viewer anywhere on
   this site was a 404 from the day it was added. See bean `udx8`, and the
@@ -322,9 +323,17 @@
   visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
   or in JavaScript.
 -->
-<script type="application/json" id="fa-navbar-row">{"icons":["close","todos","beans","fsh-guts","qr","launcher"],"hrefs":{},"notes":{},"folders":[{"kind":"catalogue","label":"Catalogue","path":"/catalogue/"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"docs","label":"Docs","note":"no viewer yet"},{"kind":"folio","label":"Folio","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/folio/who-iris/"},{"kind":"glossary","label":"Glossary","note":"no viewer yet"},{"kind":"health","label":"Health","note":"who-iris's health graph is not published on this site"},{"kind":"library","label":"Library","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/library/who-iris/"},{"kind":"qa","label":"QA","note":"who-iris's qa graph is not published on this site"},{"kind":"schemas","label":"Schemas","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/who-iris/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"themes","label":"Themes","note":"no viewer yet"},{"kind":"tools","label":"Tools","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/tools/who-iris/"},{"kind":"translation-sources","label":"Translation sources","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/"},{"kind":"uploads","label":"Uploads","note":"who-iris's uploads graph is not published on this site"},{"kind":"voices","label":"Voices","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/"}]}</script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
+<!--
+  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
+  The row is the same on every page of a build, so it is written once into a
+  cached file instead of into each page. `data-fa-row-src` is the contract the
+  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
+  the name once it has filled the island, and a reader that finds it still
+  named and empty reports a failed load rather than "declared none".
+-->
+<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
      moving it, in assets/harness/site.json's front matter. -->
-<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
+<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
 
 <!--
   The todo index — a PERSON's outstanding items, published by
@@ -349,11 +358,11 @@
 <!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
      page has one and falls back to this. Rationale and measurement are in that
      file's front matter, which is not served. -->
-<meta name="fa-site-index-src" content="/who-iris/assets/harness/site.json">
-<meta name="fa-todo-src" content="/who-iris/assets/todos/index.json">
+<meta name="fa-site-index-src" content="../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../assets/todos/index.json">
 <!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
      filters and groups by, and each todo's own page. -->
-<meta name="fa-todo-graph" content="/who-iris/todos.jsonld">
+<meta name="fa-todo-graph" content="../../../todos.jsonld">
 
 <!--
   THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
@@ -371,7 +380,7 @@
   generator wrote the file, and a conditional that guessed would make "this
   folio declares no threshold" and "the build did not run" the same page.
 -->
-<meta name="fa-zoom-src" content="/who-iris/assets/semantic-zoom.json">
+<meta name="fa-zoom-src" content="../../../assets/semantic-zoom.json">
 
 <!--
   THE DECLARED VISUALISATIONS, as tiles.
@@ -392,14 +401,21 @@
   otherwise close the attribute, and the quoting rule is Liquid's rather than
   something this comment has to be right about.
 -->
-<meta name="fa-tiles" content="[{&quot;id&quot;:&quot;library&quot;,&quot;directory&quot;:&quot;library&quot;,&quot;title&quot;:&quot;Library&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/en/cat-harness/library/who-iris/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;icon&quot;:&quot;library&quot;,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/en/cat-harness/library/who-iris/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-catalogue&quot;,&quot;directory&quot;:&quot;who-iris-catalogue&quot;,&quot;title&quot;:&quot;Catalogue&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/who-iris/catalogue/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;href&quot;:&quot;/catalogue/&quot;,&quot;hidden&quot;:false,&quot;readOnly&quot;:true},{&quot;id&quot;:&quot;who-iris-docs&quot;,&quot;directory&quot;:&quot;who-iris-docs&quot;,&quot;title&quot;:&quot;Docs&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/cat-harness/auto-docs/index/docs/who-iris-docs/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;icon&quot;:&quot;docs&quot;,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/who-iris-docs/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-site&quot;,&quot;directory&quot;:&quot;who-iris-site&quot;,&quot;title&quot;:&quot;Docs&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/cat-harness/auto-docs/index/docs/who-iris-site/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/docs/who-iris-site/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-skills&quot;,&quot;directory&quot;:&quot;who-iris-skills&quot;,&quot;title&quot;:&quot;Skills&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/cat-harness/auto-docs/index/skills/who-iris-skills/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;icon&quot;:&quot;skills&quot;,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/cat-harness/auto-docs/index/skills/who-iris-skills/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-translations&quot;,&quot;directory&quot;:&quot;who-iris-translations&quot;,&quot;title&quot;:&quot;Translation sources&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/en/cat-harness/translation-status/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;href&quot;:&quot;https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/&quot;,&quot;showQualifier&quot;:true},{&quot;id&quot;:&quot;who-iris-uploads&quot;,&quot;directory&quot;:&quot;who-iris-uploads&quot;,&quot;title&quot;:&quot;Uploads&quot;,&quot;qualifier&quot;:&quot;WHO IRIS&quot;,&quot;ref&quot;:&quot;cat-harness/docs/en/cat-harness/uploads/who-iris/index.html&quot;,&quot;surfaces&quot;:[&quot;navbar&quot;,&quot;board&quot;,&quot;glass&quot;],&quot;hidden&quot;:false,&quot;readOnly&quot;:false,&quot;icon&quot;:&quot;uploads&quot;}]">
+<!--
+  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
+  is the same on every page and was 12.5 KB of each one (measured on gh-pages
+  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
+  and deferred scripts run in document order, so the tiles are in place before
+  the first reader runs: no later paint than the inlined copy had.
+-->
+<meta name="fa-tiles" content="" data-fa-src="harness-data">
 <!--
   THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
   finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
   instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
   nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
 -->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;library&quot;,&quot;who-iris-skills&quot;]">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;who-iris-processes&quot;]">
 
 <!--
   THE SITE'S BASEURL, for the tiles above.
@@ -423,8 +439,14 @@
   block means the day it goes missing every tile silently points at the origin
   again — which is this defect, with a second way to reach it. Two reasons for
   one answer now.
+
+  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
+  `../..` two levels down, never the deploy's path, so the page is the same
+  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
+  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
+  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
 -->
-<meta name="fa-baseurl" content="/who-iris">
+<meta name="fa-baseurl" content="../../..">
 
 <!--
   WHETHER THIS IS A PREVIEW, for the tiles above.
@@ -450,6 +472,10 @@
   the tile. That matches `compose-docs.ts`, which withholds unless positively
   told `--staging` — one direction in both places, so the page and its tile
   cannot disagree about which deploy they are on.
+
+  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
+  reader asks only whether it is empty, and the slug made every page differ
+  between previews. The branch is in `staging.json`, which the banner reads.
 -->
 <meta name="fa-staging" content="">
 
@@ -494,7 +520,7 @@
   graphs with separate declarations, and a consumer that wants only the human
   half should not fetch 239 beans to get three todos.
 -->
-<meta name="fa-beans-src" content="/who-iris/assets/beans/index.json">
+<meta name="fa-beans-src" content="../../../assets/beans/index.json">
 <!--
   The process index's entry point — the REPOSITORY's named-subgraph index,
   whose children are the harness roots this site frames (`bun run
@@ -503,7 +529,7 @@
   `[data-fa-process-index]` (the publication-workflow page), which walks it
   down to every `processes` subgraph's `index.hydrated.jsonld`.
 -->
-<meta name="fa-processes-src" content="/who-iris/subgraph/index.jsonld">
+<meta name="fa-processes-src" content="../../../subgraph/index.jsonld">
 <!--
   The deploy's stamp — when it was built and from which commit — which the
   work-plan dashboard turns into "generated … · N commits behind main".
@@ -511,7 +537,7 @@
   deploy, never committed, because a committed timestamp is a merge conflict
   on every pair of concurrent changes (bean `y7b3`).
 -->
-<meta name="fa-build-src" content="/who-iris/build.json">
+<meta name="fa-build-src" content="../../../build.json">
 
 <!--
   The discarded-items document — `fsh-guts.jsonld`, published at the base by
@@ -538,7 +564,7 @@
   (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
 -->
 <!--
-  ?v=<build time> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
+  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
   failure, not a performance one.
 
   These five are served from stable paths with no hash in the name, so a
@@ -551,42 +577,43 @@
   2026-09-21 on this branch: every byte of the change was verified present in
   the publish ref while the page rendered the previous build.
 
-  `site.time` is the BUILD's timestamp, so the query changes exactly when the
-  bytes might have, and never between two readers of the same build. A
-  content hash would be tighter and needs a pipeline step; this needs none
-  and closes the case that costs review time.
+  The query is a HASH OF THE ASSET (`fa_asset_version`,
+  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
+  do. It was `site.time` until 2026-10-23, and the build time is new on every
+  build: every page then differed on every rebuild, so each re-push of a
+  preview stored a whole new copy of its HTML (bean `g196`).
 
   NOT a cache-busting strategy for third-party assets, and not applied to
   them: those are versioned in their own URLs already.
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="/who-iris/assets/css/navbar-row.css?v=1792096002">
-<link rel="stylesheet" href="/who-iris/assets/css/docs-ui.css?v=1792096002">
+<link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="/who-iris/assets/css/narrow-viewport.css?v=1792096002">
+<link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
 
 <!--
   The work-plan dashboard's styles, split from docs-ui.css so that
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="/who-iris/assets/css/work-plan.css?v=1792096002">
-<!-- Sticky themes. GENERATED from the theme nodes in `schemas/themes.ts` by
+<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="/who-iris/assets/css/themes.css?v=1792096002">
+<link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="/who-iris/assets/css/uml.css?v=1792096002">
-<!-- Kind avatars. GENERATED from `schemas/avatars.ts` by `bun run cat avatars:css`;
+<link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66">
+<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="/who-iris/assets/css/avatars.css?v=1792096002">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=58659cb18af6">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -601,18 +628,30 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","qa","schemas","skills","themes","tools","translation-sources","uploads"]</script>
-<script src="/who-iris/assets/js/vendor/qrcode.js" defer></script>
-<script src="/who-iris/assets/js/vendor/qrcode_UTF8.js" defer></script>
+<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","themes","tools","translation-sources","uploads"]</script>
+<!--
+  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
+  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
+
+  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
+  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
+  A version query naming its content would write that change into every page: two
+  previews built 25 minutes apart differed on 1,351 pages for one count going
+  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
+  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
+-->
+<script src="../../../assets/js/harness-data.js" defer></script>
+<script src="../../../assets/js/vendor/qrcode.js" defer></script>
+<script src="../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
-<script src="/who-iris/assets/js/kg-render.js" defer></script>
+<script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="/who-iris/assets/js/navbar-row.js?v=1792096002" defer></script>
-<script src="/who-iris/assets/js/docs-ui.js?v=1792096002" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="/who-iris/assets/js/edit-links.js?v=1792096002" defer></script>
+<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -620,12 +659,12 @@
   page without that container pays one failed querySelector. The same file is
   inlined verbatim into the generated state-visualiser pages.
 -->
-<script src="/who-iris/assets/js/work-plan.js" defer></script>
+<script src="../../../assets/js/work-plan.js" defer></script>
 <!--
   The process index, self-mounting on `[data-fa-process-index]` the same way.
   Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
 -->
-<script src="/who-iris/assets/js/process-index.js" defer></script>
+<script src="../../../assets/js/process-index.js" defer></script>
 
 <!--
   The landing panel — the instance's declared description drawn inside the
@@ -697,9 +736,9 @@
   is broken when it is doing exactly what it can.
 -->
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-15s6c624lyt.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-platform-base" content="https://litlfred.github.io/folio-assistant" data-fa-platform-ui><link rel="stylesheet" href="../../../assets/css/docs-ui.css" data-fa-platform-ui><script src="../../../assets/js/docs-ui.js" defer data-fa-platform-ui></script><meta name="fa-pinned-data" content="../../.."></head>
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-151x9a609ug.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-15s6c624lyt","here":"/en/cat-harness/processes/review-task.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-151x9a609ug","here":"/en/cat-harness/processes/review-task.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -798,6 +837,7 @@
             <blockquote class="note">
   <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/processes/content/review-task.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
 </blockquote>
+
 <h1 id="review-task">
   
   
@@ -814,8 +854,110 @@
 <p>You are in this process for any change under review. It is a DISPATCHER — the actor takes on the inner lane’s role for the call path only — which is why prose and code can both be reviewed without either reviewer having to know the other’s criteria. A change that is both — prose and the code it describes — takes a branch of its own, which reviews the two against each other; the gateway is exclusive and takes exactly one branch, so the earlier wording, that such a change goes through both, described a route the diagram could not take (issue #1042).</p>
 
 <p>The accept-or-send-back decision lives here and nowhere beneath it. The subprocesses produce findings; this is the only lane entitled to turn findings into an outcome, and keeping that single makes “who decided” answerable.</p>
+<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
 
-<p><img src="../../../assets/img/workflows/review-task.svg" alt="BPMN diagram: Review task" style="max-width:100%" /></p>
+<div class="pt-diagram" data-panel="review-task.tasks.json">
+<img src="../../../assets/img/workflows/review-task.svg" alt="BPMN diagram: Review task" />
+<button type="button" class="pt-mark" data-task="Task_ClassifyChange" style="left:22.8%;top:24.42%" aria-expanded="false" aria-label="About step: Classify what changed" title="About: Classify what changed">i</button>
+<button type="button" class="pt-mark" data-task="Call_NarrativeReview" style="left:49.2%;top:3.95%" aria-expanded="false" aria-label="About step: Narrative review" title="About: Narrative review">i</button>
+<button type="button" class="pt-mark" data-task="Call_CodeReview" style="left:49.2%;top:45.81%" aria-expanded="false" aria-label="About step: Code node review" title="About: Code node review">i</button>
+<button type="button" class="pt-mark" data-task="Call_NarrativeCodeReview" style="left:49.2%;top:24.88%" aria-expanded="false" aria-label="About step: Prose and the code it describes" title="About: Prose and the code it describes">i</button>
+<button type="button" class="pt-mark" data-task="Task_Consolidate" style="left:74.8%;top:24.42%" aria-expanded="false" aria-label="About step: Consolidate findings" title="About: Consolidate findings">i</button>
+<button type="button" class="pt-mark" data-task="Task_EditorDecides" style="left:74.8%;top:73.26%" aria-expanded="false" aria-label="About step: Accept, or send back" title="About: Accept, or send back">i</button>
+<div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
+</div>
+<script>(function () {
+  Array.prototype.forEach.call(document.querySelectorAll(".pt-diagram:not([data-pt-ready])"), init);
+  function init(root) {
+  root.setAttribute("data-pt-ready", "");
+  var panel = root.querySelector(".pt-panel"), data = null, pending = null, open = null;
+  function load() {
+    if (data) return Promise.resolve(data);
+    if (!pending) pending = fetch(root.getAttribute("data-panel")).then(function (r) {
+      if (!r.ok) throw new Error(r.status + " " + r.statusText);
+      return r.json();
+    }).then(function (j) { data = j; return j; });
+    return pending;
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function link(l, cls) {
+    var e = el(l.href ? "a" : "code", cls, l.name);
+    if (l.href) e.href = l.href; else e.title = "no page for this one";
+    return e;
+  }
+  function obj(stereo, name, kind) {
+    var box = el("div", "pt-obj pt-" + kind), head = el("div", "pt-head");
+    head.appendChild(el("span", "pt-st", "\u00ab" + stereo + "\u00bb"));
+    head.appendChild(typeof name === "string" ? el("b", null, name) : name);
+    box.appendChild(head);
+    return box;
+  }
+  function edge(label) { return el("div", "pt-edge", "\u2502 " + label + " \u25bc"); }
+  function render(t) {
+    panel.textContent = "";
+    var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
+    close.onclick = function () { hide(); }; panel.appendChild(close);
+    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
+    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    if (t.lane) { var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref })); task.appendChild(ln); }
+    if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
+    panel.appendChild(task);
+    if (t.calls) {
+      panel.appendChild(edge("calls"));
+      var cp = obj("Process", link(t.calls), "proc");
+      if (t.calls.diagram && t.calls.diagram !== t.calls.href) { var dg = el("div", "pt-attr"); dg.appendChild(link({ name: "diagram", href: t.calls.diagram })); cp.appendChild(dg); }
+      panel.appendChild(cp);
+    }
+    if (t.shared) {
+      panel.appendChild(edge("calls"));
+      var gt = obj(t.shared.type.replace(/^bpmn:/, ""), t.shared.id, "proc");
+      Object.keys(t.shared.inputs || {}).forEach(function (k) { gt.appendChild(el("div", "pt-attr", k + " = " + t.shared.inputs[k])); });
+      panel.appendChild(gt);
+    }
+    t.skills.forEach(function (s) {
+      panel.appendChild(edge("requires"));
+      var sk = obj("Skill", link(s), "skill");
+      (s.methodologies || []).forEach(function (m) {
+        var row = el("div", "pt-attr"); row.appendChild(el("span", "pt-st", "uses-methodology \u2192 "));
+        row.appendChild(link(m)); sk.appendChild(row);
+      });
+      panel.appendChild(sk);
+    });
+    if (!t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
+    if (t.role) {
+      panel.appendChild(edge("lane names"));
+      var role = obj("Role", link(t.role), "role");
+      if (t.role.title) role.appendChild(el("div", "pt-attr", "title = " + t.role.title));
+      var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
+      if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
+      t.role.skills.forEach(function (s, i) {
+        if (i) list.appendChild(document.createTextNode(", "));
+        list.appendChild(link(s));
+        if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
+      });
+      role.appendChild(list); panel.appendChild(role);
+    } else if (t.binding) {
+      panel.appendChild(el("div", "pt-none", "Lane role: " + t.binding + "."));
+    }
+  }
+  function hide() { panel.hidden = true; if (open) open.setAttribute("aria-expanded", "false"); open = null; }
+  root.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest(".pt-mark");
+    if (!b) return;
+    if (open === b) { hide(); return; }
+    if (open) open.setAttribute("aria-expanded", "false");
+    open = b; b.setAttribute("aria-expanded", "true");
+    panel.style.left = b.style.left; panel.style.top = b.style.top;
+    panel.hidden = false; panel.textContent = "Loading\u2026";
+    load().then(function (j) {
+      var t = j.tasks[b.getAttribute("data-task")];
+      if (open === b) { if (t) render(t); else panel.textContent = "No details for this task."; }
+    }).catch(function (e) { if (open === b) panel.textContent = "Could not load task details: " + e.message; });
+  });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && open) hide(); });
+  }
+})();</script>
+
 <h2 id="how-it-connects">
   
   
@@ -829,6 +971,7 @@
   <li><strong>Called by:</strong> <a href="crdm-deliver.html">CRDM Phase 6 — implement, MVP, acceptance</a>, <a href="content-change-review.html">Content Change and Review</a></li>
   <li><strong>Calls:</strong> <a href="review-code.html">Code node review</a>, <a href="narrative-code-review.html">Prose and the code it describes</a>, <a href="review-narrative.html">Narrative review</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
   
@@ -885,7 +1028,7 @@
       <td><strong>Classify what changed</strong><br /><code class="language-plaintext highlighter-rouge">Task_ClassifyChange</code></td>
       <td>Reviewer / SME</td>
       <td><code class="language-plaintext highlighter-rouge">content-review</code><br /><code class="language-plaintext highlighter-rouge">staging-review</code></td>
-      <td>Prose, code nodes, or both. This is the only decision the generic lane<br />makes on its own: everything after it is made inside a subprocess by<br />the role that lane binds.<br />Binds <code class="language-plaintext highlighter-rouge">content-review</code>, the same skill as Task_Consolidate in this lane,<br />since placement PR3 (bean <code class="language-plaintext highlighter-rouge">63wl</code>): it named <code class="language-plaintext highlighter-rouge">semantic-review-scoping</code>,<br />a paper skill folio-assistant-sci owns, which this harness diagram<br />cannot reach. A paper process that wants semantic scoping adds it by<br />calling this process.</td>
+      <td>Prose, code nodes, or both. This is the only decision the generic lane<br />makes on its own: everything after it is made inside a subprocess by<br />the role that lane binds.<br />Binds <code class="language-plaintext highlighter-rouge">content-review</code>, the same skill as Task_Consolidate in this lane,<br />since placement PR3 (bean <code class="language-plaintext highlighter-rouge">63wl</code>): it named a paper skill the science<br />layer owns, which this harness diagram<br />cannot reach. A paper process that wants semantic scoping adds it by<br />calling this process.</td>
     </tr>
     <tr>
       <td><strong>Narrative review</strong><br /><code class="language-plaintext highlighter-rouge">Call_NarrativeReview</code></td>
@@ -978,67 +1121,6 @@
 
   
     
-
-
-
-
-
-<script type="module">
-  
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs';
-  
-
-  var config = /* Mermaid configuration for this docs site.
-
-   just-the-docs interpolates this file's contents directly into
-   `var config = <here>; mermaid.initialize(config);`
-   — see that theme's `_includes/components/mermaid.html` — so this must be a
-   bare JavaScript object literal. No `export`, no statements, no semicolon.
-
-   DIAGRAMS ARE ALWAYS LIGHT, IN BOTH COLOUR SCHEMES. The site's stylesheet
-   follows the reader's choice; the drawings do not. They render in Mermaid's
-   light palette on a white card supplied by `.fa-figure-wrap`
-   (site-chrome/assets/css/docs-ui.css), exactly like the BPMN exports beside them,
-   which carry their own white backdrop and cannot follow a scheme at all.
-
-   This reverses a decision made an hour earlier in this session, and the
-   reversal is the whole point of the comment. Setting `theme: "dark"` did fix
-   the ORIGINAL complaint — pale nodes glaring on a dark page — and replaced it
-   with a worse one: dark-on-dark, the diagram's own near-black background
-   dissolving into the page and the text with it. Owner's call, and it is the
-   right one: a schematic is a figure, figures are printed on white, and one
-   consistent treatment across BPMN and Mermaid beats two that each look
-   correct only in one mode.
-
-   Consequence worth knowing: the palette no longer depends on the reader's
-   scheme, so the header's light/dark toggle does not need to re-render
-   anything and no longer reloads the page on diagram pages.
-
-   The PARENTHESES are load-bearing. A bare `{ "theme": ... }` at the start of
-   a statement parses as a BLOCK, not an object, so eslint rejects it with
-   "';' expected" — and eslint lints this file, which is free syntax checking
-   worth keeping. `var config = ({ ... });` is exactly as valid as without
-   them, so the wrapper costs nothing and buys the linter. */
-(({
-  "theme": "default",
-  "themeVariables": {
-    /* Match the card the diagram sits on, so its own backdrop and the
-       wrapper's are the same white rather than two near-whites with a seam. */
-    "background": "#ffffff"
-  },
-  /* Long swimlane labels wrap rather than forcing the diagram wider than the
-     zoom controls can usefully bring back. */
-  "flowchart": { "useMaxWidth": true }
-}))
-;
-  mermaid.initialize(config);
-  mermaid.run({
-    querySelector: '.language-mermaid',
-  });
-</script>
-
-
-
   
 </body>
 </html>

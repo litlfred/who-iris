@@ -1,6 +1,6 @@
 {
   "@context": [
-    "https://litlfred.github.io/folio-assistant/ns/content/v1.jsonld",
+    "https://litlfred.github.io/cat-harness/ns/context/v1.jsonld",
     {
       "@base": "https://litlfred.github.io/folio/"
     }
@@ -45,7 +45,7 @@
     "library/skill-authoring-best-practices---claude-platform-docs/sections/page-032"
   ],
   "provenance": "ingested",
-  "inSubgraph": "https://litlfred.github.io/folio-assistant/cat-harness.jsonld#directory/library",
+  "inSubgraph": "https://litlfred.github.io/folio-assistant/cat-harness/directory/library",
   "meta": {
     "doc_id": "skill-authoring-best-practices---claude-platform-docs",
     "title_source": "pdf-info",
