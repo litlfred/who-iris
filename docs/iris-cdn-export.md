@@ -22,7 +22,7 @@ and where the keys live is covered in [deployment](iris-cdn-deployment.md).
 | What runs the exporter? | **GitHub Actions**, writing to Cloudflare |
 | Where is the signing key? | A GitHub **environment secret** (`iris-cdn-release`, `main` only) |
 | How is each item signed? | A **detached JWS per library item**, over a manifest of its record and files, **plus one over the release** (Q4 A). Only changed items are re-signed |
-| How are keys published? | As `verificationMethod`s of a **`did:web`** DID document, with `publicKeyJwk.x5c` chaining to WHO's signing DID. Publishing is an **offline** step. GDHCN is not assumed |
+| How are keys published? | As `verificationMethod`s of a **`did:web`** DID document, with `publicKeyJwk.x5c` chaining to WHO's signing DID. The key is **already published**, and the exporter only uses it. GDHCN is not assumed |
 | Standing requirement | **No churn**: content that has not changed is not rewritten, re-uploaded or re-signed |
 
 ## Actors
@@ -75,16 +75,14 @@ is reverted, and the previous release stays served.
 
 <img src="assets/img/processes/iris-cdn-sign-publish.svg" alt="BPMN: Sign and publish an IRIS CDN release" style="max-width:100%">
 
-## 5. Publish a signing key (offline)
+## The signing key
 
-`processes/iris-cdn-key-publication.bpmn`. This is offline by the owner's rule.
-The key custodian generates a P-256 key, and WHO's signing authority issues
-its certificate. `did.json` then carries the key with `publicKeyJwk.x5c`
-chaining to WHO's signing DID, and only after that does the private key go
-into the GitHub environment secret. Rotation is the same process with a new
-key ID.
-
-<img src="assets/img/processes/iris-cdn-key-publication.svg" alt="BPMN: Publish an IRIS CDN signing key" style="max-width:100%">
+**Given, not modelled here.** The subordinate signing key is already
+published in a DID document, with `publicKeyJwk.x5c` chaining to WHO's signing
+DID, and its private JWK is already in the GitHub environment secret
+`IRIS_CDN_SIGNING_JWK`. How that key was created and certified happens
+offline and outside these processes (owner, 2026-10-30). The exporter only
+uses the key.
 
 ## When metadata changes and the PDF does not
 

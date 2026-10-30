@@ -65,20 +65,15 @@ token that lasts an hour
 (`wrangler artifacts repos issue-token … --ttl 3600`) and passes it to git
 as a `Bearer` header. It never goes in the remote URL.
 
-Publishing the key is **offline**, by the owner's rule
-(`processes/iris-cdn-key-publication.bpmn`). Generate the key pair on the key
-custodian's machine:
+**Given, not modelled here.** The subordinate signing key is already
+published in a DID document, with `publicKeyJwk.x5c` chaining to WHO's signing
+DID, and its private JWK is already in the GitHub environment secret
+`IRIS_CDN_SIGNING_JWK`. How that key was created and certified happens
+offline and outside these processes (owner, 2026-10-30). The exporter only
+uses the key.
 
-```sh
-bun -e 'import {webcrypto} from "node:crypto";
-  const k = await webcrypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign","verify"]);
-  console.log(JSON.stringify(await webcrypto.subtle.exportKey("jwk", k.privateKey)));'
-```
-
-Then make a CSR for it, and have WHO's signing authority issue the
-certificate. Build `did.json` with `publicKeyJwk.x5c` (leaf first), and check
-that the chain ends at WHO's key (`chainProblem` in `signing.ts`). Publish
-`did.json`. Only then paste the private JWK into `IRIS_CDN_SIGNING_JWK`.
+`IRIS_CDN_DID` is the DID that publishes that key, and `IRIS_CDN_KEY_ID` is the
+key's fragment.
 
 ## What runs when
 

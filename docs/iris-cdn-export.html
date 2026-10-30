@@ -443,7 +443,7 @@ and where the keys live is covered in <a href="iris-cdn-deployment.html">deploym
 </tr>
 <tr>
 <td>How are keys published?</td>
-<td>As <code>verificationMethod</code>s of a <strong><code>did:web</code></strong> DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing DID. Publishing is an <strong>offline</strong> step. GDHCN is not assumed</td>
+<td>As <code>verificationMethod</code>s of a <strong><code>did:web</code></strong> DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing DID. The key is <strong>already published</strong>, and the exporter only uses it. GDHCN is not assumed</td>
 </tr>
 <tr>
 <td>Standing requirement</td>
@@ -516,14 +516,13 @@ signature, and the tag manifest is signed once. Payload objects go to R2 first. 
 committed to Cloudflare git last, in one commit. A release that does not verify
 is reverted, and the previous release stays served.</p>
 <img src="assets/img/processes/iris-cdn-sign-publish.svg" alt="BPMN: Sign and publish an IRIS CDN release" style="max-width:100%">
-<h2>5. Publish a signing key (offline)</h2>
-<p><code>processes/iris-cdn-key-publication.bpmn</code>. This is offline by the owner's rule.
-The key custodian generates a P-256 key, and WHO's signing authority issues
-its certificate. <code>did.json</code> then carries the key with <code>publicKeyJwk.x5c</code>
-chaining to WHO's signing DID, and only after that does the private key go
-into the GitHub environment secret. Rotation is the same process with a new
-key ID.</p>
-<img src="assets/img/processes/iris-cdn-key-publication.svg" alt="BPMN: Publish an IRIS CDN signing key" style="max-width:100%">
+<h2>The signing key</h2>
+<p><strong>Given, not modelled here.</strong> The subordinate signing key is already
+published in a DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing
+DID, and its private JWK is already in the GitHub environment secret
+<code>IRIS_CDN_SIGNING_JWK</code>. How that key was created and certified happens
+offline and outside these processes (owner, 2026-10-30). The exporter only
+uses the key.</p>
 <h2>When metadata changes and the PDF does not</h2>
 <p>A record and its files are stored and diffed separately. A Dublin Core edit
 produces a new record, and therefore a new digest, while the PDF keeps its

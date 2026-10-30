@@ -539,17 +539,14 @@ The initial-load workflow uses a second environment,
 token that lasts an hour
 (<code>wrangler artifacts repos issue-token … --ttl 3600</code>) and passes it to git
 as a <code>Bearer</code> header. It never goes in the remote URL.</p>
-<p>Publishing the key is <strong>offline</strong>, by the owner's rule
-(<code>processes/iris-cdn-key-publication.bpmn</code>). Generate the key pair on the key
-custodian's machine:</p>
-<pre><code class="language-sh">bun -e 'import {webcrypto} from "node:crypto";
-  const k = await webcrypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign","verify"]);
-  console.log(JSON.stringify(await webcrypto.subtle.exportKey("jwk", k.privateKey)));'
-</code></pre>
-<p>Then make a CSR for it, and have WHO's signing authority issue the
-certificate. Build <code>did.json</code> with <code>publicKeyJwk.x5c</code> (leaf first), and check
-that the chain ends at WHO's key (<code>chainProblem</code> in <code>signing.ts</code>). Publish
-<code>did.json</code>. Only then paste the private JWK into <code>IRIS_CDN_SIGNING_JWK</code>.</p>
+<p><strong>Given, not modelled here.</strong> The subordinate signing key is already
+published in a DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing
+DID, and its private JWK is already in the GitHub environment secret
+<code>IRIS_CDN_SIGNING_JWK</code>. How that key was created and certified happens
+offline and outside these processes (owner, 2026-10-30). The exporter only
+uses the key.</p>
+<p><code>IRIS_CDN_DID</code> is the DID that publishes that key, and <code>IRIS_CDN_KEY_ID</code> is the
+key's fragment.</p>
 <h2>What runs when</h2>
 <table>
 <thead>

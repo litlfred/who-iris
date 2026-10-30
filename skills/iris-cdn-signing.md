@@ -100,14 +100,10 @@ route to the same DID document, never a replacement for it.
   goes into git, a log or a bean. It is the GitHub **environment** secret
   `IRIS_CDN_SIGNING_JWK` in environment `iris-cdn-release`, which only jobs on
   `main` can read (owner, Q9).
-- **Publishing the key is offline.** The owner set this on 2026-10-30, and the
-  process is `processes/iris-cdn-key-publication.bpmn`:
-  1. Generate the key.
-  2. Make a CSR, and have WHO's signing authority issue the certificate.
-  3. Build `did.json` with `x5c`, and check that the chain reaches WHO's key.
-  4. Publish `did.json`, then store the secret.
-
-  No CI job issues certificates or edits the DID document.
+- **The key already exists.** The subordinate key is already published in a
+  DID document, with `x5c` up to WHO's signing DID, before the exporter runs.
+  That publication is offline and outside these processes. No CI job issues
+  certificates or edits the DID document.
 - To rotate:
   1. Add the new key to the DID document and to `assertionMethod`.
   2. Publish the DID document.
