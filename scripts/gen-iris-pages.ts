@@ -3596,7 +3596,9 @@ function main(): number {
       if (!existsSync(fwd)) {
         const to = `${posix.relative(CATALOGUE_ROUTE, ownSiteRoute())}/`;
         mkdirSync(dirname(fwd), { recursive: true });
-        writeFileSync(fwd, `<!doctype html>\n<meta charset="utf-8">\n<title>Catalogue</title>\n<meta http-equiv="refresh" content="0; url=${to}">\n<link rel="canonical" href="${to}">\n<p>The catalogue is at <a href="${to}">${to}</a>.</p>\n`);
+        // A full document with an explicit <body>: the staging banner (and any
+        // other post-processor) inserts into <body> and refuses a page without one.
+        writeFileSync(fwd, `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Catalogue</title>\n<meta http-equiv="refresh" content="0; url=${to}">\n<link rel="canonical" href="${to}">\n</head>\n<body>\n<p>The catalogue is at <a href="${to}">${to}</a>.</p>\n</body>\n</html>\n`);
         console.log(`  wrote ${relative(resolve(site), fwd)} (forwards to the catalogue) into the site source`);
       }
     }
