@@ -23,7 +23,22 @@
  * record is kept verbatim by the caller.
  */
 
+import { createHash } from "node:crypto";
+
 export const IRIS_API = "https://iris.who.int/server/api";
+
+/** Keys sorted at every depth, so equal metadata always hashes the same. */
+function sorted(v: unknown): unknown {
+  return Array.isArray(v) ? v.map(sorted) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v as object).sort().map((k) => [k, sorted((v as Record<string, unknown>)[k])])) : v;
+}
+
+/**
+ * SHA-256 of an object's `metadata` block (the Dublin Core fields), canonical.
+ * Metadata can change while the PDF does not (owner, 2026-10-30), and an edit
+ * may not move `lastModified`; this is what the weekly check compares.
+ */
+export const metadataSha = (metadata: unknown): string =>
+  createHash("sha256").update(JSON.stringify(sorted(metadata ?? {}))).digest("hex");
 
 export type Fetcher = (url: string) => Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>;
 
@@ -33,12 +48,14 @@ export interface ItemStub {
   handle: string | null;
   lastModified: string;
   withdrawn: boolean;
+  /** `metadataSha` of the search result's metadata, when Discovery returned it. */
+  metadataSha: string | null;
 }
 
 interface SearchPage {
   _embedded?: {
     searchResult?: {
-      _embedded?: { objects?: { _embedded?: { indexableObject?: Partial<ItemStub> & { type?: string } } }[] };
+      _embedded?: { objects?: { _embedded?: { indexableObject?: Partial<Omit<ItemStub, "metadataSha">> & { type?: string; metadata?: unknown } } }[] };
       page?: { number: number; totalPages: number };
     };
   };
@@ -57,7 +74,7 @@ function stubsOf(page: SearchPage): { items: ItemStub[]; last: boolean } {
   for (const o of objects) {
     const it = o._embedded?.indexableObject;
     if (!it?.uuid || !it.lastModified) throw new Error(`search result without uuid/lastModified: ${JSON.stringify(it)}`);
-    items.push({ uuid: it.uuid, handle: it.handle ?? null, lastModified: it.lastModified, withdrawn: it.withdrawn === true });
+    items.push({ uuid: it.uuid, handle: it.handle ?? null, lastModified: it.lastModified, withdrawn: it.withdrawn === true, metadataSha: it.metadata === undefined ? null : metadataSha(it.metadata) });
   }
   const p = result?.page;
   return { items, last: !p || p.number + 1 >= p.totalPages || items.length === 0 };
@@ -96,18 +113,52 @@ export async function changedSince(fetcher: Fetcher, cursor: string, opts: { api
   throw new Error(`changedSince: more than ${maxPages} pages; refusing to guess where the cursor is`);
 }
 
-/** Every item id Discovery lists, for the weekly reconciliation. */
-export async function allItemIds(fetcher: Fetcher, opts: { api?: string; size?: number; maxPages?: number } = {}): Promise<Set<string>> {
+/**
+ * Every item Discovery lists, for the weekly reconciliation: uuid → the
+ * hash of its metadata. The listing pages already carry each item's
+ * metadata, so a metadata edit that did not move `lastModified` is caught
+ * without fetching 273k items one by one.
+ */
+export async function allItems(fetcher: Fetcher, opts: { api?: string; size?: number; maxPages?: number } = {}): Promise<Map<string, string | null>> {
   const api = opts.api ?? IRIS_API;
   const size = opts.size ?? 100;
   const maxPages = opts.maxPages ?? 100_000;
-  const ids = new Set<string>();
+  const out = new Map<string, string | null>();
   for (let page = 0; page < maxPages; page++) {
     const { items, last } = stubsOf((await getJson(fetcher, searchUrl(api, page, size))) as SearchPage);
-    for (const it of items) ids.add(it.uuid);
-    if (last) return ids;
+    for (const it of items) out.set(it.uuid, it.metadataSha);
+    if (last) return out;
   }
-  throw new Error(`allItemIds: more than ${maxPages} pages`);
+  throw new Error(`allItems: more than ${maxPages} pages`);
+}
+
+export async function allItemIds(fetcher: Fetcher, opts: { api?: string; size?: number; maxPages?: number } = {}): Promise<Set<string>> {
+  return new Set((await allItems(fetcher, opts)).keys());
+}
+
+/**
+ * Every community or collection. A renamed collection changes no item, so
+ * these are re-read in full each night (IRIS has hundreds, not hundreds of
+ * thousands); an unchanged one serialises to the same bytes and is not
+ * rewritten. Not walked by `lastModified`, which DSpace 7 does not expose
+ * for these.
+ */
+export async function allContainers(fetcher: Fetcher, kind: "communities" | "collections", opts: { api?: string; size?: number; maxPages?: number } = {}): Promise<Record<string, unknown>[]> {
+  const api = opts.api ?? IRIS_API;
+  const size = opts.size ?? 100;
+  const maxPages = opts.maxPages ?? 1_000;
+  const out: Record<string, unknown>[] = [];
+  for (let page = 0; page < maxPages; page++) {
+    const body = (await getJson(fetcher, `${api}/core/${kind}?page=${page}&size=${size}`)) as {
+      _embedded?: Record<string, Record<string, unknown>[]>;
+      page?: { number: number; totalPages: number };
+    };
+    const got = body._embedded?.[kind] ?? [];
+    out.push(...got);
+    const p = body.page;
+    if (!p || p.number + 1 >= p.totalPages || got.length === 0) return out;
+  }
+  throw new Error(`allContainers(${kind}): more than ${maxPages} pages`);
 }
 
 /**

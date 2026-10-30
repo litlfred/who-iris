@@ -1,22 +1,27 @@
 /**
- * Signing and verifying an IRIS CDN release, using published standards only:
+ * Signing and verifying IRIS CDN releases and items, using published
+ * standards only:
  *
- *  - the signed bytes are the bag's `tagmanifest-sha256.txt` (RFC 8493), which
- *    pins every tag file, which pins every payload file by SHA-256;
  *  - the signature is a JWS with a DETACHED payload (RFC 7515 Appendix F):
  *    compact serialization with the payload segment left empty;
- *  - the algorithm is EdDSA over Ed25519 (RFC 8037);
+ *  - the algorithm is ES256 — ECDSA on P-256 with SHA-256 (RFC 7518 §3.4) —
+ *    because the key is subordinate to WHO's signing DID, whose key is P-256
+ *    (owner, 2026-10-30). EdDSA (RFC 8037) is still accepted for verification;
  *  - the header's `kid` is a DID URL (W3C DID Core 1.0) naming a
- *    `verificationMethod` of type `JsonWebKey` (W3C Controlled Identifiers
- *    1.0) whose `publicKeyJwk` (RFC 7517) carries the key;
- *  - the DID method is `did:web`, which the owner approved. No GDHCN trust
- *    list is assumed; a verifier resolves the key from the DID document, and
- *    never from the package itself.
+ *    `verificationMethod` whose `publicKeyJwk` (RFC 7517) carries the key;
+ *  - the key's trust chain is `x5c` (RFC 7517 §4.7, RFC 7515 §4.1.6): the
+ *    leaf certificate holds our key, and the chain ends at a certificate
+ *    signed by WHO's key. Publishing the subordinate key and its certificate
+ *    is an OFFLINE step (owner, 2026-10-30); nothing here issues certificates;
+ *  - the DID method is `did:web`. No GDHCN trust list is assumed: a verifier
+ *    resolves the key from the DID document, never from the package, and is
+ *    handed its trust anchor(s) explicitly.
  *
- * One signature per release, not per file: an unchanged night produces the
- * same tag manifest and therefore needs no new signature at all.
+ * ECDSA signatures are randomised: signing the same bytes twice gives
+ * different signatures. So an unchanged payload must never be re-signed —
+ * the caller signs only what the manifest diff says changed.
  */
-import { webcrypto } from "node:crypto";
+import { createPublicKey, webcrypto, X509Certificate } from "node:crypto";
 
 const subtle = webcrypto.subtle;
 
@@ -24,11 +29,36 @@ const b64url = (bytes: Uint8Array): string => Buffer.from(bytes).toString("base6
 const fromB64url = (s: string): Uint8Array => new Uint8Array(Buffer.from(s, "base64url"));
 const utf8 = (s: string): Uint8Array => new TextEncoder().encode(s);
 
-/** RFC 8037 §2: an Ed25519 public key as a JWK. */
+export interface EcPublicJwk {
+  kty: "EC";
+  crv: "P-256";
+  x: string;
+  y: string;
+  /** RFC 7517 §4.7: base64 (not url) DER certificates, leaf first. */
+  x5c?: string[];
+}
+
+/** RFC 8037 §2: an Ed25519 public key. */
 export interface OkpPublicJwk {
   kty: "OKP";
   crv: "Ed25519";
   x: string;
+  x5c?: string[];
+}
+
+export type PublicJwk = EcPublicJwk | OkpPublicJwk;
+export type Alg = "ES256" | "EdDSA";
+
+const algOfJwk = (jwk: PublicJwk): Alg => (jwk.kty === "EC" ? "ES256" : "EdDSA");
+const webAlg = (alg: Alg): webcrypto.EcKeyImportParams | { name: "Ed25519" } =>
+  alg === "ES256" ? { name: "ECDSA", namedCurve: "P-256" } : { name: "Ed25519" };
+const signParams = (alg: Alg): webcrypto.EcdsaParams | { name: "Ed25519" } =>
+  alg === "ES256" ? { name: "ECDSA", hash: "SHA-256" } : { name: "Ed25519" };
+
+/** The public part only, in a fixed member order. */
+function publicPart(jwk: PublicJwk): PublicJwk {
+  const x5c = jwk.x5c && jwk.x5c.length > 0 ? { x5c: [...jwk.x5c] } : {};
+  return jwk.kty === "EC" ? { kty: "EC", crv: "P-256", x: jwk.x, y: jwk.y, ...x5c } : { kty: "OKP", crv: "Ed25519", x: jwk.x, ...x5c };
 }
 
 /**
@@ -44,58 +74,112 @@ export function didWebUrl(did: string): string {
   return path.length === 0 ? `https://${host}/.well-known/did.json` : `https://${host}/${path.join("/")}/did.json`;
 }
 
-/** The DID document that publishes the release key(s). */
+/**
+ * `JsonWebKey` is the W3C Controlled Identifiers 1.0 type (a Recommendation);
+ * `JsonWebKey2020` is the form WHO's own signing DID uses today. Both carry a
+ * `publicKeyJwk`, and the verifier accepts either.
+ */
+export type VmType = "JsonWebKey" | "JsonWebKey2020";
+
 export interface DidDocument {
   "@context": string[];
   id: string;
-  verificationMethod: { id: string; type: "JsonWebKey"; controller: string; publicKeyJwk: OkpPublicJwk }[];
-  assertionMethod: string[];
+  controller?: string;
+  verificationMethod: { id: string; type: VmType; controller: string; publicKeyJwk: PublicJwk }[];
+  assertionMethod?: string[];
 }
+
+const CONTEXT: Record<VmType, string> = {
+  JsonWebKey: "https://www.w3.org/ns/cid/v1",
+  JsonWebKey2020: "https://w3id.org/security/suites/jws-2020/v1",
+};
 
 /**
  * Build the DID document for `did` from its keys, in a fixed order so that
  * re-publishing it with the same keys writes the same bytes. Keep retired
- * keys listed (out of `assertionMethod`) for as long as releases they signed
- * are served: a verifier of an old release still needs them.
+ * keys listed (out of `assertionMethod`) for as long as anything they signed
+ * is served.
  */
-export function didDocument(did: string, keys: { fragment: string; jwk: OkpPublicJwk; active: boolean }[]): DidDocument {
+export function didDocument(
+  did: string,
+  keys: { fragment: string; jwk: PublicJwk; active: boolean }[],
+  opts: { type?: VmType; controller?: string } = {},
+): DidDocument {
   didWebUrl(did);
+  const type = opts.type ?? "JsonWebKey";
   const sorted = [...keys].sort((a, b) => (a.fragment < b.fragment ? -1 : 1));
   return {
-    "@context": ["https://www.w3.org/ns/did/v1", "https://www.w3.org/ns/cid/v1"],
+    "@context": ["https://www.w3.org/ns/did/v1", CONTEXT[type]],
     id: did,
-    verificationMethod: sorted.map((k) => ({
-      id: `${did}#${k.fragment}`,
-      type: "JsonWebKey",
-      controller: did,
-      publicKeyJwk: { kty: "OKP", crv: "Ed25519", x: k.jwk.x },
-    })),
+    ...(opts.controller ? { controller: opts.controller } : {}),
+    verificationMethod: sorted.map((k) => ({ id: `${did}#${k.fragment}`, type, controller: opts.controller ?? did, publicKeyJwk: publicPart(k.jwk) })),
     assertionMethod: sorted.filter((k) => k.active).map((k) => `${did}#${k.fragment}`),
   };
 }
 
-export async function generateKeyPair(): Promise<{ privateKey: webcrypto.CryptoKey; publicJwk: OkpPublicJwk }> {
-  const pair = (await subtle.generateKey({ name: "Ed25519" }, true, ["sign", "verify"])) as webcrypto.CryptoKeyPair;
-  const jwk = (await subtle.exportKey("jwk", pair.publicKey)) as { x: string };
-  return { privateKey: pair.privateKey, publicJwk: { kty: "OKP", crv: "Ed25519", x: jwk.x } };
+export async function generateKeyPair(alg: Alg = "ES256"): Promise<{ privateKey: webcrypto.CryptoKey; publicJwk: PublicJwk }> {
+  const pair = (await subtle.generateKey(webAlg(alg), true, ["sign", "verify"])) as webcrypto.CryptoKeyPair;
+  const jwk = (await subtle.exportKey("jwk", pair.publicKey)) as { x: string; y?: string };
+  const publicJwk: PublicJwk = alg === "ES256" ? { kty: "EC", crv: "P-256", x: jwk.x, y: jwk.y! } : { kty: "OKP", crv: "Ed25519", x: jwk.x };
+  return { privateKey: pair.privateKey, publicJwk };
 }
 
-/** Import a private key from its JWK (`d` and `x`), e.g. from a CI secret. */
-export async function importPrivateJwk(jwk: { kty: "OKP"; crv: "Ed25519"; x: string; d: string }): Promise<webcrypto.CryptoKey> {
-  return subtle.importKey("jwk", jwk, { name: "Ed25519" }, false, ["sign"]);
+/** Import a private key from its JWK, e.g. from the `IRIS_CDN_SIGNING_JWK` secret. */
+export async function importPrivateJwk(jwk: (EcPublicJwk | OkpPublicJwk) & { d: string }): Promise<webcrypto.CryptoKey> {
+  const { x5c: _x5c, ...bare } = jwk;
+  return subtle.importKey("jwk", bare, webAlg(algOfJwk(jwk)), false, ["sign"]);
 }
 
-/** Sign `payload` (the tag manifest's bytes); returns `<header>..<signature>`. */
-export async function signDetached(payload: string, key: webcrypto.CryptoKey, kid: string): Promise<string> {
+const algOfKey = (key: webcrypto.CryptoKey): Alg => (key.algorithm.name === "ECDSA" ? "ES256" : "EdDSA");
+
+/** Sign `payload`; returns `<header>..<signature>`. `x5c`, if given, rides in the header. */
+export async function signDetached(payload: string, key: webcrypto.CryptoKey, kid: string, opts: { x5c?: string[] } = {}): Promise<string> {
   if (!/^did:web:[^#]+#.+$/.test(kid)) throw new Error(`kid must be a did:web DID URL with a fragment: ${kid}`);
-  const header = b64url(utf8(JSON.stringify({ alg: "EdDSA", kid })));
+  const alg = algOfKey(key);
+  const header = b64url(utf8(JSON.stringify({ alg, kid, ...(opts.x5c ? { x5c: opts.x5c } : {}) })));
   const input = utf8(`${header}.${b64url(utf8(payload))}`);
-  const sig = new Uint8Array(await subtle.sign({ name: "Ed25519" }, key, input));
+  // WebCrypto's ECDSA output is r||s (IEEE P1363), which is what JWS ES256 uses.
+  const sig = new Uint8Array(await subtle.sign(signParams(alg), key, input));
   return `${header}..${b64url(sig)}`;
 }
 
+export type ChainState = "verified" | "absent" | "not-checked";
+
+/**
+ * Check an `x5c` chain: the leaf certificate's key must BE `jwk`, each
+ * certificate must be signed by the next, every one must be in its validity
+ * period at `at`, every non-leaf must be a CA, and the last must be signed by
+ * one of `anchors` (e.g. WHO's signing DID key). Returns why it fails, or null.
+ */
+export function chainProblem(x5c: string[], jwk: PublicJwk, anchors: PublicJwk[], at: Date = new Date()): string | null {
+  if (x5c.length === 0) return "empty x5c";
+  let certs: X509Certificate[];
+  try {
+    certs = x5c.map((b64) => new X509Certificate(Buffer.from(b64, "base64")));
+  } catch {
+    return "x5c holds something that is not a DER certificate";
+  }
+  const leafJwk = certs[0].publicKey.export({ format: "jwk" }) as { x?: string; y?: string };
+  if (leafJwk.x !== jwk.x || (jwk.kty === "EC" && leafJwk.y !== jwk.y)) return "leaf certificate does not hold the signing key";
+  for (const [i, c] of certs.entries()) {
+    if (at < new Date(c.validFrom) || at > new Date(c.validTo)) return `certificate ${i} is outside its validity period`;
+    if (i > 0 && !c.ca) return `certificate ${i} is not a CA`;
+    if (i + 1 < certs.length && !c.verify(certs[i + 1].publicKey)) return `certificate ${i} is not signed by certificate ${i + 1}`;
+  }
+  const last = certs[certs.length - 1];
+  const signedByAnchor = anchors.some((a) => {
+    const { x5c: _x, ...bare } = a;
+    try {
+      return last.verify(createPublicKey({ key: bare, format: "jwk" }));
+    } catch {
+      return false;
+    }
+  });
+  return signedByAnchor ? null : "chain does not end at a trust anchor";
+}
+
 export type Verdict =
-  | { state: "verified"; kid: string }
+  | { state: "verified"; kid: string; chain: ChainState }
   | { state: "failed"; reason: string }
   /** The key could not be obtained. Not the same as a bad signature. */
   | { state: "unknown"; reason: string };
@@ -103,28 +187,43 @@ export type Verdict =
 /**
  * Verify a detached JWS over `payload` against the DID document `doc`
  * (already resolved by the caller from `didWebUrl`, so this stays offline and
- * testable). The key must be listed under `assertionMethod`.
+ * testable). The key must be listed under `assertionMethod` when the
+ * document has one. With `anchors`, an `x5c` chain on the key (or in the
+ * header) must end at one of them; without, the chain is reported
+ * `not-checked`, never `verified`.
  */
-export async function verifyDetached(payload: string, jws: string, doc: DidDocument | null): Promise<Verdict> {
+export async function verifyDetached(payload: string, jws: string, doc: DidDocument | null, opts: { anchors?: PublicJwk[]; at?: Date } = {}): Promise<Verdict> {
   const parts = jws.split(".");
   if (parts.length !== 3 || parts[1] !== "") return { state: "failed", reason: "not a detached compact JWS" };
-  let header: { alg?: string; kid?: string; crit?: unknown };
+  let header: { alg?: string; kid?: string; crit?: unknown; x5c?: string[] };
   try {
     header = JSON.parse(new TextDecoder().decode(fromB64url(parts[0])));
   } catch {
     return { state: "failed", reason: "header is not JSON" };
   }
-  if (header.alg !== "EdDSA") return { state: "failed", reason: `unsupported alg ${header.alg}` };
+  if (header.alg !== "ES256" && header.alg !== "EdDSA") return { state: "failed", reason: `unsupported alg ${header.alg}` };
   if (header.crit !== undefined) return { state: "failed", reason: "crit header not supported" };
   const kid = header.kid;
   if (!kid) return { state: "failed", reason: "no kid" };
   if (!doc) return { state: "unknown", reason: `DID document for ${kid} not available` };
   if (!kid.startsWith(`${doc.id}#`)) return { state: "failed", reason: `kid ${kid} is not a key of ${doc.id}` };
-  if (!doc.assertionMethod.includes(kid)) return { state: "failed", reason: `${kid} is not an assertionMethod` };
+  if (doc.assertionMethod && !doc.assertionMethod.includes(kid)) return { state: "failed", reason: `${kid} is not an assertionMethod` };
   const vm = doc.verificationMethod.find((v) => v.id === kid);
   if (!vm) return { state: "failed", reason: `${kid} not in verificationMethod` };
-  const key = await subtle.importKey("jwk", vm.publicKeyJwk, { name: "Ed25519" }, false, ["verify"]);
+  if (algOfJwk(vm.publicKeyJwk) !== header.alg) return { state: "failed", reason: `alg ${header.alg} does not match the ${vm.publicKeyJwk.kty} key` };
+  const { x5c: _x5c, ...bare } = vm.publicKeyJwk;
+  const key = await subtle.importKey("jwk", bare, webAlg(header.alg), false, ["verify"]);
   const input = utf8(`${parts[0]}.${b64url(utf8(payload))}`);
-  const ok = await subtle.verify({ name: "Ed25519" }, key, fromB64url(parts[2]), input);
-  return ok ? { state: "verified", kid } : { state: "failed", reason: "signature does not match" };
+  if (!(await subtle.verify(signParams(header.alg), key, fromB64url(parts[2]), input))) return { state: "failed", reason: "signature does not match" };
+
+  const x5c = vm.publicKeyJwk.x5c ?? header.x5c;
+  let chain: ChainState = "absent";
+  if (x5c) {
+    if (opts.anchors && opts.anchors.length > 0) {
+      const problem = chainProblem(x5c, vm.publicKeyJwk, opts.anchors, opts.at);
+      if (problem) return { state: "failed", reason: `x5c: ${problem}` };
+      chain = "verified";
+    } else chain = "not-checked";
+  }
+  return { state: "verified", kid, chain };
 }

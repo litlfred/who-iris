@@ -29,7 +29,7 @@
   <bpmn:resource id="cloudflare-git" name="Cloudflare git (Artifacts)"/>
   <bpmn:resource id="verifier" name="Verifier"/>
   <bpmn:process id="Process_IrisCdnSignPublish" name="Sign and publish an IRIS CDN release" isExecutable="false">
-    <bpmn:documentation>Turn a candidate payload into a signed release on Cloudflare: a BagIt bag (RFC 8493) whose tagmanifest is signed once with a detached JWS (RFC 7515 Appendix F, EdDSA per RFC 8037), the key published as a JsonWebKey verificationMethod of a did:web DID document. Nothing unchanged is re-uploaded or re-signed; an empty diff ends the process with no commit.</bpmn:documentation>
+    <bpmn:documentation>Turn a candidate payload into a signed release on Cloudflare: a BagIt bag (RFC 8493) whose tagmanifest is signed once with a detached JWS (RFC 7515 Appendix F, ES256 per RFC 7518), the key published as a verificationMethod of a did:web DID document whose publicKeyJwk carries an x5c chain to the WHO signing key. Nothing unchanged is re-uploaded or re-signed; an empty diff ends the process with no commit.</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_IrisCdnSignPublish">
       <bpmn:lane id="Lane_Pipeline" name="Build pipeline" partitionElementRef="build-pipeline">
         <bpmn:documentation>Deterministic scripts in scripts/iris-cdn/, run by the nightly runner. Same input, same bytes.</bpmn:documentation>
@@ -40,7 +40,7 @@
         <bpmn:flowNodeRef>End_Unchanged</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Signer" name="Release signer" partitionElementRef="release-signer">
-        <bpmn:documentation>Holds the Ed25519 private key (a CI secret). Signs exactly one thing: the bag's tagmanifest-sha256.txt.</bpmn:documentation>
+        <bpmn:documentation>Holds the P-256 private key (GitHub environment secret IRIS_CDN_SIGNING_JWK). Signs exactly one thing: the bag's tagmanifest-sha256.txt.</bpmn:documentation>
         <bpmn:flowNodeRef>Task_Sign</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_CfStore" name="Cloudflare R2 + CDN" partitionElementRef="cloudflare-r2-cdn">
@@ -52,7 +52,7 @@
         <bpmn:flowNodeRef>Task_PublishTags</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Verifier" name="Verifier" partitionElementRef="verifier">
-        <bpmn:documentation>Anyone. Resolves the key from the did:web DID document, never from the package. Cannot reach it: the verdict is unknown, not verified.</bpmn:documentation>
+        <bpmn:documentation>Anyone. Resolves the key from the did:web DID document, never from the package, and checks its x5c chain up to WHO's signing key. Cannot reach it: the verdict is unknown, not verified.</bpmn:documentation>
         <bpmn:flowNodeRef>Task_Verify</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>GW_Verified</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>End_Published</bpmn:flowNodeRef>
@@ -74,7 +74,7 @@
       <bpmn:documentation>Content-addressed: an object whose SHA-256 is already stored is skipped. Published objects are never deleted by a nightly run.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
     </bpmn:task>
-    <bpmn:task id="Task_Sign" name="Sign the tag manifest&#10;(detached JWS, EdDSA)">
+    <bpmn:task id="Task_Sign" name="Sign the tag manifest&#10;(detached JWS, ES256)">
       <bpmn:documentation>scripts/iris-cdn/signing.ts signDetached. kid is a did:web DID URL listed under assertionMethod.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-signing"/></bpmn:extensionElements>
     </bpmn:task>

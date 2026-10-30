@@ -11,11 +11,11 @@ serves everything it exports. GitHub Pages only previews.**
 | Piece | Service | Holds | Decided |
 |---|---|---|---|
 | Runner | GitHub Actions in `litlfred/who-iris` (`.github/workflows/iris-cdn.yml`) | nothing between runs | owner, Q8 |
-| Release history | git repository on **Cloudflare Artifacts** | BagIt tag files, `tagmanifest-sha256.txt.jws`, `state/cursor.json`, `state/initial-load.json`, run reports | owner: git on Cloudflare, not GitHub |
+| Release history | git repository on **Cloudflare Artifacts** (owner, Q11: history only) | BagIt tag files, `tagmanifest-sha256.txt.jws`, `state/cursor.json`, `state/initial-load.json`, run reports | owner: git on Cloudflare, not GitHub |
 | Bytes | **Cloudflare R2** bucket | PDFs, item records, graph partitions (`.nq.gz`), each under `sha256/<aa>/<digest>` | owner, Q7 → R2 |
 | CDN | Cloudflare, in front of R2 on a custom domain | cached copies only, with an immutable cache policy | owner: Cloudflare CDN |
 | DID document | served from the CDN domain | `did.json` with the public key(s) | owner: `did:web` |
-| Signing key | GitHub **environment secret** | the Ed25519 private JWK | owner, Q9 |
+| Signing key | GitHub **environment secret** | the P-256 private JWK | owner, Q9 |
 | Previews | GitHub Pages of `litlfred/who-iris` and `WHO/who-iris` | the site, reading exported data from the CDN; three materialized items for testing | owner |
 
 ## Cloudflare: what to set up
@@ -52,7 +52,8 @@ and name it `iris-cdn-release`.
 
 | Name | Kind | Where | What |
 |---|---|---|---|
-| `IRIS_CDN_SIGNING_JWK` | secret | environment `iris-cdn-release` | the Ed25519 private JWK: `{"kty":"OKP","crv":"Ed25519","x":…,"d":…}` |
+| `IRIS_CDN_SIGNING_JWK` | secret | environment `iris-cdn-release` | the P-256 private JWK: `{"kty":"EC","crv":"P-256","x":…,"y":…,"d":…}` |
+| `IRIS_CDN_TRUST_ANCHOR_JWK` | variable | repository | WHO's signing-DID public key (JWK), so verification checks the `x5c` chain. It is not secret |
 | `CLOUDFLARE_API_TOKEN` | secret | environment `iris-cdn-release` | the API token from step 5 |
 | `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` | secret | environment `iris-cdn-release` | R2's S3-compatible credentials, for uploads |
 | `CLOUDFLARE_ACCOUNT_ID` | variable | repository | not secret |
@@ -64,16 +65,20 @@ token that lasts an hour
 (`wrangler artifacts repos issue-token … --ttl 3600`) and passes it to git
 as a `Bearer` header. It never goes in the remote URL.
 
-To generate the key pair once, on the owner's machine:
+Publishing the key is **offline**, by the owner's rule
+(`processes/iris-cdn-key-publication.bpmn`). Generate the key pair on the key
+custodian's machine:
 
 ```sh
 bun -e 'import {webcrypto} from "node:crypto";
-  const k = await webcrypto.subtle.generateKey({name:"Ed25519"}, true, ["sign","verify"]);
+  const k = await webcrypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign","verify"]);
   console.log(JSON.stringify(await webcrypto.subtle.exportKey("jwk", k.privateKey)));'
 ```
 
-Paste the output into `IRIS_CDN_SIGNING_JWK`. The public half (`x`) goes in
-`did.json`.
+Then make a CSR for it, and have WHO's signing authority issue the
+certificate. Build `did.json` with `publicKeyJwk.x5c` (leaf first), and check
+that the chain ends at WHO's key (`chainProblem` in `signing.ts`). Publish
+`did.json`. Only then paste the private JWK into `IRIS_CDN_SIGNING_JWK`.
 
 ## What runs when
 
@@ -99,10 +104,8 @@ small, and a preview always shows what the CDN actually serves.
 - **Q10, the domain.** The DID is tied to the domain, so this has to be
   settled before the first signed release. The recommendation is a domain the
   owner adds to Cloudflare.
-- **Q11, what goes in git.** The recommendation is release history only,
-  because of the 1 GB repository cap.
-- **Q4, the signature format.** The recommendation is one detached JWS per
-  release.
+- **Q4, per-item signatures.** The recommendation is a JWS per library item
+  plus one per release.
 - **The live DSpace REST shapes** have not been checked, because iris.who.int
   was unreachable from the sandbox where this was written. The first manual
   run must confirm them.

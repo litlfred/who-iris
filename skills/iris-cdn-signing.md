@@ -2,9 +2,10 @@
 name: iris-cdn-signing
 description: >
   How an IRIS CDN release is packaged, signed and verified using published
-  standards only: a BagIt bag (RFC 8493), one detached JWS (RFC 7515 App. F)
-  with EdDSA over Ed25519 (RFC 8037), and the key published as a JsonWebKey
-  verificationMethod of a did:web DID document. No GDHCN trust list is assumed.
+  standards only: a BagIt bag (RFC 8493), a detached JWS (RFC 7515 App. F)
+  with ES256 (RFC 7518), and the key published in a did:web DID document whose
+  publicKeyJwk carries an x5c chain up to WHO's signing key. No GDHCN trust
+  list is assumed.
 graph-typologies:
   - catalogue
 ---
@@ -20,9 +21,10 @@ process is `processes/iris-cdn-sign-publish.bpmn`.
 |---|---|
 | Package and digests | BagIt 1.0, **RFC 8493**: `bagit.txt`, `bag-info.txt`, `manifest-sha256.txt`, `tagmanifest-sha256.txt` |
 | Signature | JWS compact serialization with a **detached payload**, **RFC 7515** Appendix F |
-| Algorithm | `EdDSA` with Ed25519, **RFC 8037** |
+| Algorithm | `ES256`, ECDSA on P-256 with SHA-256, **RFC 7518** §3.4. It is the same curve as WHO's signing DID key. `EdDSA` (RFC 8037) is accepted when verifying |
 | Public key | JWK, **RFC 7517**, as `publicKeyJwk` |
-| Key publication | W3C **DID Core 1.0** document, `verificationMethod` of type `JsonWebKey` from W3C **Controlled Identifiers 1.0** |
+| Trust chain | `x5c` in the JWK (**RFC 7517** §4.7): X.509 certificates, leaf first, ending at one issued by WHO's signing key |
+| Key publication | W3C **DID Core 1.0** document, `verificationMethod` of type `JsonWebKey` (W3C **Controlled Identifiers 1.0**) or `JsonWebKey2020`, which is the form WHO's own DID uses. Both are accepted |
 | DID method | **`did:web`**, approved by the owner |
 
 No draft standards are used. A new one needs the owner's explicit approval.
@@ -37,7 +39,15 @@ tag manifest therefore covers the whole bag.
 The signature is stored beside the tag manifest as
 `tagmanifest-sha256.txt.jws`, in the form `<header>..<signature>`. The empty
 middle segment is the detached payload. The protected header is
-`{"alg":"EdDSA","kid":"did:web:…#<key>"}`.
+`{"alg":"ES256","kid":"did:web:…#<key>"}`.
+
+ECDSA signatures are randomized. Signing the same bytes twice gives two
+different signatures, so unchanged content is **never re-signed**. Only what
+the manifest diff reports as changed gets a new signature.
+
+Whether each library item also gets its own signature, over a per-item
+manifest of its record and files, is the owner's open question Q4. See
+`docs/iris-cdn-signing-options.md`.
 
 An unchanged night produces the same tag manifest, so it gets no new
 signature.
@@ -59,16 +69,31 @@ package:
 If the DID document cannot be fetched, the verdict is **`unknown`**, not
 `failed` and not `verified`. A portal that cannot check says so.
 
-Trust anchors other than `did:web` are not assumed. If the owner later wants a
+**The trust chain.** Our key's `publicKeyJwk.x5c` holds the certificates
+that end at one issued by the key in WHO's signing DID,
+`did:web:raw.githubusercontent.com:WorldHealthOrganization:tng-participants-prod:main:WHO:signing:DID`.
+The verifier is given WHO's public key as its anchor, as the variable
+`IRIS_CDN_TRUST_ANCHOR_JWK` in CI. Without an anchor, the chain is reported
+as `not-checked`, never as verified.
+
+Trust anchors other than this are not assumed. If the owner later wants a
 trust list, such as GDHCN via WHO SMART Trust, it would be an *additional*
 route to the same DID document, never a replacement for it.
 
 ## Key custody and rotation
 
-- The private key is a JWK (`kty: OKP`, `crv: Ed25519`, `d`, `x`). It never
-  goes into git, a log or a bean. Where it lives is open question Q9; the
-  recommendation is the GitHub **environment** secret `IRIS_CDN_SIGNING_JWK`
-  in environment `iris-cdn-release`, restricted to `main`.
+- The private key is a JWK (`kty: EC`, `crv: P-256`, `x`, `y`, `d`). It never
+  goes into git, a log or a bean. It is the GitHub **environment** secret
+  `IRIS_CDN_SIGNING_JWK` in environment `iris-cdn-release`, which only jobs on
+  `main` can read (owner, Q9).
+- **Publishing the key is offline.** The owner set this on 2026-10-30, and the
+  process is `processes/iris-cdn-key-publication.bpmn`:
+  1. Generate the key.
+  2. Make a CSR, and have WHO's signing authority issue the certificate.
+  3. Build `did.json` with `x5c`, and check that the chain reaches WHO's key.
+  4. Publish `did.json`, then store the secret.
+
+  No CI job issues certificates or edits the DID document.
 - To rotate:
   1. Add the new key to the DID document and to `assertionMethod`.
   2. Publish the DID document.

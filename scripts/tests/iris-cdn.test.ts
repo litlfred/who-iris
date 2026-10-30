@@ -1,6 +1,10 @@
 import { describe, expect, test } from "bun:test";
 import { diffManifests, isEmptyDiff, parsePayloadManifest, payloadManifest, sha256Hex, tagFiles, type PayloadEntry } from "../iris-cdn/bag.ts";
-import { didDocument, didWebUrl, generateKeyPair, signDetached, verifyDetached } from "../iris-cdn/signing.ts";
+import { didDocument, didWebUrl, generateKeyPair, signDetached, verifyDetached, type PublicJwk } from "../iris-cdn/signing.ts";
+import { mkdtempSync, readFileSync as readFile } from "node:fs";
+import { tmpdir } from "node:os";
+import { join as pjoin } from "node:path";
+import { createPrivateKey, webcrypto } from "node:crypto";
 import { allItemIds, changedSince, itemBitstreams, withdrawnOrHidden, type Fetcher } from "../iris-cdn/rest-feed.ts";
 
 const e = (path: string, body: string): PayloadEntry => ({ path, sha256: sha256Hex(body), bytes: Buffer.byteLength(body) });
@@ -35,7 +39,7 @@ describe("BagIt manifests (RFC 8493) — no churn", () => {
   });
 });
 
-describe("did:web + detached JWS (RFC 7515 App. F, RFC 8037)", () => {
+describe("did:web + detached JWS (RFC 7515 App. F, ES256 / EdDSA)", () => {
   test("did:web resolution", () => {
     expect(didWebUrl("did:web:litlfred.github.io:who-iris-cdn")).toBe("https://litlfred.github.io/who-iris-cdn/did.json");
     expect(didWebUrl("did:web:example.org")).toBe("https://example.org/.well-known/did.json");
@@ -51,7 +55,8 @@ describe("did:web + detached JWS (RFC 7515 App. F, RFC 8037)", () => {
     const jws = await signDetached(payload, privateKey, `${did}#release-2026`);
     expect(jws.split(".")[1]).toBe("");
 
-    expect(await verifyDetached(payload, jws, doc)).toEqual({ state: "verified", kid: `${did}#release-2026` });
+    expect(JSON.parse(Buffer.from(jws.split(".")[0], "base64url").toString()).alg).toBe("ES256");
+    expect(await verifyDetached(payload, jws, doc)).toEqual({ state: "verified", kid: `${did}#release-2026`, chain: "absent" });
     expect((await verifyDetached(payload + "x", jws, doc)).state).toBe("failed");
     expect((await verifyDetached(payload, jws, null)).state).toBe("unknown");
 
@@ -146,5 +151,75 @@ describe("canonical records — no churn", () => {
     const b = recordOf({ _links: { self: { href: "https://y/1" } }, metadata: { "dc.date": [], "dc.title": [{ value: "T" }] }, handle: "10665/1", uuid: "u" });
     expect(canonicalJson(a)).toBe(canonicalJson(b));
     expect(canonicalJson(a).endsWith("}\n")).toBe(true);
+  });
+});
+
+describe("metadata can change while the PDF does not", () => {
+  test("metadataSha ignores key order and sees a value change", async () => {
+    const { metadataSha } = await import("../iris-cdn/rest-feed.ts");
+    const a = metadataSha({ "dc.title": [{ value: "T", language: "en" }], "dc.date.issued": [{ value: "2020" }] });
+    const b = metadataSha({ "dc.date.issued": [{ value: "2020" }], "dc.title": [{ language: "en", value: "T" }] });
+    const c = metadataSha({ "dc.date.issued": [{ value: "2021" }], "dc.title": [{ language: "en", value: "T" }] });
+    expect(a).toBe(b);
+    expect(a).not.toBe(c);
+  });
+
+  test("the weekly listing carries each item's metadata hash", async () => {
+    const { allItems, metadataSha } = await import("../iris-cdn/rest-feed.ts");
+    const md = { "dc.title": [{ value: "X" }] };
+    const fetcher: Fetcher = async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        _embedded: { searchResult: { _embedded: { objects: [{ _embedded: { indexableObject: { uuid: "u", lastModified: "2026-10-30T00:00:00Z", metadata: md } } }] }, page: { number: 0, totalPages: 1 } } },
+      }),
+    });
+    expect((await allItems(fetcher, { api: "https://x/api" })).get("u")).toBe(metadataSha(md));
+  });
+
+  test("communities and collections are paged in full", async () => {
+    const { allContainers } = await import("../iris-cdn/rest-feed.ts");
+    const all = Array.from({ length: 5 }, (_, i) => ({ uuid: `c${i}`, handle: `10665/c${i}`, name: `C${i}` }));
+    const fetcher: Fetcher = async (url) => {
+      const page = Number(new URL(url).searchParams.get("page"));
+      return { ok: true, status: 200, json: async () => ({ _embedded: { collections: all.slice(page * 2, page * 2 + 2) }, page: { number: page, totalPages: 3 } }) };
+    };
+    expect((await allContainers(fetcher, "collections", { api: "https://x/api", size: 2 })).map((c) => c.uuid)).toEqual(["c0", "c1", "c2", "c3", "c4"]);
+  });
+});
+
+describe("x5c trust chain up to WHO's key", () => {
+  const sh = (args: string[], cwd: string): void => {
+    const r = Bun.spawnSync(["openssl", ...args], { cwd, stderr: "pipe" });
+    if (r.exitCode !== 0) throw new Error(`openssl ${args.join(" ")}: ${r.stderr.toString()}`);
+  };
+  const der64 = (pem: string): string => pem.replace(/-----[^-]+-----/g, "").replace(/\s+/g, "");
+  const pubJwk = (pem: string): PublicJwk => {
+    const j = createPrivateKey(pem).export({ format: "jwk" }) as { x: string; y: string };
+    return { kty: "EC", crv: "P-256", x: j.x, y: j.y };
+  };
+
+  test("leaf signed by the WHO anchor verifies; a stranger's chain fails", async () => {
+    const d = mkdtempSync(pjoin(tmpdir(), "x5c-"));
+    for (const n of ["who", "iris", "other"]) sh(["ecparam", "-name", "prime256v1", "-genkey", "-noout", "-out", `${n}.key`], d);
+    sh(["req", "-x509", "-new", "-key", "who.key", "-subj", "/CN=WHO test root", "-days", "30", "-addext", "basicConstraints=critical,CA:TRUE", "-out", "who.crt"], d);
+    sh(["req", "-new", "-key", "iris.key", "-subj", "/CN=IRIS CDN", "-out", "iris.csr"], d);
+    sh(["x509", "-req", "-in", "iris.csr", "-CA", "who.crt", "-CAkey", "who.key", "-CAcreateserial", "-days", "30", "-out", "iris.crt"], d);
+    const irisPem = readFile(pjoin(d, "iris.key"), "utf-8");
+    const leaf = der64(readFile(pjoin(d, "iris.crt"), "utf-8"));
+    const whoJwk = pubJwk(readFile(pjoin(d, "who.key"), "utf-8"));
+    const otherJwk = pubJwk(readFile(pjoin(d, "other.key"), "utf-8"));
+    const irisJwk = { ...pubJwk(irisPem), x5c: [leaf] } as PublicJwk;
+
+    const pk8 = createPrivateKey(irisPem).export({ format: "der", type: "pkcs8" });
+    const key = await webcrypto.subtle.importKey("pkcs8", pk8, { name: "ECDSA", namedCurve: "P-256" }, false, ["sign"]);
+    const did = "did:web:example.org";
+    const doc = didDocument(did, [{ fragment: "iris", jwk: irisJwk, active: true }]);
+    const jws = await signDetached("payload", key, `${did}#iris`);
+
+    expect(await verifyDetached("payload", jws, doc, { anchors: [whoJwk] })).toMatchObject({ state: "verified", chain: "verified" });
+    expect(await verifyDetached("payload", jws, doc)).toMatchObject({ state: "verified", chain: "not-checked" });
+    expect(await verifyDetached("payload", jws, doc, { anchors: [otherJwk] })).toMatchObject({ state: "failed", reason: expect.stringContaining("trust anchor") });
+    expect(await verifyDetached("payload", jws, doc, { anchors: [whoJwk], at: new Date("2099-01-01") })).toMatchObject({ state: "failed", reason: expect.stringContaining("validity") });
   });
 });

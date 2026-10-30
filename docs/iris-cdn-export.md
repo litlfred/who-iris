@@ -21,7 +21,7 @@ and where the keys live is covered in [deployment](iris-cdn-deployment.md).
 | How is the graph regenerated? | **Full rebuild every night.** Sorted output keeps unchanged partitions byte-identical |
 | What runs the exporter? | **GitHub Actions**, writing to Cloudflare |
 | Where is the signing key? | A GitHub **environment secret** (`iris-cdn-release`, `main` only) |
-| How are keys published? | As `verificationMethod`s of a **`did:web`** DID document. GDHCN is not assumed |
+| How are keys published? | As `verificationMethod`s of a **`did:web`** DID document, with `publicKeyJwk.x5c` chaining to WHO's signing DID. Publishing is an **offline** step. GDHCN is not assumed |
 | Standing requirement | **No churn**: content that has not changed is not rewritten, re-uploaded or re-signed |
 
 ## Actors
@@ -31,7 +31,7 @@ and where the keys live is covered in [deployment](iris-cdn-deployment.md).
 | Owner | Approves scope, budget and the storage target |
 | IRIS CDN Exporter (agent) | Plans and reviews, and opens beans for anomalies. Never holds the key, and never pushes to a WHO repository |
 | Build pipeline | The scripts in `scripts/iris-cdn/`, run by GitHub Actions. Same input, same bytes |
-| Release signer | Holds the Ed25519 private key and signs exactly one file per release |
+| Release signer | Holds the P-256 private key and signs what changed |
 | Cloudflare git (Artifacts) | A git repository on Cloudflare holding the release history: BagIt tag files, signatures, cursor, checkpoints and run reports |
 | Cloudflare R2 + CDN | Every byte named by its SHA-256 and served with an immutable cache. Also serves `did.json` |
 | Verifier | Anyone. Resolves the key from the DID document, never from the package |
@@ -66,12 +66,30 @@ Withdrawn items are marked as withdrawn and their bytes stay addressable.
 ## 4. Sign and publish (called by all three)
 
 `processes/iris-cdn-sign-publish.bpmn`. Each release is a BagIt bag (RFC 8493)
-with one detached JWS (RFC 7515 Appendix F, EdDSA per RFC 8037) over its tag
-manifest. Payload objects go to R2 first. The tag files and the signature are
+with one detached JWS (RFC 7515 Appendix F, ES256) over its tag manifest. Payload objects go to R2 first. The tag files and the signature are
 committed to Cloudflare git last, in one commit. A release that does not verify
 is reverted, and the previous release stays served.
 
 <img src="assets/img/processes/iris-cdn-sign-publish.svg" alt="BPMN: Sign and publish an IRIS CDN release" style="max-width:100%">
+
+## 5. Publish a signing key (offline)
+
+`processes/iris-cdn-key-publication.bpmn`. This is offline by the owner's rule.
+The key custodian generates a P-256 key, and WHO's signing authority issues
+its certificate. `did.json` then carries the key with `publicKeyJwk.x5c`
+chaining to WHO's signing DID, and only after that does the private key go
+into the GitHub environment secret. Rotation is the same process with a new
+key ID.
+
+<img src="assets/img/processes/iris-cdn-key-publication.svg" alt="BPMN: Publish an IRIS CDN signing key" style="max-width:100%">
+
+## When metadata changes and the PDF does not
+
+A record and its files are stored and diffed separately. A Dublin Core edit
+produces a new record, and therefore a new digest, while the PDF keeps its
+digest and is not fetched again. Renamed communities and collections are
+caught by re-reading them nightly. Edits that do not move `lastModified` are
+caught by the weekly metadata hash check. See the skill `iris-rest-feed`.
 
 ## How churn is kept to a minimum
 
@@ -107,11 +125,10 @@ distribute and verify pattern).
 
 ## Still open
 
-- **Signature format.** The proposal is one JWS per release over the BagIt tag
-  manifest.
+- **Signing per library item.** The proposal is a JWS per item over a manifest
+  of its record and files, plus one over the release.
 - **CDN and DID domain.** The proposal is a stable domain the owner adds to
   Cloudflare.
-- **What goes in Cloudflare git.** The proposal is release history only.
 - **Live endpoint shapes.** iris.who.int could not be reached from the sandbox
   where this was written. The first run must confirm the DSpace REST shapes
   that `rest-feed.ts` assumes.

@@ -27,7 +27,7 @@ import { join } from "node:path";
 import { S3Client } from "bun";
 import { diffManifests, isEmptyDiff, parsePayloadManifest, sha256Hex, tagFiles, type PayloadEntry } from "./bag.ts";
 import { didWebUrl, importPrivateJwk, signDetached, verifyDetached, type DidDocument } from "./signing.ts";
-import { allItemIds, bitstreamContentUrl, changedSince, IRIS_API, itemBitstreams, withdrawnOrHidden, type Fetcher } from "./rest-feed.ts";
+import { allContainers, allItems, bitstreamContentUrl, changedSince, IRIS_API, itemBitstreams, metadataSha, withdrawnOrHidden, type Fetcher } from "./rest-feed.ts";
 
 const USER_AGENT = "who-iris-cdn-exporter (+https://github.com/litlfred/who-iris)";
 
@@ -118,6 +118,7 @@ async function ingestItem(uuid: string, entries: Map<string, PayloadEntry>, stor
   const record = new TextEncoder().encode(canonicalJson(recordOf(item)));
   const path = `records/${handle}.json`;
   report.uuids[uuid] = path;
+  report.metadataSha[uuid] = metadataSha(item.metadata);
   entries.set(path, { path, sha256: await storeBytes(store, record, "application/json", report.objects), bytes: record.byteLength });
 
   for (const bs of await itemBitstreams(politeFetch, uuid)) {
@@ -136,6 +137,20 @@ async function ingestItem(uuid: string, entries: Map<string, PayloadEntry>, stor
   }
 }
 
+/** Communities and collections, re-read in full; unchanged ones write nothing new. */
+async function ingestContainers(entries: Map<string, PayloadEntry>, store: Store, report: Report): Promise<void> {
+  for (const kind of ["communities", "collections"] as const) {
+    for (const obj of await allContainers(politeFetch, kind)) {
+      const handle = typeof obj.handle === "string" ? obj.handle : `uuid/${String(obj.uuid)}`;
+      const bytes = new TextEncoder().encode(canonicalJson(recordOf(obj)));
+      const path = `records/${kind}/${handle}.json`;
+      const digest = await storeBytes(store, bytes, "application/json", report.objects);
+      if (entries.get(path)?.sha256 !== digest) report.containersChanged++;
+      entries.set(path, { path, sha256: digest, bytes: bytes.byteLength });
+    }
+  }
+}
+
 interface Report {
   mode: string;
   changedItems: number;
@@ -145,6 +160,9 @@ interface Report {
   md5: Record<string, string>;
   /** item uuid → its record path; the weekly listing is by uuid. */
   uuids: Record<string, string>;
+  /** item uuid → hash of its metadata as last ingested (the weekly check). */
+  metadataSha: Record<string, string>;
+  containersChanged: number;
 }
 
 /** Write the bag; sign only if the payload changed. Returns whether anything changed. */
@@ -187,7 +205,9 @@ async function verify(release: string): Promise<void> {
   } catch {
     doc = null;
   }
-  const verdict = await verifyDetached(tm, jws, doc);
+  // WHO's signing key (public JWK), so the x5c chain is checked, not just present.
+  const anchor = process.env.IRIS_CDN_TRUST_ANCHOR_JWK;
+  const verdict = await verifyDetached(tm, jws, doc, anchor ? { anchors: [JSON.parse(anchor)] } : {});
   console.log(JSON.stringify(verdict));
   if (verdict.state !== "verified") process.exit(1);
 }
@@ -201,14 +221,16 @@ async function main(): Promise<void> {
   const md5Path = join(release, "state", "md5.json");
   const uuidsPath = join(release, "state", "uuids.json");
   const withdrawnPath = join(release, "state", "withdrawn.json");
+  const metaPath = join(release, "state", "metadata-sha.json");
   const store = r2Store();
   const previous = heldEntries(release);
   const next = new Map(previous);
-  const report: Report = { mode, changedItems: 0, objects: { stored: 0, skipped: 0 }, quarantined: [], withdrawn: [], md5: readJson(md5Path, {}), uuids: readJson(uuidsPath, {}) };
+  const report: Report = { mode, changedItems: 0, objects: { stored: 0, skipped: 0 }, quarantined: [], withdrawn: [], md5: readJson(md5Path, {}), uuids: readJson(uuidsPath, {}), metadataSha: readJson(metaPath, {}), containersChanged: 0 };
   const saveState = (): void => {
     mkdirSync(join(release, "state"), { recursive: true });
     writeFileSync(md5Path, canonicalJson(report.md5));
     writeFileSync(uuidsPath, canonicalJson(report.uuids));
+    writeFileSync(metaPath, canonicalJson(report.metadataSha));
   };
 
   if (mode === "nightly") {
@@ -217,6 +239,7 @@ async function main(): Promise<void> {
     const changed = await changedSince(politeFetch, state.cursor);
     report.changedItems = changed.length;
     for (const it of changed) await ingestItem(it.uuid, next, store, report);
+    await ingestContainers(next, store, report);
     const changedAnything = await publish(release, previous, next);
     if (changed.length > 0) state.cursor = changed[changed.length - 1].lastModified;
     if (changedAnything || changed.length > 0) {
@@ -224,9 +247,15 @@ async function main(): Promise<void> {
       writeFileSync(statePath, canonicalJson(state));
     }
   } else if (mode === "reconcile") {
-    const listed = await allItemIds(politeFetch);
+    const listing = await allItems(politeFetch);
+    const listed = new Set(listing.keys());
     // Throws above the 1% guard: a short listing is not a mass withdrawal.
     const missing = withdrawnOrHidden(Object.keys(report.uuids), listed);
+    // Metadata edited without moving lastModified: re-ingest exactly those.
+    for (const [uuid, sha] of listing) {
+      if (sha !== null && report.uuids[uuid] && report.metadataSha[uuid] !== sha) await ingestItem(uuid, next, store, report);
+    }
+    await ingestContainers(next, store, report);
     const withdrawn = readJson<Record<string, string>>(withdrawnPath, {});
     for (const uuid of missing) {
       const res = await politeFetch(`${IRIS_API}/core/items/${uuid}`);

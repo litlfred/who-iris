@@ -439,7 +439,7 @@ and where the keys live is covered in <a href="iris-cdn-deployment.html">deploym
 </tr>
 <tr>
 <td>How are keys published?</td>
-<td>As <code>verificationMethod</code>s of a <strong><code>did:web</code></strong> DID document. GDHCN is not assumed</td>
+<td>As <code>verificationMethod</code>s of a <strong><code>did:web</code></strong> DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing DID. Publishing is an <strong>offline</strong> step. GDHCN is not assumed</td>
 </tr>
 <tr>
 <td>Standing requirement</td>
@@ -470,7 +470,7 @@ and where the keys live is covered in <a href="iris-cdn-deployment.html">deploym
 </tr>
 <tr>
 <td>Release signer</td>
-<td>Holds the Ed25519 private key and signs exactly one file per release</td>
+<td>Holds the P-256 private key and signs what changed</td>
 </tr>
 <tr>
 <td>Cloudflare git (Artifacts)</td>
@@ -506,11 +506,24 @@ Withdrawn items are marked as withdrawn and their bytes stay addressable.</p>
 <img src="assets/img/processes/iris-cdn-reconcile.svg" alt="BPMN: IRIS CDN weekly reconciliation" style="max-width:100%">
 <h2>4. Sign and publish (called by all three)</h2>
 <p><code>processes/iris-cdn-sign-publish.bpmn</code>. Each release is a BagIt bag (RFC 8493)
-with one detached JWS (RFC 7515 Appendix F, EdDSA per RFC 8037) over its tag
-manifest. Payload objects go to R2 first. The tag files and the signature are
+with one detached JWS (RFC 7515 Appendix F, ES256) over its tag manifest. Payload objects go to R2 first. The tag files and the signature are
 committed to Cloudflare git last, in one commit. A release that does not verify
 is reverted, and the previous release stays served.</p>
 <img src="assets/img/processes/iris-cdn-sign-publish.svg" alt="BPMN: Sign and publish an IRIS CDN release" style="max-width:100%">
+<h2>5. Publish a signing key (offline)</h2>
+<p><code>processes/iris-cdn-key-publication.bpmn</code>. This is offline by the owner's rule.
+The key custodian generates a P-256 key, and WHO's signing authority issues
+its certificate. <code>did.json</code> then carries the key with <code>publicKeyJwk.x5c</code>
+chaining to WHO's signing DID, and only after that does the private key go
+into the GitHub environment secret. Rotation is the same process with a new
+key ID.</p>
+<img src="assets/img/processes/iris-cdn-key-publication.svg" alt="BPMN: Publish an IRIS CDN signing key" style="max-width:100%">
+<h2>When metadata changes and the PDF does not</h2>
+<p>A record and its files are stored and diffed separately. A Dublin Core edit
+produces a new record, and therefore a new digest, while the PDF keeps its
+digest and is not fetched again. Renamed communities and collections are
+caught by re-reading them nightly. Edits that do not move <code>lastModified</code> are
+caught by the weekly metadata hash check. See the skill <code>iris-rest-feed</code>.</p>
 <h2>How churn is kept to a minimum</h2>
 <ol>
 <li>Records are canonical JSON: sorted keys, LF line endings, no fetch time
@@ -564,11 +577,10 @@ Its tests are <code>scripts/tests/iris-cdn.test.ts</code>.</p>
 distribute and verify pattern).</p>
 <h2>Still open</h2>
 <ul>
-<li><strong>Signature format.</strong> The proposal is one JWS per release over the BagIt tag
-manifest.</li>
+<li><strong>Signing per library item.</strong> The proposal is a JWS per item over a manifest
+of its record and files, plus one over the release.</li>
 <li><strong>CDN and DID domain.</strong> The proposal is a stable domain the owner adds to
 Cloudflare.</li>
-<li><strong>What goes in Cloudflare git.</strong> The proposal is release history only.</li>
 <li><strong>Live endpoint shapes.</strong> iris.who.int could not be reached from the sandbox
 where this was written. The first run must confirm the DSpace REST shapes
 that <code>rest-feed.ts</code> assumes.</li>

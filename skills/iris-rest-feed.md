@@ -43,7 +43,24 @@ on fixtures in `scripts/tests/iris-cdn.test.ts`.
 The cursor is the `lastModified` of the newest item in the last **verified**
 release. A failed night does not advance it.
 
-## Weekly: `allItemIds` and `withdrawnOrHidden`
+## Metadata changes without the PDF changing
+
+The owner noted on 2026-10-30 that a PDF may stay the same while its Dublin
+Core changes. The record and the files are handled separately, so this costs
+nothing extra:
+
+- A record is re-read whenever its item appears in the walk. A PDF is
+  re-fetched only if its DSpace MD5 changed.
+- **Communities and collections** are re-read in full every night
+  (`allContainers`). A renamed collection changes no item, and DSpace 7 does
+  not expose `lastModified` for these. An unchanged one serializes to the same
+  bytes.
+- **The weekly metadata check.** The weekly listing pages already carry each
+  item's metadata. `metadataSha` hashes it canonically, and any item whose
+  hash differs from the one last ingested is re-read. That catches edits that
+  did not move `lastModified`, without 273k single fetches.
+
+## Weekly: `allItems` and `withdrawnOrHidden`
 
 1. List every item ID Discovery returns.
 2. Compare that list with the IDs the library holds.

@@ -415,7 +415,7 @@ serves everything it exports. GitHub Pages only previews.</strong></p>
 </tr>
 <tr>
 <td>Release history</td>
-<td>git repository on <strong>Cloudflare Artifacts</strong></td>
+<td>git repository on <strong>Cloudflare Artifacts</strong> (owner, Q11: history only)</td>
 <td>BagIt tag files, <code>tagmanifest-sha256.txt.jws</code>, <code>state/cursor.json</code>, <code>state/initial-load.json</code>, run reports</td>
 <td>owner: git on Cloudflare, not GitHub</td>
 </tr>
@@ -440,7 +440,7 @@ serves everything it exports. GitHub Pages only previews.</strong></p>
 <tr>
 <td>Signing key</td>
 <td>GitHub <strong>environment secret</strong></td>
-<td>the Ed25519 private JWK</td>
+<td>the P-256 private JWK</td>
 <td>owner, Q9</td>
 </tr>
 <tr>
@@ -495,7 +495,13 @@ The initial-load workflow uses a second environment,
 <td><code>IRIS_CDN_SIGNING_JWK</code></td>
 <td>secret</td>
 <td>environment <code>iris-cdn-release</code></td>
-<td>the Ed25519 private JWK: <code>{"kty":"OKP","crv":"Ed25519","x":…,"d":…}</code></td>
+<td>the P-256 private JWK: <code>{"kty":"EC","crv":"P-256","x":…,"y":…,"d":…}</code></td>
+</tr>
+<tr>
+<td><code>IRIS_CDN_TRUST_ANCHOR_JWK</code></td>
+<td>variable</td>
+<td>repository</td>
+<td>WHO's signing-DID public key (JWK), so verification checks the <code>x5c</code> chain. It is not secret</td>
 </tr>
 <tr>
 <td><code>CLOUDFLARE_API_TOKEN</code></td>
@@ -533,13 +539,17 @@ The initial-load workflow uses a second environment,
 token that lasts an hour
 (<code>wrangler artifacts repos issue-token … --ttl 3600</code>) and passes it to git
 as a <code>Bearer</code> header. It never goes in the remote URL.</p>
-<p>To generate the key pair once, on the owner's machine:</p>
+<p>Publishing the key is <strong>offline</strong>, by the owner's rule
+(<code>processes/iris-cdn-key-publication.bpmn</code>). Generate the key pair on the key
+custodian's machine:</p>
 <pre><code class="language-sh">bun -e 'import {webcrypto} from "node:crypto";
-  const k = await webcrypto.subtle.generateKey({name:"Ed25519"}, true, ["sign","verify"]);
+  const k = await webcrypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign","verify"]);
   console.log(JSON.stringify(await webcrypto.subtle.exportKey("jwk", k.privateKey)));'
 </code></pre>
-<p>Paste the output into <code>IRIS_CDN_SIGNING_JWK</code>. The public half (<code>x</code>) goes in
-<code>did.json</code>.</p>
+<p>Then make a CSR for it, and have WHO's signing authority issue the
+certificate. Build <code>did.json</code> with <code>publicKeyJwk.x5c</code> (leaf first), and check
+that the chain ends at WHO's key (<code>chainProblem</code> in <code>signing.ts</code>). Publish
+<code>did.json</code>. Only then paste the private JWK into <code>IRIS_CDN_SIGNING_JWK</code>.</p>
 <h2>What runs when</h2>
 <table>
 <thead>
@@ -580,10 +590,8 @@ small, and a preview always shows what the CDN actually serves.</p>
 <li><strong>Q10, the domain.</strong> The DID is tied to the domain, so this has to be
 settled before the first signed release. The recommendation is a domain the
 owner adds to Cloudflare.</li>
-<li><strong>Q11, what goes in git.</strong> The recommendation is release history only,
-because of the 1 GB repository cap.</li>
-<li><strong>Q4, the signature format.</strong> The recommendation is one detached JWS per
-release.</li>
+<li><strong>Q4, per-item signatures.</strong> The recommendation is a JWS per library item
+plus one per release.</li>
 <li><strong>The live DSpace REST shapes</strong> have not been checked, because iris.who.int
 was unreachable from the sandbox where this was written. The first manual
 run must confirm them.</li>

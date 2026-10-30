@@ -24,7 +24,8 @@ Processes, all in `processes/`:
 | `iris-cdn-initial-load.bpmn` | once, on the owner's approval | every record and every bitstream, in resumable batches |
 | `iris-cdn-nightly.bpmn` | every night, 02:00 UTC | only the items IRIS reports as changed |
 | `iris-cdn-reconcile.bpmn` | weekly | catches withdrawals, which REST does not report, and checks for drift |
-| `iris-cdn-sign-publish.bpmn` | called by the three above | BagIt bag, one detached JWS, did:web key, verify |
+| `iris-cdn-sign-publish.bpmn` | called by the three above | BagIt bag, detached JWS (ES256), did:web key, verify |
+| `iris-cdn-key-publication.bpmn` | offline, once per key | P-256 key, certificate from WHO's signing authority, `did.json` with `x5c` |
 
 ## Owner's choices (2026-10-30)
 
@@ -38,8 +39,11 @@ Processes, all in `processes/`:
   the three items held today, for testing.
 - The graph is **rebuilt in full every night**; sorted output keeps unchanged
   partitions byte-identical.
-- Keys are published as `verificationMethod`s of a **`did:web`** DID document.
-  No GDHCN trust list is assumed (skill `iris-cdn-signing`).
+- Keys are published as `verificationMethod`s of a **`did:web`** DID document,
+  whose `publicKeyJwk.x5c` chains to WHO's signing DID. Publishing a key is an
+  **offline** step. No GDHCN trust list is assumed (skill `iris-cdn-signing`).
+- **Metadata can change while the PDF does not.** Records and files are
+  diffed separately, and see `iris-rest-feed` for how edits are caught.
 
 ## The no-churn rule
 
