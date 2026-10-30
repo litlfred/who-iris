@@ -26,6 +26,7 @@
     "iris:pages": "bun run scripts/gen-iris-pages.ts",
     "iris:pages:check": "bun run scripts/gen-iris-pages.ts --check",
     "site:catalogue": "bun run scripts/gen-iris-pages.ts --catalogue-into",
+    "site:home": "bun run scripts/gen-iris-pages.ts --home-into",
     "iris:pot": "bun run scripts/gen-iris-pages.ts --extract-pot"
   },
   "checkoutScripts": {

@@ -1,7 +1,7 @@
 /**
  * The pages `gen-iris-pages.ts` writes: the docs pages, the catalogue page's
- * inputs, the library's withheld list, and since 2026-10-30 the redirects
- * left at the retired IRIS replica's addresses.
+ * inputs, the library's withheld list, and since 2026-10-30 the one page
+ * left of the IRIS replica: its home page.
  *
  * @module who-iris/scripts/tests/gen-iris-pages.test
  */
@@ -21,11 +21,11 @@ import {
   catalogueProblems,
   fixedPagesOf,
   requirementsFromSkill,
+  rebaseToOwnSiteRoot,
 } from "../gen-iris-pages.js";
 import { coverNodes as nodesOf, pngSize, publicationBlockers } from "../../platform.ts";
 
 const INSTANCE = resolve(import.meta.dir, "..", "..");
-const NODES = join(INSTANCE, "catalogue", "nodes");
 const DOCS = join(INSTANCE, "docs");
 /**
  * The replica is in `site/` since bean `2b5s` (2026-09-30, the owner's
@@ -42,17 +42,6 @@ const allHtml = (): string[] => [
   ...readdirSync(DOCS).filter((f) => f.endsWith(".html")),
 ];
 
-/** Every node id in the catalogue, sorted the way the generator sorts them. */
-function sortedIds(): string[] {
-  return readdirSync(NODES)
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => JSON.parse(readFileSync(join(NODES, f), "utf-8")).id as string)
-    .sort((a, b) => a.localeCompare(b, "en"));
-}
-
-/** The generator's slug function, restated — the PAGES are the subject, not it. */
-const slug = (id: string) => id.replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase();
-
 describe("the generator owns its filenames, and prunes only those", () => {
   it("every .html committed under docs/ is one the generator would write", () => {
     // The orphan guard, asserted against the COMMITTED tree rather than a
@@ -63,9 +52,8 @@ describe("the generator owns its filenames, and prunes only those", () => {
     // write. This fails if that recurs.
     const html = allHtml();
     expect(html.length).toBeGreaterThan(3);
-    // Since 2026-10-30 the replica's item pages are REDIRECTS to the library
-    // entry pages, and the collection pages and community list are gone.
-    const items = sortedIds().filter((id) => id.startsWith("item/")).map((id) => `item-${slug(id)}.html`);
+    // Since 2026-10-30 site/ holds only the replica's home page; the item,
+    // collection and community pages are gone and their addresses 404.
     // A SECOND LIST BESIDE `OWNED`, and it has now gone stale in BOTH
     // directions within three days — which is the finding, not the chore.
     //
@@ -94,7 +82,6 @@ describe("the generator owns its filenames, and prunes only those", () => {
       ...fixedPagesOf("docs"),
       // The renderings of the authored pages (bean `mw5z`), derived the way the generator derives them.
       ...authoredDocs(DOCS).map((d) => d.file.replace(/\.md$/, ".html")),
-      ...items,
     ]);
     expect(html.filter((f) => !wanted.has(f))).toEqual([]);
     expect([...wanted].filter((f) => !html.includes(f))).toEqual([]);
@@ -354,10 +341,11 @@ describe("the replica in the six UN languages — issue #2228", () => {
  * The last two rows are the case that broke: this instance's OWN site, served
  * from a repository also named `who-iris`, where a lazy match stopped at the
  * base path and every PDF frame asked the host root for the viewer (a 404 the
- * owner hit on the live site, 2026-10-09).
+ * owner hit on the live site, 2026-10-09). Read from a docs page since the
+ * replica's item pages went (2026-10-30); the docs pages carry the same pattern.
  */
 describe("the page finds its site root on every host it is served from", () => {
-  const html = readFileSync(join(SITE, "item-item-b08c6c19-315a-41a4-a9cb-8edabdbc6791.html"), "utf-8");
+  const html = readFileSync(join(DOCS, "ingestion-notes.html"), "utf-8");
   const m = /new RegExp\(("(?:[^"\\]|\\.)*")\)/.exec(html);
   it("a page carries the pattern", () => expect(m).not.toBeNull());
   const re = new RegExp(JSON.parse(m![1]!) as string);
@@ -440,32 +428,26 @@ describe("the catalogue page (bean kx0p)", () => {
   });
 });
 
-describe("the retired replica's addresses redirect to the library (owner, 2026-10-30)", () => {
-  const refresh = (f: string): string | undefined =>
-    readFileSync(f, "utf-8").match(/<meta http-equiv="refresh" content="0; url=([^"]+)">/)?.[1];
+describe("the replica keeps only its IRIS-style home page (owner, 2026-10-30)", () => {
+  const home = (): string => readFileSync(join(SITE, "index.html"), "utf-8");
 
-  it("the replica's home goes to this instance's library listing", () => {
-    expect(refresh(join(SITE, "index.html"))).toBe("../en/cat-harness/library/who-iris/");
+  it("each language has a home page and nothing else: the item, collection and community pages are gone", () => {
+    expect(readdirSync(SITE).filter((f) => f.endsWith(".html"))).toEqual(["index.html"]);
+    for (const loc of SITE_LOCALES) expect(readdirSync(join(SITE, loc)).filter((f) => f.endsWith(".html"))).toEqual(["index.html"]);
   });
 
-  it("each held item's old page, in every language, goes to its library entry page", () => {
-    const items = readdirSync(NODES)
-      .map((f) => JSON.parse(readFileSync(join(NODES, f), "utf-8")) as { id: string; flavour?: string; libraryId?: string })
+  it("each held item links to its library entry page, and no link names a retired page", () => {
+    const items = readdirSync(join(INSTANCE, "catalogue", "nodes"))
+      .map((f) => JSON.parse(readFileSync(join(INSTANCE, "catalogue", "nodes", f), "utf-8")) as { flavour?: string; libraryId?: string })
       .filter((n) => n.flavour === "item" && n.libraryId && existsSync(join(LIB, n.libraryId)));
     expect(items.length).toBeGreaterThan(0);
-    for (const n of items) {
-      const f = `item-${slug(n.id)}.html`;
-      expect(refresh(join(SITE, f)), f).toBe(`../en/cat-harness/library/who-iris/${n.libraryId}/`);
-      for (const loc of SITE_LOCALES) {
-        expect(refresh(join(SITE, loc, f)), `${loc}/${f}`).toBe(`../../en/cat-harness/library/who-iris/${n.libraryId}/`);
-      }
-    }
+    for (const n of items) expect(home()).toContain(`href="../en/cat-harness/library/who-iris/${n.libraryId}/"`);
+    expect(home()).not.toMatch(/href="(?:item-|collection-|community-list)/);
+    expect(home()).toContain('href="../who-iris/catalogue/"');
   });
 
-  it("nothing else of the replica is left", () => {
-    const left = [SITE, ...SITE_LOCALES.map((l) => join(SITE, l))]
-      .flatMap((d) => readdirSync(d).filter((f) => f.endsWith(".html")).map((f) => join(d, f)))
-      .filter((f) => refresh(f) === undefined);
-    expect(left).toEqual([]);
+  it("written for the instance's own site root, its links are said from there", () => {
+    const html = rebaseToOwnSiteRoot('<a href="../who-iris/catalogue/">c</a><a href="index.html">h</a><a href="fr/index.html">fr</a><a href="../en/cat-harness/library/who-iris/x/">x</a><img src="../library/x-cover.png">');
+    expect(html).toBe('<a href="catalogue/">c</a><a href="./">h</a><a href="who-iris/fr/index.html">fr</a><a href="en/cat-harness/library/who-iris/x/">x</a><img src="library/x-cover.png">');
   });
 });
