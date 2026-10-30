@@ -1,0 +1,62 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/isbn:9789241549912:websupplement",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Web supplement WHO recommendations on antenatal care for a positive pregnancy experience: evidence base",
+  "libraryId": "9789241549912-websupplement-eng",
+  "bitstreams": [
+    {
+      "name": "9789241549912-websupplement-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 7281711,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "local": "library/9789241549912-websupplement-eng/structure.json#source"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "e7b751d90bc6b0ea4aed09718de979dea272241c89300082454c39a0ee73908c"
+        },
+        "note": "Size and sha256 are those recorded when the PDF was ingested. The PDF itself was never committed anywhere; the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104)."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "materialized",
+    "provenance": {
+      "local": "library/9789241549912-websupplement-eng/structure.json#source"
+    },
+    "localPath": "library/9789241549912-websupplement-eng",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "763,255 bytes of derived sections, of a 361.55 GiB catalogue"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107); WHO logo omitted, as for the three worked examples",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the archival bitstream answers this, not this node"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      }
+    },
+    "note": "Moved in on 2026-10-30 from litlfred/smart-base smart-base/library/9789241549912-websupplement-eng (who-iris#107). IRIS IDENTIFIERS NOT YET RECORDED: this ISBN 9789241549912 publication was ingested from an uploaded PDF, so no DSpace UUID, Handle, collection or Dublin Core record was captured, and iris.who.int is egress-blocked from the cloud sandbox. Keyed by its ISBN until the lookup is done, rather than by an invented UUID."
+  }
+}

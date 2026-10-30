@@ -1,0 +1,35 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/59e7ed01-0bb9-4729-ad54-b08f3a4ef850",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Digital adaptation kit for HIV: operational requirements for implementing WHO recommendations in digital systems",
+  "handle": "10665/375230",
+  "bitstreams": [
+    {
+      "name": "9789240085138-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 8739338,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://iris.who.int/items/59e7ed01-0bb9-4729-ad54-b08f3a4ef850"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "7985d8a0c999605d4b4bf5aa669d7601f45da54caf034bd1c9b850e1a03a9f3e"
+        },
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789240085138-eng/intake.json."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://iris.who.int/items/59e7ed01-0bb9-4729-ad54-b08f3a4ef850"
+    },
+    "note": "Catalogued here on 2026-10-30, moved from litlfred/smart-hiv uploads/9789240085138-eng/ (who-iris#107). Only the intake and the Dublin Core record are held; nothing has been ingested."
+  },
+  "metadataRef": "catalogue/records/9789240085138-eng.dc.json"
+}
