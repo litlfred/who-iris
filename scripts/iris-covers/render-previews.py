@@ -78,6 +78,18 @@ def main():
             row["facts"] = facts
         else:
             row["error"] = r.stderr.strip()
+        # The copyright gate is recorded as the publication's own copyright
+        # statement says it (owner ruling 2026-09-24, bean cw35), so quote it.
+        doc = pymupdf.open(pdf)
+        stmt = []
+        for i, pg in enumerate(doc):
+            for line in pg.get_text().splitlines():
+                l = line.strip()
+                if any(k in l for k in ("CC BY", "licence", "license", "©", "All rights reserved", "Some rights reserved")):
+                    stmt.append({"page": i + 1, "line": l[:300]})
+            if len(stmt) >= 8:
+                break
+        row["rightsLines"] = stmt
         print(slug, len(masks), "mask(s)", row.get("error", "ok"), flush=True)
         results.append(row)
     json.dump(results, open(os.path.join(out, "renders.json"), "w"), indent=1)
