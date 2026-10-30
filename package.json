@@ -5,9 +5,13 @@
   "type": "module",
   "workspaces": [
     "folio-assistant-cor[e]",
+    "../folio-assistant-cor[e]",
     "cat-harnes[s]",
+    "../cat-harnes[s]",
     "cat-harness-tool[s]",
-    "bootstrap-tool[s]"
+    "../cat-harness-tool[s]",
+    "bootstrap-tool[s]",
+    "../bootstrap-tool[s]"
   ],
   "dependencies": {
     "@litlfred/folio-assistant-core": "0.1.0",
