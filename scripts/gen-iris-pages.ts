@@ -3486,6 +3486,15 @@ function ownSiteRoute(): string {
  * which stay mounted under `<instance>/`. The replica's home itself is this
  * page, so a link to it becomes `./`.
  */
+/**
+ * An embedded file (`src`) the replica's page takes from the instance, such as
+ * a cover in `library/`. The site build publishes it beside the replica, under
+ * `/who-iris/`, so from the site root it is addressed under that prefix.
+ */
+function isFile(p: string): boolean {
+  return existsSync(p) && statSync(p).isFile();
+}
+
 export function rebaseToOwnSiteRoot(html: string): string {
   const own = `${SUBJECT}/`;
   return html.replace(/\b(href|src|action)="([^"]*)"/g, (m, attr: string, u: string) => {
@@ -3494,6 +3503,7 @@ export function rebaseToOwnSiteRoot(html: string): string {
     let target = posix.normalize(posix.join(REPLICA_ROUTE, path!));
     if (path!.endsWith("/") && !target.endsWith("/")) target += "/";
     if (target === `${own}index.html` || target === own) target = "./";
+    else if (attr === "src" && !target.startsWith(own) && isFile(join(INSTANCE, target))) target = `${own}${target}`;
     else if (target.startsWith(own) && !existsSync(join(INSTANCE, "site", target.slice(own.length)))) target = target.slice(own.length);
     return `${attr}="${target}${rest.join("")}"`;
   });
@@ -3541,6 +3551,18 @@ function main(): number {
     mkdirSync(dirname(dest), { recursive: true });
     writeFileSync(dest, rebaseRelative(catalogueViewer(nodes(), { libraryViewer: false }), CATALOGUE_ROUTE, ownSiteRoute()));
     console.log(`  wrote ${relative(resolve(site), dest)} into the site source`);
+    // The replica's pages, mounted at `/who-iris/`, link the catalogue at its
+    // DECLARED route. On this site it lives at its own route instead, so the
+    // declared route gets a page that forwards there.
+    if (ownSiteRoute() !== CATALOGUE_ROUTE) {
+      const fwd = join(resolve(site), ...CATALOGUE_ROUTE.split("/"), "index.html");
+      if (!existsSync(fwd)) {
+        const to = `${posix.relative(CATALOGUE_ROUTE, ownSiteRoute())}/`;
+        mkdirSync(dirname(fwd), { recursive: true });
+        writeFileSync(fwd, `<!doctype html>\n<meta charset="utf-8">\n<title>Catalogue</title>\n<meta http-equiv="refresh" content="0; url=${to}">\n<link rel="canonical" href="${to}">\n<p>The catalogue is at <a href="${to}">${to}</a>.</p>\n`);
+        console.log(`  wrote ${relative(resolve(site), fwd)} (forwards to the catalogue) into the site source`);
+      }
+    }
     return 0;
   }
   const all = nodes();
