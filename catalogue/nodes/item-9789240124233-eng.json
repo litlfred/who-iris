@@ -1,0 +1,35 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/8c4885b7-edf2-4608-9bf7-4a64303314cf",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Consolidated HIV guidelines: service delivery",
+  "handle": "10665/386765",
+  "bitstreams": [
+    {
+      "name": "9789240124233-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 1406585,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://iris.who.int/items/8c4885b7-edf2-4608-9bf7-4a64303314cf"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "f97e5a620239e0e81eb8add35b412cedf5e741af5372779c09cab6cb42abc730"
+        },
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789240124233-eng/intake.json."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://iris.who.int/items/8c4885b7-edf2-4608-9bf7-4a64303314cf"
+    },
+    "note": "Catalogued here on 2026-10-30, moved from litlfred/smart-hiv uploads/9789240124233-eng/ (who-iris#107). Only the intake and the Dublin Core record are held; nothing has been ingested."
+  },
+  "metadataRef": "catalogue/records/9789240124233-eng.dc.json"
+}

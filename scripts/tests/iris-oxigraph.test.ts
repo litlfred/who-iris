@@ -122,9 +122,15 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     const metadataNq = path.join(TMP_DIST, 'iris_who_int_graph_metadata.nq');
     engine.loadSubgraph(GRAPH_IRIS_METADATA, metadataNq);
 
-    // 3. Re-run search: immediately resolves joined metadata
+    // 3. Re-run search: immediately resolves joined metadata, and finds
+    // exactly what a store loaded whole finds. Compared to the eager load, not
+    // to a fixed count: the corpus grows as IRIS items move in (who-iris#107).
     const afterLoad = engine.complexSearch({ subject: 'Guidelines' });
-    expect(afterLoad.length).toBe(2);
+    const eager = new IrisOxigraphEngine();
+    eager.load(path.join(TMP_DIST, 'who-iris-dataset.nq'));
+    const handles = (rs: { handle: string }[]) => rs.map((r) => r.handle).sort();
+    expect(afterLoad.length).toBeGreaterThan(0);
+    expect(handles(afterLoad)).toEqual(handles(eager.complexSearch({ subject: 'Guidelines' })));
   });
 
   test('prepared queries manifest execution', () => {

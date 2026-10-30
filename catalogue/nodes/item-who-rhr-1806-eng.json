@@ -1,0 +1,62 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/govdoc:WHO-RHR-18.06",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Classification of Digital Health Interventions v1.0",
+  "libraryId": "who-rhr-1806-eng",
+  "bitstreams": [
+    {
+      "name": "WHO-RHR-18.06-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 403774,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "local": "library/who-rhr-1806-eng/structure.json#source"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "44be3640bb1730da309256d74090968e757bb10371b4367e97b75248c49998e6"
+        },
+        "note": "Size and sha256 are those recorded when the PDF was ingested. The PDF itself was never committed anywhere; the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104)."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "materialized",
+    "provenance": {
+      "local": "library/who-rhr-1806-eng/structure.json#source"
+    },
+    "localPath": "library/who-rhr-1806-eng",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "165,441 bytes of derived sections, of a 361.55 GiB catalogue"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107); WHO logo omitted, as for the three worked examples",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the archival bitstream answers this, not this node"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      }
+    },
+    "note": "Moved in on 2026-10-30 from litlfred/smart-base smart-base/library/who-rhr-1806-eng (who-iris#107). IRIS IDENTIFIERS NOT YET RECORDED: this WHO/RHR/18.06 publication was ingested from an uploaded PDF, so no DSpace UUID, Handle, collection or Dublin Core record was captured, and iris.who.int is egress-blocked from the cloud sandbox. Keyed by its WHO govdoc number until the lookup is done, rather than by an invented UUID."
+  }
+}

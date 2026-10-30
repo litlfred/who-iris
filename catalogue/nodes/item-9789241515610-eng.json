@@ -1,0 +1,35 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/09f6c202-64f2-4f91-bbc7-862f4fc28f47",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Protecting all against tetanus: guide to sustaining maternal and neonatal tetanus elimination (MNTE) and broadening tetanus protection for all populations",
+  "handle": "10665/329882",
+  "bitstreams": [
+    {
+      "name": "9789241515610-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 4224958,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://iris.who.int/items/09f6c202-64f2-4f91-bbc7-862f4fc28f47"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "d670625a473ae1ac07d0a834c79aefb0a0958fafce817956460d7f56bfbe59eb"
+        },
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789241515610-eng/intake.json."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://iris.who.int/items/09f6c202-64f2-4f91-bbc7-862f4fc28f47"
+    },
+    "note": "Catalogued here on 2026-10-30, moved from litlfred/smart-immunizations uploads/9789241515610-eng/ (who-iris#107). Only the intake and the Dublin Core record are held; nothing has been ingested."
+  },
+  "metadataRef": "catalogue/records/9789241515610-eng.dc.json"
+}

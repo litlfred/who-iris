@@ -1,0 +1,64 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/50d01818-0fa6-43d4-a39e-5bfae735c547",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Digital adaptation kit for immunizations: operational requirements for implementing WHO recommendations in digital systems",
+  "handle": "10665/380303",
+  "libraryId": "9789240099456-eng",
+  "bitstreams": [
+    {
+      "name": "9789240099456-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 2838908,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://iris.who.int/items/50d01818-0fa6-43d4-a39e-5bfae735c547"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "6b0f603e2a792bb4e81014b4e3302d450c4b5be8c72ac4106723610ec7db0303"
+        },
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789240099456-eng/intake.json."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "materialized",
+    "provenance": {
+      "upstream": "https://iris.who.int/items/50d01818-0fa6-43d4-a39e-5bfae735c547"
+    },
+    "localPath": "library/9789240099456-eng",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "4,048,171 bytes of derived sections, of a 361.55 GiB catalogue"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107); WHO logo omitted, as for the three worked examples",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the archival bitstream answers this, not this node"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "licence CC-BY-NC-SA-3.0-IGO (stated) per library/9789240099456-eng/licence.json; owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      }
+    },
+    "note": "Moved in on 2026-10-30 from litlfred/smart-immunizations library/9789240099456-eng (who-iris#107). The intake and Dublin Core record came from litlfred/smart-immunizations uploads/9789240099456-eng/."
+  },
+  "metadataRef": "catalogue/records/9789240099456-eng.dc.json"
+}

@@ -68,13 +68,16 @@ is [`docs/style-guide.md`](docs/style-guide.md).
 
 <!-- skills:index:begin -->
 
-_2 skills in 1 directory, generated from each skill's front matter. `bun run cat readme:sync` rewrites this list and `readme:sync:check` fails when it is stale. Skills this repository inherits are listed by the repositories that publish them._
+_5 skills in 1 directory, generated from each skill's front matter. `bun run cat readme:sync` rewrites this list and `readme:sync:check` fails when it is stale. Skills this repository inherits are listed by the repositories that publish them._
 
-**`skills/`** (2)
+**`skills/`** (5)
 
 | Skill | What it is for |
 |---|---|
+| [`iris-cdn-exporter`](skills/iris-cdn-exporter.md) | The IRIS CDN Exporter agent — how WHO IRIS is exported onto Cloudflare — a git repository on Cloudflare Artifacts and R2 behind the CDN — with an initial load (metadata and PDFs), a nightly change… |
+| [`iris-cdn-signing`](skills/iris-cdn-signing.md) | How an IRIS CDN release is packaged, signed and verified using published standards only: a BagIt bag (RFC 8493), a detached JWS (RFC 7515 App. |
 | [`iris-dspace`](skills/iris-dspace.md) | How WHO IRIS uses DSpace and qualified Dublin Core — the three identifier systems, MeSH as a controlled vocabulary, bundles, and the containment path. |
 | [`iris-oxigraph`](skills/iris-oxigraph.md) | How to compile, validate, distribute, and query WHO IRIS catalogue and Qualified Dublin Core metadata using Oxigraph in-memory WebAssembly and CLI pipelines. |
+| [`iris-rest-feed`](skills/iris-rest-feed.md) | How to read changes from the WHO IRIS DSpace 7 REST API: the nightly "changed since" walk over Discovery sorted by lastModified, the weekly reconciliation that stands in for the deletions REST does… |
 
 <!-- skills:index:end -->

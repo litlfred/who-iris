@@ -1,0 +1,35 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/d0fe15da-15f9-4ba5-bfe4-73658e98db6a",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Consolidated guidelines on HIV testing services, 2019",
+  "handle": "10665/336323",
+  "bitstreams": [
+    {
+      "name": "9789241550581-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 3510001,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://iris.who.int/items/d0fe15da-15f9-4ba5-bfe4-73658e98db6a"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "817c0fbe79fbb4e653ce0443c6f305e37a58e3a97cc83245b6d639dbfbd18633"
+        },
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789241550581-eng/intake.json."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://iris.who.int/items/d0fe15da-15f9-4ba5-bfe4-73658e98db6a"
+    },
+    "note": "Catalogued here on 2026-10-30, moved from litlfred/smart-hiv uploads/9789241550581-eng/ (who-iris#107). Only the intake and the Dublin Core record are held; nothing has been ingested."
+  },
+  "metadataRef": "catalogue/records/9789241550581-eng.dc.json"
+}

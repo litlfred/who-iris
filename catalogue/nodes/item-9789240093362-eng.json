@@ -1,0 +1,93 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/isbn:9789240093362",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Digital transformation handbook for primary health care",
+  "libraryId": "9789240093362-eng",
+  "bitstreams": [
+    {
+      "name": "9789240093362-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 2787054,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "litlfred/folio-assistant:uploads/9789240093362-eng.pdf"
+        },
+        "localPath": "uploads/9789240093362-eng/9789240093362-eng.pdf",
+        "purpose": "both",
+        "bytes": 2787054,
+        "materializedAt": "2026-10-30",
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "0d47d98390b1451d01fafd27b017a6edcccf6effda4830d531b685b4cc85114a",
+          "verifiedAt": "2026-10-30"
+        },
+        "gates": {
+          "size": {
+            "verdict": "permitted",
+            "basis": "2,787,054 bytes of a 361.55 GiB catalogue"
+          },
+          "restrictions": {
+            "verdict": "permitted",
+            "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+            "decidedAt": "2026-10-30",
+            "decidedBy": "litlfred"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "archival: kept indefinitely, by design"
+          },
+          "sourceLoss": {
+            "verdict": "permitted",
+            "basis": "original bytes held locally with a recorded sha256"
+          },
+          "copyright": {
+            "verdict": "permitted",
+            "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+            "decidedAt": "2026-10-30",
+            "decidedBy": "litlfred"
+          }
+        },
+        "note": "The owner's upload, moved from litlfred/folio-assistant uploads/9789240093362-eng.pdf on 2026-10-30. Its sha256 equals the one smart-base recorded when it ingested library/9789240093362-eng."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "materialized",
+    "provenance": {
+      "local": "uploads/9789240093362-eng/9789240093362-eng.pdf"
+    },
+    "localPath": "library/9789240093362-eng",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "4,609,778 bytes of derived sections, of a 361.55 GiB catalogue"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107); WHO logo omitted, as for the three worked examples",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the archival bitstream answers this, not this node"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      }
+    },
+    "note": "Moved in on 2026-10-30 from litlfred/smart-base smart-base/library/9789240093362-eng (who-iris#107). IRIS IDENTIFIERS NOT YET RECORDED: this ISBN 9789240093362 publication was ingested from an uploaded PDF, so no DSpace UUID, Handle, collection or Dublin Core record was captured, and iris.who.int is egress-blocked from the cloud sandbox. Keyed by its ISBN until the lookup is done, rather than by an invented UUID."
+  }
+}

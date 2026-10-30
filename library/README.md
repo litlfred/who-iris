@@ -7,7 +7,7 @@ generated: "scripts/subgraph-readmes.ts of the bootstrap toolset (https://github
 
 # library
 
-The three IRIS items this instance holds rather than merely names: `wpr-rdo-2020-003-eng` (the WPRO publication style guide, and the worked example whose full DSpace item record drives the `iris-dspace` skill), `who-pub-tps-931` and `9789241548960-eng`. They are the `materialized` end of the catalogue -- every other node under `catalogue/nodes/` is `referenced`, and the three here are what a materialization actually looks like. `milnorlink` is NOT here and never was an IRIS item; it went to folio-assistant-sci (bean r1lz). The id is `library`, the CONVENTIONAL one, so this entry OVERRIDES the default rather than joining it: overrides match on id and never on path, so a distinct id at the same path yields two entries for one directory and every fan-out consumer scans it twice. Measured while doing exactly that.
+The IRIS items this instance holds rather than merely names. The three worked examples are `wpr-rdo-2020-003-eng` (the WPRO publication style guide, and the worked example whose full DSpace item record drives the `iris-dspace` skill), `who-pub-tps-931` and `9789241548960-eng`. On 2026-10-30 (who-iris#107, the owner's "pre-CDN preview") every IRIS library the harness layers had ingested moved in beside them: twelve from smart-base (digital health guidance such as DIIG, the two classifications of digital interventions and the digital transformation handbooks) and three from smart-immunizations (the IMMZ DAK, 9789240016514 and DDCC:VS). Those layers now cite them as `{instance: "who-iris"}`. They are the `materialized` end of the catalogue -- every other node under `catalogue/nodes/` is `referenced`, and the entries here are what a materialization actually looks like. `milnorlink` is NOT here and never was an IRIS item; it went to folio-assistant-sci (bean r1lz). The id is `library`, the CONVENTIONAL one, so this entry OVERRIDES the default rather than joining it: overrides match on id and never on path, so a distinct id at the same path yields two entries for one directory and every fan-out consumer scans it twice. Measured while doing exactly that.
 
 Part of [WHO IRIS](../README.md) 0.1.0, declared as `library`, holding `library`.
 
@@ -22,5 +22,20 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `library`, holding `library`
 | [`9789241548960-eng/`](9789241548960-eng/README.md) | described in its own README | |
 | [`who-pub-tps-931/`](who-pub-tps-931/README.md) | described in its own README | |
 | [`wpr-rdo-2020-003-eng/`](wpr-rdo-2020-003-eng/README.md) | described in its own README | |
+| [`9789240010567-eng/`](9789240010567-eng/README.md) | described in its own README | |
+| [`9789240016514-eng/`](9789240016514-eng/README.md) | described in its own README | |
+| [`9789240081949-eng/`](9789240081949-eng/README.md) | described in its own README | |
+| [`9789240093362-eng/`](9789240093362-eng/README.md) | described in its own README | |
+| [`9789240099456-eng/`](9789240099456-eng/README.md) | described in its own README | |
+| [`9789240101197-eng/`](9789240101197-eng/README.md) | described in its own README | |
+| [`9789240116191-eng/`](9789240116191-eng/README.md) | described in its own README | |
+| [`9789240120747-eng/`](9789240120747-eng/README.md) | described in its own README | |
+| [`9789241509510-eng/`](9789241509510-eng/README.md) | described in its own README | |
+| [`9789241511766-eng/`](9789241511766-eng/README.md) | described in its own README | |
+| [`9789241549912-eng/`](9789241549912-eng/README.md) | described in its own README | |
+| [`9789241549912-webannexes-eng/`](9789241549912-webannexes-eng/README.md) | described in its own README | |
+| [`9789241549912-websupplement-eng/`](9789241549912-websupplement-eng/README.md) | described in its own README | |
+| [`who-2019-ncov-digital-certificates-vaccination-20211-eng/`](who-2019-ncov-digital-certificates-vaccination-20211-eng/README.md) | described in its own README | |
+| [`who-rhr-1806-eng/`](who-rhr-1806-eng/README.md) | described in its own README | |
 
 <!-- kg:subgraph:end -->

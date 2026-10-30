@@ -1,0 +1,35 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/1c992591-c558-4371-a07c-d243f65ef1d4",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health approach",
+  "handle": "10665/342899",
+  "bitstreams": [
+    {
+      "name": "9789240031593-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 10865116,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://iris.who.int/items/1c992591-c558-4371-a07c-d243f65ef1d4"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "635c9653c9f6718a702f60faf7ce15c57c7674a44a7383528f73859bf26a0738"
+        },
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/9789240031593-eng/intake.json."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "referenced",
+    "provenance": {
+      "upstream": "https://iris.who.int/items/1c992591-c558-4371-a07c-d243f65ef1d4"
+    },
+    "note": "Catalogued here on 2026-10-30, moved from litlfred/smart-hiv uploads/9789240031593-eng/ (who-iris#107). Only the intake and the Dublin Core record are held; nothing has been ingested."
+  },
+  "metadataRef": "catalogue/records/9789240031593-eng.dc.json"
+}

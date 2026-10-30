@@ -7,7 +7,7 @@ generated: "scripts/subgraph-readmes.ts of the bootstrap toolset (https://github
 
 # who-iris-catalogue
 
-The catalogue itself: `catalogue.json` declares the corpus and its measured size; `nodes/` holds one `folio-catalogue-node/v1` per community, collection or item; `records/` holds the `folio-dublin-core/v1` metadata an item node points at through `metadataRef`. TWELVE nodes today — 9 referenced, 3 materialized, 0 unknown — against 1,057,223 files upstream, and that gap IS the point. `bun run cat check:catalogue` verifies every node validates and every metadataRef, libraryId and parent path resolves; a Zod schema can require the reference and structurally cannot check the file is there.
+The catalogue itself: `catalogue.json` declares the corpus and its measured size; `nodes/` holds one `folio-catalogue-node/v1` per community, collection or item; `records/` holds the `folio-dublin-core/v1` metadata an item node points at through `metadataRef`. No count is written here: `check:catalogue` prints the census, and a count in prose goes stale (AGENTS.md). Most nodes are `referenced`, against 1,057,223 files upstream, and that gap IS the point. Since 2026-10-30 this is the one home for every IRIS item the harness layers know of (who-iris#107): smart-base, smart-immunizations, smart-hiv and folio-assistant moved their IRIS libraries, intakes and PDFs here and cite them as `who-iris`. `bun run cat check:catalogue` verifies every node validates and every metadataRef, libraryId and parent path resolves; a Zod schema can require the reference and structurally cannot check the file is there.
 
 Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-catalogue`, holding `catalogue`.
 

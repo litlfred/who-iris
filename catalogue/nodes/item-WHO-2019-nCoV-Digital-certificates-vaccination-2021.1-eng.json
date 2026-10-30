@@ -1,0 +1,64 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/96b90d2c-5e33-404d-b7a5-5601bac140bc",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Digital documentation of COVID-19 certificates: vaccination status: technical specifications and implementation guidance, 27 August 2021",
+  "handle": "10665/343361",
+  "libraryId": "who-2019-ncov-digital-certificates-vaccination-20211-eng",
+  "bitstreams": [
+    {
+      "name": "WHO-2019-nCoV-Digital-certificates-vaccination-2021.1-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 2238470,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "referenced",
+        "provenance": {
+          "upstream": "https://iris.who.int/items/96b90d2c-5e33-404d-b7a5-5601bac140bc"
+        },
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "f57b14cb2acb728d74f37934b2f16f21bc6f1841bbbe4fd0a878ed26c4e9c607"
+        },
+        "note": "The original bytes are not held: the intake records the file, and the bytes go to the IRIS CDN (Cloudflare R2) once it is set up (who-iris#104). Size and sha256 are from uploads/WHO-2019-nCoV-Digital-certificates-vaccination-2021.1-eng/intake.json."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "materialized",
+    "provenance": {
+      "upstream": "https://iris.who.int/items/96b90d2c-5e33-404d-b7a5-5601bac140bc"
+    },
+    "localPath": "library/who-2019-ncov-digital-certificates-vaccination-20211-eng",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "5,314,163 bytes of derived sections, of a 361.55 GiB catalogue"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107); WHO logo omitted, as for the three worked examples",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the archival bitstream answers this, not this node"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "licence CC-BY-NC-SA-3.0-IGO (stated) per library/who-2019-ncov-digital-certificates-vaccination-20211-eng/licence.json; owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      }
+    },
+    "note": "Moved in on 2026-10-30 from litlfred/smart-immunizations library/who-2019-ncov-digital-certificates-vaccination-20211-eng (who-iris#107). The intake and Dublin Core record came from litlfred/smart-immunizations uploads/WHO-2019-nCoV-Digital-certificates-vaccination-2021.1-eng/."
+  },
+  "metadataRef": "catalogue/records/WHO-2019-nCoV-Digital-certificates-vaccination-2021.1-eng.dc.json"
+}

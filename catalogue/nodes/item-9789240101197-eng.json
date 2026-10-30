@@ -1,0 +1,93 @@
+{
+  "$schema": "folio-catalogue-node/v1",
+  "id": "item/isbn:9789240101197",
+  "kind": "item",
+  "flavour": "item",
+  "title": "Digital transformation handbook for health supply chain architecture",
+  "libraryId": "9789240101197-eng",
+  "bitstreams": [
+    {
+      "name": "9789240101197-eng.pdf",
+      "bundle": "ORIGINAL",
+      "bytes": 2111579,
+      "mediaType": "application/pdf",
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "litlfred/folio-assistant:uploads/9789240101197-eng/9789240101197-eng.pdf"
+        },
+        "localPath": "uploads/9789240101197-eng/9789240101197-eng.pdf",
+        "purpose": "both",
+        "bytes": 2111579,
+        "materializedAt": "2026-10-30",
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "cd157b40eef513c13129ea10b286db75a7fbcda405716a44cc06775f75aa9ad2",
+          "verifiedAt": "2026-10-30"
+        },
+        "gates": {
+          "size": {
+            "verdict": "permitted",
+            "basis": "2,111,579 bytes of a 361.55 GiB catalogue"
+          },
+          "restrictions": {
+            "verdict": "permitted",
+            "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+            "decidedAt": "2026-10-30",
+            "decidedBy": "litlfred"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "archival: kept indefinitely, by design"
+          },
+          "sourceLoss": {
+            "verdict": "permitted",
+            "basis": "original bytes held locally with a recorded sha256"
+          },
+          "copyright": {
+            "verdict": "permitted",
+            "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+            "decidedAt": "2026-10-30",
+            "decidedBy": "litlfred"
+          }
+        },
+        "note": "The owner's upload, moved from litlfred/folio-assistant uploads/9789240101197-eng/9789240101197-eng.pdf on 2026-10-30. Its sha256 equals the one smart-base recorded when it ingested library/9789240101197-eng."
+      }
+    }
+  ],
+  "materialization": {
+    "state": "materialized",
+    "provenance": {
+      "local": "uploads/9789240101197-eng/9789240101197-eng.pdf"
+    },
+    "localPath": "library/9789240101197-eng",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "5,085,274 bytes of derived sections, of a 361.55 GiB catalogue"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107); WHO logo omitted, as for the three worked examples",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the archival bitstream answers this, not this node"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "licence CC-BY-NC-SA-3.0-IGO (stated) per library/9789240101197-eng/licence.json; owner chose the full move of IRIS items into who-iris on 2026-10-30 (option B, \"part of the fuller pre-CDN preview\"; who-iris#107)",
+        "decidedAt": "2026-10-30",
+        "decidedBy": "litlfred"
+      }
+    },
+    "note": "Moved in on 2026-10-30 from litlfred/smart-base smart-base/library/9789240101197-eng (who-iris#107). IRIS IDENTIFIERS NOT YET RECORDED: this ISBN 9789240101197 publication was ingested from an uploaded PDF, so no DSpace UUID, Handle, collection or Dublin Core record was captured, and iris.who.int is egress-blocked from the cloud sandbox. Keyed by its ISBN until the lookup is done, rather than by an invented UUID."
+  }
+}
