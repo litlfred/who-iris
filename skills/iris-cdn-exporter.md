@@ -91,7 +91,7 @@ A step that cannot meet its rule reports it. It never hides it.
 | Process models, skills, scripts | this repository (`litlfred/who-iris`) |
 | Release history: BagIt tag files, signature, cursor, checkpoint, run reports | git repository on **Cloudflare Artifacts** |
 | PDF bytes, records, graph partitions | **Cloudflare R2**, named by SHA-256, served by the Cloudflare CDN |
-| DID document (`did.json`) | the CDN domain (open question Q10) |
+| DID document (`did.json`) | already published, outside these processes |
 | Previews of the exported site | GitHub Pages of `litlfred/who-iris` and `WHO/who-iris`, reading from the CDN |
 
 Deployment options and open questions: `docs/iris-cdn-deployment.md`.

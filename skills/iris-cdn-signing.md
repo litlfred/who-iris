@@ -31,8 +31,8 @@ No draft standards are used. A new one needs the owner's explicit approval.
 
 ## What is signed
 
-There is **one signature per release**, over the bytes of
-`tagmanifest-sha256.txt`. That file pins the SHA-256 of every other tag file,
+There is **one release signature**, over the bytes of
+`tagmanifest-sha256.txt`, plus one signature per changed library item (below). That file pins the SHA-256 of every other tag file,
 and `manifest-sha256.txt` pins the SHA-256 of every payload file. Signing the
 tag manifest therefore covers the whole bag.
 
@@ -73,7 +73,7 @@ package:
 
 - `did:web:<cdn-domain>` resolves to `https://<cdn-domain>/.well-known/did.json`,
   and `did:web:<cdn-domain>:iris` resolves to `https://<cdn-domain>/iris/did.json`.
-  The domain is open question Q10. It must be stable, because the DID *is* the
+  The DID is the one that already publishes the subordinate key. It must be stable, because the DID *is* the
   signer's identity.
 - The key must be listed under `assertionMethod`. A retired key stays in
   `verificationMethod` so that old releases still verify, but it is removed
