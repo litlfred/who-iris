@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "9789241549912-eng",
+  "title": "WHO recommendations on antenatal care for a positive pregnancy experience",
   "contains": [
     "library/9789241549912-eng/sections/sec-front-matter",
     "library/9789241549912-eng/sections/sec-000",
@@ -31,7 +31,7 @@
     "library/9789241549912-eng/sections/sec-016"
   ],
   "provenance": "ingested",
-  "inSubgraph": "http://smart.who.int/base/directory/library",
+  "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
   "license": "LicenseRef-WHO-All-Rights-Reserved",
   "licenceRecord": {
     "status": "stated",
@@ -41,7 +41,8 @@
   },
   "meta": {
     "doc_id": "9789241549912-eng",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/9789241549912-eng.dc.json dc.title",
     "source_file": "9789241549912-eng.pdf",
     "source_sha256": "338300b76172d410b91048209305fac53e1166c3be295a18b3f2c0c7c6b54182",
     "pages": 172,
