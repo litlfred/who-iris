@@ -26,7 +26,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "bcab34ecd5d1c2243365313d2d6bb6b72800d2d5",
+          "ref": "cff15f44ab041016d6d038c03d46af161c5f3749",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -42,8 +42,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-10-30",
-              "ref": "bcab34ecd5d1c2243365313d2d6bb6b72800d2d5",
-              "evidence": "litlfred 2026-10-29 12:26Z merge and re-pin window (to ~15:26Z), standing rule 'Merge all ready and then deal with aftermath'; 'Look for CI build failures and fix' (repin who-iris to the layer set folio-assistant pins, fixing dc:render:check) Re-pinned to the layer set folio-assistant pins at 8a63d7e (library page-1 covers, cat-harness#736 + tools#896/#892). Window: litlfred 2026-10-30 11:13Z 'merge and repin window open for 4 horus' (to ~15:13Z)."
+              "ref": "cff15f44ab041016d6d038c03d46af161c5f3749",
+              "evidence": "litlfred 2026-10-30 11:13Z 'merge and repin window open' (extended 16:38Z to ~19:38Z). Re-pin to fa-core main cff15f4, which carries fa-core#257 (BCP 47 language tags for DC records: en_US -> en-US), needed by who-iris#107 option B (move IRIS items in)."
             }
           }
         }
