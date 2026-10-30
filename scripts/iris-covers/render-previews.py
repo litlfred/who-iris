@@ -58,16 +58,20 @@ def guess_masks(pdf):
 def main():
     src, renderer, out = sys.argv[1:4]
     os.makedirs(out, exist_ok=True)
+    fixed = {}
+    mf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "masks.json")
+    if os.path.exists(mf):
+        fixed = json.load(open(mf))["masks"]
     results = []
     for pdf in sorted(glob.glob(os.path.join(src, "*", "*.pdf")) + glob.glob(os.path.join(src, "*", "*.PDF"))):
         slug = os.path.basename(os.path.dirname(pdf))
-        masks = guess_masks(pdf)
+        masks = [tuple(m) for m in fixed[slug]] if slug in fixed else guess_masks(pdf)
         png = os.path.join(out, f"{slug}-cover.png")
         cmd = ["python3", renderer, pdf, "-o", png, "--width", str(WIDTH), "--json"]
         for m in masks:
             cmd += ["--mask", ",".join(map(str, m))]
         r = subprocess.run(cmd, capture_output=True, text=True)
-        row = {"slug": slug, "guessedMasks": masks}
+        row = {"slug": slug, "masks": masks, "maskSource": "masks.json" if slug in fixed else "guessed"}
         if r.returncode == 0:
             facts = json.loads(r.stdout)
             facts["source"] = os.path.relpath(pdf, src)
