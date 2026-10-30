@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# who-2019-ncov-digital-certificates-vaccination-20211-eng
+# Digital documentation of COVID-19 certificates: vaccination status: technical specifications and implementation guidance, 27 August 2021
 
 ingested source material — attributed to its document, not folio content
 

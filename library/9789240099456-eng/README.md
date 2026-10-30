@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Digital adaptation kit for immunizations
+# Digital adaptation kit for immunizations: operational requirements for implementing WHO recommendations in digital systems
 
 ingested source material — attributed to its document, not folio content
 

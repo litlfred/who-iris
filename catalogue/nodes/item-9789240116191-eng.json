@@ -1,9 +1,16 @@
 {
   "$schema": "folio-catalogue-node/v1",
-  "id": "item/isbn:9789240116191",
+  "id": "item/fd2019bb-dd79-4c1f-ac5d-9b5fadf35383",
   "kind": "item",
   "flavour": "item",
   "title": "Digital transformation handbook for health product catalogue",
+  "parents": [
+    [
+      "community/5bff2c18-6c2b-4658-9087-93811d2399c0",
+      "collection/hq-publications"
+    ]
+  ],
+  "handle": "10665/383309",
   "libraryId": "9789240116191-eng",
   "bitstreams": [
     {
@@ -14,6 +21,7 @@
       "materialization": {
         "state": "materialized",
         "provenance": {
+          "upstream": "https://iris.who.int/items/fd2019bb-dd79-4c1f-ac5d-9b5fadf35383",
           "local": "litlfred/folio-assistant:uploads/9789240116191-eng/9789240116191-eng.pdf"
         },
         "localPath": "uploads/9789240116191-eng/9789240116191-eng.pdf",
@@ -58,6 +66,7 @@
   "materialization": {
     "state": "materialized",
     "provenance": {
+      "upstream": "https://iris.who.int/items/fd2019bb-dd79-4c1f-ac5d-9b5fadf35383",
       "local": "uploads/9789240116191-eng/9789240116191-eng.pdf"
     },
     "localPath": "library/9789240116191-eng",
@@ -88,6 +97,7 @@
         "decidedBy": "litlfred"
       }
     },
-    "note": "Moved in on 2026-10-30 from https://github.com/litlfred/smart-base smart-base/library/9789240116191-eng (who-iris#107). IRIS IDENTIFIERS NOT YET RECORDED: this ISBN 9789240116191 publication was ingested from an uploaded PDF, so no DSpace UUID, Handle, collection or Dublin Core record was captured, and iris.who.int is egress-blocked from the cloud sandbox. Keyed by its ISBN until the lookup is done, rather than by an invented UUID."
-  }
+    "note": "Moved in on 2026-10-30 from https://github.com/litlfred/smart-base smart-base/library/9789240116191-eng (who-iris#107). IRIS UUID, Handle and Dublin Core record fetched from https://iris.who.int/handle/10665/383309 on 2026-10-30 (bean folio-assistant-5bkm), with the PDF sha256 verified against the upstream ORIGINAL bitstream."
+  },
+  "metadataRef": "catalogue/records/9789240116191-eng.dc.json"
 }

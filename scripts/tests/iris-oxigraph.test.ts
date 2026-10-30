@@ -102,7 +102,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     const hq = commFacets.find(f => f.value.includes('Headquarters'));
     const wpro = commFacets.find(f => f.value.includes('Western Pacific'));
 
-    expect(hq?.count).toBe(2);
+    expect(hq?.count).toBe(12);
     expect(wpro?.count).toBe(1);
   });
 

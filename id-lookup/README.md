@@ -16,5 +16,6 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `id-lookup`, holding `code`.
 | [`manifest.json`](manifest.json) | data |  |
 | [`collection/`](collection/) | _nothing declares what this holds_ | |
 | [`community/`](community/) | _nothing declares what this holds_ | |
+| [`item/`](item/) | _nothing declares what this holds_ | |
 
 <!-- kg:subgraph:end -->

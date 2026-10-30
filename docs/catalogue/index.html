@@ -53,7 +53,7 @@ catalogue <em>knows</em> — and, more usefully, what it records that it does no
 
 <div class="note">
 <p><strong>The gap is the point, not a backlog.</strong> This instance models
-<strong>60</strong> node(s) against <strong>273,559</strong> items across <strong>1,057,223</strong> files upstream.
+<strong>59</strong> node(s) against <strong>273,559</strong> items across <strong>1,057,223</strong> files upstream.
 Cataloguing by reference means recording that something exists without holding it,
 so a small number here is the design rather than a shortfall.</p>
 </div>
@@ -62,8 +62,8 @@ so a small number here is the design rather than a shortfall.</p>
 
 <table class="kg">
 <tr><th>state</th><th>nodes</th><th>what it means</th></tr>
-<tr><td><span class="state materialized">materialized</span></td><td>18</td><td>the bytes are in this repository</td></tr>
-<tr><td><span class="state referenced">referenced</span></td><td>42</td><td>upstream, not here — a fact, not a gap</td></tr>
+<tr><td><span class="state materialized">materialized</span></td><td>16</td><td>the bytes are in this repository</td></tr>
+<tr><td><span class="state referenced">referenced</span></td><td>43</td><td>upstream, not here — a fact, not a gap</td></tr>
 <tr><td><span class="state unknown">unknown</span></td><td>0</td><td>nobody has looked; never rendered as either of the above</td></tr>
 </table>
 
@@ -87,12 +87,36 @@ said yes, and collapsing the two would turn an open question into a clearance.</
 <p class="ic-filter" id="ic-filter" hidden>
 <label>State <select id="ic-filter-state"><option value="">every state</option><option value="materialized">materialized</option><option value="referenced">referenced</option><option value="unknown">unknown</option></select></label>
 <label>Find <input id="ic-filter-q" type="search" placeholder="title or id" autocomplete="off"></label>
-<span class="dim" role="status"><span id="ic-shown">60</span> of 60 shown</span>
+<span class="dim" role="status"><span id="ic-shown">59</span> of 59 shown</span>
 </p>
 
 <table class="kg" id="ic-node-table">
 <thead><tr><th aria-sort="ascending"><button type="button" class="ic-sort" data-key="rank">state</button></th><th><button type="button" class="ic-sort" data-key="kind">kind</button></th><th><button type="button" class="ic-sort" data-key="node">node</button></th><th><button type="button" class="ic-sort" data-key="held">held as</button></th><th><button type="button" class="ic-sort" data-key="record">record</button></th><th><button type="button" class="ic-sort" data-key="bitstreams">bitstreams</button></th></tr></thead>
 <tbody>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health item/08c17880-005f-41a2-87f0-14f2bc1761bb" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240081949-eng/">Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health</a><br><code class="dim">item/08c17880-005f-41a2-87f0-14f2bc1761bb</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240081949-eng"><code>9789240081949-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240081949-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="the maps toolkit: mhealth assessment and planning for scale item/1469660e-9540-46b6-9401-510f4e4b8a35" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789241509510-eng/">The MAPS Toolkit: mHealth Assessment and Planning for Scale</a><br><code class="dim">item/1469660e-9540-46b6-9401-510f4e4b8a35</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241509510-eng"><code>9789241509510-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241509510-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for reporting substandard and falsified medical products item/187cabc7-3e82-412e-8cbb-1502a9da36ad" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240120747-eng/">Digital transformation handbook for reporting substandard and falsified medical products</a><br><code class="dim">item/187cabc7-3e82-412e-8cbb-1502a9da36ad</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240120747-eng"><code>9789240120747-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240120747-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="publication and information products style guide item/18892cf3-5a4f-42a4-923c-a93f4a594dec" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
@@ -101,6 +125,22 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital implementation investment guide (diig): integrating digital interventions into health programmes item/1dc5ea7b-7de5-4814-876c-1ee302538f84" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240010567-eng/">Digital implementation investment guide (DIIG): integrating digital interventions into health programmes</a><br><code class="dim">item/1dc5ea7b-7de5-4814-876c-1ee302538f84</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240010567-eng"><code>9789240010567-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240010567-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for primary health care item/32a98265-3e71-42fa-afdc-e7f62cc2622c" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240093362-eng/">Digital transformation handbook for primary health care</a><br><code class="dim">item/32a98265-3e71-42fa-afdc-e7f62cc2622c</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240093362-eng"><code>9789240093362-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240093362-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital adaptation kit for immunizations: operational requirements for implementing who recommendations in digital systems item/50d01818-0fa6-43d4-a39e-5bfae735c547" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
@@ -108,6 +148,14 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240099456-eng"><code>9789240099456-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240099456-eng/README.md">item page</a></td>
   <td>yes</td>
   <td>2</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="monitoring and evaluating digital health interventions: a practical guide to conducting research and assessment item/53de8b1c-5a9a-40b7-8a48-9d1717de4cb7" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789241511766-eng/">Monitoring and Evaluating Digital Health Interventions: A practical guide to conducting research and assessment</a><br><code class="dim">item/53de8b1c-5a9a-40b7-8a48-9d1717de4cb7</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241511766-eng"><code>9789241511766-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241511766-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
 </tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="leave no one behind: guidance for planning and implementing catch-up vaccination item/58333fc5-9ec5-4d14-b341-5ae257dd0ad1" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
@@ -133,13 +181,21 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="who recommendations on antenatal care for a positive pregnancy experience item/9a90617b-f771-4d4d-a538-a51f87c51685" data-held="1" data-record="1" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital health interventions v1.0 item/98c528f1-48f0-4803-9a11-c83cd2e52c17" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/who-rhr-1806-eng/">Classification of Digital Health Interventions v1.0</a><br><code class="dim">item/98c528f1-48f0-4803-9a11-c83cd2e52c17</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2Fwho-rhr-1806-eng"><code>who-rhr-1806-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/who-rhr-1806-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="who recommendations on antenatal care for a positive pregnancy experience item/9a90617b-f771-4d4d-a538-a51f87c51685" data-held="1" data-record="1" data-bitstreams="3">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
   <td><a href="../../en/cat-harness/library/who-iris/9789241549912-eng/">WHO recommendations on antenatal care for a positive pregnancy experience</a><br><code class="dim">item/9a90617b-f771-4d4d-a538-a51f87c51685</code></td>
   <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241549912-eng"><code>9789241549912-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241549912-eng/README.md">item page</a></td>
   <td>yes</td>
-  <td>1</td>
+  <td>3</td>
 </tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="who editorial style manual item/b08c6c19-315a-41a4-a9cb-8edabdbc6791" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
@@ -149,93 +205,29 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital health interventions v1.0 item/govdoc:who-rhr-18.06" data-held="1" data-record="0" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health supply chain architecture item/ceaeb260-196c-4589-9b19-f3ec436819e6" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/who-rhr-1806-eng/">Classification of Digital Health Interventions v1.0</a><br><code class="dim">item/govdoc:WHO-RHR-18.06</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2Fwho-rhr-1806-eng"><code>who-rhr-1806-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/who-rhr-1806-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital implementation investment guide (diig): integrating digital interventions into health programmes item/isbn:9789240010567" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789240010567-eng/">Digital implementation investment guide (DIIG): integrating digital interventions into health programmes</a><br><code class="dim">item/isbn:9789240010567</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240010567-eng"><code>9789240010567-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240010567-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health item/isbn:9789240081949" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789240081949-eng/">Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health</a><br><code class="dim">item/isbn:9789240081949</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240081949-eng"><code>9789240081949-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240081949-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for primary health care item/isbn:9789240093362" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789240093362-eng/">Digital transformation handbook for primary health care</a><br><code class="dim">item/isbn:9789240093362</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240093362-eng"><code>9789240093362-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240093362-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health supply chain architecture item/isbn:9789240101197" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789240101197-eng/">Digital transformation handbook for health supply chain architecture</a><br><code class="dim">item/isbn:9789240101197</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240101197-eng/">Digital transformation handbook for health supply chain architecture</a><br><code class="dim">item/ceaeb260-196c-4589-9b19-f3ec436819e6</code></td>
   <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240101197-eng"><code>9789240101197-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240101197-eng/README.md">item page</a></td>
-  <td>—</td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health product catalogue item/isbn:9789240116191" data-held="1" data-record="0" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health product catalogue item/fd2019bb-dd79-4c1f-ac5d-9b5fadf35383" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789240116191-eng/">Digital transformation handbook for health product catalogue</a><br><code class="dim">item/isbn:9789240116191</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240116191-eng/">Digital transformation handbook for health product catalogue</a><br><code class="dim">item/fd2019bb-dd79-4c1f-ac5d-9b5fadf35383</code></td>
   <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240116191-eng"><code>9789240116191-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240116191-eng/README.md">item page</a></td>
-  <td>—</td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for reporting substandard and falsified medical products item/isbn:9789240120747" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789240120747-eng/">Digital transformation handbook for reporting substandard and falsified medical products</a><br><code class="dim">item/isbn:9789240120747</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240120747-eng"><code>9789240120747-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240120747-eng/README.md">item page</a></td>
+<tr data-state="referenced" data-rank="1" data-kind="collection" data-node="technical documents collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266" data-held="0" data-record="0" data-bitstreams="0">
+  <td><span class="state referenced">referenced</span></td>
+  <td><code>collection</code></td>
+  <td>Technical Documents<br><code class="dim">collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266</code></td>
   <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="the maps toolkit: mhealth assessment and planning for scale item/isbn:9789241509510" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789241509510-eng/">The MAPS Toolkit: mHealth Assessment and Planning for Scale</a><br><code class="dim">item/isbn:9789241509510</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241509510-eng"><code>9789241509510-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241509510-eng/README.md">item page</a></td>
   <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="monitoring and evaluating digital health interventions: a practical guide to conducting research and assessment item/isbn:9789241511766" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789241511766-eng/">Monitoring and Evaluating Digital Health Interventions: A practical guide to conducting research and assessment</a><br><code class="dim">item/isbn:9789241511766</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241511766-eng"><code>9789241511766-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241511766-eng/README.md">item page</a></td>
   <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="who recommendations on antenatal care for a positive pregnancy experience: web annexes item/isbn:9789241549912:webannexes" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789241549912-webannexes-eng/">WHO recommendations on antenatal care for a positive pregnancy experience: web annexes</a><br><code class="dim">item/isbn:9789241549912:webannexes</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241549912-webannexes-eng"><code>9789241549912-webannexes-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241549912-webannexes-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="web supplement who recommendations on antenatal care for a positive pregnancy experience: evidence base item/isbn:9789241549912:websupplement" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/9789241549912-websupplement-eng/">Web supplement WHO recommendations on antenatal care for a positive pregnancy experience: evidence base</a><br><code class="dim">item/isbn:9789241549912:websupplement</code></td>
-  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241549912-websupplement-eng"><code>9789241549912-websupplement-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241549912-websupplement-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="collection" data-node="publications collection/hq-publications" data-held="0" data-record="0" data-bitstreams="0">
   <td><span class="state referenced">referenced</span></td>

@@ -13,22 +13,25 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-uploads`, holding 
 
 | file | what it is | used by |
 |---|---|---|
-| [`9789241548960-eng/`](9789241548960-eng/) | _nothing declares what this holds_ | |
-| [`iris-home/`](iris-home/) | _nothing declares what this holds_ | |
-| [`who-pub-tps-931/`](who-pub-tps-931/) | _nothing declares what this holds_ | |
-| [`wpr-rdo-2020-003-eng/`](wpr-rdo-2020-003-eng/) | _nothing declares what this holds_ | |
+| [`9789240010567-eng/`](9789240010567-eng/) | _nothing declares what this holds_ | |
 | [`9789240016514-eng/`](9789240016514-eng/) | _nothing declares what this holds_ | |
 | [`9789240031593-eng/`](9789240031593-eng/) | _nothing declares what this holds_ | |
+| [`9789240081949-eng/`](9789240081949-eng/) | _nothing declares what this holds_ | |
 | [`9789240085138-eng/`](9789240085138-eng/) | _nothing declares what this holds_ | |
 | [`9789240093362-eng/`](9789240093362-eng/) | _nothing declares what this holds_ | |
 | [`9789240099456-eng/`](9789240099456-eng/) | _nothing declares what this holds_ | |
 | [`9789240101197-eng/`](9789240101197-eng/) | _nothing declares what this holds_ | |
 | [`9789240116191-eng/`](9789240116191-eng/) | _nothing declares what this holds_ | |
+| [`9789240120747-eng/`](9789240120747-eng/) | _nothing declares what this holds_ | |
 | [`9789240124233-eng/`](9789240124233-eng/) | _nothing declares what this holds_ | |
+| [`9789241509510-eng/`](9789241509510-eng/) | _nothing declares what this holds_ | |
+| [`9789241511766-eng/`](9789241511766-eng/) | _nothing declares what this holds_ | |
 | [`9789241515610-eng/`](9789241515610-eng/) | _nothing declares what this holds_ | |
+| [`9789241548960-eng/`](9789241548960-eng/) | _nothing declares what this holds_ | |
 | [`9789241549684_eng/`](9789241549684_eng/) | _nothing declares what this holds_ | |
 | [`9789241549912-eng/`](9789241549912-eng/) | _nothing declares what this holds_ | |
 | [`9789241550581-eng/`](9789241550581-eng/) | _nothing declares what this holds_ | |
+| [`iris-home/`](iris-home/) | _nothing declares what this holds_ | |
 | [`WER8207_51-60/`](WER8207_51-60/) | _nothing declares what this holds_ | |
 | [`WER8624_241-256/`](WER8624_241-256/) | _nothing declares what this holds_ | |
 | [`WER8647_521-539/`](WER8647_521-539/) | _nothing declares what this holds_ | |
@@ -56,5 +59,8 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-uploads`, holding 
 | [`WER9740-493-512-eng-fre/`](WER9740-493-512-eng-fre/) | _nothing declares what this holds_ | |
 | [`WER9750-645-672-eng-fre/`](WER9750-645-672-eng-fre/) | _nothing declares what this holds_ | |
 | [`WHO-2019-nCoV-Digital-certificates-vaccination-2021.1-eng/`](WHO-2019-nCoV-Digital-certificates-vaccination-2021.1-eng/) | _nothing declares what this holds_ | |
+| [`who-pub-tps-931/`](who-pub-tps-931/) | _nothing declares what this holds_ | |
+| [`who-rhr-1806-eng/`](who-rhr-1806-eng/) | _nothing declares what this holds_ | |
+| [`wpr-rdo-2020-003-eng/`](wpr-rdo-2020-003-eng/) | _nothing declares what this holds_ | |
 
 <!-- kg:subgraph:end -->
