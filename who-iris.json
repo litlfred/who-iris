@@ -260,8 +260,8 @@
       }
     }
   ],
+  "_icon_removed_comment": "REMOVED AGAIN 2026-10-30. Owner: *\"who eblmen should not be displayed on litlfred/. (when it is displayed on published WHO repo it looks bad)\"* and *\"(looks bad in dark mode)\"*. So `icon` no longer points at the emblem and the navbar and tiles draw the open-book glyph in WHO blue from `_avatar`. The image stays declared under `images`, so restoring it is one field. WHO's own copy of this repository is not changed from here.",
   "_icon_restored_comment": "RESTORED 2026-10-04 (bean `2vpn`). Owner, 2026-09-23: *\"no logo on who-iris icon (for now). just WHO blue\"* removed this pointer; on 2026-10-04, asked what who-iris's top navbar mark should be after it showed the letter \"W\" on every page, the owner chose BOTH the one-resolver fix and *\"restore WHO emblem\"*. So `icon` points at the emblem again, cropped by its declared `avatarRegion`, and the `who-iris` entry in `schemas/avatars.ts` (the open book in WHO blue, hue 199) stays as the mark's FALLBACK — `harness-tiles.ts` resolves a theme card avatar first (who-iris has none: IRIS imagery is somebody else's artefact), then this icon, then that glyph.",
-  "icon": "who-emblem",
   "taskIo": {
     "iris:covers:check": {
       "outputs": [],
