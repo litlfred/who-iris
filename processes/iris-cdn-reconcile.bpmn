@@ -21,7 +21,7 @@
                   xmlns:bootstrap.processes="https://litlfred.github.io/bootstrap/v0/processes/ns#"
                   xmlns:cat-harness.processes="https://litlfred.github.io/cat-harness/v0/processes/ns#"
                   id="Definitions_IrisCdnReconcile"
-                  targetNamespace="https://litlfred.github.io/who-iris/processes">
+                  targetNamespace="https://litlfred.github.io/folio-assistant/workflows">
   <bpmn:import namespace="https://litlfred.github.io/bootstrap/v0/processes/ns#" location="https://litlfred.github.io/bootstrap/v0/processes/ns.jsonld" importType="http://www.w3.org/ns/json-ld"/>
   <bpmn:resource id="build-pipeline" name="Build pipeline"/>
   <bpmn:resource id="iris-cdn-exporter" name="IRIS CDN Exporter"/>
@@ -62,9 +62,12 @@
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:endEvent id="End_Refused" name="Nothing marked"/>
-    <bpmn:task id="Task_Recheck" name="Re-check each&#10;missing item by id"/>
+    <bpmn:task id="Task_Recheck" name="Re-check each&#10;missing item by id">
+      <bpmn:extensionElements><bootstrap.processes:skill ref="iris-rest-feed"/></bpmn:extensionElements>
+    </bpmn:task>
     <bpmn:task id="Task_MarkWithdrawn" name="Mark confirmed items&#10;withdrawn (keep bytes)">
       <bpmn:documentation>The record gets a withdrawn state; its bitstreams stay addressable, because a citation to them may exist.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="iris-rest-feed"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:callActivity id="Call_Rebuild" name="Rebuild the whole&#10;graph (sorted output)" calledElement="Process_NQuadsDistribution">
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-oxigraph"/><bootstrap.processes:skill ref="nquads-distribution"/></bpmn:extensionElements>

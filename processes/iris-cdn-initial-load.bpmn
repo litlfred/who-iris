@@ -21,17 +21,17 @@
                   xmlns:bootstrap.processes="https://litlfred.github.io/bootstrap/v0/processes/ns#"
                   xmlns:cat-harness.processes="https://litlfred.github.io/cat-harness/v0/processes/ns#"
                   id="Definitions_IrisCdnInitialLoad"
-                  targetNamespace="https://litlfred.github.io/who-iris/processes">
+                  targetNamespace="https://litlfred.github.io/folio-assistant/workflows">
   <bpmn:import namespace="https://litlfred.github.io/bootstrap/v0/processes/ns#" location="https://litlfred.github.io/bootstrap/v0/processes/ns.jsonld" importType="http://www.w3.org/ns/json-ld"/>
-  <bpmn:resource id="owner" name="Owner"/>
+  <bpmn:resource id="iris-cdn-owner" name="Owner"/>
   <bpmn:resource id="iris-cdn-exporter" name="IRIS CDN Exporter"/>
   <bpmn:resource id="build-pipeline" name="Build pipeline"/>
   <bpmn:resource id="cloudflare-r2-cdn" name="Cloudflare R2 and CDN"/>
   <bpmn:resource id="cloudflare-git" name="Cloudflare git (Artifacts)"/>
   <bpmn:process id="Process_IrisCdnInitialLoad" name="IRIS CDN initial load" isExecutable="false">
-    <bpmn:documentation>The first full export of WHO IRIS onto Cloudflare (git on Artifacts, bytes in R2): every item record, and every bitstream (owner, 2026-10-30: metadata plus PDFs). Run in batches with a checkpoint, so a run that stops resumes where it stopped and never re-fetches what it already holds. Ends in one signed, verified release.</bpmn:documentation>
+    <bpmn:documentation>The first full export of WHO IRIS onto Cloudflare (git on Artifacts, bytes in R2): every item record and every bitstream: metadata plus PDFs. Run in batches with a checkpoint, so a run that stops resumes where it stopped and never re-fetches what it already holds. Ends in one signed, verified release.</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_IrisCdnInitialLoad">
-      <bpmn:lane id="Lane_Owner" name="Owner" partitionElementRef="owner">
+      <bpmn:lane id="Lane_Owner" name="Owner" partitionElementRef="iris-cdn-owner">
         <bpmn:documentation>A person: decides scope, budget and the storage target. Nothing downstream widens what the owner approved.</bpmn:documentation>
         <bpmn:flowNodeRef>Start_LoadApproved</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_StateBudget</bpmn:flowNodeRef>
@@ -86,9 +86,11 @@
     </bpmn:task>
     <bpmn:task id="Task_Checkpoint" name="Commit the batch&#10;checkpoint">
       <bpmn:documentation>state/initial-load.json in the Cloudflare git repository. A restarted load reads it and skips finished batches.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="Task_Quarantine" name="Quarantine and report&#10;the mismatch">
       <bpmn:documentation>Not published, not retried silently. The record keeps its reference to IRIS and the bitstream is marked unknown.</bpmn:documentation>
+      <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:exclusiveGateway id="GW_More" name="More batches?"/>
     <bpmn:callActivity id="Call_BuildGraph" name="Build the graph&#10;partitions" calledElement="Process_NQuadsDistribution">

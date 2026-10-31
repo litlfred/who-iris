@@ -21,7 +21,7 @@
                   xmlns:bootstrap.processes="https://litlfred.github.io/bootstrap/v0/processes/ns#"
                   xmlns:cat-harness.processes="https://litlfred.github.io/cat-harness/v0/processes/ns#"
                   id="Definitions_IrisCdnSignPublish"
-                  targetNamespace="https://litlfred.github.io/who-iris/processes">
+                  targetNamespace="https://litlfred.github.io/folio-assistant/workflows">
   <bpmn:import namespace="https://litlfred.github.io/bootstrap/v0/processes/ns#" location="https://litlfred.github.io/bootstrap/v0/processes/ns.jsonld" importType="http://www.w3.org/ns/json-ld"/>
   <bpmn:resource id="build-pipeline" name="Build pipeline"/>
   <bpmn:resource id="release-signer" name="Release signer"/>
@@ -93,7 +93,9 @@
     </bpmn:task>
     <bpmn:exclusiveGateway id="GW_Verified" name="Verified?"/>
     <bpmn:endEvent id="End_Published" name="Release published&#10;and verified"/>
-    <bpmn:task id="Task_Revert" name="Revert to the&#10;previous release"/>
+    <bpmn:task id="Task_Revert" name="Revert to the&#10;previous release">
+      <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-signing"/></bpmn:extensionElements>
+    </bpmn:task>
     <bpmn:endEvent id="End_Failed" name="Failed; previous&#10;release still served"/>
     <bpmn:sequenceFlow id="P1" sourceRef="Start_Candidate" targetRef="Task_BuildBag"/>
     <bpmn:sequenceFlow id="P2" sourceRef="Task_BuildBag" targetRef="Task_Diff"/>
