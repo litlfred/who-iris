@@ -53,7 +53,7 @@ catalogue <em>knows</em> — and, more usefully, what it records that it does no
 
 <div class="note">
 <p><strong>The gap is the point, not a backlog.</strong> This instance models
-<strong>59</strong> node(s) against <strong>273,559</strong> items across <strong>1,057,223</strong> files upstream.
+<strong>67</strong> node(s) against <strong>273,559</strong> items across <strong>1,057,223</strong> files upstream.
 Cataloguing by reference means recording that something exists without holding it,
 so a small number here is the design rather than a shortfall.</p>
 </div>
@@ -62,12 +62,12 @@ so a small number here is the design rather than a shortfall.</p>
 
 <table class="kg">
 <tr><th>state</th><th>nodes</th><th>what it means</th></tr>
-<tr><td><span class="state materialized">materialized</span></td><td>16</td><td>the bytes are in this repository</td></tr>
-<tr><td><span class="state referenced">referenced</span></td><td>43</td><td>upstream, not here — a fact, not a gap</td></tr>
+<tr><td><span class="state materialized">materialized</span></td><td>22</td><td>the bytes are in this repository</td></tr>
+<tr><td><span class="state referenced">referenced</span></td><td>45</td><td>upstream, not here — a fact, not a gap</td></tr>
 <tr><td><span class="state unknown">unknown</span></td><td>0</td><td>nobody has looked; never rendered as either of the above</td></tr>
 </table>
 
-<h2 id="ic-gates">What the gates say about the 61 held bitstream(s)</h2>
+<h2 id="ic-gates">What the gates say about the 67 held bitstream(s)</h2>
 
 <p><strong>Not everything permitted is everything known.</strong> <code>sourceLoss</code> is unknown on 11 of them. A gate that returned <em>unknown</em> is a question
 nobody has answered — which is a different state from a gate that was asked and
@@ -75,11 +75,11 @@ said yes, and collapsing the two would turn an open question into a clearance.</
 
 <table class="kg">
 <tr><th>gate</th><th>verdicts</th></tr>
-<tr><td><code>copyright</code></td><td><span class="state materialized">permitted: 17 of 17</span></td></tr>
-<tr><td><code>restrictions</code></td><td><span class="state materialized">permitted: 17 of 17</span></td></tr>
-<tr><td><code>retention</code></td><td><span class="state materialized">permitted: 17 of 17</span></td></tr>
-<tr><td><code>size</code></td><td><span class="state materialized">permitted: 17 of 17</span></td></tr>
-<tr><td><code>sourceLoss</code></td><td><span class="state materialized">permitted: 6 of 17</span> <span class="state unknown">unknown: 11 of 17</span></td></tr>
+<tr><td><code>copyright</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>restrictions</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>retention</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>size</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>sourceLoss</code></td><td><span class="state materialized">permitted: 12 of 23</span> <span class="state unknown">unknown: 11 of 23</span></td></tr>
 </table>
 
 <h2 id="ic-nodes">Every node</h2>
@@ -87,7 +87,7 @@ said yes, and collapsing the two would turn an open question into a clearance.</
 <p class="ic-filter" id="ic-filter" hidden>
 <label>State <select id="ic-filter-state"><option value="">every state</option><option value="materialized">materialized</option><option value="referenced">referenced</option><option value="unknown">unknown</option></select></label>
 <label>Find <input id="ic-filter-q" type="search" placeholder="title or id" autocomplete="off"></label>
-<span class="dim" role="status"><span id="ic-shown">59</span> of 59 shown</span>
+<span class="dim" role="status"><span id="ic-shown">67</span> of 67 shown</span>
 </p>
 
 <table class="kg" id="ic-node-table">
@@ -173,6 +173,14 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="understanding national health workforce accounts item/81b0f40b-5dbc-491d-a2ac-b63c7f3f9f27" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/who-his-hwf-nhwa-20171-eng/">Understanding national health workforce accounts</a><br><code class="dim">item/81b0f40b-5dbc-491d-a2ac-b63c7f3f9f27</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2Fwho-his-hwf-nhwa-20171-eng"><code>who-his-hwf-nhwa-20171-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/who-his-hwf-nhwa-20171-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital documentation of covid-19 certificates: vaccination status: technical specifications and implementation guidance, 27 august 2021 item/96b90d2c-5e33-404d-b7a5-5601bac140bc" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
@@ -197,6 +205,14 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>3</td>
 </tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health accounts item/9de774be-825d-4d81-8518-f87a64b58ea0" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/b0426/">National health accounts</a><br><code class="dim">item/9de774be-825d-4d81-8518-f87a64b58ea0</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2Fb0426"><code>b0426</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/b0426/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="who editorial style manual item/b08c6c19-315a-41a4-a9cb-8edabdbc6791" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
@@ -205,11 +221,43 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: health workforce levels and trends 2026 item/bb4009bc-943c-4116-88e3-fe4f6cf1a400" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240122925-eng/">National health workforce accounts: health workforce levels and trends 2026</a><br><code class="dim">item/bb4009bc-943c-4116-88e3-fe4f6cf1a400</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240122925-eng"><code>9789240122925-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240122925-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: a handbook item/c8db7b21-da29-4432-a6d7-61ffe3b2c1c1" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789241513111-eng/">National health workforce accounts: a handbook</a><br><code class="dim">item/c8db7b21-da29-4432-a6d7-61ffe3b2c1c1</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241513111-eng"><code>9789241513111-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241513111-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: a handbook item/c9312a35-1eeb-46be-8482-a5fd2a94ddb9" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789240081291-eng/">National health workforce accounts: a handbook</a><br><code class="dim">item/c9312a35-1eeb-46be-8482-a5fd2a94ddb9</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240081291-eng"><code>9789240081291-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240081291-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health supply chain architecture item/ceaeb260-196c-4589-9b19-f3ec436819e6" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
   <td><a href="../../en/cat-harness/library/who-iris/9789240101197-eng/">Digital transformation handbook for health supply chain architecture</a><br><code class="dim">item/ceaeb260-196c-4589-9b19-f3ec436819e6</code></td>
   <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240101197-eng"><code>9789240101197-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240101197-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: implementation guide item/dc583bce-4e95-4e27-9b2e-7b98bbe8a144" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/9789241514446-eng/">National health workforce accounts: implementation guide</a><br><code class="dim">item/dc583bce-4e95-4e27-9b2e-7b98bbe8a144</code></td>
+  <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789241514446-eng"><code>9789241514446-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241514446-eng/README.md">item page</a></td>
   <td>yes</td>
   <td>1</td>
 </tr>
@@ -220,6 +268,14 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td><a href="../../en/cat-harness/library/who-iris/#who-iris%2F9789240116191-eng"><code>9789240116191-eng</code></a> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240116191-eng/README.md">item page</a></td>
   <td>yes</td>
   <td>1</td>
+</tr>
+<tr data-state="referenced" data-rank="1" data-kind="collection" data-node="technical documents collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6" data-held="0" data-record="0" data-bitstreams="0">
+  <td><span class="state referenced">referenced</span></td>
+  <td><code>collection</code></td>
+  <td>Technical Documents<br><code class="dim">collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6</code></td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="collection" data-node="technical documents collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266" data-held="0" data-record="0" data-bitstreams="0">
   <td><span class="state referenced">referenced</span></td>
@@ -281,6 +337,14 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td><span class="state referenced">referenced</span></td>
   <td><code>community</code></td>
   <td>2. Regional Office for Africa<br><code class="dim">community/e1b206b7-fd4c-4b93-972a-be07850a1cdd</code></td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
+<tr data-state="referenced" data-rank="1" data-kind="community" data-node="regional publications community/e938c08b-fbea-47ba-bcf4-7eebe173697d" data-held="0" data-record="0" data-bitstreams="0">
+  <td><span class="state referenced">referenced</span></td>
+  <td><code>community</code></td>
+  <td>Regional Publications<br><code class="dim">community/e938c08b-fbea-47ba-bcf4-7eebe173697d</code></td>
   <td>—</td>
   <td>—</td>
   <td>—</td>
