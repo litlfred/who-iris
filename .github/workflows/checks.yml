@@ -50,7 +50,7 @@ jobs:
           bun "$work/scripts/mount-from-lock.ts" --root .
 
       - name: Install
-        run: bun install
+        run: bun install --frozen-lockfile
 
       - name: Catalogue validates
         run: bun run check:catalogue
