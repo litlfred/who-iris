@@ -16,28 +16,35 @@ feed with deletions, so this skill pairs a nightly walk with a weekly
 reconciliation. The code is `scripts/iris-cdn/rest-feed.ts`, and its tests run
 on fixtures in `scripts/tests/iris-cdn.test.ts`.
 
-> **Not yet checked against the live API.** iris.who.int is not reachable from
-> the sandbox where this was written. The endpoint shapes come from the DSpace 7
-> REST contract (github.com/DSpace/RestContract). The first nightly run on a
-> runner that can reach IRIS must confirm them. Until then, treat each shape as
-> an assumption.
+> **Confirmed against live `https://iris.who.int/server/api` (2026-10-31, #104).**
+> `GET /server/api/discover/search` on live IRIS exposes only five `sortOptions`
+> (`score`, `dc.title`, `dc.date.issued`, `dc.date.accessioned`,
+> `dc.date.available`); `sort=lastModified,DESC` returns HTTP 422
+> (`Unprocessable Entity: Invalid search request`). Instead, `changedSince`
+> queries `query=lastModified:[<UTC-ISO-Z> TO *]&sort=dc.date.accessioned,DESC`
+> with the cursor normalised to a `Z`-suffixed UTC timestamp (`+00:00` in a Solr
+> range query returns `totalElements: 0` on live IRIS).
 
 ## Endpoints
 
 | Use | Request |
 |---|---|
-| Changed items, newest first | `GET /server/api/discover/search/objects?dsoType=ITEM&sort=lastModified,DESC&page=N&size=100` |
-| One item with its files | `GET /server/api/core/items/{uuid}?embed=bundles/bitstreams` |
+| Changed items since cursor | `GET /server/api/discover/search/objects?dsoType=ITEM&query=lastModified:[{isoZ} TO *]&sort=dc.date.accessioned,DESC&page=N&size=100` |
+| Weekly full item listing | `GET /server/api/discover/search/objects?dsoType=ITEM&sort=dc.date.accessioned,DESC&page=N&size=100` |
+| Collection-scoped batch (initial load) | `GET /server/api/discover/search/objects?dsoType=ITEM&scope={collectionUuid}&sort=dc.date.accessioned,DESC&page=N&size=100` |
+| Communities / collections with parent | `GET /server/api/core/{communities|collections}?page=N&size=100&embed=parentCommunity` |
+| One item with its files and collection | `GET /server/api/core/items/{uuid}?embed=bundles/bitstreams&embed=owningCollection` |
+| Bundle bitstreams beyond page 0 | `GET /server/api/core/bundles/{bundleUuid}/bitstreams?page=N&size=100` |
 | A file's bytes | `GET /server/api/core/bitstreams/{uuid}/content` |
 
 ## Nightly: `changedSince(cursor)`
 
-1. Page through Discovery sorted by `lastModified`, newest first.
-2. Stop at the first item older than the cursor. No Solr range query is
-   needed, so nothing depends on query syntax.
-3. The cursor second is **inclusive**. An item modified in that second is read
-   again, not missed. Reading an unchanged item writes the same bytes, so this
-   costs nothing.
+1. Normalise `cursor` to UTC `Z` (`new Date(Date.parse(cursor)).toISOString()`)
+   and query Discovery with `query=lastModified:[<isoZ> TO *]&sort=dc.date.accessioned,DESC`.
+2. Page through the matching result set.
+3. The cursor millisecond/second is **inclusive**. An item modified at that
+   instant is read again, not missed. Reading an unchanged item writes the same
+   bytes, so this costs nothing.
 4. Return the items oldest first, de-duplicated by UUID.
 
 The cursor is the `lastModified` of the newest item in the last **verified**
