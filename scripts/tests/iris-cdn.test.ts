@@ -224,6 +224,47 @@ describe("x5c trust chain up to WHO's key", () => {
   });
 });
 
+describe("verification refuses what the release cannot prove", () => {
+  test("with a trust anchor, a key with no x5c chain fails", async () => {
+    const anchor = await generateKeyPair();
+    const k = await generateKeyPair();
+    const did = "did:web:example.net";
+    const doc = didDocument(did, [{ fragment: "k", jwk: k.publicJwk, active: true }]);
+    const jws = await signDetached("payload", k.privateKey, `${did}#k`);
+    expect(await verifyDetached("payload", jws, doc, { anchors: [anchor.publicJwk] })).toMatchObject({ state: "failed", reason: expect.stringContaining("no certificate chain") });
+  });
+
+  test("a kid outside the expected DID fails", async () => {
+    const k = await generateKeyPair();
+    const did = "did:web:example.net";
+    const doc = didDocument(did, [{ fragment: "k", jwk: k.publicJwk, active: true }]);
+    const jws = await signDetached("payload", k.privateKey, `${did}#k`);
+    expect(await verifyDetached("payload", jws, doc, { expectDid: "did:web:example.org" })).toMatchObject({ state: "failed", reason: expect.stringContaining("expected DID") });
+    expect(await verifyDetached("payload", jws, doc, { expectDid: did })).toMatchObject({ state: "verified" });
+  });
+
+  test("did:web with a host or path that is not plain is refused", () => {
+    expect(() => didWebUrl("did:web:a.org%2Fb")).toThrow(/host/);
+    expect(() => didWebUrl("did:web:user%40a.org")).toThrow(/host/);
+    expect(() => didWebUrl("did:web:a.org:..")).toThrow(/segment/);
+    expect(() => didWebUrl("did:web:a.org:x%2Fy")).toThrow(/segment/);
+  });
+});
+
+describe("IRIS values used as path segments are refused, never repaired", () => {
+  test("handles, uuids and segments", async () => {
+    const { handleProblem, itemKey, segmentProblem, uuidProblem } = await import("../iris-cdn/run.ts");
+    expect(handleProblem("10665/123")).toBeNull();
+    for (const h of ["10665/1/x", "../1", "10665/1\n", "", 7]) expect(handleProblem(h)).not.toBeNull();
+    expect(uuidProblem("0f1e2d3c-4b5a-6978-8a9b-0c1d2e3f4a5b")).toBeNull();
+    expect(uuidProblem("x/../y")).not.toBeNull();
+    expect(segmentProblem("report.pdf")).toBeNull();
+    for (const n of ["", ".", "..", "a/b", "a\\b", "a\nb", null]) expect(segmentProblem(n)).not.toBeNull();
+    expect(itemKey(undefined, "0f1e2d3c-4b5a-6978-8a9b-0c1d2e3f4a5b")).toBe("uuid/0f1e2d3c-4b5a-6978-8a9b-0c1d2e3f4a5b");
+    expect(() => itemKey("10665/1/../2", "u")).toThrow(/handle/);
+  });
+});
+
 describe("per-item manifests (Q4 A)", () => {
   test("an item's manifest holds its record and files only, and is stable", async () => {
     const { itemManifest, itemManifestPath } = await import("../iris-cdn/bag.ts");

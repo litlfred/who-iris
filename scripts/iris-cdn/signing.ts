@@ -71,6 +71,12 @@ export function didWebUrl(did: string): string {
   if (!m) throw new Error(`not a did:web DID: ${did}`);
   const [host, ...path] = m[1].split(":").map(decodeURIComponent);
   if (!host) throw new Error(`did:web has no host: ${did}`);
+  // Refused, never repaired: a decoded host is a DNS name with an optional
+  // port, and each path part is one plain segment.
+  if (!/^[A-Za-z0-9](?:[A-Za-z0-9.-]*[A-Za-z0-9])?(?::[0-9]{1,5})?$/.test(host)) throw new Error(`did:web host is not a host name: ${did}`);
+  for (const seg of path) {
+    if (!/^[A-Za-z0-9._~-]+$/.test(seg) || seg === "." || seg === "..") throw new Error(`did:web path segment is not plain: ${did}`);
+  }
   return path.length === 0 ? `https://${host}/.well-known/did.json` : `https://${host}/${path.join("/")}/did.json`;
 }
 
@@ -189,10 +195,11 @@ export type Verdict =
  * (already resolved by the caller from `didWebUrl`, so this stays offline and
  * testable). The key must be listed under `assertionMethod` when the
  * document has one. With `anchors`, an `x5c` chain on the key (or in the
- * header) must end at one of them; without, the chain is reported
- * `not-checked`, never `verified`.
+ * header) must end at one of them, and a key with no `x5c` fails; without
+ * anchors, a chain is reported `not-checked`, never `verified`. With
+ * `expectDid`, a `kid` outside that DID fails.
  */
-export async function verifyDetached(payload: string, jws: string, doc: DidDocument | null, opts: { anchors?: PublicJwk[]; at?: Date } = {}): Promise<Verdict> {
+export async function verifyDetached(payload: string, jws: string, doc: DidDocument | null, opts: { anchors?: PublicJwk[]; at?: Date; expectDid?: string } = {}): Promise<Verdict> {
   const parts = jws.split(".");
   if (parts.length !== 3 || parts[1] !== "") return { state: "failed", reason: "not a detached compact JWS" };
   let header: { alg?: string; kid?: string; crit?: unknown; x5c?: string[] };
@@ -205,6 +212,7 @@ export async function verifyDetached(payload: string, jws: string, doc: DidDocum
   if (header.crit !== undefined) return { state: "failed", reason: "crit header not supported" };
   const kid = header.kid;
   if (!kid) return { state: "failed", reason: "no kid" };
+  if (opts.expectDid !== undefined && !kid.startsWith(`${opts.expectDid}#`)) return { state: "failed", reason: `kid ${kid} is not a key of the expected DID ${opts.expectDid}` };
   if (!doc) return { state: "unknown", reason: `DID document for ${kid} not available` };
   if (!kid.startsWith(`${doc.id}#`)) return { state: "failed", reason: `kid ${kid} is not a key of ${doc.id}` };
   if (doc.assertionMethod && !doc.assertionMethod.includes(kid)) return { state: "failed", reason: `${kid} is not an assertionMethod` };
@@ -218,6 +226,8 @@ export async function verifyDetached(payload: string, jws: string, doc: DidDocum
 
   const x5c = vm.publicKeyJwk.x5c ?? header.x5c;
   let chain: ChainState = "absent";
+  // With anchors, a key must prove its chain: no x5c is a refusal, not a pass.
+  if (!x5c && opts.anchors && opts.anchors.length > 0) return { state: "failed", reason: "x5c: no certificate chain, but a trust anchor is required" };
   if (x5c) {
     if (opts.anchors && opts.anchors.length > 0) {
       const problem = chainProblem(x5c, vm.publicKeyJwk, opts.anchors, opts.at);

@@ -110,11 +110,60 @@ async function storeBytes(store: Store, bytes: Uint8Array, type: string, counts:
   return digest;
 }
 
+/*
+ * IRIS values become path segments of the release (`records/<handle>.json`,
+ * `bitstreams/<handle>/<bundle>/<name>`) and parts of API URLs. Each is
+ * checked by value and refused, never repaired: a refused item or file is
+ * listed in the report and left out of the release.
+ */
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const HANDLE = /^[0-9]+\/[0-9]+$/;
+
+/** A DSpace uuid, or the reason it is refused. */
+export function uuidProblem(v: unknown): string | null {
+  return typeof v === "string" && UUID.test(v) ? null : `not a uuid: ${JSON.stringify(v)}`;
+}
+
+/** A handle (`prefix/suffix`, digits only), or the reason it is refused. */
+export function handleProblem(v: unknown): string | null {
+  return typeof v === "string" && HANDLE.test(v) ? null : `not a handle: ${JSON.stringify(v)}`;
+}
+
+/** One path segment (a bundle or file name), or the reason it is refused. */
+export function segmentProblem(v: unknown): string | null {
+  if (typeof v !== "string" || v === "" || v === "." || v === "..") return `not a path segment: ${JSON.stringify(v)}`;
+  if (/[\/\\\u0000-\u001f\u007f]/.test(v)) return `path segment holds a separator or control character: ${JSON.stringify(v)}`;
+  return null;
+}
+
+/** The item's handle as a path, or `uuid/<uuid>` when IRIS gives none. Throws on a malformed value. */
+export function itemKey(handle: unknown, uuid: unknown): string {
+  if (handle !== undefined && handle !== null) {
+    const p = handleProblem(handle);
+    if (p) throw new Error(p);
+    return handle as string;
+  }
+  const p = uuidProblem(uuid);
+  if (p) throw new Error(p);
+  return `uuid/${uuid as string}`;
+}
+
 async function ingestItem(uuid: string, entries: Map<string, PayloadEntry>, store: Store, report: Report): Promise<void> {
+  const bad = uuidProblem(uuid);
+  if (bad) {
+    report.quarantined.push(`item ${bad}`);
+    return;
+  }
   const res = await politeFetch(`${IRIS_API}/core/items/${uuid}`);
   if (!res.ok) throw new Error(`item ${uuid}: HTTP ${res.status}`);
   const item = (await res.json()) as Record<string, unknown>;
-  const handle = typeof item.handle === "string" ? item.handle : `uuid/${uuid}`;
+  let handle: string;
+  try {
+    handle = itemKey(item.handle, uuid);
+  } catch (e) {
+    report.quarantined.push(`item ${uuid}: ${(e as Error).message}`);
+    return;
+  }
   const record = new TextEncoder().encode(canonicalJson(recordOf(item)));
   const path = `records/${handle}.json`;
   report.uuids[uuid] = path;
@@ -123,6 +172,11 @@ async function ingestItem(uuid: string, entries: Map<string, PayloadEntry>, stor
   entries.set(path, { path, sha256: await storeBytes(store, record, "application/json", report.objects), bytes: record.byteLength });
 
   for (const bs of await itemBitstreams(politeFetch, uuid)) {
+    const refused = segmentProblem(bs.bundle) ?? segmentProblem(bs.name) ?? uuidProblem(bs.uuid);
+    if (refused) {
+      report.quarantined.push(`item ${uuid} bitstream: ${refused}`);
+      continue;
+    }
     const bpath = `bitstreams/${handle}/${bs.bundle}/${bs.name}`;
     const held = entries.get(bpath);
     if (held && report.md5[bpath] === bs.checkSum.value) continue; // unchanged upstream: not fetched again
@@ -142,7 +196,13 @@ async function ingestItem(uuid: string, entries: Map<string, PayloadEntry>, stor
 async function ingestContainers(entries: Map<string, PayloadEntry>, store: Store, report: Report): Promise<void> {
   for (const kind of ["communities", "collections"] as const) {
     for (const obj of await allContainers(politeFetch, kind)) {
-      const handle = typeof obj.handle === "string" ? obj.handle : `uuid/${String(obj.uuid)}`;
+      let handle: string;
+      try {
+        handle = itemKey(obj.handle, obj.uuid);
+      } catch (e) {
+        report.quarantined.push(`${kind}: ${(e as Error).message}`);
+        continue;
+      }
       const bytes = new TextEncoder().encode(canonicalJson(recordOf(obj)));
       const path = `records/${kind}/${handle}.json`;
       const digest = await storeBytes(store, bytes, "application/json", report.objects);
@@ -227,18 +287,25 @@ async function verify(release: string): Promise<void> {
     if (sha256Hex(readFileSync(join(release, name))) !== digest) throw new Error(`tag file ${name} does not match the tag manifest`);
   }
   const jws = readFileSync(join(release, "tagmanifest-sha256.txt.jws"), "utf-8").trim();
-  const kid = JSON.parse(Buffer.from(jws.split(".")[0], "base64url").toString()).kid as string;
-  const did = kid.split("#")[0];
+  // The verifier's DID and trust anchor come from configuration, never from
+  // the release being checked: a release cannot name its own verifier.
+  const did = process.env.IRIS_CDN_DID;
+  const anchor = process.env.IRIS_CDN_TRUST_ANCHOR_JWK;
+  if (!did || !anchor) {
+    console.log(JSON.stringify({ state: "unknown", reason: "IRIS_CDN_DID and IRIS_CDN_TRUST_ANCHOR_JWK must both be set to verify" }));
+    process.exit(1);
+  }
   let doc: DidDocument | null = null;
   try {
-    const res = await fetch(didWebUrl(did), { headers: { "User-Agent": USER_AGENT } });
+    // The DID document is fetched only from the configured DID's own host,
+    // and a redirect is refused rather than followed.
+    const res = await fetch(didWebUrl(did), { headers: { "User-Agent": USER_AGENT }, redirect: "error" });
     if (res.ok) doc = (await res.json()) as DidDocument;
   } catch {
     doc = null;
   }
-  // WHO's signing key (public JWK), so the x5c chain is checked, not just present.
-  const anchor = process.env.IRIS_CDN_TRUST_ANCHOR_JWK;
-  const verdict = await verifyDetached(tm, jws, doc, anchor ? { anchors: [JSON.parse(anchor)] } : {});
+  if (doc && doc.id !== did) doc = null;
+  const verdict = await verifyDetached(tm, jws, doc, { anchors: [JSON.parse(anchor)], expectDid: did });
   console.log(JSON.stringify(verdict));
   if (verdict.state !== "verified") process.exit(1);
 }
