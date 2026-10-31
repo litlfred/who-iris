@@ -1,0 +1,42 @@
+{
+  "@context": "http://smart.who.int/kg/l1.context.jsonld",
+  "id": "urn:isbn:9789240116191#kg-l1",
+  "type": "Entity",
+  "ontologyVersion": "1.0",
+  "generatedAt": "2026-10-31T10:46:59Z",
+  "wasDerivedFrom": [
+    {
+      "path": "9789240116191-eng.pdf",
+      "sha256": "9cc9ca42d30db9ebef25509f05cfbd69fcb51bc86f9add653aa54f2a94a1a021",
+      "note": "The source file as hashed at ingest and recorded in the entry's structure.json; not re-read here."
+    },
+    {
+      "path": "who-iris/library/9789240116191-eng/structure.json",
+      "sha256": "e7b8dc79d6625727477fdb63b206a857305906c60c110b116c1ef31ea42711de"
+    },
+    {
+      "path": "who-iris/library/9789240116191-eng/sections/",
+      "sha256": "c58652660239bb6c94b58722ec7428c2007a4cf03b5714cfe18e17c7c46cada4",
+      "note": "The 34 section text(s) read, hashed as a sha256sum listing (<hex>  <path>) in structure order."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "urn:isbn:9789240116191",
+      "type": "publication",
+      "label": "Digital transformation handbook for health product catalogue",
+      "properties": {
+        "title": "Digital transformation handbook for health product catalogue",
+        "identifier": "ISBN 978-92-4-011619-1",
+        "sha256": "9cc9ca42d30db9ebef25509f05cfbd69fcb51bc86f9add653aa54f2a94a1a021"
+      },
+      "derivation": "derived",
+      "evidence": {
+        "location": "who-iris/library/9789240116191-eng/sections/sec-front-matter.md:16",
+        "quote": "ISBN 978-92-4-011619-1 (electronic version)"
+      },
+      "skill": "smart-base/extract-smart-kg-l1"
+    }
+  ],
+  "edges": []
+}
