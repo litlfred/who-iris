@@ -29,19 +29,25 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `library`, holding `library`
 | [`wpr-rdo-2020-003-eng-cover.png`](wpr-rdo-2020-003-eng-cover.png) | a file |  |
 | [`9789240010567-eng/`](9789240010567-eng/README.md) | described in its own README | |
 | [`9789240016514-eng/`](9789240016514-eng/README.md) | described in its own README | |
+| [`9789240081291-eng/`](9789240081291-eng/README.md) | described in its own README | |
 | [`9789240081949-eng/`](9789240081949-eng/README.md) | described in its own README | |
 | [`9789240093362-eng/`](9789240093362-eng/README.md) | described in its own README | |
 | [`9789240099456-eng/`](9789240099456-eng/README.md) | described in its own README | |
 | [`9789240101197-eng/`](9789240101197-eng/README.md) | described in its own README | |
 | [`9789240116191-eng/`](9789240116191-eng/README.md) | described in its own README | |
 | [`9789240120747-eng/`](9789240120747-eng/README.md) | described in its own README | |
+| [`9789240122925-eng/`](9789240122925-eng/README.md) | described in its own README | |
 | [`9789241509510-eng/`](9789241509510-eng/README.md) | described in its own README | |
 | [`9789241511766-eng/`](9789241511766-eng/README.md) | described in its own README | |
+| [`9789241513111-eng/`](9789241513111-eng/README.md) | described in its own README | |
+| [`9789241514446-eng/`](9789241514446-eng/README.md) | described in its own README | |
 | [`9789241548960-eng/`](9789241548960-eng/README.md) | described in its own README | |
 | [`9789241549912-eng/`](9789241549912-eng/README.md) | described in its own README | |
 | [`9789241549912-webannexes-eng/`](9789241549912-webannexes-eng/README.md) | described in its own README | |
 | [`9789241549912-websupplement-eng/`](9789241549912-websupplement-eng/README.md) | described in its own README | |
+| [`b0426/`](b0426/README.md) | described in its own README | |
 | [`who-2019-ncov-digital-certificates-vaccination-20211-eng/`](who-2019-ncov-digital-certificates-vaccination-20211-eng/README.md) | described in its own README | |
+| [`who-his-hwf-nhwa-20171-eng/`](who-his-hwf-nhwa-20171-eng/README.md) | described in its own README | |
 | [`who-pub-tps-931/`](who-pub-tps-931/README.md) | described in its own README | |
 | [`who-rhr-1806-eng/`](who-rhr-1806-eng/README.md) | described in its own README | |
 | [`wpr-rdo-2020-003-eng/`](wpr-rdo-2020-003-eng/README.md) | described in its own README | |

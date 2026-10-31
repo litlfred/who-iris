@@ -22,6 +22,9 @@
 <https://iris.who.int/community/8f327840-b0f3-4769-a1c2-270b2b5ce7da> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Community> <https://iris.who.int/graph/spine> .
 <https://iris.who.int/community/8f327840-b0f3-4769-a1c2-270b2b5ce7da> <http://www.w3.org/2000/01/rdf-schema#label> "6. Regional Office for South-East Asia" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/community/8f327840-b0f3-4769-a1c2-270b2b5ce7da> <https://iris.who.int/ns/dspace#communityId> "community/8f327840-b0f3-4769-a1c2-270b2b5ce7da" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/community/e938c08b-fbea-47ba-bcf4-7eebe173697d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Community> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/community/e938c08b-fbea-47ba-bcf4-7eebe173697d> <http://www.w3.org/2000/01/rdf-schema#label> "Regional Publications" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/community/e938c08b-fbea-47ba-bcf4-7eebe173697d> <https://iris.who.int/ns/dspace#communityId> "community/e938c08b-fbea-47ba-bcf4-7eebe173697d" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/386358> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/386358> <https://iris.who.int/ns/dspace#handle> "10665/386358" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/386358> <http://purl.org/dc/terms/title> "Digital transformation handbook for reporting substandard and falsified medical products" <https://iris.who.int/graph/spine> .
@@ -218,6 +221,17 @@
 <https://iris.who.int/bitstream/WER9234-477-498.pdf> <https://iris.who.int/ns/dspace#fileName> "WER9234-477-498.pdf" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/WER9234-477-498.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/WER9234-477-498.pdf> <https://iris.who.int/ns/dspace#fileBytes> "403691"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <https://iris.who.int/ns/dspace#handle> "10665/374320" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <http://purl.org/dc/terms/title> "National health workforce accounts: a handbook" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <https://iris.who.int/ns/dspace#inCommunity> <https://iris.who.int/community/5bff2c18-6c2b-4658-9087-93811d2399c0> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <https://iris.who.int/ns/dspace#inCollection> <https://iris.who.int/collection/hq-publications> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <https://iris.who.int/ns/dspace#hasBitstream> <https://iris.who.int/bitstream/9789240081291-eng.pdf> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240081291-eng.pdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Bitstream> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240081291-eng.pdf> <https://iris.who.int/ns/dspace#fileName> "9789240081291-eng.pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240081291-eng.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240081291-eng.pdf> <https://iris.who.int/ns/dspace#fileBytes> "5816455"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240081291-eng.pdf> <https://iris.who.int/ns/dspace#copyrightGate> "permitted" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/260480> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/260480> <https://iris.who.int/ns/dspace#handle> "10665/260480" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/260480> <http://purl.org/dc/terms/title> "Classification of Digital Health Interventions v1.0" <https://iris.who.int/graph/spine> .
@@ -284,6 +298,17 @@
 <https://iris.who.int/community/270bee8e-d535-4512-86a2-b01850407a23> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Community> <https://iris.who.int/graph/spine> .
 <https://iris.who.int/community/270bee8e-d535-4512-86a2-b01850407a23> <http://www.w3.org/2000/01/rdf-schema#label> "3. Regional Office for the Americas" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/community/270bee8e-d535-4512-86a2-b01850407a23> <https://iris.who.int/ns/dspace#communityId> "community/270bee8e-d535-4512-86a2-b01850407a23" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <https://iris.who.int/ns/dspace#handle> "10665/275758" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <http://purl.org/dc/terms/title> "Understanding national health workforce accounts" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <https://iris.who.int/ns/dspace#inCommunity> <https://iris.who.int/community/5bff2c18-6c2b-4658-9087-93811d2399c0> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <https://iris.who.int/ns/dspace#inCollection> <https://iris.who.int/collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <https://iris.who.int/ns/dspace#hasBitstream> <https://iris.who.int/bitstream/WHO-HIS-HWF-NHWA-2017.1-eng.pdf> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/WHO-HIS-HWF-NHWA-2017.1-eng.pdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Bitstream> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/WHO-HIS-HWF-NHWA-2017.1-eng.pdf> <https://iris.who.int/ns/dspace#fileName> "WHO-HIS-HWF-NHWA-2017.1-eng.pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/WHO-HIS-HWF-NHWA-2017.1-eng.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/WHO-HIS-HWF-NHWA-2017.1-eng.pdf> <https://iris.who.int/ns/dspace#fileBytes> "3184650"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/WHO-HIS-HWF-NHWA-2017.1-eng.pdf> <https://iris.who.int/ns/dspace#copyrightGate> "permitted" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/240868> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/240868> <https://iris.who.int/ns/dspace#handle> "10665/240868" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/240868> <http://purl.org/dc/terms/title> "Mumps virus vaccines = Vaccins anti-ourliens" <https://iris.who.int/graph/spine> .
@@ -292,6 +317,17 @@
 <https://iris.who.int/bitstream/WER8207_51-60.PDF> <https://iris.who.int/ns/dspace#fileName> "WER8207_51-60.PDF" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/WER8207_51-60.PDF> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/WER8207_51-60.PDF> <https://iris.who.int/ns/dspace#fileBytes> "212828"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <https://iris.who.int/ns/dspace#handle> "10665/275473" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <http://purl.org/dc/terms/title> "National health workforce accounts: implementation guide" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <https://iris.who.int/ns/dspace#inCommunity> <https://iris.who.int/community/5bff2c18-6c2b-4658-9087-93811d2399c0> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <https://iris.who.int/ns/dspace#inCollection> <https://iris.who.int/collection/hq-publications> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <https://iris.who.int/ns/dspace#hasBitstream> <https://iris.who.int/bitstream/9789241514446-eng.pdf> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241514446-eng.pdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Bitstream> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241514446-eng.pdf> <https://iris.who.int/ns/dspace#fileName> "9789241514446-eng.pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241514446-eng.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241514446-eng.pdf> <https://iris.who.int/ns/dspace#fileBytes> "3163391"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241514446-eng.pdf> <https://iris.who.int/ns/dspace#copyrightGate> "permitted" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/363397> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/363397> <https://iris.who.int/ns/dspace#handle> "10665/363397" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/363397> <http://purl.org/dc/terms/title> "WHO position paper on hepatitis A vaccines – October 2022 – Note de synthèse: position de l’OMS concernant les vaccins contre l’hépatite A – Octobre 2022" <https://iris.who.int/graph/spine> .
@@ -375,6 +411,17 @@
 <https://iris.who.int/bitstream/9789241548960-eng-cover.png> <https://iris.who.int/ns/dspace#mediaType> "image/png" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/9789241548960-eng-cover.png> <https://iris.who.int/ns/dspace#fileBytes> "14697"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/9789241548960-eng-cover.png> <https://iris.who.int/ns/dspace#copyrightGate> "permitted" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <https://iris.who.int/ns/dspace#handle> "10665/386519" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <http://purl.org/dc/terms/title> "National health workforce accounts: health workforce levels and trends 2026" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <https://iris.who.int/ns/dspace#inCommunity> <https://iris.who.int/community/5bff2c18-6c2b-4658-9087-93811d2399c0> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <https://iris.who.int/ns/dspace#inCollection> <https://iris.who.int/collection/hq-publications> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <https://iris.who.int/ns/dspace#hasBitstream> <https://iris.who.int/bitstream/9789240122925-eng.pdf> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240122925-eng.pdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Bitstream> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240122925-eng.pdf> <https://iris.who.int/ns/dspace#fileName> "9789240122925-eng.pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240122925-eng.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240122925-eng.pdf> <https://iris.who.int/ns/dspace#fileBytes> "3757510"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789240122925-eng.pdf> <https://iris.who.int/ns/dspace#copyrightGate> "permitted" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/242089> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/242089> <https://iris.who.int/ns/dspace#handle> "10665/242089" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/242089> <http://purl.org/dc/terms/title> "Vaccines and vaccination against yellow fever : WHO Position Paper — June 2013 = Note de synthèse : position de l’OMS sur les vaccins et la vaccination contre la fièvre jaune, juin 2013" <https://iris.who.int/graph/spine> .
@@ -432,6 +479,10 @@
 <https://iris.who.int/collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266> <http://www.w3.org/2000/01/rdf-schema#label> "Technical Documents" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266> <https://iris.who.int/ns/dspace#collectionId> "collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266> <https://iris.who.int/ns/dspace#parentCommunity> <https://iris.who.int/community/5bff2c18-6c2b-4658-9087-93811d2399c0> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Collection> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6> <http://www.w3.org/2000/01/rdf-schema#label> "Technical Documents" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6> <https://iris.who.int/ns/dspace#collectionId> "collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6> <https://iris.who.int/ns/dspace#parentCommunity> <https://iris.who.int/community/8f327840-b0f3-4769-a1c2-270b2b5ce7da> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/250796> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/250796> <https://iris.who.int/ns/dspace#handle> "10665/250796" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/250796> <http://purl.org/dc/terms/title> "WHO recommendations on antenatal care for a positive pregnancy experience" <https://iris.who.int/graph/spine> .
@@ -463,6 +514,17 @@
 <https://iris.who.int/community/e1b206b7-fd4c-4b93-972a-be07850a1cdd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Community> <https://iris.who.int/graph/spine> .
 <https://iris.who.int/community/e1b206b7-fd4c-4b93-972a-be07850a1cdd> <http://www.w3.org/2000/01/rdf-schema#label> "2. Regional Office for Africa" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/community/e1b206b7-fd4c-4b93-972a-be07850a1cdd> <https://iris.who.int/ns/dspace#communityId> "community/e1b206b7-fd4c-4b93-972a-be07850a1cdd" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <https://iris.who.int/ns/dspace#handle> "10665/259360" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <http://purl.org/dc/terms/title> "National health workforce accounts: a handbook" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <https://iris.who.int/ns/dspace#inCommunity> <https://iris.who.int/community/5bff2c18-6c2b-4658-9087-93811d2399c0> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <https://iris.who.int/ns/dspace#inCollection> <https://iris.who.int/collection/hq-publications> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <https://iris.who.int/ns/dspace#hasBitstream> <https://iris.who.int/bitstream/9789241513111-eng.pdf> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241513111-eng.pdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Bitstream> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241513111-eng.pdf> <https://iris.who.int/ns/dspace#fileName> "9789241513111-eng.pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241513111-eng.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241513111-eng.pdf> <https://iris.who.int/ns/dspace#fileBytes> "2882953"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/9789241513111-eng.pdf> <https://iris.who.int/ns/dspace#copyrightGate> "permitted" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/375230> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/375230> <https://iris.who.int/ns/dspace#handle> "10665/375230" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/375230> <http://purl.org/dc/terms/title> "Digital adaptation kit for HIV: operational requirements for implementing WHO recommendations in digital systems" <https://iris.who.int/graph/spine> .
@@ -509,6 +571,18 @@
 <https://iris.who.int/bitstream/WER9719-185-208-eng-fre.pdf> <https://iris.who.int/ns/dspace#fileName> "WER9719-185-208-eng-fre.pdf" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/WER9719-185-208-eng-fre.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
 <https://iris.who.int/bitstream/WER9719-185-208-eng-fre.pdf> <https://iris.who.int/ns/dspace#fileBytes> "580228"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <https://iris.who.int/ns/dspace#handle> "10665/205544" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <http://purl.org/dc/terms/title> "National health accounts" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <https://iris.who.int/ns/dspace#inCommunity> <https://iris.who.int/community/8f327840-b0f3-4769-a1c2-270b2b5ce7da> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <https://iris.who.int/ns/dspace#inCommunity> <https://iris.who.int/community/e938c08b-fbea-47ba-bcf4-7eebe173697d> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <https://iris.who.int/ns/dspace#inCollection> <https://iris.who.int/collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6> <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <https://iris.who.int/ns/dspace#hasBitstream> <https://iris.who.int/bitstream/B0426.pdf> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/B0426.pdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Bitstream> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/B0426.pdf> <https://iris.who.int/ns/dspace#fileName> "B0426.pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/B0426.pdf> <https://iris.who.int/ns/dspace#mediaType> "application/pdf" <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/B0426.pdf> <https://iris.who.int/ns/dspace#fileBytes> "149552"^^<http://www.w3.org/2001/XMLSchema#integer> <https://iris.who.int/graph/spine> .
+<https://iris.who.int/bitstream/B0426.pdf> <https://iris.who.int/ns/dspace#copyrightGate> "permitted" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/342899> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://iris.who.int/ns/dspace#Item> <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/342899> <https://iris.who.int/ns/dspace#handle> "10665/342899" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/342899> <http://purl.org/dc/terms/title> "Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health approach" <https://iris.who.int/graph/spine> .
@@ -554,6 +628,8 @@
 <https://hdl.handle.net/10665/336323> <http://purl.org/dc/terms/issued> "2020-11-03" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/340749> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/340749> <http://purl.org/dc/terms/issued> "2021-04-13" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275473> <http://purl.org/dc/terms/issued> "2018-10-19" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/254583> <http://purl.org/dc/terms/creator> "World Health Organization = Organisation mondiale de la Santé" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/254583> <http://purl.org/dc/terms/issued> "2017-02-10" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/332098> <http://purl.org/dc/terms/creator> "World Health Organization. Regional Office for the Western Pacific" <https://iris.who.int/graph/spine> .
@@ -578,14 +654,20 @@
 <https://hdl.handle.net/10665/272273> <http://purl.org/dc/terms/issued> "2018-03-30" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/185238> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/185238> <http://purl.org/dc/terms/issued> "2015-09-23" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/259360> <http://purl.org/dc/terms/issued> "2017-10-26" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/386358> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/386358> <http://purl.org/dc/terms/issued> "2026-06-09" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/36842> <http://purl.org/dc/terms/creator> "World Health Organization. Technical Publications Unit" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/36842> <http://purl.org/dc/terms/issued> "1993-12-31" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/252183> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/252183> <http://purl.org/dc/terms/issued> "2016-12-13" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/386519> <http://purl.org/dc/terms/issued> "2026-06-22" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/145714> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/145714> <http://purl.org/dc/terms/issued> "2014-12-18" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/275758> <http://purl.org/dc/terms/issued> "2017-12-31" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/342899> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/342899> <http://purl.org/dc/terms/issued> "2021-07-16" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/383309> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
@@ -600,6 +682,8 @@
 <https://hdl.handle.net/10665/274316> <http://purl.org/dc/terms/issued> "2018-09-07" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/334306> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/334306> <http://purl.org/dc/terms/issued> "2020-09-15" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <http://purl.org/dc/terms/creator> "World Health Organization. Regional Office for South-East Asia" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/205544> <http://purl.org/dc/terms/issued> "2007-12-31" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/258764> <http://purl.org/dc/terms/creator> "World Health Organization = Organisation mondiale de la Santé" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/258764> <http://purl.org/dc/terms/issued> "2017-08-25" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/260480> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
@@ -616,6 +700,8 @@
 <https://hdl.handle.net/10665/272372> <http://purl.org/dc/terms/issued> "2018-04-20" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/332952> <http://purl.org/dc/terms/creator> "World Health Organization = Organisation mondiale de la Santé" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/332952> <http://purl.org/dc/terms/issued> "2020-07-03" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
+<https://hdl.handle.net/10665/374320> <http://purl.org/dc/terms/issued> "2023-11-23" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/241846> <http://purl.org/dc/terms/creator> "World Health Organization" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/241846> <http://purl.org/dc/terms/issued> "2011-12-31" <https://iris.who.int/graph/spine> .
 <https://hdl.handle.net/10665/363397> <http://purl.org/dc/terms/creator> "World Health Organization = Organisation mondiale de la Santé" <https://iris.who.int/graph/spine> .

@@ -102,7 +102,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     const hq = commFacets.find(f => f.value.includes('Headquarters'));
     const wpro = commFacets.find(f => f.value.includes('Western Pacific'));
 
-    expect(hq?.count).toBe(12);
+    expect(hq?.count).toBe(17);
     expect(wpro?.count).toBe(1);
   });
 
@@ -211,7 +211,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
 
     const manifest = JSON.parse(fs.readFileSync(path.join(TMP_DIST, 'subgraph-manifest.json'), 'utf8'));
     const commIds = Object.keys(manifest.tiers.tier2_communities.partitions);
-    expect(commIds.length).toBe(2);
+    expect(commIds.length).toBe(3);
 
     // Batch load multiple community partitions dynamically via resolver directory
     engine.loadCommunities(commIds, TMP_DIST);
