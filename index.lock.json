@@ -4,17 +4,17 @@
     {
       "harness": "folio-assistant-core",
       "repository": "litlfred/folio-assistant-core",
-      "ref": "85fea67106ca9529b0d2f938eb57769481366f38"
+      "ref": "f2b629e0b80f363b6247b8d300ea86f2f352296e"
     },
     {
       "harness": "cat-harness",
       "repository": "litlfred/cat-harness",
-      "ref": "ca349938410a4be00d30bd9ec63e9e02c54df060"
+      "ref": "b064089e56a68cc528df98ebe2748dc42f02b3c5"
     },
     {
       "harness": "cat-harness-tools",
       "repository": "litlfred/cat-harness-tools",
-      "ref": "092018572b60157f3fcfd28df2382c0451f2ffdd"
+      "ref": "49a8e8f7a3ed093643a33e957307ebd70a6e0066"
     },
     {
       "harness": "bootstrap",
@@ -89,36 +89,36 @@
     {
       "instance": "cat-harness",
       "repository": "litlfred/cat-harness",
-      "sha": "ca349938410a4be00d30bd9ec63e9e02c54df060",
+      "sha": "b064089e56a68cc528df98ebe2748dc42f02b3c5",
       "upstreamRoot": "",
       "path": "cat-harness",
       "via": "cat-harness",
       "pinnedBy": "declared",
       "declaration": {
         "file": "cat-harness.json",
-        "sha256": "b997591aeddbd9504cf776d6c73af64ad10ba8e1098291e7828f09dd0f42dab4"
+        "sha256": "68eb06dbf55b1d5e1d5a9f6b5fd7af784fef288233262d937d76b5c60e9080e3"
       },
       "directories": [
         {
           "id": "*",
           "path": "cat-harness",
           "upstreamPath": ".",
-          "treeDigest": "afe477b5e7090cf230b8f731bebad653a23b8b2c4e8342fcf53805c67137ad8b",
-          "files": 12916
+          "treeDigest": "186d3e566b093db951c49ef2576a4b35f49955ead312d4b2970e399bf474f1c8",
+          "files": 11725
         }
       ],
       "trust": {
         "basis": "consent",
         "by": "litlfred",
-        "on": "2026-10-30",
-        "ref": "ca349938410a4be00d30bd9ec63e9e02c54df060",
+        "on": "2026-10-31",
+        "ref": "b064089e56a68cc528df98ebe2748dc42f02b3c5",
         "approver": "unverified"
       }
     },
     {
       "instance": "cat-harness-tools",
       "repository": "litlfred/cat-harness-tools",
-      "sha": "092018572b60157f3fcfd28df2382c0451f2ffdd",
+      "sha": "49a8e8f7a3ed093643a33e957307ebd70a6e0066",
       "upstreamRoot": "",
       "path": "cat-harness-tools",
       "via": "cat-harness-tools",
@@ -132,44 +132,44 @@
           "id": "*",
           "path": "cat-harness-tools",
           "upstreamPath": ".",
-          "treeDigest": "77751c162217b50189ab65e57c8c50d93f2aa102adf7c25f9b41ca6a9f8160a7",
-          "files": 2977
+          "treeDigest": "2041d32609aedcc7b4fcbacb964f7713e095d60d1bc0f1b724029e468eab2d8b",
+          "files": 3055
         }
       ],
       "trust": {
         "basis": "consent",
         "by": "litlfred",
-        "on": "2026-10-30",
-        "ref": "092018572b60157f3fcfd28df2382c0451f2ffdd",
+        "on": "2026-10-31",
+        "ref": "49a8e8f7a3ed093643a33e957307ebd70a6e0066",
         "approver": "unverified"
       }
     },
     {
       "instance": "folio-assistant-core",
       "repository": "litlfred/folio-assistant-core",
-      "sha": "85fea67106ca9529b0d2f938eb57769481366f38",
+      "sha": "f2b629e0b80f363b6247b8d300ea86f2f352296e",
       "upstreamRoot": "",
       "path": "folio-assistant-core",
       "via": "folio-assistant-core",
       "pinnedBy": "declared",
       "declaration": {
         "file": "folio-assistant-core.json",
-        "sha256": "8b82d6f9cab99f167372e629363b99df317ac5d1510c5894f8ce2c03924b1428"
+        "sha256": "ca407b8da3daaf2c2dd506a6e43df2ed94db3e4f1125f59db81b3921f09223c0"
       },
       "directories": [
         {
           "id": "*",
           "path": "folio-assistant-core",
           "upstreamPath": ".",
-          "treeDigest": "709c3cff08b3f4611d0c84ec59df6dc4628f1a3cc3ef25a288fb210e32355e75",
-          "files": 6148
+          "treeDigest": "59df43d4fe0ed075fd3b45446721c15baa2c83264e6d4c77678e0b0905428841",
+          "files": 6246
         }
       ],
       "trust": {
         "basis": "consent",
         "by": "litlfred",
-        "on": "2026-10-30",
-        "ref": "85fea67106ca9529b0d2f938eb57769481366f38",
+        "on": "2026-10-31",
+        "ref": "f2b629e0b80f363b6247b8d300ea86f2f352296e",
         "approver": "unverified"
       }
     }
