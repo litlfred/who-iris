@@ -29,7 +29,7 @@
   <bpmn:resource id="cloudflare-r2-cdn" name="Cloudflare R2 and CDN"/>
   <bpmn:resource id="cloudflare-git" name="Cloudflare git (Artifacts)"/>
   <bpmn:process id="Process_IrisCdnInitialLoad" name="IRIS CDN initial load" isExecutable="false">
-    <bpmn:documentation>The first full export of WHO IRIS onto Cloudflare (git on Artifacts, bytes in R2): every item record, and every bitstream (owner, 2026-10-30: metadata plus PDFs). Run in batches with a checkpoint, so a run that stops resumes where it stopped and never re-fetches what it already holds. Ends in one signed, verified release.</bpmn:documentation>
+    <bpmn:documentation>The first full export of WHO IRIS onto Cloudflare (git on Artifacts, bytes in R2): every item record and every bitstream: metadata plus PDFs. Run in batches with a checkpoint, so a run that stops resumes where it stopped and never re-fetches what it already holds. Ends in one signed, verified release.</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_IrisCdnInitialLoad">
       <bpmn:lane id="Lane_Owner" name="Owner" partitionElementRef="iris-cdn-owner">
         <bpmn:documentation>A person: decides scope, budget and the storage target. Nothing downstream widens what the owner approved.</bpmn:documentation>

@@ -27,7 +27,7 @@
   <bpmn:resource id="cloudflare-git" name="Cloudflare git (Artifacts)"/>
   <bpmn:resource id="iris-cdn-exporter" name="IRIS CDN Exporter"/>
   <bpmn:process id="Process_IrisCdnNightly" name="IRIS CDN nightly change ingest" isExecutable="false">
-    <bpmn:documentation>Every night: ask the IRIS DSpace REST API which items changed since the last published run, ingest only those, rebuild the whole graph (owner, 2026-10-30: full rebuild nightly; sorted output keeps unchanged partitions byte-identical), and publish a signed release. A night with no changes publishes nothing and commits nothing.</bpmn:documentation>
+    <bpmn:documentation>Every night: ask the IRIS DSpace REST API which items changed since the last published run, ingest only those, rebuild the whole graph (sorted output keeps unchanged partitions byte-identical), and publish a signed release. A night with no changes publishes nothing and commits nothing.</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_IrisCdnNightly">
       <bpmn:lane id="Lane_Pipeline" name="Build pipeline" partitionElementRef="build-pipeline">
         <bpmn:documentation>Deterministic scripts in scripts/iris-cdn/, run by the nightly runner. Same input, same bytes.</bpmn:documentation>
