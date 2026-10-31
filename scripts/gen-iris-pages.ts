@@ -2652,16 +2652,24 @@ ${collections
     return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
 
+  // Marks are placed on the RAW text and every piece is escaped once, so a
+  // query term can never match inside markup this function has written.
   function highlight(text, terms) {
-    if (!terms.length) return escapeHtml(text);
-    var escaped = escapeHtml(text);
+    var parts = [];
     for (var i = 0; i < terms.length; i++) {
-      var t = terms[i];
-      if (!t) continue;
-      var regex = new RegExp("(" + t.replace(/[.*+?^\${}()|[\\]\\\\]/g, "\\\\$&") + ")", "gi");
-      escaped = escaped.replace(regex, "<mark class=\\"search-mark\\">$1</mark>");
+      if (terms[i]) parts.push(terms[i].replace(/[.*+?^\${}()|[\\]\\\\]/g, "\\\\$&"));
     }
-    return escaped;
+    if (!parts.length) return escapeHtml(text);
+    var regex = new RegExp("(" + parts.join("|") + ")", "gi");
+    return text.split(regex).map(function(piece, k) {
+      return k % 2 ? "<mark class=\\"search-mark\\">" + escapeHtml(piece) + "</mark>" : escapeHtml(piece);
+    }).join("");
+  }
+
+  // An index href is a site-relative path or an https URL; anything else
+  // (a javascript: or data: URL) is refused and the result is not shown.
+  function hrefOk(h) {
+    return typeof h === "string" && (/^https:\\/\\//i.test(h) || !/^[a-z][a-z0-9+.-]*:/i.test(h.trim()));
   }
 
   function update() {
@@ -2719,7 +2727,8 @@ ${collections
       html += "<ul class=\\"search-results-list\\" style=\\"list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:0.75rem;\\">";
       for (var m = 0; m < matches.length; m++) {
         var it = matches[m];
-        var la = it.lang ? " lang=\\"" + it.lang + "\\"" : "";
+        if (!hrefOk(it.href)) continue;
+        var la = it.lang ? " lang=\\"" + escapeHtml(it.lang) + "\\"" : "";
         html += "<li class=\\"search-result-item\\" style=\\"padding:0.6rem 0.8rem;border:1px solid var(--iris-edge);border-radius:4px;background:var(--iris-wash);\\">";
         html += "<div style=\\"display:flex;align-items:center;flex-wrap:wrap;gap:0.35rem;\\"><span class=\\"search-result-badge\\" style=\\"display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;padding:0.15rem 0.45rem;border-radius:3px;background:var(--iris-accent);color:#fff;margin-inline-end:0.3rem;\\">" + escapeHtml(it.badge) + "</span>";
         if (it.copyrightGate === "permitted") {
@@ -2727,7 +2736,7 @@ ${collections
         } else if (it.hasPdf) {
           html += "<span class=\\"state referenced\\" style=\\"font-size:0.72rem;\\">PDF Held (Restricted)</span>";
         }
-        html += "<a href=\\"" + it.href + "\\" dir=\\"auto\\"" + la + " style=\\"font-weight:600;font-size:1.02rem;\\">" + highlight(it.title, terms) + "</a></div>";
+        html += "<a href=\\"" + escapeHtml(it.href) + "\\" dir=\\"auto\\"" + la + " style=\\"font-weight:600;font-size:1.02rem;\\">" + highlight(it.title, terms) + "</a></div>";
         if (it.meta) {
           html += "<div class=\\"search-result-meta\\" dir=\\"auto\\"" + la + " style=\\"font-size:0.88rem;color:var(--iris-muted);margin-top:0.25rem;\\">" + highlight(it.meta, terms) + "</div>";
         }
@@ -2887,6 +2896,9 @@ const SKILL_BLOB = `https://github.com/litlfred/who-iris/blob/main/skills/iris-d
 function inlineMd(md: string): string {
   let h = esc(md);
   h = h.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text: string, href: string) => {
+    // Only http(s), in-page and relative links are links; another scheme
+    // (javascript:, data:) is refused and its text is shown on its own.
+    if (/^[a-z][a-z0-9+.-]*:/i.test(href) && !/^https?:/i.test(href)) return text;
     const abs = /^[a-z]+:|^#/.test(href)
       ? href
       : `${SKILL_BLOB.replace(/\/who-iris\/skills\/iris-dspace\.md$/, "")}/who-iris/skills/${href}`;

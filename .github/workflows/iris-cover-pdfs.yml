@@ -24,13 +24,23 @@ jobs:
         run: |
           curl -sS -o /dev/null -w "iris.who.int HTTP %{http_code}\n" -A "litlfred-who-iris-covers/0.1" https://iris.who.int/server/api || true
       - name: Fetch referenced PDFs
+        # The input reaches bash as a variable, never as script text, and is
+        # refused unless it is a comma-separated list of item slugs.
+        env:
+          ONLY: ${{ inputs.only }}
         run: |
-          only="${{ inputs.only }}"
-          python3 scripts/iris-covers/fetch-referenced-pdfs.py . out ${only:+--only "$only"}
+          if [ -n "$ONLY" ] && ! printf '%s' "$ONLY" | grep -Eq '^[a-z0-9][a-z0-9._-]*(,[a-z0-9][a-z0-9._-]*)*$'; then
+            echo "::error::'only' must be comma-separated item slugs" >&2
+            exit 1
+          fi
+          python3 scripts/iris-covers/fetch-referenced-pdfs.py . out ${ONLY:+--only "$ONLY"}
       - name: Render masked cover previews
         run: |
-          pip install --quiet pymupdf
-          curl -sSfL -o /tmp/pdf-cover.py https://raw.githubusercontent.com/litlfred/cat-harness-tools/main/scripts/pdf-cover.py
+          # Pinned: the renderer is fetched at a fixed commit and checked
+          # against its digest before it runs in this write-token job.
+          pip install --quiet pymupdf==2.0
+          curl -sSfL -o /tmp/pdf-cover.py https://raw.githubusercontent.com/litlfred/cat-harness-tools/45b0894620099663f17abb584f376502d702422a/scripts/pdf-cover.py
+          echo "5a074215f4d8b5c8ab972a44828e54a31fd35e6515a44b79bd77ec38ce674f2b  /tmp/pdf-cover.py" | sha256sum -c -
           python3 scripts/iris-covers/render-previews.py out /tmp/pdf-cover.py covers-review
           cp out/report.json covers-review/fetch-report.json
       # Only the masked PNGs and the two reports are committed, to this branch

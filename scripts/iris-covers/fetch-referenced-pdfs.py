@@ -16,7 +16,21 @@ import hashlib, json, os, sys, glob, urllib.request, urllib.parse
 IRIS = "https://iris.who.int"
 UA = {"User-Agent": "litlfred-who-iris-covers/0.1 (+https://github.com/litlfred/who-iris)", "Accept": "application/json"}
 
+def on_iris(url):
+    """Refuse (never rewrite) a URL that is not on the IRIS host: hrefs come from IRIS responses."""
+    u = urllib.parse.urlsplit(url)
+    if u.scheme != "https" or u.hostname != urllib.parse.urlsplit(IRIS).hostname or u.username or u.password or u.port:
+        raise RuntimeError(f"refused: not an IRIS URL: {url!r}")
+    return url
+
+def safe_name(name):
+    """One plain file name, or a refusal: it becomes a path under the out dir."""
+    if not isinstance(name, str) or name in ("", ".", "..") or "/" in name or "\\" in name or any(ord(c) < 32 or ord(c) == 127 for c in name):
+        raise RuntimeError(f"refused: not a plain file name: {name!r}")
+    return name
+
 def get(url, accept_json=True):
+    on_iris(url)
     req = urllib.request.Request(url, headers=UA if accept_json else {"User-Agent": UA["User-Agent"]})
     with urllib.request.urlopen(req, timeout=120) as r:
         data = r.read()
@@ -71,9 +85,9 @@ def main():
                     if want and want != sha:
                         row["result"] = f"sha256 differs from catalogue ({want[:12]}…); not kept"
                     else:
-                        d = os.path.join(out, slug)
+                        d = os.path.join(out, safe_name(slug))
                         os.makedirs(d, exist_ok=True)
-                        open(os.path.join(d, b["name"]), "wb").write(pdf)
+                        open(os.path.join(d, safe_name(b["name"])), "wb").write(pdf)
                         row["result"] = "fetched"
             except Exception as e:  # report every item, never stop at the first refusal
                 row["result"] = f"error: {e}"
