@@ -42,5 +42,9 @@
     "iris:pages": "bun run who-iris/scripts/gen-iris-pages.ts",
     "iris:pages:check": "bun run who-iris/scripts/gen-iris-pages.ts --check",
     "iris:pot": "bun run who-iris/scripts/gen-iris-pages.ts --extract-pot"
+  },
+  "devDependencies": {
+    "@litlfred/cat-harness": "0.1.0",
+    "@litlfred/cat-harness-tools": "0.1.0"
   }
 }
