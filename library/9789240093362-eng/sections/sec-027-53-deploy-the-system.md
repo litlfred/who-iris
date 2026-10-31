@@ -11,27 +11,6 @@ toc_source: outline
 ---
 Deployment of the system often requires strong strategic thinking by the technology partner, as 
 poorly deployed systems can make or break an entire project. 
-5.2.1 	 Test cases and test data
-One way to facilitate UAT is the creation of test cases and 
-associated test data based on use cases that simulate real-time 
-use. Test cases outline how the system should be used and the 
-expected outcomes to test key functionality. For example, to 
-test clinical decision logic, a test case can outline what symptoms 
-the tester should be inputting into the system and the expected 
-diagnosis based on those inputs. If the system provides an 
-outcome that aligns with what the expected diagnosis is, then the 
-test can be considered a success. 
-Selecting the right set of test data is a very important factor 
-that is often overlooked, leading to a less effective UAT and 
-perpetuation of bugs. Test data should be curated with data 
-that closely reflects real-time settings and must include some 
-scenarios that might occur but are not routinely expected (i.e. 
-edge cases). 
-In some cases, the testing process can also be automated, 
-using test scripts. Typically, test cases should be designed 
-using the use cases developed during the needs assessment 
-phase (see Section 3.2.2) and/or the use cases for testing 
-developed during the design testing phase (see Section 4.3.2). 
 Once all the required testing has been completed, including 
 UAT, the system can be deployed in a production environment. 
 A production environment refers to the normal operational 
@@ -72,3 +51,4 @@ Building success in implementing technology is
 highly valuable for earning trust in digital roll-
 outs and ensuring systems are taken up and can 
 contribute to digital transformation.
+WARNING

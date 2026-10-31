@@ -3,7 +3,7 @@
   "id": "urn:isbn:9789240093362#kg-l1",
   "type": "Entity",
   "ontologyVersion": "1.0",
-  "generatedAt": "2026-10-02T16:20:07Z",
+  "generatedAt": "2026-10-31T09:27:29Z",
   "wasDerivedFrom": [
     {
       "path": "9789240093362-eng.pdf",
@@ -12,11 +12,11 @@
     },
     {
       "path": "who-iris/library/9789240093362-eng/structure.json",
-      "sha256": "bc85ab8ad3cd6d250a0bba2b86773607016f7ad679027900dd67541f239622e1"
+      "sha256": "1e95ca3fe99f5c0d2573e2faea16d6e008bb8f21da201dc543c93a087c7ec781"
     },
     {
       "path": "who-iris/library/9789240093362-eng/sections/",
-      "sha256": "e59b2b72e78e9244a3e34d2cfd8f27397e412fa3ad2e8904393ac7b0c94bb2f3",
+      "sha256": "2f930f7c5ec704bb178c6619f52da15c5320ff9efba885361ac6a1e25e60809e",
       "note": "The 48 section text(s) read, hashed as a sha256sum listing (<hex>  <path>) in structure order."
     }
   ],
@@ -43,7 +43,7 @@
       "label": "Introduction",
       "properties": {
         "heading": "Introduction",
-        "pageRange": "12-18"
+        "pageRange": "13-18"
       },
       "derivation": "derived",
       "skill": "smart-base/extract-smart-kg-l1"
@@ -59,7 +59,7 @@
       "derivation": "inferred",
       "note": "Located by its printed label \"Recommendation 8:\"; the statement is the text after the label up to the first terminator, with line breaks joined by single spaces and nothing else changed. Strength is not stated in GRADE terms in the recommendation block — the block's own qualifier reads \"(Recommended only in specific contexts or conditions)\" — so it is left unset rather than mapped. Certainty is not stated in GRADE terms in the recommendation block — the block's own qualifier reads \"(Recommended only in specific contexts or conditions)\" — so it is left unset rather than mapped. Attributed in the source to \"Source: WHO, 2019 (2).\" — left unresolved; the L1 ontology licenses no edge from a recommendation to a citation.",
       "evidence": {
-        "location": "who-iris/library/9789240093362-eng/sections/sec-003-introduction.md:409 (PDF pp. 12-18, section \"Introduction\"; the page within the section is not recorded by the ingest)",
+        "location": "who-iris/library/9789240093362-eng/sections/sec-003-introduction.md:162 (PDF pp. 13-18, section \"Introduction\"; the page within the section is not recorded by the ingest)",
         "quote": "WHO recommends digital tracking of clients’ health status and services, combined with decision support under these conditions: •\tin settings where the health system can support the implementation of these intervention components in an integrated manner; and •\tfor tasks that are already defined as within the scope of practice for the health worker. (Recommended only in specific contexts or conditions)"
       },
       "skill": "smart-base/extract-smart-kg-l1"

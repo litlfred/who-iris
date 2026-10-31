@@ -38,30 +38,4 @@ Guidelines framework, Dynamic guidelines (L5), is on the
 use of big data and advanced analytics. Advanced analytics 
 technology, such as artificial intelligence, applied to these 
 datasets can facilitate precision clinical and public health 
-systems (18).  
-Ensure a backup paper system is 
-available
-Although phasing out of paper and/or legacy systems 
-will be needed to ensure there is no duplication of 
-efforts by the health worker, it is important to ensure that 
-there will always be a back-up mechanism (e.g. paper 
-forms), to be able to record health service user health 
-records and conduct reporting activities in worst case 
-scenarios that stop the system from functioning entirely, 
-such as cybersecurity attacks and crisis situations. 
-Having a back-up paper system ensures resiliency of the 
-overall system. 
-WARNING
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-60
+systems (18).

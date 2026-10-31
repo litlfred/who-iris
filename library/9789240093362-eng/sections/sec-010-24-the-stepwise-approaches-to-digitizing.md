@@ -136,16 +136,3 @@ recognizing and acknowledging that there are multiple leading
 practices and methodologies available. Some software-specific or 
 organization-specific methods and practices not covered in this 
 handbook may be preferable, depending on context.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-How to use this handbook
-15

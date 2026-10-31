@@ -40,47 +40,6 @@ that would answer the following questions (99):
 •	 Has all necessary data been migrated from paper and legacy 
 systems to the PCPOSS?
 •	 Do health workers use the system as intended? 
-A variety of metrics and indicators is available to help 
-determine the readiness of the PCPOSS and the health system. 
-Scaling-up consists of deliberate efforts to increase the impact 
-of innovations successfully tested in pilot or experimental 
-projects, to benefit more people and to foster lasting policy 
-and programme development. 
-The WHO MAPS toolkit: mHealth 
-assessment and planning for scale (100) 
-is a comprehensive self-assessment and 
-planning guide designed to improve the 
-capacity of projects to pursue strategies 
-that increase their potential for scaling up 
-and achieving long-term sustainability. 
-The MAPS toolkit is designed specifically 
-for programme managers so that they can assess their digital 
-health implementation as well as plan for actionable steps 
-for scaling up. Additionally, adding projects to the Digital 
-Health Atlas (DHA) can help prevent duplicative efforts, and 
-to share lessons with the wider community of digital health 
-implementers (101). 
-As mentioned in section 2.3 Before using this resource it 
-is important to ensure that key foundational elements are in 
-place (e.g. electricity, network connectivity, political support, 
-etc.) in the areas intended for scale-up of the PCPOSS. 
-Once there is a clear plan, and there are the resources needed 
-for scaling up, begin the scale-up!
-CHAPTER 6
-Prepare for scale-up
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Prepare for scale-up
-57
 •	 Does the PCPOSS improve processes for service delivery 
 and accountability?
 •	 How do these improvements in service delivery and 
@@ -113,140 +72,25 @@ page as an estimate, assuming there are mechanisms to note
 time in which there is inactivity. Using the system for direct 
 monitoring as much as possible can help to relieve the health 
 workers’ burden of manually tracking indicators. 
-Questions for 
-assessment
-Metric area
-Indicator
-Does the 
-person-centred 
-point of 
-service system 
-(PCPOSS) work 
-as intended?
-Connectivity 
-Percent (%) of target population with internet connectivity 
-(whether through mobile broadband or Wi-Fi)
-% of health workers with internet connectivity (whether through 
-broadband or Wi-Fi)
-Power
-% of health workers with current access to a power source for 
-recharging a mobile device
-Number of hours per day health workers have access to power
-Availability of technical 
-support 
-% of health workers with access to local technical support systems 
-for troubleshooting
-Maintenance
-% of devices (mobile, tablet or otherwise) given to health workers 
-that are currently operational 
-Functionality
-% of data fields from the paper-based system that are captured by 
-the PCPOSS
- % of prioritized functionsᵃ achieved by the PCPOSS
-Do health 
-workers use 
-the PCPOSS as 
-intended? 
-User adoption 
-% of health workers who demonstrate proficiency in routine use 
-the PCPOSS
-% of health workers observed using the PCPOSS for intended 
-purpose over reference period
-% of data fields/forms left incomplete over a reference period
-% of total reports sent via the PCPOSS over reference period
-User response
-% of health workers who rate the PCPOSS as easier to use than the 
-paper and/or legacy system
-% of health workers who are satisfied with using the PCPOSS
-Health service user coverage
-% of health service users uniquely registered on the PCPOSS
 Table 5. Key indicators of whether a digital system meets its objectives
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-58
-Questions for 
-assessment
-Metric area
-Indicator
-Does the 
-PCPOSS 
-improve 
-processes 
-for service 
-delivery and 
-accountability 
-(compared 
-with current 
-processes)?
-Efficiency  
-Change in time health workers need for registering new health 
-service users
-Change in time health workers need for reporting 
-Change in number of health service users per day health workers 
-are able to see 
-Change in time health workers need for recording health service 
-user data
-Change in time community health workers need to transmit 
-individual health service user data to a health facility
-Quality
-% of health workers adhering to national or global guidelines 
-% of health service users who receive services according to 
-recommended care plan
-% of health service users reporting adverse health events 
-% loss to follow-up among health service users
-Use
-% of health facilities using PCPOSS
-% or number of health workers (disaggregated by health worker 
-occupational group) using PCPOSS
-% of referrals conducted via PCPOSS
-Costsb 
-% change in costs to health workers for reporting-related 
-expenses (e.g. transport, notebooks, pens)
-% change in costs of human resources for data entry 
-% change in costs associated with appropriateness and timeliness 
-of illness management
-% change in reported health service user out-of-pocket payments 
-for management of illness
-How do these 
-improvements 
-in service 
-delivery and 
-accountability 
-affect health 
-outcomes?
-Health outcomes   
-Programmatic indicators or outcomes will vary by health 
-programme area. Some examples include:
-•	 % of pregnant women receiving recommended minimum 
-of eight antenatal care contacts 
-•	 % change in drop-out rates for immunizations
-•	 % of women receiving family planning method of choice
-•	 % coverage of case-based surveillance for HIV 
+
+| Questions for assessment | Metric area | Indicator |
+| --- | --- | --- |
+| **Does the person-centred point of service system (PCPOSS) work as intended?** | Connectivity | • Percent (%) of target population with internet connectivity (whether through mobile broadband or Wi-Fi)<br>• % of health workers with internet connectivity (whether through broadband or Wi-Fi) |
+| **Does the person-centred point of service system (PCPOSS) work as intended?** | Power | • % of health workers with current access to a power source for recharging a mobile device<br>• Number of hours per day health workers have access to power |
+| **Does the person-centred point of service system (PCPOSS) work as intended?** | Availability of technical support | • % of health workers with access to local technical support systems for troubleshooting |
+| **Does the person-centred point of service system (PCPOSS) work as intended?** | Maintenance | • % of devices (mobile, tablet or otherwise) given to health workers that are currently operational |
+| **Does the person-centred point of service system (PCPOSS) work as intended?** | Functionality | • % of data fields from the paper-based system that are captured by the PCPOSS<br>• % of prioritized functionsᵃ achieved by the PCPOSS |
+| **Do health workers use the PCPOSS as intended?** | User adoption | • % of health workers who demonstrate proficiency in routine use the PCPOSS<br>• % of health workers observed using the PCPOSS for intended purpose over reference period<br>• % of data fields/forms left incomplete over a reference period<br>• % of total reports sent via the PCPOSS over reference period |
+| **Do health workers use the PCPOSS as intended?** | User response | • % of health workers who rate the PCPOSS as easier to use than the paper and/or legacy system<br>• % of health workers who are satisfied with using the PCPOSS |
+| **Do health workers use the PCPOSS as intended?** | Health service user coverage | • % of health service users uniquely registered on the PCPOSS |
+| **Does the PCPOSS improve processes for service delivery and accountability (compared with current processes)?** | Efficiency | • Change in time health workers need for registering new health service users<br>• Change in time health workers need for reporting<br>• Change in number of health service users per day health workers are able to see<br>• Change in time health workers need for recording health service user data<br>• Change in time community health workers need to transmit individual health service user data to a health facility |
+| **Does the PCPOSS improve processes for service delivery and accountability (compared with current processes)?** | Quality | • % of health workers adhering to national or global guidelines<br>• % of health service users who receive services according to recommended care plan<br>• % of health service users reporting adverse health events<br>• % loss to follow-up among health service users |
+| **Does the PCPOSS improve processes for service delivery and accountability (compared with current processes)?** | Use | • % of health facilities using PCPOSS<br>• % or number of health workers (disaggregated by health worker occupational group) using PCPOSS<br>• % of referrals conducted via PCPOSS |
+| **Does the PCPOSS improve processes for service delivery and accountability (compared with current processes)?** | Costsᵇ | • % change in costs to health workers for reporting-related expenses (e.g. transport, notebooks, pens)<br>• % change in costs of human resources for data entry<br>• % change in costs associated with appropriateness and timeliness of illness management<br>• % change in reported health service user out-of-pocket payments for management of illness |
+| **How do these improvements in service delivery and accountability affect health outcomes?** | Health outcomes | Programmatic indicators or outcomes will vary by health programme area. Some examples include:<br>• % of pregnant women receiving recommended minimum of eight antenatal care contacts<br>• % change in drop-out rates for immunizations<br>• % of women receiving family planning method of choice<br>• % coverage of case-based surveillance for HIV |
+
 PCPOSS: Person-centred point of service system.
-a 	Priority functions set by following section 3.8 to understand user requirements, and section 4.2 to validate functional requirements 
-b 	Over a reference period, the percentage changes in costs are from costs using the PCPOSS compared with those using the paper and/or 
-legacy system.
+ᵃ Priority functions set by following section 3.8 to understand user requirements, and section 4.2 to validate functional requirements
+ᵇ Over a reference period, the percentage changes in costs are from costs using the PCPOSS compared with those using the paper and/or legacy system.
 Source: WHO, 2016 (99).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Prepare for scale-up
-59
