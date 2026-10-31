@@ -26,8 +26,8 @@ import { createPublicKey, webcrypto, X509Certificate } from "node:crypto";
 const subtle = webcrypto.subtle;
 
 const b64url = (bytes: Uint8Array): string => Buffer.from(bytes).toString("base64url");
-const fromB64url = (s: string): Uint8Array => new Uint8Array(Buffer.from(s, "base64url"));
-const utf8 = (s: string): Uint8Array => new TextEncoder().encode(s);
+const fromB64url = (s: string): Uint8Array<ArrayBuffer> => new Uint8Array(Buffer.from(s, "base64url"));
+const utf8 = (s: string): Uint8Array<ArrayBuffer> => new TextEncoder().encode(s) as Uint8Array<ArrayBuffer>;
 
 export interface EcPublicJwk {
   kty: "EC";

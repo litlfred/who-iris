@@ -240,8 +240,15 @@ describe("the KG-to-portal page keeps its claims honest", () => {
     // a relative path to a file outside this directory resolves under one and
     // 404s under the other. Inlined, there is no path to be wrong.
     expect(page).toContain("<svg");
-    expect(page).toContain("GDHCN");
+    expect(page).toContain("did:web");
     expect(page).not.toContain("cat-harness/docs/assets");
+  });
+
+  it("names WHO's signing DID via did:web + x5c as the trust anchor, not a GDHCN trust list (#104)", () => {
+    expect(page).toContain("WHO signing DID — did:web + x5c chain");
+    expect(page).toContain("publicKeyJwk.x5c");
+    expect(page).toContain("No GDHCN trust list is assumed.");
+    expect(page).not.toContain("The trust anchor is to be <strong>GDHCN</strong>");
   });
 
   it("does not claim a stage this instance has not built", () => {

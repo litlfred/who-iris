@@ -107,10 +107,11 @@ describe("DSpace REST change feed", () => {
 
   test("pages newest first and stops at the cursor; returns oldest first", async () => {
     const { fetcher, calls } = fake(2);
-    const got = await changedSince(fetcher, "2026-10-29T00:00:00Z", { api: "https://x/api" });
+    const got = await changedSince(fetcher, "2026-10-29T00:00:00+00:00", { api: "https://x/api" });
     expect(got.map((i) => i.uuid)).toEqual(["u3", "u4", "u5"]);
     expect(calls.length).toBe(2);
-    expect(calls[0]).toContain("sort=lastModified,DESC");
+    expect(calls[0]).toContain("sort=dc.date.accessioned,DESC");
+    expect(calls[0]).toContain(encodeURIComponent("lastModified:[2026-10-29T00:00:00.000Z TO *]"));
   });
 
   test("weekly reconciliation lists everything", async () => {
@@ -281,5 +282,362 @@ describe("per-item manifests (Q4 A)", () => {
     const before = parsePayloadManifest(itemManifest("10665/1", [e("records/10665/1.json", "title A"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf")]));
     const after = parsePayloadManifest(itemManifest("10665/1", [e("records/10665/1.json", "title B"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf")]));
     expect(diffManifests(before, after)).toEqual({ added: [], changed: ["records/10665/1.json"], removed: [], unchanged: 1 });
+  });
+});
+
+describe("live iris.who.int DSpace 7 REST shapes (#104)", () => {
+  test("recordOf lifts owningCollection and parentCommunity from _embedded while stripping HAL _links", async () => {
+    const { recordOf } = await import("../iris-cdn/run.ts");
+    const liveItem = {
+      id: "6e96b393-5419-4127-9818-a0ecdc174b70",
+      uuid: "6e96b393-5419-4127-9818-a0ecdc174b70",
+      name: "Guidance on health systems",
+      handle: "10665/387974",
+      lastModified: "2026-10-31T02:23:11.326+00:00",
+      withdrawn: false,
+      inArchive: true,
+      discoverable: true,
+      type: "item",
+      metadata: { "dc.title": [{ value: "Guidance on health systems", language: null, authority: null, confidence: -1, place: 0 }] },
+      _links: { self: { href: "https://iris.who.int/server/api/core/items/6e96b393-5419-4127-9818-a0ecdc174b70" } },
+      _embedded: {
+        owningCollection: {
+          uuid: "43c3b8d5-432d-4e1b-a5bf-3cc6129d7266",
+          handle: "10665/26723",
+          name: "Technical Documents",
+          _links: { self: { href: "https://iris.who.int/server/api/core/collections/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266" } },
+        },
+      },
+    };
+    const rec = recordOf(liveItem);
+    expect(rec._links).toBeUndefined();
+    expect(rec._embedded).toBeUndefined();
+    expect(rec.owningCollection).toEqual({
+      uuid: "43c3b8d5-432d-4e1b-a5bf-3cc6129d7266",
+      handle: "10665/26723",
+      name: "Technical Documents",
+    });
+  });
+
+  test("itemBitstreams pages bundle bitstreams when a bundle has more than one page", async () => {
+    const calls: string[] = [];
+    const fetcher: Fetcher = async (url) => {
+      calls.push(url);
+      if (url.includes("/core/items/")) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            _embedded: {
+              bundles: {
+                _embedded: {
+                  bundles: [
+                    {
+                      uuid: "658ec5ed-261d-498c-9594-21b03c5c29aa",
+                      name: "ORIGINAL",
+                      _embedded: {
+                        bitstreams: {
+                          _embedded: {
+                            bitstreams: [
+                              { uuid: "b2", name: "part2.pdf", sizeBytes: 20, checkSum: { checkSumAlgorithm: "MD5", value: "m2" } },
+                            ],
+                          },
+                          page: { number: 0, size: 1, totalPages: 2, totalElements: 2 },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          }),
+        };
+      }
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          _embedded: {
+            bitstreams: [
+              { uuid: "b1", name: "part1.pdf", sizeBytes: 10, checkSum: { checkSumAlgorithm: "MD5", value: "m1" } },
+            ],
+          },
+          page: { number: 1, size: 100, totalPages: 2 },
+        }),
+      };
+    };
+    const bs = await itemBitstreams(fetcher, "6e96b393-5419-4127-9818-a0ecdc174b70", "https://iris.who.int/server/api");
+    expect(bs.map((x) => x.name)).toEqual(["part1.pdf", "part2.pdf"]);
+    expect(calls.length).toBe(2);
+    expect(calls[1]).toContain("/core/bundles/658ec5ed-261d-498c-9594-21b03c5c29aa/bitstreams?page=1&size=100");
+  });
+});
+
+describe("initial-load runner: budget, batch plan, checkpoint and graph rebuild (#104)", () => {
+  test("parseBudget refuses a budget without upstream denominators (Task_StateBudget)", async () => {
+    const { parseBudget } = await import("../iris-cdn/run.ts");
+    expect(() => parseBudget({})).toThrow(/totalItemsUpstream/);
+    expect(() => parseBudget({ totalItemsUpstream: 274071, totalFilesUpstream: 1057223, totalBytesUpstream: 0, maxRequestsPerSecond: 2 })).toThrow(/totalBytesUpstream/);
+    const ok = parseBudget(JSON.stringify({
+      totalItemsUpstream: 274071,
+      totalFilesUpstream: 1057223,
+      totalBytesUpstream: 388211392512,
+      maxRequestsPerSecond: 5000,
+      maxBatchesPerRun: 1,
+      pageSize: 1,
+    }));
+    expect(ok.totalItemsUpstream).toBe(274071);
+    expect(ok.maxBatchesPerRun).toBe(1);
+    expect(ok.pageSize).toBe(1);
+  });
+
+  test("runInitialLoad plans batches by collection, checkpoints after each batch, resumes where it stopped, and builds the Oxigraph graph", async () => {
+    const { parseBudget, resetSignerForTest, runInitialLoad } = await import("../iris-cdn/run.ts");
+    const { createHash } = await import("node:crypto");
+    const { existsSync, rmSync } = await import("node:fs");
+
+    const privPair = await webcrypto.subtle.generateKey({ name: "ECDSA", namedCurve: "P-256" }, true, ["sign", "verify"]);
+    const privJwk = await webcrypto.subtle.exportKey("jwk", privPair.privateKey);
+    process.env.IRIS_CDN_DID = "did:web:example.org";
+    process.env.IRIS_CDN_KEY_ID = "release-1";
+    process.env.IRIS_CDN_SIGNING_JWK = JSON.stringify(privJwk);
+    resetSignerForTest();
+
+    const releaseDir = mkdtempSync(pjoin(tmpdir(), "iris-init-load-"));
+    const objects = new Map<string, Uint8Array>();
+    const store = {
+      has: async (d: string) => objects.has(d),
+      put: async (d: string, bytes: Uint8Array) => { objects.set(d, bytes); },
+      get: async (d: string) => {
+        const b = objects.get(d);
+        if (!b) throw new Error(`missing ${d}`);
+        return b;
+      },
+    };
+
+    const commUuid = "e1b206b7-fd4c-4b93-972a-be07850a1cdd";
+    const collUuid = "a3d14b58-af81-489e-93be-c3b9e5325fc9";
+    const item1Uuid = "6e96b393-5419-4127-9818-a0ecdc174b70";
+    const item2Uuid = "d0b4c4be-0cb6-4f16-ba71-28deb47d4986";
+    const bs1Uuid = "f9f3d78c-ca9d-42a3-ad0f-313a6f4f416b";
+    const bs2Uuid = "c5af585f-732e-4514-b88e-a02721b07c41";
+    const pdf1Bytes = new TextEncoder().encode("%PDF-1.4 item 1");
+    const pdf2Bytes = new TextEncoder().encode("%PDF-1.4 item 2");
+    const md5Hex = (b: Uint8Array) => createHash("md5").update(b).digest("hex");
+
+    const itemPages = [
+      [{ uuid: item1Uuid, handle: "10665/387974", lastModified: "2026-10-30T10:00:00+00:00", withdrawn: false, metadata: { "dc.title": [{ value: "First report" }] } }],
+      [{ uuid: item2Uuid, handle: "10665/387973", lastModified: "2026-10-31T02:23:11.326+00:00", withdrawn: false, metadata: { "dc.title": [{ value: "Second report" }] } }],
+    ];
+
+    const fetcher: Fetcher = async (url) => {
+      const u = new URL(url);
+      if (u.pathname.endsWith("/core/communities")) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            _embedded: { communities: [{ uuid: commUuid, handle: "10665/1637", name: "Western Pacific" }] },
+            page: { number: 0, totalPages: 1 },
+          }),
+        };
+      }
+      if (u.pathname.endsWith("/core/collections")) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            _embedded: {
+              collections: [{
+                uuid: collUuid,
+                handle: "10665/382262",
+                name: "WPRO Technical Documents",
+                _embedded: { parentCommunity: { uuid: commUuid, handle: "10665/1637", name: "Western Pacific" } },
+              }],
+            },
+            page: { number: 0, totalPages: 1 },
+          }),
+        };
+      }
+      if (u.pathname.endsWith("/discover/search/objects")) {
+        const page = Number(u.searchParams.get("page") ?? "0");
+        const slice = itemPages[page] ?? [];
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            _embedded: {
+              searchResult: {
+                _embedded: { objects: slice.map((it) => ({ _embedded: { indexableObject: { type: "item", ...it } } })) },
+                page: { number: page, totalPages: 2, totalElements: 2, size: 1 },
+              },
+            },
+          }),
+        };
+      }
+      if (u.pathname.includes(`/core/items/${item1Uuid}`)) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            uuid: item1Uuid,
+            handle: "10665/387974",
+            lastModified: "2026-10-30T10:00:00+00:00",
+            withdrawn: false,
+            metadata: {
+              "dc.title": [{ value: "First report", language: "en" }],
+              "dc.contributor.author": [{ value: "WHO WPRO", language: "en" }],
+              "dc.date.issued": [{ value: "2025-10-20" }],
+            },
+            _embedded: {
+              owningCollection: { uuid: collUuid, handle: "10665/382262", name: "WPRO Technical Documents" },
+              bundles: {
+                _embedded: {
+                  bundles: [{
+                    uuid: "658ec5ed-261d-498c-9594-21b03c5c29aa",
+                    name: "ORIGINAL",
+                    _embedded: {
+                      bitstreams: {
+                        _embedded: {
+                          bitstreams: [{ uuid: bs1Uuid, name: "report1.pdf", sizeBytes: pdf1Bytes.byteLength, checkSum: { checkSumAlgorithm: "MD5", value: md5Hex(pdf1Bytes) } }],
+                        },
+                        page: { number: 0, totalPages: 1 },
+                      },
+                    },
+                  }],
+                },
+              },
+            },
+          }),
+        };
+      }
+      if (u.pathname.includes(`/core/items/${item2Uuid}`)) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            uuid: item2Uuid,
+            handle: "10665/387973",
+            lastModified: "2026-10-31T02:23:11.326+00:00",
+            withdrawn: false,
+            metadata: {
+              "dc.title": [{ value: "Second report", language: "en" }],
+              "dc.contributor.author": [{ value: "WHO WPRO", language: "en" }],
+              "dc.date.issued": [{ value: "2025-10-25" }],
+            },
+            _embedded: {
+              owningCollection: { uuid: collUuid, handle: "10665/382262", name: "WPRO Technical Documents" },
+              bundles: {
+                _embedded: {
+                  bundles: [{
+                    uuid: "658ec5ed-261d-498c-9594-21b03c5c29aa",
+                    name: "ORIGINAL",
+                    _embedded: {
+                      bitstreams: {
+                        _embedded: {
+                          bitstreams: [{ uuid: bs2Uuid, name: "report2.pdf", sizeBytes: pdf2Bytes.byteLength, checkSum: { checkSumAlgorithm: "MD5", value: md5Hex(pdf2Bytes) } }],
+                        },
+                        page: { number: 0, totalPages: 1 },
+                      },
+                    },
+                  }],
+                },
+              },
+            },
+          }),
+        };
+      }
+      throw new Error(`unexpected URL: ${url}`);
+    };
+
+    const binaryFetcher = async (url: string) => {
+      const bytes = url.includes(bs1Uuid) ? pdf1Bytes : pdf2Bytes;
+      return {
+        ok: true,
+        status: 200,
+        headers: { get: () => "application/pdf" },
+        arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+      };
+    };
+
+    try {
+      const budget = parseBudget({
+        totalItemsUpstream: 2,
+        totalFilesUpstream: 2,
+        totalBytesUpstream: pdf1Bytes.byteLength + pdf2Bytes.byteLength,
+        maxRequestsPerSecond: 5000,
+        maxBatchesPerRun: 1,
+        pageSize: 1,
+      });
+
+      // Run 1: executes batch 0 only, writes checkpoint, leaves cursor.json absent until all batches complete
+      const r1 = await runInitialLoad({ release: releaseDir, budget, fetcher, binaryFetcher, store, api: "https://x/api" });
+      expect(r1.batchesCompleted).toBe(1);
+      expect(r1.batchesRemaining).toBe(1);
+      expect(existsSync(pjoin(releaseDir, "state", "initial-load.json"))).toBe(true);
+      expect(existsSync(pjoin(releaseDir, "state", "cursor.json"))).toBe(false);
+
+      // Run 2: resumes from state/initial-load.json, skips batch 0, runs batch 1, writes state/cursor.json and graph/*
+      const r2 = await runInitialLoad({ release: releaseDir, budget, fetcher, binaryFetcher, store, api: "https://x/api" });
+      expect(r2.batchesCompleted).toBe(1);
+      expect(r2.batchesRemaining).toBe(0);
+      expect(existsSync(pjoin(releaseDir, "state", "cursor.json"))).toBe(true);
+      expect(JSON.parse(readFile(pjoin(releaseDir, "state", "cursor.json"), "utf-8")).cursor).toBe("2026-10-31T02:23:11.326+00:00");
+
+      const manifestPaths = [...parsePayloadManifest(readFile(pjoin(releaseDir, "manifest-sha256.txt"), "utf-8")).keys()];
+      expect(manifestPaths).toContain("records/10665/387974.json");
+      expect(manifestPaths).toContain("records/10665/387973.json");
+      expect(manifestPaths).toContain("graph/who-iris-spine.nq.gz");
+      expect(manifestPaths).toContain("graph/subgraph-manifest.json");
+    } finally {
+      rmSync(releaseDir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe("Task_Revert: automatic revert when post-publish verification fails (#104)", () => {
+  test("revertRelease reverts HEAD in the release git repository and restores the previous verified release and cursor", async () => {
+    const { checkRelease, revertRelease } = await import("../iris-cdn/run.ts");
+    const { execFileSync } = await import("node:child_process");
+    const { mkdirSync, rmSync, writeFileSync } = await import("node:fs");
+
+    const repo = mkdtempSync(pjoin(tmpdir(), "iris-revert-"));
+    const git = (...args: string[]) => execFileSync("git", ["-C", repo, ...args], { stdio: "ignore" });
+    try {
+      git("init", "-q");
+      git("config", "user.name", "test");
+      git("config", "user.email", "test@example.org");
+
+      // Commit 1: valid release tag files + cursor.json
+      const tags1 = tagFiles([e("records/10665/1.json", "one")]);
+      for (const [k, v] of Object.entries(tags1)) writeFileSync(pjoin(repo, k), v);
+      writeFileSync(pjoin(repo, "tagmanifest-sha256.txt.jws"), "header..sig1\n");
+      mkdirSync(pjoin(repo, "state"), { recursive: true });
+      writeFileSync(pjoin(repo, "state", "cursor.json"), '{"cursor":"2026-10-30T00:00:00Z"}\n');
+      git("add", "-A");
+      git("commit", "-q", "-m", "Release 1");
+
+      // Commit 2: corrupted release whose tag file does not match tagmanifest-sha256.txt
+      const tags2 = tagFiles([e("records/10665/1.json", "one"), e("records/10665/2.json", "two")]);
+      for (const [k, v] of Object.entries(tags2)) writeFileSync(pjoin(repo, k), v);
+      writeFileSync(pjoin(repo, "manifest-sha256.txt"), "corrupted-manifest\n");
+      writeFileSync(pjoin(repo, "tagmanifest-sha256.txt.jws"), "header..sig2\n");
+      writeFileSync(pjoin(repo, "state", "cursor.json"), '{"cursor":"2026-10-31T00:00:00Z"}\n');
+      git("add", "-A");
+      git("commit", "-q", "-m", "Release 2 (broken)");
+
+      const failedCheck = await checkRelease(repo);
+      expect(failedCheck.state).toBe("failed");
+
+      const rev = revertRelease(repo);
+      expect(rev.revertedCommit).not.toBe(rev.headCommit);
+
+      // Working tree is restored to Release 1, including state/cursor.json
+      expect(readFile(pjoin(repo, "manifest-sha256.txt"), "utf-8")).toBe(tags1["manifest-sha256.txt"]);
+      expect(readFile(pjoin(repo, "tagmanifest-sha256.txt.jws"), "utf-8")).toBe("header..sig1\n");
+      expect(JSON.parse(readFile(pjoin(repo, "state", "cursor.json"), "utf-8")).cursor).toBe("2026-10-30T00:00:00Z");
+    } finally {
+      rmSync(repo, { recursive: true, force: true });
+    }
   });
 });

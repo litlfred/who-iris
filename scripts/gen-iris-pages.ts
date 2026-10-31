@@ -3045,7 +3045,10 @@ function kgToPortal(all: Node[]): string {
   const covers = all.filter((n) => coverSrc(n) !== undefined).length;
 
   const svg = existsSync(ARCH_SVG)
-    ? readFileSync(ARCH_SVG, "utf-8").replace(/^<\?xml[^>]*\?>\s*/, "").replace(/<!--[\s\S]*?-->\s*/g, "")
+    ? readFileSync(ARCH_SVG, "utf-8")
+        .replace(/^<\?xml[^>]*\?>\s*/, "")
+        .replace(/<!--[\s\S]*?-->\s*/g, "")
+        .replace("GDHCN — DID trustlist (WHO SMART Trust)", "WHO signing DID — did:web + x5c chain")
     : undefined;
 
   // The badge borrows the materialisation COLOURS and none of its words. A
@@ -3090,7 +3093,7 @@ ${svg ? `<figure class="arch">${svg}<figcaption>Six stages in three zones. The p
 ${stage(1, "Select", "partial", "Everything in this catalogue is publishable, so the editorial cut has never had to refuse anything. An untested filter is not a working one.")}
 ${stage(2, "Serialize", "built", `<code>kg-export</code> emits the harness graph as JSON-LD; this instance&rsquo;s catalogue is ${all.length} nodes with ${items.length} item(s).`)}
 ${stage(3, "Package", "not built", "There is no manifest. The pages and assets are published individually, so nothing here can detect a file that was <em>removed</em>.")}
-${stage(4, "Sign", "not built", "Nothing is signed. The catalogue records a <code>sha256</code> per bitstream, which is a digest and not an attestation &mdash; anyone who can change the bytes can change the digest beside them. The trust anchor is to be <strong>GDHCN</strong>, via WHO SMART Trust; see below.")}
+${stage(4, "Sign", "not built", "Nothing on this preview site is signed. The catalogue records a <code>sha256</code> per bitstream, which is a digest and not an attestation &mdash; anyone who can change the bytes can change the digest beside them. On the Cloudflare CDN export, each item and each release is signed with a detached JWS (ES256) under a <strong><code>did:web</code></strong> key whose <code>publicKeyJwk.x5c</code> chains to WHO&rsquo;s signing DID; see below.")}
 ${stage(5, "Distribute", "built", `${pages} generated page(s) and ${covers} cover(s) on GitHub Pages, with a jsDelivr route to the same bytes.`)}
 ${stage(6, "Verify", "not built", "No consumer verifies anything, because there is nothing signed to verify. This is the stage that gets dropped, and it is dropped here.")}
   </tbody>
@@ -3111,50 +3114,31 @@ generation time &mdash; not quoted, not remembered.</p>
   </tbody>
 </table>
 
-<h2>Trust: GDHCN, via WHO SMART Trust</h2>
+<h2>Trust: <code>did:web</code> + <code>x5c</code> chained to WHO&rsquo;s signing DID</h2>
 
-<p>Owner, 2026-09-20, in two messages: <code>propsal signing = GDHCN</code>, then
-<code>smart-trust</code> (<a href="https://github.com/litlfred/smart-trust">the trust layer</a>) &mdash; which names where the first is specified. The
-<strong>WHO SMART Trust Implementation Guide</strong>
-(<a href="https://smart.who.int/trust"><code>smart.who.int.trust</code></a>, FHIR R5,
-v1.8.0 as read) publishes GDHCN key material as
-<a href="https://www.w3.org/TR/did-core/">W3C DID documents</a>.</p>
-
-<div class="caveat">
-  <p><strong>This corrected an earlier draft on this branch.</strong> It said the publisher
-  &ldquo;signs as a participant&rdquo;, which left the impression that GDHCN supplies the signing
-  envelope. It supplies the <strong>key distribution</strong>: a trustlist carries trust anchors
-  &mdash; which keys belong to which participant, for which domain and which usage &mdash; and says
-  nothing about what you wrap your bytes in. The health-certificate envelope is a separate
-  specification in the same IG, and <em>a document package is not a health certificate</em>.
-  What is settled is where a verifier <strong>gets the key</strong>.</p>
-</div>
-
-<p>Three things from <code>concepts_did_gdhcn.md</code>, and the third is the one that matters
-for the drawing above:</p>
+<p>Owner decision, 2026-10-30 (superseding the earlier GDHCN trustlist sketch):
+the IRIS CDN export is signed with a subordinate P-256 key published as a
+<code>verificationMethod</code> of a <a href="https://www.w3.org/TR/did-core/">W3C <code>did:web</code> DID document</a>
+whose <code>publicKeyJwk.x5c</code> certificate chain ends at <strong>WHO&rsquo;s signing DID</strong>
+(<code>did:web:raw.githubusercontent.com:WorldHealthOrganization:tng-participants-prod:main:WHO:signing:DID</code>).
+<strong>No GDHCN trust list is assumed.</strong> See
+<a href="iris-cdn-signing-options.html">IRIS CDN Exporter: signing options</a> and
+<a href="iris-cdn-export.html">IRIS CDN Exporter: processes</a>.</p>
 
 <ul class="kids" style="margin-left:0">
-  <li><strong>Two variants.</strong> <em>Embedded</em> carries the keys inline and supports
-      immediate verification; <em>by reference</em> carries only DID ids to resolve, which keeps
-      the root document concise and supports dynamic discovery.</li>
-  <li><strong>The path is a hierarchical filter</strong> &mdash;
-      <code>/v2/trustlist/$domain/$participant/$usage/did.json</code>, the levels ANDed, with
-      <code>-</code> as a wildcard. A verifier fetches exactly the slice it needs.</li>
-  <li><strong>It is static JSON served from a CDN</strong>, on a host named
-      <code>tng-cdn.who.int</code>. So the pattern on this page is not an analogy to how GDHCN
-      works &mdash; it <em>is</em> how GDHCN works, one layer down.</li>
+  <li><strong>Package and digests (RFC 8493).</strong> Each release is a BagIt 1.0 bag
+      (<code>bagit.txt</code>, date-free <code>bag-info.txt</code>, sorted
+      <code>manifest-sha256.txt</code>, and <code>tagmanifest-sha256.txt</code>).</li>
+  <li><strong>Per-item and per-release detached JWS (RFC 7515 Appendix F, ES256).</strong>
+      Each changed library item has its own manifest at
+      <code>items/&lt;handle&gt;/manifest-sha256.txt</code> and detached signature
+      <code>manifest-sha256.txt.jws</code>; the release signs
+      <code>tagmanifest-sha256.txt</code> as <code>tagmanifest-sha256.txt.jws</code>.</li>
+  <li><strong>Independent verification.</strong> A verifier resolves the signer&rsquo;s
+      <code>did:web</code> document from its HTTPS origin, checks that <code>kid</code> is
+      listed in <code>assertionMethod</code>, verifies the ES256 signature, and validates the
+      <code>x5c</code> certificate chain up to WHO&rsquo;s signing-DID public key.</li>
 </ul>
-
-<div class="caveat">
-  <p><strong>Read off the IG, not fetched.</strong> Those endpoints are transcribed from
-  <code>input/pagecontent/concepts_did_gdhcn.md</code> on <code>main</code>;
-  <code>tng-cdn.who.int</code> returns <code>000</code> from the container that generates this
-  page, the same block <code>iris.who.int</code> and <code>cdn.jsdelivr.net</code> return.</p>
-  <p><strong>Still open and unread:</strong> the key rotation and revocation model
-  (<code>concepts_certificate_governance.md</code>), and whether a document-package signature can
-  be expressed for a GDHCN-aware verifier at all &mdash; the envelope specified in that IG is for
-  health certificates, and nothing there covers arbitrary files.</p>
-</div>
 
 <h2>Publishing a large graph: skeleton, payloads, one SQLite file per slice</h2>
 

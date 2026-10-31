@@ -4,6 +4,7 @@
 import { describe, expect, test, beforeAll } from 'bun:test';
 import path from 'node:path';
 import fs from 'node:fs';
+import os from 'node:os';
 import { buildIrisDataset, GRAPH_IRIS_CATALOGUE, GRAPH_IRIS_METADATA } from '../build-iris-oxigraph.ts';
 import { IrisOxigraphEngine, bound, selectRows } from '../iris-oxigraph-search.ts';
 
@@ -250,3 +251,144 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
   });
 });
 
+
+describe('WHO-IRIS Oxigraph over exported DSpace records (#104)', () => {
+  test('builds sorted, byte-identical partitions from exported records and keeps unchanged partitions identical when another community changes', async () => {
+    const tmpBase = fs.mkdtempSync(path.join(os.tmpdir(), 'ox-export-test-'));
+    const recDir = path.join(tmpBase, 'records');
+    const out1 = path.join(tmpBase, 'out1');
+    const out2 = path.join(tmpBase, 'out2');
+    const out3 = path.join(tmpBase, 'out3');
+    try {
+      fs.mkdirSync(path.join(recDir, 'communities'), { recursive: true });
+      fs.mkdirSync(path.join(recDir, 'collections', '10665'), { recursive: true });
+      fs.mkdirSync(path.join(recDir, '10665'), { recursive: true });
+
+      const commWpro = {
+        uuid: 'e1b206b7-fd4c-4b93-972a-be07850a1cdd',
+        handle: '10665/1637',
+        name: 'Regional Office for the Western Pacific',
+        type: 'community',
+      };
+      const commHq = {
+        uuid: '5bff2c18-6c2b-4658-9087-93811d2399c0',
+        handle: '10665/1',
+        name: 'Headquarters',
+        type: 'community',
+      };
+      fs.writeFileSync(path.join(recDir, 'communities', 'wpro.json'), JSON.stringify(commWpro));
+      fs.writeFileSync(path.join(recDir, 'communities', 'hq.json'), JSON.stringify(commHq));
+
+      const collWpro = {
+        uuid: 'a3d14b58-af81-489e-93be-c3b9e5325fc9',
+        handle: '10665/382262',
+        name: 'WPRO Publications',
+        parentCommunity: { uuid: commWpro.uuid, handle: commWpro.handle, name: commWpro.name },
+        type: 'collection',
+      };
+      const collHq = {
+        uuid: '43c3b8d5-432d-4e1b-a5bf-3cc6129d7266',
+        handle: '10665/26723',
+        name: 'HQ Technical Documents',
+        parentCommunity: { uuid: commHq.uuid, handle: commHq.handle, name: commHq.name },
+        type: 'collection',
+      };
+      fs.writeFileSync(path.join(recDir, 'collections', '10665', '382262.json'), JSON.stringify(collWpro));
+      fs.writeFileSync(path.join(recDir, 'collections', '10665', '26723.json'), JSON.stringify(collHq));
+
+      const itemWpro = {
+        uuid: '6e96b393-5419-4127-9818-a0ecdc174b70',
+        handle: '10665/387974',
+        lastModified: '2026-10-31T02:23:11.326+00:00',
+        withdrawn: false,
+        owningCollection: { uuid: collWpro.uuid, handle: collWpro.handle, name: collWpro.name },
+        bitstreams: [
+          {
+            uuid: 'f9f3d78c-ca9d-42a3-ad0f-313a6f4f416b',
+            name: 'B09925-eng.pdf',
+            bundle: 'ORIGINAL',
+            sizeBytes: 1369210,
+            checkSum: { checkSumAlgorithm: 'MD5', value: '72de613d5abf364b1f3d412f1fa7a327' },
+            copyrightGate: 'permitted',
+          },
+        ],
+        metadata: {
+          'dc.title': [{ value: 'Western Pacific guidance on health systems', language: 'en' }],
+          'dc.contributor.author': [{ value: 'World Health Organization. Regional Office for the Western Pacific', language: 'en' }],
+          'dc.date.issued': [{ value: '2025-10-20' }],
+          'dc.coverage.spatial': [{ value: 'Manila', language: 'en' }],
+          'dc.subject.mesh': [{ value: 'Health Systems Plans', language: 'en', authority: 'D006295' }],
+          'dc.identifier.govdoc': [{ value: 'WPR/2025/001' }],
+        },
+      };
+
+      const itemHq = {
+        uuid: 'd0b4c4be-0cb6-4f16-ba71-28deb47d4986',
+        handle: '10665/387973',
+        lastModified: '2026-10-31T02:23:11.179+00:00',
+        withdrawn: false,
+        owningCollection: { uuid: collHq.uuid, handle: collHq.handle, name: collHq.name },
+        bitstreams: [
+          {
+            uuid: 'c5af585f-732e-4514-b88e-a02721b07c41',
+            name: 'HQ-2025.pdf',
+            bundle: 'ORIGINAL',
+            sizeBytes: 512000,
+            checkSum: { checkSumAlgorithm: 'MD5', value: '43070ec9a734460571ff2dd95dc21423' },
+            copyrightGate: 'permitted',
+          },
+        ],
+        metadata: {
+          'dc.title': [{ value: 'Global surveillance framework', language: 'en' }],
+          'dc.contributor.author': [{ value: 'World Health Organization', language: 'en' }],
+          'dc.date.issued': [{ value: '2025-05-01' }],
+          'dc.coverage.spatial': [{ value: 'Geneva', language: 'en' }],
+          'dc.subject.mesh': [{ value: 'Public Health Surveillance', language: 'en' }],
+        },
+      };
+
+      fs.writeFileSync(path.join(recDir, '10665', '387974.json'), JSON.stringify(itemWpro));
+      fs.writeFileSync(path.join(recDir, '10665', '387973.json'), JSON.stringify(itemHq));
+
+      await buildIrisDataset(out1, { recordsDir: recDir });
+      await buildIrisDataset(out2, { recordsDir: recDir });
+
+      // Every emitted file is byte-identical across repeated builds
+      for (const fname of fs.readdirSync(out1)) {
+        expect(fs.readFileSync(path.join(out1, fname))).toEqual(fs.readFileSync(path.join(out2, fname)));
+      }
+
+      // Lines inside who-iris-dataset.nq and who-iris-spine.nq are sorted and have zero blank nodes
+      const spineLines = fs.readFileSync(path.join(out1, 'who-iris-spine.nq'), 'utf8').trim().split('\n');
+      expect(spineLines).toEqual([...spineLines].sort());
+      const datasetLines = fs.readFileSync(path.join(out1, 'who-iris-dataset.nq'), 'utf8').trim().split('\n');
+      expect(datasetLines).toEqual([...datasetLines].sort());
+      expect(datasetLines.filter(l => /(^|\s)_:[a-zA-Z0-9_-]+/.test(l)).length).toBe(0);
+
+      // Querying via IrisOxigraphEngine works across Tier 1 Spine and Tier 2 Community partitions
+      const engine = new IrisOxigraphEngine();
+      engine.loadSpine(path.join(out1, 'who-iris-spine.nq.gz'));
+      expect(engine.searchSpine({ community: 'Western Pacific', hasPdf: true }).map(r => r.handle)).toEqual(['https://hdl.handle.net/10665/387974']);
+
+      engine.loadCommunity(commWpro.uuid, path.join(out1, `iris_who_int_graph_community_${commWpro.uuid}.nq.gz`));
+      const deep = engine.complexSearch({ spatial: 'Manila', govdoc: 'WPR/2025/001' });
+      expect(deep.length).toBe(1);
+      expect(deep[0].handle).toBe('https://hdl.handle.net/10665/387974');
+
+      // Modifying HQ item changes HQ partition and spine, while WPRO partition stays byte-identical (no churn)
+      itemHq.metadata['dc.title'] = [{ value: 'Global surveillance framework (revised)', language: 'en' }];
+      fs.writeFileSync(path.join(recDir, '10665', '387973.json'), JSON.stringify(itemHq));
+      await buildIrisDataset(out3, { recordsDir: recDir });
+
+      const wproGz1 = fs.readFileSync(path.join(out1, `iris_who_int_graph_community_${commWpro.uuid}.nq.gz`));
+      const wproGz3 = fs.readFileSync(path.join(out3, `iris_who_int_graph_community_${commWpro.uuid}.nq.gz`));
+      expect(wproGz3).toEqual(wproGz1);
+
+      const hqGz1 = fs.readFileSync(path.join(out1, `iris_who_int_graph_community_${commHq.uuid}.nq.gz`));
+      const hqGz3 = fs.readFileSync(path.join(out3, `iris_who_int_graph_community_${commHq.uuid}.nq.gz`));
+      expect(hqGz3).not.toEqual(hqGz1);
+    } finally {
+      fs.rmSync(tmpBase, { recursive: true, force: true });
+    }
+  });
+});
