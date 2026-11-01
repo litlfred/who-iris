@@ -1,0 +1,1061 @@
+{
+  "$schema": "folio-glossary/v1",
+  "id": "hrhis-registry-2015",
+  "title": "Human resources for health information system: minimum data set for health workforce registry (2015) — system functional requirements",
+  "description": "System types and functional requirements from the WHO guide 'Human resources for health information system: minimum data set for health workforce registry' (2015, ISBN 9789241549226), held in this library as 9789241549226-eng. Owner, 2026-11-01: an inspirational, non-definitional reference for the DTH-HRH handbook's Chapter 7 (Functional Requirements); these concepts contribute to a definition and are not definitional, so no term carries skos:definition. Three kinds of concept: system types (Figure 3: the health information system, its sub-systems, the HRH information system and its functional components, among them the health workforce registry); the four functional domains (Figure 4, Table 1) and Table 2's information categories; and one concept per functional-requirement block of library/9789241549226-eng, broader-linked to the system type it is stated for and related to its domain or category. Labels are the source's own words; a requirement the source gives no name is labelled with its full statement. The minimum data set itself (Table 3, the data-element sheets, Tables 6-7) is deliberately not represented. Every term is a candidate until a person confirms it.",
+  "hasVersion": "2026-11-01",
+  "modified": "2026-11-01",
+  "source": "library/9789241549226-eng/",
+  "license": "LicenseRef-WHO-All-Rights-Reserved",
+  "terms": [
+    {
+      "id": "health-information-system",
+      "prefLabel": "Health Information System",
+      "altLabel": [
+        "HIS"
+      ],
+      "scopeNote": "Figure 3 labels it 'A complex system containing various health information sub systems'.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "financial-management-system",
+      "prefLabel": "Financial Management System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "alert-and-response-system",
+      "prefLabel": "Alert and Response System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "emr-patient-management-system",
+      "prefLabel": "EMR/Patient Management System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "environmental-monitoring-system",
+      "prefLabel": "Environmental Monitoring System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "diagnostics-lab-system",
+      "prefLabel": "Diagnostics/Lab System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "asset-management-system",
+      "prefLabel": "Asset Management System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "disease-management-system",
+      "prefLabel": "Disease Management System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "supply-chain-management-system",
+      "prefLabel": "Supply-chain Management System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "A sub-system of the health information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "disease-surveillance-system",
+      "prefLabel": "Disease Surveillance System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "Named in the text describing Figure 3 ('disease surveillance systems'); not drawn in the figure.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=16",
+      "status": "candidate"
+    },
+    {
+      "id": "knowledge-management-system",
+      "prefLabel": "Knowledge Management System",
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "Named in the text describing Figure 3 ('knowledge management systems'); not drawn in the figure.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=16",
+      "status": "candidate"
+    },
+    {
+      "id": "hrh-information-system",
+      "prefLabel": "Human Resources for Health Information System",
+      "altLabel": [
+        "HRHIS",
+        "HRIS",
+        "HRH Information System",
+        "health workforce information system"
+      ],
+      "broader": [
+        "health-information-system"
+      ],
+      "scopeNote": "The centre box of Figure 3, 'a model health workforce information system, often referred to as HRIS, with numerous functional components'.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=16",
+      "status": "candidate"
+    },
+    {
+      "id": "workforce-production",
+      "prefLabel": "Workforce Production",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "vacancy-and-recruitment",
+      "prefLabel": "Vacancy and Recruitment",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "finance",
+      "prefLabel": "Finance",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "registration-and-licensing",
+      "prefLabel": "Registration and Licensing",
+      "altLabel": [
+        "Registration and Listening"
+      ],
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "Figure 3 prints this component as 'Registration and Listening'; Table 1 names the function 'Regulation - Registration and Licensing'. The figure's spelling is kept as an altLabel.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "migration",
+      "prefLabel": "Migration",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "payroll",
+      "prefLabel": "Payroll",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "benefits",
+      "prefLabel": "Benefits",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "performance-management",
+      "prefLabel": "Performance Management",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "training",
+      "prefLabel": "Training",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "retirement-component",
+      "prefLabel": "Retirement",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A functional component of the HRH information system in Figure 3.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=18",
+      "status": "candidate"
+    },
+    {
+      "id": "health-workforce-registry",
+      "prefLabel": "Health Workforce Registry",
+      "altLabel": [
+        "HRH Workforce Registry",
+        "electronic health workforce registry"
+      ],
+      "broader": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "Figure 3 draws it as a functional component of the HRH information system; the text calls it 'a central and essential component of a functional HRIS'.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=17",
+      "status": "candidate"
+    },
+    {
+      "id": "functional-domain-1",
+      "prefLabel": "Pre-Entry",
+      "altLabel": [
+        "Planning Workforce Needs"
+      ],
+      "notation": "1",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A health workforce functional domain of the person-centric life cycle (Figure 4, Table 1): 'Pre-Entry (Planning Workforce Needs)'.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=19",
+      "status": "candidate"
+    },
+    {
+      "id": "functional-domain-2",
+      "prefLabel": "Entry",
+      "altLabel": [
+        "Preparing Workforce"
+      ],
+      "notation": "2",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A health workforce functional domain of the person-centric life cycle (Figure 4, Table 1): 'Entry (Preparing Workforce)'.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=19",
+      "status": "candidate"
+    },
+    {
+      "id": "functional-domain-3",
+      "prefLabel": "Exist",
+      "altLabel": [
+        "Managing Workforce"
+      ],
+      "notation": "3",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A health workforce functional domain of the person-centric life cycle (Figure 4, Table 1): 'Exist (Managing Workforce)'.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=19",
+      "status": "candidate"
+    },
+    {
+      "id": "functional-domain-4",
+      "prefLabel": "Exit",
+      "altLabel": [
+        "Retiring Workforce"
+      ],
+      "notation": "4",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "A health workforce functional domain of the person-centric life cycle (Figure 4, Table 1): 'Exit (Retiring Workforce)'.",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=19",
+      "status": "candidate"
+    },
+    {
+      "id": "information-category-workforce-forecasting-and-budget",
+      "prefLabel": "Workforce forecasting and budget",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "An information category of Table 2 (types of health workforce information needs at national and sub-national levels).",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=21",
+      "status": "candidate"
+    },
+    {
+      "id": "information-category-distribution-of-workforce-by-cadre-facility-and-targets",
+      "prefLabel": "Distribution of workforce by cadre, facility, and targets",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "An information category of Table 2 (types of health workforce information needs at national and sub-national levels).",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=21",
+      "status": "candidate"
+    },
+    {
+      "id": "information-category-workforce-training-and-development",
+      "prefLabel": "Workforce training and development",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "An information category of Table 2 (types of health workforce information needs at national and sub-national levels).",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=21",
+      "status": "candidate"
+    },
+    {
+      "id": "information-category-workforce-recruitment-and-retention",
+      "prefLabel": "Workforce recruitment and retention",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "An information category of Table 2 (types of health workforce information needs at national and sub-national levels).",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=21",
+      "status": "candidate"
+    },
+    {
+      "id": "information-category-performance-management",
+      "prefLabel": "Performance management",
+      "related": [
+        "hrh-information-system"
+      ],
+      "scopeNote": "An information category of Table 2 (types of health workforce information needs at national and sub-national levels).",
+      "source": "uploads/9789241549226-eng/9789241549226-eng.pdf#page=21",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-006-01",
+      "prefLabel": "In a national context an electronic health workforce registry can be considered the single authoritative source of health workforce information that can provide an accurate count of all health care personnel that either have worked or are currently working at national or sub-national levels, including in the private sector.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 16-18.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-006-01",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-006-02",
+      "prefLabel": "An electronic health workforce registry can be designed to authenticate and validate the existence of a health worker and provide essential details about that person.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 16-18.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-006-02",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-006-03",
+      "prefLabel": "In addition, a health workforce registry can ensure quality control, provide easy access to information on production, distribution and utilization of health personnel, and assist in budgeting, research development and advocacy.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 16-18.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-006-03",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-006-04",
+      "prefLabel": "A health workforce registry allows aggregation of health workforce data in several combinations and assists both national and sub-national ministries of health in producing essential indicator-based reports, as needed.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 16-18.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-006-04",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-006-05",
+      "prefLabel": "The health workforce registry is a central and essential component of a functional HRIS, as it contains important health worker attributes that can subsequently be linked to other relevant HRIS components.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 16-18.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-006-05",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-01",
+      "prefLabel": "Action Plan and Budget",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-1"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-01",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-02",
+      "prefLabel": "Education - Enrolment",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-2"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-02",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-03",
+      "prefLabel": "Education - Graduation",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-2"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-03",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-04",
+      "prefLabel": "Education - Accreditation",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-2"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-04",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-05",
+      "prefLabel": "Regulation - Registration and Licensing",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-2"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-05",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-06",
+      "prefLabel": "Regulation - Disciplinary Action",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-2"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-06",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-07",
+      "prefLabel": "Recruitment",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-2"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-07",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-08",
+      "prefLabel": "Payroll Administration",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-3"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-08",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-09",
+      "prefLabel": "Training (in-service)",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-3"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-09",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-10",
+      "prefLabel": "Leave Management",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-3"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-10",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-11",
+      "prefLabel": "Relicensure",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-3"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-11",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-12",
+      "prefLabel": "PBF Evaluation",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-3"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-12",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-13",
+      "prefLabel": "Transfer",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-3"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-13",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-14",
+      "prefLabel": "Disciplinary Action",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-3"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-14",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-15",
+      "prefLabel": "Retirement",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-4"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-15",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-16",
+      "prefLabel": "Discharge - Involuntary",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-4"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-16",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-17",
+      "prefLabel": "Discharge - Voluntary",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-4"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-17",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-18",
+      "prefLabel": "Discharge - Death during tenure",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-4"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-18",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-009-19",
+      "prefLabel": "Pension",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "functional-domain-4"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-table-row), word for word from pages 20-21.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-009-19",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-01",
+      "prefLabel": "Staffing gaps against norms",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-forecasting-and-budget"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-01",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-02",
+      "prefLabel": "Estimation of workforce needs",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-forecasting-and-budget"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-02",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-03",
+      "prefLabel": "Estimation of financial needs",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-forecasting-and-budget"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-03",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-04",
+      "prefLabel": "Timely standardized reports",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-forecasting-and-budget"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-04",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-05",
+      "prefLabel": "Private sector / cadre types",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-distribution-of-workforce-by-cadre-facility-and-targets"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-05",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-06",
+      "prefLabel": "Facilities-type, geographic location",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-distribution-of-workforce-by-cadre-facility-and-targets"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-06",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-07",
+      "prefLabel": "Pre-Service training and production: categories of information by discipline within medical, nursing, and public health schools and other training and health institutions",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-training-and-development"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-07",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-08",
+      "prefLabel": "In-service training and continuing professional development",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-training-and-development"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-08",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-09",
+      "prefLabel": "Manage staff vacancies",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-recruitment-and-retention"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-09",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-10",
+      "prefLabel": "Planning and forecasting staff needs",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-recruitment-and-retention"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-10",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-11",
+      "prefLabel": "Manage promotion, retention, and pension",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-recruitment-and-retention"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-11",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-12",
+      "prefLabel": "Workforce credential management",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-workforce-recruitment-and-retention"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-12",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-13",
+      "prefLabel": "Document employee performance management",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-performance-management"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-13",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-010-14",
+      "prefLabel": "Document data on quality and quantity indicators",
+      "broader": [
+        "hrh-information-system"
+      ],
+      "related": [
+        "information-category-performance-management"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (information-need-table-row), word for word from pages 21-24.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-010-14",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-031-01",
+      "prefLabel": "Address policy and governance mechanism",
+      "notation": "b)",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 43-48.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-031-01",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-031-02",
+      "prefLabel": "Agree on a location to operate the registry",
+      "notation": "e)",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 43-48.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-031-02",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-01",
+      "prefLabel": "Assure privacy, security and confidentiality of health workforce data",
+      "notation": "i)",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-01",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-02",
+      "prefLabel": "Establish standardized reports",
+      "notation": "j)",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-02",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-03",
+      "prefLabel": "Number of health workforce by cadre, gender and facility",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-list-item), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-03",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-04",
+      "prefLabel": "Number of expected retirements",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-list-item), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-04",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-05",
+      "prefLabel": "Number of expected and completed renewals of license/credentials",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-list-item), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-05",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-06",
+      "prefLabel": "Number of vacant positions by facility",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-list-item), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-06",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-07",
+      "prefLabel": "Geographic distribution of total workforce by facility",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-list-item), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-07",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-08",
+      "prefLabel": "Geographic distribution (by district) of male and female employees",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (function-list-item), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-08",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-037-09",
+      "prefLabel": "Develop, test, and deploy a functional electronic health workforce registry",
+      "notation": "k)",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 52-56.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-037-09",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-038-01",
+      "prefLabel": "Establish appropriate access controls based on an agreed policies.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 56-60.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-038-01",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-038-02",
+      "prefLabel": "Design, test and deploy the electronic web-enabled registry based on national eHealth enterprise architecture.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 56-60.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-038-02",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-038-03",
+      "prefLabel": "Make available, at sub-national level, a replica of the registry with similar structure and functions, in order to collect and manage the minimum data set from authorized entities at sub-national-level.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 56-60.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-038-03",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-038-04",
+      "prefLabel": "Adhere to best practices in information systems design to assure accuracy, timeliness, completeness, reliability, privacy, security, and confidentiality of data and information systems and assets.",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 56-60.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-038-04",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-038-05",
+      "prefLabel": "Illustration depicting a web-enabled electronic Health Workforce Registry with person-centric data entry screen and analytics display abilities",
+      "notation": "Annex A",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (figure-caption), word for word from pages 56-60.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-038-05",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-040-01",
+      "prefLabel": "Based on national or sub-national eHealth enterprise information architecture, national and sub-national health authorities shall develop and deploy the registry.",
+      "notation": "12",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 62-64.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-040-01",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-040-02",
+      "prefLabel": "The registry shall conform to best practices in information systems design in order to assure quality, accuracy, timeliness, completeness, reliability, privacy, security, and confidentiality of the data and information systems and assets.",
+      "notation": "13",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 62-64.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-040-02",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-040-03",
+      "prefLabel": "Legally authorized users of the registry shall be required to have unique user names and passwords that will be provided by the national Steering Committee, on the approval of the highest health authority at national and sub-national levels. Level of access to the registry shall be determined by the national Steering Committee or its authorized agent.",
+      "notation": "15",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 62-64.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-040-03",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-040-04",
+      "prefLabel": "The registry must be in compliance with all applicable national and sub-national laws related to privacy, security, and confidentiality of data.",
+      "notation": "16",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 62-64.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-040-04",
+      "status": "candidate"
+    },
+    {
+      "id": "fr-sec-040-05",
+      "prefLabel": "The registry and its related physical assets shall be secured in accordance with applicable national and sub-national laws.",
+      "notation": "17",
+      "broader": [
+        "health-workforce-registry"
+      ],
+      "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 62-64.",
+      "source": "library/9789241549226-eng/blocks/functional-requirement-sec-040-05",
+      "status": "candidate"
+    }
+  ]
+}
