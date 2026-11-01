@@ -121,76 +121,14 @@ tree will need to be further detailed so that engineers can
 programme the decision-support logic into software.
 Fig. 13	 Example decision-support logic matrix from DAK for HIV
 Source: WHO (31)
-Activity ID & 
-activity name
-Decision 
-table ID
-Decision table 
-description
-Reference/source
-HIV.B2. Check for 
-signs of serious illness 
-OR HIV.D3. Check for 
-signs of serious illness
-HIV.DT.01
-Check for serious 
-illness
-Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health 
-approach (2021) (27) Table 5.1. Components of the package of care for people with advanced HIV disease.
-HIV.B7. Test for 
-HIV using testing 
-algorithm, HIV.C4. 
-PrEP visit, HIV.D.11. 
-Retest using HIV 
-strategy, HIV.E4. Test 
-[mother] for HIV using 
-HIV testing algorithm, 
-HIV.E12. Test [infant] 
-for HIV using testing 
-algorithm, HIV.F8. Test 
-[infant] for HIV using 
-HIV testing algorithm
-HIV.DT.02
-Test for HIV using 
-testing algorithm
-Consolidated guidelines on HIV testing services (2019) (22). 
-Fig. 2. WHO universal HIV testing strategy.
-8.4.2 Multiplex testing for HIV-1 and other infections
-Figure 8.6. WHO recommended testing strategy for dual detection of HIV and syphilis in ANC settings.
-Fig. 8.4. WHO HIV testing strategy for early infant diagnosis.
-Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health 
-approach (2021) (27).
-Fig. 2.7 Simplified infant diagnosis algorithm; Fig. 2.8 Managing indeterminate test results: standard operating procedure.
-HIV.B9. Determine 
-recommended 
-services
-HIV.DT.03
-Determine retest 
-recommendation
-Consolidated guidelines on HIV testing services (2019) (22).
-7.2.4 Retesting – when and who?
-7.2.5 Testing pregnant and breastfeeding women. 
-HIV.C8. Check 
-eligibility for PrEP
-HIV.DT.04
-PrEP eligibility 
-check
-Implementation tool for pre-exposure prophylaxis of HIV infection (2017) (35). Module 1: Clinical. Use criteria in pocket card, p. 4, 
-Indications for PrEP (by history over the past 6 months) and Contraindications (with provider discretion).
-See also Implementation tool for pre-exposure prophylaxis of HIV infection (2017) (35). Module 10. Testing providers. Table 1. Summary 
-tool for starting or monitoring PrEP and Preventing HIV during pregnancy and breastfeeding in the context of PrEP. Technical brief 
-(2017) (29).
-HIV.C.24 Prescribe
-HIV.DT.05
-Determine PEP or 
-PrEP regimen
-Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health 
-approach (2021) (27) Chapter 3: HIV prevention. 
-HIV.D4. Screen for TB
-HIV.DT.06
-Screen for TB
-WHO consolidated guidelines on tuberculosis: tuberculosis preventive treatment. (2020) (36). Supplementary table. 
-WHO consolidated guidelines on tuberculosis Module 2: Screening – Systematic screening for tuberculosis disease (47). 
+| Activity ID & activity name | Decision table ID | Decision table description | Reference/source |
+| --- | --- | --- | --- |
+| HIV.B2. Check for signs of serious illness OR HIV.D3. Check for signs of serious illness | HIV.DT.01 | Check for serious illness | Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health<br>approach (2021) (27) Table 5.1. Components of the package of care for people with advanced HIV disease. |
+| HIV.B7. Test for HIV using testing algorithm, HIV.C4. PrEP visit, HIV.D.11. Retest using HIV strategy, HIV.E4. Test [mother] for HIV using HIV testing algorithm, HIV.E12. Test [infant] for HIV using testing algorithm, HIV.F8. Test [infant] for HIV using HIV testing algorithm | HIV.DT.02 | Test for HIV using testing algorithm | Consolidated guidelines on HIV testing services (2019) (22).<br>Fig. 2. WHO universal HIV testing strategy.<br>8.4.2 Multiplex testing for HIV-1 and other infections<br>Figure 8.6. WHO recommended testing strategy for dual detection of HIV and syphilis in ANC settings.<br>Fig. 8.4. WHO HIV testing strategy for early infant diagnosis.<br>Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health<br>approach (2021) (27).<br>Fig. 2.7 Simplified infant diagnosis algorithm; Fig. 2.8 Managing indeterminate test results: standard operating procedure. |
+| HIV.B9. Determine recommended services | HIV.DT.03 | Determine retest recommendation | Consolidated guidelines on HIV testing services (2019) (22).<br>7.2.4 Retesting – when and who?<br>7.2.5 Testing pregnant and breastfeeding women. |
+| HIV.C8. Check eligibility for PrEP | HIV.DT.04 | PrEP eligibility check | Implementation tool for pre-exposure prophylaxis of HIV infection (2017) (35). Module 1: Clinical. Use criteria in pocket card, p. 4,<br>Indications for PrEP (by history over the past 6 months) and Contraindications (with provider discretion).<br>See also Implementation tool for pre-exposure prophylaxis of HIV infection (2017) (35). Module 10. Testing providers. Table 1. Summary<br>tool for starting or monitoring PrEP and Preventing HIV during pregnancy and breastfeeding in the context of PrEP. Technical brief<br>(2017) (29). |
+| HIV.C.24 Prescribe | HIV.DT.05 | Determine PEP or PrEP regimen | Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health<br>approach (2021) (27) Chapter 3: HIV prevention. |
+| HIV.D4. Screen for TB | HIV.DT.06 | Screen for TB | WHO consolidated guidelines on tuberculosis: tuberculosis preventive treatment. (2020) (36). Supplementary table.<br>WHO consolidated guidelines on tuberculosis Module 2: Screening – Systematic screening for tuberculosis disease (47). |
 Introduction
 How to use 
 this handbook
