@@ -4,11 +4,29 @@ doc_title: "Digital transformation handbook for primary health care Optimizing p
 section_id: sec-020-41-finalize-software-and-vendor-selection
 section_title: "Finalize software and vendor selection"
 section_number: 4.1
-pages: 52-53
+pages: 50-53
 source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
 ---
+CHAPTER 4
+Undertake design and adaptation
+
+The steps of undertaking detailed design and adaptation should be led primarily by a technology partner. This section summarizes the standards, concept and activities a technology partner is expected, at a minimum, to undertake.
+
+Implementation teams commissioning the design and adaptation are not expected to know how to programme software themselves but understanding the processes that technology partners go through to build a system is important. The effort needed is otherwise often significantly underestimated, leading to mismatched expectations by both parties. Active, successful collaboration between implementers and technology partners helps to ensure that the solution being built or adapted matches the needs of end-users.
+
+| Component | Details |
+| --- | --- |
+| **Who should be involved?** | • Software engineers and solutions architects should lead this work.<br>• Business analysts and designers should provide meaningful and constant feedback to the engineering team to ensure proper translation of the system requirements into implementation.<br>• Health informaticians should be involved to provide expert guidance as needed to ensure the system is able to operate using standards such as Fast Healthcare Interoperability Resources (FHIR).<br>• The targeted health worker occupational groups and end-users should provide feedback as different versions of the person-centred point of service system (PCPOSS) are created. |
+| **Inputs** | • Scope for PCPOSSᵃ<br>• Project team governance structureᵃ<br>• Budget, timeline, and risk and mitigations planᵃ<br>• Digital adaptation kitsᵇ<br>Requirements documentation that includes:<br>• User personasᶜ<br>• Use casesᶜ<br>• User storiesᶜ<br>• As-is and to-be business processesᶜ<br>• Data dictionaryᶜ<br>• Data model inclusive of semantic classifications and terminology standards and syntactic interoperability standards<br>• Documented decision logic algorithmsᶜ<br>• Documented health service scheduleᶜ<br>• Prioritized functional and non-functional requirementsᶜ |
+| **Tools** | • Design software tools for prototype creation<br>• Design tools for depicting system architecture<br>• Concept dictionary or terminology service<br>• Coding environment (depending on software)<br>As these tools will vary greatly from solution to solution, it will be up to the technology partner to determine which tools work best for them. It will also be critical for the wider team to determine the best tools for collaboration. |
+| **Outputs** | • Selected software and software vendor<br>• System architecture<br>• User interface design<br>• Product documentation<br>• Beta version of the PCPOSS |
+
+ᵃ Guidance on generating these inputs can be found in the *Digital implementation investment guide (DIIG): integrating digital interventions into health programmes* (22)
+ᵇ If available for the scoped health domain
+ᶜ Chapter 1
+
 After the requirements are defined and prioritized, the implementation team must first select 
 and finalize a software and software vendor that can successfully achieve all necessary business 
 requirements. 
@@ -42,9 +60,6 @@ multiple countries (59). Such an application is customizable
 and serves as a generic starting point, ready to be localized to 
 the specific operational context of the population and health 
 system within which it is deployed (60).
-CHAPTER 4
-Undertake design 
-and adaptation 
 The following checklist outlines considerations to review while selecting a software and its vendor.
 1.	
 Pre-evaluation 
@@ -122,16 +137,3 @@ expertise.
 Ensure that the vendor offers post-
 implementation support and training.
 TIP
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Undertake design and adaptation
-41

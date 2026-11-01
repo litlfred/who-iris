@@ -4,7 +4,7 @@ doc_title: "Digital transformation handbook for primary health care Optimizing p
 section_id: sec-034-references
 section_title: "References"
 section_number: null
-pages: 72-77
+pages: 72-75
 source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
@@ -79,18 +79,6 @@ Washington (DC): Pan American Health Organization; 2017 (https://iris.paho.org/h
 Software Development Movement. Glob Health Action. 2016;9:29836. doi:10.3402/gha.v9.29836. 
 29.	 Digital adaptation kit for antenatal care: operational requirements for implementing WHO recommendations in digital systems. 
 Geneva: World Health Organization; 2021 (https://iris.who.int/handle/10665/339745).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-61
 30.	 Digital adaptation kit for family planning: operational requirements for implementing WHO recommendations in digital systems. 
 World Health Organization; 2021 (https://iris.who.int/handle/10665/341997). 
 31.	 Digital adaptation kit for HIV: operational requirements for implementing WHO recommendations in digital systems, second 
@@ -154,19 +142,6 @@ IEEE recommended practice for software requirements specifications. New York (NY
 Engineers; 1998 (http://www.cse.msu.edu/~cse870/IEEEXplore-SRS-template.pdf).
 57.	 Digital documentation of COVID-19 certificates: vaccination status: technical specifications and implementation guidance, 27 
 August 2021. Geneva: World Health Organization; 2021 (https://iris.who.int/handle/10665/343361). 
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-62
 58.	 Vokáč M, Jensen O. Using a reference application with design patterns to produce industrial software. In: Bomarius F, Iida H, 
 editors. Product focused software process improvement. PROFES 2004. Lecture Notes in Computer Science, Vol. 3009. Berlin, 
 Heidelberg: Springer; 2004:343–7. https://doi.org/10.1007/978-3-540-24659-6_24
@@ -233,18 +208,6 @@ www.ihe.net/resources/profiles/, accessed 9 January 2024).
 89.	 About DICOM: Overview. In: DICOM Digital Imaging and Communications in Medicine [website].  (https://www.dicomstandard.
 org/about-home, accessed 9 January 2024).
 90.	 GS1 Standards. In: GS1 [website]. (https://www.gs1.org/standards, accessed 9 January 2024).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-63
 91.	 Health Insurance Portability and Accountability Act of 1996 (HIPAA). In: CDC Center for Disease Control and Prevention [website]. 
 (https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html?CDC_AAref_
 Val=https://www.cdc.gov/phlp/publications/topic/hipaa.html, accessed 9 January 2024). 
@@ -290,29 +253,3 @@ building-blocks--of-change, accessed 10 January 2020).
 States Agency for International Development, Bureau for Global Health, Maternal and Child Survival Program; no date (https://
 www.mcsprogram.org/wp-content/uploads/dlm_uploads/2019/05/DHIRT-Tool-HANDOUT-May2019-Printable.pdf, accessed 10 
 January 2020: p16).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Annexes
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Annexes
-65
-ANNEX 1.

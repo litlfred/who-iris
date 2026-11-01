@@ -28,59 +28,26 @@ users. UAT is needed to identify bugs and usability roadblocks
 and gain any other feedback that can be addressed prior 
 to deployment in a pilot or large-scale roll-out. It gives the 
 opportunity to prevent a system with bugs and design flaws 
-from being launched to a wider audience. 
- 
-CHAPTER 5
-Conduct training, 
-testing and roll-out  
-5.1.1 	 Training on use
-The first category of training includes competency-based 
-training of health workers on how to use the system and how 
-to train others to use it (i.e. training of trainers). This training is 
-crucial in ensuring that health workers use the PCPOSS. 
-The training curriculum must be highly tailored and culturally 
-sensitive to the local community. Training should be given 
-in the local language (if possible) and should be cognizant of 
-health workers’ familiarity with mobile or web technologies 
-in general. For example, if targeted health workers have never 
-used a smartphone or tablet before, they should be given 
-the opportunity to explore the various functionalities of a 
-smartphone or tablet (e.g. camera application, calculators, 
-timers) before being trained on the PCPOSS. When health 
-workers have the opportunity to “play” with the smartphone 
-or tablet beforehand, such as by exploring the device’s camera 
-filters, they are likely to have greater enthusiasm for using the 
-device for health service provision. 
-Training of trainers should be provided so that there is first-
-line support for any health workers having difficulty using the 
-PCPOSS. The training of trainers should begin once finalized 
-prototypes can be used, so health workers are prepared to use 
-the PCPOSS as soon as it is deployed. 
-5.1.2	 Training on maintenance
-The second category of training includes training of local 
-technology partner(s) responsible for technical maintenance 
-and troubleshooting, as having a partner available locally will 
-facilitate the ability to maintain a system. This may or may not 
-be the technology partner who developed the PCPOSS; the 
-local partners will need an in-depth working understanding 
-of the system to be able to troubleshoot the PCPOSS without 
-external intervention. They should be available to do this 
-whenever health workers and implementation partners are 
-unable to troubleshoot technical problems themselves. 
-Training the local technology partner(s) is a key approach to 
-building digital capacity for building, troubleshooting and 
-customizing the system. The training on system maintenance 
-should be carried out throughout the entirety of the project.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Conduct training, testing and roll-out 
-53
+from being launched to a wider audience.
+
+5.2.1 	 Test cases and test data
+One way to facilitate UAT is the creation of test cases and 
+associated test data based on use cases that simulate real-time 
+use. Test cases outline how the system should be used and the 
+expected outcomes to test key functionality. For example, to 
+test clinical decision logic, a test case can outline what symptoms 
+the tester should be inputting into the system and the expected 
+diagnosis based on those inputs. If the system provides an 
+outcome that aligns with what the expected diagnosis is, then the 
+test can be considered a success. 
+Selecting the right set of test data is a very important factor 
+that is often overlooked, leading to a less effective UAT and 
+perpetuation of bugs. Test data should be curated with data 
+that closely reflects real-time settings and must include some 
+scenarios that might occur but are not routinely expected (i.e. 
+edge cases). 
+In some cases, the testing process can also be automated, 
+using test scripts. Typically, test cases should be designed 
+using the use cases developed during the needs assessment 
+phase (see Section 3.2.2) and/or the use cases for testing 
+developed during the design testing phase (see Section 4.3.2).
