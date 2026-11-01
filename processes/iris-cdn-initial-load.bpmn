@@ -48,6 +48,7 @@
         <bpmn:flowNodeRef>Task_FetchBitstreams</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>GW_Fixity</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_Quarantine</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>GW_More_Join</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>GW_More</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Call_BuildGraph</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Call_SignPublish</bpmn:flowNodeRef>
@@ -92,6 +93,9 @@
       <bpmn:documentation>Not published, not retried silently. The record keeps its reference to IRIS and the bitstream is marked unknown.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
     </bpmn:task>
+    <bpmn:exclusiveGateway id="GW_More_Join">
+      <bpmn:documentation>Brings the paths together before the decision after it, so that decision only splits.</bpmn:documentation>
+    </bpmn:exclusiveGateway>
     <bpmn:exclusiveGateway id="GW_More" name="More batches?"/>
     <bpmn:callActivity id="Call_BuildGraph" name="Build the graph&#10;partitions" calledElement="Process_NQuadsDistribution">
       <bpmn:documentation>The platform process nquads-distribution (cat-harness): spine plus one partition per community, zero blank nodes, sorted N-Quads.</bpmn:documentation>
@@ -112,8 +116,9 @@
     <bpmn:sequenceFlow id="F6" name="yes" sourceRef="GW_Fixity" targetRef="Task_StoreBytes"/>
     <bpmn:sequenceFlow id="F6b" sourceRef="Task_StoreBytes" targetRef="Task_Checkpoint"/>
     <bpmn:sequenceFlow id="F7" name="no" sourceRef="GW_Fixity" targetRef="Task_Quarantine"/>
-    <bpmn:sequenceFlow id="F8" sourceRef="Task_Checkpoint" targetRef="GW_More"/>
-    <bpmn:sequenceFlow id="F9" sourceRef="Task_Quarantine" targetRef="GW_More"/>
+    <bpmn:sequenceFlow id="F8" sourceRef="Task_Checkpoint" targetRef="GW_More_Join"/>
+    <bpmn:sequenceFlow id="F9" sourceRef="Task_Quarantine" targetRef="GW_More_Join"/>
+    <bpmn:sequenceFlow id="Flow_GW_More_Join" sourceRef="GW_More_Join" targetRef="GW_More"/>
     <bpmn:sequenceFlow id="F10" name="yes" sourceRef="GW_More" targetRef="Task_HarvestBatch"/>
     <bpmn:sequenceFlow id="F11" name="no" sourceRef="GW_More" targetRef="Call_BuildGraph"/>
     <bpmn:sequenceFlow id="F12" sourceRef="Call_BuildGraph" targetRef="Call_SignPublish"/>
@@ -122,11 +127,11 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_IrisCdnInitialLoad">
     <bpmndi:BPMNPlane id="Plane_IrisCdnInitialLoad" bpmnElement="Process_IrisCdnInitialLoad">
-      <bpmndi:BPMNShape id="S_Lane_Owner" bpmnElement="Lane_Owner" isHorizontal="true"><dc:Bounds x="160" y="60" width="2590" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_Exporter" bpmnElement="Lane_Exporter" isHorizontal="true"><dc:Bounds x="160" y="200" width="2590" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="340" width="2590" height="280"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_CfStore" bpmnElement="Lane_CfStore" isHorizontal="true"><dc:Bounds x="160" y="620" width="2590" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_CfGit" bpmnElement="Lane_CfGit" isHorizontal="true"><dc:Bounds x="160" y="760" width="2590" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Owner" bpmnElement="Lane_Owner" isHorizontal="true"><dc:Bounds x="160" y="60" width="2680" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Exporter" bpmnElement="Lane_Exporter" isHorizontal="true"><dc:Bounds x="160" y="200" width="2680" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="340" width="2680" height="280"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_CfStore" bpmnElement="Lane_CfStore" isHorizontal="true"><dc:Bounds x="160" y="620" width="2680" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_CfGit" bpmnElement="Lane_CfGit" isHorizontal="true"><dc:Bounds x="160" y="760" width="2680" height="140"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Start_LoadApproved" bpmnElement="Start_LoadApproved"><dc:Bounds x="297" y="112" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="255" y="152" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_StateBudget" bpmnElement="Task_StateBudget"><dc:Bounds x="430" y="90" width="150" height="80"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_PlanBatches" bpmnElement="Task_PlanBatches"><dc:Bounds x="620" y="230" width="150" height="80"/></bpmndi:BPMNShape>
@@ -136,11 +141,18 @@
       <bpmndi:BPMNShape id="S_Task_StoreBytes" bpmnElement="Task_StoreBytes"><dc:Bounds x="1380" y="650" width="150" height="80"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_Checkpoint" bpmnElement="Task_Checkpoint"><dc:Bounds x="1570" y="790" width="150" height="80"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_Quarantine" bpmnElement="Task_Quarantine"><dc:Bounds x="1570" y="510" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_GW_More" bpmnElement="GW_More" isMarkerVisible="true"><dc:Bounds x="1810" y="385" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="1775" y="439" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Call_BuildGraph" bpmnElement="Call_BuildGraph"><dc:Bounds x="1950" y="370" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Call_SignPublish" bpmnElement="Call_SignPublish"><dc:Bounds x="2140" y="370" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_ReviewLoad" bpmnElement="Task_ReviewLoad"><dc:Bounds x="2330" y="230" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_End_Loaded" bpmnElement="End_Loaded"><dc:Bounds x="2577" y="252" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="2535" y="292" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GW_More_Join" bpmnElement="GW_More_Join" isMarkerVisible="true">
+        <dc:Bounds x="1810" y="385" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_GW_More_Join" bpmnElement="Flow_GW_More_Join">
+        <di:waypoint x="1860" y="410"/>
+        <di:waypoint x="1900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="S_GW_More" bpmnElement="GW_More" isMarkerVisible="true"><dc:Bounds x="1900" y="385" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="1865" y="439" width="120" height="17" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Call_BuildGraph" bpmnElement="Call_BuildGraph"><dc:Bounds x="2040" y="370" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Call_SignPublish" bpmnElement="Call_SignPublish"><dc:Bounds x="2230" y="370" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_ReviewLoad" bpmnElement="Task_ReviewLoad"><dc:Bounds x="2420" y="230" width="150" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_End_Loaded" bpmnElement="End_Loaded"><dc:Bounds x="2667" y="252" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="2707" y="243.5" width="120" height="53" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="E_F1" bpmnElement="F1"><di:waypoint x="333" y="130"/><di:waypoint x="430" y="130"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_F2" bpmnElement="F2"><di:waypoint x="580" y="130"/><di:waypoint x="600" y="130"/><di:waypoint x="600" y="270"/><di:waypoint x="620" y="270"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_F3" bpmnElement="F3"><di:waypoint x="770" y="270"/><di:waypoint x="790" y="270"/><di:waypoint x="790" y="410"/><di:waypoint x="810" y="410"/></bpmndi:BPMNEdge>
@@ -151,11 +163,11 @@
       <bpmndi:BPMNEdge id="E_F7" bpmnElement="F7"><di:waypoint x="1290" y="410"/><di:waypoint x="1550" y="410"/><di:waypoint x="1550" y="550"/><di:waypoint x="1570" y="550"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_F8" bpmnElement="F8"><di:waypoint x="1720" y="830"/><di:waypoint x="1790" y="830"/><di:waypoint x="1790" y="410"/><di:waypoint x="1810" y="410"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_F9" bpmnElement="F9"><di:waypoint x="1720" y="550"/><di:waypoint x="1790" y="550"/><di:waypoint x="1790" y="410"/><di:waypoint x="1810" y="410"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_F10" bpmnElement="F10"><di:waypoint x="1835" y="385"/><di:waypoint x="1835" y="345"/><di:waypoint x="885" y="345"/><di:waypoint x="885" y="370"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_F11" bpmnElement="F11"><di:waypoint x="1860" y="410"/><di:waypoint x="1950" y="410"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_F12" bpmnElement="F12"><di:waypoint x="2100" y="410"/><di:waypoint x="2140" y="410"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_F13" bpmnElement="F13"><di:waypoint x="2290" y="410"/><di:waypoint x="2310" y="410"/><di:waypoint x="2310" y="270"/><di:waypoint x="2330" y="270"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_F14" bpmnElement="F14"><di:waypoint x="2480" y="270"/><di:waypoint x="2577" y="270"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_F10" bpmnElement="F10"><di:waypoint x="1925" y="385"/><di:waypoint x="1925" y="345"/><di:waypoint x="885" y="345"/><di:waypoint x="885" y="370"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_F11" bpmnElement="F11"><di:waypoint x="1950" y="410"/><di:waypoint x="2040" y="410"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_F12" bpmnElement="F12"><di:waypoint x="2190" y="410"/><di:waypoint x="2230" y="410"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_F13" bpmnElement="F13"><di:waypoint x="2380" y="410"/><di:waypoint x="2400" y="410"/><di:waypoint x="2400" y="270"/><di:waypoint x="2420" y="270"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_F14" bpmnElement="F14"><di:waypoint x="2570" y="270"/><di:waypoint x="2667" y="270"/></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
