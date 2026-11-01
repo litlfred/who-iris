@@ -52,13 +52,7 @@
         <bpmn:flowNodeRef>GW_More</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Call_BuildGraph</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Call_SignPublish</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_CfStore" name="Cloudflare R2 + CDN" partitionElementRef="cloudflare-r2-cdn">
-        <bpmn:documentation>Object storage behind the CDN. Every object is named by its SHA-256 and served with an immutable cache policy; an object already present is never written again. Also serves did.json.</bpmn:documentation>
         <bpmn:flowNodeRef>Task_StoreBytes</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_CfGit" name="Cloudflare git (Artifacts)" partitionElementRef="cloudflare-git">
-        <bpmn:documentation>A git repository hosted on Cloudflare Artifacts, not GitHub. Holds the release history: BagIt tag files, signatures, the cursor, checkpoints and run reports. Push over HTTPS with a repo-scoped token.</bpmn:documentation>
         <bpmn:flowNodeRef>Task_Checkpoint</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
@@ -84,10 +78,16 @@
     </bpmn:exclusiveGateway>
     <bpmn:task id="Task_StoreBytes" name="Store bytes under&#10;SHA-256 (skip if held)">
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
+      <bpmn:dataOutputAssociation id="DOA_Task_StoreBytes">
+        <bpmn:targetRef>DSR_cloudflare_r2_cdn</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
     </bpmn:task>
     <bpmn:task id="Task_Checkpoint" name="Commit the batch&#10;checkpoint">
       <bpmn:documentation>state/initial-load.json in the Cloudflare git repository. A restarted load reads it and skips finished batches.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
+      <bpmn:dataOutputAssociation id="DOA_Task_Checkpoint">
+        <bpmn:targetRef>DSR_cloudflare_git</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
     </bpmn:task>
     <bpmn:task id="Task_Quarantine" name="Quarantine and report&#10;the mismatch">
       <bpmn:documentation>Not published, not retried silently. The record keeps its reference to IRIS and the bitstream is marked unknown.</bpmn:documentation>
@@ -124,14 +124,14 @@
     <bpmn:sequenceFlow id="F12" sourceRef="Call_BuildGraph" targetRef="Call_SignPublish"/>
     <bpmn:sequenceFlow id="F13" sourceRef="Call_SignPublish" targetRef="Task_ReviewLoad"/>
     <bpmn:sequenceFlow id="F14" sourceRef="Task_ReviewLoad" targetRef="End_Loaded"/>
+    <bpmn:dataStoreReference id="DSR_cloudflare_r2_cdn" name="Cloudflare R2 + CDN" dataStoreRef="cloudflare-r2-cdn"/>
+    <bpmn:dataStoreReference id="DSR_cloudflare_git" name="Cloudflare git (Artifacts)" dataStoreRef="cloudflare-git"/>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_IrisCdnInitialLoad">
     <bpmndi:BPMNPlane id="Plane_IrisCdnInitialLoad" bpmnElement="Process_IrisCdnInitialLoad">
       <bpmndi:BPMNShape id="S_Lane_Owner" bpmnElement="Lane_Owner" isHorizontal="true"><dc:Bounds x="160" y="60" width="2680" height="140"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Lane_Exporter" bpmnElement="Lane_Exporter" isHorizontal="true"><dc:Bounds x="160" y="200" width="2680" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="340" width="2680" height="280"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_CfStore" bpmnElement="Lane_CfStore" isHorizontal="true"><dc:Bounds x="160" y="620" width="2680" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_CfGit" bpmnElement="Lane_CfGit" isHorizontal="true"><dc:Bounds x="160" y="760" width="2680" height="140"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="340" width="2680" height="560"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Start_LoadApproved" bpmnElement="Start_LoadApproved"><dc:Bounds x="297" y="112" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="255" y="152" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_StateBudget" bpmnElement="Task_StateBudget"><dc:Bounds x="430" y="90" width="150" height="80"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Task_PlanBatches" bpmnElement="Task_PlanBatches"><dc:Bounds x="620" y="230" width="150" height="80"/></bpmndi:BPMNShape>
@@ -168,6 +168,10 @@
       <bpmndi:BPMNEdge id="E_F12" bpmnElement="F12"><di:waypoint x="2190" y="410"/><di:waypoint x="2230" y="410"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_F13" bpmnElement="F13"><di:waypoint x="2380" y="410"/><di:waypoint x="2400" y="410"/><di:waypoint x="2400" y="270"/><di:waypoint x="2420" y="270"/></bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="E_F14" bpmnElement="F14"><di:waypoint x="2570" y="270"/><di:waypoint x="2667" y="270"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_DSR_cloudflare_r2_cdn" bpmnElement="DSR_cloudflare_r2_cdn"><dc:Bounds x="1430" y="940" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_DOA_Task_StoreBytes" bpmnElement="DOA_Task_StoreBytes"><di:waypoint x="1455" y="730"/><di:waypoint x="1455" y="940"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_DSR_cloudflare_git" bpmnElement="DSR_cloudflare_git"><dc:Bounds x="1620" y="940" width="50" height="50"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_DOA_Task_Checkpoint" bpmnElement="DOA_Task_Checkpoint"><di:waypoint x="1645" y="870"/><di:waypoint x="1645" y="940"/></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
