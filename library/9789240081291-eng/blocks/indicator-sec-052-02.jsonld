@@ -2,12 +2,13 @@
   "@context": [
     "https://litlfred.github.io/who-iris/ns/context/v1.jsonld",
     {
-      "@base": "https://litlfred.github.io/folio/"
+      "@base": "https://litlfred.github.io/folio/",
+      "smart-base": "https://litlfred.github.io/smart-base/v0/ns/"
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-052-02",
   "@type": [
-    "cat-harness:Block"
+    "smart-base:Indicator"
   ],
   "kind": "indicator",
   "title": "Availability of human resources to implement International Health Regulations core capacity requirements (None/Limited/Developed/Demonstrated/ Sustainable)",
