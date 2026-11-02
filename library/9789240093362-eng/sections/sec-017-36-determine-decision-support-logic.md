@@ -66,19 +66,6 @@ should be considered carefully and any new additions should be agreed upon by cl
 inaccurate decision logic can put health service user’s safety and wellbeing at risk. 
 TIP
 WARNING
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-33
 Decision-support logic matrix
 A matrix of “decision-support logic” provides an inventory 
 (i.e. listing) of all the decision-support logics made in clinical 
@@ -120,7 +107,7 @@ might differ. Decision trees fill this gap. Each box in a decision
 tree will need to be further detailed so that engineers can 
 programme the decision-support logic into software.
 Fig. 13	 Example decision-support logic matrix from DAK for HIV
-Source: WHO (31)
+
 | Activity ID & activity name | Decision table ID | Decision table description | Reference/source |
 | --- | --- | --- | --- |
 | HIV.B2. Check for signs of serious illness OR HIV.D3. Check for signs of serious illness | HIV.DT.01 | Check for serious illness | Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health<br>approach (2021) (27) Table 5.1. Components of the package of care for people with advanced HIV disease. |
@@ -129,19 +116,8 @@ Source: WHO (31)
 | HIV.C8. Check eligibility for PrEP | HIV.DT.04 | PrEP eligibility check | Implementation tool for pre-exposure prophylaxis of HIV infection (2017) (35). Module 1: Clinical. Use criteria in pocket card, p. 4,<br>Indications for PrEP (by history over the past 6 months) and Contraindications (with provider discretion).<br>See also Implementation tool for pre-exposure prophylaxis of HIV infection (2017) (35). Module 10. Testing providers. Table 1. Summary<br>tool for starting or monitoring PrEP and Preventing HIV during pregnancy and breastfeeding in the context of PrEP. Technical brief<br>(2017) (29). |
 | HIV.C.24 Prescribe | HIV.DT.05 | Determine PEP or PrEP regimen | Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health<br>approach (2021) (27) Chapter 3: HIV prevention. |
 | HIV.D4. Screen for TB | HIV.DT.06 | Screen for TB | WHO consolidated guidelines on tuberculosis: tuberculosis preventive treatment. (2020) (36). Supplementary table.<br>WHO consolidated guidelines on tuberculosis Module 2: Screening – Systematic screening for tuberculosis disease (47). |
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-34
+
+Source: WHO (31)
 Fig. 14	 Decision-support logic for a clinical care pathway in the form of a decision tree
 Decision-support tables
 Within each of the boxes depicted in the decision tree, more 
@@ -218,16 +194,3 @@ using tool
 ANC: antenatal care; PMTCT: prevention of mother-to-child transmission; PrEP: pre-exposure prophylaxis; STI: sexually 
 transmitted infection; VMMC: voluntary medical male circumcision.
 Source: WHO (29)
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-35

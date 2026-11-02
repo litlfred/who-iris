@@ -302,19 +302,6 @@ adaptation
 kits
 WHO SMART  guidelines
 STEPS
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-How to use this handbook
-13
 A further assumption is that users of this handbook have 
 already considered the feasibility of implementing a PCPOSS 
 in terms of some key foundational elements that are needed. 
@@ -423,16 +410,3 @@ at high levels of government and solution has strong
 government ownership, it will have a higher chance of 
 success and long-term sustainability. 
 WARNING
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-14

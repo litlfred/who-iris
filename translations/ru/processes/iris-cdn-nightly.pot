@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iris-cdn-nightly\n"
-"POT-Creation-Date: 2026-10-31T08:57:11.054Z\n"
+"POT-Creation-Date: 2026-11-01T10:53:09.662Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: ru\n"
@@ -14,12 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:46
-#. Diagram element documentation
-msgid "A git repository hosted on Cloudflare Artifacts, not GitHub. Holds the release history: BagIt tag files, signatures, the cursor, checkpoints and run reports. Push over HTTPS with a repo-scoped token."
-msgstr ""
-
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:75
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:72
 #. Diagram element documentation
 msgid "A record whose canonical bytes equal the held ones is not rewritten. A touched-but-unchanged item therefore produces no diff."
 msgstr ""
@@ -29,7 +24,7 @@ msgstr ""
 msgid "Anomalies: a change count far from the recent median, quarantined bitstreams, a verification that came back unknown, a partition over its size ceiling."
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:66
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:63
 #. Diagram label
 msgid "Anything changed?"
 msgstr ""
@@ -39,12 +34,12 @@ msgstr ""
 msgid "Build pipeline"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:45
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:105
 #. Diagram label
 msgid "Cloudflare git (Artifacts)"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:84
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:81
 #. Diagram label
 msgid "Commit the advanced cursor"
 msgstr ""
@@ -54,12 +49,12 @@ msgstr ""
 msgid "Deterministic scripts in scripts/iris-cdn/, run by the nightly runner. Same input, same bytes."
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:63
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:60
 #. Diagram element documentation
 msgid "Discovery search sorted by lastModified, newest first, paged until a page reaches the cursor (scripts/iris-cdn/rest-feed.ts changedSince). Inclusive of the cursor second, de-duplicated."
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:55
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:52
 #. Diagram label
 msgid "Every night, 02:00 UTC"
 msgstr ""
@@ -69,17 +64,17 @@ msgstr ""
 msgid "Every night: ask the IRIS DSpace REST API which items changed since the last published run, ingest only those, rebuild the whole graph (sorted output keeps unchanged partitions byte-identical), and publish a signed release. A night with no changes publishes nothing and commits nothing."
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:71
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:68
 #. Diagram label
 msgid "Fetch only bitstreams whose checksum changed"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:68
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:65
 #. Diagram label
 msgid "Fetch the changed records and bitstream lists"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:49
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:46
 #. Diagram label
 msgid "IRIS CDN Exporter (agent)"
 msgstr ""
@@ -89,7 +84,7 @@ msgstr ""
 msgid "IRIS CDN nightly change ingest"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:62
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:59
 #. Diagram label
 msgid "List items changed since the cursor"
 msgstr ""
@@ -104,22 +99,22 @@ msgstr ""
 msgid "no"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:67
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:64
 #. Diagram label
 msgid "Nothing published, nothing committed"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:85
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:82
 #. Diagram element documentation
 msgid "Only after the release verified. A failed night leaves the cursor where it was, so the next night re-reads the same window."
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:58
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:55
 #. Diagram label
 msgid "Read the cursor of the last published run"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:78
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:75
 #. Diagram label
 msgid "Rebuild the whole graph (sorted output)"
 msgstr ""
@@ -129,22 +124,22 @@ msgstr ""
 msgid "Review the run report; open beans for anomalies"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:81
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:78
 #. Diagram label
 msgid "Sign and publish the release"
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:59
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:56
 #. Diagram element documentation
 msgid "state/cursor.json in the Cloudflare git repository: the lastModified of the newest item in the last VERIFIED release. Advanced only after a publish verifies."
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:50
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:47
 #. Diagram element documentation
 msgid "The agent role. It plans, reviews and reports; it does not hold the signing key, and it never pushes to a WHO repository."
 msgstr ""
 
-#: ../who-iris/processes/iris-cdn-nightly.bpmn:74
+#: ../who-iris/processes/iris-cdn-nightly.bpmn:71
 #. Diagram label
 msgid "Write canonical records into the library"
 msgstr ""

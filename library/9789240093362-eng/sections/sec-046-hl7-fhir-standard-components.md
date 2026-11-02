@@ -9,6 +9,9 @@ source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
 ---
+ANNEX 14.
+HL7 FHIR standard components
+
 Resources
 A “FHIR Resource” is a modular component that serves as the basic data exchange format in the HL7 FHIR standard. A FHIR 
 Resource contains the data elements, constraints on those data elements and the data relationships that together make up an 
@@ -40,19 +43,6 @@ APIs are not unique to HL7 FHIR. APIs are “interfaces” that allow one system
 data of another system, solution or application. This interface defines the interactions between applications (e.g. how data can 
 be searched across applications) and how that data must be formatted. FHIR APIs mainly involve the access and exchange of 
 health data across digital health solutions (7).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Annexes
-85
 Annex 14 References
 1.	
 Introduction to FHIR Resources. The Office of the National Coordinator for Health Information Technology (healthit.gov); 
@@ -75,17 +65,6 @@ Using FHIR in persistent stores. In: HL7.org [website]. HL7 FHIR Release 5; 2023
 7.	
 The FHIR API. The Office of the National Coordinator for Health Information Technology (healthit.gov); undated (https://
 www.healthit.gov/sites/default/files/page/2021-04/FHIR%20API%20Fact%20Sheet.pdf). 
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
 World Health Organization
 20 Avenue Appia
 1211 Geneva 27

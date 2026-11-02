@@ -64,19 +64,6 @@ more options and functionalities than the final product to test
 all the possible functionalities at once. Prototypes allow testing 
 of the interaction between the end-user and the final product. 
 Software such as Balsamiq Mockups or InVision can be used.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-42
 4.3.2 	 Testing the design  
 Each implementation of a PCPOSS will have a different 
 context, due to different health system requirements, varying 
@@ -168,19 +155,6 @@ Level of
 prototype 
 fidelity
 Source: Norman Tran/Stanford school (35), adapted with additional questions, language for clarification and contextualization to health care under license.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Undertake design and adaptation
-43
 3. Validate mock-ups or prototypes
 Validation by the targeted end-users can be achieved through 
 role play, for example, during which they can talk through their 
@@ -213,25 +187,10 @@ should be noted for facilitated stakeholder management.
 Structured feedback
 The higher the fidelity of the prototype, the richer the feedback will be. Structure the feedback in a way that facilitates the 
 process of reporting back to the technical team and/or designer. The following is an example template for this structure:
-Feedback for: <ENTER PROTOTYPE NAME> <ENTER VERSION NUMBER> 
-Things users like the most
-Things that can be improved 
-Key lessons from feedback
-Things users found confusing
-New ideas to consider
-Next steps (based on feedback)
+Feedback for: `<ENTER PROTOTYPE NAME> <ENTER VERSION NUMBER>`
+
+| Things users like the most | Things that can be improved | Key lessons from feedback |
+| --- | --- | --- |
+| **Things users found confusing** | **New ideas to consider** | **Next steps (based on feedback)** |
 Source: adapted from Tran, 2018 (35)
 TIP
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-44

@@ -114,7 +114,7 @@ ORDER BY DESC(?year)
 ```sparql
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX dspaceNs: <https://litlfred.github.io/folio-assistant-core/0.1.0/ns/dspace#>
+PREFIX dspaceNs: <https://litlfred.github.io/folio-assistant-core/v0/ns/dspace#>
 
 SELECT ?subject (COUNT(DISTINCT ?handle) AS ?itemCount) ?authority WHERE {
   GRAPH <https://iris.who.int/graph/metadata> {

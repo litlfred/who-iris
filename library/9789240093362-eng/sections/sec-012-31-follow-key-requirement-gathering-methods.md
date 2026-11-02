@@ -4,11 +4,27 @@ doc_title: "Digital transformation handbook for primary health care Optimizing p
 section_id: sec-012-31-follow-key-requirement-gathering-methods
 section_title: "Follow key requirement-gathering methods"
 section_number: 3.1
-pages: 30-33
+pages: 28-33
 source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
 ---
+CHAPTER 3
+Understand user requirements
+
+The adoption of a person-centred point of service system (PCPOSS) requires a solid understanding of what data health workers need for routine service delivery and bottom-up accountability.
+
+This chapter describes the fundamental task of requirements gathering, in which user needs and constraints are documented. This process will rely on desk reviews, observations, workshops, and in-depth discussions and interviews with key stakeholders. Stakeholders include, but are not limited to, end-users of the system (e.g. appropriate health worker occupational group) and indirect beneficiaries (e.g. public health managers in the public health authority).
+
+By the end of this chapter, the implementation team should have a clear understanding of the scope of the system, how the workflows and data flow may need to be optimized, and the relevant data that will need to be collected and accounted for at individual and aggregate levels. If a digital system already exists, the team should also have a clear understanding of the key functionalities and features of the present system, and how a PCPOSS would complement or upgrade the present system.
+
+| Component | Details |
+| --- | --- |
+| **Who should be involved?** | • Targeted health worker occupational groups (e.g. physicians, nurses, midwives and community health workers), health service users and any other intended end-users, should guide the requirements for a PCPOSS.<br>• Business analysts, health informaticians and people trained in user research should lead the process of gathering requirements and ensuring that the solution will adhere to interoperability standards.<br>• Software engineers should be engaged so they understand the context of the solution they will be responsible for building.<br>• The public health authority should preferably be responsible for these tasks, or at least be consulted and involved throughout the entire process. |
+| **Inputs** | • National health strategy, digital health strategy, health policies, and a strategic direction and scope for the PCPOSS<br>• Health information system, privacy, security and data use policies<br>• Digital health architecture blueprint and high-level requirements for meeting interoperability standards<br>• Infrastructure readiness assessment<br>• Unique identifier method<br>• List of anticipated outcomes against which to measure success<br>• World Health Organization (WHO) and national guidelines for the health area targeted, in addition to the standard operating procedures for care delivery, data and indicator definitions<br>• Existing paper records and register forms<br>• End user and key stakeholder interviews and insights |
+| **Tools** | • Observation templates (Annex 3)<br>• User persona template (Annex 4)<br>• User stories template (Annex 5)<br>• Business process matrix template (Annex 6)<br>• WHO’s Digital adaptation kits<br>• Forms inventory template (Annex 7)<br>• Form data mapping template (Annex 8)<br>• Aggregate indicator mapping template (Annex 9)<br>• Decision table and scheduling matrix template (Annex 10)<br>• Decision table template (Annex 11)<br>• Service schedule template (Annex 12)<br>• Prioritization of requirements template (Annex 13) |
+| **Outputs** | Requirements documentation that includes:<br>• User personas<br>• Use cases<br>• User stories<br>• As-is and to-be business processes<br>• Data dictionary and data model<br>• Documented health service schedule<br>• Documented decision logic algorithms<br>• List of indicators and calculation method<br>• Prioritized functional and non-functional requirements |
+
 A combination of methods can be used to corroborate information and better guide the process 
 outlined in this chapter for assessing needs and gathering requirements. Before outlining that 
 process in the next sections of this chapter, this section provides an overview of some of these 
@@ -37,6 +53,17 @@ for family planning (30) and the DAK for HIV (31); and
 the machine-readable implementation guides (layer 3 
 of the SMART Guidelines); and
 •	 SCORE for health data technical package (33). 
+Review of Digital adaptation kits (DAKs)
+DAKs are operational, software neutral, standardized documentation that distill clinical, 
+public health and data use guidance into a format that can be transparently 
+incorporated into digital systems. They provide the generic content 
+requirements that should be housed within digital systems and define 
+system requirements, including minimum datasets, decision-support 
+logic and business processes. Such DAKs present as a generic starting 
+point which can then be adapted according to specific context and 
+policies (18,32).
+TIP
+
 3.1.2 	 Observations
 As a complement to interviews, observing or shadowing 
 health workers at their place of work can be a way to capture 
@@ -54,28 +81,25 @@ daily activities and routines. Note that strict health service
 user confidentiality must always be respected while observing 
 interactions between health workers and health service users, 
 and all the necessary consent should also be obtained.
-Review of Digital adaptation kits (DAKs)
-DAKs are operational, software neutral, standardized documentation that distill clinical, 
-public health and data use guidance into a format that can be transparently 
-incorporated into digital systems. They provide the generic content 
-requirements that should be housed within digital systems and define 
-system requirements, including minimum datasets, decision-support 
-logic and business processes. Such DAKs present as a generic starting 
-point which can then be adapted according to specific context and 
-policies (18,32).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-19
+Observing end-users
+If possible, try to observe end-users in such a way that they will not notice they are being observed, to avoid the possible 
+Hawthorne effect. The Hawthorne effect is when people change their behaviour when they realize, or they know, they are 
+being observed (34). When observing end-users in their current work, be sure to note (35):
+•	 what they are doing;
+•	 how they are doing it;
+•	 why they are doing it; 
+•	 interesting comments by end-users (e.g. health workers) 
+and others (e.g. health service users);
+•	 problems faced by end-users;
+•	 possible ideas and opportunities that arise when 
+observing end-users;
+•	 any additional insights, including insights from body 
+language and emotion;
+•	 potential questions for a follow-up interview;
+•	 anything unexpected; and
+•	 workflow patterns that differ across health workers.
+TIP
+
 3.1.3 	 Semi-structured and follow-up interviews 
 Interviews with health workers, their supervisors and other 
 selected key informants are crucial, as they can help to 
@@ -103,23 +127,6 @@ the PCPOSS will be used and give end-users a part to play in
 the development of the tool – essential for building a sense of 
 ownership. Annex 2 provides an example interview guide for 
 interviewing a health worker.
-Observing end-users
-If possible, try to observe end-users in such a way that they will not notice they are being observed, to avoid the possible 
-Hawthorne effect. The Hawthorne effect is when people change their behaviour when they realize, or they know, they are 
-being observed (34). When observing end-users in their current work, be sure to note (35):
-•	 what they are doing;
-•	 how they are doing it;
-•	 why they are doing it; 
-•	 interesting comments by end-users (e.g. health workers) 
-and others (e.g. health service users);
-•	 problems faced by end-users;
-•	 possible ideas and opportunities that arise when 
-observing end-users;
-•	 any additional insights, including insights from body 
-language and emotion;
-•	 potential questions for a follow-up interview;
-•	 anything unexpected; and
-•	 workflow patterns that differ across health workers.
 Semi-structured interviews (36)
 •	
 Avoid bias. Interviews are not for confirming our 
@@ -167,20 +174,6 @@ for insights into any tensions in policy versus practice.
 Pay attention to non-verbal cues such as body 
 language and emotions for extra insight.
 TIP
-TIP
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-20
 Fig. 8	
 Example prompts and questions for starting broad and narrowing down
 BROAD
@@ -241,16 +234,3 @@ be reserved for the end of the requirements-gathering process
 to validate requirements gathered through other methods (i.e. 
 semi-structured interviews and observations). 
 Express gratitude for health worker’s time
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-21
