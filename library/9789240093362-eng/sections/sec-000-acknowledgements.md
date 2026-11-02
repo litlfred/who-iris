@@ -50,17 +50,4 @@ School of Public Health) and Sylvia Wong (United Nations Population Fund [UNFPA]
 This work was funded by the Foreign, Commonwealth and Development Office (FCDO) of the Government of the United 
 Kingdom of Great Britain and Northern Ireland, and the UNDP-UNFPA-UNICEF-WHO-World Bank Special Programme of Research, 
 Development and Research Training in Human Reproduction (HRP), a cosponsored programme executed by WHO.
-The views of funding bodies have not influenced the contents of this publication. 
- 
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-v
+The views of funding bodies have not influenced the contents of this publication.

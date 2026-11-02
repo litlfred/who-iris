@@ -4,7 +4,7 @@ doc_title: "Digital transformation handbook for primary health care Optimizing p
 section_id: sec-006-13-how-this-handbook-was-developed
 section_title: "How this handbook was developed"
 section_number: 1.3
-pages: 21-23
+pages: 21-21
 source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
@@ -50,39 +50,3 @@ their participation in any technical consultations. These
 declarations were reviewed by WHO, which found none of the 
 contributors to have conflicting interests that would influence 
 the content of this publication.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-2
-How to use 
-this handbook
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-11
-CHAPTER 2
-How to use this handbook
-This chapter outlines how this handbook can be leveraged by key stakeholders and provides 
-references to key resources for creating or updating a PCPOSS – whether from the early point of 
-digitizing paper forms in paper-based systems or updating legacy digital systems to improve the 
-integration of care pathways. Point of service systems that combine community-based information 
-systems, decision support systems, electronic health record systems, and personal health records 
-are, for short, a person-centred point of service system (PCPOSS). There are many health areas to 
-which PCPOSS can be applied. However, this resource was written to be agnostic on which health 
-area may be most appropriate at the point of care, and neutral about software choices, too.

@@ -4,90 +4,11 @@ doc_title: "Digital transformation handbook for primary health care Optimizing p
 section_id: sec-003-introduction
 section_title: "Introduction"
 section_number: null
-pages: 12-18
+pages: 13-18
 source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
 ---
-2012;12(6):e192. doi:10.5334/ijic.812.
-3.	
-Kinsman L, Rotter T, James E, Snow P, Willis J. What is a clinical pathway? Development of a definition to inform the 
-debate. BMC Med. 2010;8:31. doi:10.1186/1741-7015-8-31.
-4.	
-About care pathways. In: European Pathway Association [website]. Leuven: European Pathway Association; undated 
-(http://e-p-a.org/care-pathways, accessed 10 January 2020).
-5.	
-Vanhaecht K. The impact of clinical pathways on the organisation of care processes [thesis]. Leuven: KU Leuven; 2007 
-(https://tinyurl.com/rabkrkr, accessed 10 January 2020).
-6.	
-Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital 
-technology for health, second edition. Geneva: World Health Organization; 2023 (https://iris.who.int/handle/10665/373581).
-7.	
-Batoulis K, Meyer A, Bazhenova E, Decker G, Weske M. Extracting decision logic from process models. Conference Paper, 
-CAiSE 2015, Stockholm, Sweden. doi:10.1007/978-3-319-19069-3_22.
-8.	
-WHO guideline: recommendations on digital interventions for health system strengthening. Geneva: World Health 
-Organization; 2019 (https://iris.who.int/handle/10665/311941). 
-9.	
-Decision Model and Notation™ (DMN™): Precise specification of business decisions and business rules. Object 
-Management Group; 2023 (https://www.omg.org/dmn/,  accessed 11 October 2023)
-10.	 SMART Guidelines. In: World Health Organization [website]. Geneva: World Health Organization; 2023 (https://www.who.
-int/teams/digital-health-and-innovation/smart-guidelines, accessed 11 October 2023).
-11.	 Digital implementation investment guide (DIIG): integrating digital interventions into health programmes. Geneva: World 
-Health Organization; 2020 (https://iris.who.int/handle/10665/334306). 
-12.	 The differences between digitization, digitalization, and digital transformation in manufacturing. In: Yokogawa.com 
-[website]. Yokogawa; 2021 (https://www.yokogawa.com/library/resources/white-papers/the-differences-between-digitization-
-digitalization-and-digital-transformation-in-manufacturing/, accessed 11 October 2023).
-13.	 Digitalization. In: Gartner Glossary [website]. Garner; 2023 (https://www.gartner.com/en/information-technology/glossary/
-digitalization, accessed 11 October 2023).
-14.	 Digital transformation. In: Gartner Glossary [website]. Gartner; 2023 (https://www.gartner.com/en/information-technology/
-topics/digital-transformation, accessed 11 October 2023)
-15.	 Standards & digital transformation: good governance in a digital age. Vienna: United Nations Industrial Development 
-Organization; 2021 (https://hub.unido.org/node/11772). 
-16.	 Digitization. In: Gartner Glossary [website]. Gartner; 2023 (https://www.gartner.com/en/information-technology/glossary/
-digitization, accessed 11 October 2023).
-17.	 Rouse M. Minimum viable product. In: Techopedia [website]. Techopedia; 2020 (https://www.techopedia.com/
-definition/27809/minimum-viable-product-mvp, accessed 11 October 2023).
-18.	 Reynolds CJ, Wyatt JC. Open source, open standards, and health care information systems. J Med Internet Res. 
-2011;17;13(1):e24. https://doi.org/10.2196%2Fjmir.1521
-19.	 OSI approved licences. In: Open Source Initiative [website]. Open Source Initiative; undated (https://opensource.org/
-licenses/, accessed 11 October 2023).
-20.	 Definition of “Open Standards”. In: ITU-T [website]. ITU; 2023 (https://www.itu.int/en/ITU-T/ipr/Pages/open.aspx, accessed 
-11 October 2023).
-21.	 Integrated people-centred care. In: World Health Organization [website]. Geneva: World Health Organization; 2024 
-(https://www.who.int/health-topics/integrated-people-centered-care#tab=tab_1, accessed 07 March 2024). 
-22.	 DMN decision table rule: input entry (condition). In: The Camunda BPM manual [website]. Berlin: Camunda Services; 
-undated (https://docs.camunda.org/manual/7.9/reference/dmn11/decision-table/rule, accessed 10 January 2020).
-23.	 Mehl G, Tunçalp Ö, Ratanaprayul N, Tamrat T, Barreix M, Lowrance D et al. WHO SMART Guidelines: optimising country-
-level use of guideline recommendations in the digital age. Lancet Digital Health. 2021;3(4):e213-e216. https://doi.
-org/10.1016/S2589-7500(21)00038-8.
-24.	 Cimperman R. UAT defined: a guide to practical user acceptance testing. Pearson Education/Addison-Wesley 
-Professional; 2006.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-1 Introduction
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-2
 CHAPTER 1
 Introduction
 In many countries, individual-level paper-based systems – paper registers (including immunization 
@@ -153,171 +74,16 @@ include:
 implementation of PCPOSSs in an integrated manner; and
 •	 use of the PCPOSS for tasks that are already defined as 
 within the scope of practice for the health worker.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Introduction
-3
 Fig. 1	
 From paper to digital: a transformational journey
-Paper
-Digitization
-Digitalization
-Digital transformation
-Definition
-The process of manually 
-capturing and processing 
-data in paper formats.
-The process of converting and 
-organizing data consistent 
-with paper systems into a 
-digital format for entry, storage 
-and retrieval. 
-The process of digitally 
-automating and simplifying 
-processes to streamline 
-individual health programmes 
-and reduce manual efforts for 
-greater efficiency.  
-The process of digitally optimizing 
-and driving systems-level changes 
-through innovation, analytics, 
-and feedback mechanisms to 
-fundamentally improve and enhance 
-person-centered health systems and 
-service delivery.
-Examples
-•	 Paper register books;
-•	 Paper-based home-based 
-records, vaccination 
-records;
-•	 Tally sheets.
-•	 Scans of paper medical records 
-to create digital copies; 
-•	 Excel spreadsheets used 
-instead of tally sheets to 
-capture and calculate data for 
-reporting;
-•	 PDF versions of data entry 
-forms.
-•	 Electronic immunization 
-registries that automate 
-aggregation of doses given and  
-calculation of remaining vials; 
-•	 Clinical decision support within 
-electronic health records for 
-longitudinal patient tracking 
-and management.
-•	 Algorithms used to analyze patient 
-data and identify personalized 
-treatment plans; 
-•	 Linkage between electronic health 
-records and digital personal health 
-records, providing longitudinal 
-tracking and decision support for 
-health workers and their patients.
-Benefits
-•	 No technology required. 
-•	 Digital record of information, 
-that can be shared.
-•	 Automated and simplified 
-processes that streamline 
-programmes and reduce 
-manual processing;
-•	 Improved data quality 
-through automated validation 
-constraints; 
-•	 Automated processes reducing 
-human error.
-•	 Personalized health services 
-improving quality of care; 
-•	 Better experiences for individuals 
-interacting with the health system;
-•	 Continuity of care across connected 
-digital solutions across the 
-enterprise.
-Challenges
-•	 Burden of manual data 
-entry and data processing;
-•	 Susceptibility to damage, 
-loss, theft, physical damage;
-•	 Requires physical storage 
-space and security 
-measures to ensure data 
-protection; 
-•	 Additional supply chain 
-burden to ensure no stock-
-outs. 
-•	 Lacking data interoperability 
-requiring manual download 
-and upload of data (i.e. data 
-sharing);
-•	 Incurred costs related to 
-digital introduced without 
-the full benefit of digital and 
-economies of scale;  
-•	 Data quality is still not 
-guaranteed;
-•	 Privacy protection and 
-cybersecurity mechanisms 
-need to be in place.
-•	 Level of effort and resources 
-dedicated to integration 
-continue to grow in the absence 
-of a planned enterprise 
-architecture with defined 
-interoperability standards;
-•	 Continued maintenance and 
-update of the systems are 
-required; 
-•	 Additional training needed for 
-the health workforce;
-•	 Privacy protection and 
-cybersecurity mechanisms need 
-to be in place.
-•	 Change management required to 
-establish a culture of change; 
-•	 Increased regulation of digital 
-solutions deployed in country 
-to ensure they comply to quality 
-standards; 
-•	 Privacy protection and cybersecurity 
-mechanisms need to be in place.
-Dependencies
-•	 No technical dependencies, 
-but supply chain 
-dependencies remain.
-•	 Convert and organize data 
-from paper records into digital 
-formats for use in software 
-applications.
-•	 Determination and encoding of 
-calculations and decision-logic, 
-including schedules, indicator 
-calculations, referral cut-offs, 
-and valid data ranges into 
-digital formats.
-•	 Development of a data use culture 
-for clinical and public health decision 
-making and planning;
-•	 Use of standards for data 
-representation and calculations;
-•	 Adoption and policy enforcement 
-of semantic and syntactic  
-interoperability standards; 
-•	 Investments based on a national 
-digital health blueprint that 
-includes enterprise architecture and 
-investments into foundational digital 
-health infrastructure and services.
+
+| Dimension | Paper | Digitization | Digitalization | Digital transformation |
+| --- | --- | --- | --- | --- |
+| **Definition** | The process of manually capturing and processing data in paper formats. | The process of converting and organizing data consistent with paper systems into a digital format for entry, storage and retrieval. | The process of digitally automating and simplifying processes to streamline individual health programmes and reduce manual efforts for greater efficiency. | The process of digitally optimizing and driving systems-level changes through innovation, analytics, and feedback mechanisms to fundamentally improve and enhance person-centered health systems and service delivery. |
+| **Examples** | • Paper register books;<br>• Paper-based home-based records, vaccination records;<br>• Tally sheets. | • Scans of paper medical records to create digital copies;<br>• Excel spreadsheets used instead of tally sheets to capture and calculate data for reporting;<br>• PDF versions of data entry forms. | • Electronic immunization registries that automate aggregation of doses given and calculation of remaining vials;<br>• Clinical decision support within electronic health records for longitudinal patient tracking and management. | • Algorithms used to analyze patient data and identify personalized treatment plans;<br>• Linkage between electronic health records and digital personal health records, providing longitudinal tracking and decision support for health workers and their patients. |
+| **Benefits** | • No technology required. | • Digital record of information, that can be shared. | • Automated and simplified processes that streamline programmes and reduce manual processing;<br>• Improved data quality through automated validation constraints;<br>• Automated processes reducing human error. | • Personalized health services improving quality of care;<br>• Better experiences for individuals interacting with the health system;<br>• Continuity of care across connected digital solutions across the enterprise. |
+| **Challenges** | • Burden of manual data entry and data processing;<br>• Susceptibility to damage, loss, theft, physical damage;<br>• Requires physical storage space and security measures to ensure data protection;<br>• Additional supply chain burden to ensure no stock-outs. | • Lacking data interoperability requiring manual download and upload of data (i.e. data sharing);<br>• Incurred costs related to digital introduced without the full benefit of digital and economies of scale;<br>• Data quality is still not guaranteed;<br>• Privacy protection and cybersecurity mechanisms need to be in place. | • Level of effort and resources dedicated to integration continue to grow in the absence of a planned enterprise architecture with defined interoperability standards;<br>• Continued maintenance and update of the systems are required;<br>• Additional training needed for the health workforce;<br>• Privacy protection and cybersecurity mechanisms need to be in place. | • Change management required to establish a culture of change;<br>• Increased regulation of digital solutions deployed in country to ensure they comply to quality standards;<br>• Privacy protection and cybersecurity mechanisms need to be in place. |
+| **Dependencies** | • No technical dependencies, but supply chain dependencies remain. | • Convert and organize data from paper records into digital formats for use in software applications. | • Determination and encoding of calculations and decision-logic, including schedules, indicator calculations, referral cut-offs, and valid data ranges into digital formats. | • Development of a data use culture for clinical and public health decision making and planning;<br>• Use of standards for data representation and calculations;<br>• Adoption and policy enforcement of semantic and syntactic interoperability standards;<br>• Investments based on a national digital health blueprint that includes enterprise architecture and investments into foundational digital health infrastructure and services. |
 Limited data use with 
 little to no interoperability 
 standards adopted 
@@ -343,19 +109,6 @@ DIGITIZATION
 DIGITALIZATION
 DIGITAL 
 TRANSFORMATION
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-4
 Digital technologies of all kinds have become essential 
 resources in primary health care (PHC) and their uptake is 
 growing, with the past decade seeing rapid integration of 
@@ -417,19 +170,6 @@ components in an integrated manner; and
 scope of practice for the health worker. 
 (Recommended only in specific contexts or conditions)
 Source: WHO, 2019 (2).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Introduction
-5
 This handbook offers practical methods for pulling together 
 the components of a complex health information system, 
 including the workflows and care pathways, into a digital 
@@ -548,16 +288,37 @@ Video-based support
 and supervision to 
 expand knowledge and 
 skills of providers
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-6
+
+Paper-based systems place a large clerical burden on the 
+health system and health workers, such as duplicative data 
+entry for reuse outside the immediate clinical context, or 
+manual data tabulation for aggregate reporting. This clerical 
+burden takes valuable time away from service provision, in 
+the face of a health workforce shortage (11), reducing quality 
+of care with care pathways that may be disjointed rather 
+than integrated. For example, health service users who have 
+missed services or appointments are difficult to identify in 
+a timely fashion, limiting opportunities for real-time, data-
+driven decision-making (12). Additionally, paper-based 
+systems are associated with lack of quality control due to 
+communication gaps, language barriers and misplacement of 
+documents. Such systems not only prevent ease of access to 
+health data by health service users themselves but also lead 
+to missed opportunities for health service provision and care 
+coordination, as well as self-care and continuity of treatment 
+at home.
+If digital systems already exist, they are often designed to 
+facilitate data collection and reporting of aggregated data, 
+rather than to provide important feedback at the point at 
+which health services are provided (i.e. the point of care) to 
+improve the quality of individual-level care. Poorly designed 
+“data collection for data’s sake” digital systems result in 
+similar burdens on the health system to those caused by 
+paper-based systems. 
+Well-designed PCPOSSs can play a critical role in ensuring 
+quality health care, and in strengthening the overall resilience 
+of health systems, especially in this post-pandemic period. 
+There is currently an opportunity to strengthen the quality of 
+service delivery and reinforce health worker performance by 
+using the data generated at the point of care, made available 
+by these PCPOSSs.

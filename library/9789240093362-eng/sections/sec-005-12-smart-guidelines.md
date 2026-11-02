@@ -132,16 +132,3 @@ L4
 L5
 L5
 L1
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Introduction
-9

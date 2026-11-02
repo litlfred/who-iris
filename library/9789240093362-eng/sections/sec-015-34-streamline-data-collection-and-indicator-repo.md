@@ -35,19 +35,6 @@ will be able to replace the paper register system in its
 entirety, leaving paper registers only as a backup option.
 CHECKPOINT
 WARNING
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-28
 3.4.1 	 Create an inventory of paper forms 
 The implementation team should begin the data mapping 
 exercise by collating all the data collection instruments used 
@@ -127,19 +114,6 @@ archived to showcase any inconsistencies in data
 recording methods across health worker health worker 
 occupational groups.
 TIP
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-29
 3.4.3 	 Compile aggregate indicators
 The key reason to implement a PCPOSS is to reduce the 
 burden of data entry on health workers, thereby increasing 
@@ -204,17 +178,10 @@ across multiple stakeholders.
 Answering the questions shown in Fig. 12 in the logical order 
 is a good way to identify the data elements that should be 
 removed or reconciled (see Fig. 12).
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-30
 Fig. 12	 Is each and every data element collected truly needed?
+
+| Question | Explanation | Action to be taken |
+| --- | --- | --- |
+| **1. Is the data element duplicated?** | Duplicates could include data elements that have the same definition, but possibly with different labels. Some data elements (e.g. name, birthdate, age, unique identifier) might also be collected by multiple forms | Reconcile any duplicated data elements into a single data element, that is collected once, with one data element label. (Use the description and definition of the data elements to determine which data elements to reconcile.) |
+| **2. Is the data element needed for service delivery or accountability?** | Does the data element support the health worker during care provision or service delivery – is it needed for clinical decision-making, for example? Is the data element required for mandatory reporting or ensuring health worker accountability? | Consider removing any data elements not needed for service delivery or accountability, to reduce the burden of data entry placed on health workers (the more data health workers have to collect, the less time they have for health-care interactions). |
+| **3. Is the data element orphaned?** | Orphaned data will be difficult to use in a digital system without a clear linkage to the context in which it is collected or needed. | It is important to address orphaned data elements by linking them to their relevant primary data elements. Any not required for the purposes of service delivery or reporting will already have been removed by considering question 2. |

@@ -107,19 +107,6 @@ What will motivate uptake of the system (e.g. routinized
 use, reduced workload, system-based incentives)?
 TIP
 CHECKPOINT
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-22
 3.2.2 	 Gather use cases 
 Use cases are an important way to understand, in an 
 illustrative manner, how the PCPOSS will be used by the 
@@ -198,16 +185,3 @@ users want the system to do.
 WHO’s Digital adaptation kits (DAKs) provide examples of user 
 personas and functional requirements written in the format of 
 user stories.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-23

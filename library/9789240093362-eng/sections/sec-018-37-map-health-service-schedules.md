@@ -40,3 +40,34 @@ The information to be recorded includes:
 schedule.
 The spreadsheet should include all the details explained in the 
 guide provided in Annex 12.
+
+Before moving on to gather and 
+prioritize the requirements for the 
+PCPOSS, it is important to take note of the various 
+needs assessments conducted. By this point, there 
+needs to be a clear understanding of:
+	
+❑
+who the end-users are
+	
+❑
+what the end-users would want the PCPOSS to do
+	
+❑
+how the PCPOSS will fit into existing workflows and 
+improve their efficiency
+	
+❑
+which global and/or national guidelines the solution 
+will need to follow
+	
+❑
+what amount of data the solution will need to be 
+able to manage
+	
+❑
+what kind of logic will need to be embedded into it.
+An understanding of all these components will now 
+facilitate outlining and prioritization of the PCPOSS 
+requirements.
+CHECKPOINT

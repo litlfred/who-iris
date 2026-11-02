@@ -57,7 +57,6 @@ names of proprietary products are distinguished by initial capital letters.
 All reasonable precautions have been taken by WHO to verify the information contained in this publication. However, the 
 published material is being distributed without warranty of any kind, either expressed or implied. The responsibility for the 
 interpretation and use of the material lies with the reader. In no event shall WHO be liable for damages arising from its use. 
-iii
 Contents
 Acknowledgements .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . iv
 Abbreviations .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . v
@@ -145,16 +144,3 @@ Annex 11: Template for a decision-support table  .  .  .  .  .  .  .  .  .  .  .
 Annex 12: Scheduling logic table guide .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 82
 Annex 13: Prioritization of requirements guide .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 83
 Annex 14: HL7 FHIR standard components .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 84
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-iv

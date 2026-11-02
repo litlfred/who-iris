@@ -30,17 +30,4 @@ PCPOSS (i.e. health workers involved in care delivery or health
 service users), they should be involved throughout the entire 
 development and adaptation process. Their feedback and 
 involvement are especially crucial during the requirements 
-gathering, validation and testing processes. 
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-12
+gathering, validation and testing processes.

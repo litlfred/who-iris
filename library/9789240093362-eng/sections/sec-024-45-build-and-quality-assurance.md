@@ -4,7 +4,7 @@ doc_title: "Digital transformation handbook for primary health care Optimizing p
 section_id: sec-024-45-build-and-quality-assurance
 section_title: "Build and quality assurance"
 section_number: 4.5
-pages: 60-64
+pages: 60-61
 source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
@@ -45,19 +45,6 @@ A PCPOSS must always be designed and built with safety
 as a core feature. Adequate and effective quality assurance 
 practices and testing are critical enablers of safety and trust in 
 digital systems.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Undertake design and adaptation
-49
 4.5.2 	 Testing for quality assurance 
 A test plan must be established as soon as the requirements 
 are finalized. The test plan outlines the testing approach, 
@@ -107,73 +94,3 @@ deployment.
 ❑
 In an agile model, a new release version of the PCPOSS.
 CHECKPOINT
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-5
-After the beta version is built, there are some crucial steps that need to be 
-taken before the system is deployed widely to targeted end-users. This includes 
-training and testing, along with final updates to the person-centred point 
-of service system (PCPOSS) for a version one release. End-user training is 
-necessary to help improve the likelihood of adoption, and quality assurance 
-tests need to be conducted prior to deployment.
-Who should be 
-involved?
-Conduct training, 
-testing and roll-out 
-•	 Implementing teams should be responsible for training and 
-interfacing with the targeted end-users.
-•	 Software engineers should take feedback and make changes 
-to the PCPOSS accordingly. It would also be valuable for the 
-engineering team to receive feedback directly from end-users 
-to minimize any potential miscommunication in the feedback 
-management process. 
-•	 The public health authority should be involved in change 
-management, pushing for adoption of the solution at the local 
-level and providing any political support needed. Further, 
-the public health authority needs to implement any policies 
-surrounding cybersecurity, privacy, confidentiality, acceptability 
-of electronic signatures, data use, identification management 
-and content management, as relevant. 
-•	 End-users should be involved in providing feedback and using 
-the tool itself.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Inputs
-	 Beta version of the person-centred point of 
-service system (PCPOSS)
-Outputs
-	 Training materials
-	 A deployed and rolled-out PCPOSS
-Tools
-	 Testing checklist
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-52
