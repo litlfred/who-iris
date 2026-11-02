@@ -6,11 +6,18 @@
     }
   ],
   "@id": "library/9789241549226-eng/blocks/functional-requirement-sec-040-02",
+  "@type": [
+    "cat-harness:Block"
+  ],
   "kind": "functional-requirement",
   "pageStart": 62,
   "pageEnd": 64,
   "text": "functional-requirement-sec-040-02.md",
   "derivedFrom": "library/9789241549226-eng/sections/sec-040",
   "sourceDocument": "https://litlfred.github.io/folio-assistant/assets/library/jsonld/who-iris/9789241549226-eng/manifest.jsonld",
-  "provenance": "ingested"
+  "provenance": "ingested",
+  "meta": {
+    "source_number": "13",
+    "source_kind": "system-requirement-statement"
+  }
 }

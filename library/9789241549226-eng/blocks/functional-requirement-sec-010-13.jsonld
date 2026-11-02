@@ -6,6 +6,9 @@
     }
   ],
   "@id": "library/9789241549226-eng/blocks/functional-requirement-sec-010-13",
+  "@type": [
+    "cat-harness:Block"
+  ],
   "kind": "functional-requirement",
   "title": "Document employee performance management",
   "pageStart": 21,
@@ -13,5 +16,8 @@
   "text": "functional-requirement-sec-010-13.md",
   "derivedFrom": "library/9789241549226-eng/sections/sec-010",
   "sourceDocument": "https://litlfred.github.io/folio-assistant/assets/library/jsonld/who-iris/9789241549226-eng/manifest.jsonld",
-  "provenance": "ingested"
+  "provenance": "ingested",
+  "meta": {
+    "source_kind": "information-need-table-row"
+  }
 }
