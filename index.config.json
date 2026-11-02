@@ -26,7 +26,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "de259f1a117265cbea1c209ed87570aa63da4fbd",
+          "ref": "478cd43f3dc6a535131cfb303597e7ea665c9dd2",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -42,8 +42,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-02",
-              "ref": "de259f1a117265cbea1c209ed87570aa63da4fbd",
-              "evidence": "litlfred 2026-11-01 22:34:09Z 'window +12hrs.' (cmsg_017WNUkNK8kdDziPK58Pv6G9PErv8fhBqeocyxkaTZQkuL; non-content merge window, extended per coordinator to 2026-11-03 02:40Z) and 2026-11-02 06:13Z card Q-HRHIS-1 'A: Ready for review, merge on green' for who-iris#167. Re-pin to main tip so who-iris carries cat-harness-tools#1357 (candidate kinds classified as extracted) and cat-harness#955."
+              "ref": "478cd43f3dc6a535131cfb303597e7ea665c9dd2",
+              "evidence": "Owner litlfred merge window (to 2026-11-03 02:40Z): merge non-content when green. Re-pin core to main (with core#593, dspace namespace …/v0/ns/dspace/) so the Dublin Core renderings carry the right dspace IRIs, for who-iris#165."
             }
           }
         }
