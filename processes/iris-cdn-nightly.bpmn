@@ -41,9 +41,6 @@
         <bpmn:flowNodeRef>Task_WriteRecords</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Call_Rebuild</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Call_SignPublish</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_CfGit" name="Cloudflare git (Artifacts)" partitionElementRef="cloudflare-git">
-        <bpmn:documentation>A git repository hosted on Cloudflare Artifacts, not GitHub. Holds the release history: BagIt tag files, signatures, the cursor, checkpoints and run reports. Push over HTTPS with a repo-scoped token.</bpmn:documentation>
         <bpmn:flowNodeRef>Task_AdvanceCursor</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Exporter" name="IRIS CDN Exporter (agent)" partitionElementRef="iris-cdn-exporter">
@@ -84,6 +81,9 @@
     <bpmn:task id="Task_AdvanceCursor" name="Commit the&#10;advanced cursor">
       <bpmn:documentation>Only after the release verified. A failed night leaves the cursor where it was, so the next night re-reads the same window.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-rest-feed"/></bpmn:extensionElements>
+      <bpmn:dataOutputAssociation id="DOA_Task_AdvanceCursor">
+        <bpmn:targetRef>DSR_cloudflare_git</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
     </bpmn:task>
     <bpmn:task id="Task_Review" name="Review the run report;&#10;open beans for anomalies">
       <bpmn:documentation>Anomalies: a change count far from the recent median, quarantined bitstreams, a verification that came back unknown, a partition over its size ceiling.</bpmn:documentation>
@@ -102,37 +102,89 @@
     <bpmn:sequenceFlow id="N10" sourceRef="Call_SignPublish" targetRef="Task_AdvanceCursor"/>
     <bpmn:sequenceFlow id="N11" sourceRef="Task_AdvanceCursor" targetRef="Task_Review"/>
     <bpmn:sequenceFlow id="N12" sourceRef="Task_Review" targetRef="End_Done"/>
+    <bpmn:dataStoreReference id="DSR_cloudflare_git" name="Cloudflare git (Artifacts)" dataStoreRef="cloudflare-git"/>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_IrisCdnNightly">
     <bpmndi:BPMNPlane id="Plane_IrisCdnNightly" bpmnElement="Process_IrisCdnNightly">
-      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="60" width="2400" height="280"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_CfGit" bpmnElement="Lane_CfGit" isHorizontal="true"><dc:Bounds x="160" y="340" width="2400" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Lane_Exporter" bpmnElement="Lane_Exporter" isHorizontal="true"><dc:Bounds x="160" y="480" width="2400" height="140"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Start_Nightly" bpmnElement="Start_Nightly"><dc:Bounds x="297" y="112" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="255" y="152" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_ReadCursor" bpmnElement="Task_ReadCursor"><dc:Bounds x="430" y="90" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_ListChanged" bpmnElement="Task_ListChanged"><dc:Bounds x="620" y="90" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_GW_Any" bpmnElement="GW_Any" isMarkerVisible="true"><dc:Bounds x="860" y="105" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="825" y="159" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_End_NoChange" bpmnElement="End_NoChange"><dc:Bounds x="1057" y="252" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1015" y="292" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_FetchChanged" bpmnElement="Task_FetchChanged"><dc:Bounds x="1000" y="90" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_FetchNewBytes" bpmnElement="Task_FetchNewBytes"><dc:Bounds x="1190" y="90" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_WriteRecords" bpmnElement="Task_WriteRecords"><dc:Bounds x="1380" y="90" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Call_Rebuild" bpmnElement="Call_Rebuild"><dc:Bounds x="1570" y="90" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Call_SignPublish" bpmnElement="Call_SignPublish"><dc:Bounds x="1760" y="90" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_AdvanceCursor" bpmnElement="Task_AdvanceCursor"><dc:Bounds x="1950" y="370" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Task_Review" bpmnElement="Task_Review"><dc:Bounds x="2140" y="510" width="150" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_End_Done" bpmnElement="End_Done"><dc:Bounds x="2387" y="532" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="2345" y="572" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="E_N1" bpmnElement="N1"><di:waypoint x="333" y="130"/><di:waypoint x="430" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N2" bpmnElement="N2"><di:waypoint x="580" y="130"/><di:waypoint x="620" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N3" bpmnElement="N3"><di:waypoint x="770" y="130"/><di:waypoint x="860" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N4" bpmnElement="N4"><di:waypoint x="910" y="130"/><di:waypoint x="1037" y="130"/><di:waypoint x="1037" y="270"/><di:waypoint x="1057" y="270"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N5" bpmnElement="N5"><di:waypoint x="910" y="130"/><di:waypoint x="1000" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N6" bpmnElement="N6"><di:waypoint x="1150" y="130"/><di:waypoint x="1190" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N7" bpmnElement="N7"><di:waypoint x="1340" y="130"/><di:waypoint x="1380" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N8" bpmnElement="N8"><di:waypoint x="1530" y="130"/><di:waypoint x="1570" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N9" bpmnElement="N9"><di:waypoint x="1720" y="130"/><di:waypoint x="1760" y="130"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N10" bpmnElement="N10"><di:waypoint x="1910" y="130"/><di:waypoint x="1930" y="130"/><di:waypoint x="1930" y="410"/><di:waypoint x="1950" y="410"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N11" bpmnElement="N11"><di:waypoint x="2100" y="410"/><di:waypoint x="2120" y="410"/><di:waypoint x="2120" y="550"/><di:waypoint x="2140" y="550"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="E_N12" bpmnElement="N12"><di:waypoint x="2290" y="550"/><di:waypoint x="2387" y="550"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="S_Lane_Pipeline" bpmnElement="Lane_Pipeline" isHorizontal="true"><dc:Bounds x="160" y="60" width="2400" height="420" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Lane_Exporter" bpmnElement="Lane_Exporter" isHorizontal="true"><dc:Bounds x="160" y="480" width="2400" height="144" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Start_Nightly" bpmnElement="Start_Nightly"><dc:Bounds x="297" y="112" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="255" y="152" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_ReadCursor" bpmnElement="Task_ReadCursor"><dc:Bounds x="445" y="72" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_ListChanged" bpmnElement="Task_ListChanged"><dc:Bounds x="635" y="72" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_GW_Any" bpmnElement="GW_Any" isMarkerVisible="true"><dc:Bounds x="860" y="105" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="825" y="159" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_End_NoChange" bpmnElement="End_NoChange"><dc:Bounds x="1057" y="252" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1015" y="292" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_FetchChanged" bpmnElement="Task_FetchChanged"><dc:Bounds x="1015" y="72" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_FetchNewBytes" bpmnElement="Task_FetchNewBytes"><dc:Bounds x="1205" y="72" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_WriteRecords" bpmnElement="Task_WriteRecords"><dc:Bounds x="1395" y="72" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Call_Rebuild" bpmnElement="Call_Rebuild"><dc:Bounds x="1585" y="72" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Call_SignPublish" bpmnElement="Call_SignPublish"><dc:Bounds x="1775" y="72" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_AdvanceCursor" bpmnElement="Task_AdvanceCursor"><dc:Bounds x="1950" y="370" width="150" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Task_Review" bpmnElement="Task_Review"><dc:Bounds x="2155" y="492" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_End_Done" bpmnElement="End_Done"><dc:Bounds x="2387" y="532" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="2345" y="572" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="E_N1" bpmnElement="N1">
+        <di:waypoint x="333" y="130" />
+        <di:waypoint x="389" y="130" />
+        <di:waypoint x="389" y="132" />
+        <di:waypoint x="445" y="132" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N2" bpmnElement="N2">
+        <di:waypoint x="565" y="132" />
+        <di:waypoint x="635" y="132" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N3" bpmnElement="N3">
+        <di:waypoint x="755" y="132" />
+        <di:waypoint x="807.5" y="132" />
+        <di:waypoint x="807.5" y="130" />
+        <di:waypoint x="860" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N4" bpmnElement="N4"><di:waypoint x="910" y="130"/><di:waypoint x="1037" y="130"/><di:waypoint x="1037" y="270"/><di:waypoint x="1057" y="270"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="1041" y="191.5" width="90" height="17" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N5" bpmnElement="N5">
+        <di:waypoint x="910" y="130" />
+        <di:waypoint x="962.5" y="130" />
+        <di:waypoint x="962.5" y="132" />
+        <di:waypoint x="1015" y="132" />
+        <bpmndi:BPMNLabel><dc:Bounds x="916" y="109" width="90" height="18" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N6" bpmnElement="N6">
+        <di:waypoint x="1135" y="132" />
+        <di:waypoint x="1205" y="132" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N7" bpmnElement="N7">
+        <di:waypoint x="1325" y="132" />
+        <di:waypoint x="1395" y="132" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N8" bpmnElement="N8">
+        <di:waypoint x="1515" y="132" />
+        <di:waypoint x="1585" y="132" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N9" bpmnElement="N9">
+        <di:waypoint x="1705" y="132" />
+        <di:waypoint x="1775" y="132" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N10" bpmnElement="N10">
+        <di:waypoint x="1895" y="132" />
+        <di:waypoint x="1922.5" y="132" />
+        <di:waypoint x="1922.5" y="410" />
+        <di:waypoint x="1950" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N11" bpmnElement="N11">
+        <di:waypoint x="2100" y="410" />
+        <di:waypoint x="2127.5" y="410" />
+        <di:waypoint x="2127.5" y="552" />
+        <di:waypoint x="2155" y="552" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_N12" bpmnElement="N12">
+        <di:waypoint x="2275" y="552" />
+        <di:waypoint x="2331" y="552" />
+        <di:waypoint x="2331" y="550" />
+        <di:waypoint x="2387" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_DSR_cloudflare_git" bpmnElement="DSR_cloudflare_git"><dc:Bounds x="2000" y="660" width="50" height="50" />
+        <bpmndi:BPMNLabel><dc:Bounds x="2054" y="667" width="90" height="36" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_DOA_Task_AdvanceCursor" bpmnElement="DOA_Task_AdvanceCursor"><di:waypoint x="2025" y="450"/><di:waypoint x="2025" y="660"/></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
