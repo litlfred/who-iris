@@ -23,3 +23,17 @@ success, while allowing learnings to be shared from one
 province to another. This process must be developed with all 
 key stakeholders to ensure that the plan for phasing out paper 
 and/or legacy systems makes sense in context.
+
+Ensure a backup paper system is 
+available
+Although phasing out of paper and/or legacy systems 
+will be needed to ensure there is no duplication of 
+efforts by the health worker, it is important to ensure that 
+there will always be a back-up mechanism (e.g. paper 
+forms), to be able to record health service user health 
+records and conduct reporting activities in worst case 
+scenarios that stop the system from functioning entirely, 
+such as cybersecurity attacks and crisis situations. 
+Having a back-up paper system ensures resiliency of the 
+overall system. 
+WARNING
