@@ -13,6 +13,12 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import oxigraph from 'oxigraph';
 
+/** Escape a value for a double-quoted SPARQL string literal: backslash first, then quote and line breaks. */
+export function sparqlString(v: string): string {
+  return v.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n").replace(/\r/g, "\\r");
+}
+
+
 /**
  * Run a SPARQL SELECT. `Store.query` is typed as the union over every query
  * form (SELECT rows, ASK boolean, CONSTRUCT quads, serialized string), so a
@@ -193,19 +199,19 @@ export class IrisOxigraphEngine {
     const filters: string[] = [];
 
     if (criteria.text) {
-      const escaped = criteria.text.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.text.toLowerCase());
       filters.push(`CONTAINS(LCASE(?title), "${escaped}")`);
     }
     if (criteria.creator) {
-      const escaped = criteria.creator.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.creator.toLowerCase());
       filters.push(`CONTAINS(LCASE(?creator), "${escaped}")`);
     }
     if (criteria.community) {
-      const escaped = criteria.community.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.community.toLowerCase());
       filters.push(`CONTAINS(LCASE(?commName), "${escaped}")`);
     }
     if (criteria.collection) {
-      const escaped = criteria.collection.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.collection.toLowerCase());
       filters.push(`CONTAINS(LCASE(?collName), "${escaped}")`);
     }
     if (criteria.yearFrom) {
@@ -218,7 +224,7 @@ export class IrisOxigraphEngine {
       filters.push(`BOUND(?pdfName)`);
     }
     if (criteria.copyrightVerdict) {
-      const escaped = criteria.copyrightVerdict.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.copyrightVerdict.toLowerCase());
       filters.push(`LCASE(?copyrightGate) = "${escaped}"`);
     }
 
@@ -291,25 +297,25 @@ export class IrisOxigraphEngine {
 
     // Title / Abstract / Description keyword
     if (criteria.text) {
-      const escaped = criteria.text.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.text.toLowerCase());
       filters.push(`(CONTAINS(LCASE(?title), "${escaped}") || CONTAINS(LCASE(COALESCE(?abstract, "")), "${escaped}"))`);
     }
 
     // Creator / Author
     if (criteria.creator) {
-      const escaped = criteria.creator.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.creator.toLowerCase());
       filters.push(`CONTAINS(LCASE(?creator), "${escaped}")`);
     }
 
     // Subject / MESH
     if (criteria.subject) {
-      const escaped = criteria.subject.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.subject.toLowerCase());
       filters.push(`CONTAINS(LCASE(?subject), "${escaped}")`);
     }
 
     // Spatial location (Geneva, Manila, etc.)
     if (criteria.spatial) {
-      const escaped = criteria.spatial.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.spatial.toLowerCase());
       filters.push(`CONTAINS(LCASE(?spatial), "${escaped}")`);
     }
 
@@ -323,25 +329,25 @@ export class IrisOxigraphEngine {
 
     // Language
     if (criteria.language) {
-      const escaped = criteria.language.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.language.toLowerCase());
       filters.push(`(LCASE(?langCode) = "${escaped}" || CONTAINS(LCASE(?langLabel), "${escaped}"))`);
     }
 
     // Community hierarchy (single or multiple)
     if (criteria.communities && criteria.communities.length > 0) {
       const commClauses = criteria.communities.map(c => {
-        const escaped = c.toLowerCase().replace(/"/g, '\\"');
+        const escaped = sparqlString(c.toLowerCase());
         return `CONTAINS(LCASE(?commName), "${escaped}")`;
       });
       filters.push(`(${commClauses.join(' || ')})`);
     } else if (criteria.community) {
-      const escaped = criteria.community.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.community.toLowerCase());
       filters.push(`CONTAINS(LCASE(?commName), "${escaped}")`);
     }
 
     // Collection hierarchy
     if (criteria.collection) {
-      const escaped = criteria.collection.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.collection.toLowerCase());
       filters.push(`CONTAINS(LCASE(?collName), "${escaped}")`);
     }
 
@@ -352,19 +358,19 @@ export class IrisOxigraphEngine {
 
     // Copyright gate verdict
     if (criteria.copyrightVerdict) {
-      const escaped = criteria.copyrightVerdict.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.copyrightVerdict.toLowerCase());
       filters.push(`LCASE(?copyrightGate) = "${escaped}"`);
     }
 
     // Government document identifier
     if (criteria.govdoc) {
-      const escaped = criteria.govdoc.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.govdoc.toLowerCase());
       filters.push(`CONTAINS(LCASE(?govdoc), "${escaped}")`);
     }
 
     // ISBN
     if (criteria.isbn) {
-      const escaped = criteria.isbn.toLowerCase().replace(/"/g, '\\"');
+      const escaped = sparqlString(criteria.isbn.toLowerCase());
       filters.push(`CONTAINS(LCASE(?isbn), "${escaped}")`);
     }
 
