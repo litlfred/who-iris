@@ -40,7 +40,7 @@ const DCTERMS_NS = 'http://purl.org/dc/terms/';
 const DC_ELEMENTS_NS = 'http://purl.org/dc/elements/1.1/';
 const DCAM_NS = 'http://purl.org/dc/dcam/';
 const RDF_NS = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
-const DSPACE_CORE_NS = 'https://litlfred.github.io/folio-assistant-core/v0/ns/dspace#';
+const DSPACE_CORE_NS = 'https://litlfred.github.io/folio-assistant-core/v0/ns/dspace/';
 
 export interface SubgraphPartitionInfo {
   id: string;
