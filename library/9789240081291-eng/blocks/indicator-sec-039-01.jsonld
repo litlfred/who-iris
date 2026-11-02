@@ -6,6 +6,9 @@
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-039-01",
+  "@type": [
+    "cat-harness:Block"
+  ],
   "kind": "indicator",
   "title": "Ratio of graduates of health workforce education and training programmes to the stock of active health workers",
   "pageStart": 69,
@@ -13,5 +16,9 @@
   "text": "indicator-sec-039-01.md",
   "derivedFrom": "library/9789240081291-eng/sections/sec-039",
   "sourceDocument": "https://litlfred.github.io/folio-assistant/assets/library/jsonld/who-iris/9789240081291-eng/manifest.jsonld",
-  "provenance": "ingested"
+  "provenance": "ingested",
+  "meta": {
+    "source_number": "2-04",
+    "source_kind": "nhwa-indicator"
+  }
 }

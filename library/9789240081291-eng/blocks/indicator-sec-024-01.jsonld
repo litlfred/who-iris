@@ -6,6 +6,9 @@
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-024-01",
+  "@type": [
+    "cat-harness:Block"
+  ],
   "kind": "indicator",
   "title": "Density of active health workers per 10 000 population at subnational level",
   "pageStart": 53,
@@ -13,5 +16,9 @@
   "text": "indicator-sec-024-01.md",
   "derivedFrom": "library/9789240081291-eng/sections/sec-024",
   "sourceDocument": "https://litlfred.github.io/folio-assistant/assets/library/jsonld/who-iris/9789240081291-eng/manifest.jsonld",
-  "provenance": "ingested"
+  "provenance": "ingested",
+  "meta": {
+    "source_number": "1-02",
+    "source_kind": "nhwa-indicator"
+  }
 }

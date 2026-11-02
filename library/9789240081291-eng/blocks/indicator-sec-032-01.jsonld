@@ -6,6 +6,9 @@
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-032-01",
+  "@type": [
+    "cat-harness:Block"
+  ],
   "kind": "indicator",
   "title": "Ratio of active health workers leaving the health labour market to the total stock of active health workers",
   "pageStart": 61,
@@ -13,5 +16,9 @@
   "text": "indicator-sec-032-01.md",
   "derivedFrom": "library/9789240081291-eng/sections/sec-032",
   "sourceDocument": "https://litlfred.github.io/folio-assistant/assets/library/jsonld/who-iris/9789240081291-eng/manifest.jsonld",
-  "provenance": "ingested"
+  "provenance": "ingested",
+  "meta": {
+    "source_number": "1-10",
+    "source_kind": "nhwa-indicator"
+  }
 }
