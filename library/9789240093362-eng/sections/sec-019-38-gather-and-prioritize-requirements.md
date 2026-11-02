@@ -4,7 +4,7 @@ doc_title: "Digital transformation handbook for primary health care Optimizing p
 section_id: sec-019-38-gather-and-prioritize-requirements
 section_title: "Gather and prioritize requirements"
 section_number: 3.8
-pages: 47-52
+pages: 47-49
 source_pdf: 9789240093362-eng.pdf
 source_sha256: 0d47d98390b1451d
 toc_source: outline
@@ -27,49 +27,6 @@ principles. One way to translate user stories into functional
 and non-functional requirements is to look at the “I want 
 to…” part of the “as a [health worker], I want to…” user story 
 statements.
-Before moving on to gather and 
-prioritize the requirements for the 
-PCPOSS, it is important to take note of the various 
-needs assessments conducted. By this point, there 
-needs to be a clear understanding of:
-	
-❑
-who the end-users are
-	
-❑
-what the end-users would want the PCPOSS to do
-	
-❑
-how the PCPOSS will fit into existing workflows and 
-improve their efficiency
-	
-❑
-which global and/or national guidelines the solution 
-will need to follow
-	
-❑
-what amount of data the solution will need to be 
-able to manage
-	
-❑
-what kind of logic will need to be embedded into it.
-An understanding of all these components will now 
-facilitate outlining and prioritization of the PCPOSS 
-requirements.
-CHECKPOINT
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-36
 For the user story, “As a nurse/midwife, I want to know which 
 health service users I need to follow up with today, so that I may 
 plan my workday,” the functional requirements that would 
@@ -152,19 +109,6 @@ prioritized list that is as comprehensive as possible – even one
 that includes many low-priority requirements – is beneficial 
 to understanding what is within the realms of possibility for 
 building the PCPOSS.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-37
 After finishing the processes outlined in previous sections, there should be answers 
 to all of the following questions. These answers will enable resource mobilization 
 for the next phase of digitizing primary health care as guided in the next section.
@@ -249,103 +193,3 @@ of COVID-19 Certificates: Technical specifications and
 implementation requirements outlines requirements for 
 a digitally verifiable COVID-19 certificate (57).
 TIP
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-4
-The steps of undertaking detailed design and adaptation should be led 
-primarily by a technology partner. This section summarizes the standards, 
-concept and activities a technology partner is expected, at a minimum, to 
-undertake.
-Implementation teams commissioning the design and adaptation are not expected to know how to programme software 
-themselves but understanding the processes that technology partners go through to build a system is important. The effort 
-needed is otherwise often significantly underestimated, leading to mismatched expectations by both parties. Active, successful 
-collaboration between implementers and technology partners helps to ensure that the solution being built or adapted matches 
-the needs of end-users. 
-Who should be 
-involved?
-Undertake design 
-and adaptation
-•	 Software engineers and solutions architects should lead this 
-work.
-•	 Business analysts and designers should provide meaningful 
-and constant feedback to the engineering team to ensure proper 
-translation of the system requirements into implementation.
-•	 Health informaticians should be involved to provide expert 
-guidance as needed to ensure the system is able to operate using 
-standards such as Fast Healthcare Interoperability Resources 
-(FHIR). 
-•	 The targeted health worker occupational groups and 
-end-users should provide feedback as different versions of the 
-person-centred point of service system (PCPOSS) are created.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Inputs
-	 Scope for PCPOSSa
-	 Project team governance structurea
-	 Budget, timeline, and risk and mitigations 
-plana 
-	 Digital adaptation kitsb
-Requirements documentation that includes:
-	 User personasc
-	 Use casesc 
-	 User storiesc 
-	 As-is and to-be business processesc
-	 Data dictionaryc
-	 Data model inclusive of semantic 
-classifications and terminology standards and 
-syntactic interoperability standards 
-	 Documented decision logic algorithmsc
-	 Documented health service schedulec
-	 Prioritized functional and non-functional 
-requirementsc
-Tools
-	 Design software tools for prototype creation
-	 Design tools for depicting system architecture
-	 Concept dictionary or terminology service
-	 Coding environment (depending on software)
-As these tools will vary greatly from solution to 
-solution, it will be up to the technology partner to 
-determine which tools work best for them. It will 
-also be critical for the wider team to determine the 
-best tools for collaboration.
-Outputs
-	 Selected software and software vendor
-	 System architecture
-	 User interface design
-	 Product documentation
-	 Beta version of the PCPOSS
-a Guidance on generating these inputs can be found in the Digital implementation investment guide (DIIG): integrating digital   
-   interventions into health programmes (22)
-b If available for the scoped health domain
-c Chapter 1
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-40

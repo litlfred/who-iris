@@ -42,98 +42,15 @@ process based on previous desk reviews, interviews and
 service-delivery observations.
 Fig. 9	
 Example business process matrix from family planning DAK
-Process 
-name
-Process ID
-Personas
-Objectives
-Task set
-Title
-ID used to reference 
-this process 
-throughout the DAK
-Individuals interacting 
-to complete the 
-process
-A concrete statement describing what the 
-process seeks to achieve
-The general set of activities performed within the 
-process
-A
-Registration
-FP.A
-•	Client
-•	Clerk or health-care 
-provider
-To ensure client is located in the system 
-with updated personal details or, if not 
-located, entered into the system to be put 
-into a queue to await counselling
-Starting point: Client arrives at facility and checks in 
-with clerk
-•	Search for client record
-•	Review and update client record
-•	Create a new client record
-B
-Family 
-planning 
-counselling
-FP.B
-•	Client
-•	Health-care 
-provider (clinician, 
-nurse midwife or 
-community health 
-worker)
-To discuss possible family planning 
-methods with client and for client to 
-select a method that they are medically 
-eligible for
-Starting point: Client has been registered at the 
-health-care facility and called in for counselling. Family 
-planning counselling can happen alongside other health 
-services (e.g. nutrition counselling, child immunizations)
-•	Take client history
-•	Conduct a risk assessment
-•	Discuss issues and concerns if a returning client or a 
-client already on a method
-•	Counsel on possible family planning methods and 
-reproductive intentions
-•	Check medical eligibility criteria
-•	Select method
-•	Check stock and skills for delivering method
-•	If facility is not equipped to provide the method, refer
- C
-Service 
-provision
-FP.C
-•	Client
-•	Health-care provider
-To provide the method(s) or service(s) the 
-client requires, if the client is medically 
-eligible for them
-Starting point: Client has selected a method and is 
-medically eligible or eligible with clinical judgment
-•	Obtain informed consent
-•	Determine when to start method
-•	Provide method and/or explain how to use method
-•	Discuss dual protection
-•	Determine follow-up requirements and schedule 
-follow-up, if needed
+
+| # | Process name | Process ID | Personas | Objectives | Task set |
+| --- | --- | --- | --- | --- | --- |
+| — | *Title* | *ID used to reference this process throughout the DAK* | *Individuals interacting to complete the process* | *A concrete statement describing what the process seeks to achieve* | *The general set of activities performed within the process* |
+| **A** | Registration | FP.A | • Client<br>• Clerk or health-care provider | To ensure client is located in the system with updated personal details or, if not located, entered into the system to be put into a queue to await counselling | Starting point: Client arrives at facility and checks in with clerk<br>• Search for client record<br>• Review and update client record<br>• Create a new client record |
+| **B** | Family planning counselling | FP.B | • Client<br>• Health-care provider (clinician, nurse midwife or community health worker) | To discuss possible family planning methods with client and for client to select a method that they are medically eligible for | Starting point: Client has been registered at the health-care facility and called in for counselling. Family planning counselling can happen alongside other health services (e.g. nutrition counselling, child immunizations)<br>• Take client history<br>• Conduct a risk assessment<br>• Discuss issues and concerns if a returning client or a client already on a method<br>• Counsel on possible family planning methods and reproductive intentions<br>• Check medical eligibility criteria<br>• Select method<br>• Check stock and skills for delivering method<br>• If facility is not equipped to provide the method, refer |
+| **C** | Service provision | FP.C | • Client<br>• Health-care provider | To provide the method(s) or service(s) the client requires, if the client is medically eligible for them | Starting point: Client has selected a method and is medically eligible or eligible with clinical judgment<br>• Obtain informed consent<br>• Determine when to start method<br>• Provide method and/or explain how to use method<br>• Discuss dual protection<br>• Determine follow-up requirements and schedule follow-up, if needed |
+
 Source: WHO (30)
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-24
 3.3.1 	 Workflow mapping conventions 
 Once the requirements-gathering team has taken an inventory 
 of the key business processes using the business process 
@@ -166,123 +83,27 @@ overview of key symbols (48,49). There are many commonly
 used workflow-mapping software programmes available, 
 including diagrams.net, Cawemo, Microsoft PowerPoint, 
 Microsoft Visio and SmartDraw. 
-Table 1. Key Business Process Model and Notation (BPMN) symbols 
-Symbol
-Symbol 
-name
-Description
-Lane 1
-Lane 2
-Lane 3
-Pool
-Pool
-A pool consists of multiple “swim lanes” that depict all the individuals or types of 
-users involved in carrying out the business process or workflow. Diagrams should 
-be clear, neat and easy for all viewers to understand the relationships across the 
-different swim lanes. For example, a pool would depict the business process of 
-conducting an outreach activity, which involves multiple stakeholders represented 
-by different lanes in that pool. 
-Lane 2
-Lane 3
-Pool
-Lane 1
-Swim lane 
-Each individual or type of user is assigned to a swim lane, a designated area for noting the activities performed or expected by that specific actor. For example, a nurse 
-may have one swim lane; the supervisor would be in another swim lane; the health 
-service users would be classified in another swim lane. 
-Start event 
-or trigger 
-event
-The workflow diagram should contain both a start and an end event, defining the 
-beginning and completion of the task, respectively.
-Start event 
-message
-This is a type of start event. In some instances, the workflow can start with a start 
-event “message”. A “message” in BPMN does not mean only letters, emails or 
-calls, but also information exchanged between two different systems, such as data 
-exchange, notifications, etc. Any action that refers to a specific addressee, and represents or contains information for the addressee, is a message. 
-End event
-There can be multiple end events depicted across multiple swim lanes in a business 
-process diagram. However, for diagram clarity, there should only be one end event 
-per swim lane.
-Activity, 
-process, 
-step or task
-Each activity should start with a verb, for example, “register client”, “calculate risk”. 
-Between the start and end of a workflow, there should be a series of activities noting 
-the successive actions performed by the actor in that swim lane. There can also be 
-subprocesses of each activity. 
-Activity with 
-subprocess
-This denotes an activity that has a much longer subprocess to be detailed in another diagram. If the diagram starts to become too complex and unhelpful, the subprocess symbol should be used to reference another process depicted on another page.
-Activity with 
-business 
-rule
-This denotes a decision-making activity that requires the business rule, or decision-support logic, to be detailed in a decision-support table. This means that the 
-logic described in the decision-support table will come into play during this activity, 
-as outlined in the business process. This is usually reserved for complex decisions. 
-Loop activity
-This loop activity or loop task symbolizes an activity or task that is repeated until it 
-no longer needs to be repeated. For example, vaccine administration can happen as 
-many times as the number of vaccines that need to be given.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-25
-Symbol
-Symbol 
-name
-Description
-Ad hoc 
-subprocess
-An ad hoc subprocess can contain multiple tasks. One or more tasks in this shape 
-should be performed, and they can be performed in any order. However, not all of 
-these activities need to be finished before moving on to the next activity.
-Sequence 
-flow
-This denotes the flow direction from one process to the next. The end event should 
-not have any output arrows. All symbols (except for start event) may have an unlimited number of input arrows. All symbols (except for end event and gateway) should 
-have one and only one output arrow, leading to a new symbol, looping back to a 
-previously used symbol or to the end event symbol. Connecting arrows should not 
-intersect (cross) each other. 
-Message 
-flow 
-This denotes the flow of data or information from one process to another. This is 
-usually used for when data are shared across swim lanes or stakeholder groups. 
-Exclusive 
-gateway
-This exclusive gateway symbol is used to depict a split in the workflow into two 
-mutually exclusive, binary pathways. There should only be two different outputs that 
-originate from the decision point. If you find yourself needing more than two output 
-or sequence flow arrows, you most likely are trying to depict decision-support logic 
-or a business rule. This should be depicted as an activity with business rule (above) 
-instead.
-Parallel 
-gateway
-The parallel gateway symbol is used to depict a split in the workflow into more than 
-one concurrent activities and pathways in a workflow. It can also be used to depict 
-when concurrent pathways join together into a single pathway. 
-Throw – link 
-event
-The throw – link event serves as the start of an off-page connector. It is the end of 
-the process when there is no more room on the page for that workflow or the end of 
-a subprocess that is part of a larger process. There will need to be a catch link that 
-follows the throw link.
-Catch – link 
-event
-The catch – link serves as the end of an off-page connector. It is the start of the new 
-process on a different page from the throw link or the start of a subprocess that is 
-part of a larger process. There needs to be a throw link that is aligned to the catch 
-link. 
+Table 1. Key Business Process Model and Notation (BPMN) symbols
+
+| Symbol | Symbol name | Description |
+| --- | --- | --- |
+| Pool (Lane 1, Lane 2, Lane 3) | **Pool** | A pool consists of multiple “swim lanes” that depict all the individuals or types of users involved in carrying out the business process or workflow. Diagrams should be clear, neat and easy for all viewers to understand the relationships across the different swim lanes. For example, a pool would depict the business process of conducting an outreach activity, which involves multiple stakeholders represented by different lanes in that pool. |
+| Pool — Lane 1 (highlighted), Lane 2, Lane 3 | **Swim lane** | Each individual or type of user is assigned to a swim lane, a designated area for noting the activities performed or expected by that specific actor. For example, a nurse may have one swim lane; the supervisor would be in another swim lane; the health service users would be classified in another swim lane. |
+| Thin circle | **Start event or trigger event** | The workflow diagram should contain both a start and an end event, defining the beginning and completion of the task, respectively. |
+| Thin circle with envelope | **Start event message** | This is a type of start event. In some instances, the workflow can start with a start event “message”. A “message” in BPMN does not mean only letters, emails or calls, but also information exchanged between two different systems, such as data exchange, notifications, etc. Any action that refers to a specific addressee, and represents or contains information for the addressee, is a message. |
+| Thick circle | **End event** | There can be multiple end events depicted across multiple swim lanes in a business process diagram. However, for diagram clarity, there should only be one end event per swim lane. |
+| Rounded rectangle | **Activity, process, step or task** | Each activity should start with a verb, for example, “register client”, “calculate risk”. Between the start and end of a workflow, there should be a series of activities noting the successive actions performed by the actor in that swim lane. There can also be subprocesses of each activity. |
+| Rounded rectangle with `[+]` | **Activity with subprocess** | This denotes an activity that has a much longer subprocess to be detailed in another diagram. If the diagram starts to become too complex and unhelpful, the subprocess symbol should be used to reference another process depicted on another page. |
+| Rounded rectangle with table icon | **Activity with business rule** | This denotes a decision-making activity that requires the business rule, or decision-support logic, to be detailed in a decision-support table. This means that the logic described in the decision-support table will come into play during this activity, as outlined in the business process. This is usually reserved for complex decisions. |
+| Rounded rectangle with loop arrow | **Loop activity** | This loop activity or loop task symbolizes an activity or task that is repeated until it no longer needs to be repeated. For example, vaccine administration can happen as many times as the number of vaccines that need to be given. |
+| Rounded rectangle with `[+] ~` | **Ad hoc subprocess** | An ad hoc subprocess can contain multiple tasks. One or more tasks in this shape should be performed, and they can be performed in any order. However, not all of these activities need to be finished before moving on to the next activity. |
+| Solid arrow | **Sequence flow** | This denotes the flow direction from one process to the next. The end event should not have any output arrows. All symbols (except for start event) may have an unlimited number of input arrows. All symbols (except for end event and gateway) should have one and only one output arrow, leading to a new symbol, looping back to a previously used symbol or to the end event symbol. Connecting arrows should not intersect (cross) each other. |
+| Dashed arrow | **Message flow** | This denotes the flow of data or information from one process to another. This is usually used for when data are shared across swim lanes or stakeholder groups. |
+| Diamond with `X` | **Exclusive gateway** | This exclusive gateway symbol is used to depict a split in the workflow into two mutually exclusive, binary pathways. There should only be two different outputs that originate from the decision point. If you find yourself needing more than two output or sequence flow arrows, you most likely are trying to depict decision-support logic or a business rule. This should be depicted as an activity with business rule (above) instead. |
+| Diamond with `+` | **Parallel gateway** | The parallel gateway symbol is used to depict a split in the workflow into more than one concurrent activities and pathways in a workflow. It can also be used to depict when concurrent pathways join together into a single pathway. |
+| Double circle with filled right arrow | **Throw – link event** | The throw – link event serves as the start of an off-page connector. It is the end of the process when there is no more room on the page for that workflow or the end of a subprocess that is part of a larger process. There will need to be a catch link that follows the throw link. |
+| Double circle with outline right arrow | **Catch – link event** | The catch – link serves as the end of an off-page connector. It is the start of the new process on a different page from the throw link or the start of a subprocess that is part of a larger process. There needs to be a throw link that is aligned to the catch link. |
+
 Source: Object Management Group (47).
 Note: The BPMN standard outlines additional conventions and nuanced symbols that can be used. The above selection of 
 symbols should be sufficient, though, for the purposes of illustrating the business process workflows in a clear, standardized way.
@@ -306,19 +127,6 @@ data mapping and requirements gathering. See Fig. 10 for an
 example registration business process workflow to identify 
 and register a pregnant woman in order to proceed to the ANC 
 consultation from ANC DAK.
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Digital transformation handbook for primary health care
-26
 Fig. 10	 Workflow A: Registration business process
 Fig. 11	 Notes and annotations for Workflow A: Registration business process l
 Health facility
@@ -469,19 +277,6 @@ moved or changed other details.
 worker for the ANC contact.
 Source: WHO (29)
 Source: WHO (29)
-Introduction
-How to use 
-this handbook
-User 
- requirements
-Design and  
-adaptation
-Training, testing  
-and roll-out
-Scale-up
-Annexes
-Understand user requirements 
-27
 3.3.3 	 As-is and to-be analysis
 When developing the as-is workflow for each of the relevant 
 processes, it should become clear which activities are 
