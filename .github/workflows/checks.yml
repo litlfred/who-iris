@@ -60,5 +60,14 @@ jobs:
         run: bun run iris:covers:check
       - name: Dublin Core renderings are current
         run: bun run dc:render:check
+      - name: Mount the attestations state branch
+        # test/attestations/ is kept on cat/who-iris/attestations, never on
+        # main (who-iris.json `source`; check:state-on-main), and the round-trip
+        # report and its tests read it.
+        run: |
+          set -euo pipefail
+          git fetch -q --depth 1 origin cat/who-iris/attestations
+          git archive FETCH_HEAD test/attestations | tar -x
+          test -n "$(ls test/attestations/translation-qa)"
       - name: Tests
         run: bun test ./scripts/tests/   # anchored: a bare "scripts/tests" also matches every mount's tests
