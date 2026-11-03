@@ -21,7 +21,8 @@ jobs:
       instance: who-iris
       # The round-trip report is derived from the agents' rulings in
       # test/attestations/translation-qa/ (owner, 2026-11-03), which live on
-      # the cat/who-iris/attestations state branch: mount it first.
+      # the cat/who-iris/attestations state branch: mount that one graph first
+      # (--id: the full mount refuses the caller's swapped-in directory).
       writers: |
-        bun run cat state:mount
+        bun run cat state:mount --id attestations
         bun run who-iris/scripts/translation-roundtrip-report.ts
