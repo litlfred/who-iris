@@ -51,7 +51,7 @@
  * a reviewer's call (`ingest-l1-completeness-gate.bpmn`, `Task_FlagDrift`).
  */
 import { createHash } from "node:crypto";
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 
 const INSTANCE = join(import.meta.dir, "..");
@@ -228,6 +228,8 @@ if (import.meta.main) {
     }
     console.log(`current: ${relative(INSTANCE, OUT)}`);
   } else {
+    // test/results/ is computed, not committed: a fresh checkout has no such directory.
+    mkdirSync(OUT_DIR, { recursive: true });
     writeFileSync(OUT, json);
     console.log(`wrote ${relative(dirname(INSTANCE), OUT)}`);
   }
