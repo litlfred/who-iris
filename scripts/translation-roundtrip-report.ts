@@ -18,8 +18,22 @@
  *
  * | agent | saw | wrote |
  * |---|---|---|
- * | back-translator | the `msgstr` values only, by index | `agents/back-translation-<locale>.tsv` |
- * | adjudicator | the English `msgid`, its translator note, and the back-translation, never the `msgstr` | `agents/adjudication-<locale>.tsv` |
+ * | back-translator | the `msgstr` values only, by index | each entry's `back_translation` |
+ * | adjudicator | the English `msgid`, its translator note, and the back-translation, never the `msgstr` | each entry's `result`, `severity` and `findings` |
+ *
+ * ## Where the agents' outputs live
+ *
+ * They are JUDGEMENTS, which no re-run reproduces, so they are kept on main
+ * in the `attestations` graph: one `qa-attestations/v1` file per catalogue
+ * and locale, `test/attestations/translation-qa/<catalogue>.<locale>.attestations.json`,
+ * criterion `translation-semantic-roundtrip`, one entry per string pinned by
+ * the hashes of the `msgid` and `msgstr` it judged, after a `scope: "run"`
+ * entry carrying the agents' trailer lines (TOOLS_USED, UNCERTAIN, SUMMARY).
+ * They were TSVs under `test/results/translation-roundtrip/agents/` until
+ * 2026-11-03 (owner: "1. Convert to attestations"; bean folio-assistant-7mwa),
+ * converted losslessly, every cell checked. The report below is DERIVED and
+ * is no longer committed: the layer's QA publisher writes it to the
+ * qa-reports store.
  *
  * Each back-translator was limited to one Read (its input) and one Write (its
  * output), and reported `TOOLS_USED: Read,Write` in its file. So it could not
@@ -77,20 +91,46 @@ export function parsePo(text: string, catalogue: string): PoString[] {
   return out;
 }
 
-/** `<index>\t<payload>` lines, plus the trailing named lines (TOOLS_USED, UNCERTAIN, SUMMARY). */
-export function parseTsv(text: string): { rows: Map<number, string[]>; named: Map<string, string> } {
-  const rows = new Map<number, string[]>();
-  const named = new Map<string, string>();
-  for (const line of text.split("\n")) {
-    if (!line.trim()) continue;
-    const [k, ...rest] = line.split("\t");
-    if (/^\d+$/.test(k!)) rows.set(Number(k), rest);
-    else named.set(k!, rest.join("\t"));
-  }
-  return { rows, named };
+type Verdict = "pass" | "warn" | "fail";
+
+/** One string's ruling, as the attestation entry records it. */
+interface RoundtripEntry {
+  index: number;
+  field_hash: { msgid: string; msgstr: string };
+  result: Verdict;
+  severity?: string;
+  findings: string[];
+  back_translation: string;
 }
 
-type Verdict = "pass" | "warn" | "fail";
+/** The `scope: "run"` entry: the agents' trailer lines, verbatim. */
+interface RoundtripRun {
+  scope: "run";
+  back_translation_trailer: Record<string, string>;
+  adjudication_trailer: Record<string, string>;
+}
+
+const ATTESTATIONS = join(INSTANCE, "test", "attestations", "translation-qa");
+const h12 = (s: string) => createHash("sha256").update(s).digest("hex").slice(0, 12);
+
+/** A catalogue's attestation for a locale: its run entry and its per-string rulings, in order. */
+export function readRoundtrip(catalogue: string, locale: string, root = ATTESTATIONS): { run: RoundtripRun; entries: RoundtripEntry[] } {
+  const file = JSON.parse(readFileSync(join(root, `${catalogue}.${locale}.attestations.json`), "utf-8")) as {
+    $schema: string;
+    family: string;
+    locale: string;
+    criteria: Record<string, Array<RoundtripEntry | RoundtripRun>>;
+  };
+  if (file.$schema !== "qa-attestations/v1" || file.family !== "translation-qa" || file.locale !== locale) {
+    throw new Error(`${catalogue}.${locale}: not a translation-qa attestation for ${locale}`);
+  }
+  const all = file.criteria["translation-semantic-roundtrip"] ?? [];
+  const run = all.find((e): e is RoundtripRun => (e as RoundtripRun).scope === "run");
+  if (!run) throw new Error(`${catalogue}.${locale}: no scope:"run" entry`);
+  const entries = all.filter((e): e is RoundtripEntry => (e as RoundtripRun).scope !== "run").sort((a, b) => a.index - b.index);
+  return { run, entries };
+}
+
 
 export function buildReport(instance = INSTANCE): Record<string, unknown> {
   const script = readFileSync(join(import.meta.dir, "translation-roundtrip-report.ts"), "utf-8");
@@ -105,29 +145,35 @@ export function buildReport(instance = INSTANCE): Record<string, unknown> {
       catalogues[relative(instance, path)] = createHash("sha256").update(text).digest("hex");
       strings.push(...parsePo(text, cat));
     }
-    const agents = join(instance, "test", "results", "translation-roundtrip", "agents");
-    const bt = parseTsv(readFileSync(join(agents, `back-translation-${locale}.tsv`), "utf-8"));
-    const adj = parseTsv(readFileSync(join(agents, `adjudication-${locale}.tsv`), "utf-8"));
-    if (bt.rows.size !== strings.length || adj.rows.size !== strings.length) {
-      throw new Error(`${locale}: ${strings.length} strings, ${bt.rows.size} back-translations, ${adj.rows.size} rulings — the catalogue changed since the run; re-run the agents`);
+    const rulings: RoundtripEntry[] = [];
+    let tools: string | undefined;
+    for (const cat of CATALOGUES) {
+      const { run, entries } = readRoundtrip(cat, locale, join(instance, "test", "attestations", "translation-qa"));
+      tools ??= run.back_translation_trailer.TOOLS_USED;
+      rulings.push(...entries);
+    }
+    if (rulings.length !== strings.length) {
+      throw new Error(`${locale}: ${strings.length} strings, ${rulings.length} rulings — the catalogue changed since the run; re-run the agents`);
     }
     const count: Record<Verdict, number> = { pass: 0, warn: 0, fail: 0 };
     const flagged: unknown[] = [];
     strings.forEach((s, i) => {
-      const [verdict, severity, findings] = adj.rows.get(i)! as [Verdict, string, string];
-      count[verdict]++;
-      if (verdict !== "pass") {
-        const f = JSON.parse(findings || "[]") as string[];
+      const r = rulings[i]!;
+      if (r.field_hash.msgid !== h12(s.msgid)) {
+        throw new Error(`${locale} ${s.catalogue}: string ${r.index} is not the msgid the agents judged — re-run the agents`);
+      }
+      count[r.result]++;
+      if (r.result !== "pass") {
         flagged.push({
           index: i,
           catalogue: s.catalogue,
           msgid: s.msgid,
           msgstr: s.msgstr,
-          back_translation: JSON.parse(bt.rows.get(i)![0]!) as string,
-          verdict,
-          severity: severity === "-" ? undefined : severity,
-          drift: f.some((x) => x.startsWith("[term]")) ? "terminology" : "semantic",
-          findings: f,
+          back_translation: r.back_translation,
+          verdict: r.result,
+          severity: r.severity,
+          drift: r.findings.some((x) => x.startsWith("[term]")) ? "terminology" : "semantic",
+          findings: r.findings,
         });
       }
     });
@@ -135,7 +181,7 @@ export function buildReport(instance = INSTANCE): Record<string, unknown> {
     families[`roundtrip-${locale}`] = {
       summary:
         `${locale}: ${count.pass} pass, ${count.warn} warn, ${count.fail} fail of ${strings.length}. ` +
-        `Back-translator tools: ${bt.named.get("TOOLS_USED") ?? "not recorded"}. Each entry awaits a reviewer's ruling; nothing was auto-corrected.`,
+        `Back-translator tools: ${tools ?? "not recorded"}. Each entry awaits a reviewer's ruling; nothing was auto-corrected.`,
       count: flagged.length,
       entries: flagged,
     };

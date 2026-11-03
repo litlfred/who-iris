@@ -205,6 +205,14 @@
       ]
     },
     {
+      "id": "attestations",
+      "path": "test/attestations/",
+      "description": "The JUDGEMENT half of this instance's QA, on main (the qa-reports skill: derived verdicts go to the qa-reports branch, judgements stay here). Today: the untainted round-trip translation rulings of who-iris's own catalogues, one qa-attestations/v1 file per catalogue and locale under translation-qa/ (criterion translation-semantic-roundtrip), each string's ruling pinned by the hashes of the msgid and msgstr it judged. Converted losslessly on 2026-11-03 from the agents' TSVs that sat under test/results/ (owner: \"1. Convert to attestations\"; bean folio-assistant-7mwa), so that untracking the derived results could not lose them. scripts/translation-roundtrip-report.ts derives its qa-results/v1 report from them.",
+      "graphTypologies": [
+        "attestations"
+      ]
+    },
+    {
       "id": "folio",
       "path": "folio/",
       "graphTypologies": [

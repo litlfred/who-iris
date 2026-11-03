@@ -1,0 +1,140 @@
+{
+  "$schema": "qa-attestations/v1",
+  "family": "translation-qa",
+  "subject": {
+    "kind": "translation-catalogue",
+    "id": "glossary/who-iris--who-terms.po",
+    "path": "translations/zh/glossary/who-iris--who-terms.po"
+  },
+  "locale": "zh",
+  "criteria": {
+    "translation-semantic-roundtrip": [
+      {
+        "scope": "run",
+        "catalogues": [
+          "site/iris-site.po",
+          "glossary/who-iris--who-terms.po"
+        ],
+        "range": [
+          116,
+          119
+        ],
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translation_trailer": {
+          "TOOLS_USED": "Read,Write",
+          "UNCERTAIN": "[{\"i\": 0, \"note\": \"'上游 {size}' is terse: 'upstream {size}' could mean size at upstream or upstream total\"}, {\"i\": 2, \"note\": \"'馆藏' can mean 'collection' (DSpace) or 'holdings' generally\"}, {\"i\": 3, \"note\": \"'实体化状态' rendered 'materialization state'; literally 'entity-ization state'\"}, {\"i\": 5, \"note\": \"'容量' literally 'capacity'; may stand for size/storage volume\"}, {\"i\": 9, \"note\": \"'已收录的' could be 'included/archived/collected'\"}, {\"i\": 12, \"note\": \"'收录副本' could be 'archived copy' or 'included replica'; '会徽' = emblem vs '标志' = logo distinction kept\"}, {\"i\": 27, \"note\": \"'文件包' rendered 'Bundles' (DSpace term); literally 'file packages'\"}, {\"i\": 44, \"note\": \"'保存的副本' could be 'kept copy' or 'held copy' / 'saved copy'\"}, {\"i\": 54, \"note\": \"'收录的文本' could be 'included text' or 'ingested text'\"}, {\"i\": 85, \"note\": \"'收录日期' could be 'accession date' / 'date accessioned' / 'date included'\"}, {\"i\": 92, \"note\": \"'仅引用' could be 'reference only' or 'referenced only'\"}, {\"i\": 95, \"note\": \"'按值保存' = 'kept by value'; literal phrasing\"}, {\"i\": 107, \"note\": \"'发布根目录' could be 'publishing root' or 'publication root directory'\"}, {\"i\": 119, \"note\": \"'证据质量' = quality of evidence; distinct from 116 'certainty'\"}]"
+        },
+        "adjudication_trailer": {
+          "SUMMARY": "\"120 strings adjudicated: 104 pass, 16 warn, 0 fail; every placeholder and HTML tag survived intact. Terminology drift: 'ingested' consistently back-translated as 'included' (9, 12, 13, 20, 54, 80); 'bean' as 'task' (15, 17); 'captured' as 'harvested' (70, 78); state badge 'referenced' as 'Reference only' (92); 'directory' as 'catalogue' (22, rated major because 'catalogue' is a distinct defined object here). Sense drift: repository 'size' as 'capacity' (5, 6, 7, 100); 'interpolated' as 'extrapolated' (100); 'not WHO' narrowed to 'not the WHO website' (12, 20). Not counted as drift: 'rendered' as 'generated' and 'held' as 'kept' (natural back-translations, consistent, sense preserved); singular/plural differences in column headings and badges (Bundle/Bundles, Item/Items, the WPRO item/items); 'State' as 'Status'; added politeness ('please run', 'Contact us'); explanatory expansions (KG as knowledge graph, WPRO spelled out, 'accessions' as accession dates); dropped spaces before placeholders; capitalisation of office names; minor synonyms (front door/entry page, mocks/imitates, asset/resource, egress-blocked/access prohibited, mark/logo, live/usable for non-greyed rows). Glossary terms 116-119 (certainty/quality of the evidence, confidence in the effect estimate, GRADE levels) were rendered correctly.\""
+        }
+      },
+      {
+        "index": 0,
+        "roundtrip_index": 116,
+        "field_hash": {
+          "msgid": "ae468f4fca0e",
+          "msgstr": "00c07ee8bbd8"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Certainty of evidence",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 1,
+        "roundtrip_index": 117,
+        "field_hash": {
+          "msgid": "eed79fce3204",
+          "msgstr": "eab23396a48e"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Confidence in the effect estimate",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 2,
+        "roundtrip_index": 118,
+        "field_hash": {
+          "msgid": "6423eb8d3420",
+          "msgstr": "efa413629e42"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "In the context of guideline development, the confidence that the effect estimate is sufficient to support a particular decision or recommendation. Rated as high, moderate, low or very low.",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 3,
+        "roundtrip_index": 119,
+        "field_hash": {
+          "msgid": "a0cb5032a175",
+          "msgstr": "93c6417198bc"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Quality of evidence",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      }
+    ]
+  }
+}

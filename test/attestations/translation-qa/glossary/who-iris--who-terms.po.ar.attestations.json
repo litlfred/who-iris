@@ -1,0 +1,140 @@
+{
+  "$schema": "qa-attestations/v1",
+  "family": "translation-qa",
+  "subject": {
+    "kind": "translation-catalogue",
+    "id": "glossary/who-iris--who-terms.po",
+    "path": "translations/ar/glossary/who-iris--who-terms.po"
+  },
+  "locale": "ar",
+  "criteria": {
+    "translation-semantic-roundtrip": [
+      {
+        "scope": "run",
+        "catalogues": [
+          "site/iris-site.po",
+          "glossary/who-iris--who-terms.po"
+        ],
+        "range": [
+          116,
+          119
+        ],
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translation_trailer": {
+          "TOOLS_USED": "Read,Write",
+          "UNCERTAIN": "[{\"i\": 0, \"note\": \"المصدر الأصلي literally 'the original source'; may render 'upstream'. Same in 77, 84, 100, 110, 111, 112.\"}, {\"i\": 3, \"note\": \"النسخة المستنسخة 'the replicated/cloned copy' — could be 'replica' or 'mirror'.\"}, {\"i\": 9, \"note\": \"مُستوعَبة 'absorbed/ingested/assimilated'; could correspond to 'vendored' or 'ingested'. Same in 12, 13, 20, 54, 80.\"}, {\"i\": 15, \"note\": \"المهمة 'the task'; may stand for a tracker item/bean id. Same in 17. 'تحيل إلى ما بعدها' rendered 'refers onward beyond it'.\"}, {\"i\": 30, \"note\": \"مجتمع 'community' (DSpace community).\"}, {\"i\": 34, \"note\": \"حجب 'blocking/masking/redacting' of the logo.\"}, {\"i\": 67, \"note\": \"مُجسَّد 'embodied/materialised'. Same in 45, 75.\"}, {\"i\": 85, \"note\": \"تاريخ الدمج 'merge/integration date' — unclear what was merged.\"}, {\"i\": 95, \"note\": \"المحفوظة بالقيمة 'held by value' (contrast to 'by reference'); the count phrase 'وعددها' attached as 'numbering'.\"}, {\"i\": 113, \"note\": \"عبر شبكة CDN literally 'via the CDN network' (redundant 'network' from Arabic).\"}, {\"i\": 116, \"note\": \"البيّنات 'evidence' (plural); يقين 'certainty'.\"}]"
+        },
+        "adjudication_trailer": {
+          "SUMMARY": "\"120 strings: 113 pass, 7 warn, 0 fail. Every {placeholder} and HTML tag came back intact, and the arrows were flipped for right-to-left as instructed. The 7 warnings are all minor: 4 [term] (bean->task twice, renderings->views, resolved->inferred, Recent Submissions->Latest deposits) and 2 [sense] (established->proven, render->display). Correction: that is 5 [term] and 2 [sense]. Not counted as drift, because a back-translation of a correct Arabic rendering would naturally produce it: WHO spelled out as 'World Health Organization'; emblem->logo (one Arabic word covers both); upstream->'original source'; replica->'replicated copy'; visualiser->viewer; rendered->created/generated for covers and pages; withheld->'not displayed'; omitted->removed; live->active; asset->resource; accessions->'deposit dates'; stylesheet->'styles page'; 'Contact'->'Contact us'; 'Home'->'Home page'; State->Status; Where->Site; Source of record->Reference source; &amp;->'and' (the context allows it); plural rephrasings ('Number of nodes: {n}'), which the context invited; the definite article dropped in the glossary terms; 'descriptive metadata' (the standard Arabic term for metadata). The glossary keeps 'certainty of the evidence' and 'quality of the evidence' as distinct, correct terms of art.\""
+        }
+      },
+      {
+        "index": 0,
+        "roundtrip_index": 116,
+        "field_hash": {
+          "msgid": "ae468f4fca0e",
+          "msgstr": "bff6543e3e71"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Certainty of evidence",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 1,
+        "roundtrip_index": 117,
+        "field_hash": {
+          "msgid": "eed79fce3204",
+          "msgstr": "8867f200476e"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Confidence in effect estimates",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 2,
+        "roundtrip_index": 118,
+        "field_hash": {
+          "msgid": "6423eb8d3420",
+          "msgstr": "8512d6fe637c"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "In the context of guideline development, the confidence that the effect estimates are sufficient to support a particular decision or recommendation. It is rated high, moderate, low or very low.",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 3,
+        "roundtrip_index": 119,
+        "field_hash": {
+          "msgid": "a0cb5032a175",
+          "msgstr": "b426c6080793"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Quality of evidence",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      }
+    ]
+  }
+}
