@@ -2,17 +2,16 @@
 <!--
   who-iris — Sign and publish an IRIS CDN release.
 
-  Source of truth: this file. Open it in bpmn.io, Camunda Modeler, or any other
-  BPMN 2.0 tool. Implements the IRIS CDN Exporter (issue litlfred/who-iris#100);
-  the prose is docs/iris-cdn-export.md, the skills are skills/iris-cdn-*.md and
-  the code is scripts/iris-cdn/.
+  Source of truth: this file; open it in any BPMN 2.0 tool. Prose:
+  docs/iris-cdn-export.md. Skills: skills/iris-cdn-*.md. Code: scripts/iris-cdn/.
 
-  Owner's choices, 2026-10-30: the initial load carries metadata AND the PDFs;
-  changes are read from the DSpace REST API only; exports live on Cloudflare (a git
-  repository on Cloudflare Artifacts, NOT GitHub, plus R2 behind the CDN), and
-  GitHub Pages of who-iris only previews the exported site; keys are published as verificationMethods of a
-  did:web DID document (no GDHCN trust list is assumed). Standing requirement:
-  content that has not changed is not rewritten, re-uploaded or re-signed.
+  Constraints shared by the IRIS CDN processes: the initial load carries
+  metadata AND the PDFs; changes are read from the DSpace REST API only; exports
+  live on Cloudflare (a git repository on Cloudflare Artifacts, NOT GitHub, plus
+  R2 behind the CDN), and who-iris's GitHub Pages only previews the exported
+  site; keys are published as verificationMethods of a did:web DID document (no
+  GDHCN trust list is assumed); content that has not changed is not rewritten,
+  re-uploaded or re-signed.
 -->
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
@@ -32,7 +31,7 @@
     <bpmn:documentation>Turn a candidate payload into a signed release on Cloudflare: each changed library item gets a detached JWS over its own manifest, and the BagIt bag (RFC 8493) whose tagmanifest pins every item manifest and signature is signed once with a detached JWS (RFC 7515 Appendix F, ES256 per RFC 7518), the key published as a verificationMethod of a did:web DID document whose publicKeyJwk carries an x5c chain to the WHO signing key. Nothing unchanged is re-uploaded or re-signed; an empty diff ends the process with no commit.</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_IrisCdnSignPublish">
       <bpmn:lane id="Lane_Pipeline" name="Build pipeline" partitionElementRef="build-pipeline">
-        <bpmn:documentation>Deterministic scripts in scripts/iris-cdn/, run by the nightly runner. Same input, same bytes.</bpmn:documentation>
+        <bpmn:documentation>Deterministic scripts in scripts/iris-cdn/, entry point run.ts. Same input, same bytes.</bpmn:documentation>
         <bpmn:flowNodeRef>Start_Candidate</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_BuildBag</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_Diff</bpmn:flowNodeRef>
@@ -73,7 +72,7 @@
       </bpmn:dataOutputAssociation>
     </bpmn:task>
     <bpmn:task id="Task_SignItems" name="Sign each changed&#10;item manifest (ES256)">
-      <bpmn:documentation>Owner, Q4 A: a signature on each library item. items/&lt;handle&gt;/manifest-sha256.txt lists the item record and its files; its detached JWS sits beside it. Only items whose manifest bytes changed are signed: ES256 is randomised, so re-signing an unchanged item would be churn. The item manifests and their signatures join the payload, so the tag files are refreshed to cover them before the release is signed.</bpmn:documentation>
+      <bpmn:documentation>A signature on each library item: items/&lt;handle&gt;/manifest-sha256.txt lists the item record and its files; its detached JWS sits beside it. Only items whose manifest bytes changed are signed: ES256 is randomised, so re-signing an unchanged item would be churn. The item manifests and their signatures join the payload, so the tag files are refreshed to cover them before the release is signed.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-signing"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="Task_Sign" name="Sign the release&#10;tag manifest (ES256)">
@@ -88,7 +87,7 @@
       </bpmn:dataOutputAssociation>
     </bpmn:task>
     <bpmn:task id="Task_Verify" name="Resolve did:web; verify&#10;JWS and digests">
-      <bpmn:documentation>scripts/iris-cdn/signing.ts verifyDetached against the DID document fetched from its did:web URL, then a sample of payload digests.</bpmn:documentation>
+      <bpmn:documentation>scripts/iris-cdn/run.ts checkRelease: every tag file against tagmanifest-sha256.txt, then scripts/iris-cdn/signing.ts verifyDetached against the DID document fetched from its did:web URL.</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-signing"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:exclusiveGateway id="GW_Verified" name="Verified?"/>
