@@ -1,1 +1,0 @@
-Make available, at sub-national level, a replica of the registry with similar structure and functions, in order to collect and manage the minimum data set from authorized entities at sub-national-level.
