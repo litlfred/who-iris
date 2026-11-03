@@ -7,7 +7,7 @@ generated: "scripts/subgraph-readmes.ts of the bootstrap toolset (https://github
 
 # who-iris-tools
 
-who-iris's Tool nodes: `iris-pages`, the generator its catalogue visualiser is renderedBy (owner, 2026-10-09: "Need harness to declare visualizer is renderedBy"). Discovered by graph typology, never imported by name.
+who-iris's Tool nodes: `iris-pages`, the generator that renders the catalogue visualiser (its `renderedBy`). Discovered by graph typology, never imported by name.
 
 Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-tools`, holding `tools`.
 

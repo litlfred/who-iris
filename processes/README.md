@@ -7,7 +7,7 @@ generated: "scripts/subgraph-readmes.ts of the bootstrap toolset (https://github
 
 # who-iris-processes
 
-The IRIS CDN Exporter's BPMN processes (issue #100): initial load, nightly change ingest over DSpace REST, weekly reconciliation, and sign-and-publish. Cloudflare git (Artifacts) and Cloudflare R2 + CDN are lanes, because the owner ruled 2026-10-30 that exports live on Cloudflare and GitHub Pages only previews. Each activity names the skill that carries it out; the platform's nquads-distribution process is called, not copied. Rendered drawings: docs/assets/img/processes/.
+The IRIS CDN Exporter's BPMN processes: initial load, nightly change ingest over DSpace REST, weekly reconciliation, and sign-and-publish. Cloudflare git (Artifacts) and Cloudflare R2 + CDN are lanes: exports live on Cloudflare, and GitHub Pages only previews. Each activity names the skill that carries it out; the platform's nquads-distribution process is called, not copied. Rendered drawings: docs/assets/img/processes/.
 
 Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-processes`, holding `processes`.
 

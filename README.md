@@ -2,15 +2,15 @@
 
 **The WHO Institutional Repository for Information Sharing, catalogued by
 reference.** Staged as a top-level directory ahead of becoming its own
-repository, where it will carry its own tools and themes.
+repository, with its own tools and themes.
 
 **Contents**
 
 <!-- readme:toc:begin -->
 
 - [What is here, and what is only known about](#what-is-here-and-what-is-only-known-about)
-- [The worked example closes a loop](#the-worked-example-closes-a-loop)
-- [The library, now that it is here](#the-library-now-that-it-is-here)
+- [The worked example](#the-worked-example)
+- [The library](#the-library)
 - [The style guide, derived from the library](#the-style-guide-derived-from-the-library)
 
 <!-- readme:toc:end -->
@@ -19,81 +19,59 @@ repository, where it will carry its own tools and themes.
 
 | | |
 |---|---|
+| items upstream | **273,559** |
 | files upstream | **1,057,223** |
 | storage upstream | **361.55 GB** |
 | top-level communities | **8** |
-| nodes modelled here | **12** — 9 `referenced`, 3 `materialized`, 0 `unknown` |
+| nodes modelled here | printed by `bun run cat check:catalogue` |
 
-Measured from IRIS's own storage report (By Location → Entire Site) and
-community list on 2026-09-20. **The gap between 12 and 1,057,223 is the point**,
-not a shortfall: a catalogue by reference models the *shape* of a corpus without
-holding it.
+Read from IRIS's home page, its storage report (By Location → Entire Site) and
+its community list on 2026-09-20, and recorded with their basis in
+[`catalogue/catalogue.json`](catalogue/catalogue.json). **The gap between the
+nodes modelled here and the corpus is the point**, not a shortfall: a catalogue
+by reference models the *shape* of a corpus without holding it.
 
-Every node declares its state and **there is no default** — a node that has not
-said is invalid, because "the author did not say" and "the author said they
-could not tell" are different facts.
+Every node declares its state — `referenced`, `materialized` or `unknown` — and
+**there is no default**: a node that has not said is invalid, because "the
+author did not say" and "the author said they could not tell" are different
+facts.
 
 ```sh
 bun run cat check:catalogue
 ```
 
-## The worked example closes a loop
+## The worked example
 
 `wpr-rdo-2020-003-eng` — the *Publication and information products style guide*
-— is the one fully-worked item, and it was chosen because it is not arbitrary:
-its **IRIS item page** supplies the webpage theme's source, and the
-**publication itself** defines the WPRO publication theme. The artefact whose
-style guide states the palette is the artefact whose repository page
-demonstrates one.
+— is the worked example: its **IRIS item page** supplies the webpage theme's
+source, and the **publication itself** defines the WPRO publication theme.
 
 Its record carries every identifier read off the captured DSpace full item
 record — UUID, two Handles, govdoc number — and one discrepancy kept rather than
 reconciled: `dc.description` says `30 p.` while the ingested PDF has **33**
 pages.
 
-The other two items (`who-pub-tps-931`, `9789241548960-eng`) have **no IRIS
-capture**. Their records are derived from the PDFs and say so; they are
-placeholders, not records. See
-[`skills/iris-dspace.md`](skills/iris-dspace.md) §R8 for why that distinction
-earns a requirement of its own — the derived title for one of them is `Abies`.
+Metadata comes from the record, never from the PDF:
+[`skills/iris-dspace.md`](skills/iris-dspace.md) §R8 shows OCR off a title page
+naming the WHO Editorial Style Manual `Abies`.
 
-## The library, now that it is here
+## The library
 
-`who-iris.json` declares **`library/`**, and the three documents are in it. They
-arrived by `git mv` from `cat-harness/library/` (bean `frs5`), so history
-follows each file rather than showing 1,367 additions and as many deletions.
+`who-iris.json` declares [`library/`](library/): the IRIS items this instance
+holds rather than names, the `materialized` end of the catalogue. Only IRIS
+items belong in it — a document with no Handle, DSpace UUID or collection path
+is not one, whatever its subject.
 
-Until that move the entry was deliberately **absent**, and the absence did
-work: `resolveLibraryRef` answered a citation naming this instance with
-`no-library-graph`, which is a different and more actionable finding than "that
-section is missing". Declaring a directory that is not there is the `dh4f`
-defect — every consumer scans nothing and reports a clean run over it — so the
-declaration waited for the content. Both of those are now real answers rather
-than one standing in for the other.
-
-**`milnorlink` did not come here.** It was the fourth entry under
-`cat-harness/library/` and it is not an IRIS item; it went to
-`folio-assistant-sci/library/` instead (bean `r1lz`). A repository named for one
-catalogue is not a place to put things that belong to another.
-
-**`image-verdicts.json` was split rather than moved.** It judged documents that
-now live in two libraries, and a verdict belongs beside the documents it judges
-— `apply-image-verdicts` resolves each document against the library its verdict
-file is in, which it could not do from one shared file. Nothing was re-judged:
-every verdict is byte-identical to the one it was split from.
+`library/image-verdicts.json` sits beside the documents it judges, because
+`apply-image-verdicts` resolves each document against the library its verdict
+file is in.
 
 ## The style guide, derived from the library
 
 The three **WHO house voices** — `who-editorial`, `who-guideline-development`,
 `who-publication-design` — live in [`skills/voices/`](skills/voices/), and the
-**WHO glossary** lives in [`glossary/`](glossary/). Each voice is read rule by
-rule out of one of the three publications above, and every rule cites the page
-it came from. Together they are the style guide:
+**WHO glossary** in [`glossary/`](glossary/). Each voice is read rule by rule
+out of one publication in the library, and every rule cites the page it came
+from; `bun run cat check:voices` resolves those citations against this
+instance's library. Together they are the style guide:
 [`docs/style-guide.md`](docs/style-guide.md).
-
-They were the separate staged instance `who-style-guide/` until the owner's
-ruling of 2026-09-30: *"who voices style guide is derivative KG content from
-who-iris, merge content into subgraph. including docs."* They moved here by
-`git mv` (bean `qsx4`). Because a voice and its source are now in one instance,
-every citation is a same-instance one, and `bun run cat check:voices` resolves them
-against this instance's own library.
