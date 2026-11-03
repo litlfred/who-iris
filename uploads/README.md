@@ -32,6 +32,7 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-uploads`, holding 
 | [`9789241514446-eng/`](9789241514446-eng/) | _nothing declares what this holds_ | |
 | [`9789241515610-eng/`](9789241515610-eng/) | _nothing declares what this holds_ | |
 | [`9789241548960-eng/`](9789241548960-eng/) | _nothing declares what this holds_ | |
+| [`9789241549226-eng/`](9789241549226-eng/) | _nothing declares what this holds_ | |
 | [`9789241549684_eng/`](9789241549684_eng/) | _nothing declares what this holds_ | |
 | [`9789241549912-eng/`](9789241549912-eng/) | _nothing declares what this holds_ | |
 | [`9789241550581-eng/`](9789241550581-eng/) | _nothing declares what this holds_ | |
