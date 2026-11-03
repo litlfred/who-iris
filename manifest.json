@@ -1,0 +1,20 @@
+{
+  "$schema": "state-manifest/v1",
+  "status": "active",
+  "authoritative": true,
+  "subgraph": "attestations",
+  "note": "Authoritative branch store for test/attestations/ from 2026-11-03T07:06:04Z. Owner, 2026-11-03: \"1. Convert to attestations\" (bean folio-assistant-7mwa): the untainted round-trip translation rulings, converted losslessly from the agents' TSVs that sat under test/results/. The attestations kind holds state, so its content is kept on this branch (check:state-on-main), mounted at test/attestations/ by `bun run cat state:mount`; main never tracked it (litlfred/who-iris#175 declares this branch as the directory's source).",
+  "source": {
+    "ref": "litlfred/who-iris#175",
+    "sha": "c35ea81557692eda31c215e12991cc018fd438bd"
+  },
+  "seededAt": "2026-11-03T07:06:04Z",
+  "keyedBy": "tip",
+  "graphs": [
+    {
+      "path": "test/attestations",
+      "tree": "94d7a1994bd60c695fb3d2bf592a317cb409ac40",
+      "files": 10
+    }
+  ]
+}

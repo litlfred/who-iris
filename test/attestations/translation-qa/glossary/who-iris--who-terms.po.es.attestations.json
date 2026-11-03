@@ -1,0 +1,140 @@
+{
+  "$schema": "qa-attestations/v1",
+  "family": "translation-qa",
+  "subject": {
+    "kind": "translation-catalogue",
+    "id": "glossary/who-iris--who-terms.po",
+    "path": "translations/es/glossary/who-iris--who-terms.po"
+  },
+  "locale": "es",
+  "criteria": {
+    "translation-semantic-roundtrip": [
+      {
+        "scope": "run",
+        "catalogues": [
+          "site/iris-site.po",
+          "glossary/who-iris--who-terms.po"
+        ],
+        "range": [
+          116,
+          119
+        ],
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translation_trailer": {
+          "TOOLS_USED": "Read,Write",
+          "UNCERTAIN": "[{\"i\": 0, \"note\": \"'en origen' rendered 'at source'; could mean upstream/at origin\"}, {\"i\": 15, \"note\": \"'puerta de entrada' literally 'entrance gate/door'; likely 'front door/gateway'\"}, {\"i\": 27, \"note\": \"'Paquete' could be bundle or package (DSpace term likely Bundle)\"}, {\"i\": 50, \"note\": \"'búsqueda por identificador' could be identifier search or identifier lookup\"}, {\"i\": 79, \"note\": \"'no registrado' appears identically at 79 and 83; could be not recorded/not registered\"}, {\"i\": 85, \"note\": \"'fecha de ingreso' could be accession date, date accessioned, or date of entry\"}, {\"i\": 95, \"note\": \"'Busca' could be 3rd-person 'Searches' or imperative 'Search'; 'por valor' unclear (by value)\"}, {\"i\": 104, \"note\": \"'da por buena una ejecución' = treats a run as passing/accepts it\"}, {\"i\": 116, \"note\": \"'certeza' = certainty\"}, {\"i\": 119, \"note\": \"'calidad' = quality\"}]"
+        },
+        "adjudication_trailer": {
+          "SUMMARY": "\"120 strings ruled: 113 pass, 7 warn (5 terminology, 2 general sense), 0 fail. None critical or major. All placeholders, HTML tags, code spans, entities and WHO / DSpace / evidence-certainty terms survived intact. Declined to count as drift, as natural back-translation effects: 'upstream' rendered as 'at source' or 'source' (used consistently, and the context defines it as 'at WHO'); 'rendered' as 'generated'; 'withheld' as 'not shown'; 'visualiser' as 'viewer'; 'renderings' as 'representations'; em dashes becoming colons; capitalisation changes (Community List, Country Offices); 'live' as 'active'; 'Source of record' as 'Official source'; 'fetched' as 'downloaded'; 'reports a clean run' as 'accepts as good a run'; 'Publication titles' shortened to 'Titles'; 'KG' expanded to 'knowledge graph' (the context gloss allows it); '&amp;' written as 'and' (the context allows it); and the guillemets and tense shifts that Spanish normally brings in (matched/matches).\""
+        }
+      },
+      {
+        "index": 0,
+        "roundtrip_index": 116,
+        "field_hash": {
+          "msgid": "ae468f4fca0e",
+          "msgstr": "1294293fa07d"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "certainty of the evidence",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 1,
+        "roundtrip_index": 117,
+        "field_hash": {
+          "msgid": "eed79fce3204",
+          "msgstr": "e21ebcbbf778"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "confidence in the effect estimates",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 2,
+        "roundtrip_index": 118,
+        "field_hash": {
+          "msgid": "6423eb8d3420",
+          "msgstr": "d8a60ca462aa"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "In the context of guideline development, the confidence that the estimates of an effect are adequate to support a particular decision or recommendation. It is rated as high, moderate, low or very low.",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 3,
+        "roundtrip_index": 119,
+        "field_hash": {
+          "msgid": "a0cb5032a175",
+          "msgstr": "f3a4687b5f1f"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "quality of the evidence",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "actor": "untainted-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_018NFVUeJjQJdrEU32AS1Mco",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-10-10"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      }
+    ]
+  }
+}
