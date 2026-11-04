@@ -1,10 +1,9 @@
 ---
 name: iris-oxigraph
 description: >
-  How to compile, validate, distribute, and query WHO IRIS catalogue and Qualified
-  Dublin Core metadata using Oxigraph in-memory WebAssembly and CLI pipelines.
-  Enables combined complex queries, multi-dimensional faceted rollups, and lazy-loaded
-  named subgraphs on the static edge.
+  How to build WHO IRIS catalogue and Qualified Dublin Core metadata into
+  partitioned N-Quads, and query it with Oxigraph — in Bun on the build side,
+  in WebAssembly in the browser — including cross-graph joins and facet counts.
 conformsTo:
   - w3c-sparql-1.1-query
   - w3c-n-quads
@@ -13,59 +12,96 @@ graph-typologies:
   - skills
 ---
 
-# Oxigraph Multi-Graph Search & Discovery for WHO IRIS
+# Oxigraph multi-graph search for WHO IRIS
 
-This skill defines how to use **Oxigraph** (in-memory WASM on the client, and native in Bun/Node on the build server) to query WHO IRIS knowledge graphs statically.
+The IRIS catalogue and its Dublin Core records are compiled into named graphs
+and queried with **Oxigraph**: natively in Bun at build time, and as
+WebAssembly in a browser. One SPARQL query can then join Dublin Core
+properties, catalogue containment and bitstream access gates — which DSpace
+Discovery cannot do in a single call.
 
-It solves the primary limitation of the public DSpace Discovery API: **DSpace only supports isolated keyword searches or distinct single-facet queries; it cannot perform combined boolean searches across disparate metadata schemes or join bitstream access rights with Dublin Core properties.**
+## Build and query
 
----
+```sh
+# Build from catalogue/nodes and site/dublin-core into dist/oxigraph/
+bun run scripts/build-iris-oxigraph.ts
 
-## 1. 2-Tier Multi-Graph Architecture
+# Build from exported DSpace records (the CDN release's records/ tree)
+bun run scripts/build-iris-oxigraph.ts --records <dir> --out <dir>
 
-The WHO IRIS RDF model is organized into a **2-Tier on-demand loading hierarchy** to achieve minimal startup payload and fast local edge evaluation:
+# Load dist/oxigraph/who-iris-dataset.nq and run sample searches and facets
+bun run scripts/iris-oxigraph-search.ts
 
-| Tier | Graph IRI | Payload Files | Contents & Purpose |
-| :--- | :--- | :--- | :--- |
-| **Tier 1 (Spine)** | `<https://iris.who.int/graph/spine>` | `who-iris-spine.nq`<br>`who-iris-spine.nq.gz` | **Global Routing Backbone**: Hierarchy (`dspace:Community`, `dspace:Collection`), item handles, titles, primary creator, year, and bitstream copyright gates. Bootstrap payload for instant search. |
-| **Tier 2 (Partitions)** | `<https://iris.who.int/graph/community/{id}>` | `iris_who_int_graph_community_{id}.nq`<br>`.nq.gz` | **Deep Bibliographic Metadata**: MeSH subject authorities (`dspace:authority`), abstracts, spatial coverage, official government document IDs, and ISBNs. Lazily mounted on demand. |
-| **Monolithic** | `<https://iris.who.int/graph/catalogue>`<br>`<https://iris.who.int/graph/metadata>` | `who-iris-dataset.nq`<br>`who-iris-dataset.nq.gz` | Complete merged dataset for server-side evaluation, batch exports, and reference integrity verification. |
+bun test scripts/tests/iris-oxigraph.test.ts
+```
 
-### Topology Manifest (`subgraph-manifest.json`)
-The distribution package includes `subgraph-manifest.json`, which indexes the global spine and per-community partition filenames, quad counts, and item counts, enabling dynamic edge discovery and selective downloading.
+`scripts/iris-oxigraph-search.ts` exports `IrisOxigraphEngine`
+(`loadSpine`, `loadCommunity`, `searchSpine`, `complexSearch`, `facetCounts`).
+The CDN exporter (`scripts/iris-cdn/run.ts`) calls the build over exported
+records and publishes each output file as `graph/<file>`.
 
-### The Binary Asset Invariant
-**Binary assets are never stored in the graph.** 
-- PDF documents, JPEG/PNG cover captures, and asset archives are **not** represented as base64 literals or RDF data.
-- The graph stores strictly:
-  - `dspace:fileName`: file name string (e.g., `"WPR-RDO-2020-003-eng.pdf"`)
-  - `dspace:mediaType`: MIME type (e.g., `"application/pdf"`)
-  - `dspace:fileBytes`: integer file size in bytes
-  - `dspace:copyrightGate`: rights evaluation verdict (`"permitted"`, `"refused"`)
-- All actual binary file downloads are resolved against the static CDN asset route.
+## 1. Graphs and files
 
----
+The build writes, sorted and de-duplicated so unchanged inputs give
+byte-identical files:
 
-## 2. Checkable Requirements
+- **Tier 1, the spine** — `<https://iris.who.int/graph/spine>`, in
+  `who-iris-spine.nq` and `.nq.gz`. Hierarchy (`dspace:Community`,
+  `dspace:Collection`), item Handles, titles, first creator, issued date, and
+  bitstream descriptors with copyright verdicts. Loaded first.
+- **Tier 2, one partition per community** —
+  `<https://iris.who.int/graph/community/{id}>`, in
+  `iris_who_int_graph_community_{id}.nq` and `.nq.gz`. The full Dublin Core of
+  that community's items: MeSH authorities, abstracts, spatial coverage, govdoc
+  numbers, ISBNs. Mounted on demand.
+- **Catalogue and metadata graphs** — `<https://iris.who.int/graph/catalogue>`
+  and `<https://iris.who.int/graph/metadata>`, each in its own
+  `iris_who_int_graph_{catalogue,metadata}.nq(.gz)`, and merged in
+  `who-iris-dataset.nq` and `.nq.gz` for server-side use and integrity checks.
+- **`subgraph-manifest.json`** — the spine and each community partition, with
+  file names, quad counts and item counts.
+- **`queries.json`** — prepared SPARQL queries.
+
+### Namespaces
+
+- `dspace:` = `https://iris.who.int/ns/dspace#` — catalogue terms (`Item`,
+  `inCommunity`, `hasBitstream`, `fileName`, …).
+- `dspaceNs:` = `https://litlfred.github.io/folio-assistant-core/v0/ns/dspace/`
+  — Dublin Core value terms, including `authority`.
+
+### No binary bytes in the graph
+
+PDFs, cover images and archives are never stored as literals. A bitstream node
+carries only:
+
+- `dspace:fileName` (e.g. `"WPR-RDO-2020-003-eng.pdf"`)
+- `dspace:mediaType` (e.g. `"application/pdf"`)
+- `dspace:fileBytes` (integer)
+- `dspace:copyrightGate` — the copyright gate's verdict, e.g. `"permitted"`
+
+The bytes are fetched from the CDN.
+
+## 2. Requirements
 
 | # | Requirement | Why, in one line |
 |---|---|---|
-| **OX-1** | **Upstream Skolemization at the extractor (Zero-Pass Minting)** (`https://iris.who.int/entity/item/{handle}#{prop}_{idx}`) | Eliminates blank nodes entirely at extraction; prevents multi-document collisions, enables external addressability, and avoids expensive downstream normalizer passes |
-| **OX-2** | **Store zero binary bytes in RDF** | Avoids WASM memory bloat; binaries are served as static files via CDN |
-| **OX-3** | **Join across named graphs via explicit `GRAPH` blocks** | Separates archival containment rights from bibliographic description |
-| **OX-4** | **Use canonical Handle URIs as primary subject** (`https://hdl.handle.net/...`) | Guarantees permanent identity resolution outside local server infrastructure |
-| **OX-5** | **Treat bitstream rights as access gates** | Allows filtering search results by whether the client is permitted to download the PDF |
-| **OX-6** | **Partition subgraphs by administrative community** | Enables sub-second edge loading by only fetching the needed community slice |
-| **OX-7** | **Never perform whole-corpus text scans in SPARQL** | SPARQL is graph pattern matching; full text is indexed via static inverted indexes |
-| **OX-8** | **Preserve controlled vocabulary authorities** (`dspace:authority`) | Distinguishes controlled MeSH headings from unstructured keyword literals |
-| **OX-9** | **Append-only streaming partition emission** | Single-pass streaming directly to tier partition streams (`who-iris-spine.nq`, `community_{id}.nq`); guarantees O(1) memory footprint during build at 300,000 scale |
+| **OX-1** | **Mint stable URIs at the extractor** (`https://iris.who.int/entity/item/{handle}#{prop}_{idx}`); the build fails if any blank node remains | no multi-document collisions, every node addressable, no normalizer pass |
+| **OX-2** | **Store zero binary bytes in RDF** | keeps WASM memory small; binaries are static files on the CDN |
+| **OX-3** | **Join across named graphs with explicit `GRAPH` blocks** | separates containment and rights from bibliographic description |
+| **OX-4** | **Use Handle URIs as the item subject** (`https://hdl.handle.net/...`) | identity resolves outside WHO's servers |
+| **OX-5** | **Treat bitstream rights as access gates** | results can be filtered by whether the PDF may be downloaded |
+| **OX-6** | **Partition by community** | a client fetches only the slice it needs |
+| **OX-7** | **Never scan whole-corpus text in SPARQL** | full text belongs in a static inverted index |
+| **OX-8** | **Preserve controlled-vocabulary authorities** (`dspaceNs:authority`) | distinguishes MeSH headings from free keywords |
+| **OX-9** | **Append-only streaming partition emission** | bounded memory at 300,000 items. **Not met yet:** `buildIrisDataset` holds and sorts every quad in memory; `StreamingPartitionWriter` is defined but unused |
 
----
+## 3. SPARQL recipes
 
-## 3. SPARQL Query Recipes
+### Recipe 1: multi-condition search
 
-### Recipe 1: Complex Multi-Condition Search (DSpace API Impossible)
-*Problem:* Find all items published in the **Western Pacific** region after year **2000**, with subject **"Guidelines"**, having a **PDF bitstream** that is **cleared for open access** (`copyrightGate = 'permitted'`).
+Items in the **Western Pacific** community, issued in or after **2000**, with a
+subject containing **"guidelines"**, and a PDF whose copyright verdict is
+`permitted`.
 
 ```sparql
 PREFIX dcterms: <http://purl.org/dc/terms/>
@@ -106,10 +142,9 @@ SELECT DISTINCT ?handle ?title ?creator ?issued ?pdfName WHERE {
 ORDER BY DESC(?year)
 ```
 
----
+### Recipe 2: facet counts
 
-### Recipe 2: Multi-Dimensional Facet Rollup
-*Problem:* Compute real-time distribution counts across all MeSH subject terms and their authoritative terminology systems.
+Item counts per subject term and its authority.
 
 ```sparql
 PREFIX dcterms: <http://purl.org/dc/terms/>
@@ -127,50 +162,42 @@ GROUP BY ?subject ?authority
 ORDER BY DESC(?itemCount) ?subject
 ```
 
----
-
-## 4. Client-Side WASM Execution Pattern (2-Tier On-Demand)
-
-In a static browser environment, Oxigraph runs completely inside WebAssembly:
+## 4. Browser pattern: spine first, communities on demand
 
 ```typescript
 import oxigraph from 'oxigraph';
-import pako from 'pako';
 
-// 1. Initialize empty in-memory store
+// Where the graph files are served from, e.g. a release's graph/ directory.
+const BASE = '<graph-base-url>';
+
+async function gunzipText(resp: Response): Promise<string> {
+  const stream = resp.body!.pipeThrough(new DecompressionStream('gzip'));
+  return new Response(stream).text();
+}
+
 const store = new oxigraph.Store();
 
-// 2. Fetch Tier 1 Global Spine and manifest from CDN
+// 1. Fetch the spine and the manifest
 const [spineResp, manifestResp] = await Promise.all([
-  fetch('/who-iris/dist/oxigraph/who-iris-spine.nq.gz'),
-  fetch('/who-iris/dist/oxigraph/subgraph-manifest.json')
+  fetch(`${BASE}/who-iris-spine.nq.gz`),
+  fetch(`${BASE}/subgraph-manifest.json`),
 ]);
-
-const spineBuffer = await spineResp.arrayBuffer();
-const spineNquads = new TextDecoder().decode(pako.ungzip(spineBuffer));
 const manifest = await manifestResp.json();
 
-// 3. Load Tier 1 Spine (< 20 KB compressed)
-// Immediately enables catalog hierarchy, title search, and rights gate filtering
-store.load(spineNquads, { format: 'application/n-quads' });
+// 2. Load the spine: hierarchy, title search and rights filtering work now
+store.load(await gunzipText(spineResp), { format: 'application/n-quads' });
 
-// 4. Lazily fetch and mount a specific community when selected by user
+// 3. Mount a community when the user selects it. load() adds its named
+//    graph without clobbering what is already in the store.
 async function mountCommunity(commId: string) {
   const partition = manifest.tiers.tier2_communities.partitions[commId];
   if (!partition) return;
-
-  const commResp = await fetch(`/who-iris/dist/oxigraph/${partition.fileGz}`);
-  const commBuffer = await commResp.arrayBuffer();
-  const commText = new TextDecoder().decode(pako.ungzip(commBuffer));
-  
-  // Appends new named graph to store without clobbering existing quads
-  store.load(commText, { format: 'application/n-quads' });
+  const resp = await fetch(`${BASE}/${partition.fileGz}`);
+  store.load(await gunzipText(resp), { format: 'application/n-quads' });
 }
 
-// 5. Execute prepared cross-graph query locally in < 5ms
-const results = store.query(myPreparedQuery);
-for (const binding of results) {
+// 4. Run a prepared query locally
+for (const binding of store.query(myPreparedQuery)) {
   console.log(binding.get('title').value);
 }
 ```
-

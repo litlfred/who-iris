@@ -49,7 +49,7 @@ Turn a candidate payload into a signed release on Cloudflare: each changed libra
 
 - Who: the `Release signer` lane (role `release-signer`).
 - Skill: `iris-cdn-signing`.
-- What: Owner, Q4 A: a signature on each library item.
+- What: A signature on each library item: items/<handle>/manifest-sha256.txt lists the item record and its files; its detached JWS sits beside it.
 - Record it: `workflow_complete` with `node: "Task_SignItems"`.
 - next: → `Task_Sign` (Sign the release tag manifest (ES256))
 
@@ -73,7 +73,7 @@ Turn a candidate payload into a signed release on Cloudflare: each changed libra
 
 - Who: the `Verifier` lane (role `verifier`).
 - Skill: `iris-cdn-signing`.
-- What: scripts/iris-cdn/signing.ts verifyDetached against the DID document fetched from its did:web URL, then a sample of payload digests.
+- What: scripts/iris-cdn/run.ts checkRelease: every tag file against tagmanifest-sha256.txt, then scripts/iris-cdn/signing.ts verifyDetached against the DID document fetched from its did:web URL.
 - Record it: `workflow_complete` with `node: "Task_Verify"`.
 - next: → `GW_Verified` (Verified?)
 

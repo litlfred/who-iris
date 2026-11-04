@@ -21,34 +21,21 @@ Processes, all in `processes/`:
 
 | Process | When | What |
 |---|---|---|
-| `iris-cdn-initial-load.bpmn` | once, on the owner's approval | every record and every bitstream, in resumable batches |
+| `iris-cdn-initial-load.bpmn` | once, run by hand with a stated budget | every record and every bitstream, in resumable batches |
 | `iris-cdn-nightly.bpmn` | every night, 02:00 UTC | only the items IRIS reports as changed |
-| `iris-cdn-reconcile.bpmn` | weekly | catches withdrawals, which REST does not report, and checks for drift |
+| `iris-cdn-reconcile.bpmn` | Sundays, 04:00 UTC | catches withdrawals, which REST does not report, and checks for drift |
 | `iris-cdn-sign-publish.bpmn` | called by the three above | BagIt bag, detached JWS (ES256), did:web key, verify |
 
-## Owner's choices (2026-10-30)
-
-- The initial load carries **metadata and the PDFs**.
-- Changes are read from the **DSpace REST API only** (skill `iris-rest-feed`).
-- Exports live on **Cloudflare**: a git repository on Cloudflare Artifacts
-  (not GitHub) and R2 object storage behind the Cloudflare CDN. Cloudflare is
-  an actor in every process.
-- **GitHub Pages is a preview, never the store.** `litlfred/who-iris` and
-  `WHO/who-iris` preview the full exported site; they keep materialized only
-  the three items held today, for testing.
-- The graph is **rebuilt in full every night**; sorted output keeps unchanged
-  partitions byte-identical.
-- Keys are published as `verificationMethod`s of a **`did:web`** DID document,
-  whose `publicKeyJwk.x5c` chains to WHO's signing DID. The key is taken as
-  **already published**, and its private half is in the GitHub environment
-  secret. No GDHCN trust list is assumed (skill `iris-cdn-signing`).
-- **Metadata can change while the PDF does not.** Records and files are
-  diffed separately, and see `iris-rest-feed` for how edits are caught.
+What each process does is in
+[`docs/iris-cdn-export.md`](../docs/iris-cdn-export.md); where it runs, what
+it writes where, and its secrets are in
+[`docs/iris-cdn-deployment.md`](../docs/iris-cdn-deployment.md); signing is
+skill `iris-cdn-signing`; reading changes from IRIS is skill `iris-rest-feed`.
 
 ## The no-churn rule
 
-The owner's requirement: *minimise churn of content that has not changed.* It
-holds at every step, and each step says how:
+Content that has not changed is not rewritten, re-uploaded or re-signed. Each
+step says how:
 
 1. **Canonical records.** A record is written as JSON with sorted keys, LF line
    endings and no fetch timestamp inside it. If the canonical bytes equal the
@@ -67,8 +54,8 @@ A step that cannot meet its rule reports it. It never hides it.
 
 ## What the agent does
 
-- **Plan** the initial load as one batch per collection, with the checkpoint
-  in `state/initial-load.json` in the Cloudflare git repository.
+- **Plan** the initial load as one batch per collection page, with the
+  checkpoint in `state/initial-load.json` in the Cloudflare git repository.
 - **Review** each run report and open a bean for each anomaly: a change count
   far from the recent median, a quarantined bitstream, a verification whose
   verdict is `unknown`, or a partition over its size ceiling.
@@ -83,15 +70,3 @@ A step that cannot meet its rule reports it. It never hides it.
   bytes stay addressable because a citation to them may exist.
 - Put an upstream count into prose. Counts come from the catalogue and the
   run reports.
-
-## Where things live
-
-| Thing | Where |
-|---|---|
-| Process models, skills, scripts | this repository (`litlfred/who-iris`) |
-| Release history: BagIt tag files, signature, cursor, checkpoint, run reports | git repository on **Cloudflare Artifacts** |
-| PDF bytes, records, graph partitions | **Cloudflare R2**, named by SHA-256, served by the Cloudflare CDN |
-| DID document (`did.json`) | already published, outside these processes |
-| Previews of the exported site | GitHub Pages of `litlfred/who-iris` and `WHO/who-iris`, reading from the CDN |
-
-Deployment options and open questions: `docs/iris-cdn-deployment.md`.

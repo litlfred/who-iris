@@ -7,7 +7,7 @@ generated: "scripts/subgraph-readmes.ts of the bootstrap toolset (https://github
 
 # who-iris-skills
 
-Deliberately thin, per 'mionimal tools in who specific stuff'. ONE skill package: `iris-dspace`, how IRIS uses DSpace and qualified Dublin Core, with what a later tool needs stated as nine checkable requirements. The Dublin Core TYPE is generic and lives in folio-assist-core; enumeration and subsetting live in large-datasets; OCR stays a cat-harness platform tool. Since 2026-10-01 it also holds the WHO STYLE GUIDE's three house voices under `voices/`, declared from within by `skills.json` (bean `cmsl`) -- they were the separate staged instance `who-style-guide` until the owner's 2026-09-30 ruling, 'who voices style guide is derivative KG content from who-iris, merge content into subgraph. including docs.' (bean `qsx4`).
+The IRIS skills: `iris-dspace` (how IRIS uses DSpace and qualified Dublin Core, stated as checkable requirements R1–R22), `iris-rest-feed`, `iris-cdn-exporter`, `iris-cdn-signing` and `iris-oxigraph`; and, under `voices/`, the WHO style guide's three house voices, declared from within by `skills.json`. Kept thin: the Dublin Core type lives in folio-assistant-core, enumeration and subsetting in large-datasets, and OCR is a cat-harness platform tool.
 
 Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-skills`, holding `skills`.
 
@@ -15,9 +15,9 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-skills`, holding `
 |---|---|---|
 | [`iris-cdn-exporter.md`](iris-cdn-exporter.md) | The IRIS CDN Exporter agent — how WHO IRIS is exported onto Cloudflare — a git repository on Cloudflare Artifacts and R2 behind the CDN — with an initial loa… | "IRIS CDN initial load", "IRIS CDN nightly change ingest", "IRIS CDN weekly reconciliation", "Sign and publish an IRIS CDN release" |
 | [`iris-cdn-signing.md`](iris-cdn-signing.md) | How an IRIS CDN release is packaged, signed and verified using published standards only: a BagIt bag (RFC 8493), a detached JWS (RFC 7515 App. | "IRIS CDN initial load", "IRIS CDN nightly change ingest", "IRIS CDN weekly reconciliation", "Sign and publish an IRIS CDN release" |
-| [`iris-dspace.md`](iris-dspace.md) | How WHO IRIS uses DSpace and qualified Dublin Core — the three identifier systems, MeSH as a controlled vocabulary, bundles, and the containment path. | "IRIS CDN initial load", "IRIS CDN nightly change ingest" |
-| [`iris-oxigraph.md`](iris-oxigraph.md) | How to compile, validate, distribute, and query WHO IRIS catalogue and Qualified Dublin Core metadata using Oxigraph in-memory WebAssembly and CLI pipelines. | "IRIS CDN initial load", "IRIS CDN nightly change ingest", "IRIS CDN weekly reconciliation" |
-| [`iris-rest-feed.md`](iris-rest-feed.md) | How to read changes from the WHO IRIS DSpace 7 REST API: the nightly "changed since" walk over Discovery sorted by lastModified, the weekly reconciliation th… | "IRIS CDN initial load", "IRIS CDN nightly change ingest", "IRIS CDN weekly reconciliation" |
+| [`iris-dspace.md`](iris-dspace.md) | How WHO IRIS uses DSpace and qualified Dublin Core — the three identifier systems, MeSH as a controlled vocabulary, bundles, and the containment path — and t… | "IRIS CDN initial load", "IRIS CDN nightly change ingest" |
+| [`iris-oxigraph.md`](iris-oxigraph.md) | How to build WHO IRIS catalogue and Qualified Dublin Core metadata into partitioned N-Quads, and query it with Oxigraph — in Bun on the build side, in WebAss… | "IRIS CDN initial load", "IRIS CDN nightly change ingest", "IRIS CDN weekly reconciliation" |
+| [`iris-rest-feed.md`](iris-rest-feed.md) | How to read changes from the WHO IRIS DSpace 7 REST API: the nightly "changed since" walk over Discovery, the weekly reconciliation that stands in for the de… | "IRIS CDN initial load", "IRIS CDN nightly change ingest", "IRIS CDN weekly reconciliation" |
 | [`package-manifest.json`](package-manifest.json) | What a consumer of the WHO Institutional Repository for Information Sharing needs to know about how it is built — DSpace, and qualified Dublin Core. |  |
 | [`skills.json`](skills.json) | data |  |
 | [`voices/`](voices/README.md) | described in its own README | |

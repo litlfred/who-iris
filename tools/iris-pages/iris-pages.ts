@@ -5,7 +5,7 @@ export default toolFactory((t) =>
     id: "iris-pages",
     title: "who-iris catalogue and docs pages",
     description:
-      "Render who-iris's docs pages and the catalogue visualiser who-iris declares — what the catalogue knows and what it records that it does not know — at that visualiser's declared route, plus the library's withheld list and the IRIS replica's home page, the one replica page left (owner, 2026-10-30).",
+      "Render who-iris's docs pages, the catalogue visualiser at its declared route (what the catalogue knows, and what it records that it does not know), the library's withheld list, and the IRIS replica's home page.",
     install: { none: true },
     invoke: { shell: "bun run cat iris:pages" },
     io: {

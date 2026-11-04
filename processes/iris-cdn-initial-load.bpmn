@@ -2,17 +2,16 @@
 <!--
   who-iris — IRIS CDN initial load.
 
-  Source of truth: this file. Open it in bpmn.io, Camunda Modeler, or any other
-  BPMN 2.0 tool. Implements the IRIS CDN Exporter (issue litlfred/who-iris#100);
-  the prose is docs/iris-cdn-export.md, the skills are skills/iris-cdn-*.md and
-  the code is scripts/iris-cdn/.
+  Source of truth: this file; open it in any BPMN 2.0 tool. Prose:
+  docs/iris-cdn-export.md. Skills: skills/iris-cdn-*.md. Code: scripts/iris-cdn/.
 
-  Owner's choices, 2026-10-30: the initial load carries metadata AND the PDFs;
-  changes are read from the DSpace REST API only; exports live on Cloudflare (a git
-  repository on Cloudflare Artifacts, NOT GitHub, plus R2 behind the CDN), and
-  GitHub Pages of who-iris only previews the exported site; keys are published as verificationMethods of a
-  did:web DID document (no GDHCN trust list is assumed). Standing requirement:
-  content that has not changed is not rewritten, re-uploaded or re-signed.
+  Constraints shared by the IRIS CDN processes: the initial load carries
+  metadata AND the PDFs; changes are read from the DSpace REST API only; exports
+  live on Cloudflare (a git repository on Cloudflare Artifacts, NOT GitHub, plus
+  R2 behind the CDN), and who-iris's GitHub Pages only previews the exported
+  site; keys are published as verificationMethods of a did:web DID document (no
+  GDHCN trust list is assumed); content that has not changed is not rewritten,
+  re-uploaded or re-signed.
 -->
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
@@ -43,7 +42,7 @@
         <bpmn:flowNodeRef>End_Loaded</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Pipeline" name="Build pipeline" partitionElementRef="build-pipeline">
-        <bpmn:documentation>Deterministic scripts in scripts/iris-cdn/, run by the nightly runner. Same input, same bytes.</bpmn:documentation>
+        <bpmn:documentation>Deterministic scripts in scripts/iris-cdn/, entry point run.ts. Same input, same bytes.</bpmn:documentation>
         <bpmn:flowNodeRef>Task_HarvestBatch</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_FetchBitstreams</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>GW_Fixity</bpmn:flowNodeRef>
@@ -62,7 +61,7 @@
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="Task_PlanBatches" name="Plan batches by&#10;community and collection">
-      <bpmn:documentation>One batch per collection (large collections split by page). The plan and its progress are a checkpoint file in the Cloudflare git repository (state/initial-load.json); restarting reads it and skips finished batches.</bpmn:documentation>
+      <bpmn:documentation>One batch per collection (large collections split by page).</bpmn:documentation>
       <bpmn:extensionElements><bootstrap.processes:skill ref="iris-cdn-exporter"/><bootstrap.processes:skill ref="iris-dspace"/></bpmn:extensionElements>
     </bpmn:task>
     <bpmn:task id="Task_HarvestBatch" name="Harvest a batch of&#10;item records (REST)">

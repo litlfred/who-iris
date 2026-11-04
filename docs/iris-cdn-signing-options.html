@@ -429,18 +429,12 @@
 
 <main class="wrap">
 <h1>IRIS CDN Exporter: signing options</h1>
-<blockquote>
-<p><strong>Decided 2026-10-30 (Q4, option A):</strong> a detached JWS (ES256) on <strong>each
-library item</strong>, over a manifest of its record and files, <strong>plus</strong> one over the
-release. The key's <code>publicKeyJwk.x5c</code> chains to WHO's signing DID, and
-the key is taken as already published, with its private half in the GitHub environment secret. The analysis below compared one
-signature per release against Data Integrity. Per-item signing keeps option
-A's reasons: WHO's key works as published, <code>x5c</code> fits JWS, and no new schema
-is needed.</p>
-</blockquote>
-<p>Analysis behind Q4: how to sign an IRIS CDN release, using either a detached
-JWS (A) or a W3C Data Integrity proof (C). The signing key is to be
-<strong>subordinate to WHO's signing DID</strong> (owner, 2026-10-30):</p>
+<p>How to sign an IRIS CDN release: a detached JWS (option A) or a W3C Data
+Integrity proof (option C). <strong>Option A is the one used</strong>, as a detached JWS
+(ES256) on each library item plus one over the release; what is signed and how
+is in <a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-cdn-signing.md"><code>iris-cdn-signing</code></a>. This page is the
+comparison behind that choice. The signing key is subordinate to WHO's signing
+DID:</p>
 <p><code>did:web:raw.githubusercontent.com:WorldHealthOrganization:tng-participants-prod:main:WHO:signing:DID</code>
 (<a href="https://github.com/WorldHealthOrganization/tng-participants-prod/blob/main/WHO/signing/DID/did.json">did.json</a>)</p>
 <h2>What WHO's DID document contains (read 2026-10-30)</h2>
@@ -478,8 +472,7 @@ JWS (A) or a W3C Data Integrity proof (C). The signing key is to be
 <ol>
 <li><strong>The curve is P-256, not Ed25519.</strong> A key that sits under WHO's should use
 the same curve, so one verifier library and one algorithm (<code>ES256</code>, RFC 7518)
-cover the whole chain. The current draft code uses Ed25519. Whichever option
-is chosen, it should switch to P-256.</li>
+cover the whole chain.</li>
 <li><strong>WHO's document uses the JWS-2020 vocabulary.</strong> <code>JsonWebKey2020</code> and its
 context are a W3C Credentials Community Group report, not a W3C
 Recommendation. It is published, though, and WHO already uses it. Following
@@ -520,7 +513,7 @@ compact JWS with a detached payload (RFC 7515 Appendix F), <code>alg: ES256</cod
 </tr>
 <tr>
 <td>Churn</td>
-<td>One signature per release. An unchanged night has an identical tag manifest, so it gets no new signature. There is no timestamp in the header</td>
+<td>One signature per release and one per changed item. An unchanged night has an identical tag manifest, so it gets no new signature. There is no timestamp in the header</td>
 </tr>
 <tr>
 <td>Tooling</td>
@@ -620,15 +613,16 @@ Verifiable Credential, carrying an embedded <code>proof</code> with
 </tr>
 </tbody>
 </table>
-<h2>Recommendation</h2>
-<p><strong>A, using <code>ES256</code> on a P-256 key</strong> to match WHO's DID document.</p>
-<p>C's real advantage, a signature over meaning rather than bytes, can be added
-later for the <strong>graph alone</strong>. That would be a second, optional
-<code>ecdsa-rdfc-2019</code> proof over the spine and partitions, once WHO publishes a
-<code>Multikey</code> form of its key. It does not have to be decided now.</p>
+<h2>Why A</h2>
+<p>A works with WHO's key as published, <code>x5c</code> fits JWS, and it needs no new
+schema. C's real advantage, a signature over meaning rather than bytes, can be
+added later for the <strong>graph alone</strong>: a second, optional <code>ecdsa-rdfc-2019</code> proof
+over the spine and partitions, once WHO publishes a <code>Multikey</code> form of its key.</p>
 <h2>Making our key subordinate to WHO's</h2>
-<p>DID Core has no single "subordinate key" mechanism, so there are three ways to
-do it. Which one is the owner's call; the owner will provide this later.</p>
+<p>DID Core has no single "subordinate key" mechanism. The exporter's key carries
+an <strong><code>x5c</code> certificate chain</strong> (RFC 7517 §4.7) ending at a certificate issued
+by WHO's signing key, so no edit to WHO's DID document is needed. The
+alternatives considered were:</p>
 <table>
 <thead>
 <tr>
@@ -659,9 +653,9 @@ do it. Which one is the owner's call; the owner will provide this later.</p>
 </tr>
 </tbody>
 </table>
-<p>For any of them, the verifier's chain is: the release JWS, then our key, then
-either WHO's DID document (S1, S2) or WHO's endorsement JWS (S3), and finally
-WHO's P-256 key. GDHCN trust lists are not assumed anywhere in that chain.</p>
+<p>The verifier's chain is: the JWS, then our key from our DID document, then its
+<code>x5c</code> certificates, ending at WHO's P-256 key, which the verifier is given as
+its trust anchor. GDHCN trust lists are not assumed anywhere in that chain.</p>
 
 </main>
 
