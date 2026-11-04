@@ -39,7 +39,7 @@ Turn a candidate payload into a signed release on Cloudflare: each changed libra
 
 ### 3. Store new objects (never overwrite) (`Task_Upload`)
 
-- Who: the `Cloudflare R2 + CDN` lane (role `cloudflare-r2-cdn`).
+- Who: the `Release signer` lane (role `release-signer`).
 - Skill: `iris-cdn-exporter`.
 - What: Content-addressed: an object whose SHA-256 is already stored is skipped.
 - Record it: `workflow_complete` with `node: "Task_Upload"`.
@@ -63,7 +63,7 @@ Turn a candidate payload into a signed release on Cloudflare: each changed libra
 
 ### 6. Commit tag files and signature, last (`Task_PublishTags`)
 
-- Who: the `Cloudflare git (Artifacts)` lane (role `cloudflare-git`).
+- Who: the `Release signer` lane (role `release-signer`).
 - Skill: `iris-cdn-signing`.
 - What: One commit to the Cloudflare git repository, after every payload object is in place, so a reader never sees a manifest naming bytes that are not there yet.
 - Record it: `workflow_complete` with `node: "Task_PublishTags"`.
