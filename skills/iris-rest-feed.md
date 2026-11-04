@@ -2,28 +2,29 @@
 name: iris-rest-feed
 description: >
   How to read changes from the WHO IRIS DSpace 7 REST API: the nightly
-  "changed since" walk over Discovery sorted by lastModified, the weekly
-  reconciliation that stands in for the deletions REST does not report, and
-  the guard that stops a short listing from reading as a mass withdrawal.
+  "changed since" walk over Discovery, the weekly reconciliation that stands in
+  for the deletions REST does not report, and the guard that stops a short
+  listing from reading as a mass withdrawal.
 graph-typologies:
   - catalogue
 ---
 
 # Reading IRIS changes over DSpace REST
 
-The owner chose the **DSpace REST API only** (2026-10-30). REST has no change
-feed with deletions, so this skill pairs a nightly walk with a weekly
-reconciliation. The code is `scripts/iris-cdn/rest-feed.ts`, and its tests run
-on fixtures in `scripts/tests/iris-cdn.test.ts`.
+Changes are read from the **DSpace REST API only**. REST has no change feed
+with deletions, so a nightly walk is paired with a weekly reconciliation. The
+code is `scripts/iris-cdn/rest-feed.ts`; its tests run on fixtures in
+`scripts/tests/iris-cdn.test.ts`.
 
-> **Confirmed against live `https://iris.who.int/server/api` (2026-10-31, #104).**
-> `GET /server/api/discover/search` on live IRIS exposes only five `sortOptions`
-> (`score`, `dc.title`, `dc.date.issued`, `dc.date.accessioned`,
-> `dc.date.available`); `sort=lastModified,DESC` returns HTTP 422
-> (`Unprocessable Entity: Invalid search request`). Instead, `changedSince`
-> queries `query=lastModified:[<UTC-ISO-Z> TO *]&sort=dc.date.accessioned,DESC`
-> with the cursor normalised to a `Z`-suffixed UTC timestamp (`+00:00` in a Solr
-> range query returns `totalElements: 0` on live IRIS).
+## What live IRIS accepts
+
+- Discovery offers only five `sortOptions`: `score`, `dc.title`,
+  `dc.date.issued`, `dc.date.accessioned`, `dc.date.available`.
+  `sort=lastModified,DESC` returns **HTTP 422**.
+- Changes are found with a Solr range query instead:
+  `query=lastModified:[<isoZ> TO *]`.
+- The bound must be a `Z`-suffixed UTC timestamp. A `+00:00` offset returns
+  `totalElements: 0`.
 
 ## Endpoints
 
@@ -40,21 +41,19 @@ on fixtures in `scripts/tests/iris-cdn.test.ts`.
 ## Nightly: `changedSince(cursor)`
 
 1. Normalise `cursor` to UTC `Z` (`new Date(Date.parse(cursor)).toISOString()`)
-   and query Discovery with `query=lastModified:[<isoZ> TO *]&sort=dc.date.accessioned,DESC`.
+   and run the range query above.
 2. Page through the matching result set.
-3. The cursor millisecond/second is **inclusive**. An item modified at that
-   instant is read again, not missed. Reading an unchanged item writes the same
-   bytes, so this costs nothing.
+3. The cursor is **inclusive**: an item modified at that instant is read again,
+   not missed. Re-reading an unchanged item writes the same bytes.
 4. Return the items oldest first, de-duplicated by UUID.
 
-The cursor is the `lastModified` of the newest item in the last **verified**
-release. A failed night does not advance it.
+The cursor is the newest `lastModified` read, kept in `state/cursor.json`. A
+failed night does not advance it.
 
 ## Metadata changes without the PDF changing
 
-The owner noted on 2026-10-30 that a PDF may stay the same while its Dublin
-Core changes. The record and the files are handled separately, so this costs
-nothing extra:
+A PDF may stay the same while its Dublin Core changes. Records and files are
+handled separately:
 
 - A record is re-read whenever its item appears in the walk. A PDF is
   re-fetched only if its DSpace MD5 changed.
@@ -62,10 +61,10 @@ nothing extra:
   (`allContainers`). A renamed collection changes no item, and DSpace 7 does
   not expose `lastModified` for these. An unchanged one serializes to the same
   bytes.
-- **The weekly metadata check.** The weekly listing pages already carry each
-  item's metadata. `metadataSha` hashes it canonically, and any item whose
-  hash differs from the one last ingested is re-read. That catches edits that
-  did not move `lastModified`, without 273k single fetches.
+- **The weekly metadata check.** The weekly listing pages carry each item's
+  metadata. `metadataSha` hashes it canonically, and any item whose hash
+  differs from the one last ingested is re-read. That catches edits that did
+  not move `lastModified`, without one fetch per item.
 
 ## Weekly: `allItems` and `withdrawnOrHidden`
 
@@ -75,7 +74,7 @@ nothing extra:
    treated as faulty and nothing is marked. Possible causes are a paging fault,
    an outage or a Solr reindex.
 4. Re-fetch each missing item by ID. Mark it withdrawn only if IRIS confirms
-   it: `withdrawn: true`, 404 or 401.
+   it: `withdrawn: true`, or a 404 (gone), 401 or 403 (private).
 
 ## Fixity
 
@@ -86,5 +85,6 @@ reports it. It is never retried silently.
 ## Politeness
 
 Requests are made one at a time, with a User-Agent that names the project and
-a contact. Back off on 429 and 503. The initial load is paced to the budget the
-owner states in `Task_StateBudget`.
+its repository, and back off on 429 and 503. The initial load is paced to the budget stated in
+`Task_StateBudget` (`processes/iris-cdn-initial-load.bpmn`), including
+`maxRequestsPerSecond`.
