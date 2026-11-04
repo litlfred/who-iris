@@ -16,7 +16,7 @@ permissions:
   contents: write
 jobs:
   publish:
-    uses: litlfred/cat-harness-tools/.github/workflows/layer-qa-publish.yml@8fb3b58f26a93cb6c3021bca52e0ce9a844ec99a # main at litlfred/cat-harness-tools#1433 (writers); trails index.lock.json until this layer re-pins cat-harness-tools
+    uses: litlfred/cat-harness-tools/.github/workflows/layer-qa-publish.yml@42af00bcdb9526330db806a0376bee7f637b0c69 # index.lock.json
     with:
       instance: who-iris
       # The round-trip report is derived from the agents' rulings in
