@@ -431,37 +431,28 @@
 <h1>Working on the WHO style guide's voices</h1>
 <p>What binds everywhere is who-iris's <a href="https://github.com/litlfred/who-iris/blob/HEAD/AGENTS.md"><code>AGENTS.md</code></a>, and through
 it the harness's; what the style guide <em>is</em> is
-<a href="style-guide.html"><code>style-guide.md</code></a>. One rule governs the voices in
+<a href="style-guide.html"><code>style-guide.md</code></a>. These rules govern the voices in
 <a href="https://github.com/litlfred/who-iris/tree/HEAD/skills/voices/"><code>skills/voices/</code></a>.</p>
 <h2>A voice is DERIVED FROM a publication; it is not the publication</h2>
-<p>The three source documents live in this instance's
-<a href="https://github.com/litlfred/who-iris/tree/HEAD/library/"><code>library/</code></a>, and they stay there. Every rule in a voice cites
-<code>{ libraryId, sectionId }</code> and resolves against that library. The voices and
-the library have been one instance since 2026-10-01 (bean <code>qsx4</code>); before
-that, the voices were the separate <code>who-style-guide</code> instance and cited
-across the boundary.</p>
-<p>So: <strong>do not copy source text into this layer.</strong> A quoted rule carries its
-quote and its page so a reader can check it; a copied document is a second
-copy of a corpus that already exists, free to drift from the one that is
-catalogued, and nothing would say which is authoritative.</p>
+<p>The source documents live in this instance's <a href="https://github.com/litlfred/who-iris/tree/HEAD/library/"><code>library/</code></a>, and
+they stay there. Every rule in a voice cites <code>{ libraryId, sectionId }</code> and
+resolves against that library.</p>
+<p><strong>Do not copy source text into a voice.</strong> A rule carries its quote and its page
+so a reader can check it; a copied document is a second copy of a catalogued
+corpus, free to drift from it, with nothing to say which is authoritative.</p>
 <h2>Every rule carries its quote and its page</h2>
-<p>That is what makes a voice auditable rather than asserted. A rule added
-without them is not a terser rule — it is an unsourced one, and a reader has
-no way to tell whether it came from the publication or from an agent's
+<p>That is what makes a voice auditable. A rule without them is unsourced: a
+reader cannot tell whether it came from the publication or from an agent's
 impression of it.</p>
-<p>If you cannot find the page, say so rather than dropping the citation: a rule
-marked as un-located is a different fact from a rule that never needed one.</p>
+<p>If you cannot find the page, mark the rule as un-located rather than dropping
+the citation: that is a different fact from a rule that never needed one.</p>
 <h2>Adding a voice</h2>
-<p>It is derived from <strong>one</strong> publication, read rule by rule. A voice assembled
-from several is not a house voice, it is a synthesis, and the thing it loses
-is exactly the property above — a reader can no longer check a rule against
-the document it came from.</p>
+<p>Derive it from <strong>one</strong> publication, read rule by rule. A voice assembled from
+several is a synthesis, not a house voice: a reader can no longer check a rule
+against the document it came from.</p>
 <hr>
-<p><em>Was <code>who-style-guide/AGENTS.md</code>, that instance's <code>agent-instructions</code> asset
-(issue #592). It moved into who-iris's docs subgraph when the style guide
-became a subgraph of who-iris (bean <code>qsx4</code>). It is not kept beside the voices
-because any <code>.md</code> other than a README inside a skills directory is read as a
-skill: <code>gen-skill-docs</code> demanded a category for a package called <code>voices</code>.</em></p>
+<p><em>Kept in <code>docs/</code> rather than beside the voices because any <code>.md</code> other than a
+README inside a skills directory is read as a skill.</em></p>
 
 </main>
 

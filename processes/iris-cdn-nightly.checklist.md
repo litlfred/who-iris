@@ -24,7 +24,7 @@ Every night: ask the IRIS DSpace REST API which items changed since the last pub
 
 - Who: the `Build pipeline` lane (role `build-pipeline`).
 - Skill: `iris-rest-feed`.
-- What: Discovery search sorted by lastModified, newest first, paged until a page reaches the cursor (scripts/iris-cdn/rest-feed.ts changedSince).
+- What: scripts/iris-cdn/rest-feed.ts changedSince: a Discovery search for lastModified at or after the cursor, sorted by dc.date.accessioned (IRIS rejects a lastModified sort), paged until an item is older than the cursor.
 - Record it: `workflow_complete` with `node: "Task_ListChanged"`.
 - next: → `GW_Any` (Anything changed?)
 
@@ -76,7 +76,7 @@ Every night: ask the IRIS DSpace REST API which items changed since the last pub
 
 ### 8. Commit the advanced cursor (`Task_AdvanceCursor`)
 
-- Who: the `Cloudflare git (Artifacts)` lane (role `cloudflare-git`).
+- Who: the `Build pipeline` lane (role `build-pipeline`).
 - Skill: `iris-rest-feed`.
 - What: Only after the release verified.
 - Record it: `workflow_complete` with `node: "Task_AdvanceCursor"`.

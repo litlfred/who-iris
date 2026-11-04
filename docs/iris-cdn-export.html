@@ -431,63 +431,14 @@
 <h1>IRIS CDN Exporter: processes</h1>
 <p>How WHO IRIS gets from its DSpace server to a signed, versioned copy on
 Cloudflare: one initial load, then a nightly change ingest, a weekly
-reconciliation, and one signed release per run. Issue
-<a href="https://github.com/litlfred/who-iris/issues/100">litlfred/who-iris#100</a>.</p>
+reconciliation, and one signed release per run.</p>
 <p>The diagrams below are rendered from the BPMN files in
 <a href="https://github.com/litlfred/who-iris/tree/HEAD/processes/"><code>processes/</code></a>. The BPMN files are the source of truth, and
-each step names the skill that carries it out. Where the infrastructure runs
-and where the keys live is covered in <a href="iris-cdn-deployment.html">deployment</a>.</p>
-<h2>What the owner decided (2026-10-30)</h2>
-<table>
-<thead>
-<tr>
-<th>Question</th>
-<th>Answer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>How much does the initial load cover?</td>
-<td>Metadata <strong>and the PDFs</strong></td>
-</tr>
-<tr>
-<td>Where do changes come from?</td>
-<td>The <strong>DSpace REST API</strong> only</td>
-</tr>
-<tr>
-<td>Where do exports live?</td>
-<td><strong>Cloudflare</strong>: a git repository on Cloudflare Artifacts (not GitHub), and R2 behind the Cloudflare CDN</td>
-</tr>
-<tr>
-<td>What is GitHub Pages for?</td>
-<td><strong>Previews only.</strong> <code>litlfred/who-iris</code> and <code>WHO/who-iris</code> preview the full exported site, and keep materialized only the three items held today, for testing</td>
-</tr>
-<tr>
-<td>How is the graph regenerated?</td>
-<td><strong>Full rebuild every night.</strong> Sorted output keeps unchanged partitions byte-identical</td>
-</tr>
-<tr>
-<td>What runs the exporter?</td>
-<td><strong>GitHub Actions</strong>, writing to Cloudflare</td>
-</tr>
-<tr>
-<td>Where is the signing key?</td>
-<td>A GitHub <strong>environment secret</strong> (<code>iris-cdn-release</code>, <code>main</code> only)</td>
-</tr>
-<tr>
-<td>How is each item signed?</td>
-<td>A <strong>detached JWS per library item</strong>, over a manifest of its record and files, <strong>plus one over the release</strong> (Q4 A). Only changed items are re-signed</td>
-</tr>
-<tr>
-<td>How are keys published?</td>
-<td>As <code>verificationMethod</code>s of a <strong><code>did:web</code></strong> DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing DID. The key is <strong>already published</strong>, and the exporter only uses it. GDHCN is not assumed</td>
-</tr>
-<tr>
-<td>Standing requirement</td>
-<td><strong>No churn</strong>: content that has not changed is not rewritten, re-uploaded or re-signed</td>
-</tr>
-</tbody>
-</table>
+each step names the skill that carries it out. Where the infrastructure runs,
+where it writes and where the secrets live is in
+<a href="iris-cdn-deployment.html">deployment</a>; how releases and items are signed is in
+<a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-cdn-signing.md"><code>iris-cdn-signing</code></a>; the no-churn rule every
+step obeys is in <a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-cdn-exporter.md#the-no-churn-rule"><code>iris-cdn-exporter</code></a>.</p>
 <h2>Actors</h2>
 <table>
 <thead>
@@ -515,7 +466,7 @@ and where the keys live is covered in <a href="iris-cdn-deployment.html">deploym
 </tr>
 <tr>
 <td>Cloudflare git (Artifacts)</td>
-<td>A git repository on Cloudflare holding the release history: BagIt tag files, signatures, cursor, checkpoints and run reports</td>
+<td>A git repository on Cloudflare holding the release history: BagIt tag files, the release signature, and state files (cursor, checkpoint)</td>
 </tr>
 <tr>
 <td>Cloudflare R2 + CDN</td>
@@ -528,16 +479,18 @@ and where the keys live is covered in <a href="iris-cdn-deployment.html">deploym
 </tbody>
 </table>
 <h2>1. Initial load</h2>
-<p><code>processes/iris-cdn-initial-load.bpmn</code>. The load runs in batches of one
-collection each. After every batch it commits a checkpoint, so a stopped load
-resumes where it left off. Bytes that fail the IRIS checksum are quarantined,
-not published.</p>
+<p><code>processes/iris-cdn-initial-load.bpmn</code>. The load covers metadata and the PDFs.
+It refuses to start without a budget stating the upstream totals and a request
+rate (<code>run.ts initial-load --budget &#x3C;json-or-file></code>). It runs in batches of one
+page of one collection (100 items by default) and checkpoints after every
+batch in <code>state/initial-load.json</code>, so a stopped load resumes where it left
+off. Bytes that fail the IRIS checksum are quarantined, not published.</p>
 <img src="assets/img/processes/iris-cdn-initial-load.svg" alt="BPMN: IRIS CDN initial load" style="max-width:100%">
 <h2>2. Nightly change ingest</h2>
 <p><code>processes/iris-cdn-nightly.bpmn</code>. The pipeline lists the items IRIS changed
-since the cursor, fetches only those, and rebuilds the graph. If nothing
-changed, it publishes nothing and makes no commit. The cursor moves forward
-only after the release verifies.</p>
+since the cursor, using the DSpace REST API only, fetches only those, and
+rebuilds the graph in full. If nothing changed, it publishes nothing and makes
+no commit. The cursor moves forward only after the release verifies.</p>
 <img src="assets/img/processes/iris-cdn-nightly.svg" alt="BPMN: IRIS CDN nightly change ingest" style="max-width:100%">
 <h2>3. Weekly reconciliation</h2>
 <p><code>processes/iris-cdn-reconcile.bpmn</code>. REST does not report deletions, so once a
@@ -547,38 +500,23 @@ Withdrawn items are marked as withdrawn and their bytes stay addressable.</p>
 <img src="assets/img/processes/iris-cdn-reconcile.svg" alt="BPMN: IRIS CDN weekly reconciliation" style="max-width:100%">
 <h2>4. Sign and publish (called by all three)</h2>
 <p><code>processes/iris-cdn-sign-publish.bpmn</code>. Each changed library item gets a
-detached JWS (RFC 7515 Appendix F, ES256) over its own manifest. The release
-is a BagIt bag (RFC 8493) whose tag manifest pins every item manifest and
-signature, and the tag manifest is signed once. Payload objects go to R2 first. The tag files and the signature are
-committed to Cloudflare git last, in one commit. A release that does not verify
-is reverted, and the previous release stays served.</p>
+detached JWS over its own manifest, and the release is a BagIt bag whose
+signed tag manifest pins every item manifest and signature (see
+<a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-cdn-signing.md"><code>iris-cdn-signing</code></a>). Payload objects go to R2
+first. The tag files and the signature are committed to Cloudflare git last,
+in one commit. A release that does not verify must be reverted so the
+previous release stays served: <code>run.ts verify</code> reverts the commit in its
+checkout, but in the workflow that revert is not pushed, so for now it is a
+manual <code>git revert</code> in the release repository.</p>
 <img src="assets/img/processes/iris-cdn-sign-publish.svg" alt="BPMN: Sign and publish an IRIS CDN release" style="max-width:100%">
-<h2>The signing key</h2>
-<p><strong>Given, not modelled here.</strong> The subordinate signing key is already
-published in a DID document, with <code>publicKeyJwk.x5c</code> chaining to WHO's signing
-DID, and its private JWK is already in the GitHub environment secret
-<code>IRIS_CDN_SIGNING_JWK</code>. How that key was created and certified happens
-offline and outside these processes (owner, 2026-10-30). The exporter only
-uses the key.</p>
+<p>The signing key already exists and is published outside these processes; see
+<a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-cdn-signing.md#key-custody-and-rotation">key custody</a>.</p>
 <h2>When metadata changes and the PDF does not</h2>
 <p>A record and its files are stored and diffed separately. A Dublin Core edit
 produces a new record, and therefore a new digest, while the PDF keeps its
 digest and is not fetched again. Renamed communities and collections are
 caught by re-reading them nightly. Edits that do not move <code>lastModified</code> are
 caught by the weekly metadata hash check. See the skill <code>iris-rest-feed</code>.</p>
-<h2>How churn is kept to a minimum</h2>
-<ol>
-<li>Records are canonical JSON: sorted keys, LF line endings, no fetch time
-inside. An unchanged record is not rewritten.</li>
-<li>Bitstreams are named by SHA-256. A byte that is already stored is never
-fetched, uploaded or overwritten again.</li>
-<li>The graph is rebuilt in full, but its N-Quads are written sorted. A
-partition with no changed item comes out byte-identical and is not
-re-uploaded.</li>
-<li><code>bag-info.txt</code> carries no date, so an unchanged payload has an identical
-tag manifest and needs no new signature.</li>
-<li>An empty diff ends the run: no commit and no signature.</li>
-</ol>
 <h2>Skills and code</h2>
 <table>
 <thead>
@@ -590,11 +528,11 @@ tag manifest and needs no new signature.</li>
 <tbody>
 <tr>
 <td><a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-cdn-exporter.md"><code>iris-cdn-exporter</code></a></td>
-<td>The agent role, the no-churn rule, and where things live</td>
+<td>The agent role and the no-churn rule</td>
 </tr>
 <tr>
 <td><a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-rest-feed.md"><code>iris-rest-feed</code></a></td>
-<td>The DSpace REST change walk, the weekly reconciliation, fixity</td>
+<td>The DSpace REST change walk, the weekly reconciliation, fixity, the live endpoint shapes</td>
 </tr>
 <tr>
 <td><a href="https://github.com/litlfred/who-iris/blob/HEAD/skills/iris-cdn-signing.md"><code>iris-cdn-signing</code></a></td>
@@ -610,26 +548,14 @@ tag manifest and needs no new signature.</li>
 </tr>
 </tbody>
 </table>
-<p>The code is in <code>scripts/iris-cdn/</code>: <code>bag.ts</code>, <code>signing.ts</code> and <code>rest-feed.ts</code>.
-Its tests are <code>scripts/tests/iris-cdn.test.ts</code>.</p>
+<p>The code is in <code>scripts/iris-cdn/</code>: <code>run.ts</code> (the runner, with modes
+<code>initial-load</code>, <code>nightly</code>, <code>reconcile</code>, <code>verify</code> and <code>revert</code>), <code>bag.ts</code>,
+<code>signing.ts</code> and <code>rest-feed.ts</code>. Its tests are <code>scripts/tests/iris-cdn.test.ts</code>.</p>
 <p>The platform processes these call are in cat-harness:
 <code>processes/kg/nquads-distribution.bpmn</code> (graph partitions),
 <code>processes/kg/named-query-execution.bpmn</code> (prepared SPARQL) and
 <code>processes/kg/kg-to-portal.bpmn</code> (the general select, package, sign,
 distribute and verify pattern).</p>
-<h2>Still open</h2>
-<ul>
-<li><strong>CDN and DID domain.</strong> The proposal is a stable domain the owner adds to
-Cloudflare.</li>
-<li><strong>Live endpoint shapes (confirmed 2026-10-31, #104).</strong> Probed against live
-<code>https://iris.who.int/server/api</code>: <code>sort=lastModified,DESC</code> returns HTTP 422
-because IRIS's default Discovery configuration exposes only <code>score</code>,
-<code>dc.title</code>, <code>dc.date.issued</code>, <code>dc.date.accessioned</code> and <code>dc.date.available</code>.
-<code>rest-feed.ts</code> therefore queries
-<code>query=lastModified:[&#x3C;UTC-ISO-Z> TO *]&#x26;sort=dc.date.accessioned,DESC</code> (with
-<code>+00:00</code> normalised to <code>Z</code>), <code>scope=&#x3C;collectionUuid></code> for initial-load
-batches, and <code>embed=bundles/bitstreams&#x26;embed=owningCollection</code> for items.</li>
-</ul>
 
 </main>
 

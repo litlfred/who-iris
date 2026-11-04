@@ -429,43 +429,38 @@
 
 <main class="wrap">
 <h1>The WHO style guide</h1>
-<p>The <strong>WHO house voices</strong> and the <strong>WHO glossary</strong>. There are three editorial
-profiles. Each one is read rule by rule out of one publication in this
-instance's <a href="https://github.com/litlfred/who-iris/tree/HEAD/library/">library</a>, and every rule carries the quote and the
-page it came from.</p>
-<p><strong>It is a subgraph of <code>who-iris</code>, not an instance of its own.</strong> It was
-staged as the separate top-level instance <code>who-style-guide/</code> from 2026-09-20
-until the owner ruled on 2026-09-30:
-<em>"who voices style guide is derivative KG content from who-iris, merge content
-into subgraph. including docs."</em> Bean <code>qsx4</code> carried it in by <code>git mv</code>:</p>
+<p>The <strong>WHO house voices</strong> and the <strong>WHO glossary</strong>: three editorial profiles,
+each read rule by rule out of one publication in this instance's
+<a href="https://github.com/litlfred/who-iris/tree/HEAD/library/">library</a>, with every rule carrying the quote and the page it came
+from. It is a subgraph of <code>who-iris</code>:</p>
 <table>
 <thead>
 <tr>
-<th>was</th>
-<th>is</th>
+<th>part</th>
+<th>where</th>
 <th>graph typology</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>who-style-guide/skills/voices/</code></td>
-<td><a href="https://github.com/litlfred/who-iris/tree/HEAD/skills/voices/"><code>who-iris/skills/voices/</code></a></td>
+<td>the voices</td>
+<td><a href="https://github.com/litlfred/who-iris/tree/HEAD/skills/voices/"><code>skills/voices/</code></a></td>
 <td><code>voices</code>, declared from within by <code>skills/skills.json</code></td>
 </tr>
 <tr>
-<td><code>who-style-guide/glossary/</code></td>
-<td><a href="https://github.com/litlfred/who-iris/tree/HEAD/glossary/"><code>who-iris/glossary/</code></a></td>
+<td>the glossary</td>
+<td><a href="https://github.com/litlfred/who-iris/tree/HEAD/glossary/"><code>glossary/</code></a></td>
 <td><code>glossary</code></td>
 </tr>
 <tr>
-<td><code>who-style-guide/README.md</code></td>
-<td>this page, in the <code>who-iris-docs</code> subgraph</td>
+<td>this page</td>
+<td>the <code>who-iris-docs</code> subgraph</td>
 <td><code>docs</code></td>
 </tr>
 <tr>
-<td><code>who-style-guide/AGENTS.md</code></td>
-<td><a href="style-guide-agents.html"><code>who-iris/docs/style-guide-agents.md</code></a></td>
-<td>the rules for working on a voice (not kept inside <code>skills/</code>, where any non-README <code>.md</code> is read as a skill)</td>
+<td>the rules for working on a voice</td>
+<td><a href="style-guide-agents.html"><code>style-guide-agents.md</code></a></td>
+<td><code>docs</code> (not kept inside <code>skills/</code>, where any non-README <code>.md</code> is read as a skill)</td>
 </tr>
 </tbody>
 </table>
@@ -496,41 +491,25 @@ into subgraph. including docs."</em> Bean <code>qsx4</code> carried it in by <co
 </tr>
 </tbody>
 </table>
-<h2>Derived from the library, and now in the same instance as it</h2>
+<h2>Derived from the library</h2>
 <p>A voice is <strong>derived from</strong> a publication; it is not the publication. So the
 voices sit beside the library and not inside it, and no source text is copied
 into them.</p>
-<p>While the voices were a separate instance, every rule cited
-<code>{ instance: "who-iris", libraryId, sectionId }</code> and was resolved across the
-instance boundary. Bean <code>r1lz</code> predicted that need — <em>"a skill derived from a
-source text in another repo would cite evidence its own instance cannot
-resolve"</em> — and bean <code>z7ev</code> built the resolver for it.</p>
-<p><strong>The voices no longer need that resolver.</strong> A voice and the publication it is
-read from are now in one instance, so each source is cited in the bare
-<code>{ libraryId, sectionId }</code> form, which resolves against the citing instance.
-The cross-instance form is still supported for any voice whose source really
-does live elsewhere.</p>
-<p><strong>A voice names its sources once, in <code>sources[]</code>, and its rules use them.</strong> A
-rule says which source it uses and where in that source. If every rule
-repeated the source's details, one fact would sit in two places and could
-disagree.</p>
-<h2>What is not here</h2>
-<p><strong><code>milnor</code> did not come.</strong> It is read from a mathematics paper, not a WHO
-publication, and its source moved to <code>folio-assistant-sci/library/milnorlink/</code>
-(bean <code>r1lz</code>).</p>
+<p>Each source is cited in the bare <code>{ libraryId, sectionId }</code> form, which resolves
+against the citing instance. The cross-instance form
+<code>{ instance, libraryId, sectionId }</code> is supported for a voice whose source lives
+in another instance.</p>
+<p><strong>A voice names its sources once, in <code>sources[]</code></strong>, and each rule says which
+source it uses and where in that source, so a source's details are never
+written twice.</p>
 <h2>Checking it</h2>
 <pre><code class="language-sh">bun run cat check:voices
 bun run cat check:glossary
 </code></pre>
-<p><code>check:voices</code> resolves every citation through the declaration of the instance
-that holds the source. It reports four kinds of failure separately, because
-each needs a different fix: unknown instance, no library graph, never ingested,
-and no such section.</p>
-<p>The check <strong>finds</strong> the instances that have a <code>voices/</code> directory instead of
-assuming one. It did not do this until these three voices first moved out of
-the platform. The first run after that move reported
-<code>Voice graph (1 voices, 12 rules)</code> and exited 0, and 25 rules across three
-voices went unchecked with no warning (bean <code>w095</code>).</p>
+<p><code>check:voices</code> finds every instance with a <code>voices/</code> directory and resolves each
+citation through the declaration of the instance that holds the source. It
+reports four kinds of failure separately, because each needs a different fix:
+unknown instance, no library graph, never ingested, and no such section.</p>
 
 </main>
 

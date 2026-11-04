@@ -69,6 +69,6 @@ _5 skills in 1 directory, generated from each skill's front matter. `bun run cat
 | [`iris-cdn-signing`](skills/iris-cdn-signing.md) | How an IRIS CDN release is packaged, signed and verified using published standards only: a BagIt bag (RFC 8493), a detached JWS (RFC 7515 App. |
 | [`iris-dspace`](skills/iris-dspace.md) | How WHO IRIS uses DSpace and qualified Dublin Core — the three identifier systems, MeSH as a controlled vocabulary, bundles, and the containment path — and the requirements a tool reading a record… |
 | [`iris-oxigraph`](skills/iris-oxigraph.md) | How to build WHO IRIS catalogue and Qualified Dublin Core metadata into partitioned N-Quads, and query it with Oxigraph — in Bun on the build side, in WebAssembly in the browser — including… |
-| [`iris-rest-feed`](skills/iris-rest-feed.md) | How to read changes from the WHO IRIS DSpace 7 REST API: the nightly "changed since" walk over Discovery, the weekly reconciliation that stands in for the deletions REST does not report, and the guard… |
+| [`iris-rest-feed`](skills/iris-rest-feed.md) | How to read changes from the WHO IRIS DSpace 7 REST API: the nightly "changed since" walk over Discovery, the weekly reconciliation that stands in for the deletions REST does not report, and the… |
 
 <!-- skills:index:end -->
