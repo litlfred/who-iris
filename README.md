@@ -2,7 +2,7 @@
 
 **The WHO Institutional Repository for Information Sharing, catalogued by
 reference.** Staged as a top-level directory ahead of becoming its own
-repository, with its own tools and themes.
+repository, where it will carry its own tools and themes.
 
 **Contents**
 
