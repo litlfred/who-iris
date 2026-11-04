@@ -76,7 +76,7 @@ Every night: ask the IRIS DSpace REST API which items changed since the last pub
 
 ### 8. Commit the advanced cursor (`Task_AdvanceCursor`)
 
-- Who: the `Cloudflare git (Artifacts)` lane (role `cloudflare-git`).
+- Who: the `Build pipeline` lane (role `build-pipeline`).
 - Skill: `iris-rest-feed`.
 - What: Only after the release verified.
 - Record it: `workflow_complete` with `node: "Task_AdvanceCursor"`.

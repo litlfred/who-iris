@@ -53,7 +53,7 @@ The first full export of WHO IRIS onto Cloudflare (git on Artifacts, bytes in R2
 
 ### 5. Store bytes under SHA-256 (skip if held) (`Task_StoreBytes`)
 
-- Who: the `Cloudflare R2 + CDN` lane (role `cloudflare-r2-cdn`).
+- Who: the `Build pipeline` lane (role `build-pipeline`).
 - Skill: `iris-cdn-exporter`.
 - Record it: `workflow_complete` with `node: "Task_StoreBytes"`.
 - next: → `Task_Checkpoint` (Commit the batch checkpoint)
@@ -64,14 +64,19 @@ The first full export of WHO IRIS onto Cloudflare (git on Artifacts, bytes in R2
 - Skill: `iris-cdn-exporter`.
 - What: Not published, not retried silently.
 - Record it: `workflow_complete` with `node: "Task_Quarantine"`.
-- next: → `GW_More` (More batches?)
+- next: → `GW_More_Join`
 
 ### 7. Commit the batch checkpoint (`Task_Checkpoint`)
 
-- Who: the `Cloudflare git (Artifacts)` lane (role `cloudflare-git`).
+- Who: the `Build pipeline` lane (role `build-pipeline`).
 - Skill: `iris-cdn-exporter`.
 - What: state/initial-load.json in the Cloudflare git repository.
 - Record it: `workflow_complete` with `node: "Task_Checkpoint"`.
+- next: → `GW_More_Join`
+
+### Merge — `GW_More_Join`
+
+- Nothing to do or decide: the paths meet here and the engine passes through.
 - next: → `GW_More` (More batches?)
 
 ### Decide — More batches? (`GW_More`)
