@@ -14,107 +14,107 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: processes/iris-cdn-reconcile.bpmn:58
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:58
 #. Diagram element documentation
 msgid "A listing that came back short (a paging fault, an outage) must not read as a mass withdrawal."
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:30
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:30
 #. Diagram label
 msgid "Build pipeline"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:54
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:54
 #. Diagram label
 msgid "Compare with the ids the library holds"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:31
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:31
 #. Diagram element documentation
 msgid "Deterministic scripts in scripts/iris-cdn/, entry point run.ts. Same input, same bytes."
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:42
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:42
 #. Diagram label
 msgid "IRIS CDN Exporter (agent)"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:27
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:27
 #. Diagram label
 msgid "IRIS CDN weekly reconciliation"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:51
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:51
 #. Diagram label
 msgid "List every item id IRIS reports"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:67
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:67
 #. Diagram label
 msgid "Mark confirmed items withdrawn (keep bytes)"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:57
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:57
 #. Diagram label
 msgid "Missing share under 1%?"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:81
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:81
 #. Diagram label
 msgid "no"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:63
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:63
 #. Diagram label
 msgid "Nothing marked"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:64
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:64
 #. Diagram label
 msgid "Re-check each missing item by id"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:71
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:71
 #. Diagram label
 msgid "Rebuild the whole graph (sorted output)"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:77
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:77
 #. Diagram label
 msgid "Reconciled"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:74
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:74
 #. Diagram label
 msgid "Sign and publish the release"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:43
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:43
 #. Diagram element documentation
 msgid "The agent role. It plans, reviews and reports; it does not hold the signing key, and it never pushes to a WHO repository."
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:28
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:28
 #. Diagram element documentation
 msgid "The DSpace REST API reports no deletions, so once a week every item id IRIS lists is compared with what the library holds. An item no longer listed is re-checked by id; only one IRIS confirms withdrawn is marked so."
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:68
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:68
 #. Diagram element documentation
 msgid "The record gets a withdrawn state; its bitstreams stay addressable, because a citation to them may exist."
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:60
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:60
 #. Diagram label
 msgid "Treat the listing as faulty; escalate"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:48
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:48
 #. Diagram label
 msgid "Weekly, Sunday 04:00 UTC"
 msgstr ""
 
-#: processes/iris-cdn-reconcile.bpmn:83
+#: ../who-iris/processes/iris-cdn-reconcile.bpmn:83
 #. Diagram label
 msgid "yes"
 msgstr ""
