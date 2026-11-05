@@ -1197,7 +1197,7 @@ function banner(): string {
  * | `/who-iris/item-x.html` | `/` |
  * | `/docs/who-iris/ingestion-notes.html` | `/` |
  * | `/folio-assistant/who-iris/item-x.html` | `/folio-assistant/` |
- * | `/STAGING/<branch>/who-iris/item-x.html` | `/STAGING/<branch>/` |
+ * | `/branches/<branch>/who-iris/item-x.html` | `/branches/<branch>/` |
  *
  * | `/who-iris/who-iris/item-x.html` | `/who-iris/` |
  * | `/who-iris/docs/who-iris/ingestion-notes.html` | `/who-iris/` |
@@ -3670,7 +3670,7 @@ function main(): number {
    * docs index while the page sat beside it and resolves to THIS PAGE from the
    * new route. There is no safe replacement: the docs index lives on a mount
    * route, and a site-root-relative link is wrong under a baseurl and wrong
-   * again under `/STAGING/<branch>/`. Inventing one here would be guessing at
+   * again under `/branches/<branch>/`. Inventing one here would be guessing at
    * the cross-route problem #879 is solving properly; a crumb that reads as a
    * link and returns you to where you already are is worse than a plain label.
    */
