@@ -48,7 +48,7 @@
     {
       "id": "process_iriscdninitialload.task_planbatches",
       "prefLabel": "Plan batches by community and collection",
-      "definition": "One batch per collection (large collections split by page). The plan and its progress are a checkpoint file in the Cloudflare git repository (state/initial-load.json); restarting reads it and skips finished batches.",
+      "definition": "One batch per collection (large collections split by page).",
       "notation": "Task_PlanBatches",
       "source": "who-iris/processes/iris-cdn-initial-load.bpmn#Task_PlanBatches",
       "status": "candidate"
@@ -122,7 +122,7 @@
     {
       "id": "process_iriscdnnightly.task_listchanged",
       "prefLabel": "List items changed since the cursor",
-      "definition": "Discovery search sorted by lastModified, newest first, paged until a page reaches the cursor (scripts/iris-cdn/rest-feed.ts changedSince). Inclusive of the cursor second, de-duplicated.",
+      "definition": "scripts/iris-cdn/rest-feed.ts changedSince: a Discovery search for lastModified at or after the cursor, sorted by dc.date.accessioned (IRIS rejects a lastModified sort), paged until an item is older than the cursor. Inclusive of the cursor second, de-duplicated by uuid, returned oldest first.",
       "notation": "Task_ListChanged",
       "source": "who-iris/processes/iris-cdn-nightly.bpmn#Task_ListChanged",
       "status": "candidate"
@@ -130,7 +130,7 @@
     {
       "id": "process_iriscdnnightly.task_readcursor",
       "prefLabel": "Read the cursor of the last published run",
-      "definition": "state/cursor.json in the Cloudflare git repository: the lastModified of the newest item in the last VERIFIED release. Advanced only after a publish verifies.",
+      "definition": "state/cursor.json in the Cloudflare git repository: the lastModified of the newest item in the last VERIFIED release.",
       "notation": "Task_ReadCursor",
       "source": "who-iris/processes/iris-cdn-nightly.bpmn#Task_ReadCursor",
       "status": "candidate"
@@ -242,7 +242,7 @@
     {
       "id": "process_iriscdnsignpublish.task_signitems",
       "prefLabel": "Sign each changed item manifest (ES256)",
-      "definition": "Owner, Q4 A: a signature on each library item. items/<handle>/manifest-sha256.txt lists the item record and its files; its detached JWS sits beside it. Only items whose manifest bytes changed are signed: ES256 is randomised, so re-signing an unchanged item would be churn. The item manifests and their signatures join the payload, so the tag files are refreshed to cover them before the release is signed.",
+      "definition": "A signature on each library item: items/<handle>/manifest-sha256.txt lists the item record and its files; its detached JWS sits beside it. Only items whose manifest bytes changed are signed: ES256 is randomised, so re-signing an unchanged item would be churn. The item manifests and their signatures join the payload, so the tag files are refreshed to cover them before the release is signed.",
       "notation": "Task_SignItems",
       "source": "who-iris/processes/iris-cdn-sign-publish.bpmn#Task_SignItems",
       "status": "candidate"
@@ -258,7 +258,7 @@
     {
       "id": "process_iriscdnsignpublish.task_verify",
       "prefLabel": "Resolve did:web; verify JWS and digests",
-      "definition": "scripts/iris-cdn/signing.ts verifyDetached against the DID document fetched from its did:web URL, then a sample of payload digests.",
+      "definition": "scripts/iris-cdn/run.ts checkRelease: every tag file against tagmanifest-sha256.txt, then scripts/iris-cdn/signing.ts verifyDetached against the DID document fetched from its did:web URL.",
       "notation": "Task_Verify",
       "source": "who-iris/processes/iris-cdn-sign-publish.bpmn#Task_Verify",
       "status": "candidate"
