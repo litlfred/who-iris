@@ -502,6 +502,7 @@ byte-identical across rebuilds.</li>
 </li>
 </ul>
 <h3>Stage 2: Build-Time Tests</h3>
+<!-- command-path-ok: run from the who-iris instance root (where scripts/ lives); in an index checkout that mounts who-iris at who-iris/ and has its own root scripts/, check:command-paths resolves scripts/ against the index root -->
 <pre><code class="language-bash">bun run scripts/build-iris-oxigraph.ts
 bun test scripts/tests/iris-oxigraph.test.ts
 </code></pre>
