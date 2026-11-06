@@ -12,20 +12,20 @@ const e = (path: string, body: string): PayloadEntry => ({ path, sha256: sha256H
 describe("BagIt manifests (RFC 8493) — no churn", () => {
   const a = [e("graph/spine.nq", "s"), e("records/10665/1.json", "one"), e("bitstreams/ab.pdf", "pdf")];
 
-  test("order of discovery does not change the bytes", () => {
+  test("discoveryOrderKeepsBytes", () => {
     expect(tagFiles(a)).toEqual(tagFiles([...a].reverse()));
   });
 
-  test("no Bagging-Date, and a date label is refused", () => {
+  test("refusesBaggingDate", () => {
     expect(tagFiles(a)["bag-info.txt"]).not.toMatch(/Date/);
     expect(() => tagFiles(a, { "Bagging-Date": "2026-10-30" })).toThrow(/date/);
   });
 
-  test("Payload-Oxum is octets.count", () => {
+  test("payloadOxumIsOctetsCount", () => {
     expect(tagFiles(a)["bag-info.txt"]).toContain("Payload-Oxum: 7.3\n");
   });
 
-  test("manifest round-trips and diffs to exactly what moved", () => {
+  test("manifestRoundTripsAndDiffs", () => {
     const prev = parsePayloadManifest(payloadManifest(a));
     const next = parsePayloadManifest(payloadManifest([e("graph/spine.nq", "s2"), e("records/10665/1.json", "one"), e("records/10665/2.json", "two")]));
     const d = diffManifests(prev, next);
@@ -33,20 +33,20 @@ describe("BagIt manifests (RFC 8493) — no churn", () => {
     expect(isEmptyDiff(diffManifests(prev, prev))).toBe(true);
   });
 
-  test("unsafe and duplicate paths are refused", () => {
+  test("refusesUnsafeAndDuplicatePaths", () => {
     expect(() => payloadManifest([e("../x", "x")])).toThrow(/unsafe/);
     expect(() => payloadManifest([e("x", "1"), e("x", "2")])).toThrow(/duplicate/);
   });
 });
 
 describe("did:web + detached JWS (RFC 7515 App. F, ES256 / EdDSA)", () => {
-  test("did:web resolution", () => {
+  test("resolvesDidWebUrl", () => {
     expect(didWebUrl("did:web:litlfred.github.io:who-iris-cdn")).toBe("https://litlfred.github.io/who-iris-cdn/did.json");
     expect(didWebUrl("did:web:example.org")).toBe("https://example.org/.well-known/did.json");
     expect(didWebUrl("did:web:localhost%3A8443:a")).toBe("https://localhost:8443/a/did.json");
   });
 
-  test("sign, verify, and every way it should fail", async () => {
+  test("signsVerifiesAndFails", async () => {
     const did = "did:web:litlfred.github.io:who-iris-cdn";
     const { privateKey, publicJwk } = await generateKeyPair();
     const other = await generateKeyPair();
@@ -64,7 +64,7 @@ describe("did:web + detached JWS (RFC 7515 App. F, ES256 / EdDSA)", () => {
     expect(await verifyDetached(payload, byRetired, doc)).toMatchObject({ state: "failed", reason: expect.stringContaining("assertionMethod") });
   });
 
-  test("the DID document is byte-stable for the same keys", async () => {
+  test("didDocumentIsByteStable", async () => {
     const k1 = await generateKeyPair();
     const k2 = await generateKeyPair();
     const did = "did:web:example.org";
@@ -105,7 +105,7 @@ describe("DSpace REST change feed", () => {
     return { fetcher, calls };
   };
 
-  test("pages newest first and stops at the cursor; returns oldest first", async () => {
+  test("pagesNewestFirstToCursor", async () => {
     const { fetcher, calls } = fake(2);
     const got = await changedSince(fetcher, "2026-10-29T00:00:00+00:00", { api: "https://x/api" });
     expect(got.map((i) => i.uuid)).toEqual(["u3", "u4", "u5"]);
@@ -114,17 +114,17 @@ describe("DSpace REST change feed", () => {
     expect(calls[0]).toContain(encodeURIComponent("lastModified:[2026-10-29T00:00:00.000Z TO *]"));
   });
 
-  test("weekly reconciliation lists everything", async () => {
+  test("weeklyReconciliationListsAll", async () => {
     const { fetcher } = fake(2);
     expect([...(await allItemIds(fetcher, { api: "https://x/api" }))].sort()).toEqual(["u1", "u2", "u3", "u4", "u5"]);
   });
 
-  test("a short listing is not read as a mass withdrawal", () => {
+  test("shortListingIsNotMassWithdrawal", () => {
     expect(withdrawnOrHidden(["a", "b"], new Set(["a"]), 0.5)).toEqual(["b"]);
     expect(() => withdrawnOrHidden(["a", "b", "c"], new Set(["a"]), 0.5)).toThrow(/faulty/);
   });
 
-  test("bitstreams come out of embedded bundles, sorted, with their bundle", async () => {
+  test("bitstreamsFromEmbeddedBundles", async () => {
     const fetcher: Fetcher = async () => ({
       ok: true,
       status: 200,
@@ -146,7 +146,7 @@ describe("DSpace REST change feed", () => {
 });
 
 describe("canonical records — no churn", () => {
-  test("key order and HAL links do not change the bytes", async () => {
+  test("recordBytesIgnoreKeyOrderAndLinks", async () => {
     const { canonicalJson, recordOf } = await import("../iris-cdn/run.ts");
     const a = recordOf({ uuid: "u", handle: "10665/1", metadata: { "dc.title": [{ value: "T" }], "dc.date": [] }, _links: { self: { href: "https://x/1" } } });
     const b = recordOf({ _links: { self: { href: "https://y/1" } }, metadata: { "dc.date": [], "dc.title": [{ value: "T" }] }, handle: "10665/1", uuid: "u" });
@@ -156,7 +156,7 @@ describe("canonical records — no churn", () => {
 });
 
 describe("metadata can change while the PDF does not", () => {
-  test("metadataSha ignores key order and sees a value change", async () => {
+  test("metadataShaIgnoresKeyOrder", async () => {
     const { metadataSha } = await import("../iris-cdn/rest-feed.ts");
     const a = metadataSha({ "dc.title": [{ value: "T", language: "en" }], "dc.date.issued": [{ value: "2020" }] });
     const b = metadataSha({ "dc.date.issued": [{ value: "2020" }], "dc.title": [{ language: "en", value: "T" }] });
@@ -165,7 +165,7 @@ describe("metadata can change while the PDF does not", () => {
     expect(a).not.toBe(c);
   });
 
-  test("the weekly listing carries each item's metadata hash", async () => {
+  test("weeklyListingCarriesMetadataHash", async () => {
     const { allItems, metadataSha } = await import("../iris-cdn/rest-feed.ts");
     const md = { "dc.title": [{ value: "X" }] };
     const fetcher: Fetcher = async () => ({
@@ -178,7 +178,7 @@ describe("metadata can change while the PDF does not", () => {
     expect((await allItems(fetcher, { api: "https://x/api" })).get("u")).toBe(metadataSha(md));
   });
 
-  test("communities and collections are paged in full", async () => {
+  test("containersPagedInFull", async () => {
     const { allContainers } = await import("../iris-cdn/rest-feed.ts");
     const all = Array.from({ length: 5 }, (_, i) => ({ uuid: `c${i}`, handle: `10665/c${i}`, name: `C${i}` }));
     const fetcher: Fetcher = async (url) => {
@@ -200,7 +200,7 @@ describe("x5c trust chain up to WHO's key", () => {
     return { kty: "EC", crv: "P-256", x: j.x, y: j.y };
   };
 
-  test("leaf signed by the WHO anchor verifies; a stranger's chain fails", async () => {
+  test("verifiesX5cChainToWhoAnchor", async () => {
     const d = mkdtempSync(pjoin(tmpdir(), "x5c-"));
     for (const n of ["who", "iris", "other"]) sh(["ecparam", "-name", "prime256v1", "-genkey", "-noout", "-out", `${n}.key`], d);
     sh(["req", "-x509", "-new", "-key", "who.key", "-subj", "/CN=WHO test root", "-days", "30", "-addext", "basicConstraints=critical,CA:TRUE", "-out", "who.crt"], d);
@@ -226,7 +226,7 @@ describe("x5c trust chain up to WHO's key", () => {
 });
 
 describe("verification refuses what the release cannot prove", () => {
-  test("with a trust anchor, a key with no x5c chain fails", async () => {
+  test("failsAnchoredKeyWithoutX5c", async () => {
     const anchor = await generateKeyPair();
     const k = await generateKeyPair();
     const did = "did:web:example.net";
@@ -235,7 +235,7 @@ describe("verification refuses what the release cannot prove", () => {
     expect(await verifyDetached("payload", jws, doc, { anchors: [anchor.publicJwk] })).toMatchObject({ state: "failed", reason: expect.stringContaining("no certificate chain") });
   });
 
-  test("a kid outside the expected DID fails", async () => {
+  test("failsKidOutsideExpectedDid", async () => {
     const k = await generateKeyPair();
     const did = "did:web:example.net";
     const doc = didDocument(did, [{ fragment: "k", jwk: k.publicJwk, active: true }]);
@@ -244,7 +244,7 @@ describe("verification refuses what the release cannot prove", () => {
     expect(await verifyDetached("payload", jws, doc, { expectDid: did })).toMatchObject({ state: "verified" });
   });
 
-  test("did:web with a host or path that is not plain is refused", () => {
+  test("refusesNonPlainDidWeb", () => {
     expect(() => didWebUrl("did:web:a.org%2Fb")).toThrow(/host/);
     expect(() => didWebUrl("did:web:user%40a.org")).toThrow(/host/);
     expect(() => didWebUrl("did:web:a.org:..")).toThrow(/segment/);
@@ -253,7 +253,7 @@ describe("verification refuses what the release cannot prove", () => {
 });
 
 describe("IRIS values used as path segments are refused, never repaired", () => {
-  test("handles, uuids and segments", async () => {
+  test("refusesUnsafePathSegments", async () => {
     const { handleProblem, itemKey, segmentProblem, uuidProblem } = await import("../iris-cdn/run.ts");
     expect(handleProblem("10665/123")).toBeNull();
     for (const h of ["10665/1/x", "../1", "10665/1\n", "", 7]) expect(handleProblem(h)).not.toBeNull();
@@ -267,7 +267,7 @@ describe("IRIS values used as path segments are refused, never repaired", () => 
 });
 
 describe("per-item manifests (Q4 A)", () => {
-  test("an item's manifest holds its record and files only, and is stable", async () => {
+  test("itemManifestHoldsOwnFilesStably", async () => {
     const { itemManifest, itemManifestPath } = await import("../iris-cdn/bag.ts");
     const all = [e("records/10665/1.json", "r1"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf"), e("records/10665/12.json", "r12"), e("bitstreams/10665/12/ORIGINAL/b.pdf", "x")];
     const m = itemManifest("10665/1", all);
@@ -277,7 +277,7 @@ describe("per-item manifests (Q4 A)", () => {
     expect(() => itemManifest("10665/9", all)).toThrow(/no record/);
   });
 
-  test("a metadata-only change moves the record digest and not the PDF's", async () => {
+  test("metadataChangeMovesRecordOnly", async () => {
     const { itemManifest, parsePayloadManifest } = await import("../iris-cdn/bag.ts");
     const before = parsePayloadManifest(itemManifest("10665/1", [e("records/10665/1.json", "title A"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf")]));
     const after = parsePayloadManifest(itemManifest("10665/1", [e("records/10665/1.json", "title B"), e("bitstreams/10665/1/ORIGINAL/a.pdf", "pdf")]));
@@ -286,7 +286,7 @@ describe("per-item manifests (Q4 A)", () => {
 });
 
 describe("live iris.who.int DSpace 7 REST shapes (#104)", () => {
-  test("recordOf lifts owningCollection and parentCommunity from _embedded while stripping HAL _links", async () => {
+  test("recordOfLiftsEmbeddedContainers", async () => {
     const { recordOf } = await import("../iris-cdn/run.ts");
     const liveItem = {
       id: "6e96b393-5419-4127-9818-a0ecdc174b70",
@@ -319,7 +319,7 @@ describe("live iris.who.int DSpace 7 REST shapes (#104)", () => {
     });
   });
 
-  test("itemBitstreams pages bundle bitstreams when a bundle has more than one page", async () => {
+  test("itemBitstreamsPagesBundles", async () => {
     const calls: string[] = [];
     const fetcher: Fetcher = async (url) => {
       calls.push(url);
@@ -374,7 +374,7 @@ describe("live iris.who.int DSpace 7 REST shapes (#104)", () => {
 });
 
 describe("initial-load runner: budget, batch plan, checkpoint and graph rebuild (#104)", () => {
-  test("parseBudget refuses a budget without upstream denominators (Task_StateBudget)", async () => {
+  test("parseBudgetRequiresDenominators", async () => {
     const { parseBudget } = await import("../iris-cdn/run.ts");
     expect(() => parseBudget({})).toThrow(/totalItemsUpstream/);
     expect(() => parseBudget({ totalItemsUpstream: 274071, totalFilesUpstream: 1057223, totalBytesUpstream: 0, maxRequestsPerSecond: 2 })).toThrow(/totalBytesUpstream/);
@@ -391,7 +391,7 @@ describe("initial-load runner: budget, batch plan, checkpoint and graph rebuild 
     expect(ok.pageSize).toBe(1);
   });
 
-  test("runInitialLoad plans batches by collection, checkpoints after each batch, resumes where it stopped, and builds the Oxigraph graph", async () => {
+  test("initialLoadBatchesResumesBuildsGraph", async () => {
     const { parseBudget, resetSignerForTest, runInitialLoad } = await import("../iris-cdn/run.ts");
     const { createHash } = await import("node:crypto");
     const { existsSync, rmSync } = await import("node:fs");
@@ -596,7 +596,7 @@ describe("initial-load runner: budget, batch plan, checkpoint and graph rebuild 
 });
 
 describe("Task_Revert: automatic revert when post-publish verification fails (#104)", () => {
-  test("revertRelease reverts HEAD in the release git repository and restores the previous verified release and cursor", async () => {
+  test("revertRestoresPreviousRelease", async () => {
     const { checkRelease, revertRelease } = await import("../iris-cdn/run.ts");
     const { execFileSync } = await import("node:child_process");
     const { mkdirSync, rmSync, writeFileSync } = await import("node:fs");

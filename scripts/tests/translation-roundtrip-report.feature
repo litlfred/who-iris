@@ -3,24 +3,24 @@ Feature: The translation round-trip report and the attestations it is built from
   translation-qa attestations, and today's translation catalogues for ar, es,
   fr, ru and zh.
 
-  @test:scripts/tests/translation-roundtrip-report.test.ts::it_builds_from_the_attestations_and_today's_catalogues
+  @test:scripts/tests/translation-roundtrip-report.test.ts::buildsFromAttestations
   Scenario: it builds from the attestations and today's catalogues
     When the report is built
     Then its schema is "qa-results/v1"
     And its totals are keyed by exactly ar, es, fr, ru and zh
 
-  @test:scripts/tests/translation-roundtrip-report.test.ts::every_back-translator_reports_Read_and_Write_only
+  @test:scripts/tests/translation-roundtrip-report.test.ts::backTranslatorsUseReadWriteOnly
   Scenario: every back-translator reports Read and Write only
     When the report is built
     Then every locale's family summary contains "Back-translator tools: Read,Write."
 
-  @test:scripts/tests/translation-roundtrip-report.test.ts::parsePo_joins_continuation_lines_and_skips_the_header
+  @test:scripts/tests/translation-roundtrip-report.test.ts::parsePoJoinsLinesSkipsHeader
   Scenario: parsePo joins continuation lines and skips the header
     Given a PO text with a header entry and one entry whose msgid "a " continues on the next line with "b"
     When it is parsed as "x.po"
     Then the result is the single entry with catalogue "x.po", msgid "a b" and msgstr "c"
 
-  @test:scripts/tests/translation-roundtrip-report.test.ts::one_translation-qa_file_per_catalogue_and_locale,_a_ruling_for_every_string,_each_a_judgement
+  @test:scripts/tests/translation-roundtrip-report.test.ts::attestationPerCatalogueAndLocale
   Scenario: one translation-qa file per catalogue and locale, a ruling for every string, each a judgement
     Given each of the five locales and each of the catalogues site/iris-site.po and glossary/who-iris--who-terms.po
     Then a translation-qa attestations file exists for that catalogue and locale
@@ -30,7 +30,7 @@ Feature: The translation round-trip report and the attestations it is built from
     And the run and every entry have a reviewer of kind "agent"
     And the run's back-translation trailer says tools used were "Read,Write"
 
-  @test:scripts/tests/translation-roundtrip-report.test.ts::the_derived_report_is_no_longer_committed_beside_them
+  @test:scripts/tests/translation-roundtrip-report.test.ts::derivedReportNotCommitted
   Scenario: the derived report is no longer committed beside them
     When git lists the tracked files under test/results
     Then the list is empty

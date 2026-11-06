@@ -4,20 +4,20 @@ Feature: The WHO-IRIS Oxigraph multi-graph search engine
   tiers (a spine plus per-community partitions), including over exported
   DSpace records.
 
-  @test:scripts/tests/iris-oxigraph.test.ts::builds_multi-graph_N-Quads_dataset_and_prepared_queries_catalog
+  @test:scripts/tests/iris-oxigraph.test.ts::buildsDatasetAndQueryCatalog
   Scenario: builds multi-graph N-Quads dataset and prepared queries catalog
     Given the IRIS dataset built into dist/oxigraph
     Then who-iris-dataset.nq, who-iris-dataset.nq.gz and queries.json exist
     And the dataset contains both the catalogue graph and the metadata graph
     And queries.json has a discoverySearch and a facetCounts query
 
-  @test:scripts/tests/iris-oxigraph.test.ts::Solution_A_Skolemization:_asserts_zero_blank_nodes_in_compiled_N-Quads_dataset
+  @test:scripts/tests/iris-oxigraph.test.ts::datasetHasNoBlankNodes
   Scenario: Solution A Skolemization: asserts zero blank nodes in compiled N-Quads dataset
     Given the IRIS dataset built into dist/oxigraph
     Then no line of who-iris-dataset.nq contains a blank node
     And more than 10 lines contain an "https://iris.who.int/entity/item/" URI
 
-  @test:scripts/tests/iris-oxigraph.test.ts::complex_search:_multi-condition_filter_combining_Subject,_Community,_and_Copyright_Gate
+  @test:scripts/tests/iris-oxigraph.test.ts::searchCombinesSubjectCommunityGate
   Scenario: complex search: multi-condition filter combining Subject, Community, and Copyright Gate
     Given an engine loaded with the whole dataset
     When it searches for subject "Guidelines", community "Western Pacific", with a PDF and copyright verdict "permitted"
@@ -26,7 +26,7 @@ Feature: The WHO-IRIS Oxigraph multi-graph search engine
     And its creator is "World Health Organization. Regional Office for the Western Pacific"
     And its spatial is "Manila", its year 2020, its PDF "WPR-RDO-2020-003-eng.pdf" and its copyright gate "permitted"
 
-  @test:scripts/tests/iris-oxigraph.test.ts::complex_search:_Date_range_filter_(1990_<=_Year_<=_2000)_with_Spatial="Geneva"
+  @test:scripts/tests/iris-oxigraph.test.ts::searchFiltersDateRangeAndSpatial
   Scenario: complex search: Date range filter (1990 <= Year <= 2000) with Spatial="Geneva"
     Given an engine loaded with the whole dataset
     When it searches for spatial "Geneva" with year from 1990 to 2000
@@ -34,14 +34,14 @@ Feature: The WHO-IRIS Oxigraph multi-graph search engine
     And its title is "WHO editorial style manual" and its year 1993
     And its languages include "it" and "en"
 
-  @test:scripts/tests/iris-oxigraph.test.ts::facet_rollups:_aggregate_counts_across_subjects_and_communities
+  @test:scripts/tests/iris-oxigraph.test.ts::facetCountsBySubjectAndCommunity
   Scenario: facet rollups: aggregate counts across subjects and communities
     Given an engine loaded with the whole dataset
     When subject and community facet counts are taken
     Then "Guidelines as Topic" is present with count 2 and "Publishing" has count 2
     And the community containing "Headquarters" has count 17 and the one containing "Western Pacific" count 1
 
-  @test:scripts/tests/iris-oxigraph.test.ts::dynamic_/_lazy_loading:_incrementally_mount_subgraphs_without_store_clobbering
+  @test:scripts/tests/iris-oxigraph.test.ts::lazyMountDoesNotClobberStore
   Scenario: dynamic / lazy loading: incrementally mount subgraphs without store clobbering
     Given an engine loaded with only the catalogue graph file, which exists
     When it searches for subject "Guidelines"
@@ -50,14 +50,14 @@ Feature: The WHO-IRIS Oxigraph multi-graph search engine
     Then there is at least one result
     And the result handles are the same as an engine loaded with the whole dataset finds
 
-  @test:scripts/tests/iris-oxigraph.test.ts::prepared_queries_manifest_execution
+  @test:scripts/tests/iris-oxigraph.test.ts::preparedQueriesExecute
   Scenario: prepared queries manifest execution
     Given an engine loaded directly from the gzipped dataset
     When the prepared discoverySearch SPARQL from queries.json is run
     Then there is at least one row
     And the handles include https://hdl.handle.net/10665/332098
 
-  @test:scripts/tests/iris-oxigraph.test.ts::2-Tier_Architecture:_Tier_1_spine_fast_discovery_search_without_partitions
+  @test:scripts/tests/iris-oxigraph.test.ts::spineSearchWithoutPartitions
   Scenario: 2-Tier Architecture: Tier 1 spine fast discovery search without partitions
     Given an engine loaded with only the gzipped spine, which exists
     Then the spine is loaded and no community is loaded
@@ -66,7 +66,7 @@ Feature: The WHO-IRIS Oxigraph multi-graph search engine
     And its title, creator, PDF name and copyright gate are those of the WPRO style guide
     And it has no subjects
 
-  @test:scripts/tests/iris-oxigraph.test.ts::2-Tier_Architecture:_Dynamic_on-demand_loading_of_community_partition
+  @test:scripts/tests/iris-oxigraph.test.ts::loadsCommunityPartitionOnDemand
   Scenario: 2-Tier Architecture: Dynamic on-demand loading of community partition
     Given an engine loaded with the spine
     And the subgraph manifest, which exists and declares a partition for the WPRO community
@@ -77,7 +77,7 @@ Feature: The WHO-IRIS Oxigraph multi-graph search engine
     And searching for spatial "Manila" gives exactly one result, handle https://hdl.handle.net/10665/332098
     And its spatial is "Manila", its govdoc "WPR/RDO/2020/003" and its subjects include "Guidelines as Topic"
 
-  @test:scripts/tests/iris-oxigraph.test.ts::2-Tier_Architecture:_Multi-community_dynamic_mounting_and_active_cross-community_search
+  @test:scripts/tests/iris-oxigraph.test.ts::searchesAcrossMountedCommunities
   Scenario: 2-Tier Architecture: Multi-community dynamic mounting and active cross-community search
     Given an engine loaded with the spine
     And the subgraph manifest declares 3 community partitions
@@ -87,14 +87,14 @@ Feature: The WHO-IRIS Oxigraph multi-graph search engine
     Then there are exactly two results
     And their handles include https://hdl.handle.net/10665/332098 and https://hdl.handle.net/10665/145714
 
-  @test:scripts/tests/iris-oxigraph.test.ts::2-Tier_Architecture:_Subgraph_manifest_integrity_and_partition_files_exist
+  @test:scripts/tests/iris-oxigraph.test.ts::subgraphManifestFilesExist
   Scenario: 2-Tier Architecture: Subgraph manifest integrity and partition files exist
     Given the subgraph manifest
     Then its version is "1.0.0"
     And its tier 1 spine file is who-iris-spine.nq, and both the spine's .nq and .gz files exist
     And every community partition has more than zero quads and items, and both its .nq and .gz files exist
 
-  @test:scripts/tests/iris-oxigraph.test.ts::builds_sorted,_byte-identical_partitions_from_exported_records_and_keeps_unchanged_partitions_identical_when_another_community_changes
+  @test:scripts/tests/iris-oxigraph.test.ts::exportBuildsStablePartitions
   Scenario: builds sorted, byte-identical partitions from exported records and keeps unchanged partitions identical when another community changes
     Given exported DSpace records for a WPRO and an HQ community, one collection and one item each
     When the dataset is built from them twice
