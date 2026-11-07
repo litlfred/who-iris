@@ -15,7 +15,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     await buildIrisDataset(TMP_DIST);
   });
 
-  test('builds multi-graph N-Quads dataset and prepared queries catalog', () => {
+  test("buildsDatasetAndQueryCatalog", () => {
     const nqPath = path.join(TMP_DIST, 'who-iris-dataset.nq');
     const gzPath = path.join(TMP_DIST, 'who-iris-dataset.nq.gz');
     const queriesPath = path.join(TMP_DIST, 'queries.json');
@@ -33,7 +33,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(queries).toHaveProperty('facetCounts');
   });
 
-  test('Solution A Skolemization: asserts zero blank nodes in compiled N-Quads dataset', () => {
+  test("datasetHasNoBlankNodes", () => {
     const nqPath = path.join(TMP_DIST, 'who-iris-dataset.nq');
     const lines = fs.readFileSync(nqPath, 'utf8').split('\n').filter(Boolean);
 
@@ -46,7 +46,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(skolemizedNodes.length).toBeGreaterThan(10);
   });
 
-  test('complex search: multi-condition filter combining Subject, Community, and Copyright Gate', () => {
+  test("searchCombinesSubjectCommunityGate", () => {
     const engine = new IrisOxigraphEngine();
     engine.load(path.join(TMP_DIST, 'who-iris-dataset.nq'));
 
@@ -69,7 +69,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(item.copyrightGate).toBe('permitted');
   });
 
-  test('complex search: Date range filter (1990 <= Year <= 2000) with Spatial="Geneva"', () => {
+  test("searchFiltersDateRangeAndSpatial", () => {
     const engine = new IrisOxigraphEngine();
     engine.load(path.join(TMP_DIST, 'who-iris-dataset.nq'));
 
@@ -87,7 +87,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(results[0].languages).toContain('en');
   });
 
-  test('facet rollups: aggregate counts across subjects and communities', () => {
+  test("facetCountsBySubjectAndCommunity", () => {
     const engine = new IrisOxigraphEngine();
     engine.load(path.join(TMP_DIST, 'who-iris-dataset.nq'));
 
@@ -107,7 +107,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(wpro?.count).toBe(1);
   });
 
-  test('dynamic / lazy loading: incrementally mount subgraphs without store clobbering', () => {
+  test("lazyMountDoesNotClobberStore", () => {
     const engine = new IrisOxigraphEngine();
 
     // 1. Initially load ONLY the catalogue graph
@@ -134,7 +134,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(handles(afterLoad)).toEqual(handles(eager.complexSearch({ subject: 'Guidelines' })));
   });
 
-  test('prepared queries manifest execution', () => {
+  test("preparedQueriesExecute", () => {
     const engine = new IrisOxigraphEngine();
     engine.load(path.join(TMP_DIST, 'who-iris-dataset.nq.gz')); // Test loading gzipped directly!
 
@@ -148,7 +148,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(handles).toContain('https://hdl.handle.net/10665/332098');
   });
 
-  test('2-Tier Architecture: Tier 1 spine fast discovery search without partitions', () => {
+  test("spineSearchWithoutPartitions", () => {
     const engine = new IrisOxigraphEngine();
     const spineGz = path.join(TMP_DIST, 'who-iris-spine.nq.gz');
     expect(fs.existsSync(spineGz)).toBe(true);
@@ -175,7 +175,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(results[0].subjects.length).toBe(0);
   });
 
-  test('2-Tier Architecture: Dynamic on-demand loading of community partition', () => {
+  test("loadsCommunityPartitionOnDemand", () => {
     const engine = new IrisOxigraphEngine();
     const spinePath = path.join(TMP_DIST, 'who-iris-spine.nq');
     engine.loadSpine(spinePath);
@@ -206,7 +206,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(afterResults[0].subjects).toContain('Guidelines as Topic');
   });
 
-  test('2-Tier Architecture: Multi-community dynamic mounting and active cross-community search', () => {
+  test("searchesAcrossMountedCommunities", () => {
     const engine = new IrisOxigraphEngine();
     engine.loadSpine(path.join(TMP_DIST, 'who-iris-spine.nq'));
 
@@ -232,7 +232,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(handles).toContain('https://hdl.handle.net/10665/145714'); // HQ item
   });
 
-  test('2-Tier Architecture: Subgraph manifest integrity and partition files exist', () => {
+  test("subgraphManifestFilesExist", () => {
     const manifestPath = path.join(TMP_DIST, 'subgraph-manifest.json');
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
@@ -253,7 +253,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
 
 
 describe('WHO-IRIS Oxigraph over exported DSpace records (#104)', () => {
-  test('builds sorted, byte-identical partitions from exported records and keeps unchanged partitions identical when another community changes', async () => {
+  test("exportBuildsStablePartitions", async () => {
     const tmpBase = fs.mkdtempSync(path.join(os.tmpdir(), 'ox-export-test-'));
     const recDir = path.join(tmpBase, 'records');
     const out1 = path.join(tmpBase, 'out1');

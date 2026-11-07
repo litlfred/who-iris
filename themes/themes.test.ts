@@ -89,29 +89,29 @@ const PUB = whoThemeById("who-wpro-publication")!;
 const STICKY = whoThemeById("iris-sticky")!;
 
 describe("both themes exist and resolve", () => {
-  it("resolves three themes: two measured (webpage, publication) and one derived sticky", () => {
+  it("resolvesThreeThemesByKind", () => {
     expect(WHO_THEMES.map((t) => t.id).sort()).toEqual(["iris-sticky", "iris-web", "who-wpro-publication"]);
     expect(IRIS.kind).toBe("webpage");
     expect(PUB.kind).toBe("publication");
     expect(STICKY.kind).toBe("sticky");
   });
 
-  it("each passes the platform's RESOLVED schema, where requiredness lives", () => {
+  it("eachPassesResolvedSchema", () => {
     for (const t of WHO_THEMES) expect(() => ResolvedThemeSchema.parse(t)).not.toThrow();
   });
 
-  it("is keyed by instance, because ids are not unique across instances", () => {
+  it("keyedByInstance", () => {
     expect(themeKey(THEME_INSTANCE, IRIS.id)).toBe("who-iris:iris-web");
   });
 });
 
 describe("iris-web is what the captured stylesheet actually says", () => {
-  it("the capture is present and is the DSpace theme", () => {
+  it("captureIsDspaceTheme", () => {
     expect(CSS.length).toBeGreaterThan(500_000);
     expect(CSS).toContain("--ds-header-logo-height");
   });
 
-  it("`accent` is `--primary`, NOT the prettier `--blue`", () => {
+  it("accentIsPrimaryNotBlue", () => {
     // The one substantive judgement in this theme. `--blue` is a Bootstrap
     // SCALE entry; `--primary` is the ROLE. DSpace sets them differently here
     // on purpose, and taking the brand-looking one would be the hardcoding
@@ -122,12 +122,12 @@ describe("iris-web is what the captured stylesheet actually says", () => {
     expect(IRIS.palette.accent).not.toBe(cssVar(CSS, "blue"));
   });
 
-  it("`edge` is the navbar's own bottom border", () => {
+  it("edgeIsNavbarBottomBorder", () => {
     expect(cssVar(CSS, "ds-header-navbar-border-bottom-color")).toBe("#ced4da");
     expect(IRIS.palette.edge).toBe("#ced4da");
   });
 
-  it("`ink` and `surface` are the body's declared colour and background", () => {
+  it("inkAndSurfaceFromBody", () => {
     const body = CSS.match(/body\{margin:0;[^}]*\}/)?.[0] ?? "";
     expect(body).toContain("color:#212529");
     expect(body).toContain("background-color:#fff");
@@ -135,12 +135,12 @@ describe("iris-web is what the captured stylesheet actually says", () => {
     expect(IRIS.palette.surface).toBe("#ffffff");
   });
 
-  it("declares no gradient, because the source declares none", () => {
+  it("declaresNoGradient", () => {
     expect(IRIS.palette.gradientFrom).toBeUndefined();
     expect(IRIS.palette.gradientTo).toBeUndefined();
   });
 
-  it("`minWidth` values are real COLUMN widths, not breakpoints", () => {
+  it("minWidthsAreColumnWidths", () => {
     // A breakpoint is a viewport; minWidth is documented as a column width.
     // The widest `.container` max-width and the named sidebar width are
     // columns; 992px is not, and must not appear here.
@@ -155,14 +155,14 @@ describe("iris-web is what the captured stylesheet actually says", () => {
     expect(widths).not.toContain("992px");
   });
 
-  it("`padding` is the theme's one declared content spacing", () => {
+  it("paddingIsContentSpacing", () => {
     expect(cssVar(CSS, "ds-content-spacing")).toBe("1.5rem");
     for (const l of Object.values(IRIS.layouts)) {
       expect((l as { padding: string }).padding).toBe("1.5rem");
     }
   });
 
-  it("`fontScale` is 1 everywhere, and that is MEASURED — the source declares no per-breakpoint scale", () => {
+  it("webFontScaleIsOne", () => {
     expect(CSS).toContain("font-size:1rem");
     for (const l of Object.values(IRIS.layouts)) {
       expect((l as { fontScale: number }).fontScale).toBe(1);
@@ -171,13 +171,13 @@ describe("iris-web is what the captured stylesheet actually says", () => {
 });
 
 describe("who-wpro-publication is what the style guide's own pages say", () => {
-  it("`accent` is the WPRO logo blue, and pages 6 and 12 agree on the RGB", () => {
+  it("accentIsWproLogoBlue", () => {
     expect(page(6)).toContain("R: 0 G: 147 B: 213");
     expect(page(12)).toContain("B: 213");
     expect(PUB.palette.accent).toBe("#0093D5"); // 0, 147, 213
   });
 
-  it("the three PRINT formats are page 18's, in the source's own units", () => {
+  it("printFormatsFromPage18", () => {
     const p18 = page(18);
     expect(p18).toContain("Frequently used formats and specs");
     expect(p18).toContain("21 cm x 29.7 cm");
@@ -189,14 +189,14 @@ describe("who-wpro-publication is what the style guide's own pages say", () => {
     });
   });
 
-  it("`margin` is the 1 cm logo EXCLUSION ZONE from page 7, not an invented page margin", () => {
+  it("marginIsLogoExclusionZone", () => {
     expect(page(7)).toContain("at least 1cm");
     for (const l of Object.values(PUB.layouts)) {
       expect((l as { margin: string }).margin).toBe("1cm");
     }
   });
 
-  it("the guide states NO rule, border or divider colour — which is why `edge` is a choice", () => {
+  it("guideStatesNoEdgeColour", () => {
     // The claim the `edge` decision rests on, checked rather than asserted.
     // If a future ingestion surfaces one, this fails and `edge` should become
     // a measurement instead.
@@ -215,12 +215,12 @@ describe("who-wpro-publication is what the style guide's own pages say", () => {
     expect(found).toBe("");
   });
 
-  it("`edge` is nonetheless INSIDE the palette the guide does state", () => {
+  it("edgeIsInPrimaryPalette", () => {
     expect(WPRO_PRIMARY_PALETTE).toContain(PUB.palette.edge);
     expect(PUB.palette.edge).toBe("#74CEE2");
   });
 
-  it("the primary palette is twelve colours, and page 12 carries all twelve RGB triples", () => {
+  it("primaryPaletteHasTwelveColours", () => {
     expect(WPRO_PRIMARY_PALETTE).toHaveLength(12);
     const p12 = page(12);
     for (const hex of WPRO_PRIMARY_PALETTE) {
@@ -231,7 +231,7 @@ describe("who-wpro-publication is what the style guide's own pages say", () => {
     }
   });
 
-  it("`fontScale` is 1 on every format — page 14 gives all four typefaces at 10pt, with no per-format size", () => {
+  it("printFontScaleIsOne", () => {
     const p14 = page(14);
     for (const face of ["News Gothic MT", "DIN OT", "PT Sans", "Calibri"]) {
       expect(p14).toContain(face);
@@ -244,14 +244,14 @@ describe("who-wpro-publication is what the style guide's own pages say", () => {
 });
 
 describe("the source's contradictions are recorded, not resolved away", () => {
-  it("both are still declared", () => {
+  it("bothContradictionsDeclared", () => {
     expect(RECORDED_CONTRADICTIONS.map((c) => c.id).sort()).toEqual([
       "black-logo-k100-vs-rgb-100",
       "logo-blue-c95-vs-c90",
     ]);
   });
 
-  it("page 6 really does state BOTH readings of the black logo", () => {
+  it("page6StatesBothBlackLogos", () => {
     const p6 = page(6);
     expect(p6).toContain("K: 100");
     expect(p6).toContain("R: 100 G: 100 B: 100");
@@ -259,13 +259,13 @@ describe("the source's contradictions are recorded, not resolved away", () => {
     expect(PUB.palette.ink).toBe("#000000");
   });
 
-  it("pages 6 and 12 really do give different CYAN for the one logo blue", () => {
+  it("pages6And12DifferOnCyan", () => {
     expect(page(6)).toContain("C: 95 M: 25");
     expect(page(12)).toContain("C: 90");
     expect(page(12)).toContain("M: 25");
   });
 
-  it("each contradiction says where it is, what the problem is, and what we took", () => {
+  it("contradictionsAreDescribed", () => {
     for (const c of RECORDED_CONTRADICTIONS) {
       expect(c.where.length).toBeGreaterThan(5);
       expect(c.problem.length).toBeGreaterThan(30);
@@ -275,17 +275,17 @@ describe("the source's contradictions are recorded, not resolved away", () => {
 });
 
 describe("j66n's fourth clause: a missing layout stays INVALID, never degraded", () => {
-  it("refuses a publication theme missing a format rather than filling it in", () => {
+  it("refusesPublicationMissingFormat", () => {
     const { a5Landscape: _dropped, ...twoOfThree } = PUB.layouts as Record<string, unknown>;
     expect(() => ResolvedThemeSchema.parse({ ...PUB, layouts: twoOfThree })).toThrow();
   });
 
-  it("refuses a webpage theme missing a viewport", () => {
+  it("refusesWebpageMissingViewport", () => {
     const { card: _dropped, ...twoOfThree } = IRIS.layouts as Record<string, unknown>;
     expect(() => ResolvedThemeSchema.parse({ ...IRIS, layouts: twoOfThree })).toThrow();
   });
 
-  it("refuses print geometry on a webpage theme, and viewports on a publication theme", () => {
+  it("refusesSwappedLayoutKinds", () => {
     expect(() => ResolvedThemeSchema.parse({ ...IRIS, layouts: PUB.layouts })).toThrow();
     expect(() => ResolvedThemeSchema.parse({ ...PUB, layouts: IRIS.layouts })).toThrow();
   });
@@ -303,18 +303,18 @@ describe("iris-sticky is DERIVED from iris-web, not restated (bean v8n5)", () =>
     return h.length === 3 ? `#${h.split("").map((c) => c + c).join("")}` : `#${h}`;
   };
 
-  it("its palette equals what the captured DSpace stylesheet says, role by role", () => {
+  it("stickyPaletteMatchesStylesheet", () => {
     expect(STICKY.palette.accent).toBe(hex(cssVar(CSS, "primary"))!);
     expect(STICKY.palette.edge).toBe(hex(cssVar(CSS, "ds-header-navbar-border-bottom-color"))!);
     expect(STICKY.palette.ink).toBe(hex(body.match(/;color:(#[0-9a-f]+)/i)?.[1])!);
     expect(STICKY.palette.surface).toBe(hex(body.match(/background-color:(#[0-9a-f]+)/i)?.[1])!);
   });
 
-  it("its palette IS iris-web's — every role, and no role of its own", () => {
+  it("stickyPaletteEqualsIrisWeb", () => {
     expect(STICKY.palette).toEqual(IRIS.palette);
   });
 
-  it("declares no colour literal of its own: the palette arrives by inheritance", () => {
+  it("stickyDeclaresNoColourLiteral", () => {
     const src = readFileSync(join(import.meta.dir, "themes.ts"), "utf-8");
     const decl = src.slice(src.indexOf("const IRIS_STICKY"), src.indexOf("const RAW"));
     expect(decl).toContain('inherits: { instance: THEME_REPOSITORY, themeId: IRIS_WEB.id }');
@@ -322,17 +322,17 @@ describe("iris-sticky is DERIVED from iris-web, not restated (bean v8n5)", () =>
     expect(decl).not.toContain("palette:");
   });
 
-  it("says in its description that it is derived from iris-web", () => {
+  it("stickyDescriptionSaysDerived", () => {
     expect(STICKY.description).toContain("derived from iris-web");
   });
 
-  it("takes the note board's geometry, since IRIS has no sticky surface to measure", () => {
+  it("stickyTakesBoardGeometry", () => {
     const board = themeById(DEFAULT_THEME_ID)!;
     expect(board.kind).toBe("sticky");
     expect(STICKY.layouts).toEqual(board.layouts);
   });
 
-  it("carries no backdrop — IRIS imagery is somebody else's artefact", () => {
+  it("stickyCarriesNoBackdrop", () => {
     expect(STICKY.backdrop).toBeUndefined();
   });
 });
