@@ -22,6 +22,7 @@ Discovery cannot do in a single call.
 
 ## Build and query
 
+<!-- command-path-ok: run from the who-iris instance root (where scripts/ lives); in an index checkout that mounts who-iris at who-iris/ and has its own root scripts/, check:command-paths resolves scripts/ against the index root -->
 ```sh
 # Build from catalogue/nodes and site/dublin-core into dist/oxigraph/
 bun run scripts/build-iris-oxigraph.ts

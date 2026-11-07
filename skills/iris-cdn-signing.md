@@ -117,6 +117,7 @@ replacement for it.
 
 In a checkout of the release git repository:
 
+<!-- command-path-ok: run from a release checkout or the who-iris instance root (where scripts/ lives); in an index checkout that mounts who-iris at who-iris/ and has its own root scripts/, check:command-paths resolves scripts/ against the index root -->
 ```sh
 # 1. tag files against the tag manifest
 sha256sum -c tagmanifest-sha256.txt
