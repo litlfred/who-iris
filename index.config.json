@@ -26,7 +26,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "cf44248605b087debd1d9145ffa588604f9e15b3",
+          "ref": "1c7506fabbd4cdad8cb2b332f93f6f5dc2ece9a0",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -41,9 +41,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-11-06",
-              "ref": "cf44248605b087debd1d9145ffa588604f9e15b3",
-              "evidence": "litlfred, 2026-11-06, Claude Code session session_01VQDpPeA2N8L3orQCPPMAas: 'align pins' and decision card 'Re-pin merges': '1. Merge when green (Recommended)' (re-pin every layer bottom-up; each lower layer at the commit the layer it mounts pins, so every lock in a composition agrees; bean cat-tools-sm8r)."
+              "on": "2026-11-07",
+              "ref": "1c7506fabbd4cdad8cb2b332f93f6f5dc2ece9a0",
+              "evidence": "Owner litlfred, 2026-11-07, relayed by the coordinating session (session_01VQDpPg6DUZuufuAVwk6MqZ): 'do it in the schema..... do the repin' and 'repin + merge open 12 hrs'. folio-assistant-core moves to main 1c7506fa, the merge of folio-assistant-core#663 (the glossary subject area), which this PR's glossary changes need."
             }
           }
         }
