@@ -142,20 +142,20 @@ Feature: The pages gen-iris-pages writes
       | /who-iris/who-iris/fr/item-x.html            | /who-iris/         |
       | /who-iris/docs/who-iris/ingestion-notes.html | /who-iris/         |
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::derivesAuthoredDocsFromDirectory
+  @test:scripts/tests/gen-iris-pages.test.ts::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::derivesAuthoredDocsFromDirectory
   Scenario: derives them from the directory: titled by first heading; README and front-matter pages left out
     Given a temporary directory holding README.md, a site-home.md with front matter, style-guide.md headed "The WHO style guide", notes.md with no heading, and index.html
     When the authored docs are derived from it
     Then they are exactly notes.md titled "notes" and style-guide.md titled "The WHO style guide", in that order
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::authoredPagesRenderedAndLinked
+  @test:scripts/tests/gen-iris-pages.test.ts::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::authoredPagesRenderedAndLinked
   Scenario: every authored page is rendered, and the committed landing page links the rendering (owner's option 1)
     Given the authored pages in docs/ and the committed docs landing page
     Then each authored page's .html rendering exists in docs/
     And the landing page links the .html rendering
     And the landing page does not link the .md source
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::rendersGfmAndRewritesMdLinks
+  @test:scripts/tests/gen-iris-pages.test.ts::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::rendersGfmAndRewritesMdLinks
   Scenario: renders GFM tables and points sibling .md links at their renderings, leaving other links alone
     Given Markdown with a GFM table, a link to sibling style-guide.md#x and a link to ../library/README.md
     When it is rendered with style-guide.md as a known sibling and no repository
@@ -163,7 +163,7 @@ Feature: The pages gen-iris-pages writes
     And the sibling link points at "style-guide.html#x"
     And the "../library/README.md" link is unchanged
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::citesOutsideFilesByRepository
+  @test:scripts/tests/gen-iris-pages.test.ts::the_docs_landing_page_lists_the_authored_pages_it_does_not_generate_(bean_mw5z)::citesOutsideFilesByRepository
   Scenario: cites a file OUTSIDE docs/ by repository, since only docs/ is published (who-iris's own site)
     Given Markdown linking ../library/README.md#a, ../skills/voices/ and ../../AGENTS.md
     When it is rendered for the repository "example/who-iris"
@@ -171,7 +171,7 @@ Feature: The pages gen-iris-pages writes
     And the voices link becomes the GitHub tree URL of skills/voices/ at HEAD
     And the "../../AGENTS.md" link, which climbs out of the instance, is left as it is
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_catalogue_page_(bean_kx0p)::listsHeldFirstLabelsGatesNoViewer
+  @test:scripts/tests/gen-iris-pages.test.ts::the_catalogue_page_(bean_kx0p)::listsHeldFirstLabelsGatesNoViewer
   Scenario: lists the held nodes first, labels each gate count inside its pill, and links no viewer on a site without one
     Given every catalogue node
     When the catalogue viewer page is rendered without a library viewer
@@ -182,12 +182,12 @@ Feature: The pages gen-iris-pages writes
     And the page has no "library/who-iris/#" link
     And rendering with the default options does contain a "library/who-iris/#" link
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::eachLocaleHasOnlyHomePage
+  @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::eachLocaleHasOnlyHomePage
   Scenario: each language has a home page and nothing else: the item, collection and community pages are gone
     Then the only .html file in site/ is index.html
     And for every site locale, the only .html file in its directory is index.html
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::homeLinksHeldItemsToLibrary
+  @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::homeLinksHeldItemsToLibrary
   Scenario: each held item links to its library entry page, and no link names a retired page
     Given the catalogue's item nodes whose library directory exists
     Then there is at least one
@@ -195,14 +195,14 @@ Feature: The pages gen-iris-pages writes
     And it has no link to an item-, collection- or community-list page
     And it links "../who-iris/catalogue/"
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::rebasesLinksToOwnSiteRoot
+  @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::rebasesLinksToOwnSiteRoot
   Scenario: written for the instance's own site root, its links are said from there
     Given HTML with links to ../who-iris/catalogue/, index.html, fr/index.html, ../en/cat-harness/library/who-iris/x/ and an image ../library/x-cover.png
     When it is rebased to the instance's own site root
     Then the links become catalogue/, ./, who-iris/fr/index.html and en/cat-harness/library/who-iris/x/
     And the image source becomes library/x-cover.png
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_page_finds_its_site_root_on_every_host_it_is_served_from::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::rebasesJsonLinks
+  @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::rebasesJsonLinks
   Scenario: re-bases the links the page carries as JSON, so the rail's "On this page" list resolves
     Given a visualiser-nav JSON script with hrefs index.html, ../who-iris/catalogue/, ../en/cat-harness/library/who-iris/x/ and https://example.org/
     When it is rebased to the instance's own site root
