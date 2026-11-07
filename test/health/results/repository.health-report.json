@@ -2,13 +2,13 @@
   "$schema": "health-report/v1",
   "producer": {
     "script": "test/health/run.ts",
-    "script_hash": "adf09dbb7100"
+    "script_hash": "ed14d383902c"
   },
   "subject": {
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-04T13:27:32.883Z",
+  "updated_at": "2026-11-07T05:31:30.001Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -29,13 +29,13 @@
           "metric": "staging-total-bytes",
           "value": 0,
           "unit": "bytes",
-          "command": "git ls-tree -r -l FETCH_HEAD:STAGING/<slug>"
+          "command": "git ls-tree -r -l FETCH_HEAD:branches/<slug>"
         },
         {
           "metric": "staging-preview-count",
           "value": 0,
           "unit": "count",
-          "command": "git ls-tree -r -l FETCH_HEAD:STAGING/<slug>"
+          "command": "git ls-tree -r -l FETCH_HEAD:branches/<slug>"
         }
       ],
       "findings": []
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 191628,
+          "value": 201275,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,7 +138,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/6242e8e1b3bb67b6d930c18ce846a10f7977774b — miss: main/423324987dc418e2d940c7308d538cab8564e445 has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/f93a2b1ca01ffa476580d36066929ca4ac50d67a — miss: main/9929b1f49bdd761bf1d269e505ae354c045860df has nothing under health"
     },
     {
       "id": "remote-mounts",
@@ -223,7 +223,7 @@
       "measurements": [
         {
           "metric": "secret-names-used",
-          "value": 9,
+          "value": 12,
           "unit": "count",
           "command": "bun run cat secrets:check --json (usedCount)"
         },
@@ -286,19 +286,19 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 134226960,
+          "value": 134340269,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 131868029,
+          "value": 126471918,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 130361344,
+          "value": 125380608,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
@@ -310,7 +310,7 @@
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 0.98,
+          "value": 0.94,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
@@ -347,14 +347,14 @@
           "metric": "bean-stale-in-progress",
           "value": 14,
           "unit": "days",
-          "basis": "NO EXTERNAL STANDARD; calibrated here. A claimed bean is a claim a sibling session is expected to respect, and `skills/sdlc/sdlc-core/bean-blocking.md` says a block with no expiry cannot be told from abandoned work. Sessions are container-scoped and reclaimed, so a claim that has outlived two weeks of containers is not one anybody is honouring. Measured 2026-09-19: 29 in-progress, 0 of them older than 14 days.",
+          "basis": "NO EXTERNAL STANDARD; calibrated here. A claimed bean is a claim a sibling session is expected to respect, and `work-plan/skills/work-plan/bean-blocking.md` says a block with no expiry cannot be told from abandoned work. Sessions are container-scoped and reclaimed, so a claim that has outlived two weeks of containers is not one anybody is honouring. Measured 2026-09-19: 29 in-progress, 0 of them older than 14 days.",
           "severity": "minor"
         },
         {
           "metric": "bean-quiet-claims",
           "value": 72,
           "unit": "hours",
-          "basis": "NO EXTERNAL STANDARD; calibrated here, and the number is the weaker half of the rule. What actually settles whether a claim is live is a LIVENESS SIGNAL — an open PR naming the bean, an unmerged branch touching it, a note since. `skills/sdlc/sdlc-core/bean-coordination.md` §\"A claim is branch-local\" is why: a claim becomes visible to a sibling when the PR opens, so a claim with no PR and no branch has announced nothing to anybody. **This check computes only the offline half** — time since `updated_at` — so its count is an UPPER BOUND on quiet claims and must be read as one: a bean here may have an open PR this sweep cannot see. **THE UPPER BOUND IS NOW CLOSABLE** — `scripts/check-quiet-claim-liveness.ts` (bean `omki`) supplies the network half, and this check stays offline on purpose: `bun run cat health` must not need a token or a reachable API to say anything. Measured 2026-09-25 on this store, 55 quiet claims resolved to 10 live and 45 genuinely quiet — so the over-count is real and is about a fifth of the number. Read the two together; neither replaces the other. 72 hours because a claim is meant to become visible at the FIRST commit (`continual-progress` invariant 1), sessions are container-scoped and reclaimed, and three days spans a weekend without firing on one. It is deliberately far below the 14-day abandonment threshold and answers a different question, so both are reported. ONE PART OF THE OFFLINE HALF WAS ALSO WRONG, and bean `thux` fixed it: a bean worked through its CHILDREN is quiet on its own file by design, because nothing touches the parent while they move — so it accrued hours for doing exactly what it is for, and the finding named no action a person could take, since refreshing it means editing a file for no reason (`o5qj` one check over). A claim with a child whose own file moved inside this window is therefore excused, and counted under `bean-quiet-claims-parenting-live-work` rather than dropped. Measured 2026-09-23 on the real store: 39 quiet claims became 31, with 8 excused. It is keyed on PARENTHOOD rather than on `type: epic` — the relation carries the argument, and `type` is a label a bean sets about itself while `parent` is a fact another bean asserts about it. A parent ALL of whose children are also quiet still fires, which is the discrimination: `bzyu` had 8 open children and none moving. The UPPER BOUND sentence above still stands for the network half, which this check still cannot see; a sweep of all 298 unmerged branches and 20 open pull requests the same day found 7 more of the 39 live that way, and none of that is computable from the store.",
+          "basis": "NO EXTERNAL STANDARD; calibrated here, and the number is the weaker half of the rule. What actually settles whether a claim is live is a LIVENESS SIGNAL — an open PR naming the bean, an unmerged branch touching it, a note since. `work-plan/skills/work-plan/bean-coordination.md` §\"A claim is branch-local\" is why: a claim becomes visible to a sibling when the PR opens, so a claim with no PR and no branch has announced nothing to anybody. **This check computes only the offline half** — time since `updated_at` — so its count is an UPPER BOUND on quiet claims and must be read as one: a bean here may have an open PR this sweep cannot see. **THE UPPER BOUND IS NOW CLOSABLE** — `scripts/check-quiet-claim-liveness.ts` (bean `omki`) supplies the network half, and this check stays offline on purpose: `bun run cat health` must not need a token or a reachable API to say anything. Measured 2026-09-25 on this store, 55 quiet claims resolved to 10 live and 45 genuinely quiet — so the over-count is real and is about a fifth of the number. Read the two together; neither replaces the other. 72 hours because a claim is meant to become visible at the FIRST commit (`continual-progress` invariant 1), sessions are container-scoped and reclaimed, and three days spans a weekend without firing on one. It is deliberately far below the 14-day abandonment threshold and answers a different question, so both are reported. ONE PART OF THE OFFLINE HALF WAS ALSO WRONG, and bean `thux` fixed it: a bean worked through its CHILDREN is quiet on its own file by design, because nothing touches the parent while they move — so it accrued hours for doing exactly what it is for, and the finding named no action a person could take, since refreshing it means editing a file for no reason (`o5qj` one check over). A claim with a child whose own file moved inside this window is therefore excused, and counted under `bean-quiet-claims-parenting-live-work` rather than dropped. Measured 2026-09-23 on the real store: 39 quiet claims became 31, with 8 excused. It is keyed on PARENTHOOD rather than on `type: epic` — the relation carries the argument, and `type` is a label a bean sets about itself while `parent` is a fact another bean asserts about it. A parent ALL of whose children are also quiet still fires, which is the discrimination: `bzyu` had 8 open children and none moving. The UPPER BOUND sentence above still stands for the network half, which this check still cannot see; a sweep of all 298 unmerged branches and 20 open pull requests the same day found 7 more of the 39 live that way, and none of that is computable from the store.",
           "severity": "minor"
         },
         {
