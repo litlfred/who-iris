@@ -17,26 +17,26 @@ const LOCALES = ["ar", "es", "fr", "ru", "zh"];
 const CATALOGUES = ["site/iris-site.po", "glossary/who-iris--who-terms.po"];
 
 describe("translation round-trip report", () => {
-  test("it builds from the attestations and today's catalogues", () => {
+  test("buildsFromAttestations", () => {
     const r = buildReport() as { $schema: string; totals: Record<string, Record<string, number>> };
     expect(r.$schema).toBe("qa-results/v1");
     expect(Object.keys(r.totals).sort()).toEqual(LOCALES);
   });
 
-  test("every back-translator reports Read and Write only", () => {
+  test("backTranslatorsUseReadWriteOnly", () => {
     for (const [locale, f] of Object.entries(buildReport().families as Record<string, { summary: string }>)) {
       expect(f.summary, locale).toContain("Back-translator tools: Read,Write.");
     }
   });
 
-  test("parsePo joins continuation lines and skips the header", () => {
+  test("parsePoJoinsLinesSkipsHeader", () => {
     const po = 'msgid ""\nmsgstr ""\n"Language: fr\\n"\n\n#. note\nmsgid "a "\n"b"\nmsgstr "c"\n';
     expect(parsePo(po, "x.po")).toEqual([{ catalogue: "x.po", msgid: "a b", msgstr: "c" }]);
   });
 });
 
 describe("the agents' rulings are attestations", () => {
-  test("one translation-qa file per catalogue and locale, a ruling for every string, each a judgement", () => {
+  test("attestationPerCatalogueAndLocale", () => {
     for (const locale of LOCALES) {
       for (const cat of CATALOGUES) {
         const path = join(INSTANCE, "test", "attestations", "translation-qa", `${cat}.${locale}.attestations.json`);
@@ -56,7 +56,7 @@ describe("the agents' rulings are attestations", () => {
     }
   });
 
-  test("the derived report is no longer committed beside them", () => {
+  test("derivedReportNotCommitted", () => {
     const tracked = Bun.spawnSync(["git", "ls-files", "test/results"], { cwd: INSTANCE }).stdout.toString().trim();
     expect(tracked).toBe("");
   });

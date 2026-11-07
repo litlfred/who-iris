@@ -49,7 +49,7 @@ const table = html.slice(html.search(/<h2\b[^>]*>Every node<\/h2>/));
 const nodes = table.slice(0, table.indexOf("</table>"));
 
 describe("the catalogue's rows lead somewhere (qgjh)", () => {
-  it("links each held item's title to its library entry page, and nothing to the retired replica", () => {
+  it("linksHeldTitlesToLibraryEntries", () => {
     // The IRIS replica's pages are gone (owner, 2026-10-30, option C): the
     // library entry page is an item's one page, so a held item's title links
     // there, at `<locale>/<harness>/library/<instance>/<id>/`.
@@ -59,7 +59,7 @@ describe("the catalogue's rows lead somewhere (qgjh)", () => {
     for (const id of entries) expect(existsSync(join(INSTANCE, "library", id)), id).toBe(true);
   });
 
-  it("links a held-as library id to the viewer page, which exists or is built at publish", () => {
+  it("linksLibraryIdsToViewerPage", () => {
     const viewers = [...nodes.matchAll(/href="([^"#]*)#[^"]+"><code>/g)].map((m) => m[1]!);
     expect(viewers.length).toBeGreaterThan(0);
     for (const v of new Set(viewers)) {
@@ -70,13 +70,13 @@ describe("the catalogue's rows lead somewhere (qgjh)", () => {
 });
 
 describe("the catalogue viewer is THEMED, so it carries the site's top band (2026-10-07)", () => {
-  it("is on the default layout, not a standalone document", () => {
+  it("isOnDefaultLayout", () => {
     expect(html.startsWith("---\nlayout: default\n")).toBe(true);
     expect(html).not.toMatch(/<!doctype|<html|<head|<body/i);
     expect(html).toContain('<h1 id="ic-title">');
   });
 
-  it("styles nothing outside its own wrapper, and carries no rail", () => {
+  it("stylesOnlyOwnWrapperNoRail", () => {
     const css = [...html.matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]!).join("\n").replace(/\/\*[\s\S]*?\*\//g, "");
     const selectors = [...css.matchAll(/([^{}]+)\{/g)].flatMap((m) => m[1]!.split(",").map((s) => s.trim())).filter(Boolean);
     expect(selectors.length).toBeGreaterThan(0);

@@ -43,7 +43,7 @@ const allHtml = (): string[] => [
 ];
 
 describe("the generator owns its filenames, and prunes only those", () => {
-  it("every .html committed under docs/ is one the generator would write", () => {
+  it("committedHtmlIsExactlyGenerated", () => {
     // The orphan guard, asserted against the COMMITTED tree rather than a
     // temp dir. Re-keying two items on 2026-09-20 left
     // `item-item-local-*.html` behind — nine files where seven were wanted,
@@ -87,13 +87,13 @@ describe("the generator owns its filenames, and prunes only those", () => {
     expect([...wanted].filter((f) => !html.includes(f))).toEqual([]);
   });
 
-  it("OWNED matches what the generator emits", () => {
+  it("ownedMatchesEmittedPages", () => {
     for (const f of allHtml()) {
       expect(OWNED.test(f)).toBe(true);
     }
   });
 
-  it("OWNED spares what the generator did NOT write", () => {
+  it("ownedSparesForeignFiles", () => {
     // The other half, and the one that makes pruning safe to run at all:
     // `deletion-requires-confirmation` is about artefacts an agent did not
     // create, so the pattern must not reach them. Checked by name rather than
@@ -107,7 +107,7 @@ describe("the generator owns its filenames, and prunes only those", () => {
 describe("ingestion-notes is a projection of the skill, not a copy of it", () => {
   const SKILL = readFileSync(join(INSTANCE, "skills", "iris-dspace.md"), "utf-8");
 
-  it("every requirement in the skill reaches the page", () => {
+  it("everyRequirementReachesPage", () => {
     // The point of generating the page: a requirement added to the skill and
     // not visible on the page would be a finding captured where nobody who
     // needs it is looking, which is the failure the page exists to prevent.
@@ -118,7 +118,7 @@ describe("ingestion-notes is a projection of the skill, not a copy of it", () =>
     expect(page).toContain(`<strong>${reqs.length}</strong>`);
   });
 
-  it("refuses rather than rendering an empty table when the source moves", () => {
+  it("refusesEmptyRequirementsTable", () => {
     // A projection that quietly produces nothing when its source is renamed
     // reports "0 findings", which is indistinguishable from "no problems" and
     // is a lie. It throws instead, and the gate goes red.
@@ -127,7 +127,7 @@ describe("ingestion-notes is a projection of the skill, not a copy of it", () =>
     );
   });
 
-  it("ids are unique and the numbering has no gaps", () => {
+  it("requirementIdsUniqueAndGapless", () => {
     const ids = requirementsFromSkill(SKILL).map((r) => r.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids).toEqual(ids.map((_, i) => `R${i + 1}`));
@@ -138,7 +138,7 @@ describe("the IRIS home replica", () => {
   // The REPLICA's home, which is in `site/` now (bean `2b5s`).
   const home = readFileSync(join(SITE, "index.html"), "utf-8");
 
-  it("carries no WHO emblem and no photograph", () => {
+  it("homeHasNoEmblemOrPhoto", () => {
     // The instruction this page exists under: a replica carrying the real mark
     // is indistinguishable from the real site at a glance. Checked by name
     // because the capture ships `who_logo.svg` and it is one copy-paste away.
@@ -158,7 +158,7 @@ describe("the IRIS home replica", () => {
    */
   const pdfBackend = spawnSync("python3", ["-c", "import pymupdf"]).status === 0;
 
-  it("the emblem is absent from the BYTES, not merely undisplayed", () => {
+  it("emblemMaskedInCoverBytes", () => {
     // The display flag is not the guarantee. `pdf-cover.py` blanks the region
     // before it computes the digests, so the committed PNG cannot carry the
     // emblem whatever a page decides to do with it.
@@ -235,7 +235,7 @@ describe("the IRIS home replica", () => {
 describe("the KG-to-portal page keeps its claims honest", () => {
   const page = readFileSync(join(DOCS, "kg-to-portal.html"), "utf-8");
 
-  it("inlines the architecture drawing rather than linking across mount routes", () => {
+  it("inlinesArchitectureDrawing", () => {
     // These pages are served from BOTH `/who-iris/` and `/docs/who-iris/`, so
     // a relative path to a file outside this directory resolves under one and
     // 404s under the other. Inlined, there is no path to be wrong.
@@ -244,14 +244,14 @@ describe("the KG-to-portal page keeps its claims honest", () => {
     expect(page).not.toContain("cat-harness/docs/assets");
   });
 
-  it("names WHO's signing DID via did:web + x5c as the trust anchor, not a GDHCN trust list (#104)", () => {
+  it("namesWhoDidAsTrustAnchor", () => {
     expect(page).toContain("WHO signing DID — did:web + x5c chain");
     expect(page).toContain("publicKeyJwk.x5c");
     expect(page).toContain("No GDHCN trust list is assumed.");
     expect(page).not.toContain("The trust anchor is to be <strong>GDHCN</strong>");
   });
 
-  it("does not claim a stage this instance has not built", () => {
+  it("claimsNoUnbuiltStage", () => {
     // The page's whole value is that it says where who-iris actually is.
     // Package, sign and verify are not built here, and a page that quietly
     // promoted one would be the `xom7` shape: it looks exactly like a working
@@ -264,13 +264,13 @@ describe("the KG-to-portal page keeps its claims honest", () => {
     }
   });
 
-  it("states the upstream figures from the catalogue, not from prose", () => {
+  it("upstreamFiguresFromCatalogue", () => {
     const cat = JSON.parse(readFileSync(join(INSTANCE, "catalogue", "catalogue.json"), "utf-8"));
     expect(page).toContain(cat.totalItemsUpstream.toLocaleString("en-US"));
     expect(page).toContain(cat.totalFilesUpstream.toLocaleString("en-US"));
   });
 
-  it("says readers are not measured rather than inventing a count", () => {
+  it("saysReadersNotMeasured", () => {
     // Traffic is bytes x requests and nothing here counts requests. An
     // invented reader count would make every cost figure under it fiction.
     expect(page).toContain("not measured");
@@ -278,7 +278,7 @@ describe("the KG-to-portal page keeps its claims honest", () => {
 });
 
 describe("a phone-width reader never pans sideways — bean `xwrt`", () => {
-  it("every committed page lets inline code break rather than widen the page", () => {
+  it("inlineCodeBreaksOnEveryPage", () => {
     // Mounted verbatim, so the harness's narrow-viewport.css never reaches
     // these pages. Three long code spans made kg-to-portal 566 px wide at a
     // 390 px viewport before the rule was in the generator's own stylesheet.
@@ -291,7 +291,7 @@ describe("a phone-width reader never pans sideways — bean `xwrt`", () => {
 });
 
 describe("every generated page carries the Do not hand-edit marker — bean `7te5`", () => {
-  it("every committed page in docs/ carries the generator banner", () => {
+  it("everyPageCarriesGeneratorBanner", () => {
     const pages = readdirSync(DOCS).filter((f) => f.endsWith(".html")).map((f) => join(DOCS, f));
     expect(pages.length).toBeGreaterThan(0);
     const missing = pages.filter((p) => !readFileSync(p, "utf-8").includes("Do not hand-edit: the next run overwrites it"));
@@ -300,7 +300,7 @@ describe("every generated page carries the Do not hand-edit marker — bean `7te
 });
 
 describe("library/ is the corpus only — bean 2b5s", () => {
-  it("holds no page, so no mount copies it", () => {
+  it("libraryHoldsNoPage", () => {
     // `mount-instance-docs.ts` mounts a directory that carries an index.html
     // and copies all of it. An index.html here is what published 1,367
     // corpus sidecars at two routes; the generator's sweep prunes one, and
@@ -318,7 +318,7 @@ describe("library/withheld.json is the catalogue's gates, for the mount — bean
       (b) => b.bundle === "ORIGINAL" && b.materialization?.state === "materialized" && publicationBlockers(b.materialization?.gates).length > 0,
     );
 
-  it("withholds every item whose original's publication gates block, and no other", () => {
+  it("withholdsExactlyGatedItems", () => {
     const blocked = items.filter(originalBlocked);
     const open = items.filter((n) => !originalBlocked(n));
     expect(open.length, "no publishable item — the assertion below is vacuous").toBeGreaterThan(0);
@@ -326,13 +326,13 @@ describe("library/withheld.json is the catalogue's gates, for the mount — bean
     for (const n of open) expect(listed.has(`${n.libraryId}/`), `${n.libraryId} is publishable and must not be withheld`).toBe(false);
   });
 
-  it("every withheld path exists under library/ — a stale entry would hide nothing", () => {
+  it("withheldPathsExist", () => {
     for (const p of listed) expect(existsSync(join(LIB, p)), `${p} is listed but absent`).toBe(true);
   });
 });
 
 describe("the replica in the six UN languages — issue #2228", () => {
-  it("every catalogue is complete, unfuzzy and keeps its placeholders and markup", () => {
+  it("translationCataloguesComplete", () => {
     expect(SITE_STRINGS.length).toBeGreaterThan(0);
     expect(catalogueProblems().problems).toEqual([]);
   });
@@ -352,7 +352,7 @@ describe("the replica in the six UN languages — issue #2228", () => {
 describe("the page finds its site root on every host it is served from", () => {
   const html = readFileSync(join(DOCS, "ingestion-notes.html"), "utf-8");
   const m = /new RegExp\(("(?:[^"\\]|\\.)*")\)/.exec(html);
-  it("a page carries the pattern", () => expect(m).not.toBeNull());
+  it("pageCarriesSiteRootPattern", () => expect(m).not.toBeNull());
   const re = new RegExp(JSON.parse(m![1]!) as string);
   const rows: [string, string][] = [
     ["/who-iris/item-x.html", "/"],
@@ -363,11 +363,11 @@ describe("the page finds its site root on every host it is served from", () => {
     ["/who-iris/who-iris/fr/item-x.html", "/who-iris/"],
     ["/who-iris/docs/who-iris/ingestion-notes.html", "/who-iris/"],
   ];
-  for (const [path, root] of rows) it(`${path} → ${root}`, () => expect(path.match(re)?.[1]).toBe(root));
+  for (const [path, root] of rows) it(`findsSiteRoot[${path}]`, () => expect(path.match(re)?.[1]).toBe(root));
 });
 
 describe("the docs landing page lists the authored pages it does not generate (bean mw5z)", () => {
-  it("derives them from the directory: titled by first heading; README and front-matter pages left out", () => {
+  it("derivesAuthoredDocsFromDirectory", () => {
     const d = mkdtempSync(join(tmpdir(), "iris-docs-"));
     writeFileSync(join(d, "README.md"), "# The directory\n");
     writeFileSync(join(d, "site-home.md"), "---\nlayout: default\n---\n# Home\n");
@@ -380,7 +380,7 @@ describe("the docs landing page lists the authored pages it does not generate (b
     ]);
   });
 
-  it("every authored page is rendered, and the committed landing page links the rendering (owner's option 1)", () => {
+  it("authoredPagesRenderedAndLinked", () => {
     const docs = join(import.meta.dir, "..", "..", "docs");
     const index = readFileSync(join(docs, "index.html"), "utf-8");
     for (const d of authoredDocs(docs)) {
@@ -391,14 +391,14 @@ describe("the docs landing page lists the authored pages it does not generate (b
     }
   });
 
-  it("renders GFM tables and points sibling .md links at their renderings, leaving other links alone", () => {
+  it("rendersGfmAndRewritesMdLinks", () => {
     const html = renderAuthored("# T\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n[s](style-guide.md#x) [o](../library/README.md)\n", new Set(["style-guide.md"]), null);
     expect(html).toContain("<table>");
     expect(html).toContain('href="style-guide.html#x"');
     expect(html).toContain('href="../library/README.md"');
   });
 
-  it("cites a file OUTSIDE docs/ by repository, since only docs/ is published (who-iris's own site)", () => {
+  it("citesOutsideFilesByRepository", () => {
     const html = renderAuthored(
       "[o](../library/README.md#a) [v](../skills/voices/) [g](../../AGENTS.md)\n",
       new Set(),
@@ -412,7 +412,7 @@ describe("the docs landing page lists the authored pages it does not generate (b
 });
 
 describe("the catalogue page (bean kx0p)", () => {
-  it("lists the held nodes first, labels each gate count inside its pill, and links no viewer on a site without one", async () => {
+  it("listsHeldFirstLabelsGatesNoViewer", async () => {
     const { catalogueViewer } = await import("../gen-iris-pages.ts");
     const { readdirSync, readFileSync } = await import("node:fs");
     const { join } = await import("node:path");
@@ -436,12 +436,12 @@ describe("the catalogue page (bean kx0p)", () => {
 describe("the replica keeps only its IRIS-style home page (owner, 2026-10-30)", () => {
   const home = (): string => readFileSync(join(SITE, "index.html"), "utf-8");
 
-  it("each language has a home page and nothing else: the item, collection and community pages are gone", () => {
+  it("eachLocaleHasOnlyHomePage", () => {
     expect(readdirSync(SITE).filter((f) => f.endsWith(".html"))).toEqual(["index.html"]);
     for (const loc of SITE_LOCALES) expect(readdirSync(join(SITE, loc)).filter((f) => f.endsWith(".html"))).toEqual(["index.html"]);
   });
 
-  it("each held item links to its library entry page, and no link names a retired page", () => {
+  it("homeLinksHeldItemsToLibrary", () => {
     const items = readdirSync(join(INSTANCE, "catalogue", "nodes"))
       .map((f) => JSON.parse(readFileSync(join(INSTANCE, "catalogue", "nodes", f), "utf-8")) as { flavour?: string; libraryId?: string })
       .filter((n) => n.flavour === "item" && n.libraryId && existsSync(join(LIB, n.libraryId)));
@@ -451,12 +451,12 @@ describe("the replica keeps only its IRIS-style home page (owner, 2026-10-30)", 
     expect(home()).toContain('href="../who-iris/catalogue/"');
   });
 
-  it("written for the instance's own site root, its links are said from there", () => {
+  it("rebasesLinksToOwnSiteRoot", () => {
     const html = rebaseToOwnSiteRoot('<a href="../who-iris/catalogue/">c</a><a href="index.html">h</a><a href="fr/index.html">fr</a><a href="../en/cat-harness/library/who-iris/x/">x</a><img src="../library/x-cover.png">');
     expect(html).toBe('<a href="catalogue/">c</a><a href="./">h</a><a href="who-iris/fr/index.html">fr</a><a href="en/cat-harness/library/who-iris/x/">x</a><img src="library/x-cover.png">');
   });
 
-  it("re-bases the links the page carries as JSON, so the rail's \"On this page\" list resolves", () => {
+  it("rebasesJsonLinks", () => {
     const html = rebaseToOwnSiteRoot(
       '<script type="application/json" data-fa-visualiser-nav>[{"label":"Home","href":"index.html"},' +
         '{"label":"Community List","href":"../who-iris/catalogue/"},{"label":"x","href":"../en/cat-harness/library/who-iris/x/"},' +
