@@ -776,7 +776,8 @@
   function add(el, child) {
     if (child === undefined || child === null || child === false) return;
     if (Array.isArray(child)) { child.forEach(function (c) { add(el, c); }); return; }
-    el.appendChild(child instanceof Node ? child : document.createTextNode(String(child)));
+    // append() turns a string into a text node, never markup.
+    el.append(child instanceof Node ? child : String(child));
   }
   function fill(s, vars) {
     for (var k in vars) s = s.split("{" + k + "}").join(vars[k]);
