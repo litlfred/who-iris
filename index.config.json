@@ -82,7 +82,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "c9ba58fb66f70c35669780647e527221eb09104b",
+          "ref": "961b4d939d7d69874f44162d12407bd3f1d96c6b",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -95,8 +95,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-08",
-              "ref": "c9ba58fb66f70c35669780647e527221eb09104b",
-              "evidence": "litlfred, 2026-11-08: '1A, 2A, 3A, 4A, 5A' (09:27Z, roll the self-mounting cat out to every IG) and 'A' (09:15Z, who-iris rollout), with the 06:43Z standing OK to re-pin non-content; cat-harness-tools at main c9ba58f, which carries #1699 (root install + script-table fix)."
+              "ref": "961b4d939d7d69874f44162d12407bd3f1d96c6b",
+              "evidence": "Owner litlfred, 2026-11-08: card Q-CIB-4 A (13:23Z, release-gated CI, full rollout in phases; phase 4 = the other layers) and Q-MM-1 A (\"non-content can merge/repin + 12hr\", window to 2026-11-08 19:00Z). Tools-only re-pin to cat-harness-tools 961b4d9 (#1722): a non-release PR runs the fast tier of layer-pr-checks; cat-harness#1158."
             }
           }
         }
