@@ -2934,6 +2934,1091 @@
           "id": "roundtrip-back-translator",
           "saw": "msgstr only, by index; one Read, one Write"
         }
+      },
+      {
+        "scope": "run",
+        "catalogues": [
+          "site/iris-site.po"
+        ],
+        "range": [
+          116,
+          157
+        ],
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08"
+        },
+        "back_translation_trailer": {
+          "TOOLS_USED": "Read,Write",
+          "UNCERTAIN": "[{\"i\": 7, \"note\": \"Could be 'Apply' (filters) or 'Application'; reads as a button label 'Apply'.\"}, {\"i\": 26, \"note\": \"'Deposit date' could also be 'submission/lodging date'.\"}, {\"i\": 27, \"note\": \"'Availability date' could be 'date made available'.\"}, {\"i\": 5, \"note\": \"'Start'/'End' presumably date range bounds.\"}]",
+          "SUMMARY": "All 42 Arabic interface strings for a repository search page were back-translated literally, with placeholders preserved."
+        },
+        "adjudication_trailer": {
+          "TOOLS_USED": "Read,Write",
+          "UNCERTAIN": "[{\"i\": 26, \"note\": \"Accessioned rendered as 'Deposit date' (back-translation); acceptable per note but differs from item 31 'Accepted'.\"}]",
+          "SUMMARY": "40 pass, 2 warn, 0 fail."
+        },
+        "note": "Search page strings (litlfred/who-iris#196). The back-translators numbered their output lines 1-42 instead of keeping the input indices; lines were joined to indices 116-157 by order."
+      },
+      {
+        "index": 116,
+        "roundtrip_index": 116,
+        "field_hash": {
+          "msgid": "546ebb8eb993",
+          "msgstr": "3784dbfbce1e"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Filters",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 117,
+        "roundtrip_index": 117,
+        "field_hash": {
+          "msgid": "d95082a2ee57",
+          "msgstr": "85a103792998"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Author",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 118,
+        "roundtrip_index": 118,
+        "field_hash": {
+          "msgid": "68971283841a",
+          "msgstr": "909e8bcdc4aa"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Subject",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 119,
+        "roundtrip_index": 119,
+        "field_hash": {
+          "msgid": "bf49d8410c82",
+          "msgstr": "4e5892a34a06"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Issue date",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 120,
+        "roundtrip_index": 120,
+        "field_hash": {
+          "msgid": "e4bb9f1ece9a",
+          "msgstr": "c9364e4fe281"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Start",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 121,
+        "roundtrip_index": 121,
+        "field_hash": {
+          "msgid": "f4db1e48476f",
+          "msgstr": "43a6b0417696"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "End",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 122,
+        "roundtrip_index": 122,
+        "field_hash": {
+          "msgid": "31e392d1c037",
+          "msgstr": "268974da5082"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Apply",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 123,
+        "roundtrip_index": 123,
+        "field_hash": {
+          "msgid": "0684d3fcdaa6",
+          "msgstr": "93d4961028e7"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Contains files",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 124,
+        "roundtrip_index": 124,
+        "field_hash": {
+          "msgid": "85a39ab345d6",
+          "msgstr": "4b2d2c65d365"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Yes",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 125,
+        "roundtrip_index": 125,
+        "field_hash": {
+          "msgid": "1ea442a134b2",
+          "msgstr": "2bd073516a87"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "No",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 126,
+        "roundtrip_index": 126,
+        "field_hash": {
+          "msgid": "21378545892f",
+          "msgstr": "9f5e79a03149"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Publisher",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 127,
+        "roundtrip_index": 127,
+        "field_hash": {
+          "msgid": "a8295e08ff7a",
+          "msgstr": "877ba993eb70"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Series",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 128,
+        "roundtrip_index": 128,
+        "field_hash": {
+          "msgid": "baaddf70fb5d",
+          "msgstr": "caa3f2bb4a36"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Type",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 129,
+        "roundtrip_index": 129,
+        "field_hash": {
+          "msgid": "f5c9bd131486",
+          "msgstr": "dbcc30d597f2"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Show more",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 130,
+        "roundtrip_index": 130,
+        "field_hash": {
+          "msgid": "94ea9b1d33a0",
+          "msgstr": "855664cc4d9e"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Show less",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 131,
+        "roundtrip_index": 131,
+        "field_hash": {
+          "msgid": "aad9671a758a",
+          "msgstr": "172f54524722"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Search for author name",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 132,
+        "roundtrip_index": 132,
+        "field_hash": {
+          "msgid": "555b67938f76",
+          "msgstr": "fd692f0ed06e"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Search for subject",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 133,
+        "roundtrip_index": 133,
+        "field_hash": {
+          "msgid": "cc0aabc669d1",
+          "msgstr": "67962ea68182"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Search for publisher",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 134,
+        "roundtrip_index": 134,
+        "field_hash": {
+          "msgid": "a3f60d7cdfdf",
+          "msgstr": "95a2d3b4f2a4"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Search for series",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 135,
+        "roundtrip_index": 135,
+        "field_hash": {
+          "msgid": "f5ced30f37e4",
+          "msgstr": "f05402d6e283"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Search for type",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 136,
+        "roundtrip_index": 136,
+        "field_hash": {
+          "msgid": "74a883a037bc",
+          "msgstr": "5fd9563e6846"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Settings",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 137,
+        "roundtrip_index": 137,
+        "field_hash": {
+          "msgid": "6d2227555fcc",
+          "msgstr": "5de61a2abab1"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Sort by",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 138,
+        "roundtrip_index": 138,
+        "field_hash": {
+          "msgid": "4d2809d80470",
+          "msgstr": "2c5a4a79a2f9"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Most relevant",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 139,
+        "roundtrip_index": 139,
+        "field_hash": {
+          "msgid": "87e3416101ad",
+          "msgstr": "6f4c00ee9361"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Title ascending",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 140,
+        "roundtrip_index": 140,
+        "field_hash": {
+          "msgid": "8fbb4efd3fef",
+          "msgstr": "e24df95b0272"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Issue date descending",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 141,
+        "roundtrip_index": 141,
+        "field_hash": {
+          "msgid": "13387a465b50",
+          "msgstr": "839080d172c6"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Deposit date descending",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 142,
+        "roundtrip_index": 142,
+        "field_hash": {
+          "msgid": "97f05d5dbd79",
+          "msgstr": "d6b533221192"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Availability date descending",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 143,
+        "roundtrip_index": 143,
+        "field_hash": {
+          "msgid": "08e11c585cb9",
+          "msgstr": "fc701e362210"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Results per page",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 144,
+        "roundtrip_index": 144,
+        "field_hash": {
+          "msgid": "39414102545e",
+          "msgstr": "6419f902f6a5"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Search results",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 145,
+        "roundtrip_index": 145,
+        "field_hash": {
+          "msgid": "a91bae6cb897",
+          "msgstr": "a0b5e7e291be"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Showing {from} - {to} of {total}",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 146,
+        "roundtrip_index": 146,
+        "field_hash": {
+          "msgid": "d46554fe5e40",
+          "msgstr": "4884bb8b61a2"
+        },
+        "result": "warn",
+        "severity": "minor",
+        "findings": [
+          "\"Acceptance date\" vs. the sort label for the same field (dc.date.accessioned) rendered \"Deposit date\"; terms for one field are inconsistent."
+        ],
+        "back_translation": "Acceptance date: {date}",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 147,
+        "roundtrip_index": 147,
+        "field_hash": {
+          "msgid": "4f9d4fda2157",
+          "msgstr": "ac89498ae1ff"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Available online: {date}",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 148,
+        "roundtrip_index": 148,
+        "field_hash": {
+          "msgid": "5d8c3e1b635e",
+          "msgstr": "08b41784415d"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "List view",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 149,
+        "roundtrip_index": 149,
+        "field_hash": {
+          "msgid": "47da4e5507b6",
+          "msgstr": "bd2553df7847"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Grid view",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 150,
+        "roundtrip_index": 150,
+        "field_hash": {
+          "msgid": "001bc5bf862a",
+          "msgstr": "de4b1cc41aef"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "The search did not return any results.",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 151,
+        "roundtrip_index": 151,
+        "field_hash": {
+          "msgid": "908b945e760b",
+          "msgstr": "3b5feb5d9bb3"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Remove filter: {value}",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 152,
+        "roundtrip_index": 152,
+        "field_hash": {
+          "msgid": "10afa98480f2",
+          "msgstr": "70838b7900c7"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Reset filters",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 153,
+        "roundtrip_index": 153,
+        "field_hash": {
+          "msgid": "1208ec01f223",
+          "msgstr": "bea963cb7b74"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Previous page",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 154,
+        "roundtrip_index": 154,
+        "field_hash": {
+          "msgid": "c08ac736a5e2",
+          "msgstr": "56ed8bb2532c"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Next page",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 155,
+        "roundtrip_index": 155,
+        "field_hash": {
+          "msgid": "7b3f674b625e",
+          "msgstr": "39d69e7a676b"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Pagination",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 156,
+        "roundtrip_index": 156,
+        "field_hash": {
+          "msgid": "2620f25ffcbd",
+          "msgstr": "1d182967a6f3"
+        },
+        "result": "pass",
+        "findings": [],
+        "back_translation": "Search the repository",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
+      },
+      {
+        "index": 157,
+        "roundtrip_index": 157,
+        "field_hash": {
+          "msgid": "17f16a0d44df",
+          "msgstr": "cc04fe6a0677"
+        },
+        "result": "warn",
+        "severity": "minor",
+        "findings": [
+          "\"The filters are IRIS's own\" came back as \"same as in IRIS\", and \"catalogued\" as \"indexed\"; slight nuance shift, placeholders intact."
+        ],
+        "back_translation": "This page searches {held} items indexed here, inside your browser; and the original IRIS repository contains {upstream} items. The filters are the same as in IRIS, and their values and counts are calculated from the current results.",
+        "reviewer": {
+          "kind": "agent",
+          "id": "roundtrip-adjudicator",
+          "agent_skill": "untainted-verification",
+          "agent_session": "https://claude.ai/code/session_01Qmmkt8pUwRPkppRC8q6dtK",
+          "agent_model": "not-disclosed",
+          "agent_date": "2026-11-08",
+          "actor": "untainted-adjudicator"
+        },
+        "back_translator": {
+          "kind": "agent",
+          "id": "roundtrip-back-translator",
+          "saw": "msgstr only, by index; one Read, one Write"
+        }
       }
     ]
   }
