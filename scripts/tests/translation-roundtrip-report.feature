@@ -14,6 +14,13 @@ Feature: The translation round-trip report and the attestations it is built from
     When the report is built
     Then every locale's family summary contains "Back-translator tools: Read,Write."
 
+  @test:scripts/tests/translation-roundtrip-report.test.ts::translation_round-trip_report::rulingsMayRunAheadButNotBehind
+  Scenario: rulings may be recorded ahead of the strings, never behind them
+    Given rulings indexed 0, 1 and 2 for a catalogue of 2 strings
+    Then the rulings used are those indexed 0 and 1
+    And 2 rulings for 3 strings is an error that says to re-run the agents
+    And rulings indexed 0 and 2 for 2 strings is an error that says they are not in catalogue order
+
   @test:scripts/tests/translation-roundtrip-report.test.ts::translation_round-trip_report::parsePoJoinsLinesSkipsHeader
   Scenario: parsePo joins continuation lines and skips the header
     Given a PO text with a header entry and one entry whose msgid "a " continues on the next line with "b"
@@ -26,7 +33,7 @@ Feature: The translation round-trip report and the attestations it is built from
     Then a translation-qa attestations file exists for that catalogue and locale
     And its schema is "qa-attestations/v1", its family "translation-qa" and its locale that locale
     And its subject is the translation catalogue at translations/<locale>/<catalogue>
-    And its entries are indexed one per string of that translated catalogue, in order
+    And its first entries are indexed one per string of that translated catalogue, in order (rulings for strings not on this branch yet may follow)
     And the run and every entry have a reviewer of kind "agent"
     And the run's back-translation trailer says tools used were "Read,Write"
 
