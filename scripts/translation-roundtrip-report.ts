@@ -132,6 +132,28 @@ export function readRoundtrip(catalogue: string, locale: string, root = ATTESTAT
 }
 
 
+/**
+ * The rulings for a catalogue of `n` strings: the first `n`, indexed 0 to n-1.
+ *
+ * RULINGS MAY RUN AHEAD OF THE CATALOGUE (owner, 2026-11-08, issue #196). The
+ * rulings live on the attestations state branch and the catalogue on main, so
+ * a PR that adds strings cannot land both at once. Rulings for strings not on
+ * this branch yet are ignored here, so they can be recorded before the PR that
+ * adds the strings merges and main stays green. Fewer rulings than strings is
+ * still an error: every string on the branch must have been judged, and the
+ * msgid hash check below still catches a ruling for a different string.
+ */
+export function rulingsFor(n: number, entries: RoundtripEntry[], what: string): RoundtripEntry[] {
+  if (entries.length < n) {
+    throw new Error(`${what}: ${n} strings, ${entries.length} rulings — strings were added without a run; re-run the agents`);
+  }
+  const head = entries.slice(0, n);
+  head.forEach((e, i) => {
+    if (e.index !== i) throw new Error(`${what}: ruling ${i} has index ${e.index}; the rulings are not in catalogue order`);
+  });
+  return head;
+}
+
 export function buildReport(instance = INSTANCE): Record<string, unknown> {
   const script = readFileSync(join(import.meta.dir, "translation-roundtrip-report.ts"), "utf-8");
   const families: Record<string, { summary: string; count: number; entries: unknown[] }> = {};
@@ -139,21 +161,17 @@ export function buildReport(instance = INSTANCE): Record<string, unknown> {
   const catalogues: Record<string, string> = {};
   for (const locale of LOCALES) {
     const strings: PoString[] = [];
+    const rulings: RoundtripEntry[] = [];
+    let tools: string | undefined;
     for (const cat of CATALOGUES) {
       const path = join(instance, "translations", locale, cat);
       const text = readFileSync(path, "utf-8");
       catalogues[relative(instance, path)] = createHash("sha256").update(text).digest("hex");
-      strings.push(...parsePo(text, cat));
-    }
-    const rulings: RoundtripEntry[] = [];
-    let tools: string | undefined;
-    for (const cat of CATALOGUES) {
+      const here = parsePo(text, cat);
+      strings.push(...here);
       const { run, entries } = readRoundtrip(cat, locale, join(instance, "test", "attestations", "translation-qa"));
       tools ??= run.back_translation_trailer.TOOLS_USED;
-      rulings.push(...entries);
-    }
-    if (rulings.length !== strings.length) {
-      throw new Error(`${locale}: ${strings.length} strings, ${rulings.length} rulings — the catalogue changed since the run; re-run the agents`);
+      rulings.push(...rulingsFor(here.length, entries, `${locale} ${cat}`));
     }
     const count: Record<Verdict, number> = { pass: 0, warn: 0, fail: 0 };
     const flagged: unknown[] = [];
