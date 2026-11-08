@@ -12,6 +12,7 @@ repository, where it will carry its own tools and themes.
 - [The worked example](#the-worked-example)
 - [The library](#the-library)
 - [The style guide, derived from the library](#the-style-guide-derived-from-the-library)
+- [Run it locally](#run-it-locally)
 
 <!-- readme:toc:end -->
 
@@ -75,3 +76,20 @@ out of one publication in the library, and every rule cites the page it came
 from; `bun run cat check:voices` resolves those citations against this
 instance's library. Together they are the style guide:
 [`docs/style-guide.md`](docs/style-guide.md).
+
+## Run it locally
+
+From a fresh clone, one command serves the site at `http://127.0.0.1:4007/who-iris/`:
+
+```bash
+bun run cat serve:local --site who-iris=.
+```
+
+The first `bun run cat …` mounts the layers `index.lock.json` pins (through
+`.github/cat.ts` and `.github/mount-from-lock.sh`) and runs `bun install`
+once, then runs the command. After a re-pin, run
+`bash .github/mount-from-lock.sh` to refresh the mounts.
+
+`bun run test` runs the tests. It first lays `test/attestations/` down from
+the `cat/who-iris/attestations` state branch (`bun run attestations:mount`),
+as the checks workflow does, because that directory is never on `main`.
