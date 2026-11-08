@@ -2846,7 +2846,6 @@ function searchPage(all: Node[]): string {
     published: t("Publication Date: {date}"), accepted: t("Accepted: {date}"), availableOnline: t("Available Online: {date}"),
     noAuthor: t("no author recorded"), remove: t("Remove filter: {value}"), reset: t("Reset filters"),
     prev: t("Previous page"), next: t("Next page"), pagination: t("Pagination"),
-    lookupBase: `${toSiteRoot()}../id-lookup/?index=who-iris/&q=`,
     lookupTemplate: t("Search for “{q}” in the referenced identifier lookup ({n} nodes) →", { n: num(all.length - held.length) }),
   };
   const json = (v: unknown): string => JSON.stringify(v).replace(/</g, "\\u003c");

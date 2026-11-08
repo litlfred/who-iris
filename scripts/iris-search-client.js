@@ -209,7 +209,7 @@
   function add(el, child) {
     if (child === undefined || child === null || child === false) return;
     if (Array.isArray(child)) { child.forEach(function (c) { add(el, c); }); return; }
-    el.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
+    el.appendChild(child instanceof Node ? child : document.createTextNode(String(child)));
   }
   function fill(s, vars) {
     for (var k in vars) s = s.split("{" + k + "}").join(vars[k]);
@@ -401,7 +401,10 @@
     els.empty.hidden = total > 0;
     var lookup = els.empty.querySelector("a");
     if (lookup) {
-      lookup.href = safeHref(T.lookupBase) + encodeURIComponent(state.query);
+      // The page wrote the link's target; only its q parameter changes here.
+      var target = new URL(lookup.getAttribute("href"), location.href);
+      target.searchParams.set("q", state.query);
+      lookup.href = target.href;
       lookup.textContent = T.lookupTemplate.split("{q}").join(state.query);
     }
     for (var i = 0; i < els.views.length; i++) {
