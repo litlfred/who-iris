@@ -1,6 +1,6 @@
 Feature: The pages gen-iris-pages writes
   The docs pages, the catalogue page's inputs, the library's withheld list and
-  the one page left of the IRIS replica, its home page, as committed and as the
+  the two pages of the IRIS replica, its home and search pages, as committed and as the
   generator's helpers produce them.
 
   @test:scripts/tests/gen-iris-pages.test.ts::the_generator_owns_its_filenames,_and_prunes_only_those::committedHtmlIsExactlyGenerated
@@ -182,10 +182,17 @@ Feature: The pages gen-iris-pages writes
     And the page has no "library/who-iris/#" link
     And rendering with the default options does contain a "library/who-iris/#" link
 
-  @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::eachLocaleHasOnlyHomePage
-  Scenario: each language has a home page and nothing else: the item, collection and community pages are gone
-    Then the only .html file in site/ is index.html
-    And for every site locale, the only .html file in its directory is index.html
+  @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::eachLocaleHasOnlyHomeAndSearchPages
+  Scenario: each language has a home page and a search page and nothing else: the item, collection and community pages are gone
+    Then the only .html files in site/ are index.html and search.html
+    And for every site locale, the only .html files in its directory are index.html and search.html
+
+  @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::searchPageFacetValuesAreComputedNotWritten
+  Scenario: the search page's facet values are computed in the browser, not written into the page
+    Given the committed site/search.html
+    Then it links Home as index.html and carries the items as JSON data
+    And its facet list is empty in the HTML
+    And the home page's search form submits to search.html and has no hard-coded filter chips
 
   @test:scripts/tests/gen-iris-pages.test.ts::the_replica_keeps_only_its_IRIS-style_home_page_(owner,_2026-10-30)::homeLinksHeldItemsToLibrary
   Scenario: each held item links to its library entry page, and no link names a retired page
