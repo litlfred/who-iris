@@ -267,7 +267,7 @@ type Locale = "en" | (typeof SITE_LOCALES)[number];
 const PAGES = {
   site: {
     /** The replica: the KG rendered. */
-    fixed: ["index", "community-list"],
+    fixed: ["index", "community-list", "search"],
     /** One page per collection and per item; prunable when the node is gone. */
     families: ["collection-.*", "item-.*"],
   },
@@ -910,6 +910,50 @@ export const SITE_STRINGS: readonly UiString[] = [
   { en: "Look up “{q}” in referenced nodes →", comment: "That link. {q} is what the reader typed. Use your language's quotation marks; flip the arrow for right-to-left." },
   { en: "No materialized items or collections matched “<strong>{q}</strong>”.", comment: "When nothing matches. {q} is what the reader typed." },
   { en: "Search for “{q}” in the referenced identifier lookup ({n} nodes) →", comment: "Link shown when nothing matches. {q} is what the reader typed, {n} a number. Flip the arrow for right-to-left." },
+
+  // ── The search page (issue #196), mimicking iris.who.int/search ──────
+  { en: "Filters", comment: "Heading of the search page's sidebar of facets." },
+  { en: "Author", comment: "A facet on the search page: the items' authors (dc.contributor.author)." },
+  { en: "Subject", comment: "A facet on the search page: the items' subjects. IRIS shows two facets with this label (MeSH headings, then all subjects)." },
+  { en: "Date issued", comment: "A facet on the search page: when the item was published (dc.date.issued)." },
+  { en: "Start", comment: "Label of the first year box in the Date issued facet." },
+  { en: "End", comment: "Label of the second year box in the Date issued facet." },
+  { en: "Apply", comment: "Button that applies the year range typed in the Date issued facet." },
+  { en: "Has files", comment: "A facet on the search page: whether the item has files." },
+  { en: "Yes", comment: "A value of the Has files facet." },
+  { en: "No", comment: "A value of the Has files facet." },
+  { en: "Publisher", comment: "A facet on the search page: the items' publishers (dc.publisher)." },
+  { en: "Series", comment: "A facet on the search page: the series or journal an item is part of." },
+  { en: "Type", comment: "A facet on the search page: the item's type (dc.type), such as Publications or Journal articles." },
+  { en: "Show more", comment: "Button under a facet that lists more of its values; also under a long abstract." },
+  { en: "Show less", comment: "Button that undoes Show more." },
+  { en: "Search author name", comment: "Placeholder of the box that searches within the Author facet." },
+  { en: "Search subject", comment: "Placeholder of the box that searches within a Subject facet." },
+  { en: "Search publisher", comment: "Placeholder of the box that searches within the Publisher facet." },
+  { en: "Search series", comment: "Placeholder of the box that searches within the Series facet." },
+  { en: "Search type", comment: "Placeholder of the box that searches within the Type facet." },
+  { en: "Settings", comment: "Heading of the search page's sort and page-size settings." },
+  { en: "Sort By", comment: "Label of the search page's sort menu." },
+  { en: "Most Relevant", comment: "A sort order on the search page." },
+  { en: "Title Ascending", comment: "A sort order on the search page: by title, A to Z." },
+  { en: "Date Issued Descending", comment: "A sort order on the search page: newest publication date first." },
+  { en: "Accessioned Date Descending", comment: "A sort order on the search page: most recently taken into IRIS first." },
+  { en: "Available Date Descending", comment: "A sort order on the search page: most recently made available first." },
+  { en: "Results per page", comment: "Label of the search page's page-size menu." },
+  { en: "Search Results", comment: "Heading above the search results." },
+  { en: "Now showing {from} - {to} of {total}", comment: "Above the search results. {from}, {to} and {total} are numbers." },
+  { en: "Accepted: {date}", comment: "In a search result's byline, as IRIS labels it (dc.date.accessioned). {date} is a date such as 2020-05-14." },
+  { en: "Available Online: {date}", comment: "In a search result's byline, as IRIS labels it (dc.date.available). {date} is a date such as 2020-05-14." },
+  { en: "List view", comment: "Button that shows the search results as a list." },
+  { en: "Grid view", comment: "Button that shows the search results as a grid of cards." },
+  { en: "Your search returned no results.", comment: "Shown when nothing matches the search and filters." },
+  { en: "Remove filter: {value}", comment: "Accessible name of an applied-filter chip, read by a screen reader. {value} is the facet and its value." },
+  { en: "Reset filters", comment: "Link that removes every applied filter." },
+  { en: "Previous page", comment: "Accessible name of the « link in the pagination." },
+  { en: "Next page", comment: "Accessible name of the » link in the pagination." },
+  { en: "Pagination", comment: "Accessible name of the row of page numbers." },
+  { en: "Search the repository", comment: "Accessible name of the search page's search box." },
+  { en: "This page searches the {held} items catalogued here, in your browser; upstream IRIS holds {upstream}. The filters are IRIS’s own; their values and counts are computed from the current results.", comment: "Note under the search page's search box. {held} is how many items the catalogue here describes (more than are held by value), {upstream} how many IRIS holds." },
 ];
 
 const SITE_TABLE = new Map(SITE_STRINGS.map((s) => [s.en, s]));
@@ -2129,6 +2173,7 @@ function replicaNav(): string {
   const all = REPLICA_NAV_ALL;
   const entries: { label: string; href?: string; items?: { label: string; href?: string }[] }[] = [
     { label: t("Home"), href: "index.html" },
+    { label: t("Search"), href: "search.html" },
     { label: t("Community List"), href: cataloguePageHref() },
   ];
   // The held items, each to its library entry page: since 2026-10-30 that is
@@ -2536,61 +2581,13 @@ function landingPage(all: Node[]): string {
   <p class="hero-note">${t("Replica. No WHO emblem, no photograph — colour only, from the {theme} theme measured off the site’s own stylesheet.", { theme: "<code>iris-web</code>" })}</p>
 </section>
 
-<form class="searchbar" id="iris-search-form" action="${toSiteRoot()}../id-lookup/" method="get">
-  <input type="hidden" name="index" value="who-iris/">
-  <input type="text" id="iris-search-input" name="q"
+<form class="searchbar" id="iris-search-form" action="search.html" method="get">
+  <input type="text" id="iris-search-input" name="query"
     placeholder="${esc(t("Search through the repository’s {n} items", { n: itemsUpstream !== undefined ? String(itemsUpstream) : "?" }))}"
     aria-label="${esc(t("Search through the repository items and referenced identifier lookup"))}"
     autocomplete="off" spellcheck="false">
   <button type="submit" id="iris-search-btn">${t("Search")}</button>
 </form>
-
-<div class="iris-facet-chips" id="iris-facet-chips" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.6rem 0 0.8rem;align-items:center;">
-  <span style="font-size:0.85rem;color:var(--iris-muted);font-weight:600;">Facets:</span>
-  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Guidelines as Topic" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Guidelines as Topic</button>
-  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Publishing" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Publishing</button>
-  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Western Pacific" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Western Pacific</button>
-  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Headquarters" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Headquarters</button>
-  <button type="button" class="iris-chip" data-facet-type="access" data-facet-val="open-access" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-mat-edge);color:var(--iris-mat);background:var(--iris-mat-bg);cursor:pointer;">Open Access PDF</button>
-</div>
-
-<details id="iris-adv-filters" style="margin:0 0 1rem;font-size:0.9rem;border:1px solid var(--iris-edge);border-radius:4px;padding:0.5rem 0.8rem;background:var(--iris-wash);">
-  <summary style="cursor:pointer;font-weight:600;color:var(--iris-heading);">Complex Search &amp; KG Filters (Oxigraph)</summary>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.7rem;margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--iris-edge);">
-    <div>
-      <label for="iris-filter-subject" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Subject (MeSH)</label>
-      <select id="iris-filter-subject" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <option value="">All Subjects</option>
-        <option value="Guidelines as Topic">Guidelines as Topic</option>
-        <option value="Publishing">Publishing</option>
-        <option value="Evidence-Based Medicine">Evidence-Based Medicine</option>
-        <option value="Information Systems and Communication">Information Systems</option>
-        <option value="Writing">Writing</option>
-      </select>
-    </div>
-    <div>
-      <label for="iris-filter-community" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Community</label>
-      <select id="iris-filter-community" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <option value="">All Communities</option>
-        <option value="Headquarters">Headquarters</option>
-        <option value="Western Pacific">Western Pacific</option>
-      </select>
-    </div>
-    <div>
-      <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Year Range</label>
-      <div style="display:flex;gap:0.3rem;">
-        <input type="number" id="iris-filter-year-from" placeholder="From" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <input type="number" id="iris-filter-year-to" placeholder="To" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-      </div>
-    </div>
-    <div style="display:flex;align-items:flex-end;">
-      <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.88rem;">
-        <input type="checkbox" id="iris-filter-open-access">
-        <span>Open Access PDF only</span>
-      </label>
-    </div>
-  </div>
-</details>
 
 <div id="iris-search-results" class="search-results-panel" role="region" aria-live="polite" style="display:none"></div>
 <p class="searchnote" id="iris-search-note">${t("Search across <strong>{held}</strong> items held by value and referenced communities/collections. To look up any of the <strong>{referenced}</strong> referenced nodes by identifier, search here or open the {lookup}.", {
@@ -2640,12 +2637,6 @@ ${collections
   var form = document.getElementById("iris-search-form");
   var input = document.getElementById("iris-search-input");
   var results = document.getElementById("iris-search-results");
-  var fSubj = document.getElementById("iris-filter-subject");
-  var fComm = document.getElementById("iris-filter-community");
-  var fYFrom = document.getElementById("iris-filter-year-from");
-  var fYTo = document.getElementById("iris-filter-year-to");
-  var fOA = document.getElementById("iris-filter-open-access");
-  var chips = document.querySelectorAll(".iris-chip");
   if (!form || !input || !results) return;
 
   function escapeHtml(s) {
@@ -2674,14 +2665,7 @@ ${collections
 
   function update() {
     var raw = input.value.trim();
-    var subj = fSubj ? fSubj.value.trim() : "";
-    var comm = fComm ? fComm.value.trim() : "";
-    var yFrom = fYFrom && fYFrom.value ? parseInt(fYFrom.value, 10) : 0;
-    var yTo = fYTo && fYTo.value ? parseInt(fYTo.value, 10) : 0;
-    var oaOnly = fOA ? fOA.checked : false;
-
-    var hasActive = raw || subj || comm || yFrom || yTo || oaOnly;
-    if (!hasActive) {
+    if (!raw) {
       results.style.display = "none";
       results.replaceChildren();
       return;
@@ -2699,23 +2683,6 @@ ${collections
         }
       }
       if (!ok) continue;
-
-      if (subj && (!entry.subjects || entry.subjects.indexOf(subj) < 0)) {
-        continue;
-      }
-      if (comm && (!entry.community || entry.community.indexOf(comm) < 0)) {
-        continue;
-      }
-      if (yFrom && (!entry.year || entry.year < yFrom)) {
-        continue;
-      }
-      if (yTo && (!entry.year || entry.year > yTo)) {
-        continue;
-      }
-      if (oaOnly && !(entry.hasPdf && entry.copyrightGate === "permitted")) {
-        continue;
-      }
-
       matches.push(entry);
     }
 
@@ -2755,12 +2722,12 @@ ${collections
       }
       html += "</ul>";
       html += "<div class=\\"search-remote-box\\" style=\\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\\">";
-      html += T.also + " <a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\">" + fill(T.lookUp, escapeHtml(raw || subj || comm), "") + "</a>";
+      html += T.also + " <a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\">" + fill(T.lookUp, escapeHtml(raw), "") + "</a>";
       html += "</div>";
     } else {
-      html += "<p style=\\"margin:0 0 0.5rem;\\">" + fill(T.none, escapeHtml(raw || subj || comm), "") + "</p>";
+      html += "<p style=\\"margin:0 0 0.5rem;\\">" + fill(T.none, escapeHtml(raw), "") + "</p>";
       html += "<div class=\\"search-remote-box\\" style=\\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\\">";
-      html += "<a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\" style=\\"font-weight:600;\\">" + fill(T.searchFor, escapeHtml(raw || subj || comm), "") + "</a>";
+      html += "<a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\" style=\\"font-weight:600;\\">" + fill(T.searchFor, escapeHtml(raw), "") + "</a>";
       html += "</div>";
     }
 
@@ -2769,34 +2736,10 @@ ${collections
   }
 
   input.addEventListener("input", update);
-  if (fSubj) fSubj.addEventListener("change", update);
-  if (fComm) fComm.addEventListener("change", update);
-  if (fYFrom) fYFrom.addEventListener("input", update);
-  if (fYTo) fYTo.addEventListener("input", update);
-  if (fOA) fOA.addEventListener("change", update);
-
-  chips.forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      var t = btn.getAttribute("data-facet-type");
-      var v = btn.getAttribute("data-facet-val");
-      var adv = document.getElementById("iris-adv-filters");
-      if (adv) adv.open = true;
-      if (t === "subject" && fSubj) { fSubj.value = v; }
-      else if (t === "community" && fComm) { fComm.value = v; }
-      else if (t === "access" && fOA) { fOA.checked = !fOA.checked; }
-      update();
-    });
-  });
-
+  // Submitting goes to the search page with the query, as IRIS's home does
+  // (issue #196); the list above is only a preview while typing.
   form.addEventListener("submit", function(e) {
-    var raw = input.value.trim();
-    if (!raw && !fSubj.value && !fComm.value) { e.preventDefault(); return; }
-    var hasLocal = results.querySelector(".search-result-item");
-    var firstLink = results.querySelector(".search-result-item a");
-    if (hasLocal && firstLink) {
-      e.preventDefault();
-      firstLink.focus();
-    }
+    if (!input.value.trim()) e.preventDefault();
   });
 
   var urlParams = new URLSearchParams(window.location.search);
@@ -2809,6 +2752,243 @@ ${collections
 })();
 </script>
 `;
+}
+
+/**
+ * The search page — `search.html?query=…`, after iris.who.int/search (issue #196).
+ *
+ * THE FACET CATEGORIES ARE FIXED AND THEIR VALUES ARE NOT (owner, 2026-11-08:
+ * "values of the filters are dynamic"). This writes one record per held item,
+ * read from its Dublin Core record, and `iris-search-client.js` computes every
+ * facet value and count in the browser from the items the current query
+ * matches. Nothing a facet lists is typed here.
+ *
+ * Which field feeds which facet, as IRIS's Discovery configuration names them:
+ *
+ * | facet | fields |
+ * |---|---|
+ * | Author | `dc.contributor.author` |
+ * | Subject (MeSH) | `dc.subject.mesh` |
+ * | Date issued | the year of `dc.date.issued` |
+ * | Has files | an ORIGINAL bitstream in the catalogue node |
+ * | Publisher | `dc.publisher` |
+ * | Subject | `dc.subject`, `.mesh`, `.meshqualifier`, `.other` |
+ * | Series | `dc.relation.ispartofseries`, `dc.relation.ispartofjournal` |
+ * | Type | `dc.type` |
+ *
+ * The client is a plain script file rather than a template literal here, so
+ * its regular expressions are not escaped twice.
+ */
+function searchPage(all: Node[]): string {
+  const items = all.filter((n) => n.flavour === "item");
+  const held = items.filter((n) => assetHref(n) !== undefined);
+  const latest = (xs: string[]): string | undefined => (xs.length ? day(xs.slice().sort()[xs.length - 1]) : undefined);
+  const uniq = (xs: string[]): string[] => [...new Set(xs.map((x) => x.trim()).filter(Boolean))];
+  const records = items.map((n) => {
+    const authors = dc(n, "contributor", "author");
+    const issued = day(dc(n, "date", "issued")[0]);
+    const abstract = dc(n, "description", "abstract")[0] ?? "";
+    const mesh = uniq(dc(n, "subject", "mesh"));
+    const f = {
+      author: uniq(authors),
+      mesh,
+      publisher: uniq(dc(n, "publisher")),
+      subject: uniq([...dc(n, "subject"), ...mesh, ...dc(n, "subject", "meshqualifier"), ...dc(n, "subject", "other")]),
+      series: uniq([...dc(n, "relation", "ispartofseries"), ...dc(n, "relation", "ispartofjournal")]),
+      itemtype: uniq(dc(n, "type")),
+    };
+    const facetText = [...f.author, ...f.subject, ...f.publisher, ...f.series, ...f.itemtype].join(" ").toLowerCase();
+    return {
+      title: n.title,
+      href: itemPageHref(n) ?? cataloguePageHref(),
+      cover: coverCell(n),
+      lang: langOf(n) !== LOCALE ? langOf(n) : undefined,
+      authors,
+      govdoc: dc(n, "identifier", "govdoc")[0],
+      issued,
+      year: issued ? parseInt(issued.slice(0, 4), 10) : undefined,
+      accessioned: day(accessioned(n)),
+      available: latest(dc(n, "date", "available")),
+      abstract,
+      hasFiles: (n.bitstreams ?? []).some((b) => b.bundle === "ORIGINAL"),
+      f,
+      titleLc: n.title.toLowerCase(),
+      abstractLc: abstract.toLowerCase(),
+      facetLc: facetText,
+      text: [n.title, n.id, n.libraryId ?? "", dc(n, "identifier", "govdoc").join(" "), dc(n, "identifier", "isbn").join(" "), facetText, abstract].join(" ").toLowerCase(),
+    };
+  });
+  const strings = {
+    author: t("Author"), subject: t("Subject"), dateIssued: t("Date issued"), hasFiles: t("Has files"),
+    publisher: t("Publisher"), series: t("Series"), type: t("Type"), yes: t("Yes"), no: t("No"),
+    start: t("Start"), end: t("End"), apply: t("Apply"),
+    findAuthor: t("Search author name"), findSubject: t("Search subject"), findPublisher: t("Search publisher"),
+    findSeries: t("Search series"), findType: t("Search type"),
+    showMore: t("Show more"), showLess: t("Show less"),
+    sortRelevant: t("Most Relevant"), sortTitle: t("Title Ascending"), sortIssued: t("Date Issued Descending"),
+    sortAccessioned: t("Accessioned Date Descending"), sortAvailable: t("Available Date Descending"),
+    showing: t("Now showing {from} - {to} of {total}"),
+    published: t("Publication Date: {date}"), accepted: t("Accepted: {date}"), availableOnline: t("Available Online: {date}"),
+    noAuthor: t("no author recorded"), remove: t("Remove filter: {value}"), reset: t("Reset filters"),
+    prev: t("Previous page"), next: t("Next page"), pagination: t("Pagination"),
+  };
+  const json = (v: unknown): string => JSON.stringify(v).replace(/</g, "\\u003c");
+  const client = readFileSync(join(import.meta.dir, "iris-search-client.js"), "utf-8");
+  const upstream = catalogue().totalItemsUpstream;
+  return `
+<style>
+  /* The search page, after iris.who.int/search: filters at the start, results beside them. */
+  .is-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 2rem; margin-top: 1.2rem; }
+  .is-side h2, .is-main h2 { font-size: 1.35rem; margin: 0 0 0.8rem; color: var(--iris-heading); }
+  .is-facet { border-bottom: 1px solid var(--iris-edge); padding: 0.55rem 0 0.7rem; }
+  .is-facet summary { font-weight: 700; cursor: pointer; color: var(--iris-ink); padding: 0.15rem 0; }
+  .is-values { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+  .is-values a { display: flex; gap: 0.45rem; align-items: baseline; padding: 0.2rem 0; color: var(--iris-link); font-size: 0.92rem; line-height: 1.3; }
+  .is-values a[aria-current] { font-weight: 700; }
+  .is-check { flex: none; color: var(--iris-muted); }
+  .is-label { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .is-count {
+    flex: none; font-size: 0.75rem; font-weight: 700; color: #fff; background: var(--iris-muted);
+    border-radius: 10px; padding: 0.05rem 0.45rem; min-width: 1.8rem; text-align: center;
+  }
+  .is-more { display: flex; gap: 0.8rem; }
+  .is-more button, .is-toggle {
+    background: none; border: 0; padding: 0.25rem 0; color: var(--iris-link); cursor: pointer; font: inherit; font-size: 0.88rem;
+  }
+  .is-more button:hover, .is-toggle:hover { text-decoration: underline; }
+  .is-find, .is-range input, .is-settings select {
+    width: 100%; padding: 0.35rem 0.5rem; border: 1px solid var(--iris-edge); border-radius: 4px;
+    background: var(--iris-paper); color: var(--iris-ink); font: inherit; font-size: 0.9rem; margin-top: 0.35rem;
+  }
+  .is-range { display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.4rem; align-items: end; margin-top: 0.3rem; }
+  .is-range label { font-size: 0.82rem; color: var(--iris-muted); }
+  .is-range button {
+    padding: 0.38rem 0.6rem; border: 1px solid var(--iris-accent); background: var(--iris-accent); color: #fff;
+    border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.85rem;
+  }
+  .is-settings { margin-top: 1.4rem; }
+  .is-settings label { display: block; font-weight: 700; margin-top: 0.7rem; font-size: 0.92rem; }
+  .is-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.6rem; }
+  .is-views { display: inline-flex; border: 1px solid var(--iris-edge); border-radius: 4px; overflow: hidden; }
+  .is-views button {
+    background: var(--iris-paper); color: var(--iris-ink); border: 0; padding: 0.35rem 0.6rem; cursor: pointer; font: inherit; font-size: 0.85rem;
+  }
+  .is-views button + button { border-inline-start: 1px solid var(--iris-edge); }
+  .is-views button[aria-pressed="true"] { background: var(--iris-accent); color: #fff; }
+  .is-status { color: var(--iris-muted); font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+  .is-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.9rem; }
+  .is-chip {
+    display: inline-flex; gap: 0.3rem; align-items: center; font-size: 0.85rem; padding: 0.2rem 0.65rem;
+    border-radius: 14px; background: var(--iris-tag-bg); color: var(--iris-heading);
+  }
+  .is-chip.is-reset { background: none; border: 1px solid var(--iris-edge); color: var(--iris-link); }
+  .is-results { list-style: none; margin: 0; padding: 0; }
+  .is-results.is-list { display: flex; flex-direction: column; gap: 1.6rem; }
+  .is-results.is-list .is-card { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .is-results.is-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1.2rem; }
+  .is-results.is-grid .is-card { border: 1px solid var(--iris-edge); border-radius: 4px; padding: 0.8rem; background: var(--iris-paper); }
+  .is-results.is-grid .is-cover { margin-bottom: 0.6rem; }
+  .is-cover { flex: 0 0 104px; }
+  .is-cover img { width: 104px; height: auto; display: block; border: 1px solid var(--iris-edge); }
+  .is-cover .nocover {
+    display: flex; align-items: center; justify-content: center; width: 104px; height: 140px;
+    border: 1px dashed var(--iris-edge); color: var(--iris-muted); font-size: 0.78rem; text-align: center; line-height: 1.3;
+  }
+  .is-body { flex: 1; min-width: 0; }
+  .is-title { font-size: 1.02rem; line-height: 1.35; text-decoration: underline; overflow-wrap: anywhere; }
+  .is-by { margin: 0.35rem 0 0.4rem; font-size: 0.9rem; }
+  .is-abs { margin: 0; font-size: 0.93rem; line-height: 1.5; }
+  .is-abs.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .is-results.is-grid .is-abs.clamp { -webkit-line-clamp: 5; }
+  .is-results mark { background: #fff3a8; color: inherit; padding: 0 0.05em; }
+  .is-pages { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0; margin: 1.8rem 0 0; }
+  .is-pages a, .is-pages span {
+    display: block; min-width: 2.3rem; text-align: center; padding: 0.35rem 0.55rem;
+    border: 1px solid var(--iris-edge); border-radius: 4px; background: var(--iris-paper);
+  }
+  .is-pages .active a { background: var(--iris-accent); border-color: var(--iris-accent); color: #fff; }
+  .is-pages .disabled span { color: var(--iris-muted); }
+  .is-empty { padding: 1rem; border: 1px solid var(--iris-edge); border-radius: 4px; background: var(--iris-wash); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-fa-scheme="light"]) .is-results mark { background: #5c4a00; }
+  }
+  :root[data-fa-scheme="dark"] .is-results mark { background: #5c4a00; }
+  @media (max-width: 800px) {
+    .is-layout { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .is-side { order: 2; }
+    .is-results.is-list .is-card { flex-direction: column; }
+  }
+</style>
+
+<div id="iris-search">
+<form class="searchbar" id="iris-search-form" action="search.html" method="get" role="search">
+  <input type="text" id="iris-search-input" name="query"
+    placeholder="${esc(t("Search through the repository’s {n} items", { n: upstream !== undefined ? String(upstream) : "?" }))}"
+    aria-label="${esc(t("Search the repository"))}" autocomplete="off" spellcheck="false">
+  <button type="submit">${t("Search")}</button>
+</form>
+<p class="searchnote">${t("This page searches the {held} items catalogued here, in your browser; upstream IRIS holds {upstream}. The filters are IRIS’s own; their values and counts are computed from the current results.", {
+    held: num(items.length),
+    upstream: upstream !== undefined ? num(upstream) : "?",
+  })}</p>
+
+<div class="is-layout">
+  <aside class="is-side" aria-labelledby="is-filters-h">
+    <h2 id="is-filters-h">${t("Filters")}</h2>
+    <div id="is-facets"></div>
+    <div class="is-settings">
+      <h2>${t("Settings")}</h2>
+      <label for="is-sort">${t("Sort By")}</label>
+      <select id="is-sort"></select>
+      <label for="is-rpp">${t("Results per page")}</label>
+      <select id="is-rpp"></select>
+    </div>
+  </aside>
+  <section class="is-main" aria-labelledby="is-results-h">
+    <div class="is-head">
+      <h2 id="is-results-h">${t("Search Results")}</h2>
+      <div class="is-views" role="group">
+        <button type="button" data-view="list" aria-pressed="true">&#9776; ${t("List view")}</button>
+        <button type="button" data-view="grid" aria-pressed="false">&#9638; ${t("Grid view")}</button>
+      </div>
+    </div>
+    <p class="is-status" id="is-status" role="status" aria-live="polite"></p>
+    <div id="is-chips"></div>
+    <ul id="is-results" class="is-results is-list"></ul>
+    <div class="is-empty" id="is-empty" hidden>
+      <p>${t("Your search returned no results.")}</p>
+      <p><a data-base="${toSiteRoot()}../id-lookup/?index=who-iris/&amp;q=" href="${toSiteRoot()}../id-lookup/?index=who-iris/" data-template="${esc(t("Search for “{q}” in the referenced identifier lookup ({n} nodes) →", { n: num(all.length - held.length) }))}"></a></p>
+    </div>
+    <div id="is-pages"></div>
+  </section>
+</div>
+</div>
+<script type="application/json" id="iris-search-data">${json(records)}</script>
+<script type="application/json" id="iris-search-strings">${json(strings)}</script>
+<script>
+${client}</script>
+`;
+}
+
+/**
+ * An item's cover cell: the image, or a placeholder saying why there is none.
+ * Shared by Recent Submissions and the search page's result cards.
+ */
+function coverCell(n: Node): string {
+  const cov = coverSrc(n);
+  // Three states, not two. A withheld cover and an absent one look the same
+  // in a layout and mean opposite things about the catalogue.
+  const withheldBy = coverWithheld(n);
+  return withheldBy
+    ? `<span class="nocover" title="${esc(t("A cover is rendered and held here. It is not published: {gates}.", { gates: withheldBy }))}">${t("cover<br>withheld")}</span>`
+    : !cov
+    ? `<span class="nocover" title="${esc(t("no cover rendered"))}">${t("no cover")}</span>`
+    : COVERS_SHOWN
+      ? `<a href="${esc(itemPageHref(n) ?? cataloguePageHref())}"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
+        alt="${esc(cov.masked
+          ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
+          : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }))}" loading="lazy"></a>`
+      : `<span class="nocover" title="${esc(t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO."))}">${t("cover<br>withheld")}</span>`;
 }
 
 /**
@@ -2827,7 +3007,6 @@ ${collections
  * a reader cannot tell it apart from a transcription.
  */
 function submission(n: Node): string {
-  const cov = coverSrc(n);
   const a = assetHref(n);
   const authors = dc(n, "contributor", "author");
   const issued = day(dc(n, "date", "issued")[0]);
@@ -2842,22 +3021,10 @@ function submission(n: Node): string {
       .join(", ")})`,
   ].join(" ");
 
-  // Three states, not two. A withheld cover and an absent one look the same
-  // in a layout and mean opposite things about the catalogue.
-  const withheldBy = coverWithheld(n);
-  const coverCell = withheldBy
-    ? `<span class="nocover" title="${esc(t("A cover is rendered and held here. It is not published: {gates}.", { gates: withheldBy }))}">${t("cover<br>withheld")}</span>`
-    : !cov
-    ? `<span class="nocover" title="${esc(t("no cover rendered"))}">${t("no cover")}</span>`
-    : COVERS_SHOWN
-      ? `<a href="${esc(itemPageHref(n) ?? cataloguePageHref())}"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
-        alt="${esc(cov.masked
-          ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
-          : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }))}" loading="lazy"></a>`
-      : `<span class="nocover" title="${esc(t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO."))}">${t("cover<br>withheld")}</span>`;
+  const coverHtml = coverCell(n);
 
   return `<article class="sub">
-  <div class="sub-cover">${coverCell}</div>
+  <div class="sub-cover">${coverHtml}</div>
   <div class="sub-body">
     <a class="sub-title"${dataBlock(lang)} href="${esc(itemPageHref(n) ?? cataloguePageHref())}">${esc(n.title)}</a>
     <p class="sub-by">${byline}</p>
@@ -3693,6 +3860,7 @@ function main(): number {
     LOCALE = locale;
     const at = locale === "en" ? "site" : `site/${locale}`;
     files.set(`${at}/index.html`, page("who-iris", [{ label: t("Home") }], landingPage(all), "site", [], "index.html"));
+    files.set(`${at}/search.html`, page(t("Search"), [{ label: t("Home"), href: "index.html" }, { label: t("Search") }], searchPage(all), "site", [], "search.html"));
   }
   LOCALE = "en";
 

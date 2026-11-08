@@ -594,3 +594,213 @@ msgstr "الموقع"
 #. The wordmark in the masthead, set in type because the WHO logo is deliberately omitted. Use the Organization's official name in your language; the <br> breaks it over two lines and may move.
 msgid "World Health<br>Organization"
 msgstr "منظمة الصحة<br>العالمية"
+
+#: who-iris/scripts/gen-iris-pages.ts:915
+#. Heading of the search page's sidebar of facets.
+msgid "Filters"
+msgstr "عوامل التصفية"
+
+#: who-iris/scripts/gen-iris-pages.ts:916
+#. A facet on the search page: the items' authors (dc.contributor.author).
+msgid "Author"
+msgstr "المؤلف"
+
+#: who-iris/scripts/gen-iris-pages.ts:917
+#. A facet on the search page: the items' subjects. IRIS shows two facets with this label (MeSH headings, then all subjects).
+msgid "Subject"
+msgstr "الموضوع"
+
+#: who-iris/scripts/gen-iris-pages.ts:918
+#. A facet on the search page: when the item was published (dc.date.issued).
+msgid "Date issued"
+msgstr "تاريخ الإصدار"
+
+#: who-iris/scripts/gen-iris-pages.ts:919
+#. Label of the first year box in the Date issued facet.
+msgid "Start"
+msgstr "البداية"
+
+#: who-iris/scripts/gen-iris-pages.ts:920
+#. Label of the second year box in the Date issued facet.
+msgid "End"
+msgstr "النهاية"
+
+#: who-iris/scripts/gen-iris-pages.ts:921
+#. Button that applies the year range typed in the Date issued facet.
+msgid "Apply"
+msgstr "تطبيق"
+
+#: who-iris/scripts/gen-iris-pages.ts:922
+#. A facet on the search page: whether the item has files.
+msgid "Has files"
+msgstr "يحتوي على ملفات"
+
+#: who-iris/scripts/gen-iris-pages.ts:923
+#. A value of the Has files facet.
+msgid "Yes"
+msgstr "نعم"
+
+#: who-iris/scripts/gen-iris-pages.ts:924
+#. A value of the Has files facet.
+msgid "No"
+msgstr "لا"
+
+#: who-iris/scripts/gen-iris-pages.ts:925
+#. A facet on the search page: the items' publishers (dc.publisher).
+msgid "Publisher"
+msgstr "الناشر"
+
+#: who-iris/scripts/gen-iris-pages.ts:926
+#. A facet on the search page: the series or journal an item is part of.
+msgid "Series"
+msgstr "السلسلة"
+
+#: who-iris/scripts/gen-iris-pages.ts:927
+#. A facet on the search page: the item's type (dc.type), such as Publications or Journal articles.
+msgid "Type"
+msgstr "النوع"
+
+#: who-iris/scripts/gen-iris-pages.ts:928
+#. Button under a facet that lists more of its values; also under a long abstract.
+msgid "Show more"
+msgstr "عرض المزيد"
+
+#: who-iris/scripts/gen-iris-pages.ts:929
+#. Button that undoes Show more.
+msgid "Show less"
+msgstr "عرض أقل"
+
+#: who-iris/scripts/gen-iris-pages.ts:930
+#. Placeholder of the box that searches within the Author facet.
+msgid "Search author name"
+msgstr "البحث عن اسم المؤلف"
+
+#: who-iris/scripts/gen-iris-pages.ts:931
+#. Placeholder of the box that searches within a Subject facet.
+msgid "Search subject"
+msgstr "البحث عن موضوع"
+
+#: who-iris/scripts/gen-iris-pages.ts:932
+#. Placeholder of the box that searches within the Publisher facet.
+msgid "Search publisher"
+msgstr "البحث عن ناشر"
+
+#: who-iris/scripts/gen-iris-pages.ts:933
+#. Placeholder of the box that searches within the Series facet.
+msgid "Search series"
+msgstr "البحث عن سلسلة"
+
+#: who-iris/scripts/gen-iris-pages.ts:934
+#. Placeholder of the box that searches within the Type facet.
+msgid "Search type"
+msgstr "البحث عن نوع"
+
+#: who-iris/scripts/gen-iris-pages.ts:935
+#. Heading of the search page's sort and page-size settings.
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: who-iris/scripts/gen-iris-pages.ts:936
+#. Label of the search page's sort menu.
+msgid "Sort By"
+msgstr "الترتيب حسب"
+
+#: who-iris/scripts/gen-iris-pages.ts:937
+#. A sort order on the search page.
+msgid "Most Relevant"
+msgstr "الأكثر صلة"
+
+#: who-iris/scripts/gen-iris-pages.ts:938
+#. A sort order on the search page: by title, A to Z.
+msgid "Title Ascending"
+msgstr "العنوان تصاعديًا"
+
+#: who-iris/scripts/gen-iris-pages.ts:939
+#. A sort order on the search page: newest publication date first.
+msgid "Date Issued Descending"
+msgstr "تاريخ الإصدار تنازليًا"
+
+#: who-iris/scripts/gen-iris-pages.ts:940
+#. A sort order on the search page: most recently taken into IRIS first.
+msgid "Accessioned Date Descending"
+msgstr "تاريخ الإيداع تنازليًا"
+
+#: who-iris/scripts/gen-iris-pages.ts:941
+#. A sort order on the search page: most recently made available first.
+msgid "Available Date Descending"
+msgstr "تاريخ الإتاحة تنازليًا"
+
+#: who-iris/scripts/gen-iris-pages.ts:942
+#. Label of the search page's page-size menu.
+msgid "Results per page"
+msgstr "النتائج في كل صفحة"
+
+#: who-iris/scripts/gen-iris-pages.ts:943
+#. Heading above the search results.
+msgid "Search Results"
+msgstr "نتائج البحث"
+
+#: who-iris/scripts/gen-iris-pages.ts:944
+#. Above the search results. {from}, {to} and {total} are numbers.
+msgid "Now showing {from} - {to} of {total}"
+msgstr "عرض {from} - {to} من {total}"
+
+#: who-iris/scripts/gen-iris-pages.ts:945
+#. In a search result's byline, as IRIS labels it (dc.date.accessioned). {date} is a date such as 2020-05-14.
+msgid "Accepted: {date}"
+msgstr "تاريخ القبول: {date}"
+
+#: who-iris/scripts/gen-iris-pages.ts:946
+#. In a search result's byline, as IRIS labels it (dc.date.available). {date} is a date such as 2020-05-14.
+msgid "Available Online: {date}"
+msgstr "متاح على الإنترنت: {date}"
+
+#: who-iris/scripts/gen-iris-pages.ts:947
+#. Button that shows the search results as a list.
+msgid "List view"
+msgstr "عرض القائمة"
+
+#: who-iris/scripts/gen-iris-pages.ts:948
+#. Button that shows the search results as a grid of cards.
+msgid "Grid view"
+msgstr "عرض الشبكة"
+
+#: who-iris/scripts/gen-iris-pages.ts:949
+#. Shown when nothing matches the search and filters.
+msgid "Your search returned no results."
+msgstr "لم يُسفر البحث عن أي نتائج."
+
+#: who-iris/scripts/gen-iris-pages.ts:950
+#. Accessible name of an applied-filter chip, read by a screen reader. {value} is the facet and its value.
+msgid "Remove filter: {value}"
+msgstr "إزالة عامل التصفية: {value}"
+
+#: who-iris/scripts/gen-iris-pages.ts:951
+#. Link that removes every applied filter.
+msgid "Reset filters"
+msgstr "إعادة تعيين عوامل التصفية"
+
+#: who-iris/scripts/gen-iris-pages.ts:952
+#. Accessible name of the « link in the pagination.
+msgid "Previous page"
+msgstr "الصفحة السابقة"
+
+#: who-iris/scripts/gen-iris-pages.ts:953
+#. Accessible name of the » link in the pagination.
+msgid "Next page"
+msgstr "الصفحة التالية"
+
+#: who-iris/scripts/gen-iris-pages.ts:954
+#. Accessible name of the row of page numbers.
+msgid "Pagination"
+msgstr "ترقيم الصفحات"
+
+#: who-iris/scripts/gen-iris-pages.ts:955
+#. Accessible name of the search page's search box.
+msgid "Search the repository"
+msgstr "البحث في المستودع"
+
+#: who-iris/scripts/gen-iris-pages.ts:956
+#. Note under the search page's search box. {held} is how many items the catalogue here describes (more than are held by value), {upstream} how many IRIS holds.
+msgid "This page searches the {held} items catalogued here, in your browser; upstream IRIS holds {upstream}. The filters are IRIS’s own; their values and counts are computed from the current results."
+msgstr "تبحث هذه الصفحة في {held} مادة مفهرسة هنا، داخل متصفحك؛ ويضم مستودع IRIS الأصلي {upstream} مادة. عوامل التصفية هي نفسها في IRIS، وتُحسب قيمها وأعدادها من النتائج الحالية."
