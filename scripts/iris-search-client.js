@@ -192,8 +192,24 @@
   }
 
   // ── Drawing ──────────────────────────────────────────────────────────────
-  function esc(s) {
-    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  //
+  // Every node is built with createElement and every string goes in with
+  // createTextNode or setAttribute, so no value from the URL, a search box
+  // or the data is ever parsed as HTML.
+  function h(tag, attrs) {
+    var el = document.createElement(tag);
+    for (var k in attrs || {}) {
+      if (attrs[k] === undefined || attrs[k] === null || attrs[k] === false) continue;
+      if (k === "text") el.textContent = attrs[k];
+      else el.setAttribute(k, attrs[k] === true ? "" : String(attrs[k]));
+    }
+    for (var i = 2; i < arguments.length; i++) add(el, arguments[i]);
+    return el;
+  }
+  function add(el, child) {
+    if (child === undefined || child === null || child === false) return;
+    if (Array.isArray(child)) { child.forEach(function (c) { add(el, c); }); return; }
+    el.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
   }
   function fill(s, vars) {
     for (var k in vars) s = s.split("{" + k + "}").join(vars[k]);
@@ -202,117 +218,129 @@
   function count(n) {
     return n >= 1000 ? (Math.round(n / 100) / 10) + "K" : String(n);
   }
-  /* Marks go on the raw text and each piece is escaped once, so a term can
-     never match inside markup written here. */
+  /* The text with each query term wrapped in <mark>, as text nodes. */
   function mark(text, ts) {
+    var frag = document.createDocumentFragment();
     var parts = ts.map(function (t) { return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); });
-    if (!parts.length) return esc(text);
-    var re = new RegExp("(" + parts.join("|") + ")", "gi");
-    return String(text).split(re).map(function (p, i) { return i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p); }).join("");
+    if (!parts.length) { frag.appendChild(document.createTextNode(text)); return frag; }
+    String(text).split(new RegExp("(" + parts.join("|") + ")", "gi")).forEach(function (p, i) {
+      frag.appendChild(i % 2 ? h("mark", { text: p }) : document.createTextNode(p));
+    });
+    return frag;
+  }
+  /* Only a relative path or an https URL is used as a link target. */
+  function safeHref(u) {
+    return typeof u === "string" && (/^https:\/\//i.test(u) || !/^[a-z][a-z0-9+.-]*:/i.test(u.trim())) ? u : "#";
+  }
+  /* The cover cell the generator described: an image, or a placeholder. */
+  function coverNode(c) {
+    if (c && c.src) {
+      return h("a", { href: safeHref(c.href) }, h("img", { src: safeHref(c.src), width: c.w, height: c.h, alt: c.alt, loading: "lazy" }));
+    }
+    var lines = String((c && c.text) || "").split("\n");
+    var span = h("span", { class: "nocover", title: c && c.title });
+    lines.forEach(function (l, i) { if (i) span.appendChild(h("br")); span.appendChild(document.createTextNode(l)); });
+    return span;
   }
   var expanded = {}; // facet key -> how many values are shown
   var finding = {};  // facet key -> the facet's own search text
 
-  function facetHtml(f, matched) {
-    var body;
+  function facetNode(f, matched) {
+    var body = [];
     if (f.range) {
       var ranges = dateRanges(state.min || state.max ? results(withChange(function (s) { s.min = 0; s.max = 0; })) : matched);
-      body =
-        '<form class="is-range" data-range>' +
-        '<label>' + esc(T.start) + ' <input type="number" name="min" inputmode="numeric" value="' + (state.min || "") + '"></label>' +
-        '<label>' + esc(T.end) + ' <input type="number" name="max" inputmode="numeric" value="' + (state.max || "") + '"></label>' +
-        '<button type="submit">' + esc(T.apply) + '</button></form>' +
-        '<ul class="is-values">' +
-        ranges.map(function (r) {
-          var on = state.min === r.min && state.max === r.max;
-          return '<li><a href="' + esc(toUrl(withChange(function (s) { s.min = r.min; s.max = r.max; s.page = 1; }))) + '" data-range-min="' + r.min + '" data-range-max="' + r.max + '"' + (on ? ' aria-current="true"' : "") + '>' +
-            '<span class="is-label">' + r.min + " - " + r.max + '</span><span class="is-count">' + count(r.n) + "</span></a></li>";
-        }).join("") +
-        "</ul>";
+      body.push(h("form", { class: "is-range", "data-range": true },
+        h("label", {}, T.start + " ", h("input", { type: "number", name: "min", inputmode: "numeric", value: state.min || "" })),
+        h("label", {}, T.end + " ", h("input", { type: "number", name: "max", inputmode: "numeric", value: state.max || "" })),
+        h("button", { type: "submit", text: T.apply })));
+      body.push(h("ul", { class: "is-values" }, ranges.map(function (r) {
+        var on = state.min === r.min && state.max === r.max;
+        return h("li", {}, h("a", {
+          href: toUrl(withChange(function (s) { s.min = r.min; s.max = r.max; s.page = 1; })),
+          "data-range-min": r.min, "data-range-max": r.max, "aria-current": on ? "true" : null,
+        }, h("span", { class: "is-label", text: r.min + " - " + r.max }), h("span", { class: "is-count", text: count(r.n) })));
+      })));
     } else {
       // Counts over the results WITHOUT this facet's own selection, so a
       // reader can see what else the facet offers; selected values on top.
-      var base = results(withChange(function (s) { delete s.filters[f.key]; }));
-      var all = facetCounts(f.key, base);
+      var all = facetCounts(f.key, results(withChange(function (s) { delete s.filters[f.key]; })));
+      if (!all.length) return null;
       var chosen = state.filters[f.key] || [];
       var needle = (finding[f.key] || "").toLowerCase();
       var list = all.filter(function (x) { return !needle || valueLabel(f.key, x.v).toLowerCase().indexOf(needle) >= 0; });
       list.sort(function (a, b) { return (chosen.indexOf(b.v) >= 0) - (chosen.indexOf(a.v) >= 0); });
-      if (!all.length) return "";
       var shown = expanded[f.key] || f.show;
-      body =
-        '<ul class="is-values">' +
-        list.slice(0, shown).map(function (x) {
-          var on = chosen.indexOf(x.v) >= 0;
-          var next = withChange(function (s) {
-            var cur = s.filters[f.key] || [];
-            s.filters[f.key] = on ? cur.filter(function (v) { return v !== x.v; }) : cur.concat([x.v]);
-            if (!s.filters[f.key].length) delete s.filters[f.key];
-            s.page = 1;
-          });
-          return '<li><a href="' + esc(toUrl(next)) + '" data-facet="' + esc(f.key) + '" data-value="' + esc(x.v) + '"' + (on ? ' aria-current="true"' : "") + ' dir="auto">' +
-            '<span class="is-check" aria-hidden="true">' + (on ? "&#x2611;" : "&#x2610;") + '</span>' +
-            '<span class="is-label">' + esc(valueLabel(f.key, x.v)) + '</span><span class="is-count">' + count(x.n) + "</span></a></li>";
-        }).join("") +
-        "</ul>" +
-        '<div class="is-more">' +
-        (list.length > shown ? '<button type="button" data-more="' + esc(f.key) + '">' + esc(T.showMore) + "</button>" : "") +
-        (shown > f.show ? '<button type="button" data-less="' + esc(f.key) + '">' + esc(T.showLess) + "</button>" : "") +
-        "</div>" +
-        (f.find ? '<input type="search" class="is-find" data-find="' + esc(f.key) + '" placeholder="' + esc(f.find) + '" aria-label="' + esc(f.find) + '" value="' + esc(finding[f.key] || "") + '">' : "");
+      body.push(h("ul", { class: "is-values" }, list.slice(0, shown).map(function (x) {
+        var on = chosen.indexOf(x.v) >= 0;
+        var next = withChange(function (s) {
+          var cur = s.filters[f.key] || [];
+          s.filters[f.key] = on ? cur.filter(function (v) { return v !== x.v; }) : cur.concat([x.v]);
+          if (!s.filters[f.key].length) delete s.filters[f.key];
+          s.page = 1;
+        });
+        return h("li", {}, h("a", { href: toUrl(next), "data-facet": f.key, "aria-current": on ? "true" : null, dir: "auto" },
+          h("span", { class: "is-check", "aria-hidden": "true", text: on ? "☑" : "☐" }),
+          h("span", { class: "is-label", text: valueLabel(f.key, x.v) }),
+          h("span", { class: "is-count", text: count(x.n) })));
+      })));
+      body.push(h("div", { class: "is-more" },
+        list.length > shown ? h("button", { type: "button", "data-more": f.key, text: T.showMore }) : null,
+        shown > f.show ? h("button", { type: "button", "data-less": f.key, text: T.showLess }) : null));
+      if (f.find) {
+        body.push(h("input", { type: "search", class: "is-find", "data-find": f.key, placeholder: f.find, "aria-label": f.find, value: finding[f.key] || "" }));
+      }
     }
-    return '<details class="is-facet" open><summary>' + esc(f.label) + "</summary>" + body + "</details>";
+    return h("details", { class: "is-facet", open: true }, h("summary", { text: f.label }), body);
   }
 
-  function cardHtml(r, ts) {
+  function cardNode(r, ts) {
     var it = r.it;
     var dates = [
-      it.govdoc ? esc(it.govdoc) : "",
-      it.issued ? esc(fill(T.published, { date: it.issued })) : "",
-      it.accessioned ? esc(fill(T.accepted, { date: it.accessioned })) : "",
-      it.available ? esc(fill(T.availableOnline, { date: it.available })) : "",
+      it.govdoc || "",
+      it.issued ? fill(T.published, { date: it.issued }) : "",
+      it.accessioned ? fill(T.accepted, { date: it.accessioned }) : "",
+      it.available ? fill(T.availableOnline, { date: it.available }) : "",
     ].filter(Boolean).join(", ");
-    var by = it.authors.length ? mark(it.authors.join("; "), ts) : '<span class="none">' + esc(T.noAuthor) + "</span>";
-    var la = it.lang ? ' lang="' + esc(it.lang) + '"' : "";
     var long = it.abstract.length > 260;
-    return '<li class="is-card">' +
-      '<div class="is-cover">' + it.cover + "</div>" +
-      '<div class="is-body">' +
-      '<a class="is-title" href="' + esc(it.href) + '" dir="auto"' + la + ">" + mark(it.title, ts) + "</a>" +
-      '<p class="is-by" dir="auto">' + by + (dates ? " (" + dates + ")" : "") + "</p>" +
-      (it.abstract
-        ? '<p class="is-abs' + (long ? " clamp" : "") + '" dir="auto"' + la + ">" + mark(it.abstract, ts) + "</p>" +
-          (long ? '<button type="button" class="is-toggle" aria-expanded="false">' + esc(T.showMore) + "</button>" : "")
-        : "") +
-      "</div></li>";
+    return h("li", { class: "is-card" },
+      h("div", { class: "is-cover" }, coverNode(it.cover)),
+      h("div", { class: "is-body" },
+        h("a", { class: "is-title", href: safeHref(it.href), dir: "auto", lang: it.lang }, mark(it.title, ts)),
+        h("p", { class: "is-by", dir: "auto" },
+          it.authors.length ? mark(it.authors.join("; "), ts) : h("span", { class: "none", text: T.noAuthor }),
+          dates ? " (" + dates + ")" : null),
+        it.abstract ? h("p", { class: "is-abs" + (long ? " clamp" : ""), dir: "auto", lang: it.lang }, mark(it.abstract, ts)) : null,
+        it.abstract && long ? h("button", { type: "button", class: "is-toggle", "aria-expanded": "false", text: T.showMore }) : null));
   }
 
-  function pagesHtml(total) {
+  function pagesNode(total) {
     var last = Math.max(1, Math.ceil(total / state.rpp));
-    if (last === 1) return "";
+    if (last === 1) return null;
     var p = state.page;
     var want = {};
-    [1, last].forEach(function (n) { want[n] = true; });
+    want[1] = want[last] = true;
     for (var n = Math.max(1, p - 4); n <= Math.min(last, p + 5); n++) want[n] = true;
     var nums = Object.keys(want).map(Number).sort(function (a, b) { return a - b; });
     function link(n, text, label, disabled) {
-      if (disabled) return '<li class="disabled"><span aria-hidden="true">' + text + "</span></li>";
+      if (disabled) return h("li", { class: "disabled" }, h("span", { "aria-hidden": "true", text: text }));
       var cur = n === p;
-      return '<li' + (cur ? ' class="active"' : "") + '><a href="' + esc(toUrl(withChange(function (s) { s.page = n; }))) + '" data-page="' + n + '"' +
-        (cur ? ' aria-current="page"' : "") + (label ? ' aria-label="' + esc(label) + '"' : "") + ">" + text + "</a></li>";
+      return h("li", { class: cur ? "active" : null }, h("a", {
+        href: toUrl(withChange(function (s) { s.page = n; })), "data-page": n,
+        "aria-current": cur ? "page" : null, "aria-label": label, text: text,
+      }));
     }
-    var out = [link(p - 1, "&laquo;", T.prev, p === 1)];
+    var out = [link(p - 1, "«", T.prev, p === 1)];
     var prev = 0;
     nums.forEach(function (n) {
-      if (prev && n - prev > 1) out.push('<li class="disabled"><span>…</span></li>');
+      if (prev && n - prev > 1) out.push(h("li", { class: "disabled" }, h("span", { text: "…" })));
       out.push(link(n, String(n)));
       prev = n;
     });
-    out.push(link(p + 1, "&raquo;", T.next, p === last));
-    return '<nav aria-label="' + esc(T.pagination) + '"><ul class="is-pages">' + out.join("") + "</ul></nav>";
+    out.push(link(p + 1, "»", T.next, p === last));
+    return h("nav", { "aria-label": T.pagination }, h("ul", { class: "is-pages" }, out));
   }
 
-  function chipsHtml() {
+  function chipsNode() {
     var chips = [];
     FACETS.forEach(function (f) {
       (state.filters[f.key] || []).forEach(function (v) {
@@ -326,11 +354,13 @@
     if (state.min || state.max) {
       chips.push({ label: T.dateIssued + ": " + (state.min || "…") + " - " + (state.max || "…"), url: toUrl(withChange(function (s) { s.min = 0; s.max = 0; s.page = 1; })) });
     }
-    if (!chips.length) return "";
-    return '<div class="is-chips">' + chips.map(function (c) {
-      return '<a class="is-chip" href="' + esc(c.url) + '" data-nav aria-label="' + esc(fill(T.remove, { value: c.label })) + '" dir="auto">' + esc(c.label) + ' <span aria-hidden="true">&times;</span></a>';
-    }).join("") +
-      '<a class="is-chip is-reset" href="' + esc(toUrl(withChange(function (s) { s.filters = {}; s.min = 0; s.max = 0; s.page = 1; }))) + '" data-nav>' + esc(T.reset) + "</a></div>";
+    if (!chips.length) return null;
+    return h("div", { class: "is-chips" },
+      chips.map(function (c) {
+        return h("a", { class: "is-chip", href: c.url, "data-nav": true, "aria-label": fill(T.remove, { value: c.label }), dir: "auto" },
+          c.label + " ", h("span", { "aria-hidden": "true", text: "×" }));
+      }),
+      h("a", { class: "is-chip is-reset", href: toUrl(withChange(function (s) { s.filters = {}; s.min = 0; s.max = 0; s.page = 1; })), "data-nav": true, text: T.reset }));
   }
 
   var els = {
@@ -356,19 +386,23 @@
     var ts = terms(state.query);
 
     if (els.input && document.activeElement !== els.input) els.input.value = state.query;
-    els.facets.innerHTML = FACETS.map(function (f) { return facetHtml(f, matched); }).join("");
-    els.chips.innerHTML = chipsHtml();
+    els.facets.replaceChildren();
+    FACETS.forEach(function (f) { add(els.facets, facetNode(f, matched)); });
+    els.chips.replaceChildren();
+    add(els.chips, chipsNode());
     els.status.textContent = total
       ? fill(T.showing, { from: String(from + 1), to: String(from + shown.length), total: String(total) })
       : "";
     els.list.className = "is-results is-" + state.view;
-    els.list.innerHTML = shown.map(function (r) { return cardHtml(r, ts); }).join("");
-    els.pages.innerHTML = pagesHtml(total);
+    els.list.replaceChildren();
+    shown.forEach(function (r) { els.list.appendChild(cardNode(r, ts)); });
+    els.pages.replaceChildren();
+    add(els.pages, pagesNode(total));
     els.empty.hidden = total > 0;
     var lookup = els.empty.querySelector("a");
     if (lookup) {
-      lookup.href = lookup.getAttribute("data-base") + encodeURIComponent(state.query);
-      lookup.textContent = lookup.getAttribute("data-template").split("{q}").join(state.query);
+      lookup.href = safeHref(T.lookupBase) + encodeURIComponent(state.query);
+      lookup.textContent = T.lookupTemplate.split("{q}").join(state.query);
     }
     for (var i = 0; i < els.views.length; i++) {
       els.views[i].setAttribute("aria-pressed", String(els.views[i].getAttribute("data-view") === state.view));
@@ -386,13 +420,13 @@
     go(withChange(function (s) { s.query = q; s.page = 1; }), true);
   });
   var sortSel = document.getElementById("is-sort");
-  sortSel.innerHTML = SORTS.map(function (o) { return '<option value="' + o.sf + "," + o.sd + '">' + esc(o.label) + "</option>"; }).join("");
+  SORTS.forEach(function (o) { sortSel.appendChild(h("option", { value: o.sf + "," + o.sd, text: o.label })); });
   sortSel.addEventListener("change", function () {
     var v = sortSel.value.split(",");
     go(withChange(function (s) { s.sf = v[0]; s.sd = v[1]; s.page = 1; }), true);
   });
   var rppSel = document.getElementById("is-rpp");
-  rppSel.innerHTML = PER_PAGE.map(function (n) { return '<option value="' + n + '">' + n + "</option>"; }).join("");
+  PER_PAGE.forEach(function (n) { rppSel.appendChild(h("option", { value: n, text: String(n) })); });
   rppSel.addEventListener("change", function () {
     var n = parseInt(rppSel.value, 10);
     go(withChange(function (s) { s.rpp = n; s.page = 1; }), true);

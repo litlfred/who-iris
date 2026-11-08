@@ -2801,7 +2801,7 @@ function searchPage(all: Node[]): string {
     return {
       title: n.title,
       href: itemPageHref(n) ?? cataloguePageHref(),
-      cover: coverCell(n),
+      cover: coverData(n),
       lang: langOf(n) !== LOCALE ? langOf(n) : undefined,
       authors,
       govdoc: dc(n, "identifier", "govdoc")[0],
@@ -2831,6 +2831,8 @@ function searchPage(all: Node[]): string {
     published: t("Publication Date: {date}"), accepted: t("Accepted: {date}"), availableOnline: t("Available Online: {date}"),
     noAuthor: t("no author recorded"), remove: t("Remove filter: {value}"), reset: t("Reset filters"),
     prev: t("Previous page"), next: t("Next page"), pagination: t("Pagination"),
+    lookupBase: `${toSiteRoot()}../id-lookup/?index=who-iris/&q=`,
+    lookupTemplate: t("Search for “{q}” in the referenced identifier lookup ({n} nodes) →", { n: num(all.length - held.length) }),
   };
   const json = (v: unknown): string => JSON.stringify(v).replace(/</g, "\\u003c");
   const client = readFileSync(join(import.meta.dir, "iris-search-client.js"), "utf-8");
@@ -2957,7 +2959,7 @@ function searchPage(all: Node[]): string {
     <ul id="is-results" class="is-results is-list"></ul>
     <div class="is-empty" id="is-empty" hidden>
       <p>${t("Your search returned no results.")}</p>
-      <p><a data-base="${toSiteRoot()}../id-lookup/?index=who-iris/&amp;q=" href="${toSiteRoot()}../id-lookup/?index=who-iris/" data-template="${esc(t("Search for “{q}” in the referenced identifier lookup ({n} nodes) →", { n: num(all.length - held.length) }))}"></a></p>
+      <p><a href="${toSiteRoot()}../id-lookup/?index=who-iris/"></a></p>
     </div>
     <div id="is-pages"></div>
   </section>
@@ -2968,6 +2970,31 @@ function searchPage(all: Node[]): string {
 <script>
 ${client}</script>
 `;
+}
+
+/**
+ * The same three states as {@link coverCell}, as data for the search page,
+ * which builds its elements in the browser rather than parsing HTML. A
+ * line break in a placeholder is a newline.
+ */
+function coverData(n: Node): { href: string; src: string; w: number; h: number; alt: string } | { text: string; title: string } {
+  const cov = coverSrc(n);
+  const withheldBy = coverWithheld(n);
+  const br = (s: string): string => s.replace(/<br>/g, "\n");
+  if (withheldBy) return { text: br(t("cover<br>withheld")), title: t("A cover is rendered and held here. It is not published: {gates}.", { gates: withheldBy }) };
+  if (!cov) return { text: t("no cover"), title: t("no cover rendered") };
+  if (!COVERS_SHOWN) {
+    return { text: br(t("cover<br>withheld")), title: t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO.") };
+  }
+  return {
+    href: itemPageHref(n) ?? cataloguePageHref(),
+    src: cov.src,
+    w: cov.w,
+    h: cov.h,
+    alt: cov.masked
+      ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
+      : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }),
+  };
 }
 
 /**
