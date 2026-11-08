@@ -10,7 +10,7 @@ import { describe, expect, test } from "bun:test";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { buildReport, parsePo, readRoundtrip } from "../translation-roundtrip-report.ts";
+import { buildReport, parsePo, readRoundtrip, rulingsFor } from "../translation-roundtrip-report.ts";
 
 const INSTANCE = join(import.meta.dir, "..", "..");
 const LOCALES = ["ar", "es", "fr", "ru", "zh"];
@@ -27,6 +27,13 @@ describe("translation round-trip report", () => {
     for (const [locale, f] of Object.entries(buildReport().families as Record<string, { summary: string }>)) {
       expect(f.summary, locale).toContain("Back-translator tools: Read,Write.");
     }
+  });
+
+  test("rulingsMayRunAheadButNotBehind", () => {
+    const r = (index: number) => ({ index, field_hash: { msgid: "", msgstr: "" }, result: "pass" as const, findings: [], back_translation: "" });
+    expect(rulingsFor(2, [r(0), r(1), r(2)], "x").map((e) => e.index)).toEqual([0, 1]);
+    expect(() => rulingsFor(3, [r(0), r(1)], "x")).toThrow("re-run the agents");
+    expect(() => rulingsFor(2, [r(0), r(2)], "x")).toThrow("not in catalogue order");
   });
 
   test("parsePoJoinsLinesSkipsHeader", () => {
@@ -48,7 +55,9 @@ describe("the agents' rulings are attestations", () => {
         expect(file.subject).toEqual({ kind: "translation-catalogue", id: cat, path: `translations/${locale}/${cat}` });
         const strings = parsePo(readFileSync(join(INSTANCE, "translations", locale, cat), "utf-8"), cat);
         const { run, entries } = readRoundtrip(cat, locale);
-        expect(entries.map((e) => e.index)).toEqual(strings.map((_, i) => i));
+        // Every string has a ruling, in order; rulings for strings not on this
+        // branch yet may follow (rulingsFor).
+        expect(rulingsFor(strings.length, entries, `${locale} ${cat}`).map((e) => e.index)).toEqual(strings.map((_, i) => i));
         // A script entry is derived and may not sit in the attestation store.
         for (const e of [run, ...entries]) expect((e as { reviewer?: { kind?: string } }).reviewer?.kind).toBe("agent");
         expect(run.back_translation_trailer.TOOLS_USED).toBe("Read,Write");

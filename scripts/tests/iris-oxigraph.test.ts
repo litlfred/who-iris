@@ -8,7 +8,9 @@ import os from 'node:os';
 import { buildIrisDataset, GRAPH_IRIS_CATALOGUE, GRAPH_IRIS_METADATA } from '../build-iris-oxigraph.ts';
 import { IrisOxigraphEngine, bound, selectRows } from '../iris-oxigraph-search.ts';
 
-const TMP_DIST = path.resolve(import.meta.dir, '..', '..', 'dist', 'oxigraph');
+// A fresh temporary directory, not the committed dist/oxigraph: building into
+// the checkout left every test run with a dozen modified files (issue #196).
+const TMP_DIST = fs.mkdtempSync(path.join(os.tmpdir(), 'iris-oxigraph-'));
 
 describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
   beforeAll(async () => {

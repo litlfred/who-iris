@@ -79,6 +79,7 @@ describe("the generator owns its filenames, and prunes only those", () => {
     // tree holds exactly the pages the declaration says, no more and no less.
     const wanted = new Set([
       "index.html",
+      "search.html", // the search page (issue #196), in every language like the home page
       ...fixedPagesOf("docs"),
       // The renderings of the authored pages (bean `mw5z`), derived the way the generator derives them.
       ...authoredDocs(DOCS).map((d) => d.file.replace(/\.md$/, ".html")),
@@ -436,9 +437,20 @@ describe("the catalogue page (bean kx0p)", () => {
 describe("the replica keeps only its IRIS-style home page (owner, 2026-10-30)", () => {
   const home = (): string => readFileSync(join(SITE, "index.html"), "utf-8");
 
-  it("eachLocaleHasOnlyHomePage", () => {
-    expect(readdirSync(SITE).filter((f) => f.endsWith(".html"))).toEqual(["index.html"]);
-    for (const loc of SITE_LOCALES) expect(readdirSync(join(SITE, loc)).filter((f) => f.endsWith(".html"))).toEqual(["index.html"]);
+  // The search page joined the home page on 2026-11-08 (owner, issue #196).
+  it("eachLocaleHasOnlyHomeAndSearchPages", () => {
+    expect(readdirSync(SITE).filter((f) => f.endsWith(".html")).sort()).toEqual(["index.html", "search.html"]);
+    for (const loc of SITE_LOCALES) expect(readdirSync(join(SITE, loc)).filter((f) => f.endsWith(".html")).sort()).toEqual(["index.html", "search.html"]);
+  });
+
+  it("searchPageFacetValuesAreComputedNotWritten", () => {
+    const page = readFileSync(join(SITE, "search.html"), "utf-8");
+    expect(page).toContain('href="index.html"');
+    expect(page).toContain('id="iris-search-data"');
+    // The facet list is empty in the HTML: every value and count is drawn in the browser from the data.
+    expect(page).toContain('<div id="is-facets"></div>');
+    expect(home()).toContain('action="search.html"');
+    expect(home()).not.toContain("iris-facet-chips");
   });
 
   it("homeLinksHeldItemsToLibrary", () => {

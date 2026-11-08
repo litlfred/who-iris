@@ -267,7 +267,7 @@ type Locale = "en" | (typeof SITE_LOCALES)[number];
 const PAGES = {
   site: {
     /** The replica: the KG rendered. */
-    fixed: ["index", "community-list"],
+    fixed: ["index", "community-list", "search"],
     /** One page per collection and per item; prunable when the node is gone. */
     families: ["collection-.*", "item-.*"],
   },
@@ -910,6 +910,50 @@ export const SITE_STRINGS: readonly UiString[] = [
   { en: "Look up “{q}” in referenced nodes →", comment: "That link. {q} is what the reader typed. Use your language's quotation marks; flip the arrow for right-to-left." },
   { en: "No materialized items or collections matched “<strong>{q}</strong>”.", comment: "When nothing matches. {q} is what the reader typed." },
   { en: "Search for “{q}” in the referenced identifier lookup ({n} nodes) →", comment: "Link shown when nothing matches. {q} is what the reader typed, {n} a number. Flip the arrow for right-to-left." },
+
+  // ── The search page (issue #196), mimicking iris.who.int/search ──────
+  { en: "Filters", comment: "Heading of the search page's sidebar of facets." },
+  { en: "Author", comment: "A facet on the search page: the items' authors (dc.contributor.author)." },
+  { en: "Subject", comment: "A facet on the search page: the items' subjects. IRIS shows two facets with this label (MeSH headings, then all subjects)." },
+  { en: "Date issued", comment: "A facet on the search page: when the item was published (dc.date.issued)." },
+  { en: "Start", comment: "Label of the first year box in the Date issued facet." },
+  { en: "End", comment: "Label of the second year box in the Date issued facet." },
+  { en: "Apply", comment: "Button that applies the year range typed in the Date issued facet." },
+  { en: "Has files", comment: "A facet on the search page: whether the item has files." },
+  { en: "Yes", comment: "A value of the Has files facet." },
+  { en: "No", comment: "A value of the Has files facet." },
+  { en: "Publisher", comment: "A facet on the search page: the items' publishers (dc.publisher)." },
+  { en: "Series", comment: "A facet on the search page: the series or journal an item is part of." },
+  { en: "Type", comment: "A facet on the search page: the item's type (dc.type), such as Publications or Journal articles." },
+  { en: "Show more", comment: "Button under a facet that lists more of its values; also under a long abstract." },
+  { en: "Show less", comment: "Button that undoes Show more." },
+  { en: "Search author name", comment: "Placeholder of the box that searches within the Author facet." },
+  { en: "Search subject", comment: "Placeholder of the box that searches within a Subject facet." },
+  { en: "Search publisher", comment: "Placeholder of the box that searches within the Publisher facet." },
+  { en: "Search series", comment: "Placeholder of the box that searches within the Series facet." },
+  { en: "Search type", comment: "Placeholder of the box that searches within the Type facet." },
+  { en: "Settings", comment: "Heading of the search page's sort and page-size settings." },
+  { en: "Sort By", comment: "Label of the search page's sort menu." },
+  { en: "Most Relevant", comment: "A sort order on the search page." },
+  { en: "Title Ascending", comment: "A sort order on the search page: by title, A to Z." },
+  { en: "Date Issued Descending", comment: "A sort order on the search page: newest publication date first." },
+  { en: "Accessioned Date Descending", comment: "A sort order on the search page: most recently taken into IRIS first." },
+  { en: "Available Date Descending", comment: "A sort order on the search page: most recently made available first." },
+  { en: "Results per page", comment: "Label of the search page's page-size menu." },
+  { en: "Search Results", comment: "Heading above the search results." },
+  { en: "Now showing {from} - {to} of {total}", comment: "Above the search results. {from}, {to} and {total} are numbers." },
+  { en: "Accepted: {date}", comment: "In a search result's byline, as IRIS labels it (dc.date.accessioned). {date} is a date such as 2020-05-14." },
+  { en: "Available Online: {date}", comment: "In a search result's byline, as IRIS labels it (dc.date.available). {date} is a date such as 2020-05-14." },
+  { en: "List view", comment: "Button that shows the search results as a list." },
+  { en: "Grid view", comment: "Button that shows the search results as a grid of cards." },
+  { en: "Your search returned no results.", comment: "Shown when nothing matches the search and filters." },
+  { en: "Remove filter: {value}", comment: "Accessible name of an applied-filter chip, read by a screen reader. {value} is the facet and its value." },
+  { en: "Reset filters", comment: "Link that removes every applied filter." },
+  { en: "Previous page", comment: "Accessible name of the « link in the pagination." },
+  { en: "Next page", comment: "Accessible name of the » link in the pagination." },
+  { en: "Pagination", comment: "Accessible name of the row of page numbers." },
+  { en: "Search the repository", comment: "Accessible name of the search page's search box." },
+  { en: "This page searches the {held} items catalogued here, in your browser; upstream IRIS holds {upstream}. The filters are IRIS’s own; their values and counts are computed from the current results.", comment: "Note under the search page's search box. {held} is how many items the catalogue here describes (more than are held by value), {upstream} how many IRIS holds." },
 ];
 
 const SITE_TABLE = new Map(SITE_STRINGS.map((s) => [s.en, s]));
@@ -2129,6 +2173,7 @@ function replicaNav(): string {
   const all = REPLICA_NAV_ALL;
   const entries: { label: string; href?: string; items?: { label: string; href?: string }[] }[] = [
     { label: t("Home"), href: "index.html" },
+    { label: t("Search"), href: "search.html" },
     { label: t("Community List"), href: cataloguePageHref() },
   ];
   // The held items, each to its library entry page: since 2026-10-30 that is
@@ -2551,61 +2596,13 @@ function landingPage(all: Node[]): string {
   <p class="hero-note">${t("Replica. No WHO emblem, no photograph — colour only, from the {theme} theme measured off the site’s own stylesheet.", { theme: "<code>iris-web</code>" })}</p>
 </section>
 
-<form class="searchbar" id="iris-search-form" action="${toSiteRoot()}../id-lookup/" method="get">
-  <input type="hidden" name="index" value="who-iris/">
-  <input type="text" id="iris-search-input" name="q"
+<form class="searchbar" id="iris-search-form" action="search.html" method="get">
+  <input type="text" id="iris-search-input" name="query"
     placeholder="${esc(t("Search through the repository’s {n} items", { n: itemsUpstream !== undefined ? String(itemsUpstream) : "?" }))}"
     aria-label="${esc(t("Search through the repository items and referenced identifier lookup"))}"
     autocomplete="off" spellcheck="false">
   <button type="submit" id="iris-search-btn">${t("Search")}</button>
 </form>
-
-<div class="iris-facet-chips" id="iris-facet-chips" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.6rem 0 0.8rem;align-items:center;">
-  <span style="font-size:0.85rem;color:var(--iris-muted);font-weight:600;">Facets:</span>
-  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Guidelines as Topic" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Guidelines as Topic</button>
-  <button type="button" class="iris-chip" data-facet-type="subject" data-facet-val="Publishing" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Publishing</button>
-  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Western Pacific" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Western Pacific</button>
-  <button type="button" class="iris-chip" data-facet-type="community" data-facet-val="Headquarters" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-edge);background:var(--iris-wash);cursor:pointer;">Headquarters</button>
-  <button type="button" class="iris-chip" data-facet-type="access" data-facet-val="open-access" style="font-size:0.8rem;padding:0.2rem 0.6rem;border-radius:12px;border:1px solid var(--iris-mat-edge);color:var(--iris-mat);background:var(--iris-mat-bg);cursor:pointer;">Open Access PDF</button>
-</div>
-
-<details id="iris-adv-filters" style="margin:0 0 1rem;font-size:0.9rem;border:1px solid var(--iris-edge);border-radius:4px;padding:0.5rem 0.8rem;background:var(--iris-wash);">
-  <summary style="cursor:pointer;font-weight:600;color:var(--iris-heading);">Complex Search &amp; KG Filters (Oxigraph)</summary>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.7rem;margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--iris-edge);">
-    <div>
-      <label for="iris-filter-subject" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Subject (MeSH)</label>
-      <select id="iris-filter-subject" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <option value="">All Subjects</option>
-        <option value="Guidelines as Topic">Guidelines as Topic</option>
-        <option value="Publishing">Publishing</option>
-        <option value="Evidence-Based Medicine">Evidence-Based Medicine</option>
-        <option value="Information Systems and Communication">Information Systems</option>
-        <option value="Writing">Writing</option>
-      </select>
-    </div>
-    <div>
-      <label for="iris-filter-community" style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Community</label>
-      <select id="iris-filter-community" style="width:100%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <option value="">All Communities</option>
-        <option value="Headquarters">Headquarters</option>
-        <option value="Western Pacific">Western Pacific</option>
-      </select>
-    </div>
-    <div>
-      <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--iris-muted);">Year Range</label>
-      <div style="display:flex;gap:0.3rem;">
-        <input type="number" id="iris-filter-year-from" placeholder="From" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-        <input type="number" id="iris-filter-year-to" placeholder="To" style="width:50%;padding:0.35rem;border:1px solid var(--iris-edge);border-radius:3px;">
-      </div>
-    </div>
-    <div style="display:flex;align-items:flex-end;">
-      <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;font-size:0.88rem;">
-        <input type="checkbox" id="iris-filter-open-access">
-        <span>Open Access PDF only</span>
-      </label>
-    </div>
-  </div>
-</details>
 
 <div id="iris-search-results" class="search-results-panel" role="region" aria-live="polite" style="display:none"></div>
 <p class="searchnote" id="iris-search-note">${t("Search across <strong>{held}</strong> items held by value and referenced communities/collections. To look up any of the <strong>{referenced}</strong> referenced nodes by identifier, search here or open the {lookup}.", {
@@ -2655,12 +2652,6 @@ ${collections
   var form = document.getElementById("iris-search-form");
   var input = document.getElementById("iris-search-input");
   var results = document.getElementById("iris-search-results");
-  var fSubj = document.getElementById("iris-filter-subject");
-  var fComm = document.getElementById("iris-filter-community");
-  var fYFrom = document.getElementById("iris-filter-year-from");
-  var fYTo = document.getElementById("iris-filter-year-to");
-  var fOA = document.getElementById("iris-filter-open-access");
-  var chips = document.querySelectorAll(".iris-chip");
   if (!form || !input || !results) return;
 
   function escapeHtml(s) {
@@ -2689,14 +2680,7 @@ ${collections
 
   function update() {
     var raw = input.value.trim();
-    var subj = fSubj ? fSubj.value.trim() : "";
-    var comm = fComm ? fComm.value.trim() : "";
-    var yFrom = fYFrom && fYFrom.value ? parseInt(fYFrom.value, 10) : 0;
-    var yTo = fYTo && fYTo.value ? parseInt(fYTo.value, 10) : 0;
-    var oaOnly = fOA ? fOA.checked : false;
-
-    var hasActive = raw || subj || comm || yFrom || yTo || oaOnly;
-    if (!hasActive) {
+    if (!raw) {
       results.style.display = "none";
       results.replaceChildren();
       return;
@@ -2714,23 +2698,6 @@ ${collections
         }
       }
       if (!ok) continue;
-
-      if (subj && (!entry.subjects || entry.subjects.indexOf(subj) < 0)) {
-        continue;
-      }
-      if (comm && (!entry.community || entry.community.indexOf(comm) < 0)) {
-        continue;
-      }
-      if (yFrom && (!entry.year || entry.year < yFrom)) {
-        continue;
-      }
-      if (yTo && (!entry.year || entry.year > yTo)) {
-        continue;
-      }
-      if (oaOnly && !(entry.hasPdf && entry.copyrightGate === "permitted")) {
-        continue;
-      }
-
       matches.push(entry);
     }
 
@@ -2770,12 +2737,12 @@ ${collections
       }
       html += "</ul>";
       html += "<div class=\\"search-remote-box\\" style=\\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\\">";
-      html += T.also + " <a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\">" + fill(T.lookUp, escapeHtml(raw || subj || comm), "") + "</a>";
+      html += T.also + " <a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\">" + fill(T.lookUp, escapeHtml(raw), "") + "</a>";
       html += "</div>";
     } else {
-      html += "<p style=\\"margin:0 0 0.5rem;\\">" + fill(T.none, escapeHtml(raw || subj || comm), "") + "</p>";
+      html += "<p style=\\"margin:0 0 0.5rem;\\">" + fill(T.none, escapeHtml(raw), "") + "</p>";
       html += "<div class=\\"search-remote-box\\" style=\\"border-top:1px solid var(--iris-edge);padding-top:0.75rem;margin-top:0.75rem;font-size:0.92rem;\\">";
-      html += "<a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\" style=\\"font-weight:600;\\">" + fill(T.searchFor, escapeHtml(raw || subj || comm), "") + "</a>";
+      html += "<a href=\\"" + lookupUrl + "\\" class=\\"search-remote-link\\" style=\\"font-weight:600;\\">" + fill(T.searchFor, escapeHtml(raw), "") + "</a>";
       html += "</div>";
     }
 
@@ -2784,34 +2751,10 @@ ${collections
   }
 
   input.addEventListener("input", update);
-  if (fSubj) fSubj.addEventListener("change", update);
-  if (fComm) fComm.addEventListener("change", update);
-  if (fYFrom) fYFrom.addEventListener("input", update);
-  if (fYTo) fYTo.addEventListener("input", update);
-  if (fOA) fOA.addEventListener("change", update);
-
-  chips.forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      var t = btn.getAttribute("data-facet-type");
-      var v = btn.getAttribute("data-facet-val");
-      var adv = document.getElementById("iris-adv-filters");
-      if (adv) adv.open = true;
-      if (t === "subject" && fSubj) { fSubj.value = v; }
-      else if (t === "community" && fComm) { fComm.value = v; }
-      else if (t === "access" && fOA) { fOA.checked = !fOA.checked; }
-      update();
-    });
-  });
-
+  // Submitting goes to the search page with the query, as IRIS's home does
+  // (issue #196); the list above is only a preview while typing.
   form.addEventListener("submit", function(e) {
-    var raw = input.value.trim();
-    if (!raw && !fSubj.value && !fComm.value) { e.preventDefault(); return; }
-    var hasLocal = results.querySelector(".search-result-item");
-    var firstLink = results.querySelector(".search-result-item a");
-    if (hasLocal && firstLink) {
-      e.preventDefault();
-      firstLink.focus();
-    }
+    if (!input.value.trim()) e.preventDefault();
   });
 
   var urlParams = new URLSearchParams(window.location.search);
@@ -2824,6 +2767,766 @@ ${collections
 })();
 </script>
 `;
+}
+
+/**
+ * The search page — `search.html?query=…`, after iris.who.int/search (issue #196).
+ *
+ * THE FACET CATEGORIES ARE FIXED AND THEIR VALUES ARE NOT (owner, 2026-11-08:
+ * "values of the filters are dynamic"). This writes one record per held item,
+ * read from its Dublin Core record, and the inlined client script computes every
+ * facet value and count in the browser from the items the current query
+ * matches. Nothing a facet lists is typed here.
+ *
+ * Which field feeds which facet, as IRIS's Discovery configuration names them:
+ *
+ * | facet | fields |
+ * |---|---|
+ * | Author | `dc.contributor.author` |
+ * | Subject (MeSH) | `dc.subject.mesh` |
+ * | Date issued | the year of `dc.date.issued` |
+ * | Has files | an ORIGINAL bitstream in the catalogue node |
+ * | Publisher | `dc.publisher` |
+ * | Subject | `dc.subject`, `.mesh`, `.meshqualifier`, `.other` |
+ * | Series | `dc.relation.ispartofseries`, `dc.relation.ispartofjournal` |
+ * | Type | `dc.type` |
+ */
+function searchPage(all: Node[]): string {
+  const items = all.filter((n) => n.flavour === "item");
+  const held = items.filter((n) => assetHref(n) !== undefined);
+  const latest = (xs: string[]): string | undefined => (xs.length ? day(xs.slice().sort()[xs.length - 1]) : undefined);
+  const uniq = (xs: string[]): string[] => [...new Set(xs.map((x) => x.trim()).filter(Boolean))];
+  const records = items.map((n) => {
+    const authors = dc(n, "contributor", "author");
+    const issued = day(dc(n, "date", "issued")[0]);
+    const abstract = dc(n, "description", "abstract")[0] ?? "";
+    const mesh = uniq(dc(n, "subject", "mesh"));
+    const f = {
+      author: uniq(authors),
+      mesh,
+      publisher: uniq(dc(n, "publisher")),
+      subject: uniq([...dc(n, "subject"), ...mesh, ...dc(n, "subject", "meshqualifier"), ...dc(n, "subject", "other")]),
+      series: uniq([...dc(n, "relation", "ispartofseries"), ...dc(n, "relation", "ispartofjournal")]),
+      itemtype: uniq(dc(n, "type")),
+    };
+    const facetText = [...f.author, ...f.subject, ...f.publisher, ...f.series, ...f.itemtype].join(" ").toLowerCase();
+    return {
+      title: n.title,
+      href: itemPageHref(n) ?? cataloguePageHref(),
+      cover: coverData(n),
+      lang: langOf(n) !== LOCALE ? langOf(n) : undefined,
+      authors,
+      govdoc: dc(n, "identifier", "govdoc")[0],
+      issued,
+      year: issued ? parseInt(issued.slice(0, 4), 10) : undefined,
+      accessioned: day(accessioned(n)),
+      available: latest(dc(n, "date", "available")),
+      abstract,
+      hasFiles: (n.bitstreams ?? []).some((b) => b.bundle === "ORIGINAL"),
+      f,
+      titleLc: n.title.toLowerCase(),
+      abstractLc: abstract.toLowerCase(),
+      facetLc: facetText,
+      text: [n.title, n.id, n.libraryId ?? "", dc(n, "identifier", "govdoc").join(" "), dc(n, "identifier", "isbn").join(" "), facetText, abstract].join(" ").toLowerCase(),
+    };
+  });
+  const strings = {
+    author: t("Author"), subject: t("Subject"), dateIssued: t("Date issued"), hasFiles: t("Has files"),
+    publisher: t("Publisher"), series: t("Series"), type: t("Type"), yes: t("Yes"), no: t("No"),
+    start: t("Start"), end: t("End"), apply: t("Apply"),
+    findAuthor: t("Search author name"), findSubject: t("Search subject"), findPublisher: t("Search publisher"),
+    findSeries: t("Search series"), findType: t("Search type"),
+    showMore: t("Show more"), showLess: t("Show less"),
+    sortRelevant: t("Most Relevant"), sortTitle: t("Title Ascending"), sortIssued: t("Date Issued Descending"),
+    sortAccessioned: t("Accessioned Date Descending"), sortAvailable: t("Available Date Descending"),
+    showing: t("Now showing {from} - {to} of {total}"),
+    published: t("Publication Date: {date}"), accepted: t("Accepted: {date}"), availableOnline: t("Available Online: {date}"),
+    noAuthor: t("no author recorded"), remove: t("Remove filter: {value}"), reset: t("Reset filters"),
+    prev: t("Previous page"), next: t("Next page"), pagination: t("Pagination"),
+    lookupTemplate: t("Search for “{q}” in the referenced identifier lookup ({n} nodes) →", { n: num(all.length - held.length) }),
+  };
+  const json = (v: unknown): string => JSON.stringify(v).replace(/</g, "\\u003c");
+  const client = [
+    "/*",
+    " * The replica's search page, in the browser (issue #196).",
+    " *",
+    " * Inlined into site/search.html by gen-iris-pages.ts, which puts two JSON",
+    " * blocks beside it: #iris-search-data (one record per held item, read from",
+    " * its Dublin Core record) and #iris-search-strings (the page's words in its",
+    " * language).",
+    " *",
+    " * THE FACET CATEGORIES ARE FIXED, THEIR VALUES ARE NOT. Every value and every",
+    " * count is computed here from the items the current query and filters match,",
+    " * as DSpace Discovery does, so nothing a reader sees in a facet was typed by",
+    " * hand. The URL parameters are IRIS's own (query, f.<facet>=<value>,equals,",
+    " * f.dateIssued.min/max, spc.page, spc.sf, spc.sd, spc.rpp), so a search",
+    " * copied from iris.who.int works here with its host changed.",
+    " */",
+    "(function () {",
+    "  \"use strict\";",
+    "  var items = JSON.parse(document.getElementById(\"iris-search-data\").textContent);",
+    "  var T = JSON.parse(document.getElementById(\"iris-search-strings\").textContent);",
+    "  var root = document.getElementById(\"iris-search\");",
+    "  if (!root) return;",
+    "",
+    "  /* The facets, in IRIS's order. `show` is how many values a facet lists",
+    "     before \"Show more\", as the capture shows them. */",
+    "  var FACETS = [",
+    "    { key: \"author\", label: T.author, find: T.findAuthor, show: 5 },",
+    "    { key: \"mesh\", label: T.subject, find: T.findSubject, show: 5 },",
+    "    { key: \"dateIssued\", label: T.dateIssued, range: true },",
+    "    { key: \"has_content_in_original_bundle\", label: T.hasFiles, show: 2 },",
+    "    { key: \"publisher\", label: T.publisher, find: T.findPublisher, show: 10 },",
+    "    { key: \"subject\", label: T.subject, find: T.findSubject, show: 5 },",
+    "    { key: \"series\", label: T.series, find: T.findSeries, show: 10 },",
+    "    { key: \"itemtype\", label: T.type, find: T.findType, show: 10 },",
+    "  ];",
+    "  var SORTS = [",
+    "    { sf: \"score\", sd: \"DESC\", label: T.sortRelevant },",
+    "    { sf: \"dc.title\", sd: \"ASC\", label: T.sortTitle },",
+    "    { sf: \"dc.date.issued\", sd: \"DESC\", label: T.sortIssued },",
+    "    { sf: \"dc.date.accessioned\", sd: \"DESC\", label: T.sortAccessioned },",
+    "    { sf: \"dc.date.available\", sd: \"DESC\", label: T.sortAvailable },",
+    "  ];",
+    "  var PER_PAGE = [1, 5, 10, 20, 40, 60, 80, 100];",
+    "",
+    "  /* Values a facet holds for one item. Has files is a yes/no. */",
+    "  function valuesOf(it, key) {",
+    "    if (key === \"has_content_in_original_bundle\") return [it.hasFiles ? \"true\" : \"false\"];",
+    "    return it.f[key] || [];",
+    "  }",
+    "  function valueLabel(key, v) {",
+    "    if (key === \"has_content_in_original_bundle\") return v === \"true\" ? T.yes : T.no;",
+    "    return v;",
+    "  }",
+    "",
+    "  // ── State, read from and written to the URL ──────────────────────────────",
+    "  var state;",
+    "  function readUrl(search) {",
+    "    var p = new URLSearchParams(search === undefined ? window.location.search : search);",
+    "    var s = {",
+    "      query: (p.get(\"query\") || p.get(\"q\") || \"\").trim(),",
+    "      filters: {},",
+    "      min: parseInt(p.get(\"f.dateIssued.min\") || \"\", 10) || 0,",
+    "      max: parseInt(p.get(\"f.dateIssued.max\") || \"\", 10) || 0,",
+    "      page: Math.max(1, parseInt(p.get(\"spc.page\") || \"1\", 10) || 1),",
+    "      sf: p.get(\"spc.sf\") || \"score\",",
+    "      sd: (p.get(\"spc.sd\") || \"\").toUpperCase(),",
+    "      rpp: parseInt(p.get(\"spc.rpp\") || \"10\", 10) || 10,",
+    "      view: p.get(\"view\") === \"grid\" ? \"grid\" : \"list\",",
+    "    };",
+    "    FACETS.forEach(function (f) {",
+    "      if (f.range) return;",
+    "      var vals = p.getAll(\"f.\" + f.key).map(function (v) { return v.replace(/,(equals|authority)$/, \"\"); });",
+    "      if (vals.length) s.filters[f.key] = vals;",
+    "    });",
+    "    var sort = SORTS.filter(function (o) { return o.sf === s.sf; })[0] || SORTS[0];",
+    "    s.sf = sort.sf;",
+    "    if (s.sd !== \"ASC\" && s.sd !== \"DESC\") s.sd = sort.sd;",
+    "    if (PER_PAGE.indexOf(s.rpp) < 0) s.rpp = 10;",
+    "    return s;",
+    "  }",
+    "  function toUrl(s) {",
+    "    var p = new URLSearchParams();",
+    "    if (s.query) p.set(\"query\", s.query);",
+    "    FACETS.forEach(function (f) {",
+    "      (s.filters[f.key] || []).forEach(function (v) { p.append(\"f.\" + f.key, v + \",equals\"); });",
+    "    });",
+    "    if (s.min) p.set(\"f.dateIssued.min\", String(s.min));",
+    "    if (s.max) p.set(\"f.dateIssued.max\", String(s.max));",
+    "    if (s.sf !== \"score\") { p.set(\"spc.sf\", s.sf); p.set(\"spc.sd\", s.sd); }",
+    "    if (s.rpp !== 10) p.set(\"spc.rpp\", String(s.rpp));",
+    "    if (s.view === \"grid\") p.set(\"view\", \"grid\");",
+    "    p.set(\"spc.page\", String(s.page));",
+    "    return \"?\" + p.toString();",
+    "  }",
+    "  function go(next, push) {",
+    "    state = next;",
+    "    var url = toUrl(state);",
+    "    try {",
+    "      if (push) history.pushState(null, \"\", url);",
+    "      else history.replaceState(null, \"\", url);",
+    "    } catch (e) { /* a file:// page may refuse; the page still renders */ }",
+    "    render();",
+    "  }",
+    "  function withChange(change) {",
+    "    var s = JSON.parse(JSON.stringify(state));",
+    "    change(s);",
+    "    return s;",
+    "  }",
+    "",
+    "  // ── Matching and scoring ─────────────────────────────────────────────────",
+    "  function terms(q) {",
+    "    return q.toLowerCase().split(/\\s+/).filter(Boolean);",
+    "  }",
+    "  /* Every term must appear somewhere. A hit in the title counts most, then",
+    "     authors and subjects, then the abstract: a stated weighting, not DSpace's",
+    "     Solr score, which this page has no way to reproduce. */",
+    "  function score(it, ts) {",
+    "    var s = 0;",
+    "    for (var i = 0; i < ts.length; i++) {",
+    "      var t = ts[i];",
+    "      if (it.text.indexOf(t) < 0) return -1;",
+    "      if (it.titleLc.indexOf(t) >= 0) s += 5;",
+    "      if (it.facetLc.indexOf(t) >= 0) s += 2;",
+    "      if (it.abstractLc.indexOf(t) >= 0) s += 1;",
+    "    }",
+    "    return s;",
+    "  }",
+    "  function passes(it, s, skipKey) {",
+    "    for (var k in s.filters) {",
+    "      if (k === skipKey) continue;",
+    "      var want = s.filters[k];",
+    "      var have = valuesOf(it, k);",
+    "      for (var i = 0; i < want.length; i++) if (have.indexOf(want[i]) < 0) return false;",
+    "    }",
+    "    if (skipKey !== \"dateIssued\") {",
+    "      if (s.min && !(it.year && it.year >= s.min)) return false;",
+    "      if (s.max && !(it.year && it.year <= s.max)) return false;",
+    "    }",
+    "    return true;",
+    "  }",
+    "  function results(s) {",
+    "    var ts = terms(s.query);",
+    "    var out = [];",
+    "    for (var i = 0; i < items.length; i++) {",
+    "      var sc = score(items[i], ts);",
+    "      if (sc < 0 || !passes(items[i], s)) continue;",
+    "      out.push({ it: items[i], score: sc });",
+    "    }",
+    "    var dir = s.sd === \"ASC\" ? 1 : -1;",
+    "    var key = { \"dc.title\": \"title\", \"dc.date.issued\": \"issued\", \"dc.date.accessioned\": \"accessioned\", \"dc.date.available\": \"available\" }[s.sf];",
+    "    out.sort(function (a, b) {",
+    "      if (!key) {",
+    "        if (b.score !== a.score) return b.score - a.score;",
+    "        return (b.it.accessioned || \"\").localeCompare(a.it.accessioned || \"\");",
+    "      }",
+    "      var x = a.it[key] || \"\", y = b.it[key] || \"\";",
+    "      // An item with no value goes last whichever way the sort runs.",
+    "      if (!x !== !y) return x ? -1 : 1;",
+    "      var c = key === \"title\" ? x.localeCompare(y, document.documentElement.lang || \"en\") : x.localeCompare(y);",
+    "      return c * dir || a.it.title.localeCompare(b.it.title);",
+    "    });",
+    "    return out;",
+    "  }",
+    "",
+    "  /* A facet's values and counts over the current results. */",
+    "  function facetCounts(key, matched) {",
+    "    var counts = {};",
+    "    matched.forEach(function (r) {",
+    "      valuesOf(r.it, key).forEach(function (v) { counts[v] = (counts[v] || 0) + 1; });",
+    "    });",
+    "    return Object.keys(counts)",
+    "      .map(function (v) { return { v: v, n: counts[v] }; })",
+    "      .sort(function (a, b) { return b.n - a.n || a.v.localeCompare(b.v); });",
+    "  }",
+    "  /* Date ranges from the years present, at most ten, on a round gap, as",
+    "     Discovery draws them (1920 - 1959, 1960 - 1999, …). */",
+    "  function dateRanges(matched) {",
+    "    var years = matched.map(function (r) { return r.it.year; }).filter(Boolean);",
+    "    if (!years.length) return [];",
+    "    var lo = Math.min.apply(null, years), hi = Math.max.apply(null, years);",
+    "    var gaps = [1, 2, 5, 10, 20, 25, 40, 50, 100, 200, 500];",
+    "    var gap = gaps[gaps.length - 1];",
+    "    for (var g = 0; g < gaps.length; g++) {",
+    "      if (Math.floor(hi / gaps[g]) - Math.floor(lo / gaps[g]) + 1 <= 10) { gap = gaps[g]; break; }",
+    "    }",
+    "    var out = [];",
+    "    for (var start = Math.floor(lo / gap) * gap; start <= hi; start += gap) {",
+    "      var a = Math.max(start, lo), b = Math.min(start + gap - 1, hi);",
+    "      var n = years.filter(function (y) { return y >= a && y <= b; }).length;",
+    "      if (n) out.push({ min: a, max: b, n: n });",
+    "    }",
+    "    return out;",
+    "  }",
+    "",
+    "  // ── Drawing ──────────────────────────────────────────────────────────────",
+    "  //",
+    "  // Every node is built with createElement and every string goes in with",
+    "  // createTextNode or setAttribute, so no value from the URL, a search box",
+    "  // or the data is ever parsed as HTML.",
+    "  function h(tag, attrs) {",
+    "    var el = document.createElement(tag);",
+    "    for (var k in attrs || {}) {",
+    "      if (attrs[k] === undefined || attrs[k] === null || attrs[k] === false) continue;",
+    "      if (k === \"text\") el.textContent = attrs[k];",
+    "      else el.setAttribute(k, attrs[k] === true ? \"\" : String(attrs[k]));",
+    "    }",
+    "    for (var i = 2; i < arguments.length; i++) add(el, arguments[i]);",
+    "    return el;",
+    "  }",
+    "  function add(el, child) {",
+    "    if (child === undefined || child === null || child === false) return;",
+    "    if (Array.isArray(child)) { child.forEach(function (c) { add(el, c); }); return; }",
+    "    // append() turns a string into a text node, never markup.",
+    "    el.append(child instanceof Node ? child : String(child));",
+    "  }",
+    "  function fill(s, vars) {",
+    "    for (var k in vars) s = s.split(\"{\" + k + \"}\").join(vars[k]);",
+    "    return s;",
+    "  }",
+    "  function count(n) {",
+    "    return n >= 1000 ? (Math.round(n / 100) / 10) + \"K\" : String(n);",
+    "  }",
+    "  /* The text with each query term wrapped in <mark>, as text nodes. */",
+    "  function mark(text, ts) {",
+    "    var frag = document.createDocumentFragment();",
+    "    var parts = ts.map(function (t) { return t.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\"); });",
+    "    if (!parts.length) { frag.appendChild(document.createTextNode(text)); return frag; }",
+    "    String(text).split(new RegExp(\"(\" + parts.join(\"|\") + \")\", \"gi\")).forEach(function (p, i) {",
+    "      frag.appendChild(i % 2 ? h(\"mark\", { text: p }) : document.createTextNode(p));",
+    "    });",
+    "    return frag;",
+    "  }",
+    "  /* Only a relative path or an https URL is used as a link target. */",
+    "  function safeHref(u) {",
+    "    return typeof u === \"string\" && (/^https:\\/\\//i.test(u) || !/^[a-z][a-z0-9+.-]*:/i.test(u.trim())) ? u : \"#\";",
+    "  }",
+    "  /* The cover cell the generator described: an image, or a placeholder. */",
+    "  function coverNode(c) {",
+    "    if (c && c.src) {",
+    "      return h(\"a\", { href: safeHref(c.href) }, h(\"img\", { src: safeHref(c.src), width: c.w, height: c.h, alt: c.alt, loading: \"lazy\" }));",
+    "    }",
+    "    var lines = String((c && c.text) || \"\").split(\"\\n\");",
+    "    var span = h(\"span\", { class: \"nocover\", title: c && c.title });",
+    "    lines.forEach(function (l, i) { if (i) span.appendChild(h(\"br\")); span.appendChild(document.createTextNode(l)); });",
+    "    return span;",
+    "  }",
+    "  var expanded = {}; // facet key -> how many values are shown",
+    "  var finding = {};  // facet key -> the facet's own search text",
+    "",
+    "  function facetNode(f, matched) {",
+    "    var body = [];",
+    "    if (f.range) {",
+    "      var ranges = dateRanges(state.min || state.max ? results(withChange(function (s) { s.min = 0; s.max = 0; })) : matched);",
+    "      body.push(h(\"form\", { class: \"is-range\", \"data-range\": true },",
+    "        h(\"label\", {}, T.start + \" \", h(\"input\", { type: \"number\", name: \"min\", inputmode: \"numeric\", value: state.min || \"\" })),",
+    "        h(\"label\", {}, T.end + \" \", h(\"input\", { type: \"number\", name: \"max\", inputmode: \"numeric\", value: state.max || \"\" })),",
+    "        h(\"button\", { type: \"submit\", text: T.apply })));",
+    "      body.push(h(\"ul\", { class: \"is-values\" }, ranges.map(function (r) {",
+    "        var on = state.min === r.min && state.max === r.max;",
+    "        return h(\"li\", {}, h(\"a\", {",
+    "          href: toUrl(withChange(function (s) { s.min = r.min; s.max = r.max; s.page = 1; })),",
+    "          \"data-range-min\": r.min, \"data-range-max\": r.max, \"aria-current\": on ? \"true\" : null,",
+    "        }, h(\"span\", { class: \"is-label\", text: r.min + \" - \" + r.max }), h(\"span\", { class: \"is-count\", text: count(r.n) })));",
+    "      })));",
+    "    } else {",
+    "      // Counts over the results WITHOUT this facet's own selection, so a",
+    "      // reader can see what else the facet offers; selected values on top.",
+    "      var all = facetCounts(f.key, results(withChange(function (s) { delete s.filters[f.key]; })));",
+    "      if (!all.length) return null;",
+    "      var chosen = state.filters[f.key] || [];",
+    "      var needle = (finding[f.key] || \"\").toLowerCase();",
+    "      var list = all.filter(function (x) { return !needle || valueLabel(f.key, x.v).toLowerCase().indexOf(needle) >= 0; });",
+    "      list.sort(function (a, b) { return (chosen.indexOf(b.v) >= 0) - (chosen.indexOf(a.v) >= 0); });",
+    "      var shown = expanded[f.key] || f.show;",
+    "      body.push(h(\"ul\", { class: \"is-values\" }, list.slice(0, shown).map(function (x) {",
+    "        var on = chosen.indexOf(x.v) >= 0;",
+    "        var next = withChange(function (s) {",
+    "          var cur = s.filters[f.key] || [];",
+    "          s.filters[f.key] = on ? cur.filter(function (v) { return v !== x.v; }) : cur.concat([x.v]);",
+    "          if (!s.filters[f.key].length) delete s.filters[f.key];",
+    "          s.page = 1;",
+    "        });",
+    "        return h(\"li\", {}, h(\"a\", { href: toUrl(next), \"data-facet\": f.key, \"aria-current\": on ? \"true\" : null, dir: \"auto\" },",
+    "          h(\"span\", { class: \"is-check\", \"aria-hidden\": \"true\", text: on ? \"☑\" : \"☐\" }),",
+    "          h(\"span\", { class: \"is-label\", text: valueLabel(f.key, x.v) }),",
+    "          h(\"span\", { class: \"is-count\", text: count(x.n) })));",
+    "      })));",
+    "      body.push(h(\"div\", { class: \"is-more\" },",
+    "        list.length > shown ? h(\"button\", { type: \"button\", \"data-more\": f.key, text: T.showMore }) : null,",
+    "        shown > f.show ? h(\"button\", { type: \"button\", \"data-less\": f.key, text: T.showLess }) : null));",
+    "      if (f.find) {",
+    "        body.push(h(\"input\", { type: \"search\", class: \"is-find\", \"data-find\": f.key, placeholder: f.find, \"aria-label\": f.find, value: finding[f.key] || \"\" }));",
+    "      }",
+    "    }",
+    "    return h(\"details\", { class: \"is-facet\", open: true }, h(\"summary\", { text: f.label }), body);",
+    "  }",
+    "",
+    "  function cardNode(r, ts) {",
+    "    var it = r.it;",
+    "    var dates = [",
+    "      it.govdoc || \"\",",
+    "      it.issued ? fill(T.published, { date: it.issued }) : \"\",",
+    "      it.accessioned ? fill(T.accepted, { date: it.accessioned }) : \"\",",
+    "      it.available ? fill(T.availableOnline, { date: it.available }) : \"\",",
+    "    ].filter(Boolean).join(\", \");",
+    "    var long = it.abstract.length > 260;",
+    "    return h(\"li\", { class: \"is-card\" },",
+    "      h(\"div\", { class: \"is-cover\" }, coverNode(it.cover)),",
+    "      h(\"div\", { class: \"is-body\" },",
+    "        h(\"a\", { class: \"is-title\", href: safeHref(it.href), dir: \"auto\", lang: it.lang }, mark(it.title, ts)),",
+    "        h(\"p\", { class: \"is-by\", dir: \"auto\" },",
+    "          it.authors.length ? mark(it.authors.join(\"; \"), ts) : h(\"span\", { class: \"none\", text: T.noAuthor }),",
+    "          dates ? \" (\" + dates + \")\" : null),",
+    "        it.abstract ? h(\"p\", { class: \"is-abs\" + (long ? \" clamp\" : \"\"), dir: \"auto\", lang: it.lang }, mark(it.abstract, ts)) : null,",
+    "        it.abstract && long ? h(\"button\", { type: \"button\", class: \"is-toggle\", \"aria-expanded\": \"false\", text: T.showMore }) : null));",
+    "  }",
+    "",
+    "  function pagesNode(total) {",
+    "    var last = Math.max(1, Math.ceil(total / state.rpp));",
+    "    if (last === 1) return null;",
+    "    var p = state.page;",
+    "    var want = {};",
+    "    want[1] = want[last] = true;",
+    "    for (var n = Math.max(1, p - 4); n <= Math.min(last, p + 5); n++) want[n] = true;",
+    "    var nums = Object.keys(want).map(Number).sort(function (a, b) { return a - b; });",
+    "    function link(n, text, label, disabled) {",
+    "      if (disabled) return h(\"li\", { class: \"disabled\" }, h(\"span\", { \"aria-hidden\": \"true\", text: text }));",
+    "      var cur = n === p;",
+    "      return h(\"li\", { class: cur ? \"active\" : null }, h(\"a\", {",
+    "        href: toUrl(withChange(function (s) { s.page = n; })), \"data-page\": n,",
+    "        \"aria-current\": cur ? \"page\" : null, \"aria-label\": label, text: text,",
+    "      }));",
+    "    }",
+    "    var out = [link(p - 1, \"«\", T.prev, p === 1)];",
+    "    var prev = 0;",
+    "    nums.forEach(function (n) {",
+    "      if (prev && n - prev > 1) out.push(h(\"li\", { class: \"disabled\" }, h(\"span\", { text: \"…\" })));",
+    "      out.push(link(n, String(n)));",
+    "      prev = n;",
+    "    });",
+    "    out.push(link(p + 1, \"»\", T.next, p === last));",
+    "    return h(\"nav\", { \"aria-label\": T.pagination }, h(\"ul\", { class: \"is-pages\" }, out));",
+    "  }",
+    "",
+    "  function chipsNode() {",
+    "    var chips = [];",
+    "    FACETS.forEach(function (f) {",
+    "      (state.filters[f.key] || []).forEach(function (v) {",
+    "        chips.push({ label: f.label + \": \" + valueLabel(f.key, v), url: toUrl(withChange(function (s) {",
+    "          s.filters[f.key] = s.filters[f.key].filter(function (x) { return x !== v; });",
+    "          if (!s.filters[f.key].length) delete s.filters[f.key];",
+    "          s.page = 1;",
+    "        })) });",
+    "      });",
+    "    });",
+    "    if (state.min || state.max) {",
+    "      chips.push({ label: T.dateIssued + \": \" + (state.min || \"…\") + \" - \" + (state.max || \"…\"), url: toUrl(withChange(function (s) { s.min = 0; s.max = 0; s.page = 1; })) });",
+    "    }",
+    "    if (!chips.length) return null;",
+    "    return h(\"div\", { class: \"is-chips\" },",
+    "      chips.map(function (c) {",
+    "        return h(\"a\", { class: \"is-chip\", href: c.url, \"data-nav\": true, \"aria-label\": fill(T.remove, { value: c.label }), dir: \"auto\" },",
+    "          c.label + \" \", h(\"span\", { \"aria-hidden\": \"true\", text: \"×\" }));",
+    "      }),",
+    "      h(\"a\", { class: \"is-chip is-reset\", href: toUrl(withChange(function (s) { s.filters = {}; s.min = 0; s.max = 0; s.page = 1; })), \"data-nav\": true, text: T.reset }));",
+    "  }",
+    "",
+    "  var els = {",
+    "    form: document.getElementById(\"iris-search-form\"),",
+    "    input: document.getElementById(\"iris-search-input\"),",
+    "    facets: document.getElementById(\"is-facets\"),",
+    "    settings: document.getElementById(\"is-settings\"),",
+    "    chips: document.getElementById(\"is-chips\"),",
+    "    status: document.getElementById(\"is-status\"),",
+    "    list: document.getElementById(\"is-results\"),",
+    "    pages: document.getElementById(\"is-pages\"),",
+    "    empty: document.getElementById(\"is-empty\"),",
+    "    views: root.querySelectorAll(\"[data-view]\"),",
+    "  };",
+    "",
+    "  function render() {",
+    "    var matched = results(state);",
+    "    var total = matched.length;",
+    "    var last = Math.max(1, Math.ceil(total / state.rpp));",
+    "    if (state.page > last) state.page = last;",
+    "    var from = (state.page - 1) * state.rpp;",
+    "    var shown = matched.slice(from, from + state.rpp);",
+    "    var ts = terms(state.query);",
+    "",
+    "    if (els.input && document.activeElement !== els.input) els.input.value = state.query;",
+    "    els.facets.replaceChildren();",
+    "    FACETS.forEach(function (f) { add(els.facets, facetNode(f, matched)); });",
+    "    els.chips.replaceChildren();",
+    "    add(els.chips, chipsNode());",
+    "    els.status.textContent = total",
+    "      ? fill(T.showing, { from: String(from + 1), to: String(from + shown.length), total: String(total) })",
+    "      : \"\";",
+    "    els.list.className = \"is-results is-\" + state.view;",
+    "    els.list.replaceChildren();",
+    "    shown.forEach(function (r) { els.list.appendChild(cardNode(r, ts)); });",
+    "    els.pages.replaceChildren();",
+    "    add(els.pages, pagesNode(total));",
+    "    els.empty.hidden = total > 0;",
+    "    var lookup = els.empty.querySelector(\"a\");",
+    "    if (lookup) {",
+    "      // The page wrote the link's target; only its q parameter changes here.",
+    "      var target = new URL(lookup.getAttribute(\"href\"), location.href);",
+    "      target.searchParams.set(\"q\", state.query);",
+    "      lookup.href = target.href;",
+    "      lookup.textContent = T.lookupTemplate.split(\"{q}\").join(state.query);",
+    "    }",
+    "    for (var i = 0; i < els.views.length; i++) {",
+    "      els.views[i].setAttribute(\"aria-pressed\", String(els.views[i].getAttribute(\"data-view\") === state.view));",
+    "    }",
+    "    var sortSel = document.getElementById(\"is-sort\");",
+    "    if (sortSel) sortSel.value = state.sf + \",\" + state.sd;",
+    "    var rppSel = document.getElementById(\"is-rpp\");",
+    "    if (rppSel) rppSel.value = String(state.rpp);",
+    "  }",
+    "",
+    "  // ── Wiring ───────────────────────────────────────────────────────────────",
+    "  els.form.addEventListener(\"submit\", function (e) {",
+    "    e.preventDefault();",
+    "    var q = els.input.value.trim();",
+    "    go(withChange(function (s) { s.query = q; s.page = 1; }), true);",
+    "  });",
+    "  var sortSel = document.getElementById(\"is-sort\");",
+    "  SORTS.forEach(function (o) { sortSel.appendChild(h(\"option\", { value: o.sf + \",\" + o.sd, text: o.label })); });",
+    "  sortSel.addEventListener(\"change\", function () {",
+    "    var v = sortSel.value.split(\",\");",
+    "    go(withChange(function (s) { s.sf = v[0]; s.sd = v[1]; s.page = 1; }), true);",
+    "  });",
+    "  var rppSel = document.getElementById(\"is-rpp\");",
+    "  PER_PAGE.forEach(function (n) { rppSel.appendChild(h(\"option\", { value: n, text: String(n) })); });",
+    "  rppSel.addEventListener(\"change\", function () {",
+    "    var n = parseInt(rppSel.value, 10);",
+    "    go(withChange(function (s) { s.rpp = n; s.page = 1; }), true);",
+    "  });",
+    "  for (var v = 0; v < els.views.length; v++) {",
+    "    els.views[v].addEventListener(\"click\", function (e) {",
+    "      var view = e.currentTarget.getAttribute(\"data-view\");",
+    "      go(withChange(function (s) { s.view = view; }), false);",
+    "    });",
+    "  }",
+    "",
+    "  /* Links carry real URLs (so they open in a new tab and can be copied);",
+    "     a plain click is handled here without reloading the page. */",
+    "  root.addEventListener(\"click\", function (e) {",
+    "    var a = e.target.closest ? e.target.closest(\"a\") : null;",
+    "    if (a && root.contains(a) && (a.hasAttribute(\"data-facet\") || a.hasAttribute(\"data-range-min\") || a.hasAttribute(\"data-page\") || a.hasAttribute(\"data-nav\"))) {",
+    "      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;",
+    "      e.preventDefault();",
+    "      go(readFrom(a.getAttribute(\"href\")), true);",
+    "      if (a.hasAttribute(\"data-page\")) els.status.scrollIntoView({ block: \"start\" });",
+    "      return;",
+    "    }",
+    "    var b = e.target.closest ? e.target.closest(\"button\") : null;",
+    "    if (!b) return;",
+    "    if (b.hasAttribute(\"data-more\")) {",
+    "      var k = b.getAttribute(\"data-more\");",
+    "      var f = FACETS.filter(function (x) { return x.key === k; })[0];",
+    "      expanded[k] = (expanded[k] || f.show) + f.show;",
+    "      render();",
+    "    } else if (b.hasAttribute(\"data-less\")) {",
+    "      delete expanded[b.getAttribute(\"data-less\")];",
+    "      render();",
+    "    } else if (b.classList.contains(\"is-toggle\")) {",
+    "      var abs = b.previousElementSibling;",
+    "      var open = abs.classList.toggle(\"clamp\") === false;",
+    "      b.textContent = open ? T.showLess : T.showMore;",
+    "      b.setAttribute(\"aria-expanded\", String(open));",
+    "    }",
+    "  });",
+    "  root.addEventListener(\"submit\", function (e) {",
+    "    if (!e.target.hasAttribute(\"data-range\")) return;",
+    "    e.preventDefault();",
+    "    var min = parseInt(e.target.elements.min.value, 10) || 0;",
+    "    var max = parseInt(e.target.elements.max.value, 10) || 0;",
+    "    if (min && max && min > max) { var t = min; min = max; max = t; }",
+    "    go(withChange(function (s) { s.min = min; s.max = max; s.page = 1; }), true);",
+    "  });",
+    "  root.addEventListener(\"input\", function (e) {",
+    "    var k = e.target.getAttribute && e.target.getAttribute(\"data-find\");",
+    "    if (!k) return;",
+    "    finding[k] = e.target.value;",
+    "    var pos = e.target.selectionStart;",
+    "    render();",
+    "    var again = root.querySelector('[data-find=\"' + k + '\"]');",
+    "    if (again) { again.focus(); try { again.setSelectionRange(pos, pos); } catch (x) {} }",
+    "  });",
+    "  function readFrom(href) {",
+    "    var i = href.indexOf(\"?\");",
+    "    return readUrl(i < 0 ? \"\" : href.slice(i));",
+    "  }",
+    "  window.addEventListener(\"popstate\", function () { state = readUrl(); render(); });",
+    "",
+    "  state = readUrl();",
+    "  render();",
+    "})();",
+    ""
+  ].join("\n");
+  const upstream = catalogue().totalItemsUpstream;
+  return `
+<style>
+  /* The search page, after iris.who.int/search: filters at the start, results beside them. */
+  .is-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 2rem; margin-top: 1.2rem; }
+  .is-side h2, .is-main h2 { font-size: 1.35rem; margin: 0 0 0.8rem; color: var(--iris-heading); }
+  .is-facet { border-bottom: 1px solid var(--iris-edge); padding: 0.55rem 0 0.7rem; }
+  .is-facet summary { font-weight: 700; cursor: pointer; color: var(--iris-ink); padding: 0.15rem 0; }
+  .is-values { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+  .is-values a { display: flex; gap: 0.45rem; align-items: baseline; padding: 0.2rem 0; color: var(--iris-link); font-size: 0.92rem; line-height: 1.3; }
+  .is-values a[aria-current] { font-weight: 700; }
+  .is-check { flex: none; color: var(--iris-muted); }
+  .is-label { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .is-count {
+    flex: none; font-size: 0.75rem; font-weight: 700; color: #fff; background: var(--iris-muted);
+    border-radius: 10px; padding: 0.05rem 0.45rem; min-width: 1.8rem; text-align: center;
+  }
+  .is-more { display: flex; gap: 0.8rem; }
+  .is-more button, .is-toggle {
+    background: none; border: 0; padding: 0.25rem 0; color: var(--iris-link); cursor: pointer; font: inherit; font-size: 0.88rem;
+  }
+  .is-more button:hover, .is-toggle:hover { text-decoration: underline; }
+  .is-find, .is-range input, .is-settings select {
+    width: 100%; padding: 0.35rem 0.5rem; border: 1px solid var(--iris-edge); border-radius: 4px;
+    background: var(--iris-paper); color: var(--iris-ink); font: inherit; font-size: 0.9rem; margin-top: 0.35rem;
+  }
+  .is-range { display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.4rem; align-items: end; margin-top: 0.3rem; }
+  .is-range label { font-size: 0.82rem; color: var(--iris-muted); }
+  .is-range button {
+    padding: 0.38rem 0.6rem; border: 1px solid var(--iris-accent); background: var(--iris-accent); color: #fff;
+    border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.85rem;
+  }
+  .is-settings { margin-top: 1.4rem; }
+  .is-settings label { display: block; font-weight: 700; margin-top: 0.7rem; font-size: 0.92rem; }
+  .is-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.6rem; }
+  .is-views { display: inline-flex; border: 1px solid var(--iris-edge); border-radius: 4px; overflow: hidden; }
+  .is-views button {
+    background: var(--iris-paper); color: var(--iris-ink); border: 0; padding: 0.35rem 0.6rem; cursor: pointer; font: inherit; font-size: 0.85rem;
+  }
+  .is-views button + button { border-inline-start: 1px solid var(--iris-edge); }
+  .is-views button[aria-pressed="true"] { background: var(--iris-accent); color: #fff; }
+  .is-status { color: var(--iris-muted); font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+  .is-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.9rem; }
+  .is-chip {
+    display: inline-flex; gap: 0.3rem; align-items: center; font-size: 0.85rem; padding: 0.2rem 0.65rem;
+    border-radius: 14px; background: var(--iris-tag-bg); color: var(--iris-heading);
+  }
+  .is-chip.is-reset { background: none; border: 1px solid var(--iris-edge); color: var(--iris-link); }
+  .is-results { list-style: none; margin: 0; padding: 0; }
+  .is-results.is-list { display: flex; flex-direction: column; gap: 1.6rem; }
+  .is-results.is-list .is-card { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .is-results.is-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1.2rem; }
+  .is-results.is-grid .is-card { border: 1px solid var(--iris-edge); border-radius: 4px; padding: 0.8rem; background: var(--iris-paper); }
+  .is-results.is-grid .is-cover { margin-bottom: 0.6rem; }
+  .is-cover { flex: 0 0 104px; }
+  .is-cover img { width: 104px; height: auto; display: block; border: 1px solid var(--iris-edge); }
+  .is-cover .nocover {
+    display: flex; align-items: center; justify-content: center; width: 104px; height: 140px;
+    border: 1px dashed var(--iris-edge); color: var(--iris-muted); font-size: 0.78rem; text-align: center; line-height: 1.3;
+  }
+  .is-body { flex: 1; min-width: 0; }
+  .is-title { font-size: 1.02rem; line-height: 1.35; text-decoration: underline; overflow-wrap: anywhere; }
+  .is-by { margin: 0.35rem 0 0.4rem; font-size: 0.9rem; }
+  .is-abs { margin: 0; font-size: 0.93rem; line-height: 1.5; }
+  .is-abs.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .is-results.is-grid .is-abs.clamp { -webkit-line-clamp: 5; }
+  .is-results mark { background: #fff3a8; color: inherit; padding: 0 0.05em; }
+  .is-pages { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0; margin: 1.8rem 0 0; }
+  .is-pages a, .is-pages span {
+    display: block; min-width: 2.3rem; text-align: center; padding: 0.35rem 0.55rem;
+    border: 1px solid var(--iris-edge); border-radius: 4px; background: var(--iris-paper);
+  }
+  .is-pages .active a { background: var(--iris-accent); border-color: var(--iris-accent); color: #fff; }
+  .is-pages .disabled span { color: var(--iris-muted); }
+  .is-empty { padding: 1rem; border: 1px solid var(--iris-edge); border-radius: 4px; background: var(--iris-wash); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-fa-scheme="light"]) .is-results mark { background: #5c4a00; }
+  }
+  :root[data-fa-scheme="dark"] .is-results mark { background: #5c4a00; }
+  @media (max-width: 800px) {
+    .is-layout { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .is-side { order: 2; }
+    .is-results.is-list .is-card { flex-direction: column; }
+  }
+</style>
+
+<div id="iris-search">
+<form class="searchbar" id="iris-search-form" action="search.html" method="get" role="search">
+  <input type="text" id="iris-search-input" name="query"
+    placeholder="${esc(t("Search through the repository’s {n} items", { n: upstream !== undefined ? String(upstream) : "?" }))}"
+    aria-label="${esc(t("Search the repository"))}" autocomplete="off" spellcheck="false">
+  <button type="submit">${t("Search")}</button>
+</form>
+<p class="searchnote">${t("This page searches the {held} items catalogued here, in your browser; upstream IRIS holds {upstream}. The filters are IRIS’s own; their values and counts are computed from the current results.", {
+    held: num(items.length),
+    upstream: upstream !== undefined ? num(upstream) : "?",
+  })}</p>
+
+<div class="is-layout">
+  <aside class="is-side" aria-labelledby="is-filters-h">
+    <h2 id="is-filters-h">${t("Filters")}</h2>
+    <div id="is-facets"></div>
+    <div class="is-settings">
+      <h2>${t("Settings")}</h2>
+      <label for="is-sort">${t("Sort By")}</label>
+      <select id="is-sort"></select>
+      <label for="is-rpp">${t("Results per page")}</label>
+      <select id="is-rpp"></select>
+    </div>
+  </aside>
+  <section class="is-main" aria-labelledby="is-results-h">
+    <div class="is-head">
+      <h2 id="is-results-h">${t("Search Results")}</h2>
+      <div class="is-views" role="group">
+        <button type="button" data-view="list" aria-pressed="true">&#9776; ${t("List view")}</button>
+        <button type="button" data-view="grid" aria-pressed="false">&#9638; ${t("Grid view")}</button>
+      </div>
+    </div>
+    <p class="is-status" id="is-status" role="status" aria-live="polite"></p>
+    <div id="is-chips"></div>
+    <ul id="is-results" class="is-results is-list"></ul>
+    <div class="is-empty" id="is-empty" hidden>
+      <p>${t("Your search returned no results.")}</p>
+      <p><a href="${toSiteRoot()}../id-lookup/?index=who-iris/"></a></p>
+    </div>
+    <div id="is-pages"></div>
+  </section>
+</div>
+</div>
+<script type="application/json" id="iris-search-data">${json(records)}</script>
+<script type="application/json" id="iris-search-strings">${json(strings)}</script>
+<script>
+${client}</script>
+`;
+}
+
+/**
+ * The same three states as {@link coverCell}, as data for the search page,
+ * which builds its elements in the browser rather than parsing HTML. A
+ * line break in a placeholder is a newline.
+ */
+function coverData(n: Node): { href: string; src: string; w: number; h: number; alt: string } | { text: string; title: string } {
+  const cov = coverSrc(n);
+  const withheldBy = coverWithheld(n);
+  const br = (s: string): string => s.replace(/<br>/g, "\n");
+  if (withheldBy) return { text: br(t("cover<br>withheld")), title: t("A cover is rendered and held here. It is not published: {gates}.", { gates: withheldBy }) };
+  if (!cov) return { text: t("no cover"), title: t("no cover rendered") };
+  if (!COVERS_SHOWN) {
+    return { text: br(t("cover<br>withheld")), title: t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO.") };
+  }
+  return {
+    href: itemPageHref(n) ?? cataloguePageHref(),
+    src: cov.src,
+    w: cov.w,
+    h: cov.h,
+    alt: cov.masked
+      ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
+      : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }),
+  };
+}
+
+/**
+ * An item's cover cell: the image, or a placeholder saying why there is none.
+ * Shared by Recent Submissions and the search page's result cards.
+ */
+function coverCell(n: Node): string {
+  const cov = coverSrc(n);
+  // Three states, not two. A withheld cover and an absent one look the same
+  // in a layout and mean opposite things about the catalogue.
+  const withheldBy = coverWithheld(n);
+  return withheldBy
+    ? `<span class="nocover" title="${esc(t("A cover is rendered and held here. It is not published: {gates}.", { gates: withheldBy }))}">${t("cover<br>withheld")}</span>`
+    : !cov
+    ? `<span class="nocover" title="${esc(t("no cover rendered"))}">${t("no cover")}</span>`
+    : COVERS_SHOWN
+      ? `<a href="${esc(itemPageHref(n) ?? cataloguePageHref())}"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
+        alt="${esc(cov.masked
+          ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
+          : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }))}" loading="lazy"></a>`
+      : `<span class="nocover" title="${esc(t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO."))}">${t("cover<br>withheld")}</span>`;
 }
 
 /**
@@ -2842,7 +3545,6 @@ ${collections
  * a reader cannot tell it apart from a transcription.
  */
 function submission(n: Node): string {
-  const cov = coverSrc(n);
   const a = assetHref(n);
   const authors = dc(n, "contributor", "author");
   const issued = day(dc(n, "date", "issued")[0]);
@@ -2857,22 +3559,10 @@ function submission(n: Node): string {
       .join(", ")})`,
   ].join(" ");
 
-  // Three states, not two. A withheld cover and an absent one look the same
-  // in a layout and mean opposite things about the catalogue.
-  const withheldBy = coverWithheld(n);
-  const coverCell = withheldBy
-    ? `<span class="nocover" title="${esc(t("A cover is rendered and held here. It is not published: {gates}.", { gates: withheldBy }))}">${t("cover<br>withheld")}</span>`
-    : !cov
-    ? `<span class="nocover" title="${esc(t("no cover rendered"))}">${t("no cover")}</span>`
-    : COVERS_SHOWN
-      ? `<a href="${esc(itemPageHref(n) ?? cataloguePageHref())}"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
-        alt="${esc(cov.masked
-          ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
-          : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }))}" loading="lazy"></a>`
-      : `<span class="nocover" title="${esc(t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO."))}">${t("cover<br>withheld")}</span>`;
+  const coverHtml = coverCell(n);
 
   return `<article class="sub">
-  <div class="sub-cover">${coverCell}</div>
+  <div class="sub-cover">${coverHtml}</div>
   <div class="sub-body">
     <a class="sub-title"${dataBlock(lang)} href="${esc(itemPageHref(n) ?? cataloguePageHref())}">${esc(n.title)}</a>
     <p class="sub-by">${byline}</p>
@@ -3708,6 +4398,7 @@ function main(): number {
     LOCALE = locale;
     const at = locale === "en" ? "site" : `site/${locale}`;
     files.set(`${at}/index.html`, page("who-iris", [{ label: t("Home") }], landingPage(all), "site", [], "index.html"));
+    files.set(`${at}/search.html`, page(t("Search"), [{ label: t("Home"), href: "index.html" }, { label: t("Search") }], searchPage(all), "site", [], "search.html"));
   }
   LOCALE = "en";
 
