@@ -2216,7 +2216,22 @@ const LIBRARY_LINKS = libraryResolver(repoRootFor(HARNESS_ROOT), HARNESS_ROOT);
  */
 const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
   const decl = readDeclaration(HARNESS_ROOT);
-  const lib = decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library"));
+  // A top-level `library` entry, or (cat-harness#1032) the named sub-graph
+  // whose `graph.json` declares the corpus FROM WITHIN: the viewer publishes
+  // under the top-level directory's name either way (gen-library-viz `topOf`).
+  const holdsCorpus = (d: { path: string }): boolean => {
+    const f = join(HARNESS_ROOT, d.path, "graph.json");
+    if (!existsSync(f)) return false;
+    try {
+      const nested = JSON.parse(readFileSync(f, "utf-8")) as { directories?: Array<{ graphTypologies?: string[] }> };
+      return (nested.directories ?? []).some((n) => (n.graphTypologies ?? []).includes("library"));
+    } catch {
+      return false;
+    }
+  };
+  const lib =
+    decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library")) ??
+    decl?.directories?.find((d) => holdsCorpus(d));
   if (decl?.name === undefined || lib === undefined) return () => undefined;
   const visualiser = basename(lib.path.replace(/\/+$/, ""));
   const route = visualiserRoute({ locale: "en", harness: decl.name, visualiser, subgraph: SUBJECT });
