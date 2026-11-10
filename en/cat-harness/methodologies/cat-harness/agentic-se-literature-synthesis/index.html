@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../../../assets/css/navbar.css"><script src="../../../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/methodologies/cat-harness/agentic-se-literature-synthesis/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#1-cross-cutting-landscape-the-five-pillars-of-agentic-se","label":"1. Cross-Cutting Landscape: The Five Pillars of Agentic SE","children":[{"href":"#synthesis-across-the-operational-lifecycle","label":"Synthesis Across the Operational Lifecycle","depth":1}],"fold":"1 sub-section"},{"href":"#2-epistemic-partition-measured-vs-recommended-vs-claimed","label":"2. Epistemic Partition: Measured vs. Recommended vs. Claimed"},{"href":"#3-adversarial-pass-direction-1-attacking-the-papers-claims","label":"3. Adversarial Pass Direction 1: Attacking the Papers’ Claims","children":[{"href":"#1-codeagent-arxiv240202172v5-the-circularity-trap--alert-fatigue","label":"1. CodeAgent (arXiv:2402.02172v5): The Circularity Trap & Alert Fatigue","depth":1},{"href":"#2-swe-debate-arxiv250723348v1-token-explosion-and-judge-vulnerabilities","label":"2. SWE-Debate (arXiv:2507.23348v1): Token Explosion and Judge Vulnerabilities","depth":1},{"href":"#3-swe-router-arxiv260700053v1-value-head-fragility-and-inflexible-budgets","label":"3. SWE-Router (arXiv:2607.00053v1): Value-Head Fragility and Inflexible Budgets","depth":1},{"href":"#4-tcandon-router-arxiv260104544v1-static-ontologies-and-synthetic-bias","label":"4. TCAndon-Router (arXiv:2601.04544v1): Static Ontologies and Synthetic Bias","depth":1},{"href":"#5-he-et-al-survey-arxiv240404834v4-the-chat-state-degeneration-blindspot","label":"5. He et al. Survey (arXiv:2404.04834v4): The Chat State-Degeneration Blindspot","depth":1}],"fold":"5 sub-sections"},{"href":"#4-adversarial-pass-direction-2-attacking-folio-assistants-processes","label":"4. Adversarial Pass Direction 2: Attacking Folio-Assistant’s Processes","children":[{"href":"#1-context-saturation-in-the-69-bpmndmn-process-suite","label":"1. Context Saturation in the 69 BPMN/DMN Process Suite","depth":1},{"href":"#2-context-poisoning-in-swarm-dispatch-and-escalation","label":"2. Context Poisoning in Swarm Dispatch and Escalation","depth":1},{"href":"#3-merge-queue-fragility-the-deterministic-vs-agentic-boundary","label":"3. Merge Queue Fragility: The Deterministic vs. Agentic Boundary","depth":1},{"href":"#4-zombie-agent-runs-and-the-lack-of-programmatic-andon-cords","label":"4. Zombie Agent Runs and the Lack of Programmatic Andon Cords","depth":1}],"fold":"4 sub-sections"},{"href":"#5-architectural-transfer-matrix-what-transfers-what-is-refuted-what-remains","label":"5. Architectural Transfer Matrix: What Transfers, What is Refuted, What Remains"},{"href":"#6-implementation-checklist-for-agents-and-swarm-stewards","label":"6. Implementation Checklist for Agents and Swarm Stewards"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../../assets/css/navbar.css"><script src="../../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/methodologies/cat-harness/agentic-se-literature-synthesis/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#1-cross-cutting-landscape-the-five-pillars-of-agentic-se","label":"Cross-Cutting Landscape: The Five Pillars of Agentic SE","icon":"1","children":[{"href":"#synthesis-across-the-operational-lifecycle","label":"Synthesis Across the Operational Lifecycle","depth":1}],"fold":"1 sub-section"},{"href":"#2-epistemic-partition-measured-vs-recommended-vs-claimed","label":"Epistemic Partition: Measured vs. Recommended vs. Claimed","icon":"2"},{"href":"#3-adversarial-pass-direction-1-attacking-the-papers-claims","label":"Adversarial Pass Direction 1: Attacking the Papers’ Claims","icon":"3","children":[{"href":"#1-codeagent-arxiv240202172v5-the-circularity-trap--alert-fatigue","label":"CodeAgent (arXiv:2402.02172v5): The Circularity Trap & Alert Fatigue","icon":"1","depth":1},{"href":"#2-swe-debate-arxiv250723348v1-token-explosion-and-judge-vulnerabilities","label":"SWE-Debate (arXiv:2507.23348v1): Token Explosion and Judge Vulnerabilities","icon":"2","depth":1},{"href":"#3-swe-router-arxiv260700053v1-value-head-fragility-and-inflexible-budgets","label":"SWE-Router (arXiv:2607.00053v1): Value-Head Fragility and Inflexible Budgets","icon":"3","depth":1},{"href":"#4-tcandon-router-arxiv260104544v1-static-ontologies-and-synthetic-bias","label":"TCAndon-Router (arXiv:2601.04544v1): Static Ontologies and Synthetic Bias","icon":"4","depth":1},{"href":"#5-he-et-al-survey-arxiv240404834v4-the-chat-state-degeneration-blindspot","label":"He et al. Survey (arXiv:2404.04834v4): The Chat State-Degeneration Blindspot","icon":"5","depth":1}],"fold":"5 sub-sections"},{"href":"#4-adversarial-pass-direction-2-attacking-folio-assistants-processes","label":"Adversarial Pass Direction 2: Attacking Folio-Assistant’s Processes","icon":"4","children":[{"href":"#1-context-saturation-in-the-69-bpmndmn-process-suite","label":"Context Saturation in the 69 BPMN/DMN Process Suite","icon":"1","depth":1},{"href":"#2-context-poisoning-in-swarm-dispatch-and-escalation","label":"Context Poisoning in Swarm Dispatch and Escalation","icon":"2","depth":1},{"href":"#3-merge-queue-fragility-the-deterministic-vs-agentic-boundary","label":"Merge Queue Fragility: The Deterministic vs. Agentic Boundary","icon":"3","depth":1},{"href":"#4-zombie-agent-runs-and-the-lack-of-programmatic-andon-cords","label":"Zombie Agent Runs and the Lack of Programmatic Andon Cords","icon":"4","depth":1}],"fold":"4 sub-sections"},{"href":"#5-architectural-transfer-matrix-what-transfers-what-is-refuted-what-remains","label":"Architectural Transfer Matrix: What Transfers, What is Refuted, What Remains","icon":"5"},{"href":"#6-implementation-checklist-for-agents-and-swarm-stewards","label":"Implementation Checklist for Agents and Swarm Stewards","icon":"6"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -887,11 +945,11 @@
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2404.04834v4</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2507.23348v1</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2607.00053v1</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2601.04544v1</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2402.02172v5</code></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2404.04834v4"><code class="language-plaintext highlighter-rouge">library/arxiv-2404.04834v4</code></a> · <a href="../../../library/cat-harness/arxiv-2404.04834v4/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/sdlc/arxiv-2404.04834v4/README.md">item page</a> · <a href="https://arxiv.org/abs/2404.04834v4">source</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2507.23348v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2507.23348v1</code></a> · <a href="../../../library/cat-harness/arxiv-2507.23348v1/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/sdlc/arxiv-2507.23348v1/README.md">item page</a> · <a href="https://arxiv.org/abs/2507.23348v1">source</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2607.00053v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2607.00053v1</code></a> · <a href="../../../library/cat-harness/arxiv-2607.00053v1/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/sdlc/arxiv-2607.00053v1/README.md">item page</a> · <a href="https://arxiv.org/abs/2607.00053v1">source</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2601.04544v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2601.04544v1</code></a> · <a href="../../../library/cat-harness/arxiv-2601.04544v1/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/sdlc/arxiv-2601.04544v1/README.md">item page</a> · <a href="https://arxiv.org/abs/2601.04544v1">source</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2402.02172v5"><code class="language-plaintext highlighter-rouge">library/arxiv-2402.02172v5</code></a> · <a href="../../../library/cat-harness/arxiv-2402.02172v5/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/sdlc/arxiv-2402.02172v5/README.md">item page</a> · <a href="https://arxiv.org/abs/2402.02172v5">source</a></li>
 </ul>
 
 <p><strong>Node file:</strong> <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/agentic-se-literature-synthesis.md">agentic-se-literature-synthesis.md</a></p>
@@ -906,7 +964,7 @@
 </h1>
     
 
-<p><strong>Ingested &amp; Synthesized under Epic <code class="language-plaintext highlighter-rouge">folio-assistant-0ipy</code> (Leaf Bean <code class="language-plaintext highlighter-rouge">folio-assistant-9k2i</code>).</strong>
+<p><strong>Ingested &amp; Synthesized under Epic <code class="language-plaintext highlighter-rouge">folio-assistant-0ipy</code> (Leaf Work item <code class="language-plaintext highlighter-rouge">folio-assistant-9k2i</code>).</strong>
 This node synthesizes the empirical evidence, architectural patterns, and failure modes across five
 landmark papers in agentic software engineering (SE), spanning multi-agent SDLC taxonomies, competitive
 debate adjudication, cost-aware temporal routing, adaptive swarm selection with early termination, and
@@ -1245,7 +1303,7 @@ never the whole-process XML graph.</li>
     
 <ul>
   <li><strong>Vulnerability</strong>:
-In <code class="language-plaintext highlighter-rouge">skills/sdlc/sdlc-core/dispatch-agent.md</code> and <code class="language-plaintext highlighter-rouge">swarm-management.md</code>, sub-tasks are spawned when an agent
+In <code class="language-plaintext highlighter-rouge">sdlc/skills/sdlc-core/dispatch-agent.md</code> and <code class="language-plaintext highlighter-rouge">swarm-management.md</code>, sub-tasks are spawned when an agent
 encounters complex sub-problems. In common usage, the parent agent frequently forwards its entire ongoing
 conversation transcript—including failed search attempts, erroneous grep commands, and hallucinated root-cause
 hypotheses—into the subagent’s prompt.</li>
@@ -1268,7 +1326,7 @@ relevant file paths, and target acceptance criteria, discarding exploratory dial
     
 <ul>
   <li><strong>Vulnerability</strong>:
-Prior to bean <code class="language-plaintext highlighter-rouge">nok9</code> and proposal <code class="language-plaintext highlighter-rouge">merge-gate-2026-10-02.md</code>, there was strong pressure to establish a
+Prior to work item <code class="language-plaintext highlighter-rouge">nok9</code> and proposal <code class="language-plaintext highlighter-rouge">merge-gate-2026-10-02.md</code>, there was strong pressure to establish a
 “blocking red flag” gate where multi-agent code reviews could unilaterally reject pull requests on the merge train.</li>
   <li><strong>Risk</strong>:
 As CodeAgent proved (Table 2), LLM vulnerability reviewers exhibit an uncalibrated false-positive rate of
@@ -1296,13 +1354,13 @@ empirically calibrated false-positive rate below 5% across recorded historical d
     
 <ul>
   <li><strong>Vulnerability</strong>:
-While <code class="language-plaintext highlighter-rouge">skills/sdlc/sdlc-core/swarm-management.md</code> describes the conceptual discipline of stopping early, the
+While <code class="language-plaintext highlighter-rouge">sdlc/skills/sdlc-core/swarm-management.md</code> describes the conceptual discipline of stopping early, the
 underlying runner (<code class="language-plaintext highlighter-rouge">invoke_subagent</code>, background shell commands) lacked automated runtime predicates to detect
 and kill runaway agents.</li>
   <li><strong>Risk</strong>:
 An agent trapped in an infinite search loop, circular git merge conflict, or hallucinated dependency chain
 continues to burn tokens until hitting wall-clock timeouts, draining API budgets and creating zombie lockouts
-in the bean store.</li>
+in the work item store.</li>
   <li><strong>Remediation</strong>:
 Implement explicit <strong>programmatic Andon-cord stopping predicates</strong>:
     <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Programmatic Andon-Cord Halt Predicates</span>
@@ -1384,7 +1442,7 @@ Implement explicit <strong>programmatic Andon-cord stopping predicates</strong>:
 </h2>
     
 
-<p>When coordinating multi-agent work, opening beans, or stewarding merge trains, verify these six invariants:</p>
+<p>When coordinating multi-agent work, opening work items, or stewarding merge trains, verify these six invariants:</p>
 
 <ol>
   <li><strong>Before dispatching a swarm</strong>:

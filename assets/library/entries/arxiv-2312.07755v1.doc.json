@@ -282,6 +282,10 @@
           "heading": false
         },
         {
+          "term": "monash university",
+          "heading": false
+        },
+        {
           "term": "design intent",
           "heading": false
         },
@@ -290,11 +294,11 @@
           "heading": false
         },
         {
-          "term": "wiregen",
+          "term": "design process",
           "heading": false
         },
         {
-          "term": "design process",
+          "term": "wiregen",
           "heading": false
         },
         {
@@ -303,10 +307,6 @@
         },
         {
           "term": "generative",
-          "heading": false
-        },
-        {
-          "term": "university",
           "heading": false
         }
       ],
@@ -597,11 +597,11 @@
       },
       "keywords": [
         {
-          "term": "fine-tuning llms",
+          "term": "html syntax",
           "heading": false
         },
         {
-          "term": "html syntax",
+          "term": "fine-tuning llms",
           "heading": false
         },
         {
@@ -617,7 +617,7 @@
           "heading": false
         },
         {
-          "term": "promising performance",
+          "term": "data selection",
           "heading": false
         },
         {
@@ -625,7 +625,7 @@
           "heading": false
         },
         {
-          "term": "data selection",
+          "term": "hyperparameter configuration",
           "heading": false
         }
       ],
@@ -664,16 +664,16 @@
           "heading": false
         },
         {
-          "term": "text alignment",
-          "heading": false
-        },
-        {
           "term": "html syntax",
           "heading": false
         },
         {
           "term": "wireframe",
           "heading": true
+        },
+        {
+          "term": "text alignment",
+          "heading": false
         },
         {
           "term": "design flaws",
@@ -748,11 +748,11 @@
       },
       "keywords": [
         {
-          "term": "ground-truth",
+          "term": "wireframes",
           "heading": false
         },
         {
-          "term": "wireframes",
+          "term": "ground-truth",
           "heading": false
         },
         {
@@ -814,11 +814,11 @@
       },
       "keywords": [
         {
-          "term": "zero-shot learning",
+          "term": "wireframe generations",
           "heading": false
         },
         {
-          "term": "wireframe generations",
+          "term": "zero-shot learning",
           "heading": false
         },
         {
@@ -838,11 +838,11 @@
           "heading": false
         },
         {
-          "term": "ratings",
+          "term": "music",
           "heading": false
         },
         {
-          "term": "annotators",
+          "term": "ratings",
           "heading": false
         }
       ],
@@ -865,15 +865,15 @@
       },
       "keywords": [
         {
-          "term": "baselines",
-          "heading": false
-        },
-        {
           "term": "ada",
           "heading": false
         },
         {
           "term": "babbage",
+          "heading": false
+        },
+        {
+          "term": "curie",
           "heading": false
         }
       ],
@@ -939,16 +939,16 @@
       },
       "keywords": [
         {
-          "term": "assisting",
-          "heading": false
-        },
-        {
           "term": "usefulness",
           "heading": false
         },
         {
-          "term": "study",
-          "heading": true
+          "term": "assisting",
+          "heading": false
+        },
+        {
+          "term": "designers",
+          "heading": false
         }
       ],
       "extract": "In language, there are many ways to say the same thing in different words. We conduct a user study to gain insights into the usefulness of our model in assisting designers with UI wireframe generation with real-world descriptions. 5.1",
@@ -1013,11 +1013,11 @@
           "heading": false
         },
         {
-          "term": "asked participants",
+          "term": "wireframes generated",
           "heading": false
         },
         {
-          "term": "wireframes generated",
+          "term": "asked participants",
           "heading": false
         },
         {
@@ -1056,19 +1056,19 @@
       },
       "keywords": [
         {
-          "term": "incorporating semantic",
-          "heading": false
-        },
-        {
           "term": "design process",
           "heading": false
         },
         {
-          "term": "future work",
+          "term": "incorporating semantic",
           "heading": false
         },
         {
           "term": "login page",
+          "heading": false
+        },
+        {
+          "term": "future work",
           "heading": false
         },
         {
@@ -1170,11 +1170,11 @@
           "heading": false
         },
         {
-          "term": "companion proceedings",
+          "term": "cvf conference",
           "heading": false
         },
         {
-          "term": "international conference",
+          "term": "companion proceedings",
           "heading": false
         }
       ],
@@ -1206,8 +1206,8 @@
       "heading": false
     },
     {
-      "term": "generative llms",
-      "heading": false
+      "term": "raw wireframe",
+      "heading": true
     },
     {
       "term": "design language",
@@ -1218,11 +1218,7 @@
       "heading": false
     },
     {
-      "term": "raw wireframe",
-      "heading": true
-    },
-    {
-      "term": "fine-tuning llms",
+      "term": "generative llms",
       "heading": false
     },
     {
@@ -1232,11 +1228,15 @@
     {
       "term": "generate mid-fidelity",
       "heading": false
+    },
+    {
+      "term": "visual design",
+      "heading": false
     }
   ],
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/arxiv-2312.07755v1"
+    "dir": "library/ui/arxiv-2312.07755v1"
   }
 }

@@ -357,11 +357,11 @@
           "heading": false
         },
         {
-          "term": "graph-based",
+          "term": "lce",
           "heading": false
         },
         {
-          "term": "lce",
+          "term": "graph-based",
           "heading": false
         },
         {
@@ -381,7 +381,7 @@
           "heading": false
         },
         {
-          "term": "items",
+          "term": "stream",
           "heading": false
         }
       ],
@@ -518,7 +518,7 @@
           "heading": false
         },
         {
-          "term": "incremental",
+          "term": "streaming",
           "heading": false
         }
       ],
@@ -545,11 +545,11 @@
           "heading": true
         },
         {
-          "term": "convolution layers",
+          "term": "compositional embeddings",
           "heading": false
         },
         {
-          "term": "compositional embeddings",
+          "term": "convolution layers",
           "heading": false
         },
         {
@@ -565,7 +565,7 @@
           "heading": false
         },
         {
-          "term": "graph",
+          "term": "mean pooling",
           "heading": false
         },
         {
@@ -616,11 +616,11 @@
           "heading": false
         },
         {
-          "term": "incremental",
+          "term": "streaming",
           "heading": false
         },
         {
-          "term": "streaming",
+          "term": "incremental",
           "heading": false
         }
       ],
@@ -743,11 +743,11 @@
           "heading": false
         },
         {
-          "term": "user-user edges",
+          "term": "window months",
           "heading": false
         },
         {
-          "term": "window months",
+          "term": "user-user edges",
           "heading": false
         },
         {
@@ -794,7 +794,7 @@
           "heading": false
         },
         {
-          "term": "model retraining",
+          "term": "recall ndcg",
           "heading": false
         },
         {
@@ -802,7 +802,7 @@
           "heading": false
         },
         {
-          "term": "recall ndcg",
+          "term": "model retraining",
           "heading": false
         }
       ],
@@ -939,7 +939,7 @@
           "heading": false
         },
         {
-          "term": "weeks",
+          "term": "offline",
           "heading": false
         },
         {
@@ -947,7 +947,7 @@
           "heading": false
         },
         {
-          "term": "offline",
+          "term": "weeks",
           "heading": false
         }
       ],
@@ -1015,7 +1015,7 @@
           "heading": false
         },
         {
-          "term": "incremental",
+          "term": "streaming",
           "heading": false
         }
       ],
@@ -1054,20 +1054,20 @@
           "heading": false
         },
         {
-          "term": "graph-based",
-          "heading": true
-        },
-        {
           "term": "items",
           "heading": false
+        },
+        {
+          "term": "graph-based",
+          "heading": true
         },
         {
           "term": "lightgcn",
           "heading": false
         },
         {
-          "term": "models",
-          "heading": true
+          "term": "streaming",
+          "heading": false
         }
       ],
       "extract": "Leveraging graphs to support recommendation scenarios is an emerging research theme. The core idea is to cast recommenda- tion problem to graph link prediction. Prior work explored many graph neural network architectures, for example GraphSage [9, 36]. NGCF [32] and LightGCN [10] learn convolutional structures over embeddings for all users and items. These models are not generally applicable to the incremental",
@@ -1148,7 +1148,7 @@
           "heading": false
         },
         {
-          "term": "web conference",
+          "term": "lce layer",
           "heading": false
         },
         {
@@ -1156,11 +1156,11 @@
           "heading": false
         },
         {
-          "term": "lce layer",
+          "term": "recommender systems",
           "heading": false
         },
         {
-          "term": "recommender systems",
+          "term": "web conference",
           "heading": false
         }
       ],
@@ -1204,11 +1204,11 @@
       "heading": false
     },
     {
-      "term": "method lce",
+      "term": "streaming data",
       "heading": false
     },
     {
-      "term": "streaming data",
+      "term": "method lce",
       "heading": false
     },
     {
@@ -1216,13 +1216,13 @@
       "heading": true
     },
     {
-      "term": "compositional embeddings",
-      "heading": true
+      "term": "lce refers",
+      "heading": false
     }
   ],
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/arxiv-2202.02427v1"
+    "dir": "library/kg/arxiv-2202.02427v1"
   }
 }

@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -32,9 +26,9 @@
 
 
   <!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>cat-harness-tools — Beans | WHO IRIS</title>
+<title>cat-harness-tools — Plans and work | WHO IRIS</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="cat-harness-tools — Beans" />
+<meta property="og:title" content="cat-harness-tools — Plans and work" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
 <meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
@@ -43,9 +37,9 @@
 <meta property="og:site_name" content="WHO IRIS" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="cat-harness-tools — Beans" />
+<meta name="twitter:title" content="cat-harness-tools — Plans and work" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.","headline":"cat-harness-tools — Beans","url":"https://litlfred.github.io/who-iris/en/cat-harness/beans/cat-harness-tools/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.","headline":"cat-harness-tools — Plans and work","url":"https://litlfred.github.io/who-iris/en/cat-harness/beans/cat-harness-tools/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,40 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
+
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
+
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
 -->
 
-<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
+<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/beans/cat-harness-tools/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#bean-notes","label":"Bean notes — 18"},{"href":"#workflow-state","label":"Workflow instances — 1"},{"href":"#bean-position","label":"Where this store's beans sit in a process — 307 bean(s)"},{"href":"#unlinked-beans","label":"Open beans tied to no BPMN task — 10 of 10","children":[{"href":"#unlinked-groups","label":"Candidate undocumented processes","depth":1}],"fold":"1 sub-section"},{"href":"#merge-queue","label":"Merge queue — 0 decision(s)"},{"href":"#session-survey","label":"Session surveys — 0 survey(s)"},{"href":"#sweep-marks","label":"Sweep marks — 0 mark(s)"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/beans/cat-harness-tools/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#bean-notes","label":"Bean notes — 18"},{"href":"#workflow-state","label":"Workflow instances — 1"},{"href":"#bean-position","label":"Where this store's beans sit in a process — 324 bean(s)"},{"href":"#unlinked-beans","label":"Open beans tied to no BPMN task — 6 of 7","children":[{"href":"#unlinked-groups","label":"Candidate undocumented processes","depth":1}],"fold":"1 sub-section"},{"href":"#merge-queue","label":"Merge queue — 0 decision(s)"},{"href":"#session-survey","label":"Session surveys — 0 survey(s)"},{"href":"#sweep-marks","label":"Sweep marks — 0 mark(s)"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -858,12 +881,13 @@
 .sv-count { border: 1px solid rgba(127,127,127,0.4); border-radius: 6px; padding: 0.4rem 0.7rem; min-width: 4.5rem; }
 .sv-count-v { display: block; font-size: 1.1rem; font-weight: 600; line-height: 1.25; }
 .sv-count-k { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.sv-page td { vertical-align: top; }
 </style>
 <div class="sv-page">
 <h1 id="beans-cat-harness-tools">
   
   
-    <a href="#beans-cat-harness-tools" class="anchor-heading" aria-labelledby="beans-cat-harness-tools"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Beans: cat-harness-tools
+    <a href="#beans-cat-harness-tools" class="anchor-heading" aria-labelledby="beans-cat-harness-tools"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Plans and work: cat-harness-tools
   
   
 </h1>
@@ -871,11 +895,11 @@
 <h2 class="sv-h2">
   
   
-    <a href="#beans-cat-harness-tools" class="anchor-heading" aria-labelledby="beans-cat-harness-tools"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Open — 9 of 307 bean(s)
+    <a href="#beans-cat-harness-tools" class="anchor-heading" aria-labelledby="beans-cat-harness-tools"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Open in cat-harness-tools's own store — 6 of 324 bean(s)
   
   
 </h2>
-    <div class="table-wrapper"><table><thead><tr><th>id</th><th>title</th><th>status</th><th>type</th><th>priority</th></tr></thead><tbody><tr><td><code>folio-assistant-3fva</code></td><td>ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process</td><td>in-progress</td><td>epic</td><td>high</td></tr><tr><td><code>folio-assistant-5a3l</code></td><td>DEPLOYMENT: topologies and operating modes are two axes, not one list of modes</td><td>in-progress</td><td>epic</td><td>high</td></tr><tr><td><code>folio-assistant-tfqf</code></td><td>QA READERS F6: docs site, staging and preview publish QA from qa-reports — silent shrink of /assets/qa and a false 965 to 2 count</td><td>todo</td><td>task</td><td>high</td></tr><tr><td><code>folio-assistant-vuip</code></td><td>GOAL 1: separation of repos into dir/repos, each harness instantiation with config and initiation steps skilled, tooled and tested</td><td>in-progress</td><td>milestone</td><td>high</td></tr><tr><td><code>folio-assistant-1xhc</code></td><td>CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed</td><td>in-progress</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-7mwa</code></td><td>Retire qa:resolve-conflicts and the test/results .gitattributes entries; move the 14 per-instance test/results dirs and the folio_init template</td><td>todo</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-fs43</code></td><td>ARC: state graphs on a declared 'state' branch — beans, workflow instances, todos, issue-marks off main; 'which ref holds this graph' becomes a declaration</td><td>in-progress</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-g196</code></td><td>Every preview stores a full copy of the site because per-preview facts are baked into every page</td><td>todo</td><td>feature</td><td>normal</td></tr><tr><td><code>folio-assistant-zzmr</code></td><td>KG: the knowledge graph's own structure, declaration and publication</td><td>in-progress</td><td>epic</td><td>normal</td></tr></tbody></table></div>
+    <p class="sv-sub">Only the beans in cat-harness-tools's own store. The Beans badge in the navbar counts <a href="../">the repository work plan</a>, which is a different store.</p><div class="table-wrapper"><table><thead><tr><th>id</th><th>title</th><th>status</th><th>type</th><th>priority</th></tr></thead><tbody><tr><td><code>folio-assistant-3fva</code></td><td>ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process</td><td>in-progress</td><td>epic</td><td>high</td></tr><tr><td><code>folio-assistant-vuip</code></td><td>GOAL 1: separation of repos into dir/repos, each harness instantiation with config and initiation steps skilled, tooled and tested</td><td>in-progress</td><td>milestone</td><td>high</td></tr><tr><td><code>cat-tools-sm8r</code></td><td>A local gate run reddens every later state:mount: its own steps write into the mounted layers</td><td>in-progress</td><td>bug</td><td>normal</td></tr><tr><td><code>folio-assistant-1xhc</code></td><td>CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed</td><td>in-progress</td><td>epic</td><td>normal</td></tr><tr><td><code>folio-assistant-7mwa</code></td><td>Retire qa:resolve-conflicts and the test/results .gitattributes entries; move the 14 per-instance test/results dirs and the folio_init template</td><td>in-progress</td><td>task</td><td>normal</td></tr><tr><td><code>folio-assistant-g196</code></td><td>Every preview stores a full copy of the site because per-preview facts are baked into every page</td><td>in-progress</td><td>feature</td><td>normal</td></tr></tbody></table></div>
 <h2 class="sv-h2" id="bean-notes">
   
   
@@ -891,26 +915,26 @@
   
   
 </h2>
-    <p class="sv-sub">Each instance opens its own view: the diagram with the token highlighted, the history, and the beans and todos its steps name. <strong>stuck</strong> lists the states read from committed data, ages measured at 2026-10-30T17:42:09.991Z (when this page was built) against a 7-day threshold. A gate the engine refused since the instance last moved is <code>refused-gate</code>; workflow_complete records each step the engine refuses in the instance's `refusals` since 2026-10-29. An instance last saved before then carries none, which means &quot;not recorded&quot;, not &quot;never refused&quot;.</p><div class="table-wrapper"><table><thead><tr><th>id</th><th>process</th><th>status</th><th>at</th><th>bean</th><th>stuck</th></tr></thead><tbody><tr><td><a href="workflows/crdm-detect-evaluation-r-3554a15543fc-54762ece6646/"><code>crdm-detect-evaluation-r-3554a15543fc-54762ece6646</code></a></td><td>Process_TestPlanExecution</td><td>running</td><td>Call_Sign</td><td>folio-assistant-ff09</td><td><span class="sv-tag is-stuck">enabled-not-taken</span> <span class="sv-tag is-stuck">bean-closed</span> <span class="sv-tag is-stuck">bean-moved-on</span></td></tr></tbody></table></div>
+    <p class="sv-sub">Each instance opens its own view: the diagram with the token highlighted, the history, and the beans and todos its steps name. <strong>stuck</strong> lists the states read from committed data, ages measured on 2026-11-10 (UTC, the day this page was built) against a 7-day threshold. A gate the engine refused since the instance last moved is <code>refused-gate</code>; workflow_complete records each step the engine refuses in the instance's `refusals` since 2026-10-29. An instance last saved before then carries none, which means &quot;not recorded&quot;, not &quot;never refused&quot;.</p><div class="table-wrapper"><table><thead><tr><th>id</th><th>process</th><th>status</th><th>at</th><th>bean</th><th>stuck</th></tr></thead><tbody><tr><td><a href="workflows/crdm-detect-evaluation-r-3554a15543fc-54762ece6646/"><code>crdm-detect-evaluation-r-3554a15543fc-54762ece6646</code></a></td><td>Process_TestPlanExecution</td><td>completed</td><td></td><td>folio-assistant-ff09</td><td>none found</td></tr></tbody></table></div>
 <h2 class="sv-h2" id="bean-position">
   
   
-    <a href="#bean-position" class="anchor-heading" aria-labelledby="bean-position"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where this store's beans sit in a process — 307 bean(s)
+    <a href="#bean-position" class="anchor-heading" aria-labelledby="bean-position"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where this store's beans sit in a process — 324 bean(s)
   
   
 </h2>
-    <ul class="sv-counts"><li class="sv-count"><span class="sv-count-v">1</span><span class="sv-count-k">in an instance not completed</span></li><li class="sv-count"><span class="sv-count-v">0</span><span class="sv-count-k">only in finished ones</span></li><li class="sv-count"><span class="sv-count-v">306</span><span class="sv-count-k">no instance recorded</span></li></ul><div class="table-wrapper"><table><thead><tr><th>bean</th><th>title</th><th>status</th><th>instance</th></tr></thead><tbody><tr><td><code>folio-assistant-ff09</code></td><td>DOGFOOD test plan #1: certify the crdm-detect skill against a plan built from its existing 27-case run</td><td>completed</td><td><a href="workflows/crdm-detect-evaluation-r-3554a15543fc-54762ece6646/">crdm-detect-evaluation-r-3554a15543fc-54762ece6646</a></td></tr></tbody></table></div><p class="sv-sub"><strong>No instance recorded</strong> for 306 bean(s): no workflow instance names it (as `bean` or in `carriedBeans`), and a bean's front matter carries no process reference, so it has no position in any diagram: nobody ran workflow_start for it, or the run was not committed. That is a third state, not an empty diagram — there is no position to draw.</p><details><summary>9 open bean(s) with no instance recorded</summary><ul><li><code>folio-assistant-1xhc</code> CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed (in-progress)</li><li><code>folio-assistant-3fva</code> ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process (in-progress)</li><li><code>folio-assistant-5a3l</code> DEPLOYMENT: topologies and operating modes are two axes, not one list of modes (in-progress)</li><li><code>folio-assistant-7mwa</code> Retire qa:resolve-conflicts and the test/results .gitattributes entries; move the 14 per-instance test/results dirs and the folio_init template (todo)</li><li><code>folio-assistant-fs43</code> ARC: state graphs on a declared 'state' branch — beans, workflow instances, todos, issue-marks off main; 'which ref holds this graph' becomes a declaration (in-progress)</li><li><code>folio-assistant-g196</code> Every preview stores a full copy of the site because per-preview facts are baked into every page (todo)</li><li><code>folio-assistant-tfqf</code> QA READERS F6: docs site, staging and preview publish QA from qa-reports — silent shrink of /assets/qa and a false 965 to 2 count (todo)</li><li><code>folio-assistant-vuip</code> GOAL 1: separation of repos into dir/repos, each harness instantiation with config and initiation steps skilled, tooled and tested (in-progress)</li><li><code>folio-assistant-zzmr</code> KG: the knowledge graph's own structure, declaration and publication (in-progress)</li></ul></details>
+    <ul class="sv-counts"><li class="sv-count"><span class="sv-count-v">0</span><span class="sv-count-k">in an instance not completed</span></li><li class="sv-count"><span class="sv-count-v">1</span><span class="sv-count-k">only in finished ones</span></li><li class="sv-count"><span class="sv-count-v">323</span><span class="sv-count-k">no instance recorded</span></li></ul><details><summary>1 bean(s) named only by finished instances</summary><div class="table-wrapper"><table><thead><tr><th>bean</th><th>title</th><th>status</th><th>instance</th></tr></thead><tbody><tr><td><code>folio-assistant-ff09</code></td><td>DOGFOOD test plan #1: certify the crdm-detect skill against a plan built from its existing 27-case run</td><td>completed</td><td><a href="workflows/crdm-detect-evaluation-r-3554a15543fc-54762ece6646/">crdm-detect-evaluation-r-3554a15543fc-54762ece6646</a></td></tr></tbody></table></div></details><p class="sv-sub"><strong>No instance recorded</strong> for 323 bean(s): no workflow instance names it (as `bean` or in `carriedBeans`), and a bean's front matter carries no process reference, so it has no position in any diagram: nobody ran workflow_start for it, or the run was not committed. That is a third state, not an empty diagram — there is no position to draw.</p><details><summary>6 open bean(s) with no instance recorded</summary><ul><li><code>cat-tools-sm8r</code> A local gate run reddens every later state:mount: its own steps write into the mounted layers (in-progress)</li><li><code>folio-assistant-1xhc</code> CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed (in-progress)</li><li><code>folio-assistant-3fva</code> ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process (in-progress)</li><li><code>folio-assistant-7mwa</code> Retire qa:resolve-conflicts and the test/results .gitattributes entries; move the 14 per-instance test/results dirs and the folio_init template (in-progress)</li><li><code>folio-assistant-g196</code> Every preview stores a full copy of the site because per-preview facts are baked into every page (in-progress)</li><li><code>folio-assistant-vuip</code> GOAL 1: separation of repos into dir/repos, each harness instantiation with config and initiation steps skilled, tooled and tested (in-progress)</li></ul></details>
 <h2 class="sv-h2" id="unlinked-beans">
   
   
-    <a href="#unlinked-beans" class="anchor-heading" aria-labelledby="unlinked-beans"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Open beans tied to no BPMN task — 10 of 10
+    <a href="#unlinked-beans" class="anchor-heading" aria-labelledby="unlinked-beans"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Open beans tied to no BPMN task — 6 of 7
   
   
 </h2>
     
-<p class="sv-sub"><strong>Warning, never a failure</strong>: a bean may be work for a process not yet in the graph. Tied by <strong>instance</strong> when a workflow instance names it (recorded); by <strong>named id</strong> when its file names a process or activity id of one of 105 declared diagram(s) (<em>inferred</em> — a mention is not a run).</p>
-<ul class="sv-counts"><li class="sv-count"><span class="sv-count-v">0</span><span class="sv-count-k">by instance</span></li><li class="sv-count"><span class="sv-count-v">0</span><span class="sv-count-k">by named id (inferred)</span></li><li class="sv-count"><span class="sv-count-v">10</span><span class="sv-count-k">unlinked</span></li></ul>
-<p class="sv-sub">Closed, counted only: completed 292 (261 unlinked); scrapped 5 (4 unlinked).</p>
+<p class="sv-sub"><strong>Warning, never a failure</strong>: a bean may be work for a process not yet in the graph. Tied by <strong>instance</strong> when a workflow instance names it (recorded); by <strong>named id</strong> when its file names a process or activity id of one of 127 declared diagram(s) (<em>inferred</em> — a mention is not a run).</p>
+<ul class="sv-counts"><li class="sv-count"><span class="sv-count-v">0</span><span class="sv-count-k">by instance</span></li><li class="sv-count"><span class="sv-count-v">1</span><span class="sv-count-k">by named id (inferred)</span></li><li class="sv-count"><span class="sv-count-v">6</span><span class="sv-count-k">unlinked</span></li></ul>
+<p class="sv-sub">Closed, counted only: completed 312 (281 unlinked); scrapped 5 (4 unlinked).</p>
 <h3 id="unlinked-groups">
   
   
@@ -918,8 +942,9 @@
   
   
 </h3>
-    <p class="sv-sub">Each unlinked open bean placed by the epic it is nearest to in the store's LSI space (the ranking <code>lsi:epics</code> proposes homes with). A group of 5 or more is a candidate; smaller ones and singletons are listed, and beans whose best cosine is under 0.3 fit no epic.</p><div class="table-wrapper"><table><thead><tr><th>nearest epic</th><th>class</th><th>beans</th><th>terms</th><th>filed under</th><th>processes its other beans tie to</th><th>members</th></tr></thead><tbody><tr><td><code>folio-assistant-3fva</code> ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process</td><td>small</td><td>4</td><td>qa-reports fallback, blocker withdrawal, block lifted, published badges, tools-store copy, coordinator standard, checkout wins, committed copy</td><td><code>folio-assistant-3fva</code> (2)</td><td><code>Process_QaReportSigning</code> (3), <code>Process_TestPlanExecution</code> (3), <code>Process_CodeQualityGates</code> (2)</td><td><details><summary>4</summary><code>folio-assistant-3fva</code> <code>folio-assistant-7mwa</code> <code>folio-assistant-fs43</code> <code>folio-assistant-tfqf</code></details></td></tr><tr><td><code>folio-assistant-1xhc</code> CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed</td><td>small</td><td>3</td><td>deployed previews, preview root, rebuilds hrefs, document-relative hrefs, staging banner, switcher rebuilds, deployed artefact, instantiation root</td><td><code>folio-assistant-1xhc</code> (1)</td><td><code>Process_CodeQualityGates</code> (4), <code>Process_SubKgLifecycle</code> (1), <code>Process_UpstreamAdoption</code> (1)</td><td><details><summary>3</summary><code>folio-assistant-1xhc</code> <code>folio-assistant-g196</code> <code>folio-assistant-vuip</code></details></td></tr><tr><td><code>folio-assistant-zzmr</code> KG: the knowledge graph's own structure, declaration and publication</td><td>small</td><td>2</td><td>testplan resources, smart guidelines, fhir context, complete dak, gherkin, plans, fhir-harness, kinds</td><td><code>folio-assistant-3fva</code> (1)</td><td><code>Process_CodeChangeReview</code> (1), <code>Process_CodeReview</code> (1), <code>Process_DocsSite</code> (1), <code>Process_DocumentAuthoring</code> (1)</td><td><details><summary>2</summary><code>folio-assistant-18p1</code> <code>folio-assistant-zzmr</code></details></td></tr><tr><td><code>folio-assistant-fs43</code> ARC: state graphs on a declared 'state' branch — beans, workflow instances, todos, issue-marks off main; 'which ref holds this graph' becomes a declaration</td><td>singleton</td><td>1</td><td>thirteen children, review issues, operating mode, right axes, strawperson, deployment, stream, scenario</td><td>no epic</td><td><strong>none</strong></td><td><details><summary>1</summary><code>folio-assistant-5a3l</code></details></td></tr></tbody></table></div>
-<details><summary>10 unlinked open bean(s)</summary><div class="table-wrapper"><table><thead><tr><th>bean</th><th>title</th><th>status</th><th>parent</th><th>basis</th></tr></thead><tbody><tr><td><code>folio-assistant-18p1</code></td><td>EXPORT test-plan/v1 → FHIR R5 TestPlan in fhir-harness, once SMART Guidelines IG content is complete</td><td>draft</td><td><code>folio-assistant-3fva</code></td><td>none</td></tr><tr><td><code>folio-assistant-1xhc</code></td><td>CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed</td><td>in-progress</td><td><code>folio-assistant-rwmf</code></td><td>none</td></tr><tr><td><code>folio-assistant-3fva</code></td><td>ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process</td><td>in-progress</td><td><code>folio-assistant-rwmf</code></td><td>none</td></tr><tr><td><code>folio-assistant-5a3l</code></td><td>DEPLOYMENT: topologies and operating modes are two axes, not one list of modes</td><td>in-progress</td><td><code>folio-assistant-rwmf</code></td><td>none</td></tr><tr><td><code>folio-assistant-7mwa</code></td><td>Retire qa:resolve-conflicts and the test/results .gitattributes entries; move the 14 per-instance test/results dirs and the folio_init template</td><td>todo</td><td><code>folio-assistant-3fva</code></td><td>none</td></tr><tr><td><code>folio-assistant-fs43</code></td><td>ARC: state graphs on a declared 'state' branch — beans, workflow instances, todos, issue-marks off main; 'which ref holds this graph' becomes a declaration</td><td>in-progress</td><td><code>folio-assistant-rwmf</code></td><td>none</td></tr><tr><td><code>folio-assistant-g196</code></td><td>Every preview stores a full copy of the site because per-preview facts are baked into every page</td><td>todo</td><td><code>folio-assistant-1xhc</code></td><td>none</td></tr><tr><td><code>folio-assistant-tfqf</code></td><td>QA READERS F6: docs site, staging and preview publish QA from qa-reports — silent shrink of /assets/qa and a false 965 to 2 count</td><td>todo</td><td><code>folio-assistant-3fva</code></td><td>none</td></tr><tr><td><code>folio-assistant-vuip</code></td><td>GOAL 1: separation of repos into dir/repos, each harness instantiation with config and initiation steps skilled, tooled and tested</td><td>in-progress</td><td>—</td><td>none</td></tr><tr><td><code>folio-assistant-zzmr</code></td><td>KG: the knowledge graph's own structure, declaration and publication</td><td>in-progress</td><td><code>folio-assistant-vuip</code></td><td>none</td></tr></tbody></table></div></details>
+    <p class="sv-sub">Each unlinked open bean placed by the epic it is nearest to in the store's LSI space (the ranking <code>lsi:epics</code> proposes homes with). A group of 5 or more is a candidate; smaller ones and singletons are listed, and beans whose best cosine is under 0.3 fit no epic.</p><div class="table-wrapper"><table><thead><tr><th>nearest epic</th><th>class</th><th>beans</th><th>terms</th><th>filed under</th><th>processes its other beans tie to</th><th>members</th></tr></thead><tbody><tr><td><code>folio-assistant-1xhc</code> CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed</td><td>small</td><td>4</td><td>preview root, deployed previews, preview pages, pages differ, instantiation root, preview built, rebuilds hrefs, mounted layer</td><td><code>folio-assistant-1xhc</code> (2)</td><td><code>Process_CodeQualityGates</code> (4), <code>Process_Cache</code> (1), <code>Process_SubKgLifecycle</code> (1)</td><td><details><summary>4</summary><code>cat-tools-sm8r</code> <code>folio-assistant-1xhc</code> <code>folio-assistant-g196</code> <code>folio-assistant-vuip</code></details></td></tr><tr><td><code>folio-assistant-3fva</code> ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process</td><td>singleton</td><td>1</td><td>pair attestations, attestations stay, certified, merge policy, spike, stacked, judgements, epic</td><td>no epic</td><td><code>Process_QaReportSigning</code> (3), <code>Process_TestPlanExecution</code> (3), <code>Process_CodeQualityGates</code> (2), <code>Process_MergeBase</code> (1)</td><td><details><summary>1</summary><code>folio-assistant-3fva</code></details></td></tr><tr><td>(no epic fits)</td><td>no-fit</td><td>1</td><td>testplan resources, smart guidelines, fhir context, complete dak, gherkin, plans</td><td><code>folio-assistant-3fva</code> (1)</td><td></td><td><details><summary>1</summary><code>folio-assistant-18p1</code></details></td></tr></tbody></table></div>
+<details><summary>6 unlinked open bean(s)</summary><div class="table-wrapper"><table><thead><tr><th>bean</th><th>title</th><th>status</th><th>parent</th><th>basis</th></tr></thead><tbody><tr><td><code>cat-tools-sm8r</code></td><td>A local gate run reddens every later state:mount: its own steps write into the mounted layers</td><td>in-progress</td><td><code>folio-assistant-1xhc</code></td><td>none</td></tr><tr><td><code>folio-assistant-18p1</code></td><td>EXPORT test-plan/v1 → FHIR R5 TestPlan in fhir-harness, once SMART Guidelines IG content is complete</td><td>draft</td><td><code>folio-assistant-3fva</code></td><td>none</td></tr><tr><td><code>folio-assistant-1xhc</code></td><td>CI RELIABILITY: a gate that does not fire is indistinguishable from one that passed</td><td>in-progress</td><td><code>folio-assistant-rwmf</code></td><td>none</td></tr><tr><td><code>folio-assistant-3fva</code></td><td>ARC: QA &amp; test evidence off main — a commit-keyed qa-reports branch, and a test-plan → certification process</td><td>in-progress</td><td><code>folio-assistant-rwmf</code></td><td>none</td></tr><tr><td><code>folio-assistant-g196</code></td><td>Every preview stores a full copy of the site because per-preview facts are baked into every page</td><td>in-progress</td><td><code>folio-assistant-1xhc</code></td><td>none</td></tr><tr><td><code>folio-assistant-vuip</code></td><td>GOAL 1: separation of repos into dir/repos, each harness instantiation with config and initiation steps skilled, tooled and tested</td><td>in-progress</td><td>—</td><td>none</td></tr></tbody></table></div></details>
+<details><summary>1 tied by named id (inferred)</summary><div class="table-wrapper"><table><thead><tr><th>bean</th><th>title</th><th>status</th><th>parent</th><th>basis</th></tr></thead><tbody><tr><td><code>folio-assistant-7mwa</code></td><td>Retire qa:resolve-conflicts and the test/results .gitattributes entries; move the 14 per-instance test/results dirs and the folio_init template</td><td>in-progress</td><td><code>folio-assistant-3fva</code></td><td>inferred: <code>Task_Classify</code>, <code>Task_Resolve</code></td></tr></tbody></table></div></details>
 <h2 class="sv-h2" id="merge-queue">
   
   

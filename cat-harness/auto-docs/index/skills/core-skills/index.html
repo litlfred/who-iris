@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../../../assets/css/navbar.css"><script src="../../../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../../..">{"data":"rail-29b6qoh3um2","here":"/cat-harness/auto-docs/index/skills/core-skills/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../../assets/css/navbar.css"><script src="../../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../../..">{"data":"rail-hucqb7hmk3","here":"/cat-harness/auto-docs/index/skills/core-skills/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -917,10 +975,12 @@
 </div>
 
 <ul class="subs">
-<li><a href="../bootstrap-tools-skills/">bootstrap-tools-skills</a> <span class="p">bootstrap-tools/skills</span> <span class="n">3</span></li>
-<li><strong>core-skills</strong> <span class="p">folio-assistant-core/skills</span> <span class="n">38</span></li>
-<li><a href="../skills/">skills</a> <span class="p">cat-harness/skills</span> <span class="n">249</span></li>
-<li><a href="../who-iris-skills/">who-iris-skills</a> <span class="p">skills</span> <span class="n">5</span></li>
+<li><a href="../bootstrap-tools-skills/">bootstrap-tools-skills</a> <span class="p">bootstrap-tools/skills</span> <span class="n" data-da-count="index/skills/bootstrap-tools-skills" data-da-count-state="pending">…</span></li>
+<li><strong>core-skills</strong> <span class="p">folio-assistant-core/skills</span> <span class="n" data-da-count="index/skills/core-skills" data-da-count-state="pending">…</span></li>
+<li><a href="../sdlc-skills/">sdlc-skills</a> <span class="p">cat-harness/sdlc/skills</span> <span class="n" data-da-count="index/skills/sdlc-skills" data-da-count-state="pending">…</span></li>
+<li><a href="../skills/">skills</a> <span class="p">cat-harness/skills</span> <span class="n" data-da-count="index/skills/skills" data-da-count-state="pending">…</span></li>
+<li><a href="../who-iris-skills/">who-iris-skills</a> <span class="p">skills</span> <span class="n" data-da-count="index/skills/who-iris-skills" data-da-count-state="pending">…</span></li>
+<li><a href="../work-plan-skills/">work-plan-skills</a> <span class="p">cat-harness/work-plan/skills</span> <span class="n" data-da-count="index/skills/work-plan-skills" data-da-count-state="pending">…</span></li>
 </ul>
 
 <div class="fa-table-filter">
@@ -968,6 +1028,22 @@
   <td><span class="none">no description in the artefact</span></td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-catalogue-status.md"><code>dsa-catalogue-status</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/dsa-catalogue-status.md</span></td>
+  <td>Set the life-cycle status (<code>adms:status</code>, W3C DCAT 3 §6.4.30) on a Data Sharing Agreement's DCAT 3 catalogue record when the agreement is amended, renewed, terminated, or expires, while keeping all published versions re…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-checksum.md"><code>dsa-checksum</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/dsa-checksum.md</span></td>
+  <td>Compute and record the SHA-256 cryptographic digest of a signed Data Sharing Agreement's legal text as a W3C DCAT 3 <code>spdx:checksum</code> (<code>spdx:Checksum</code> with <code>spdx:checksumAlgorithm_sha256</code> and 64-character lowercase hex `s…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-dcat-record.md"><code>dsa-dcat-record</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/dsa-dcat-record.md</span></td>
+  <td>Write the W3C DCAT 3 <code>dcat:Resource</code> and <code>dcat:Distribution</code> catalogue record for a Data Sharing Agreement (<code>dcat:downloadURL</code>, <code>spdx:checksum</code>, <code>odrl:hasPolicy</code>) and link versions with <code>dcat:version</code> and `dcat:previous…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-odrl-source.md"><code>dsa-odrl-source</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/dsa-odrl-source.md</span></td>
+  <td>Bind a computable Data Sharing Agreement's W3C ODRL 2.2 <code>Agreement</code> to its signed legal text distribution using DCMI Metadata Terms <code>dcterms:source</code>, naming the exact <code>dcat:Distribution</code> whose <code>spdx:checksum</code> is checked…</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/folio-board-diagram-interchange.md"><code>folio-board-diagram-interchange</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/folio-board-diagram-interchange.md</span></td>
   <td>The content-folio half of the harness's board-diagram-interchange skill: binds processes/ui/board-place-note.bpmn and board-relocate.bpmn, folio board filters over pages and block kinds, and note-to-board arrow directio…</td>
 </tr>
@@ -1000,8 +1076,24 @@
   <td><span class="none">no description in the artefact</span></td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/public-comment-channels.md"><code>public-comment-channels</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/public-comment-channels.md</span></td>
+  <td>Set up the channels a public-comment release goes out on (an offline Excel sheet, a Google Form, a GitHub issue form, and the review sheet), each limited to the release's fixed references, with the editor's instructions…</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/public-comment.md"><code>public-comment</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/public-comment.md</span></td>
   <td><span class="none">no description in the artefact</span></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/review-log-watch.md"><code>review-log-watch</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/review-log-watch.md</span></td>
+  <td>Poll a review log (a drafting Contributor Feedback sheet, or a public-comment sheet's Review Change Sets) and its folio repository's issues mechanically, with Tool <code>review-log-watch</code>, and start agent work only when a ce…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/review-sheet-agent-columns.md"><code>review-sheet-agent-columns</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/review-sheet-agent-columns.md</span></td>
+  <td>Whenever an agent works on a change set of a folio whose review sheet is kept by the Tool <code>review-sheet-sync</code>, it writes the Agent tabs' columns for that change set and its comments as it goes: status, step, what it did…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/review-sheet-script.md"><code>review-sheet-script</code></a><br><span class="p">folio-assistant-core/skills/content/folio-document-adapter/review-sheet-script.md</span></td>
+  <td>Build, install and reuse the Google Apps Script that keeps a review sheet's links and joined columns current (Tool <code>review-sheet-sync</code>).</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/requirements-planning/plan-request-gate.md"><code>plan-request-gate</code></a><br><span class="p">folio-assistant-core/skills/content/requirements-planning/plan-request-gate.md</span></td>
@@ -1068,6 +1160,10 @@
   <td>Process uploaded documents (PDFs, scans, LaTeX, structured/normative guidelines, etc.) from uploads/ into structured content objects.</td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/library/ingestion/figure-rebuild.md"><code>figure-rebuild</code></a><br><span class="p">folio-assistant-core/skills/library/ingestion/figure-rebuild.md</span></td>
+  <td>Turn a source publication's figures into computable diagrams when a folio is built from its L1 entry.</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/library/ingestion/l1-coverage.md"><code>l1-coverage</code></a><br><span class="p">folio-assistant-core/skills/library/ingestion/l1-coverage.md</span></td>
   <td>Check that an L1 extraction accounted for every normative sentence in its source publication — captured as a node, or excluded for a fixed-list reason a person signed off.</td>
 </tr>
@@ -1111,6 +1207,24 @@ var SCOPE = "core-skills";
   }
   input.addEventListener("input", apply);
   apply();
+})();
+</script>
+<script>
+(function () {
+  var badges = document.querySelectorAll(".da-page [data-da-count]");
+  if (!badges.length) return;
+  function set(counts) {
+    Array.prototype.forEach.call(badges, function (b) {
+      var n = counts ? counts[b.getAttribute("data-da-count")] : undefined;
+      var ok = typeof n === "number" && isFinite(n);
+      b.textContent = ok ? String(n) : "";
+      b.setAttribute("data-da-count-state", ok ? "some" : counts ? "absent" : "error");
+    });
+  }
+  fetch("../../../../../assets/auto-docs/index.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) { set(j && j.counts && typeof j.counts === "object" ? j.counts : null); })
+    .catch(function () { set(null); });
 })();
 </script>
 

@@ -1588,11 +1588,11 @@
           "heading": false
         },
         {
-          "term": "ontology language",
+          "term": "namespace prefixes",
           "heading": false
         },
         {
-          "term": "namespace prefixes",
+          "term": "ontology language",
           "heading": false
         },
         {
@@ -1623,8 +1623,8 @@
           "heading": false
         },
         {
-          "term": "starting point",
-          "heading": true
+          "term": "wasattributedto prov",
+          "heading": false
         },
         {
           "term": "entity prov",
@@ -1635,12 +1635,12 @@
           "heading": false
         },
         {
-          "term": "wasattributedto prov",
+          "term": "wasinformedby prov",
           "heading": false
         },
         {
-          "term": "wasinformedby prov",
-          "heading": false
+          "term": "starting point",
+          "heading": true
         },
         {
           "term": "wasassociatedwith prov",
@@ -1745,11 +1745,11 @@
           "heading": false
         },
         {
-          "term": "association prov",
+          "term": "usage prov",
           "heading": false
         },
         {
-          "term": "usage prov",
+          "term": "association prov",
           "heading": false
         }
       ],
@@ -1835,15 +1835,15 @@
           "heading": false
         },
         {
-          "term": "london forecast",
-          "heading": false
-        },
-        {
           "term": "wasattributedto prov",
           "heading": false
         },
         {
           "term": "super-properties prov",
+          "heading": false
+        },
+        {
+          "term": "london forecast",
           "heading": false
         },
         {
@@ -1945,11 +1945,11 @@
           "heading": false
         },
         {
-          "term": "domain prov",
+          "term": "draft prov",
           "heading": false
         },
         {
-          "term": "draft prov",
+          "term": "domain prov",
           "heading": false
         }
       ],
@@ -1988,11 +1988,11 @@
           "heading": false
         },
         {
-          "term": "checking prov",
+          "term": "super-properties prov",
           "heading": false
         },
         {
-          "term": "super-properties prov",
+          "term": "checking prov",
           "heading": false
         },
         {
@@ -2188,12 +2188,12 @@
           "heading": false
         },
         {
-          "term": "inverse",
-          "heading": true
-        },
-        {
           "term": "invalidated prov",
           "heading": false
+        },
+        {
+          "term": "inverse",
+          "heading": true
         },
         {
           "term": "derivation prov",
@@ -2524,11 +2524,11 @@
       "heading": true
     },
     {
-      "term": "agent prov",
+      "term": "wasderivedfrom prov",
       "heading": true
     },
     {
-      "term": "wasderivedfrom prov",
+      "term": "agent prov",
       "heading": true
     },
     {
@@ -2536,13 +2536,13 @@
       "heading": false
     },
     {
-      "term": "wasinfluencedby prov",
-      "heading": true
+      "term": "datetime prov",
+      "heading": false
     }
   ],
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/w3c-2013-prov-o"
+    "dir": "library/kg/w3c-2013-prov-o"
   }
 }

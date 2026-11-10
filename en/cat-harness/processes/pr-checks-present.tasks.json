@@ -1,410 +1,333 @@
 {
  "$schema": "process-task-panel/v1",
  "process": "Process_PrChecksPresent",
- "processHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent",
+ "markers": [
+  {
+   "id": "Task_Sweep",
+   "name": "Ask whether each open PR head has a run",
+   "left": 32.56,
+   "top": 22.97,
+   "box": {
+    "left": 24.56,
+    "top": 48.65,
+    "width": 2.65,
+    "height": 6.49
+   }
+  },
+  {
+   "id": "Call_Watch",
+   "name": "Report the verdict on the tracking issue",
+   "left": 52.43,
+   "top": 22.97,
+   "box": {
+    "left": 44.43,
+    "top": 48.65,
+    "width": 2.65,
+    "height": 6.49
+   }
+  },
+  {
+   "id": "Task_Comment",
+   "name": "Comment once per PR and head",
+   "left": 83.33,
+   "top": 22.97,
+   "box": {
+    "left": 75.33,
+    "top": 48.65,
+    "width": 2.65,
+    "height": 6.49
+   }
+  }
+ ],
+ "processHref": "pr-checks-present.html",
  "tasks": {
   "Task_Sweep": {
    "id": "Task_Sweep",
-   "name": "Ask, per open PR, whether its HEAD has a run — skipping heads younger than 15 min",
+   "name": "Ask whether each open PR head has a run",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/node/Task_Sweep",
+   "stepHref": "pr-checks-present.html#step-Task_Sweep",
    "lane": "Scheduled log sweep",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/lane/Lane_Ci",
+   "laneHref": "pr-checks-present.html#lane-Lane_Ci",
    "skills": [
     {
-     "name": "ci-health"
+     "name": "ci-health",
+     "href": "../../../en/cat-harness/processes/skills/ci-health.html"
     }
    ],
    "role": {
     "name": "build-pipeline",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
     "title": "Build pipeline",
     "skills": [
      {
-      "name": "ci-health"
+      "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html"
      },
      {
-      "name": "compiled-artefact-cache"
+      "name": "compiled-artefact-cache",
+      "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
      },
      {
-      "name": "content-publish"
+      "name": "content-publish",
+      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
      },
      {
-      "name": "content-test"
+      "name": "content-test",
+      "href": "../../../en/cat-harness/processes/skills/content-test.html"
      },
      {
-      "name": "content-validate"
+      "name": "content-validate",
+      "href": "../../../en/cat-harness/processes/skills/content-validate.html"
      },
      {
-      "name": "feature-staging"
+      "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html"
      },
      {
-      "name": "harness-projections"
+      "name": "harness-projections",
+      "href": "../../../en/cat-harness/processes/skills/harness-projections.html"
      },
      {
-      "name": "kg-separation"
+      "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html"
      },
      {
-      "name": "platform-gates"
+      "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html"
      },
      {
-      "name": "prepare-merge"
+      "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html"
      },
      {
-      "name": "publish-verification"
+      "name": "publish-verification",
+      "href": "../../../en/cat-harness/processes/skills/publish-verification.html"
      },
      {
-      "name": "qa-reports"
+      "name": "qa-reports",
+      "href": "../../../en/cat-harness/processes/skills/qa-reports.html"
      },
      {
-      "name": "remote-mount"
+      "name": "remote-mount",
+      "href": "../../../en/cat-harness/processes/skills/remote-mount.html"
      },
      {
-      "name": "render-kg-to-cdn"
+      "name": "render-kg-to-cdn",
+      "href": "../../../en/cat-harness/processes/skills/render-kg-to-cdn.html"
      },
      {
-      "name": "sub-kg-lifecycle"
+      "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html"
      },
      {
-      "name": "todo-manager"
+      "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html"
      },
      {
-      "name": "translation-manager"
+      "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html"
      },
      {
-      "name": "upstream-version-adoption"
+      "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html"
      },
      {
-      "name": "watch"
+      "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html"
      }
     ]
    }
   },
-  "Task_Label": {
-   "id": "Task_Label",
-   "name": "Ensure the tracking label exists",
-   "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/node/Task_Label",
+  "Call_Watch": {
+   "id": "Call_Watch",
+   "name": "Report the verdict on the tracking issue",
+   "type": "bpmn:CallActivity",
+   "stepHref": "pr-checks-present.html#step-Call_Watch",
    "lane": "Scheduled log sweep",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/lane/Lane_Ci",
-   "skills": [
-    {
-     "name": "ci-health"
-    }
-   ],
-   "shared": {
-    "id": "GT_EnsureTrackingLabel",
-    "type": "bpmn:GlobalTask",
-    "inputs": {
-     "label": "pr-no-checks"
-    }
+   "laneHref": "pr-checks-present.html#lane-Lane_Ci",
+   "skills": [],
+   "calls": {
+    "name": "Report a verdict on one tracking issue",
+    "href": "tracked-watch.html",
+    "diagram": "tracked-watch.html"
    },
    "role": {
     "name": "build-pipeline",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
     "title": "Build pipeline",
     "skills": [
      {
-      "name": "ci-health"
+      "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html"
      },
      {
-      "name": "compiled-artefact-cache"
+      "name": "compiled-artefact-cache",
+      "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
      },
      {
-      "name": "content-publish"
+      "name": "content-publish",
+      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
      },
      {
-      "name": "content-test"
+      "name": "content-test",
+      "href": "../../../en/cat-harness/processes/skills/content-test.html"
      },
      {
-      "name": "content-validate"
+      "name": "content-validate",
+      "href": "../../../en/cat-harness/processes/skills/content-validate.html"
      },
      {
-      "name": "feature-staging"
+      "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html"
      },
      {
-      "name": "harness-projections"
+      "name": "harness-projections",
+      "href": "../../../en/cat-harness/processes/skills/harness-projections.html"
      },
      {
-      "name": "kg-separation"
+      "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html"
      },
      {
-      "name": "platform-gates"
+      "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html"
      },
      {
-      "name": "prepare-merge"
+      "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html"
      },
      {
-      "name": "publish-verification"
+      "name": "publish-verification",
+      "href": "../../../en/cat-harness/processes/skills/publish-verification.html"
      },
      {
-      "name": "qa-reports"
+      "name": "qa-reports",
+      "href": "../../../en/cat-harness/processes/skills/qa-reports.html"
      },
      {
-      "name": "remote-mount"
+      "name": "remote-mount",
+      "href": "../../../en/cat-harness/processes/skills/remote-mount.html"
      },
      {
-      "name": "render-kg-to-cdn"
+      "name": "render-kg-to-cdn",
+      "href": "../../../en/cat-harness/processes/skills/render-kg-to-cdn.html"
      },
      {
-      "name": "sub-kg-lifecycle"
+      "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html"
      },
      {
-      "name": "todo-manager"
+      "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html"
      },
      {
-      "name": "translation-manager"
+      "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html"
      },
      {
-      "name": "upstream-version-adoption"
+      "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html"
      },
      {
-      "name": "watch"
-     }
-    ]
-   }
-  },
-  "Task_Close": {
-   "id": "Task_Close",
-   "name": "Close the tracking issue",
-   "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/node/Task_Close",
-   "lane": "Scheduled log sweep",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/lane/Lane_Ci",
-   "skills": [
-    {
-     "name": "ci-health"
-    }
-   ],
-   "shared": {
-    "id": "GT_CloseTrackingIssue",
-    "type": "bpmn:GlobalTask",
-    "inputs": {
-     "label": "pr-no-checks"
-    }
-   },
-   "role": {
-    "name": "build-pipeline",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/build-pipeline",
-    "title": "Build pipeline",
-    "skills": [
-     {
-      "name": "ci-health"
-     },
-     {
-      "name": "compiled-artefact-cache"
-     },
-     {
-      "name": "content-publish"
-     },
-     {
-      "name": "content-test"
-     },
-     {
-      "name": "content-validate"
-     },
-     {
-      "name": "feature-staging"
-     },
-     {
-      "name": "harness-projections"
-     },
-     {
-      "name": "kg-separation"
-     },
-     {
-      "name": "platform-gates"
-     },
-     {
-      "name": "prepare-merge"
-     },
-     {
-      "name": "publish-verification"
-     },
-     {
-      "name": "qa-reports"
-     },
-     {
-      "name": "remote-mount"
-     },
-     {
-      "name": "render-kg-to-cdn"
-     },
-     {
-      "name": "sub-kg-lifecycle"
-     },
-     {
-      "name": "todo-manager"
-     },
-     {
-      "name": "translation-manager"
-     },
-     {
-      "name": "upstream-version-adoption"
-     },
-     {
-      "name": "watch"
-     }
-    ]
-   }
-  },
-  "Task_Track": {
-   "id": "Task_Track",
-   "name": "Open or EDIT the one tracking issue",
-   "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/node/Task_Track",
-   "lane": "Scheduled log sweep",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/lane/Lane_Ci",
-   "skills": [
-    {
-     "name": "ci-health"
-    }
-   ],
-   "shared": {
-    "id": "GT_TrackIssue",
-    "type": "bpmn:GlobalTask",
-    "inputs": {
-     "label": "pr-no-checks"
-    }
-   },
-   "role": {
-    "name": "build-pipeline",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/build-pipeline",
-    "title": "Build pipeline",
-    "skills": [
-     {
-      "name": "ci-health"
-     },
-     {
-      "name": "compiled-artefact-cache"
-     },
-     {
-      "name": "content-publish"
-     },
-     {
-      "name": "content-test"
-     },
-     {
-      "name": "content-validate"
-     },
-     {
-      "name": "feature-staging"
-     },
-     {
-      "name": "harness-projections"
-     },
-     {
-      "name": "kg-separation"
-     },
-     {
-      "name": "platform-gates"
-     },
-     {
-      "name": "prepare-merge"
-     },
-     {
-      "name": "publish-verification"
-     },
-     {
-      "name": "qa-reports"
-     },
-     {
-      "name": "remote-mount"
-     },
-     {
-      "name": "render-kg-to-cdn"
-     },
-     {
-      "name": "sub-kg-lifecycle"
-     },
-     {
-      "name": "todo-manager"
-     },
-     {
-      "name": "translation-manager"
-     },
-     {
-      "name": "upstream-version-adoption"
-     },
-     {
-      "name": "watch"
+      "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html"
      }
     ]
    }
   },
   "Task_Comment": {
    "id": "Task_Comment",
-   "name": "Comment ONCE per (PR, head sha)",
+   "name": "Comment once per PR and head",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/node/Task_Comment",
+   "stepHref": "pr-checks-present.html#step-Task_Comment",
    "lane": "Scheduled log sweep",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_PrChecksPresent/lane/Lane_Ci",
+   "laneHref": "pr-checks-present.html#lane-Lane_Ci",
    "skills": [
     {
-     "name": "issue-working"
+     "name": "ci-health",
+     "href": "../../../en/cat-harness/processes/skills/ci-health.html"
     }
    ],
    "role": {
     "name": "build-pipeline",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
     "title": "Build pipeline",
     "skills": [
      {
-      "name": "ci-health"
+      "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html"
      },
      {
-      "name": "compiled-artefact-cache"
+      "name": "compiled-artefact-cache",
+      "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
      },
      {
-      "name": "content-publish"
+      "name": "content-publish",
+      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
      },
      {
-      "name": "content-test"
+      "name": "content-test",
+      "href": "../../../en/cat-harness/processes/skills/content-test.html"
      },
      {
-      "name": "content-validate"
+      "name": "content-validate",
+      "href": "../../../en/cat-harness/processes/skills/content-validate.html"
      },
      {
-      "name": "feature-staging"
+      "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html"
      },
      {
-      "name": "harness-projections"
+      "name": "harness-projections",
+      "href": "../../../en/cat-harness/processes/skills/harness-projections.html"
      },
      {
-      "name": "kg-separation"
+      "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html"
      },
      {
-      "name": "platform-gates"
+      "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html"
      },
      {
-      "name": "prepare-merge"
+      "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html"
      },
      {
-      "name": "publish-verification"
+      "name": "publish-verification",
+      "href": "../../../en/cat-harness/processes/skills/publish-verification.html"
      },
      {
-      "name": "qa-reports"
+      "name": "qa-reports",
+      "href": "../../../en/cat-harness/processes/skills/qa-reports.html"
      },
      {
-      "name": "remote-mount"
+      "name": "remote-mount",
+      "href": "../../../en/cat-harness/processes/skills/remote-mount.html"
      },
      {
-      "name": "render-kg-to-cdn"
+      "name": "render-kg-to-cdn",
+      "href": "../../../en/cat-harness/processes/skills/render-kg-to-cdn.html"
      },
      {
-      "name": "sub-kg-lifecycle"
+      "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html"
      },
      {
-      "name": "todo-manager"
+      "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html"
      },
      {
-      "name": "translation-manager"
+      "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html"
      },
      {
-      "name": "upstream-version-adoption"
+      "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html"
      },
      {
-      "name": "watch"
+      "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html"
      }
     ]
    }

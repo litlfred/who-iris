@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/processes/human-agent-discussion.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/human-agent-discussion.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,8 +893,9 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">bootstrap/processes/human-agent-discussion.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">bootstrap/processes/human-agent-discussion.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="bootstrap/">bootstrap processes</a></p>
 </blockquote>
+
 <h1 id="humanagent-discussion">
   
   
@@ -848,21 +907,245 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_HumanAgentDiscussion</code> · strict (defaulted) · 13 step(s)</p>
 
-<p>A REUSABLE SUB-PROCESS, never an entry point. Every diagram in bootstrap that needs something only a person can supply — a choice, a judgement, a step only they have the rights to perform — reaches it through a call activity with calledElement=”Process_HumanAgentDiscussion”, rather than drawing its own asking. One way of asking, drawn once: a caller that draws its own has a second answer to “how do I ask”, free to drift from this one.</p>
+<p>A REUSABLE SUB-PROCESS, never an entry point. Every diagram in bootstrap that needs something only a person can supply — a choice, a judgement, a step only they have the rights to perform — reaches it through a call activity with calledElement=”<a href="human-agent-discussion.html">Process_HumanAgentDiscussion</a>”, rather than drawing its own asking. One way of asking, drawn once: a caller that draws its own has a second answer to “how do I ask”, free to drift from this one.</p>
 
-<p>BEFORE ANY QUESTION, THE ASKER DETERMINES WHERE IT IS (owner, 2026-10-01: “i wanted to see more about determining context / role / process as part of precondition.. and that needs to be clarified as part of discussion/interaction”). Three things, each drawn as a task and declared below as a precondition of the first question: (1) the CONTEXT — what is already known, which declaration governs it, and what has already been decided, so a settled question is not reopened; (2) the ROLES — which Role the asker is acting as, and which Role the person answering holds, because an Actor performs a task in a Process AS a Role and the same Actor is a different Role in another diagram; (3) the PROCESS and TASK the question belongs to — or that there is none, and the agent is idle, classifying a request. A question asked without these is asked on behalf of nobody in particular: its context step has nothing to say, and its answer cannot be recorded against a step.</p>
+<p>BEFORE ANY QUESTION, THE ASKER DETERMINES WHERE IT IS: the CONTEXT, the ROLES, and the PROCESS and TASK (or that it is idle). Each is a task, declared below as a precondition of the first question.</p>
 
-<p>WHAT CANNOT BE DETERMINED IS ASKED FIRST. When any of the three cannot be determined from what the agent can read, that becomes the first question of this same discussion, in the same order (context, options, recommendation, one question), and the caller’s own question waits, counted. Its answer is recorded and the three are determined again before the caller’s question is put. No default is allowed for it: an agent that assumes which process or role it is in is asserting an authority nobody gave it.</p>
+<p>WHAT CANNOT BE DETERMINED IS ASKED FIRST, with no default; the caller’s question waits, counted.</p>
 
-<p>THE ORDER IS THE PROCESS: context, then options, then a recommendation, then the question. Never the question first with the explanation available on request. The test a question must pass before it is put: can the reader answer it without opening anything? If answering needs them to open a file, an issue or the scrollback, the question is not ready.</p>
+<p>THE ORDER IS THE PROCESS: context, then options, then a recommendation and what happens with no answer, then one question. A question the reader cannot answer without opening anything is not ready.</p>
 
-<p>WHAT HAPPENS IF NOBODY ANSWERS is said before the question is put, not decided after. A default may be applied only when the CALLER allows one (the decision is reversible and the caller’s own instructions name the default), and it is then recorded as assumed, with the default named — never as the person’s answer. Where the caller allows none (which harness a repository becomes is the standing example: a wrong answer succeeds at being the wrong thing), silence ends as unsettled.</p>
+<p>A DEFAULT is applied only when the CALLER allows one, and is recorded as assumed, never as the person’s answer. Otherwise silence ends as unsettled.</p>
 
 <p>SYMMETRIC IN ITS PARTICIPANTS. The answering lane is a person or a sibling agent that already holds the answer; the record says which, because the two are evidence of different weight.</p>
 
 <p>NO work-plan element, and isExecutable is false, for the reasons initialize-harness gives.</p>
+<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
 
-<p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
+<div class="pt-diagram" data-panel="human-agent-discussion.tasks.json">
+<img src="../../../assets/img/workflows/human-agent-discussion.svg" alt="BPMN diagram: Human–agent discussion" />
+<div class="pt-layer">
+<button type="button" class="pt-mark" data-task="A_DetermineContext" style="left:12.64%;top:25.44%" aria-expanded="false" aria-label="About step: Determine the context: what is known, and already decided" title="About: Determine the context: what is known, and already decided">i</button>
+<button type="button" class="pt-mark" data-task="A_DetermineRoles" style="left:19.81%;top:25.44%" aria-expanded="false" aria-label="About step: Determine the roles: which you act as, and the person's" title="About: Determine the roles: which you act as, and the person's">i</button>
+<button type="button" class="pt-mark" data-task="A_DetermineProcess" style="left:26.98%;top:25.44%" aria-expanded="false" aria-label="About step: Determine the process and task, or that you are idle" title="About: Determine the process and task, or that you are idle">i</button>
+<button type="button" class="pt-mark" data-task="A_AskUndeterminedFirst" style="left:32.26%;top:44.74%" aria-expanded="false" aria-label="About step: Ask first about what could not be determined" title="About: Ask first about what could not be determined">i</button>
+<button type="button" class="pt-mark" data-task="A_GiveContext" style="left:39.43%;top:25.44%" aria-expanded="false" aria-label="About step: Say what is being decided, and why it matters now" title="About: Say what is being decided, and why it matters now">i</button>
+<button type="button" class="pt-mark" data-task="A_LayOutOptions" style="left:46.6%;top:25.44%" aria-expanded="false" aria-label="About step: Lay out the options, with what each costs" title="About: Lay out the options, with what each costs">i</button>
+<button type="button" class="pt-mark" data-task="A_Recommend" style="left:53.77%;top:25.44%" aria-expanded="false" aria-label="About step: Recommend one, and say what happens with no answer" title="About: Recommend one, and say what happens with no answer">i</button>
+<button type="button" class="pt-mark" data-task="A_PutQuestion" style="left:60.94%;top:25.44%" aria-expanded="false" aria-label="About step: Ask ONE question" title="About: Ask ONE question">i</button>
+<button type="button" class="pt-mark" data-task="A_Answer" style="left:68.11%;top:74.56%" aria-expanded="false" aria-label="About step: Answer, decline, or say nothing" title="About: Answer, decline, or say nothing">i</button>
+<button type="button" class="pt-mark" data-task="A_FollowUp" style="left:75.28%;top:44.74%" aria-expanded="false" aria-label="About step: Follow up, narrower" title="About: Follow up, narrower">i</button>
+<button type="button" class="pt-mark" data-task="A_RecordAnswer" style="left:89.62%;top:25.44%" aria-expanded="false" aria-label="About step: Record the answer, and who gave it" title="About: Record the answer, and who gave it">i</button>
+<button type="button" class="pt-mark" data-task="A_ApplyDefault" style="left:89.62%;top:6.14%" aria-expanded="false" aria-label="About step: Apply the stated default, and say so" title="About: Apply the stated default, and say so">i</button>
+<button type="button" class="pt-mark" data-task="A_RecordUnsettled" style="left:89.62%;top:44.74%" aria-expanded="false" aria-label="About step: Record what is still open" title="About: Record what is still open">i</button>
+</div>
+<div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
+</div>
+<script>(function () {
+  Array.prototype.forEach.call(document.querySelectorAll(".pt-diagram:not([data-pt-ready])"), init);
+  function init(root) {
+  root.setAttribute("data-pt-ready", "");
+  // Every href in the sidecar is relative to the sidecar (it sits beside the
+  // process page), so a page elsewhere on the site that shows the same
+  // drawing resolves them to the same targets.
+  // A drawing with no sidecar (a page that only highlights steps, where no
+  // processes viewer is published) gets the highlight and nothing else.
+  var sidecar = root.getAttribute("data-panel");
+  var base = new URL(sidecar || "", location.href);
+  function abs(h) { try { return new URL(h, base).href; } catch (e) { return h; } }
+  // A page with no server-drawn markers gets them from the sidecar.
+  var drawn = !!root.querySelector(".pt-layer");
+  if (!drawn) {
+    var ly = document.createElement("div"); ly.className = "pt-layer"; root.appendChild(ly);
+    var pn = document.createElement("div"); pn.className = "pt-panel"; pn.setAttribute("role", "dialog");
+    pn.setAttribute("aria-label", "Task details"); pn.hidden = true; root.appendChild(pn);
+  }
+  var panel = root.querySelector(".pt-panel"), data = null, pending = null, open = null;
+  function load() {
+    if (data) return Promise.resolve(data);
+    if (!pending) pending = fetch(root.getAttribute("data-panel")).then(function (r) {
+      if (!r.ok) throw new Error(r.status + " " + r.statusText);
+      return r.json();
+    }).then(function (j) { data = j; return j; });
+    return pending;
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function link(l, cls) {
+    var e = el(l.href ? "a" : "code", cls, l.name);
+    if (l.href) e.href = abs(l.href); else e.title = "no page for this one";
+    return e;
+  }
+  function obj(stereo, name, kind) {
+    var box = el("div", "pt-obj pt-" + kind), head = el("div", "pt-head");
+    head.appendChild(el("span", "pt-st", "\u00ab" + stereo + "\u00bb"));
+    head.appendChild(typeof name === "string" ? el("b", null, name) : name);
+    box.appendChild(head);
+    return box;
+  }
+  function edge(label) { return el("div", "pt-edge", "\u2502 " + label + " \u25bc"); }
+  function render(t) {
+    panel.textContent = "";
+    var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
+    close.onclick = function () { hide(); }; panel.appendChild(close);
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
+    if (t.lane) {
+      var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
+      // The lane is a partition; the Role it names is who acts (owner,
+      // 2026-10-31: "i thought there was a Role/person or actor that should be
+      // linked"). Shown here too, not only in the Role box further down.
+      if (t.role) { ln.appendChild(el("span", "pt-st", " → role ")); ln.appendChild(link(t.role)); }
+      task.appendChild(ln);
+    }
+    if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
+    panel.appendChild(task);
+    if (t.calls) {
+      panel.appendChild(edge("calls"));
+      var cp = obj("Process", link(t.calls), "proc");
+      if (t.calls.diagram && t.calls.diagram !== t.calls.href) { var dg = el("div", "pt-attr"); dg.appendChild(link({ name: "diagram", href: t.calls.diagram })); cp.appendChild(dg); }
+      panel.appendChild(cp);
+    }
+    if (t.shared) {
+      panel.appendChild(edge("calls"));
+      var gt = obj(t.shared.type.replace(/^bpmn:/, ""), t.shared.id, "proc");
+      Object.keys(t.shared.inputs || {}).forEach(function (k) { gt.appendChild(el("div", "pt-attr", k + " = " + t.shared.inputs[k])); });
+      panel.appendChild(gt);
+    }
+    var sk_on = !(data && data.skills === false);
+    (sk_on ? t.skills : []).forEach(function (s) {
+      panel.appendChild(edge("requires"));
+      var sk = obj("Skill", link(s), "skill");
+      (s.methodologies || []).forEach(function (m) {
+        var row = el("div", "pt-attr"); row.appendChild(el("span", "pt-st", "uses-methodology \u2192 "));
+        row.appendChild(link(m)); sk.appendChild(row);
+      });
+      panel.appendChild(sk);
+    });
+    if (sk_on && !t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
+    if (t.role) {
+      panel.appendChild(edge("lane names"));
+      var role = obj("Role", link(t.role), "role");
+      if (t.role.title) role.appendChild(el("div", "pt-attr", "title = " + t.role.title));
+      if (sk_on) {
+        var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
+        if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
+        t.role.skills.forEach(function (s, i) {
+          if (i) list.appendChild(document.createTextNode(", "));
+          list.appendChild(link(s));
+          if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
+        });
+        role.appendChild(list);
+      }
+      panel.appendChild(role);
+    } else if (t.binding) {
+      panel.appendChild(el("div", "pt-none", "Lane role: " + t.binding + "."));
+    }
+  }
+  // THE MARKERS FOLLOW THE DRAWING, not the box around it. The site's figure
+  // viewer (docs-ui.js) swaps the <img> for an inlined <svg>, puts a toolbar
+  // above it, and zooms and pans it inside a scroll box. Positioned against
+  // this block, every marker and link drifted off its shape (owner,
+  // 2026-10-31: "misaligned"). So the layer is laid over wherever the drawing
+  // is actually drawn, and re-laid whenever that can change.
+  var layer = root.querySelector(".pt-layer"), queued = false;
+  function art() {
+    var c = root.querySelectorAll("img, svg");
+    for (var i = 0; i < c.length; i++) {
+      var e = c[i];
+      if (e.closest(".pt-layer, .pt-panel, .fa-figure-tools")) continue;
+      if (e.parentElement && e.parentElement.closest("svg")) continue;
+      return e;
+    }
+    return null;
+  }
+  // A page may name steps to pick out (a journey's step shows the tasks it
+  // realises): `data-pt-highlight="Task_A Task_B"`. Marked once the drawing
+  // is inline, which is when its shapes exist to mark.
+  var hl = (root.getAttribute("data-pt-highlight") || "").split(/\s+/).filter(Boolean);
+  if (hl.length) root.classList.add("pt-has-hl");
+  function mark(a) {
+    if (!hl.length || a.tagName.toLowerCase() !== "svg" || a.hasAttribute("data-pt-marked")) return;
+    a.setAttribute("data-pt-marked", "");
+    Array.prototype.forEach.call(a.querySelectorAll("[data-element-id]"), function (g) {
+      if (hl.indexOf(g.getAttribute("data-element-id")) >= 0) g.setAttribute("data-pt-hl", "");
+    });
+  }
+  function place() {
+    queued = false;
+    var a = art();
+    if (a) mark(a);
+    if (!layer || !a) return;
+    var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
+    var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
+    if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[\s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
+    if (vw > 0 && vh > 0 && w > 0 && h > 0) {
+      var k = vw / vh;
+      if (w / h > k) { var nw = h * k; x += (w - nw) / 2; w = nw; } else { var nh = w / k; y += (h - nh) / 2; h = nh; }
+    }
+    layer.style.left = x + "px"; layer.style.top = y + "px"; layer.style.width = w + "px"; layer.style.height = h + "px";
+    // Zoomed in, the drawing scrolls inside its box: markers past the edge are hidden with it.
+    var sc = a.parentElement;
+    while (sc && sc !== root && !(sc.scrollWidth > sc.clientWidth + 1 || sc.scrollHeight > sc.clientHeight + 1)) sc = sc.parentElement;
+    if (sc && sc !== root) {
+      var s = sc.getBoundingClientRect(), L = r.left + x, T = r.top + y;
+      layer.style.clipPath = "inset(" + Math.max(0, s.top - T) + "px " + Math.max(0, L + w - s.right) + "px " +
+        Math.max(0, T + h - s.bottom) + "px " + Math.max(0, s.left - L) + "px)";
+    } else layer.style.clipPath = "";
+    if (open) at(open);
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(place); } }
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(root);
+  if (window.MutationObserver) new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) if (!layer || !layer.contains(ms[i].target)) { schedule(); return; }
+  }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "viewBox"] });
+  root.addEventListener("scroll", schedule, true);
+  root.addEventListener("load", schedule, true);
+  window.addEventListener("resize", schedule);
+  schedule();
+  if (!drawn && sidecar) load().then(function (j) {
+    (j.markers || []).forEach(function (m) {
+      var t = j.tasks[m.id], to = t && t.calls ? (t.calls.diagram || t.calls.href) : null;
+      if (to && m.box) {
+        var g = el("a", "pt-go"); g.href = abs(to);
+        g.style.left = m.box.left + "%"; g.style.top = m.box.top + "%"; g.style.width = m.box.width + "%"; g.style.height = m.box.height + "%";
+        g.setAttribute("aria-label", "Open subprocess: " + m.name); g.title = "Open subprocess: " + m.name; layer.appendChild(g);
+      }
+      var b = el("button", "pt-mark", "i"); b.type = "button"; b.setAttribute("data-task", m.id);
+      b.style.left = m.left + "%"; b.style.top = m.top + "%"; b.setAttribute("aria-expanded", "false");
+      b.setAttribute("aria-label", "About step: " + m.name); b.title = "About: " + m.name; layer.appendChild(b);
+    });
+    schedule();
+  }).catch(function (e) { console.warn("task panel: could not load " + base.href + " (" + e.message + ")"); });
+  function at(b) {
+    var r = root.getBoundingClientRect(), m = b.getBoundingClientRect();
+    panel.style.left = (m.left + m.width / 2 - r.left) + "px"; panel.style.top = (m.top + m.height / 2 - r.top) + "px";
+  }
+  function hide() { panel.hidden = true; if (open) open.setAttribute("aria-expanded", "false"); open = null; }
+  root.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest(".pt-mark");
+    if (!b) return;
+    if (open === b) { hide(); return; }
+    if (open) open.setAttribute("aria-expanded", "false");
+    open = b; b.setAttribute("aria-expanded", "true");
+    at(b);
+    panel.hidden = false; panel.textContent = "Loading\u2026";
+    load().then(function (j) {
+      var t = j.tasks[b.getAttribute("data-task")];
+      if (open === b) { if (t) render(t); else panel.textContent = "No details for this task."; }
+    }).catch(function (e) { if (open === b) panel.textContent = "Could not load task details: " + e.message; });
+  });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && open) hide(); });
+  }
+})();</script>
+
 <h2 id="how-it-connects">
   
   
@@ -873,10 +1156,11 @@
     
 
 <ul>
-  <li><strong>Called by:</strong> <a href="complete-initialization.html">Complete initialization</a>, <a href="discussion.html">Determine the harness and repositories</a></li>
+  <li><strong>Called by:</strong> <a href="complete-initialization.html">Complete initialization</a>, <a href="discussion.html">Determine the harness and repositories</a>, <a href="ask-the-person.html">Ask the person</a></li>
   <li><strong>Calls:</strong> none</li>
   <li><strong>Names the <code class="language-plaintext highlighter-rouge">human-agent-discussion</code> skill without calling this process:</strong> <a href="discussion.html">Determine the harness and repositories</a> — <code class="language-plaintext highlighter-rouge">activity-calls-skill-process</code> asks whether each should be a call activity.</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -898,12 +1182,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>Agent</td>
+      <td><a id="lane-Lane_Agent"></a>Agent</td>
       <td>—</td>
       <td>Whichever agent called this sub-process. It determines where it is, prepares the question, rules on whether an answer settles it, and records the outcome in the form its caller asked for. It never supplies the answer itself.</td>
     </tr>
     <tr>
-      <td>Requestor</td>
+      <td><a id="lane-Lane_Requestor"></a>Requestor</td>
       <td><code class="language-plaintext highlighter-rouge">requestor</code></td>
       <td>The person who asked — or a sibling agent that already holds the answer. Answering, declining and saying nothing are all legitimate moves here, and each has its own end.</td>
     </tr>
@@ -931,81 +1215,81 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Determine the context: what is known, and already decided</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineContext</code></td>
+      <td><a id="step-A_DetermineContext"></a><strong>Determine the context: what is known, and already decided</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineContext</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>Before composing anything: what is already known, each fact with where it came from; which declaration governs the matter (the instance’s <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code>, the diagram the caller is in, the Skill its task names); what state is recorded; and whether the question has ALREADY been decided — by the person earlier in the conversation, or in a declaration that quotes their ruling. A settled question is not asked again: asking it reopens a decision and spends the person’s attention twice. Read it, do not remember it: cite what you read. What the caller handed in is checked here, not re-derived.</td>
     </tr>
     <tr>
-      <td><strong>Determine the roles: which you act as, and the person’s</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineRoles</code></td>
+      <td><a id="step-A_DetermineRoles"></a><strong>Determine the roles: which you act as, and the person’s</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineRoles</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>An Actor performs a task in a Process AS a Role. Nothing is a Role by nature: the same agent is the Bootstrapping Agent in one diagram and another Role in the next, and which one it is depends on the lane of the task it is performing now. So say which Role you are acting as — the lane of the CALLING task, since this lane is variable — and which Role the person you ask holds (the Requestor, or whoever the calling lane names). It decides what you may ask them for: only the Requestor chooses a harness, and a question put to somebody who does not hold the decision gets an answer that settles nothing.</td>
     </tr>
     <tr>
-      <td><strong>Determine the process and task, or that you are idle</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineProcess</code></td>
+      <td><a id="step-A_DetermineProcess"></a><strong>Determine the process and task, or that you are idle</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineProcess</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
-      <td>Name the Process, the lane and the task the question belongs to, and say so in the message: “Process: Initialize a harness, at Determine the harness and repositories, as the Bootstrapping Agent”. A reader who does not know which process you are in will assume the last one’s rules still hold. If you are in no Process, that is an answer too: you are IDLE, and what you are doing is classifying a request to find the Process it belongs to — say that, rather than presenting a question as though a step had asked for it. You are OUT of process, and it is undetermined, when you cannot name the instance, when two candidates fit, when the step you believed was next is not the one the diagram enables, or when the work in hand was not what you said you would do. Do not infer your way back in.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
+      <td>Name the Process, the lane and the task the question belongs to, and say so in the message: “Process: Initialize a harness, at Determine the harness and repositories, as the Bootstrapping Agent”. A reader who does not know which process you are in will assume the last one’s rules still hold. If you are in no Process, that is an answer too: you are IDLE, and what you are doing is classifying a request to find the Process it belongs to — say that, rather than presenting a question as though a step had asked for it. You are OUT of process, and it is undetermined, when you cannot name the Process, when two candidates fit, when the step you believed was next is not the one the diagram enables, or when the work in hand was not what you said you would do. Do not infer your way back in.</td>
     </tr>
     <tr>
-      <td><strong>Ask first about what could not be determined</strong><br /><code class="language-plaintext highlighter-rouge">A_AskUndeterminedFirst</code></td>
+      <td><a id="step-A_AskUndeterminedFirst"></a><strong>Ask first about what could not be determined</strong><br /><code class="language-plaintext highlighter-rouge">A_AskUndeterminedFirst</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>The caller’s question waits, and is counted (“one more question after this”). What is put first is the undetermined one: the context you could not establish, the Role you are not sure you hold, or the Process you cannot place this in. It goes through the same order as any question — say what you determined and what you could not, the candidates you see, the one you would pick and why — and it allows NO default: a Process or Role assumed rather than confirmed is an authority nobody gave. With more than one undetermined, ask about the outermost first (the Process before the Role before the context), since the outer answer usually settles the inner.</td>
     </tr>
     <tr>
-      <td><strong>Say what is being decided, and why it matters now</strong><br /><code class="language-plaintext highlighter-rouge">A_GiveContext</code></td>
+      <td><a id="step-A_GiveContext"></a><strong>Say what is being decided, and why it matters now</strong><br /><code class="language-plaintext highlighter-rouge">A_GiveContext</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>First, and in the message itself: where you are (the Process and task, as which Role, asking whom — from the three determinations), what the decision is, what depends on it, and what is already known — each fact with where it came from. A link is where somebody goes for more; it is never where the terms are defined.</td>
     </tr>
     <tr>
-      <td><strong>Lay out the options, with what each costs</strong><br /><code class="language-plaintext highlighter-rouge">A_LayOutOptions</code></td>
+      <td><a id="step-A_LayOutOptions"></a><strong>Lay out the options, with what each costs</strong><br /><code class="language-plaintext highlighter-rouge">A_LayOutOptions</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>Every option the agent could narrow the question to, each with what it costs and what it makes hard to undo. Narrow from context first: an option the agent could have ruled out itself wastes the reader’s attention.</td>
     </tr>
     <tr>
-      <td><strong>Recommend one, and say what happens with no answer</strong><br /><code class="language-plaintext highlighter-rouge">A_Recommend</code></td>
+      <td><a id="step-A_Recommend"></a><strong>Recommend one, and say what happens with no answer</strong><br /><code class="language-plaintext highlighter-rouge">A_Recommend</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>Mark the option the agent would take and say why. Then say what happens if nobody answers: the default, when the caller allows one, or that the question stays open and the work stops, when it does not. Said now, so silence has a meaning both sides agreed to before it happened.</td>
     </tr>
     <tr>
-      <td><strong>Ask ONE question</strong><br /><code class="language-plaintext highlighter-rouge">A_PutQuestion</code></td>
+      <td><a id="step-A_PutQuestion"></a><strong>Ask ONE question</strong><br /><code class="language-plaintext highlighter-rouge">A_PutQuestion</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>One question, answerable by picking. With several decisions open, ask one in full and give a count for the rest. Uses whatever channel the caller is in — in bootstrap, the conversation the person is already in.</td>
     </tr>
     <tr>
-      <td><strong>Answer, decline, or say nothing</strong><br /><code class="language-plaintext highlighter-rouge">A_Answer</code></td>
+      <td><a id="step-A_Answer"></a><strong>Answer, decline, or say nothing</strong><br /><code class="language-plaintext highlighter-rouge">A_Answer</code></td>
       <td>Requestor</td>
       <td>—</td>
       <td>The Requestor’s move. Declining is an answer. Saying nothing is not, and is what the recommendation’s “if there is no answer” was for.</td>
     </tr>
     <tr>
-      <td><strong>Follow up, narrower</strong><br /><code class="language-plaintext highlighter-rouge">A_FollowUp</code></td>
+      <td><a id="step-A_FollowUp"></a><strong>Follow up, narrower</strong><br /><code class="language-plaintext highlighter-rouge">A_FollowUp</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>The answer did not settle it: it named a kind rather than an option, or chose two. Ask once more, narrower, naming what the first answer left open. Once: an agent that keeps asking has stopped narrowing.</td>
     </tr>
     <tr>
-      <td><strong>Record the answer, and who gave it</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordAnswer</code></td>
+      <td><a id="step-A_RecordAnswer"></a><strong>Record the answer, and who gave it</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordAnswer</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>In the form the caller asked for — for bootstrap’s harness question, a document conforming to discussion.output.schema.json with determinedBy asked. Who answered (a person or an agent) is part of the record. An answer about the context, the Role or the Process is recorded the same way, as the person’s word.</td>
     </tr>
     <tr>
-      <td><strong>Apply the stated default, and say so</strong><br /><code class="language-plaintext highlighter-rouge">A_ApplyDefault</code></td>
+      <td><a id="step-A_ApplyDefault"></a><strong>Apply the stated default, and say so</strong><br /><code class="language-plaintext highlighter-rouge">A_ApplyDefault</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>Only the default stated in A_Recommend, only where the caller allows one, and recorded as assumed with the default named — never as the person’s answer. The next message to the person says it was applied, so they can reverse it.</td>
     </tr>
     <tr>
-      <td><strong>Record what is still open</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordUnsettled</code></td>
+      <td><a id="step-A_RecordUnsettled"></a><strong>Record what is still open</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordUnsettled</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>Declined, or silent where no default is allowed. The record says what was asked and what is still open, so the next actor resumes rather than restarts. Never a guess. When it is the context, the Role or the Process that is still open, say so and stop: a step completed in the wrong Process records an authority that was never given.</td>
     </tr>
   </tbody>

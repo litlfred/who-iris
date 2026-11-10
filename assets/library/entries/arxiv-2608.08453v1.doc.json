@@ -265,7 +265,7 @@
           "heading": false
         },
         {
-          "term": "edu",
+          "term": "usa",
           "heading": false
         }
       ],
@@ -285,10 +285,6 @@
       "summary": null,
       "keywords": [
         {
-          "term": "routing metadata",
-          "heading": false
-        },
-        {
           "term": "quality-assured generation",
           "heading": false
         },
@@ -301,7 +297,11 @@
           "heading": false
         },
         {
-          "term": "defects",
+          "term": "routing metadata",
+          "heading": false
+        },
+        {
+          "term": "defect",
           "heading": false
         },
         {
@@ -361,7 +361,7 @@
           "heading": false
         },
         {
-          "term": "official",
+          "term": "platform",
           "heading": false
         }
       ],
@@ -446,15 +446,15 @@
           "heading": false
         },
         {
-          "term": "routing",
-          "heading": false
-        },
-        {
           "term": "body",
           "heading": false
         },
         {
-          "term": "structions",
+          "term": "disclosure",
+          "heading": false
+        },
+        {
+          "term": "upstream",
           "heading": false
         }
       ],
@@ -497,15 +497,11 @@
           "heading": false
         },
         {
-          "term": "repositories",
-          "heading": false
-        },
-        {
           "term": "case-insensitive",
           "heading": false
         },
         {
-          "term": "github",
+          "term": "repositories",
           "heading": false
         },
         {
@@ -513,12 +509,16 @@
           "heading": false
         },
         {
-          "term": "collection",
-          "heading": true
+          "term": "github",
+          "heading": false
         },
         {
           "term": "registry",
           "heading": false
+        },
+        {
+          "term": "collection",
+          "heading": true
         }
       ],
       "extract": "To study reuse rather than isolated benchmark performance, we build the dataset from places where skills are actually published and copied. We collected SKILL.md files through GitHub code search, repository cloning, and the agentskills.in registry API. GitHub search used 40+ sharded queries to by- pass the 1,000-result-per-query limit; repository cloning ex- tracted all case-insensitive SKILL.md files from known and",
@@ -537,19 +537,19 @@
       "summary": null,
       "keywords": [
         {
-          "term": "spec clause",
-          "heading": false
-        },
-        {
           "term": "tier categories",
           "heading": false
         },
         {
-          "term": "persona redefinition",
+          "term": "spec clause",
           "heading": false
         },
         {
           "term": "pat terns",
+          "heading": false
+        },
+        {
+          "term": "persona redefinition",
           "heading": false
         },
         {
@@ -561,11 +561,11 @@
           "heading": false
         },
         {
-          "term": "routing",
-          "heading": true
+          "term": "oversized bodies",
+          "heading": false
         },
         {
-          "term": "oversized bodies",
+          "term": "skills specification",
           "heading": false
         }
       ],
@@ -589,10 +589,6 @@
           "heading": false
         },
         {
-          "term": "routing",
-          "heading": false
-        },
-        {
           "term": "detectors",
           "heading": false
         },
@@ -601,7 +597,7 @@
           "heading": false
         },
         {
-          "term": "length",
+          "term": "routing",
           "heading": false
         },
         {
@@ -609,11 +605,15 @@
           "heading": false
         },
         {
+          "term": "length",
+          "heading": false
+        },
+        {
           "term": "lexical",
           "heading": false
         },
         {
-          "term": "descriptions",
+          "term": "missing",
           "heading": false
         }
       ],
@@ -656,11 +656,11 @@
           "heading": false
         },
         {
-          "term": "contributor",
+          "term": "skills",
           "heading": false
         },
         {
-          "term": "skills",
+          "term": "contributor",
           "heading": false
         },
         {
@@ -704,7 +704,7 @@
           "heading": false
         },
         {
-          "term": "routing",
+          "term": "tier",
           "heading": false
         }
       ],
@@ -736,10 +736,6 @@
           "heading": true
         },
         {
-          "term": "defects",
-          "heading": true
-        },
-        {
           "term": "stress test",
           "heading": false
         },
@@ -748,11 +744,15 @@
           "heading": false
         },
         {
-          "term": "reduce discovery",
-          "heading": false
+          "term": "defects",
+          "heading": true
         },
         {
           "term": "r1-defective",
+          "heading": false
+        },
+        {
+          "term": "reduce discovery",
           "heading": false
         }
       ],
@@ -772,11 +772,15 @@
       "summary": null,
       "keywords": [
         {
-          "term": "avg defects",
+          "term": "ai-marked skills",
           "heading": false
         },
         {
-          "term": "ai-marked skills",
+          "term": "unmarked skills",
+          "heading": false
+        },
+        {
+          "term": "avg defects",
           "heading": false
         },
         {
@@ -785,10 +789,6 @@
         },
         {
           "term": "portability defects",
-          "heading": false
-        },
-        {
-          "term": "unmarked skills",
           "heading": false
         },
         {
@@ -851,15 +851,15 @@
           "heading": false
         },
         {
-          "term": "observed defect",
-          "heading": false
-        },
-        {
           "term": "safety bypasses",
           "heading": false
         },
         {
           "term": "marginal defect",
+          "heading": false
+        },
+        {
+          "term": "observed defect",
           "heading": false
         },
         {
@@ -891,16 +891,16 @@
           "heading": false
         },
         {
-          "term": "validity",
-          "heading": true
-        },
-        {
           "term": "plat form",
           "heading": false
         },
         {
           "term": "generic skills",
           "heading": false
+        },
+        {
+          "term": "validity",
+          "heading": true
         },
         {
           "term": "agent skills",
@@ -911,7 +911,7 @@
           "heading": false
         },
         {
-          "term": "repair experiment",
+          "term": "file paths",
           "heading": false
         }
       ],
@@ -987,15 +987,15 @@
           "heading": false
         },
         {
-          "term": "han chung",
-          "heading": false
-        },
-        {
           "term": "sahar abdelnabi",
           "heading": false
         },
         {
-          "term": "kai xiao",
+          "term": "han chung",
+          "heading": false
+        },
+        {
+          "term": "jiankai sun",
           "heading": false
         },
         {
@@ -1003,7 +1003,7 @@
           "heading": false
         },
         {
-          "term": "jiankai sun",
+          "term": "kai xiao",
           "heading": false
         }
       ],
@@ -1031,10 +1031,6 @@
       "heading": true
     },
     {
-      "term": "detected defects",
-      "heading": false
-    },
-    {
       "term": "skills paths",
       "heading": false
     },
@@ -1043,11 +1039,11 @@
       "heading": false
     },
     {
-      "term": "skills specification",
+      "term": "detected defects",
       "heading": false
     },
     {
-      "term": "skills work",
+      "term": "skills specification",
       "heading": false
     },
     {
@@ -1059,13 +1055,17 @@
       "heading": false
     },
     {
-      "term": "portability defects",
+      "term": "skills work",
+      "heading": false
+    },
+    {
+      "term": "unmarked skills",
       "heading": false
     }
   ],
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/arxiv-2608.08453v1"
+    "dir": "library/conduct/arxiv-2608.08453v1"
   }
 }

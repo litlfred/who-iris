@@ -283,7 +283,7 @@
           "heading": false
         },
         {
-          "term": "disease",
+          "term": "frequentist",
           "heading": false
         },
         {
@@ -291,7 +291,7 @@
           "heading": false
         },
         {
-          "term": "frequentist",
+          "term": "theories",
           "heading": false
         }
       ],
@@ -385,15 +385,15 @@
           "heading": false
         },
         {
-          "term": "disease",
-          "heading": false
-        },
-        {
           "term": "guideline",
           "heading": false
         },
         {
           "term": "notice",
+          "heading": false
+        },
+        {
+          "term": "bayesian",
           "heading": false
         }
       ],
@@ -420,6 +420,10 @@
           "heading": true
         },
         {
+          "term": "chebyshev inequality",
+          "heading": false
+        },
+        {
           "term": "markov inequality",
           "heading": false
         },
@@ -441,10 +445,6 @@
         },
         {
           "term": "event argument",
-          "heading": false
-        },
-        {
-          "term": "var",
           "heading": false
         }
       ],
@@ -506,7 +506,7 @@
           "heading": false
         },
         {
-          "term": "perfect grade",
+          "term": "𝐴𝑖",
           "heading": false
         },
         {
@@ -514,7 +514,7 @@
           "heading": false
         },
         {
-          "term": "𝐴𝑖",
+          "term": "perfect grade",
           "heading": false
         }
       ],
@@ -604,7 +604,7 @@
           "heading": false
         },
         {
-          "term": "expected reward",
+          "term": "frequentist bandits",
           "heading": false
         }
       ],
@@ -651,12 +651,12 @@
           "heading": false
         },
         {
-          "term": "confidence",
+          "term": "bound",
           "heading": true
         },
         {
-          "term": "bound",
-          "heading": true
+          "term": "𝜇𝑡",
+          "heading": false
         }
       ],
       "extract": "Let us now consider the following decision rule (Auer, 2002): At each time 𝑡= 1, . . . ,𝑇, we pick an action that maximizes the function UCB𝑡(𝑎) = 𝜇𝑡(𝑎) + √︁ (2 log𝑇)/𝑁𝑡(𝑎), (3.3) where 𝜇𝑡(𝑎) = 1/𝑁𝑡(𝑎) P𝑡 𝑖=1 𝑟𝑖(𝑎𝑖)I(𝑎𝑖= 𝑎) is the empirical mean estimate of 𝜇(𝑎) after 𝑡 rounds, and 𝑁𝑡(𝑎) = P𝑡 𝑖=1 I(𝑎𝑡= 𝑎) is the number of times the action 𝑎has been selected. The algorithm is",
@@ -702,7 +702,7 @@
           "heading": false
         },
         {
-          "term": "differentiable",
+          "term": "rasmussen",
           "heading": false
         }
       ],
@@ -764,15 +764,15 @@
           "heading": true
         },
         {
-          "term": "function space",
-          "heading": false
-        },
-        {
           "term": "𝑥𝑖",
           "heading": false
         },
         {
-          "term": "posterior means",
+          "term": "function space",
+          "heading": false
+        },
+        {
+          "term": "inner product",
           "heading": false
         }
       ],
@@ -799,7 +799,7 @@
           "heading": true
         },
         {
-          "term": "covariance function",
+          "term": "𝛾𝑇",
           "heading": false
         },
         {
@@ -807,11 +807,11 @@
           "heading": false
         },
         {
-          "term": "𝛾𝑇",
+          "term": "𝑥𝑡",
           "heading": false
         },
         {
-          "term": "𝑥𝑡",
+          "term": "covariance function",
           "heading": false
         },
         {
@@ -850,11 +850,11 @@
           "heading": false
         },
         {
-          "term": "vaart",
+          "term": "supremum",
           "heading": false
         },
         {
-          "term": "supremum",
+          "term": "vaart",
           "heading": false
         }
       ],
@@ -983,12 +983,12 @@
           "heading": true
         },
         {
-          "term": "d𝑡",
-          "heading": false
-        },
-        {
           "term": "expected regret",
           "heading": true
+        },
+        {
+          "term": "d𝑡",
+          "heading": false
         },
         {
           "term": "𝑥𝑡",
@@ -1046,6 +1046,10 @@
           "heading": false
         },
         {
+          "term": "x𝑡",
+          "heading": false
+        },
+        {
           "term": "regret bound",
           "heading": false
         },
@@ -1055,10 +1059,6 @@
         },
         {
           "term": "𝜇𝑡",
-          "heading": false
-        },
-        {
-          "term": "𝐸𝑐",
           "heading": false
         }
       ],
@@ -1081,11 +1081,11 @@
       },
       "keywords": [
         {
-          "term": "der vaart",
+          "term": "aad van",
           "heading": false
         },
         {
-          "term": "van der",
+          "term": "der vaart",
           "heading": false
         },
         {
@@ -1137,19 +1137,11 @@
       "heading": false
     },
     {
-      "term": "mean function",
-      "heading": false
-    },
-    {
       "term": "expected regret",
       "heading": true
     },
     {
-      "term": "covariance function",
-      "heading": false
-    },
-    {
-      "term": "function space",
+      "term": "mean function",
       "heading": false
     },
     {
@@ -1157,13 +1149,21 @@
       "heading": false
     },
     {
-      "term": "argmax𝑎 𝜇𝑡",
+      "term": "function space",
+      "heading": false
+    },
+    {
+      "term": "covariance function",
+      "heading": false
+    },
+    {
+      "term": "union bound",
       "heading": false
     }
   ],
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/arxiv-2508.21620v2"
+    "dir": "library/content/arxiv-2508.21620v2"
   }
 }

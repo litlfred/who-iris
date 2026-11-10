@@ -91,7 +91,7 @@
           "heading": false
         },
         {
-          "term": "publication",
+          "term": "status",
           "heading": false
         }
       ],
@@ -212,11 +212,11 @@
           "heading": false
         },
         {
-          "term": "prov-json",
+          "term": "support lightweight",
           "heading": false
         },
         {
-          "term": "support lightweight",
+          "term": "prov-json",
           "heading": false
         }
       ],
@@ -267,7 +267,7 @@
           "heading": false
         },
         {
-          "term": "prefixes",
+          "term": "rdf",
           "heading": false
         }
       ],
@@ -298,11 +298,11 @@
           "heading": false
         },
         {
-          "term": "article based",
+          "term": "prov-jsonld serialization",
           "heading": false
         },
         {
-          "term": "prov-jsonld serialization",
+          "term": "article based",
           "heading": false
         },
         {
@@ -341,15 +341,15 @@
           "heading": false
         },
         {
-          "term": "predefined",
-          "heading": false
-        },
-        {
           "term": "foaf",
           "heading": false
         },
         {
-          "term": "contrary",
+          "term": "predefined",
+          "heading": false
+        },
+        {
+          "term": "viewpoint",
           "heading": false
         }
       ],
@@ -524,11 +524,11 @@
           "heading": false
         },
         {
-          "term": "activity",
+          "term": "property type",
           "heading": false
         },
         {
-          "term": "property type",
+          "term": "activity",
           "heading": false
         },
         {
@@ -692,11 +692,11 @@
           "heading": false
         },
         {
-          "term": "association",
+          "term": "property type",
           "heading": false
         },
         {
-          "term": "property type",
+          "term": "association",
           "heading": false
         },
         {
@@ -782,7 +782,7 @@
           "heading": false
         },
         {
-          "term": "entity",
+          "term": "usage",
           "heading": false
         }
       ],
@@ -825,7 +825,7 @@
           "heading": false
         },
         {
-          "term": "generation",
+          "term": "entity",
           "heading": false
         }
       ],
@@ -1005,7 +1005,7 @@
           "heading": false
         },
         {
-          "term": "communication",
+          "term": "property type",
           "heading": false
         }
       ],
@@ -1243,7 +1243,7 @@
           "heading": false
         },
         {
-          "term": "context",
+          "term": "iris",
           "heading": false
         }
       ],
@@ -1496,7 +1496,7 @@
           "heading": false
         },
         {
-          "term": "association",
+          "term": "mapping context",
           "heading": false
         }
       ],
@@ -1811,11 +1811,11 @@
           "heading": false
         },
         {
-          "term": "activity",
+          "term": "prov-dm",
           "heading": false
         },
         {
-          "term": "prov-dm",
+          "term": "provenance",
           "heading": false
         },
         {
@@ -1858,11 +1858,11 @@
           "heading": false
         },
         {
-          "term": "encoded",
+          "term": "json-ld context",
           "heading": false
         },
         {
-          "term": "json-ld context",
+          "term": "encoded",
           "heading": false
         }
       ],
@@ -1889,11 +1889,11 @@
           "heading": false
         },
         {
-          "term": "programming language",
+          "term": "prov-jsonld serialization",
           "heading": false
         },
         {
-          "term": "prov-jsonld serialization",
+          "term": "programming language",
           "heading": false
         },
         {
@@ -1932,15 +1932,15 @@
           "heading": false
         },
         {
-          "term": "java org",
-          "heading": false
-        },
-        {
           "term": "roundtrip testing",
           "heading": false
         },
         {
-          "term": "test java",
+          "term": "java org",
+          "heading": false
+        },
+        {
+          "term": "non prov",
           "heading": false
         }
       ],
@@ -2092,7 +2092,7 @@
           "heading": false
         },
         {
-          "term": "label",
+          "term": "prov",
           "heading": false
         }
       ],
@@ -2687,11 +2687,11 @@
           "heading": false
         },
         {
-          "term": "april",
+          "term": "url",
           "heading": false
         },
         {
-          "term": "url",
+          "term": "april",
           "heading": false
         },
         {
@@ -2703,7 +2703,7 @@
           "heading": false
         },
         {
-          "term": "current practice",
+          "term": "prov-xml",
           "heading": false
         }
       ],
@@ -2734,7 +2734,7 @@
           "heading": false
         },
         {
-          "term": "april",
+          "term": "poster",
           "heading": false
         }
       ],
@@ -2751,11 +2751,11 @@
       "heading": false
     },
     {
-      "term": "activity prov",
+      "term": "entity prov",
       "heading": false
     },
     {
-      "term": "entity prov",
+      "term": "activity prov",
       "heading": false
     },
     {
@@ -2779,25 +2779,25 @@
       "heading": false
     },
     {
-      "term": "agent prov",
-      "heading": false
-    },
-    {
-      "term": "generation prov",
-      "heading": false
-    },
-    {
       "term": "datetime prov",
       "heading": false
     },
     {
+      "term": "agent prov",
+      "heading": false
+    },
+    {
       "term": "attime prov",
+      "heading": false
+    },
+    {
+      "term": "generation prov",
       "heading": false
     }
   ],
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/w3c-2024-prov-jsonld"
+    "dir": "library/kg/w3c-2024-prov-jsonld"
   }
 }

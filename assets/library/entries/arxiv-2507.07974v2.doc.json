@@ -249,15 +249,15 @@
           "heading": false
         },
         {
+          "term": "security",
+          "heading": false
+        },
+        {
           "term": "test-time",
           "heading": false
         },
         {
           "term": "defense",
-          "heading": false
-        },
-        {
-          "term": "security",
           "heading": false
         },
         {
@@ -289,15 +289,11 @@
           "heading": false
         },
         {
-          "term": "llm system",
-          "heading": false
-        },
-        {
           "term": "injection attacks",
           "heading": false
         },
         {
-          "term": "llm-integrated applications",
+          "term": "llm system",
           "heading": false
         },
         {
@@ -305,15 +301,19 @@
           "heading": false
         },
         {
+          "term": "llm-integrated applications",
+          "heading": false
+        },
+        {
           "term": "developer",
           "heading": false
         },
         {
-          "term": "test time",
+          "term": "provider",
           "heading": false
         },
         {
-          "term": "provider",
+          "term": "defensivetokens",
           "heading": false
         }
       ],
@@ -337,11 +337,11 @@
           "heading": true
         },
         {
-          "term": "utility loss",
+          "term": "training-time defenses",
           "heading": false
         },
         {
-          "term": "training-time defenses",
+          "term": "utility loss",
           "heading": false
         },
         {
@@ -389,11 +389,11 @@
           "heading": false
         },
         {
-          "term": "prompt optimization",
+          "term": "prompt injection",
           "heading": false
         },
         {
-          "term": "prompt injection",
+          "term": "prompt optimization",
           "heading": false
         },
         {
@@ -437,11 +437,11 @@
           "heading": false
         },
         {
-          "term": "please write",
+          "term": "inst",
           "heading": false
         },
         {
-          "term": "inst",
+          "term": "please write",
           "heading": false
         },
         {
@@ -481,7 +481,7 @@
           "heading": false
         },
         {
-          "term": "llm system",
+          "term": "defenses cannot",
           "heading": false
         },
         {
@@ -489,7 +489,7 @@
           "heading": false
         },
         {
-          "term": "defenses cannot",
+          "term": "llm system",
           "heading": false
         },
         {
@@ -505,7 +505,7 @@
           "heading": false
         },
         {
-          "term": "sota",
+          "term": "inserted",
           "heading": false
         }
       ],
@@ -533,11 +533,11 @@
           "heading": false
         },
         {
-          "term": "tuning dataset",
+          "term": "instruction tuning",
           "heading": false
         },
         {
-          "term": "trick",
+          "term": "tuning dataset",
           "heading": false
         },
         {
@@ -545,11 +545,11 @@
           "heading": false
         },
         {
-          "term": "embeddings",
+          "term": "trick",
           "heading": false
         },
         {
-          "term": "llm",
+          "term": "embeddings",
           "heading": false
         },
         {
@@ -589,11 +589,11 @@
           "heading": false
         },
         {
-          "term": "different across",
+          "term": "resp",
           "heading": false
         },
         {
-          "term": "resp",
+          "term": "inst",
           "heading": false
         }
       ],
@@ -632,10 +632,6 @@
           "heading": false
         },
         {
-          "term": "huge affect",
-          "heading": false
-        },
-        {
           "term": "alpacafarm security",
           "heading": false
         },
@@ -644,11 +640,11 @@
           "heading": false
         },
         {
-          "term": "huge effect",
+          "term": "huge affect",
           "heading": false
         },
         {
-          "term": "prompt injection",
+          "term": "huge effect",
           "heading": false
         },
         {
@@ -656,7 +652,11 @@
           "heading": false
         },
         {
-          "term": "llm judge",
+          "term": "prompt injection",
+          "heading": false
+        },
+        {
+          "term": "attack variants",
           "heading": false
         }
       ],
@@ -692,11 +692,11 @@
           "heading": false
         },
         {
-          "term": "existing test-time",
+          "term": "system-level defense",
           "heading": false
         },
         {
-          "term": "system-level defense",
+          "term": "existing test-time",
           "heading": false
         },
         {
@@ -916,11 +916,11 @@
       "summary": null,
       "keywords": [
         {
-          "term": "prompt injection",
+          "term": "injection attacks",
           "heading": false
         },
         {
-          "term": "injection attacks",
+          "term": "prompt injection",
           "heading": false
         },
         {
@@ -928,15 +928,11 @@
           "heading": false
         },
         {
+          "term": "percy liang",
+          "heading": false
+        },
+        {
           "term": "indirect prompt",
-          "heading": false
-        },
-        {
-          "term": "carlos guestrin",
-          "heading": false
-        },
-        {
-          "term": "prompt hacking",
           "heading": false
         },
         {
@@ -944,7 +940,11 @@
           "heading": false
         },
         {
-          "term": "yuqi jia",
+          "term": "prompt hacking",
+          "heading": false
+        },
+        {
+          "term": "carlos guestrin",
           "heading": false
         }
       ],
@@ -978,19 +978,15 @@
       "heading": true
     },
     {
-      "term": "utility loss",
-      "heading": true
-    },
-    {
       "term": "injection attacks",
       "heading": false
     },
     {
-      "term": "few defensivetokens",
-      "heading": false
+      "term": "utility loss",
+      "heading": true
     },
     {
-      "term": "prompt optimization",
+      "term": "few defensivetokens",
       "heading": false
     },
     {
@@ -1002,11 +998,15 @@
       "heading": true
     },
     {
-      "term": "prompt tuning",
+      "term": "alpacafarm security",
       "heading": true
     },
     {
-      "term": "alpacafarm security",
+      "term": "system-level defense",
+      "heading": false
+    },
+    {
+      "term": "defense baselines",
       "heading": true
     }
   ],
@@ -1218,6 +1218,6 @@
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/arxiv-2507.07974v2"
+    "dir": "library/conduct/arxiv-2507.07974v2"
   }
 }

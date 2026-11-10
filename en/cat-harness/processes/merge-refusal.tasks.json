@@ -1,280 +1,495 @@
 {
  "$schema": "process-task-panel/v1",
  "process": "Process_MergeRefusal",
- "processHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal",
+ "markers": [
+  {
+   "id": "Task_Record",
+   "name": "Record the refusal on the bean",
+   "left": 25.61,
+   "top": 29.45,
+   "box": {
+    "left": 21.94,
+    "top": 42.47,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_Comment",
+   "name": "Comment on the PR once, linking the bean",
+   "left": 33.69,
+   "top": 29.45,
+   "box": {
+    "left": 30.03,
+    "top": 42.47,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_HandBack",
+   "name": "Hand back, with a fail condition",
+   "left": 46.82,
+   "top": 29.45,
+   "box": {
+    "left": 43.16,
+    "top": 42.47,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_Fix",
+   "name": "Fix the PR, report on the PR",
+   "left": 46.82,
+   "top": 4.79,
+   "box": {
+    "left": 43.16,
+    "top": 17.81,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_Dispatch",
+   "name": "Dispatch one agent, recorded on the bean",
+   "left": 46.82,
+   "top": 52.74,
+   "box": {
+    "left": 43.16,
+    "top": 65.75,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_AgentFix",
+   "name": "Merge main in, regenerate, fix mechanical gates",
+   "left": 46.82,
+   "top": 76.03,
+   "box": {
+    "left": 43.16,
+    "top": 89.04,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_AskOwner",
+   "name": "Ask the owner on the PR, both sides quoted",
+   "left": 61.97,
+   "top": 76.03,
+   "box": {
+    "left": 58.31,
+    "top": 89.04,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_Retrain",
+   "name": "Re-enter a train on the new head",
+   "left": 61.97,
+   "top": 29.45,
+   "box": {
+    "left": 58.31,
+    "top": 42.47,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_Close",
+   "name": "Record the merge commit as evidence",
+   "left": 75.1,
+   "top": 29.45,
+   "box": {
+    "left": 71.44,
+    "top": 42.47,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Task_Scrap",
+   "name": "Scrap the bean, with the reason",
+   "left": 75.1,
+   "top": 52.74,
+   "box": {
+    "left": 71.44,
+    "top": 65.75,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Call_BeanOpen",
+   "name": "Open the bean",
+   "left": 11.97,
+   "top": 29.45,
+   "box": {
+    "left": 8.31,
+    "top": 42.47,
+    "width": 1.21,
+    "height": 3.29
+   }
+  },
+  {
+   "id": "Call_BeanClose_2",
+   "name": "Close the bean",
+   "left": 83.18,
+   "top": 29.45,
+   "box": {
+    "left": 79.52,
+    "top": 42.47,
+    "width": 1.21,
+    "height": 3.29
+   }
+  }
+ ],
+ "processHref": "merge-refusal.html",
  "tasks": {
   "Task_Record": {
    "id": "Task_Record",
    "name": "Record the refusal on the bean",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_Record",
+   "stepHref": "merge-refusal.html#step-Task_Record",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "merge-conflict-patterns"
+     "name": "merge-conflict-patterns",
+     "href": "../../../en/cat-harness/processes/skills/merge-conflict-patterns.html"
     }
    ],
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]
@@ -284,274 +499,343 @@
    "id": "Task_Comment",
    "name": "Comment on the PR once, linking the bean",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_Comment",
+   "stepHref": "merge-refusal.html#step-Task_Comment",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "merge-conflict-patterns"
+     "name": "merge-conflict-patterns",
+     "href": "../../../en/cat-harness/processes/skills/merge-conflict-patterns.html"
     }
    ],
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]
@@ -561,274 +845,343 @@
    "id": "Task_HandBack",
    "name": "Hand back, with a fail condition",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_HandBack",
+   "stepHref": "merge-refusal.html#step-Task_HandBack",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "merge-conflict-patterns"
+     "name": "merge-conflict-patterns",
+     "href": "../../../en/cat-harness/processes/skills/merge-conflict-patterns.html"
     }
    ],
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]
@@ -838,21 +1191,23 @@
    "id": "Task_Fix",
    "name": "Fix the PR, report on the PR",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_Fix",
+   "stepHref": "merge-refusal.html#step-Task_Fix",
    "lane": "Owning session",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Owner",
+   "laneHref": "merge-refusal.html#lane-Lane_Owner",
    "skills": [
     {
-     "name": "prepare-merge"
+     "name": "prepare-merge",
+     "href": "../../../en/cat-harness/processes/skills/prepare-merge.html"
     }
    ],
    "role": {
     "name": "sibling-session",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/sibling-session",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-sibling-session",
     "title": "Sibling session",
     "skills": [
      {
-      "name": "bean-coordination"
+      "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html"
      }
     ]
    }
@@ -861,274 +1216,343 @@
    "id": "Task_Dispatch",
    "name": "Dispatch one agent, recorded on the bean",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_Dispatch",
+   "stepHref": "merge-refusal.html#step-Task_Dispatch",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "dispatch-agent"
+     "name": "dispatch-agent",
+     "href": "../../../en/cat-harness/processes/skills/dispatch-agent.html"
     }
    ],
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]
@@ -1138,180 +1562,235 @@
    "id": "Task_AgentFix",
    "name": "Merge main in, regenerate, fix mechanical gates",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_AgentFix",
+   "stepHref": "merge-refusal.html#step-Task_AgentFix",
    "lane": "Dispatched agent",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Dispatched",
+   "laneHref": "merge-refusal.html#lane-Lane_Dispatched",
    "skills": [
     {
-     "name": "merge-conflict-patterns"
+     "name": "merge-conflict-patterns",
+     "href": "../../../en/cat-harness/processes/skills/merge-conflict-patterns.html"
     }
    ],
    "role": {
     "name": "authoring-agent",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
     "title": "Authoring agent",
     "skills": [
      {
-      "name": "adopt-methodology-from-source"
+      "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html"
      },
      {
-      "name": "agent-permissions"
+      "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html"
      },
      {
-      "name": "ask-the-person"
+      "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html"
      },
      {
-      "name": "bean-coordination"
+      "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html"
      },
      {
-      "name": "before-after-preview"
+      "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html"
      },
      {
-      "name": "blocked-build-dependencies"
+      "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html"
      },
      {
-      "name": "bpmn-authoring"
+      "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html"
      },
      {
-      "name": "branch-archaeology"
+      "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html"
      },
      {
-      "name": "ci-health"
+      "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html"
      },
      {
-      "name": "confirmation-waiver"
+      "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html"
      },
      {
-      "name": "content-author"
+      "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html"
      },
      {
-      "name": "content-graph"
+      "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html"
      },
      {
-      "name": "content-plan"
+      "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html"
      },
      {
-      "name": "continual-progress"
+      "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "crdm-detect"
+      "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html"
      },
      {
-      "name": "crdm-requirements-workflow"
+      "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html"
      },
      {
-      "name": "decision-audit"
+      "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html"
      },
      {
-      "name": "decision-comparison"
+      "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html"
      },
      {
-      "name": "deletion-requires-confirmation"
+      "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html"
      },
      {
-      "name": "delivery-summary"
+      "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html"
      },
      {
-      "name": "directory-conventions"
+      "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html"
      },
      {
-      "name": "feature-staging"
+      "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html"
      },
      {
-      "name": "folio-init"
+      "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html"
      },
      {
-      "name": "gate-tree-mutation"
+      "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html"
      },
      {
-      "name": "generalise-the-fix"
+      "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html"
      },
      {
-      "name": "github-state-inspection"
+      "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html"
      },
      {
-      "name": "graph-detanglement"
+      "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html"
      },
      {
-      "name": "issue-working"
+      "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html"
      },
      {
-      "name": "kg-affordances"
+      "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html"
      },
      {
-      "name": "kg-separation"
+      "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html"
      },
      {
-      "name": "library-ingestion"
+      "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html"
      },
      {
-      "name": "merge-to-main"
+      "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html"
      },
      {
-      "name": "methodology-adoption"
+      "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html"
      },
      {
-      "name": "opening-brief"
+      "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html"
      },
      {
-      "name": "placement"
+      "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html"
      },
      {
-      "name": "platform-gates"
+      "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html"
      },
      {
-      "name": "pr-description"
+      "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html"
      },
      {
-      "name": "prepare-merge"
+      "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html"
      },
      {
-      "name": "prepare-merge-auto"
+      "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html"
      },
      {
-      "name": "related-work-coordination"
+      "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html"
      },
      {
-      "name": "session-context"
+      "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html"
      },
      {
-      "name": "session-state-machine"
+      "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html"
      },
      {
-      "name": "staging-review"
+      "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html"
      },
      {
-      "name": "sub-kg-lifecycle"
+      "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html"
      },
      {
-      "name": "symbiotic-interaction"
+      "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html"
      },
      {
-      "name": "test-data-sets"
+      "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html"
      },
      {
-      "name": "todo-manager"
+      "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html"
      },
      {
-      "name": "translation-manager"
+      "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html"
      },
      {
-      "name": "upstream-version-adoption"
+      "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html"
      },
      {
-      "name": "voice-authoring-guidance"
+      "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html"
      },
      {
-      "name": "watch"
+      "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html"
      },
      {
-      "name": "wireframe-design-review"
+      "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html"
      },
      {
-      "name": "workflow-state"
+      "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html"
      }
     ]
    }
@@ -1320,180 +1799,235 @@
    "id": "Task_AskOwner",
    "name": "Ask the owner on the PR, both sides quoted",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_AskOwner",
+   "stepHref": "merge-refusal.html#step-Task_AskOwner",
    "lane": "Dispatched agent",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Dispatched",
+   "laneHref": "merge-refusal.html#lane-Lane_Dispatched",
    "skills": [
     {
-     "name": "interaction-modality"
+     "name": "interaction-modality",
+     "href": "../../../en/cat-harness/processes/skills/interaction-modality.html"
     }
    ],
    "role": {
     "name": "authoring-agent",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
     "title": "Authoring agent",
     "skills": [
      {
-      "name": "adopt-methodology-from-source"
+      "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html"
      },
      {
-      "name": "agent-permissions"
+      "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html"
      },
      {
-      "name": "ask-the-person"
+      "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html"
      },
      {
-      "name": "bean-coordination"
+      "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html"
      },
      {
-      "name": "before-after-preview"
+      "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html"
      },
      {
-      "name": "blocked-build-dependencies"
+      "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html"
      },
      {
-      "name": "bpmn-authoring"
+      "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html"
      },
      {
-      "name": "branch-archaeology"
+      "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html"
      },
      {
-      "name": "ci-health"
+      "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html"
      },
      {
-      "name": "confirmation-waiver"
+      "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html"
      },
      {
-      "name": "content-author"
+      "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html"
      },
      {
-      "name": "content-graph"
+      "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html"
      },
      {
-      "name": "content-plan"
+      "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html"
      },
      {
-      "name": "continual-progress"
+      "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "crdm-detect"
+      "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html"
      },
      {
-      "name": "crdm-requirements-workflow"
+      "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html"
      },
      {
-      "name": "decision-audit"
+      "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html"
      },
      {
-      "name": "decision-comparison"
+      "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html"
      },
      {
-      "name": "deletion-requires-confirmation"
+      "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html"
      },
      {
-      "name": "delivery-summary"
+      "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html"
      },
      {
-      "name": "directory-conventions"
+      "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html"
      },
      {
-      "name": "feature-staging"
+      "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html"
      },
      {
-      "name": "folio-init"
+      "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html"
      },
      {
-      "name": "gate-tree-mutation"
+      "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html"
      },
      {
-      "name": "generalise-the-fix"
+      "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html"
      },
      {
-      "name": "github-state-inspection"
+      "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html"
      },
      {
-      "name": "graph-detanglement"
+      "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html"
      },
      {
-      "name": "issue-working"
+      "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html"
      },
      {
-      "name": "kg-affordances"
+      "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html"
      },
      {
-      "name": "kg-separation"
+      "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html"
      },
      {
-      "name": "library-ingestion"
+      "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html"
      },
      {
-      "name": "merge-to-main"
+      "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html"
      },
      {
-      "name": "methodology-adoption"
+      "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html"
      },
      {
-      "name": "opening-brief"
+      "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html"
      },
      {
-      "name": "placement"
+      "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html"
      },
      {
-      "name": "platform-gates"
+      "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html"
      },
      {
-      "name": "pr-description"
+      "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html"
      },
      {
-      "name": "prepare-merge"
+      "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html"
      },
      {
-      "name": "prepare-merge-auto"
+      "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html"
      },
      {
-      "name": "related-work-coordination"
+      "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html"
      },
      {
-      "name": "session-context"
+      "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html"
      },
      {
-      "name": "session-state-machine"
+      "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html"
      },
      {
-      "name": "staging-review"
+      "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html"
      },
      {
-      "name": "sub-kg-lifecycle"
+      "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html"
      },
      {
-      "name": "symbiotic-interaction"
+      "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html"
      },
      {
-      "name": "test-data-sets"
+      "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html"
      },
      {
-      "name": "todo-manager"
+      "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html"
      },
      {
-      "name": "translation-manager"
+      "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html"
      },
      {
-      "name": "upstream-version-adoption"
+      "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html"
      },
      {
-      "name": "voice-authoring-guidance"
+      "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html"
      },
      {
-      "name": "watch"
+      "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html"
      },
      {
-      "name": "wireframe-design-review"
+      "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html"
      },
      {
-      "name": "workflow-state"
+      "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html"
      }
     ]
    }
@@ -1502,274 +2036,343 @@
    "id": "Task_Retrain",
    "name": "Re-enter a train on the new head",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_Retrain",
+   "stepHref": "merge-refusal.html#step-Task_Retrain",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "merge-conflict-patterns"
+     "name": "merge-conflict-patterns",
+     "href": "../../../en/cat-harness/processes/skills/merge-conflict-patterns.html"
     }
    ],
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]
@@ -1779,274 +2382,343 @@
    "id": "Task_Close",
    "name": "Record the merge commit as evidence",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_Close",
+   "stepHref": "merge-refusal.html#step-Task_Close",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "bean-coordination"
+     "name": "bean-coordination",
+     "href": "../../../en/cat-harness/processes/skills/bean-coordination.html"
     }
    ],
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]
@@ -2056,274 +2728,343 @@
    "id": "Task_Scrap",
    "name": "Scrap the bean, with the reason",
    "type": "bpmn:Task",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Task_Scrap",
+   "stepHref": "merge-refusal.html#step-Task_Scrap",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "bean-coordination"
+     "name": "bean-coordination",
+     "href": "../../../en/cat-harness/processes/skills/bean-coordination.html"
     }
    ],
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]
@@ -2333,467 +3074,349 @@
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Call_BeanOpen",
+   "stepHref": "merge-refusal.html#step-Call_BeanOpen",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "bean-coordination"
+     "name": "bean-coordination",
+     "href": "../../../en/cat-harness/processes/skills/bean-coordination.html"
     }
    ],
    "calls": {
     "name": "Open the bean",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_BeanOpen",
+    "href": "bean-open.html",
     "diagram": "bean-open.html"
    },
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
-     }
-    ]
-   }
-  },
-  "Call_BeanClose": {
-   "id": "Call_BeanClose",
-   "name": "Close the bean",
-   "type": "bpmn:CallActivity",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Call_BeanClose",
-   "lane": "Dispatched agent",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Dispatched",
-   "skills": [
-    {
-     "name": "todo-manager"
-    }
-   ],
-   "calls": {
-    "name": "Close the bean",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_BeanClose",
-    "diagram": "bean-close.html"
-   },
-   "role": {
-    "name": "authoring-agent",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/authoring-agent",
-    "title": "Authoring agent",
-    "skills": [
-     {
-      "name": "adopt-methodology-from-source"
-     },
-     {
-      "name": "agent-permissions"
-     },
-     {
-      "name": "ask-the-person"
-     },
-     {
-      "name": "bean-coordination"
-     },
-     {
-      "name": "before-after-preview"
-     },
-     {
-      "name": "blocked-build-dependencies"
-     },
-     {
-      "name": "bpmn-authoring"
-     },
-     {
-      "name": "branch-archaeology"
-     },
-     {
-      "name": "ci-health"
-     },
-     {
-      "name": "confirmation-waiver"
-     },
-     {
-      "name": "content-author"
-     },
-     {
-      "name": "content-graph"
-     },
-     {
-      "name": "content-plan"
-     },
-     {
-      "name": "continual-progress"
-     },
-     {
-      "name": "coordinate"
-     },
-     {
-      "name": "crdm-detect"
-     },
-     {
-      "name": "crdm-requirements-workflow"
-     },
-     {
-      "name": "decision-audit"
-     },
-     {
-      "name": "decision-comparison"
-     },
-     {
-      "name": "deletion-requires-confirmation"
-     },
-     {
-      "name": "delivery-summary"
-     },
-     {
-      "name": "directory-conventions"
-     },
-     {
-      "name": "feature-staging"
-     },
-     {
-      "name": "folio-init"
-     },
-     {
-      "name": "gate-tree-mutation"
-     },
-     {
-      "name": "generalise-the-fix"
-     },
-     {
-      "name": "github-state-inspection"
-     },
-     {
-      "name": "graph-detanglement"
-     },
-     {
-      "name": "issue-working"
-     },
-     {
-      "name": "kg-affordances"
-     },
-     {
-      "name": "kg-separation"
-     },
-     {
-      "name": "library-ingestion"
-     },
-     {
-      "name": "merge-to-main"
-     },
-     {
-      "name": "methodology-adoption"
-     },
-     {
-      "name": "opening-brief"
-     },
-     {
-      "name": "placement"
-     },
-     {
-      "name": "platform-gates"
-     },
-     {
-      "name": "pr-description"
-     },
-     {
-      "name": "prepare-merge"
-     },
-     {
-      "name": "prepare-merge-auto"
-     },
-     {
-      "name": "related-work-coordination"
-     },
-     {
-      "name": "session-context"
-     },
-     {
-      "name": "session-state-machine"
-     },
-     {
-      "name": "staging-review"
-     },
-     {
-      "name": "sub-kg-lifecycle"
-     },
-     {
-      "name": "symbiotic-interaction"
-     },
-     {
-      "name": "test-data-sets"
-     },
-     {
-      "name": "todo-manager"
-     },
-     {
-      "name": "translation-manager"
-     },
-     {
-      "name": "upstream-version-adoption"
-     },
-     {
-      "name": "voice-authoring-guidance"
-     },
-     {
-      "name": "watch"
-     },
-     {
-      "name": "wireframe-design-review"
-     },
-     {
-      "name": "workflow-state"
      }
     ]
    }
@@ -2802,561 +3425,348 @@
    "id": "Call_BeanClose_2",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Call_BeanClose_2",
+   "stepHref": "merge-refusal.html#step-Call_BeanClose_2",
    "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
+   "laneHref": "merge-refusal.html#lane-Lane_Steward",
    "skills": [
     {
-     "name": "todo-manager"
+     "name": "todo-manager",
+     "href": "../../../en/cat-harness/processes/skills/todo-manager.html"
     }
    ],
    "calls": {
     "name": "Close the bean",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_BeanClose",
+    "href": "bean-close.html",
     "diagram": "bean-close.html"
    },
    "role": {
     "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-session-coordinator",
     "title": "Session coordinator",
     "skills": [
      {
       "name": "adopt-methodology-from-source",
+      "href": "../../../en/cat-harness/processes/skills/adopt-methodology-from-source.html",
       "via": "authoring-agent"
      },
      {
-      "name": "agent-handoff"
+      "name": "agent-handoff",
+      "href": "../../../en/cat-harness/processes/skills/agent-handoff.html"
      },
      {
       "name": "agent-permissions",
+      "href": "../../../en/cat-harness/processes/skills/agent-permissions.html",
       "via": "authoring-agent"
      },
      {
       "name": "ask-the-person",
+      "href": "../../../en/cat-harness/processes/skills/ask-the-person.html",
       "via": "authoring-agent"
      },
      {
       "name": "bean-coordination",
+      "href": "../../../en/cat-harness/processes/skills/bean-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "before-after-preview",
+      "href": "../../../en/cat-harness/processes/skills/before-after-preview.html",
       "via": "authoring-agent"
      },
      {
       "name": "blocked-build-dependencies",
+      "href": "../../../en/cat-harness/processes/skills/blocked-build-dependencies.html",
       "via": "authoring-agent"
      },
      {
       "name": "bpmn-authoring",
+      "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html",
       "via": "authoring-agent"
      },
      {
       "name": "branch-archaeology",
+      "href": "../../../en/cat-harness/processes/skills/branch-archaeology.html",
       "via": "authoring-agent"
      },
      {
-      "name": "branch-freshness"
+      "name": "branch-freshness",
+      "href": "../../../en/cat-harness/processes/skills/branch-freshness.html"
      },
      {
       "name": "ci-health",
+      "href": "../../../en/cat-harness/processes/skills/ci-health.html",
       "via": "authoring-agent"
      },
      {
-      "name": "communication-language"
+      "name": "communication-language",
+      "href": "../../../en/cat-harness/processes/skills/communication-language.html"
      },
      {
       "name": "confirmation-waiver",
+      "href": "../../../en/cat-harness/processes/skills/confirmation-waiver.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-author",
+      "href": "../../../en/cat-harness/processes/skills/content-author.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-graph",
+      "href": "../../../en/cat-harness/processes/skills/content-graph.html",
       "via": "authoring-agent"
      },
      {
       "name": "content-plan",
+      "href": "../../../en/cat-harness/processes/skills/content-plan.html",
       "via": "authoring-agent"
      },
      {
       "name": "continual-progress",
+      "href": "../../../en/cat-harness/processes/skills/continual-progress.html",
       "via": "authoring-agent"
      },
      {
-      "name": "coordinate"
+      "name": "coordinate",
+      "href": "../../../en/cat-harness/processes/skills/coordinate.html"
      },
      {
-      "name": "corpus-grep"
+      "name": "corpus-grep",
+      "href": "../../../en/cat-harness/processes/skills/corpus-grep.html"
      },
      {
       "name": "crdm-detect",
+      "href": "../../../en/cat-harness/processes/skills/crdm-detect.html",
       "via": "authoring-agent"
      },
      {
       "name": "crdm-requirements-workflow",
+      "href": "../../../en/cat-harness/processes/skills/crdm-requirements-workflow.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-audit",
+      "href": "../../../en/cat-harness/processes/skills/decision-audit.html",
       "via": "authoring-agent"
      },
      {
       "name": "decision-comparison",
+      "href": "../../../en/cat-harness/processes/skills/decision-comparison.html",
       "via": "authoring-agent"
      },
      {
       "name": "deletion-requires-confirmation",
+      "href": "../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html",
       "via": "authoring-agent"
      },
      {
       "name": "delivery-summary",
+      "href": "../../../en/cat-harness/processes/skills/delivery-summary.html",
       "via": "authoring-agent"
      },
      {
-      "name": "diff"
+      "name": "diff",
+      "href": "../../../en/cat-harness/processes/skills/diff.html"
      },
      {
       "name": "directory-conventions",
+      "href": "../../../en/cat-harness/processes/skills/directory-conventions.html",
       "via": "authoring-agent"
      },
      {
       "name": "feature-staging",
+      "href": "../../../en/cat-harness/processes/skills/feature-staging.html",
       "via": "authoring-agent"
      },
      {
       "name": "folio-init",
+      "href": "../../../en/cat-harness/processes/skills/folio-init.html",
       "via": "authoring-agent"
      },
      {
       "name": "gate-tree-mutation",
+      "href": "../../../en/cat-harness/processes/skills/gate-tree-mutation.html",
       "via": "authoring-agent"
      },
      {
       "name": "generalise-the-fix",
+      "href": "../../../en/cat-harness/processes/skills/generalise-the-fix.html",
       "via": "authoring-agent"
      },
      {
       "name": "github-state-inspection",
+      "href": "../../../en/cat-harness/processes/skills/github-state-inspection.html",
       "via": "authoring-agent"
      },
      {
-      "name": "goal-review"
+      "name": "goal-review",
+      "href": "../../../en/cat-harness/processes/skills/goal-review.html"
      },
      {
       "name": "graph-detanglement",
+      "href": "../../../en/cat-harness/processes/skills/graph-detanglement.html",
       "via": "authoring-agent"
      },
      {
-      "name": "idle-backlog"
+      "name": "idle-backlog",
+      "href": "../../../en/cat-harness/processes/skills/idle-backlog.html"
      },
      {
       "name": "issue-working",
+      "href": "../../../en/cat-harness/processes/skills/issue-working.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-affordances",
+      "href": "../../../en/cat-harness/processes/skills/kg-affordances.html",
       "via": "authoring-agent"
      },
      {
       "name": "kg-separation",
+      "href": "../../../en/cat-harness/processes/skills/kg-separation.html",
       "via": "authoring-agent"
      },
      {
       "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html",
       "via": "authoring-agent"
      },
      {
       "name": "merge-to-main",
+      "href": "../../../en/cat-harness/processes/skills/merge-to-main.html",
       "via": "authoring-agent"
      },
      {
       "name": "methodology-adoption",
+      "href": "../../../en/cat-harness/processes/skills/methodology-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "opening-brief",
+      "href": "../../../en/cat-harness/processes/skills/opening-brief.html",
       "via": "authoring-agent"
      },
      {
-      "name": "pending-show"
+      "name": "pending-show",
+      "href": "../../../en/cat-harness/processes/skills/pending-show.html"
      },
      {
-      "name": "pickup"
+      "name": "pickup",
+      "href": "../../../en/cat-harness/processes/skills/pickup.html"
      },
      {
       "name": "placement",
+      "href": "../../../en/cat-harness/processes/skills/placement.html",
       "via": "authoring-agent"
      },
      {
       "name": "platform-gates",
+      "href": "../../../en/cat-harness/processes/skills/platform-gates.html",
       "via": "authoring-agent"
      },
      {
       "name": "pr-description",
+      "href": "../../../en/cat-harness/processes/skills/pr-description.html",
       "via": "authoring-agent"
      },
      {
-      "name": "prepare-for-handover"
+      "name": "prepare-for-handover",
+      "href": "../../../en/cat-harness/processes/skills/prepare-for-handover.html"
      },
      {
       "name": "prepare-merge",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge.html",
       "via": "authoring-agent"
      },
      {
       "name": "prepare-merge-auto",
+      "href": "../../../en/cat-harness/processes/skills/prepare-merge-auto.html",
       "via": "authoring-agent"
      },
      {
-      "name": "process-state"
+      "name": "process-state",
+      "href": "../../../en/cat-harness/processes/skills/process-state.html"
      },
      {
       "name": "related-work-coordination",
+      "href": "../../../en/cat-harness/processes/skills/related-work-coordination.html",
       "via": "authoring-agent"
      },
      {
       "name": "session-context",
+      "href": "../../../en/cat-harness/processes/skills/session-context.html",
       "via": "authoring-agent"
      },
      {
-      "name": "session-intent"
+      "name": "session-intent",
+      "href": "../../../en/cat-harness/processes/skills/session-intent.html"
      },
      {
       "name": "session-state-machine",
+      "href": "../../../en/cat-harness/processes/skills/session-state-machine.html",
       "via": "authoring-agent"
      },
      {
       "name": "staging-review",
+      "href": "../../../en/cat-harness/processes/skills/staging-review.html",
       "via": "authoring-agent"
      },
      {
       "name": "sub-kg-lifecycle",
+      "href": "../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html",
       "via": "authoring-agent"
      },
      {
       "name": "symbiotic-interaction",
+      "href": "../../../en/cat-harness/processes/skills/symbiotic-interaction.html",
       "via": "authoring-agent"
      },
      {
-      "name": "task-authorization"
+      "name": "task-authorization",
+      "href": "../../../en/cat-harness/processes/skills/task-authorization.html"
      },
      {
       "name": "test-data-sets",
+      "href": "../../../en/cat-harness/processes/skills/test-data-sets.html",
       "via": "authoring-agent"
      },
      {
       "name": "todo-manager",
+      "href": "../../../en/cat-harness/processes/skills/todo-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "translation-manager",
+      "href": "../../../en/cat-harness/processes/skills/translation-manager.html",
       "via": "authoring-agent"
      },
      {
       "name": "upstream-version-adoption",
+      "href": "../../../en/cat-harness/processes/skills/upstream-version-adoption.html",
       "via": "authoring-agent"
      },
      {
       "name": "voice-authoring-guidance",
+      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html",
       "via": "authoring-agent"
      },
      {
       "name": "watch",
+      "href": "../../../en/cat-harness/processes/skills/watch.html",
       "via": "authoring-agent"
      },
      {
       "name": "wireframe-design-review",
+      "href": "../../../en/cat-harness/processes/skills/wireframe-design-review.html",
       "via": "authoring-agent"
      },
      {
-      "name": "work-plan-restructure"
+      "name": "work-plan-restructure",
+      "href": "../../../en/cat-harness/processes/skills/work-plan-restructure.html"
      },
      {
       "name": "workflow-state",
-      "via": "authoring-agent"
-     }
-    ]
-   }
-  },
-  "Call_BeanClose_3": {
-   "id": "Call_BeanClose_3",
-   "name": "Close the bean",
-   "type": "bpmn:CallActivity",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/node/Call_BeanClose_3",
-   "lane": "Merge steward",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MergeRefusal/lane/Lane_Steward",
-   "skills": [
-    {
-     "name": "todo-manager"
-    }
-   ],
-   "calls": {
-    "name": "Close the bean",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_BeanClose",
-    "diagram": "bean-close.html"
-   },
-   "role": {
-    "name": "session-coordinator",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/session-coordinator",
-    "title": "Session coordinator",
-    "skills": [
-     {
-      "name": "adopt-methodology-from-source",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "agent-handoff"
-     },
-     {
-      "name": "agent-permissions",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "ask-the-person",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "bean-coordination",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "before-after-preview",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "blocked-build-dependencies",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "bpmn-authoring",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "branch-archaeology",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "branch-freshness"
-     },
-     {
-      "name": "ci-health",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "communication-language"
-     },
-     {
-      "name": "confirmation-waiver",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "content-author",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "content-graph",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "content-plan",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "continual-progress",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "coordinate"
-     },
-     {
-      "name": "corpus-grep"
-     },
-     {
-      "name": "crdm-detect",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "crdm-requirements-workflow",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "decision-audit",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "decision-comparison",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "deletion-requires-confirmation",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "delivery-summary",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "diff"
-     },
-     {
-      "name": "directory-conventions",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "feature-staging",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "folio-init",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "gate-tree-mutation",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "generalise-the-fix",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "github-state-inspection",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "goal-review"
-     },
-     {
-      "name": "graph-detanglement",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "idle-backlog"
-     },
-     {
-      "name": "issue-working",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "kg-affordances",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "kg-separation",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "library-ingestion",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "merge-to-main",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "methodology-adoption",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "opening-brief",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "pending-show"
-     },
-     {
-      "name": "pickup"
-     },
-     {
-      "name": "placement",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "platform-gates",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "pr-description",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "prepare-for-handover"
-     },
-     {
-      "name": "prepare-merge",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "prepare-merge-auto",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "process-state"
-     },
-     {
-      "name": "related-work-coordination",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "session-context",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "session-intent"
-     },
-     {
-      "name": "session-state-machine",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "staging-review",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "sub-kg-lifecycle",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "symbiotic-interaction",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "task-authorization"
-     },
-     {
-      "name": "test-data-sets",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "todo-manager",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "translation-manager",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "upstream-version-adoption",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "voice-authoring-guidance",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "watch",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "wireframe-design-review",
-      "via": "authoring-agent"
-     },
-     {
-      "name": "work-plan-restructure"
-     },
-     {
-      "name": "workflow-state",
+      "href": "../../../en/cat-harness/processes/skills/workflow-state.html",
       "via": "authoring-agent"
      }
     ]

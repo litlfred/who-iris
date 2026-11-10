@@ -9,29 +9,7 @@
 
   <link rel="stylesheet" href="../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-
-    
-    .site-nav > ul.nav-list:first-child > li:not(:nth-child(1)) > a,
-    .site-nav > ul.nav-list:first-child > li > ul > li a {
-      background-image: none;
-    }
-
-    .site-nav > ul.nav-list:not(:first-child) a,
-    .site-nav li.external a {
-      background-image: none;
-    }
-
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > a {
-      font-weight: 600;
-      text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(1) > button svg {
-      transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list {
-      display: block;
-    }
-  </style>
 
   
 
@@ -100,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -357,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -438,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -469,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -585,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -604,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -615,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -629,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -644,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -662,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -750,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout><script src="../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content=".."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-29b6qoh3um2","here":"/docs/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#fa-sticky-cat-harness-summary","label":"computable adjudication and agentic test harness"},{"href":"#fa-sticky-folio-assist-core-summary","label":"What a folio is"},{"href":"#fa-sticky-who-iris-summary","label":"A catalogue by reference"},{"href":"#harnesses-heading","label":"What each harness holds","children":[{"href":"#harness-who-iris-heading","label":"WHO IRIS","depth":1},{"href":"#harness-folio-assistant-core-heading","label":"Folio Assistant Core","depth":1},{"href":"#harness-cat-harness-tools-heading","label":"C@T Harness Tools","depth":1},{"href":"#harness-cat-harness-heading","label":"C@T Harness","depth":1},{"href":"#harness-bootstrap-tools-heading","label":"Bootstrap tools","depth":1},{"href":"#harness-bootstrap-heading","label":"Bootstrap","depth":1}],"fold":"6 sub-sections"},{"href":"#what-this-site-is","label":"What this site is"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout><script src="../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content=".."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-hucqb7hmk3","here":"/docs/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#fa-sticky-cat-harness-summary","label":"computable adjudication and agentic test harness"},{"href":"#fa-sticky-folio-assist-core-summary","label":"What a folio is"},{"href":"#fa-sticky-who-iris-summary","label":"A catalogue by reference"},{"href":"#harnesses-heading","label":"What each harness holds","children":[{"href":"#harness-who-iris-heading","label":"WHO IRIS","depth":1},{"href":"#harness-folio-assistant-core-heading","label":"Folio Assistant Core","depth":1},{"href":"#harness-cat-harness-tools-heading","label":"C@T Harness Tools","depth":1},{"href":"#harness-cat-harness-heading","label":"C@T Harness","depth":1},{"href":"#harness-bootstrap-tools-heading","label":"Bootstrap tools","depth":1},{"href":"#harness-bootstrap-heading","label":"Bootstrap","depth":1}],"fold":"6 sub-sections"},{"href":"#what-this-site-is","label":"What this site is"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -921,7 +963,7 @@
 </h2>
     <div class="fa-landing-sticky__text">
     <div class="fa-landing-sticky__body">
-      <p>The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, three materialized.</p>
+      <p>The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.</p>
 
     </div><ul class="fa-landing-sticky__links"><li>
         <a href="../">WHO IRIS</a> <span class="fa-landing-sticky__note">The three materialized items, on IRIS's own theme.</span></li></ul></div>
@@ -966,28 +1008,29 @@ its items are held.</p>
 </h3>
     <p class="fa-harness-section__description">The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.</p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
         <dt>declared directories</dt>
-        <dd>19</dd>
+        <dd>20</dd>
       </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
         <dt>declared graph typologies</dt>
-        <dd>17</dd>
+        <dd>18</dd>
       </div><div class="fa-harness-section__stat" data-fa-stat="views">
         <dt>visualisations you can open</dt>
-        <dd>13</dd>
+        <dd>14</dd>
       </div></dl><ul class="fa-harness-section__viewers"><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/attestations/who-iris/">Attestations</a></li><li>
         <a href="../catalogue/" data-fa-readonly="" title="materialized content: readable, not editable here">Catalogue</a><span class="fa-readonly-note">read-only</span></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/code/who-iris/">Code</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/folio/who-iris/">Folio</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/health/who-iris/">Health</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/library/who-iris/">Library</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/who-iris/">Processes</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/qa/who-iris/">QA</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/who-iris/">Scenarios</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/who-iris/">Schemas</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/themes/">Themes</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/who-iris/">Tools</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/">Translation sources</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/uploads/who-iris/">Uploads</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 19 local, 0 remote</summary>
+      <summary>Subgraphs — 20 local, 0 remote</summary>
       <ul><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>who-iris-translations</code> <span class="fa-harness-section__via">translations/</span> <span class="fa-harness-section__kinds">· translation-sources</span></li><li data-fa-where="local">
@@ -997,8 +1040,6 @@ its items are held.</p>
           <code>who-iris-site</code> <span class="fa-harness-section__via">site/</span> <span class="fa-harness-section__kinds">· docs</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>who-iris-catalogue</code> <span class="fa-harness-section__via">catalogue/</span> <span class="fa-harness-section__kinds">· catalogue</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>who-iris-uploads</code> <span class="fa-harness-section__via">uploads/</span> <span class="fa-harness-section__kinds">· uploads</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>who-iris-skills</code> <span class="fa-harness-section__via">skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
@@ -1010,6 +1051,8 @@ its items are held.</p>
           <span class="fa-harness-section__where">local</span>
           <code>who-iris-processes</code> <span class="fa-harness-section__via">processes/</span> <span class="fa-harness-section__kinds">· processes</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
+          <code>who-iris-scenarios</code> <span class="fa-harness-section__via">scenarios/</span> <span class="fa-harness-section__kinds">· scenarios</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
           <code>who-iris-scripts</code> <span class="fa-harness-section__via">scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>who-iris-sources</code> <span class="fa-harness-section__via">sources/</span> <span class="fa-harness-section__kinds">· schemas</span></li><li data-fa-where="local">
@@ -1017,6 +1060,8 @@ its items are held.</p>
           <code>id-lookup</code> <span class="fa-harness-section__via">id-lookup/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>qa</code> <span class="fa-harness-section__via">test/results/</span> <span class="fa-harness-section__kinds">· qa</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>attestations</code> <span class="fa-harness-section__via">test/attestations/</span> <span class="fa-harness-section__kinds">· attestations</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>folio</code> <span class="fa-harness-section__via">folio/</span> <span class="fa-harness-section__kinds">· folio</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
@@ -1046,9 +1091,9 @@ its items are held.</p>
         <dd>29</dd>
       </div><div class="fa-harness-section__stat" data-fa-stat="views">
         <dt>visualisations you can open</dt>
-        <dd>22</dd>
+        <dd>25</dd>
       </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/folio-assistant-core/">Beans</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/folio-assistant-core/">Plans and work</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/block-kinds/folio-assistant-core/">Block kinds</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/code/folio-assistant-core/">Code</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/code-lists/folio-assistant-core/">Code lists</a></li><li>
@@ -1059,7 +1104,7 @@ its items are held.</p>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/memory/folio-assistant-core/">Memory</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/methodologies/">Methodologies</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/pipeline-plugins/folio-assistant-core/">Pipeline plugins</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/folio-assistant-core/">Processes</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/qa/folio-assistant-core/">QA</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/qa-checkers/folio-assistant-core/">QA checkers</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/folio-assistant-core/">Scenarios</a></li><li>
@@ -1068,7 +1113,7 @@ its items are held.</p>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/">Translation sources</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/graph-typologies/folio-assistant-core/">Graph typologies</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/validators/folio-assistant-core/">Validators</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/folio-assistant-core/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
       <summary>Subgraphs — 33 local, 0 remote</summary>
       <ul><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
@@ -1139,7 +1184,7 @@ its items are held.</p>
           <code>docs-source</code> <span class="fa-harness-section__via">folio-assistant-core/docs/source/</span> <span class="fa-harness-section__kinds">· docs</span></li></ul>
     </details><details class="fa-harness-section__findings">
       <summary>Gaps in this instance's declaration (2)</summary>
-      <ul><li>folio-assistant-core: 1 graph(s) render no viewer — software-library — under a declared <code class="language-plaintext highlighter-rouge">coverage.exempt.visualiser</code>. Not a gap: Owner, 2026-10-29 (cat-harness#691): no viewer by design. Each node is an outside package whose registry tarball and SPDX licence the node already links, so a viewer would only repeat the registry.</li><li>folio-assistant-core: declares 6 graph(s) with no published viewer — bean-defs, bean-notes, docs, glossary, skills, workflow-state. Declared and not rendered is a gap, not a dead link.</li></ul>
+      <ul><li>folio-assistant-core: 1 graph(s) render no viewer — software-library — under a declared <code class="language-plaintext highlighter-rouge">coverage.exempt.visualiser</code>. Not a gap: Owner, 2026-10-29 (cat-harness#691): no viewer by design. Each node is an outside package whose registry tarball and SPDX licence the node already links, so a viewer would only repeat the registry.</li><li>folio-assistant-core: declares 3 graph(s) with no published viewer — docs, glossary, skills. Declared and not rendered is a gap, not a dead link.</li></ul>
     </details></section><section class="fa-harness-section" id="harness-cat-harness-tools" style="--fa-tile-tone: 268; --fa-tile-on: 1">
 <h3 class="fa-harness-section__title" id="harness-cat-harness-tools-heading">
   
@@ -1150,28 +1195,32 @@ its items are held.</p>
 </h3>
     <p class="fa-harness-section__description">What implements the harness’s Tool definitions: the MCP servers, their tool registrars and routes. Definitions stay in cat-harness; this layer runs them.</p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
         <dt>declared directories</dt>
-        <dd>24</dd>
+        <dd>28</dd>
       </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
         <dt>declared graph typologies</dt>
-        <dd>9</dd>
+        <dd>12</dd>
       </div><div class="fa-harness-section__stat" data-fa-stat="views">
         <dt>visualisations you can open</dt>
-        <dd>4</dd>
+        <dd>10</dd>
       </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/cat-harness-tools/">Beans</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/cat-harness-tools/">Plans and work</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/code/cat-harness-tools/">Code</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/health/cat-harness-tools/">Health</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/cat-harness-tools/">Tools</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 24 local, 0 remote</summary>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/cat-harness-tools/">Schemas</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/cat-harness-tools/">Tools</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/validators/cat-harness-tools/">Validators</a></li></ul><details class="fa-harness-section__subgraphs">
+      <summary>Subgraphs — 28 local, 0 remote</summary>
       <ul><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-adapters</code> <span class="fa-harness-section__via">cat-harness-tools/adapters/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>cat-harness-tools-validators</code> <span class="fa-harness-section__via">cat-harness-tools/validators/</span> <span class="fa-harness-section__kinds">· validators</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-ui</code> <span class="fa-harness-section__via">cat-harness-tools/ui/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-viewer</code> <span class="fa-harness-section__via">cat-harness-tools/viewer/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
-          <code>cat-harness-tools-schemas</code> <span class="fa-harness-section__via">cat-harness-tools/schemas/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
+          <code>cat-harness-tools-schemas</code> <span class="fa-harness-section__via">cat-harness-tools/schemas/</span> <span class="fa-harness-section__kinds">· schemas, code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-scripts</code> <span class="fa-harness-section__via">cat-harness-tools/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
@@ -1189,6 +1238,8 @@ its items are held.</p>
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-libraries</code> <span class="fa-harness-section__via">cat-harness-tools/libraries/</span> <span class="fa-harness-section__kinds">· software-library</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
+          <code>cat-harness-tools-caches</code> <span class="fa-harness-section__via">cat-harness-tools/caches/</span> <span class="fa-harness-section__kinds">· cache</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
           <code>beans</code> <span class="fa-harness-section__via">cat-harness-tools/beans/</span> <span class="fa-harness-section__kinds">· beans</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-pipeline</code> <span class="fa-harness-section__via">cat-harness-tools/pipeline/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
@@ -1201,7 +1252,11 @@ its items are held.</p>
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-archimate</code> <span class="fa-harness-section__via">cat-harness-tools/archimate/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
+          <code>cat-harness-tools-archimate-schemas</code> <span class="fa-harness-section__via">cat-harness-tools/archimate/schemas/</span> <span class="fa-harness-section__kinds">· schemas, code</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
           <code>cat-harness-tools-openapi</code> <span class="fa-harness-section__via">cat-harness-tools/openapi/scripts/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>cat-harness-tools-openapi-schemas</code> <span class="fa-harness-section__via">cat-harness-tools/openapi/schemas/</span> <span class="fa-harness-section__kinds">· schemas, code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>health</code> <span class="fa-harness-section__via">cat-harness-tools/health/</span> <span class="fa-harness-section__kinds">· health</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
@@ -1214,7 +1269,7 @@ its items are held.</p>
           <code>marks</code> <span class="fa-harness-section__via">cat-harness-tools/beans/marks/</span> <span class="fa-harness-section__kinds">· sweep-marks</span></li></ul>
     </details><details class="fa-harness-section__findings">
       <summary>Gaps in this instance's declaration (3)</summary>
-      <ul><li>cat-harness-tools: 1 graph(s) render no viewer — software-library — under a declared <code class="language-plaintext highlighter-rouge">coverage.exempt.visualiser</code>. Not a gap: Owner, 2026-10-29 (cat-harness#691): no viewer by design. Each node is an outside package whose registry tarball and SPDX licence the node already links, so a viewer would only repeat the registry.</li><li>cat-harness-tools: declares 4 graph(s) with no published viewer — bean-defs, bean-notes, sweep-marks, workflow-state. Declared and not rendered is a gap, not a dead link.</li><li>cat-harness-tools: has no docs/ of its own, so the tile opens its section of the landing (/#harness-cat-harness-tools) rather than the instance’s own themed root.</li></ul>
+      <ul><li>cat-harness-tools: 1 graph(s) render no viewer — software-library — under a declared <code class="language-plaintext highlighter-rouge">coverage.exempt.visualiser</code>. Not a gap: Owner, 2026-10-29 (cat-harness#691): no viewer by design. Each node is an outside package whose registry tarball and SPDX licence the node already links, so a viewer would only repeat the registry.</li><li>cat-harness-tools: declares 1 graph(s) with no published viewer — cache. Declared and not rendered is a gap, not a dead link.</li><li>cat-harness-tools: has no docs/ of its own, so the tile opens its section of the landing (/#harness-cat-harness-tools) rather than the instance’s own themed root.</li></ul>
     </details></section><section class="fa-harness-section" id="harness-cat-harness" style="--fa-tile-tone: 268; --fa-tile-on: 1">
 <h3 class="fa-harness-section__title" id="harness-cat-harness-heading">
   
@@ -1225,23 +1280,22 @@ its items are held.</p>
 </h3>
     <p class="fa-harness-section__description">Computable adjudication and agentic test harness.</p><p class="fa-harness-section__also">Also written: <code>caaat-harness</code>, <code>ca&amp;at-harness</code>, <code>.c&amp;at-harness</code>, <code>c@t-harness</code></p><dl class="fa-harness-section__stats"><div class="fa-harness-section__stat" data-fa-stat="directories">
         <dt>declared directories</dt>
-        <dd>69</dd>
+        <dd>74</dd>
       </div><div class="fa-harness-section__stat" data-fa-stat="kinds">
         <dt>declared graph typologies</dt>
-        <dd>43</dd>
+        <dd>44</dd>
       </div><div class="fa-harness-section__stat" data-fa-stat="views">
         <dt>visualisations you can open</dt>
         <dd>39</dd>
       </div></dl><ul class="fa-harness-section__viewers"><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/attestations/cat-harness/">Attestations</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/site/">Basic CDN site</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/">Beans</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/beans/">Plans and work</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/code/cat-harness/">Code</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/code-lists/cat-harness/">Code lists</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/start/">Doc group</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/docs/cat-harness/start/">Doc group</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/external-schemas/">External schemas</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/folio/">Folio</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/fsh-guts/">FSH guts</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/health/cat-harness/">Health</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/issue-marks/">Issue marks</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/library/cat-harness/">Library</a></li><li>
@@ -1249,26 +1303,26 @@ its items are held.</p>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/merge-reviews/">Merge reviews</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/methodologies/">Methodologies</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/policies/cat-harness/">Policies</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/cat-harness/">Processes</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/proposals/">Proposals</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/lsi/">QA</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/requirements/">Requirements</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/cat-harness/">Scenarios</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/cat-harness/">Schemas</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/kg/">Skills</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/substrate-snapshots/cat-harness/">Substrate snapshots</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/substrate-snapshots/cat-harness/" data-fa-readonly="" title="materialized content: readable, not editable here">Substrate snapshots</a><span class="fa-readonly-note">read-only</span></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/swimlane-glossary/">Swimlane glossary</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/test-plans/cat-harness/">Test plan</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/todos/">Todos</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tool-releases/cat-harness/">Tool releases</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/tools/cat-harness/">Tools</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/translation-status/">Translation sources</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/graph-typologies/who-iris/">Graph typologies</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/graph-typologies/cat-harness/">Graph typologies</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/uploads/cat-harness/">Uploads</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/validators/cat-harness/">Validators</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/vocab-mappings/cat-harness/">Vocab mapping</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/who-iris/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
-      <summary>Subgraphs — 69 local, 1 remote</summary>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/voices/cat-harness/">Voices</a></li></ul><details class="fa-harness-section__subgraphs">
+      <summary>Subgraphs — 74 local, 1 remote</summary>
       <ul><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>cat-harness-validators</code> <span class="fa-harness-section__via">cat-harness/validators/</span> <span class="fa-harness-section__kinds">· validators</span></li><li data-fa-where="local">
@@ -1278,6 +1332,8 @@ its items are held.</p>
           <code>external-schemas</code> <span class="fa-harness-section__via">cat-harness/external-schemas/</span> <span class="fa-harness-section__kinds">· external-schema</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>subscriptions</code> <span class="fa-harness-section__via">cat-harness/subscriptions/</span> <span class="fa-harness-section__kinds">· substrate-snapshot</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>subscribed-harnesses</code> <span class="fa-harness-section__via">cat-harness/subscribed-harnesses/</span> <span class="fa-harness-section__kinds">· subscribed-harnesses</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>code-lists</code> <span class="fa-harness-section__via">cat-harness/code-lists/</span> <span class="fa-harness-section__kinds">· code-list</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
@@ -1330,6 +1386,10 @@ its items are held.</p>
           <code>cat-harness-upstream</code> <span class="fa-harness-section__via">cat-harness/upstream/</span> <span class="fa-harness-section__kinds">· code</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>openapi</code> <span class="fa-harness-section__via">cat-harness/openapi/</span> <span class="fa-harness-section__kinds">· cat-harness</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>sdlc</code> <span class="fa-harness-section__via">cat-harness/sdlc/</span> <span class="fa-harness-section__kinds">· cat-harness</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>work-plan</code> <span class="fa-harness-section__via">cat-harness/work-plan/</span> <span class="fa-harness-section__kinds">· cat-harness</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>archimate</code> <span class="fa-harness-section__via">cat-harness/archimate/</span> <span class="fa-harness-section__kinds">· cat-harness</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
@@ -1401,18 +1461,22 @@ its items are held.</p>
           <span class="fa-harness-section__where">local</span>
           <code>openapi-typologies</code> <span class="fa-harness-section__via">cat-harness/openapi/typologies/</span> <span class="fa-harness-section__kinds">· typologies</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
-          <code>openapi-schemas</code> <span class="fa-harness-section__via">cat-harness/openapi/schemas/</span> <span class="fa-harness-section__kinds">· schemas</span></li><li data-fa-where="local">
+          <code>sdlc-skills</code> <span class="fa-harness-section__via">cat-harness/sdlc/skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>sdlc-processes</code> <span class="fa-harness-section__via">cat-harness/sdlc/processes/</span> <span class="fa-harness-section__kinds">· processes</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>work-plan-skills</code> <span class="fa-harness-section__via">cat-harness/work-plan/skills/</span> <span class="fa-harness-section__kinds">· skills</span></li><li data-fa-where="local">
+          <span class="fa-harness-section__where">local</span>
+          <code>work-plan-tools</code> <span class="fa-harness-section__via">cat-harness/work-plan/tools/</span> <span class="fa-harness-section__kinds">· tools</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
           <code>archimate-validators</code> <span class="fa-harness-section__via">cat-harness/archimate/validators/</span> <span class="fa-harness-section__kinds">· validators</span></li><li data-fa-where="local">
           <span class="fa-harness-section__where">local</span>
-          <code>archimate-typologies</code> <span class="fa-harness-section__via">cat-harness/archimate/typologies/</span> <span class="fa-harness-section__kinds">· typologies</span></li><li data-fa-where="local">
-          <span class="fa-harness-section__where">local</span>
-          <code>archimate-schemas</code> <span class="fa-harness-section__via">cat-harness/archimate/schemas/</span> <span class="fa-harness-section__kinds">· schemas</span></li><li data-fa-where="remote">
+          <code>archimate-typologies</code> <span class="fa-harness-section__via">cat-harness/archimate/typologies/</span> <span class="fa-harness-section__kinds">· typologies</span></li><li data-fa-where="remote">
           <span class="fa-harness-section__where">remote</span>
           <a href="https://github.com/litlfred/ihris/tree/7a89f67282f53c1ace2e1cfe4d913ebfad466783" rel="noopener">ihris</a> <span class="fa-harness-section__via">subscribed at <code>7a89f67</code></span> <span class="fa-harness-section__via">materialised here: skills</span></li></ul>
     </details><details class="fa-harness-section__findings">
-      <summary>Gaps in this instance's declaration (2)</summary>
-      <ul><li>cat-harness: 1 graph(s) render no viewer — software-library — under a declared <code class="language-plaintext highlighter-rouge">coverage.exempt.visualiser</code>. Not a gap: Owner, 2026-10-29 (cat-harness#691): no viewer by design. Each node is an outside package whose registry tarball and SPDX licence the node already links, so a viewer would only repeat the registry.</li><li>cat-harness: declares 3 graph(s) with no published viewer — auto-docs, docs, uml. Declared and not rendered is a gap, not a dead link.</li></ul>
+      <summary>Gaps in this instance's declaration (3)</summary>
+      <ul><li>cat-harness: 1 graph(s) render no viewer — software-library — under a declared <code class="language-plaintext highlighter-rouge">coverage.exempt.visualiser</code>. Not a gap: Owner, 2026-10-29 (cat-harness#691): no viewer by design. Each node is an outside package whose registry tarball and SPDX licence the node already links, so a viewer would only repeat the registry.</li><li>cat-harness: declares 4 graph(s) with no published viewer — auto-docs, docs, subscribed-harnesses, uml. Declared and not rendered is a gap, not a dead link.</li><li>cat-harness: 1 graph(s) hold materialized content and are READ-ONLY — substrate-snapshot. Readable, not editable here: copy one out to your own folio/ to work on it. Separate from whether a viewer is published.</li></ul>
     </details></section><section class="fa-harness-section" id="harness-bootstrap-tools" style="--fa-tile-tone: 96; --fa-tile-on: 1">
 <h3 class="fa-harness-section__title" id="harness-bootstrap-tools-heading">
   
@@ -1432,7 +1496,7 @@ its items are held.</p>
         <dd>4</dd>
       </div></dl><ul class="fa-harness-section__viewers"><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/code/bootstrap-tools/">Code</a></li><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/bootstrap-tools/">Processes</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/bootstrap-tools/">Scenarios</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/bootstrap-tools/">Schemas</a></li></ul><details class="fa-harness-section__subgraphs">
       <summary>Subgraphs — 5 local, 0 remote</summary>
@@ -1468,7 +1532,7 @@ its items are held.</p>
         <dt>visualisations you can open</dt>
         <dd>3</dd>
       </div></dl><ul class="fa-harness-section__viewers"><li>
-        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/">Processes</a></li><li>
+        <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/bootstrap/">Processes</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/bootstrap/">Scenarios</a></li><li>
         <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/schemas/bootstrap/">Schemas</a></li></ul><details class="fa-harness-section__subgraphs">
       <summary>Subgraphs — 5 local, 0 remote</summary>
@@ -1499,8 +1563,8 @@ its items are held.</p>
 <ul>
   <li><strong><a href="../">The IRIS-style home</a></strong> — IRIS’s home page,
 rendered from this repository’s catalogue and themed as IRIS, at this
-site’s root (owner, 2026-10-30). Each held item links to its library entry
-page, its one page; communities and collections go to the catalogue page.
+site’s root. Each held item links to its library entry page; communities
+and collections go to the catalogue page.
 It is an <strong>ingested copy</strong>: not WHO, and not live.</li>
   <li><strong><a href="../docs/who-iris/">The catalogue</a></strong> — what the
 catalogue knows, and what it records that it does not know. Every node

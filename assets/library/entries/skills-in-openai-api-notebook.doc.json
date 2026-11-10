@@ -57,11 +57,11 @@
           "heading": false
         },
         {
-          "term": "scripts",
+          "term": "bundle",
           "heading": false
         },
         {
-          "term": "bundle",
+          "term": "scripts",
           "heading": false
         },
         {
@@ -311,11 +311,11 @@
           "heading": true
         },
         {
-          "term": "save",
+          "term": "directory containing",
           "heading": false
         },
         {
-          "term": "directory containing",
+          "term": "save",
           "heading": false
         }
       ],
@@ -359,12 +359,12 @@
           "heading": false
         },
         {
-          "term": "routing",
-          "heading": false
-        },
-        {
           "term": "operational",
           "heading": true
+        },
+        {
+          "term": "multi-step",
+          "heading": false
         }
       ],
       "extract": "1) Keep skills “discoverable” Put a clear name and description in frontmatter. In SKILL.md, include: when to use, how to run, expected outputs, gotchas. Add explicit routing guidance: “Use when…” vs. “Don’t use when…”, and a few key edge cases, all in SKILL.md. Include negative examples (when the skill should not be triggered) alongside positive examples to improve routing accuracy. If routing feels inconsistent,",
@@ -395,11 +395,11 @@
           "heading": false
         },
         {
-          "term": "prompts",
+          "term": "durable",
           "heading": false
         },
         {
-          "term": "durable",
+          "term": "runnable",
           "heading": false
         }
       ],
@@ -423,19 +423,19 @@
       "heading": false
     },
     {
-      "term": "shell tool",
-      "heading": false
-    },
-    {
       "term": "uploaded skill",
       "heading": false
     },
     {
-      "term": "upload multiple",
+      "term": "shell tool",
       "heading": false
     },
     {
       "term": "skill version",
+      "heading": false
+    },
+    {
+      "term": "upload multiple",
       "heading": false
     },
     {
@@ -462,6 +462,6 @@
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/skills-in-openai-api-notebook"
+    "dir": "library/conduct/skills-in-openai-api-notebook"
   }
 }

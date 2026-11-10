@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../../../assets/css/navbar.css"><script src="../../../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../../..">{"data":"rail-29b6qoh3um2","here":"/cat-harness/auto-docs/index/skills/skills/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../../assets/css/navbar.css"><script src="../../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../../..">{"data":"rail-hucqb7hmk3","here":"/cat-harness/auto-docs/index/skills/skills/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -917,10 +975,12 @@
 </div>
 
 <ul class="subs">
-<li><a href="../bootstrap-tools-skills/">bootstrap-tools-skills</a> <span class="p">bootstrap-tools/skills</span> <span class="n">3</span></li>
-<li><a href="../core-skills/">core-skills</a> <span class="p">folio-assistant-core/skills</span> <span class="n">38</span></li>
-<li><strong>skills</strong> <span class="p">cat-harness/skills</span> <span class="n">249</span></li>
-<li><a href="../who-iris-skills/">who-iris-skills</a> <span class="p">skills</span> <span class="n">5</span></li>
+<li><a href="../bootstrap-tools-skills/">bootstrap-tools-skills</a> <span class="p">bootstrap-tools/skills</span> <span class="n" data-da-count="index/skills/bootstrap-tools-skills" data-da-count-state="pending">…</span></li>
+<li><a href="../core-skills/">core-skills</a> <span class="p">folio-assistant-core/skills</span> <span class="n" data-da-count="index/skills/core-skills" data-da-count-state="pending">…</span></li>
+<li><a href="../sdlc-skills/">sdlc-skills</a> <span class="p">cat-harness/sdlc/skills</span> <span class="n" data-da-count="index/skills/sdlc-skills" data-da-count-state="pending">…</span></li>
+<li><strong>skills</strong> <span class="p">cat-harness/skills</span> <span class="n" data-da-count="index/skills/skills" data-da-count-state="pending">…</span></li>
+<li><a href="../who-iris-skills/">who-iris-skills</a> <span class="p">skills</span> <span class="n" data-da-count="index/skills/who-iris-skills" data-da-count-state="pending">…</span></li>
+<li><a href="../work-plan-skills/">work-plan-skills</a> <span class="p">cat-harness/work-plan/skills</span> <span class="n" data-da-count="index/skills/work-plan-skills" data-da-count-state="pending">…</span></li>
 </ul>
 
 <div class="fa-table-filter">
@@ -1096,6 +1156,10 @@
   <td>Triage what a person means when they ask to create a folio, and route them.</td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/conduct/conduct-core/hand-back-to-discussion.md"><code>hand-back-to-discussion</code></a><br><span class="p">cat-harness/skills/conduct/conduct-core/hand-back-to-discussion.md</span></td>
+  <td>A sibling agent, spawned during or working beside a live agent-human discussion, hands every card, question, decision, result, blocker or piece of context back to the discussion agent that is talking with the person, an…</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/conduct/conduct-core/harness-projections.md"><code>harness-projections</code></a><br><span class="p">cat-harness/skills/conduct/conduct-core/harness-projections.md</span></td>
   <td>Who may write under <code>.claude/</code>, and when.</td>
 </tr>
@@ -1128,6 +1192,10 @@
   <td>The router for filing decisions.</td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/conduct/conduct-core/work-context.md"><code>work-context</code></a><br><span class="p">cat-harness/skills/conduct/conduct-core/work-context.md</span></td>
+  <td>Keep a short note on the work you are doing — what you did, what you decided and why, what is left open — with the memory tools, so the next person or agent to pick the work up starts where you stopped.</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/conduct/security/injection-boundaries.md"><code>injection-boundaries</code></a><br><span class="p">cat-harness/skills/conduct/security/injection-boundaries.md</span></td>
   <td>Where a value becomes program rather than data — workflow expressions, shell strings, and archive members.</td>
 </tr>
@@ -1145,7 +1213,7 @@
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/kg/graph-management/domain-fencing.md"><code>domain-fencing</code></a><br><span class="p">cat-harness/skills/kg/graph-management/domain-fencing.md</span></td>
-  <td>How a domain-specific rule is kept out of the platform without being lost — the opt-in axis mechanism, the one criterion that should use it and does not, and the test for whether a rule generalizes at all.</td>
+  <td>How a domain-specific rule is kept out of the platform without being lost — the opt-in axis mechanism, why a profile is not a fence, and the test for whether a rule generalizes at all.</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/kg/graph-management/edge-kinds-and-blast-radius.md"><code>edge-kinds-and-blast-radius</code></a><br><span class="p">cat-harness/skills/kg/graph-management/edge-kinds-and-blast-radius.md</span></td>
@@ -1169,7 +1237,7 @@
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/kg/graph-management/lsi-indexing.md"><code>lsi-indexing</code></a><br><span class="p">cat-harness/skills/kg/graph-management/lsi-indexing.md</span></td>
-  <td>Build, read and audit a Latent Semantic Indexing index over a declared prose graph — a library, the skills, the beans, docs — to find units that discuss the same thing in different words, near-duplicates, outlier cluste…</td>
+  <td>Build, read and audit a Latent Semantic Indexing index over a declared prose graph — a library, the skills, the work items, docs — to find units that discuss the same thing in different words, near-duplicates, outlier c…</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/kg/graph-management/named-query-execution.md"><code>named-query-execution</code></a><br><span class="p">cat-harness/skills/kg/graph-management/named-query-execution.md</span></td>
@@ -1325,7 +1393,7 @@
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/library-core/adopt-methodology-from-source.md"><code>adopt-methodology-from-source</code></a><br><span class="p">cat-harness/skills/library/library-core/adopt-methodology-from-source.md</span></td>
-  <td>The general process for turning a shared paper, book or standard into an adopted methodology: establish origin and licence, ingest the source, find and summarize related beans and issues and ask whether to coordinate, r…</td>
+  <td>The general process for turning a shared paper, book or standard into an adopted methodology: establish origin and licence, ingest the source, find and summarize related work items and issues and ask whether to coordina…</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/library-core/asset-extraction.md"><code>asset-extraction</code></a><br><span class="p">cat-harness/skills/library/library-core/asset-extraction.md</span></td>
@@ -1354,6 +1422,10 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/library-core/translation-manager.md"><code>translation-manager</code></a><br><span class="p">cat-harness/skills/library/library-core/translation-manager.md</span></td>
   <td>Translation lifecycle management for folio content.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/library-core/translation-refresh.md"><code>translation-refresh</code></a><br><span class="p">cat-harness/skills/library/library-core/translation-refresh.md</span></td>
+  <td>The translation watcher: a scheduled fresh session that keeps every locale of every instance current after the source moves.</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/library-core/upload-naming.md"><code>upload-naming</code></a><br><span class="p">cat-harness/skills/library/library-core/upload-naming.md</span></td>
@@ -1389,7 +1461,7 @@
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/process-core/swot-analysis.md"><code>swot-analysis</code></a><br><span class="p">cat-harness/skills/process/process-core/swot-analysis.md</span></td>
-  <td>Running a SWOT situation analysis — the four activities of <code>swot-analysis.bpmn</code>, what each step must produce, and the one thing the technique must never be used for.</td>
+  <td>Running a SWOT situation analysis — the activities of <code>swot-analysis.bpmn</code>, what each step must produce, and the one thing the technique must never be used for.</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/process-core/task-authorization.md"><code>task-authorization</code></a><br><span class="p">cat-harness/skills/process/process-core/task-authorization.md</span></td>
@@ -1402,6 +1474,10 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/workflow/bpmn-authoring.md"><code>bpmn-authoring</code></a><br><span class="p">cat-harness/skills/process/workflow/bpmn-authoring.md</span></td>
   <td><span class="none">no description in the artefact</span></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/workflow/bpmn-detangle.md"><code>bpmn-detangle</code></a><br><span class="p">cat-harness/skills/process/workflow/bpmn-detangle.md</span></td>
+  <td>Make a BPMN diagram readable at 100% without zooming, and untangle it: keep it inside the size budget, give every label a place clear of other labels, flows and boxes, remove crossings, and swap lanes when another order…</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/workflow/bpmn-processes.md"><code>bpmn-processes</code></a><br><span class="p">cat-harness/skills/process/workflow/bpmn-processes.md</span></td>
@@ -1438,346 +1514,6 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/workflow/workflow-state.md"><code>workflow-state</code></a><br><span class="p">cat-harness/skills/process/workflow/workflow-state.md</span></td>
   <td>Where a running process keeps what it knows, and which store answers which question.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/crdm/crdm-data-model.md"><code>crdm-data-model</code></a><br><span class="p">cat-harness/skills/sdlc/crdm/crdm-data-model.md</span></td>
-  <td>The CRDM data-modelling phase — when in the requirements process a model is built, what it is built from, who confirms it, and what it hands to the phases either side.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/crdm/crdm-detect.md"><code>crdm-detect</code></a><br><span class="p">cat-harness/skills/sdlc/crdm/crdm-detect.md</span></td>
-  <td>Detect when a request needs requirements agreed before anything is built, and which of the two parallel requirements methodologies governs it.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/crdm/crdm-impact-analysis.md"><code>crdm-impact-analysis</code></a><br><span class="p">cat-harness/skills/sdlc/crdm/crdm-impact-analysis.md</span></td>
-  <td>Guide for CRDM Phase 4 — Impact Analysis and Migration Planning.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/crdm/crdm-needs-assessment.md"><code>crdm-needs-assessment</code></a><br><span class="p">cat-harness/skills/sdlc/crdm/crdm-needs-assessment.md</span></td>
-  <td>Facilitate Phase 1 (Needs Assessment) of the CRDM requirements workflow.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/crdm/crdm-recorded-walkthrough.md"><code>crdm-recorded-walkthrough</code></a><br><span class="p">cat-harness/skills/sdlc/crdm/crdm-recorded-walkthrough.md</span></td>
-  <td>Turn a recorded requirements walkthrough (a video call where a business analyst demonstrates a feature and a stakeholder asks for changes) into CRDM Phase 3 requirements with evidence: transcripts compared, an independe…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/crdm/crdm-requirements-template.md"><code>crdm-requirements-template</code></a><br><span class="p">cat-harness/skills/sdlc/crdm/crdm-requirements-template.md</span></td>
-  <td>Guide and template for CRDM Phase 3 — Requirements Definition.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/crdm/crdm-requirements-workflow.md"><code>crdm-requirements-workflow</code></a><br><span class="p">cat-harness/skills/sdlc/crdm/crdm-requirements-workflow.md</span></td>
-  <td><span class="none">no description in the artefact</span></td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/activity-log.md"><code>activity-log</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/activity-log.md</span></td>
-  <td><span class="none">no description in the artefact</span></td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/adjudication.md"><code>adjudication</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/adjudication.md</span></td>
-  <td>Settle a review that reached no mechanical or consensus agreement.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/adversarial-code-review.md"><code>adversarial-code-review</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/adversarial-code-review.md</span></td>
-  <td>Review a pull request an agent touched by building the strongest case that it is wrong, unsafe, or not what it claims, and record the verdict where the merge gate reads it: one <code>merge-review/v1</code> file per head, on the `m…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/agent-handoff.md"><code>agent-handoff</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/agent-handoff.md</span></td>
-  <td>Governs handing ONE task to an agent in another environment — a local agent with network the cloud session lacks, a sibling on a different machine, anything that cannot read the coordinator's context and that a person m…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/bean-blocking.md"><code>bean-blocking</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/bean-blocking.md</span></td>
-  <td>Default to non-blocking when updating a bean's status.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/bean-coordination.md"><code>bean-coordination</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/bean-coordination.md</span></td>
-  <td>Pointer to the bean-based session work-plan system (the <code>beans</code> CLI flat-file issue tracker, data under <code>beans/</code>).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/bean-drain.md"><code>bean-drain</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/bean-drain.md</span></td>
-  <td>Drain open beans (stories, bugs, features) with several agents at once, as part of the SDLC: build the queue, group it by owner, check and claim each bean on every bean copy before any work, open the PR at the first com…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/before-after-preview.md"><code>before-after-preview</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/before-after-preview.md</span></td>
-  <td>Make a reviewer-facing BEFORE/AFTER preview of a change to anything that is rendered — a docs site, a paper's PDF, a FHIR IG, a slide deck, a website — and put it where the review and feedback processes expect it.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/benchmarking-mode.md"><code>benchmarking-mode</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/benchmarking-mode.md</span></td>
-  <td>Benchmarking output is a synthesized report across models and configurations, deliberately excluded from declared knowledge-graph typologies.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/blocked-build-dependencies.md"><code>blocked-build-dependencies</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/blocked-build-dependencies.md</span></td>
-  <td>A build or a model download fails from an agent container.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/branch-archaeology.md"><code>branch-archaeology</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/branch-archaeology.md</span></td>
-  <td>Classify every remote branch against the default branch (merged, landed by squash or cherry-pick, partially landed, unlanded, undetermined) by commit ancestry, patch-id and merge-tree, not by subject line.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/branch-freshness.md"><code>branch-freshness</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/branch-freshness.md</span></td>
-  <td>Periodically rebase or merge main into the feature branch, detect what changed upstream, and re-analyse the session workplan.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/bun-use.md"><code>bun-use</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/bun-use.md</span></td>
-  <td>How Bun is used as the JavaScript/TypeScript execution runtime, test runner, package manager, and tarball packager across separated repositories: standalone subgraph configuration (bunfig.toml, package.json, tsconfig.js…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/ci-health.md"><code>ci-health</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/ci-health.md</span></td>
-  <td>A red workflow looks exactly like a green one from inside a checkout.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/code-review-process.md"><code>code-review-process</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/code-review-process.md</span></td>
-  <td>Where code review sits in the release lifecycle.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/continual-progress.md"><code>continual-progress</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/continual-progress.md</span></td>
-  <td>Make in-flight work trackable by others in real time — open a PR from the first commit, push small coherent increments continuously (never hoard uncommitted work), keep a live status checklist in the PR body, and post b…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/coordinate.md"><code>coordinate</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/coordinate.md</span></td>
-  <td>Coordinate work across multiple in-flight Claude PRs working toward a shared goal.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/decision-audit.md"><code>decision-audit</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/decision-audit.md</span></td>
-  <td>Record why a decision was made, or why a finding in it was left.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/delivery-summary.md"><code>delivery-summary</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/delivery-summary.md</span></td>
-  <td>Post-delivery summary with server restart command and viewer links</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/diff.md"><code>diff</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/diff.md</span></td>
-  <td>Show per-block content changes with viewer links, changelog, and undo impact analysis</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/dispatch-agent.md"><code>dispatch-agent</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/dispatch-agent.md</span></td>
-  <td>Dispatch one or more background sub-agents against parallel research/build fronts with a STANDARDIZED live progress contract, and monitor them on a 2-minute heartbeat.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/feature-staging.md"><code>feature-staging</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/feature-staging.md</span></td>
-  <td>Manages feature-branch staging deployments under gh-pages/STAGING/&lt;branch-slug&gt;/ for before/after publication review comparison.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/finding-software.md"><code>finding-software</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/finding-software.md</span></td>
-  <td>A script needs a program or module the container does not have (tesseract, pdftoppm, PyMuPDF, a CLI from a GitHub release).</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/gate-tree-mutation.md"><code>gate-tree-mutation</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/gate-tree-mutation.md</span></td>
-  <td>Reading <code>bun run cat gates</code>' &quot;NOT clean&quot; verdict.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/generalise-the-fix.md"><code>generalise-the-fix</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/generalise-the-fix.md</span></td>
-  <td>You have a fix.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/github-state-inspection.md"><code>github-state-inspection</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/github-state-inspection.md</span></td>
-  <td>Answer questions about GitHub-hosted state — is a page published, where does it live, did CI pass, does a branch exist — by reading the ref or the API, never by composing a URL or fetching one.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/goal-review.md"><code>goal-review</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/goal-review.md</span></td>
-  <td>Cold start, then review a time window of activity — sibling sessions, the work plan, issues, change proposals, branches, CI — and prioritise what it finds against goals stated in the owner's words.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/handover-report.md"><code>handover-report</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/handover-report.md</span></td>
-  <td>Write a handover report: a templated snapshot of an agent's current state, committed as a bean note, so that a session or subagent that stalls, runs out of context, or loses its container can be picked up by another age…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/idle-backlog.md"><code>idle-backlog</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/idle-backlog.md</span></td>
-  <td>While idle or waiting on a long-running async task (a build, a long compute script, a CI run, a background agent), pull the applicable backlog in priority order and work non-conflicting items instead of stalling.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/integration-backlog.md"><code>integration-backlog</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/integration-backlog.md</span></td>
-  <td>Dispatcher for the <code>/integration-backlog &lt;axes&gt;</code> slash command.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/integration-watch.md"><code>integration-watch</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/integration-watch.md</span></td>
-  <td>Dispatcher for the <code>/integration-watch</code> slash command.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/integration-watcher.md"><code>integration-watcher</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/integration-watcher.md</span></td>
-  <td>Abstract parent skill for domain-specific **integration watchers**.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/issue-working.md"><code>issue-working</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/issue-working.md</span></td>
-  <td>Working a tracked issue — announce the branch when you create it rather than when you finish, and re-check the issue for new AND edited comments while you work.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/merge-conflict-patterns.md"><code>merge-conflict-patterns</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/merge-conflict-patterns.md</span></td>
-  <td>Merge the base branch in and resolve, without a person, only the conflicts a DECLARED pattern covers — generated files, generated README regions, QA sidecars — then prove the result with the gate set.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/merge-queue.md"><code>merge-queue</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/merge-queue.md</span></td>
-  <td>Order the ready PRs and land them as a train: read each PR's live facts, let the reprioritisation table place it, merge the members together, run the gate set on the combination, and on red attribute and eject the culpr…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/merge-to-main.md"><code>merge-to-main</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/merge-to-main.md</span></td>
-  <td>Merging to <code>main</code> is its own step with its own gate: the <code>merge-to-main</code> sub-process, which every process that lands work CALLS rather than inlines.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/minimal-change.md"><code>minimal-change</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/minimal-change.md</span></td>
-  <td>Three rules for any edit to a repository: make the smallest change that does the job and keep the diff minimal; read the repository's code-style files before writing code; and write Markdown without HTML tags.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/narrative-asserts-code.md"><code>narrative-asserts-code</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/narrative-asserts-code.md</span></td>
-  <td>Judge whether the prose side of a declared prose ↔ code pair still says what the code does, when the machine could not settle it.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/opening-brief.md"><code>opening-brief</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/opening-brief.md</span></td>
-  <td>Brief a bean or a topic BEFORE touching anything: what you are doing and why it is worth doing, what you already know and with what provenance, how you plan to do it and what would falsify the approach.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/package-release.md"><code>package-release</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/package-release.md</span></td>
-  <td>Cut a release of a repository's packages: decide the next version, write the release notes, tag, and create the release — for any repository, the platform or a folio.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/pending-show.md"><code>pending-show</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/pending-show.md</span></td>
-  <td>Show the current session's pending work — beans list + ledger intent.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/pickup.md"><code>pickup</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/pickup.md</span></td>
-  <td>Pick up / continue work on one or more existing open PRs efficiently.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/platform-gates.md"><code>platform-gates</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/platform-gates.md</span></td>
-  <td><code>bun test</code> passing is not the gates passing.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/pr-description.md"><code>pr-description</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/pr-description.md</span></td>
-  <td>Write or update a pull request's description so that someone who has never seen the work can follow it: the problem, why it matters, how it was approached, what constrained it, the solution, how to use it, and what is n…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/prepare-for-handover.md"><code>prepare-for-handover</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/prepare-for-handover.md</span></td>
-  <td>Prepare for a handover: commit and push everything you hold, then write a handover report that cites the commits.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/prepare-merge-auto.md"><code>prepare-merge-auto</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/prepare-merge-auto.md</span></td>
-  <td>Full prepare-merge → resolve → merge pipeline.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/prepare-merge.md"><code>prepare-merge</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/prepare-merge.md</span></td>
-  <td>Take a feature branch to a clean, conflict-free, green, pushed state so it can be merged with no surprises: base merged in, generated files regenerated, the folio's content-type gates run, then pushed.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/publish-verification.md"><code>publish-verification</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/publish-verification.md</span></td>
-  <td>Verify what a publish produced BEFORE it is deployed, and alert the publication manager whenever any step after the publish button fails — the verifier set, how to add a verifier, what is in scope, and how the publicati…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/qa-report-signing.md"><code>qa-report-signing</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/qa-report-signing.md</span></td>
-  <td><span class="none">no description in the artefact</span></td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/qa-reports.md"><code>qa-reports</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/qa-reports.md</span></td>
-  <td>Where a QA result lives now.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/qa-witness.md"><code>qa-witness</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/qa-witness.md</span></td>
-  <td>The QA projections written to <code>test/results/witnesses/</code> and stored on the <code>qa-reports</code> branch — what a <code>qa-witness/v1</code> document says, which three families produce one, how to read a verdict and the witness behind it, an…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/ref-stewardship.md"><code>ref-stewardship</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/ref-stewardship.md</span></td>
-  <td>Steward a WATCHED REF — a long-lived branch many processes write and one consumer serialises.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/related-work-coordination.md"><code>related-work-coordination</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/related-work-coordination.md</span></td>
-  <td>Before new work takes shape, find the work it touches.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/release-epic-planning.md"><code>release-epic-planning</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/release-epic-planning.md</span></td>
-  <td>Plan and track releases using bean epics.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/release-lifecycle.md"><code>release-lifecycle</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/release-lifecycle.md</span></td>
-  <td>Governs the release lifecycle: semver policy, draft/named releases, changelogs, release gating, and the relationship between feature branches, PRs, beans, and releases.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/rendered-impact.md"><code>rendered-impact</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/rendered-impact.md</span></td>
-  <td>The list of rendered files a Change Set alters, and how a reviewer approves against it.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/rendered-verification.md"><code>rendered-verification</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/rendered-verification.md</span></td>
-  <td>Confirm a UI change by LOOKING at it in a browser and sending the screenshots to the author, rather than describing it.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/secrets.md"><code>secrets</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/secrets.md</span></td>
-  <td>Adding, rotating and revoking the credentials the harness's automation needs, one mechanism at a time, with the exact GitHub UI path for each step.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/session-intent.md"><code>session-intent</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/session-intent.md</span></td>
-  <td>Session-start intent declaration + session-end results recording, against the goal-scoped master ledger and queue file.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/signing.md"><code>signing</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/signing.md</span></td>
-  <td>What any signature in the harness must answer, whatever it covers: who signs, what bytes are signed, which signature suites are accepted and who decides that, where the key is kept, which route signs (API or person, by…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/specification-management.md"><code>specification-management</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/specification-management.md</span></td>
-  <td>Governs the lifecycle, syntax, and traceability of specifications and requirements across the harness.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/staging-review.md"><code>staging-review</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/staging-review.md</span></td>
-  <td>Staging preview and before/after comparison for content review.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/stalled-agent-triage.md"><code>stalled-agent-triage</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/stalled-agent-triage.md</span></td>
-  <td>Triage incoming work from stalled agents.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/swarm-management.md"><code>swarm-management</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/swarm-management.md</span></td>
-  <td>Decide whether to run parallel agents at all, and if so how many, at which model level, against which decomposition.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/test-data-sets.md"><code>test-data-sets</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/test-data-sets.md</span></td>
-  <td>Curating fixed (committed, cited, SME-reviewed) and generated (template + params + seed recipe, never stored materialised) test data sets in separately declared graph directories, with per-content-type specialisation as…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/test-engineer.md"><code>test-engineer</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/test-engineer.md</span></td>
-  <td><span class="none">no description in the artefact</span></td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/test-plan-execution.md"><code>test-plan-execution</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/test-plan-execution.md</span></td>
-  <td>Run a <code>test-plan/v1</code> against a system under test and take it to a certification decision — the five lanes of <code>test-plan-execution.bpmn</code> (requester, tester, untainted checker, certifier, attestation service), how the tes…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/todo-manager.md"><code>todo-manager</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/todo-manager.md</span></td>
-  <td>Maintain and display work-in-progress task lists using the <code>beans</code> CLI issue tracker.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/turn-reporting.md"><code>turn-reporting</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/turn-reporting.md</span></td>
-  <td>Say which bean you are on, every turn — the opening and closing report formats, the rules that make a report worth reading (two sentences and a link per bean, every mention), and the STRICT rule that the &quot;next&quot; line is…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/untainted-verification.md"><code>untainted-verification</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/untainted-verification.md</span></td>
-  <td>The party that produced an artefact does not write the verdict on it.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/upstream-version-adoption.md"><code>upstream-version-adoption</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/upstream-version-adoption.md</span></td>
-  <td>Watch a pinned upstream dependency for a new release, and take a candidate version through impact analysis, an MVP build, review and a person's adopt/hold/decline decision.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/visual-diff.md"><code>visual-diff</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/visual-diff.md</span></td>
-  <td>Pictures of a changed figure, diagram or table, before and after, and how much of it changed.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/watch.md"><code>watch</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/watch.md</span></td>
-  <td>Background-watch a branch (default origin/main) or a GitHub PR for new activity while you work, and on every event report whether to integrate / whether it conflicts with the current branch / whether it lets you simplif…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/where-a-proposal-goes.md"><code>where-a-proposal-goes</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/where-a-proposal-goes.md</span></td>
-  <td><span class="none">no description in the artefact</span></td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/work-plan-restructure.md"><code>work-plan-restructure</code></a><br><span class="p">cat-harness/skills/sdlc/sdlc-core/work-plan-restructure.md</span></td>
-  <td>Reorganise a work plan that has outgrown one-bean-at-a-time repair — session logs typed as epics, duplicate families, generated template beans, stale claims, unparented work — through a reviewed PLAN rather than in bulk.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/spec-kit/change-size.md"><code>change-size</code></a><br><span class="p">cat-harness/skills/sdlc/spec-kit/change-size.md</span></td>
-  <td>The change-size rule: keeps review increments adjudicable by establishing a line-count threshold (~400 effective lines), recording its empirical basis, weighting prose/KG lower than code, and distinguishing size from co…</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/spec-kit/spec-kit.md"><code>spec-kit</code></a><br><span class="p">cat-harness/skills/sdlc/spec-kit/spec-kit.md</span></td>
-  <td>Spec-driven development, adopted whole: define what and why before deciding how, and do not develop before a spec exists.</td>
-</tr>
-<tr>
-  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/spec-kit/spec-template.md"><code>spec-template</code></a><br><span class="p">cat-harness/skills/sdlc/spec-kit/spec-template.md</span></td>
-  <td>The single declared template artefact for platform feature specifications, adopted from github/spec-kit.</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/tools/folio-core/covered-is-not-reachable.md"><code>covered-is-not-reachable</code></a><br><span class="p">cat-harness/skills/tools/folio-core/covered-is-not-reachable.md</span></td>
@@ -1861,7 +1597,7 @@
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/ui/ui-core/docs-generation.md"><code>docs-generation</code></a><br><span class="p">cat-harness/skills/ui/ui-core/docs-generation.md</span></td>
-  <td>Generate and deploy documentation artifacts: schema docs (TypeDoc), formal-layer API docs, dependency graphs, schema manifests, and per-paper HTML/PDF/Markdown outputs.</td>
+  <td>How a checkout of this harness generates and publishes its docs site: regenerating derived references, composing the docs layers and each instance's site into one Jekyll source, building it with just-the-docs, the post-…</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/ui/ui-core/harness-tiles.md"><code>harness-tiles</code></a><br><span class="p">cat-harness/skills/ui/ui-core/harness-tiles.md</span></td>
@@ -1874,6 +1610,10 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/ui/ui-core/incremental-render.md"><code>incremental-render</code></a><br><span class="p">cat-harness/skills/ui/ui-core/incremental-render.md</span></td>
   <td>Rendering only what changed — seeding a build from a previous render, the two edges that decide what must re-run, why a step declares GRAPH TYPOLOGIES rather than paths, and the rule that could-not-determine always re-r…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/ui/ui-core/journey-maps.md"><code>journey-maps</code></a><br><span class="p">cat-harness/skills/ui/ui-core/journey-maps.md</span></td>
+  <td>Journeys and workshops as knowledge-graph content: a DAK user scenario told as a journey map (<code>user-scenario</code> kind: ordered steps, per person what they do and feel, pain points, enablers, the record's trust state, and e…</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/ui/ui-core/kg-viewer.md"><code>kg-viewer</code></a><br><span class="p">cat-harness/skills/ui/ui-core/kg-viewer.md</span></td>
@@ -1955,6 +1695,24 @@ var SCOPE = "skills";
   }
   input.addEventListener("input", apply);
   apply();
+})();
+</script>
+<script>
+(function () {
+  var badges = document.querySelectorAll(".da-page [data-da-count]");
+  if (!badges.length) return;
+  function set(counts) {
+    Array.prototype.forEach.call(badges, function (b) {
+      var n = counts ? counts[b.getAttribute("data-da-count")] : undefined;
+      var ok = typeof n === "number" && isFinite(n);
+      b.textContent = ok ? String(n) : "";
+      b.setAttribute("data-da-count-state", ok ? "some" : counts ? "absent" : "error");
+    });
+  }
+  fetch("../../../../../assets/auto-docs/index.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) { set(j && j.counts && typeof j.counts === "object" ? j.counts : null); })
+    .catch(function () { set(null); });
 })();
 </script>
 

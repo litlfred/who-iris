@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/processes/upstream-version-adoption.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/upstream-version-adoption.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,7 +893,7 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/processes/sdlc/upstream-version-adoption.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/upstream-version-adoption.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="cat-harness/">cat-harness processes</a></p>
 </blockquote>
 
 <h1 id="adopting-an-upstream-version-bump">
@@ -849,33 +907,54 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_UpstreamAdoption</code> · strict · 12 step(s)</p>
 
-<p>A REUSABLE SUBPROCESS, entered once per pinned upstream dependency that has fallen behind a release. Callers invoke it with <code class="language-plaintext highlighter-rouge">calledElement="Process_UpstreamAdoption"</code>; <code class="language-plaintext highlighter-rouge">upstream-pin-watch.bpmn</code> is the first, and a person may enter it directly with <code class="language-plaintext highlighter-rouge">workflow_start</code> when they want to try a version the watcher has not raised.</p>
+<p>A REUSABLE SUBPROCESS, entered once per pinned upstream dependency that has fallen behind a release. Callers invoke it with <code class="language-plaintext highlighter-rouge">calledElement="[Process_UpstreamAdoption](upstream-version-adoption.html)"</code>; <code class="language-plaintext highlighter-rouge">upstream-pin-watch.bpmn</code> is the first, and a person may enter it directly with <code class="language-plaintext highlighter-rouge">workflow_start</code> when they want to try a version the watcher has not raised.</p>
 
 <p>Reusable means the tenant-specific part is DATA. <code class="language-plaintext highlighter-rouge">upstream-pins.json</code> carries, per row, what of ours binds to the dependency and what its MVP runs; this diagram carries the order those are done in, which is the same for every tenant. A second tenant is a registry row, not a second diagram.</p>
 
 <p>Shaped after <code class="language-plaintext highlighter-rouge">crdm-requirements.bpmn</code> because the question is the same one: something outside the repository wants to change what we ship, and the answer has to be a judgement somebody made on evidence rather than a merge that happened. The loop back into impact analysis is the MVP loop — findings the agent can fix are fixed on the same branch and re-evidenced, and only what remains reaches the decider.</p>
-<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
+<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
 
 <div class="pt-diagram" data-panel="upstream-version-adoption.tasks.json">
 <img src="../../../assets/img/workflows/upstream-version-adoption.svg" alt="BPMN diagram: Adopting an upstream version bump" />
-<button type="button" class="pt-mark" data-task="A_Scope" style="left:26.27%;top:6.51%" aria-expanded="false" aria-label="About step: Scope the delta pinned → candidate" title="About: Scope the delta pinned → candidate">i</button>
-<button type="button" class="pt-mark" data-task="A_Impact" style="left:33.05%;top:6.51%" aria-expanded="false" aria-label="About step: Impact analysis what of ours binds it" title="About: Impact analysis what of ours binds it">i</button>
-<button type="button" class="pt-mark" data-task="Task_Mvp" style="left:39.83%;top:38.97%" aria-expanded="false" aria-label="About step: MVP: build the candidate on a staging branch" title="About: MVP: build the candidate on a staging branch">i</button>
-<button type="button" class="pt-mark" data-task="Task_Gates" style="left:46.61%;top:38.97%" aria-expanded="false" aria-label="About step: Run the row's gates tests · e2e · site-links" title="About: Run the row's gates tests · e2e · site-links">i</button>
-<button type="button" class="pt-mark" data-task="A_Evidence" style="left:53.39%;top:6.51%" aria-expanded="false" aria-label="About step: Post the MVP evidence staging URL + gate results" title="About: Post the MVP evidence staging URL + gate results">i</button>
-<button type="button" class="pt-mark" data-task="R_Review" style="left:60.17%;top:61.04%" aria-expanded="false" aria-label="About step: Review the MVP against what we bind to" title="About: Review the MVP against what we bind to">i</button>
-<button type="button" class="pt-mark" data-task="Call_OptionsAnalysis" style="left:73.73%;top:6.51%" aria-expanded="false" aria-label="About step: Options analysis adopt · hold · decline" title="About: Options analysis adopt · hold · decline">i</button>
-<button type="button" class="pt-mark" data-task="PM_Decide" style="left:73.73%;top:83.12%" aria-expanded="false" aria-label="About step: Adopt, hold or decline" title="About: Adopt, hold or decline">i</button>
-<button type="button" class="pt-mark" data-task="A_ApplyPin" style="left:87.29%;top:6.51%" aria-expanded="false" aria-label="About step: Move the pin and open the PR" title="About: Move the pin and open the PR">i</button>
-<button type="button" class="pt-mark" data-task="A_RecordOutcome" style="left:87.29%;top:19.49%" aria-expanded="false" aria-label="About step: Record the hold or the decline" title="About: Record the hold or the decline">i</button>
-<button type="button" class="pt-mark" data-task="Call_BeanOpen" style="left:16.1%;top:6.51%" aria-expanded="false" aria-label="About step: Open the bean" title="About: Open the bean">i</button>
-<button type="button" class="pt-mark" data-task="Call_BeanClose" style="left:95.08%;top:6.51%" aria-expanded="false" aria-label="About step: Close the bean" title="About: Close the bean">i</button>
+<div class="pt-layer">
+<button type="button" class="pt-mark" data-task="A_Scope" style="left:24.92%;top:3.9%" aria-expanded="false" aria-label="About step: Scope the delta pinned → candidate" title="About: Scope the delta pinned → candidate">i</button>
+<button type="button" class="pt-mark" data-task="A_Impact" style="left:32.08%;top:3.9%" aria-expanded="false" aria-label="About step: Impact analysis what of ours binds it" title="About: Impact analysis what of ours binds it">i</button>
+<button type="button" class="pt-mark" data-task="Task_Mvp" style="left:39.25%;top:36.36%" aria-expanded="false" aria-label="About step: MVP: build the candidate on a staging branch" title="About: MVP: build the candidate on a staging branch">i</button>
+<button type="button" class="pt-mark" data-task="Task_Gates" style="left:46.42%;top:36.36%" aria-expanded="false" aria-label="About step: Run the row's gates tests · e2e · site-links" title="About: Run the row's gates tests · e2e · site-links">i</button>
+<button type="button" class="pt-mark" data-task="A_Evidence" style="left:53.58%;top:3.9%" aria-expanded="false" aria-label="About step: Post the MVP evidence staging URL + gate results" title="About: Post the MVP evidence staging URL + gate results">i</button>
+<button type="button" class="pt-mark" data-task="R_Review" style="left:60.75%;top:58.44%" aria-expanded="false" aria-label="About step: Review the MVP against what we bind to" title="About: Review the MVP against what we bind to">i</button>
+<a class="pt-go" href="options-analysis.html" style="left:71.42%;top:16.23%;width:0.78%;height:3.12%" aria-label="Open subprocess: Options analysis adopt · hold · decline" title="Open subprocess: Options analysis adopt · hold · decline"></a>
+<button type="button" class="pt-mark" data-task="Call_OptionsAnalysis" style="left:73.78%;top:3.9%" aria-expanded="false" aria-label="About step: Options analysis adopt · hold · decline" title="About: Options analysis adopt · hold · decline">i</button>
+<a class="pt-go" href="ask-the-person.html" style="left:71.42%;top:92.86%;width:0.78%;height:3.12%" aria-label="Open subprocess: Adopt, hold or decline" title="Open subprocess: Adopt, hold or decline"></a>
+<button type="button" class="pt-mark" data-task="PM_Decide" style="left:73.78%;top:80.52%" aria-expanded="false" aria-label="About step: Adopt, hold or decline" title="About: Adopt, hold or decline">i</button>
+<button type="button" class="pt-mark" data-task="A_ApplyPin" style="left:87.79%;top:6.49%" aria-expanded="false" aria-label="About step: Move the pin and open the PR" title="About: Move the pin and open the PR">i</button>
+<button type="button" class="pt-mark" data-task="A_RecordOutcome" style="left:87.79%;top:19.48%" aria-expanded="false" aria-label="About step: Record the hold or the decline" title="About: Record the hold or the decline">i</button>
+<a class="pt-go" href="bean-open.html" style="left:13.11%;top:16.23%;width:0.78%;height:3.12%" aria-label="Open subprocess: Open the bean" title="Open subprocess: Open the bean"></a>
+<button type="button" class="pt-mark" data-task="Call_BeanOpen" style="left:15.47%;top:3.9%" aria-expanded="false" aria-label="About step: Open the bean" title="About: Open the bean">i</button>
+<a class="pt-go" href="bean-close.html" style="left:92.26%;top:16.23%;width:0.78%;height:3.12%" aria-label="Open subprocess: Close the bean" title="Open subprocess: Close the bean"></a>
+<button type="button" class="pt-mark" data-task="Call_BeanClose" style="left:94.63%;top:3.9%" aria-expanded="false" aria-label="About step: Close the bean" title="About: Close the bean">i</button>
+</div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
 <script>(function () {
   Array.prototype.forEach.call(document.querySelectorAll(".pt-diagram:not([data-pt-ready])"), init);
   function init(root) {
   root.setAttribute("data-pt-ready", "");
+  // Every href in the sidecar is relative to the sidecar (it sits beside the
+  // process page), so a page elsewhere on the site that shows the same
+  // drawing resolves them to the same targets.
+  // A drawing with no sidecar (a page that only highlights steps, where no
+  // processes viewer is published) gets the highlight and nothing else.
+  var sidecar = root.getAttribute("data-panel");
+  var base = new URL(sidecar || "", location.href);
+  function abs(h) { try { return new URL(h, base).href; } catch (e) { return h; } }
+  // A page with no server-drawn markers gets them from the sidecar.
+  var drawn = !!root.querySelector(".pt-layer");
+  if (!drawn) {
+    var ly = document.createElement("div"); ly.className = "pt-layer"; root.appendChild(ly);
+    var pn = document.createElement("div"); pn.className = "pt-panel"; pn.setAttribute("role", "dialog");
+    pn.setAttribute("aria-label", "Task details"); pn.hidden = true; root.appendChild(pn);
+  }
   var panel = root.querySelector(".pt-panel"), data = null, pending = null, open = null;
   function load() {
     if (data) return Promise.resolve(data);
@@ -888,7 +967,7 @@
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function link(l, cls) {
     var e = el(l.href ? "a" : "code", cls, l.name);
-    if (l.href) e.href = l.href; else e.title = "no page for this one";
+    if (l.href) e.href = abs(l.href); else e.title = "no page for this one";
     return e;
   }
   function obj(stereo, name, kind) {
@@ -903,9 +982,22 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
-    if (t.lane) { var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref })); task.appendChild(ln); }
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
+    if (t.lane) {
+      var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
+      // The lane is a partition; the Role it names is who acts (owner,
+      // 2026-10-31: "i thought there was a Role/person or actor that should be
+      // linked"). Shown here too, not only in the Role box further down.
+      if (t.role) { ln.appendChild(el("span", "pt-st", " → role ")); ln.appendChild(link(t.role)); }
+      task.appendChild(ln);
+    }
     if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
     panel.appendChild(task);
     if (t.calls) {
@@ -920,7 +1012,8 @@
       Object.keys(t.shared.inputs || {}).forEach(function (k) { gt.appendChild(el("div", "pt-attr", k + " = " + t.shared.inputs[k])); });
       panel.appendChild(gt);
     }
-    t.skills.forEach(function (s) {
+    var sk_on = !(data && data.skills === false);
+    (sk_on ? t.skills : []).forEach(function (s) {
       panel.appendChild(edge("requires"));
       var sk = obj("Skill", link(s), "skill");
       (s.methodologies || []).forEach(function (m) {
@@ -929,22 +1022,106 @@
       });
       panel.appendChild(sk);
     });
-    if (!t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
+    if (sk_on && !t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
     if (t.role) {
       panel.appendChild(edge("lane names"));
       var role = obj("Role", link(t.role), "role");
       if (t.role.title) role.appendChild(el("div", "pt-attr", "title = " + t.role.title));
-      var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
-      if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
-      t.role.skills.forEach(function (s, i) {
-        if (i) list.appendChild(document.createTextNode(", "));
-        list.appendChild(link(s));
-        if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
-      });
-      role.appendChild(list); panel.appendChild(role);
+      if (sk_on) {
+        var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
+        if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
+        t.role.skills.forEach(function (s, i) {
+          if (i) list.appendChild(document.createTextNode(", "));
+          list.appendChild(link(s));
+          if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
+        });
+        role.appendChild(list);
+      }
+      panel.appendChild(role);
     } else if (t.binding) {
       panel.appendChild(el("div", "pt-none", "Lane role: " + t.binding + "."));
     }
+  }
+  // THE MARKERS FOLLOW THE DRAWING, not the box around it. The site's figure
+  // viewer (docs-ui.js) swaps the <img> for an inlined <svg>, puts a toolbar
+  // above it, and zooms and pans it inside a scroll box. Positioned against
+  // this block, every marker and link drifted off its shape (owner,
+  // 2026-10-31: "misaligned"). So the layer is laid over wherever the drawing
+  // is actually drawn, and re-laid whenever that can change.
+  var layer = root.querySelector(".pt-layer"), queued = false;
+  function art() {
+    var c = root.querySelectorAll("img, svg");
+    for (var i = 0; i < c.length; i++) {
+      var e = c[i];
+      if (e.closest(".pt-layer, .pt-panel, .fa-figure-tools")) continue;
+      if (e.parentElement && e.parentElement.closest("svg")) continue;
+      return e;
+    }
+    return null;
+  }
+  // A page may name steps to pick out (a journey's step shows the tasks it
+  // realises): `data-pt-highlight="Task_A Task_B"`. Marked once the drawing
+  // is inline, which is when its shapes exist to mark.
+  var hl = (root.getAttribute("data-pt-highlight") || "").split(/\s+/).filter(Boolean);
+  if (hl.length) root.classList.add("pt-has-hl");
+  function mark(a) {
+    if (!hl.length || a.tagName.toLowerCase() !== "svg" || a.hasAttribute("data-pt-marked")) return;
+    a.setAttribute("data-pt-marked", "");
+    Array.prototype.forEach.call(a.querySelectorAll("[data-element-id]"), function (g) {
+      if (hl.indexOf(g.getAttribute("data-element-id")) >= 0) g.setAttribute("data-pt-hl", "");
+    });
+  }
+  function place() {
+    queued = false;
+    var a = art();
+    if (a) mark(a);
+    if (!layer || !a) return;
+    var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
+    var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
+    if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[\s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
+    if (vw > 0 && vh > 0 && w > 0 && h > 0) {
+      var k = vw / vh;
+      if (w / h > k) { var nw = h * k; x += (w - nw) / 2; w = nw; } else { var nh = w / k; y += (h - nh) / 2; h = nh; }
+    }
+    layer.style.left = x + "px"; layer.style.top = y + "px"; layer.style.width = w + "px"; layer.style.height = h + "px";
+    // Zoomed in, the drawing scrolls inside its box: markers past the edge are hidden with it.
+    var sc = a.parentElement;
+    while (sc && sc !== root && !(sc.scrollWidth > sc.clientWidth + 1 || sc.scrollHeight > sc.clientHeight + 1)) sc = sc.parentElement;
+    if (sc && sc !== root) {
+      var s = sc.getBoundingClientRect(), L = r.left + x, T = r.top + y;
+      layer.style.clipPath = "inset(" + Math.max(0, s.top - T) + "px " + Math.max(0, L + w - s.right) + "px " +
+        Math.max(0, T + h - s.bottom) + "px " + Math.max(0, s.left - L) + "px)";
+    } else layer.style.clipPath = "";
+    if (open) at(open);
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(place); } }
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(root);
+  if (window.MutationObserver) new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) if (!layer || !layer.contains(ms[i].target)) { schedule(); return; }
+  }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "viewBox"] });
+  root.addEventListener("scroll", schedule, true);
+  root.addEventListener("load", schedule, true);
+  window.addEventListener("resize", schedule);
+  schedule();
+  if (!drawn && sidecar) load().then(function (j) {
+    (j.markers || []).forEach(function (m) {
+      var t = j.tasks[m.id], to = t && t.calls ? (t.calls.diagram || t.calls.href) : null;
+      if (to && m.box) {
+        var g = el("a", "pt-go"); g.href = abs(to);
+        g.style.left = m.box.left + "%"; g.style.top = m.box.top + "%"; g.style.width = m.box.width + "%"; g.style.height = m.box.height + "%";
+        g.setAttribute("aria-label", "Open subprocess: " + m.name); g.title = "Open subprocess: " + m.name; layer.appendChild(g);
+      }
+      var b = el("button", "pt-mark", "i"); b.type = "button"; b.setAttribute("data-task", m.id);
+      b.style.left = m.left + "%"; b.style.top = m.top + "%"; b.setAttribute("aria-expanded", "false");
+      b.setAttribute("aria-label", "About step: " + m.name); b.title = "About: " + m.name; layer.appendChild(b);
+    });
+    schedule();
+  }).catch(function (e) { console.warn("task panel: could not load " + base.href + " (" + e.message + ")"); });
+  function at(b) {
+    var r = root.getBoundingClientRect(), m = b.getBoundingClientRect();
+    panel.style.left = (m.left + m.width / 2 - r.left) + "px"; panel.style.top = (m.top + m.height / 2 - r.top) + "px";
   }
   function hide() { panel.hidden = true; if (open) open.setAttribute("aria-expanded", "false"); open = null; }
   root.addEventListener("click", function (ev) {
@@ -953,7 +1130,7 @@
     if (open === b) { hide(); return; }
     if (open) open.setAttribute("aria-expanded", "false");
     open = b; b.setAttribute("aria-expanded", "true");
-    panel.style.left = b.style.left; panel.style.top = b.style.top;
+    at(b);
     panel.hidden = false; panel.textContent = "Loading\u2026";
     load().then(function (j) {
       var t = j.tasks[b.getAttribute("data-task")];
@@ -978,6 +1155,7 @@
   <li><strong>Calls:</strong> <a href="ask-the-person.html">Ask the person</a>, <a href="bean-close.html">Close the bean</a>, <a href="bean-open.html">Open the bean</a>, <a href="options-analysis.html">Options analysis</a></li>
   <li><strong>Names the <code class="language-plaintext highlighter-rouge">upstream-version-adoption</code> skill without calling this process:</strong> <a href="sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a>, <a href="upstream-pin-watch.html">Watching a pinned upstream dependency</a> — <code class="language-plaintext highlighter-rouge">activity-calls-skill-process</code> asks whether each should be a call activity.</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -999,22 +1177,22 @@
   </thead>
   <tbody>
     <tr>
-      <td>Agent</td>
+      <td><a id="lane-Lane_Agent"></a>Agent</td>
       <td><code class="language-plaintext highlighter-rouge">authoring-agent</code></td>
       <td>Owns the whole MVP loop end to end except the two calls it cannot make: SF_UA_8 re-enters this lane’s own A_Impact on a fixable finding rather than escalating, so a defect gets fixed and re-evidenced here before anyone outside the lane sees it, and Call_OptionsAnalysis sits here specifically because framing the options is not deciding among them — that judgement belongs to PM_Decide in a different lane entirely.</td>
     </tr>
     <tr>
-      <td>CI/CD Pipeline</td>
+      <td><a id="lane-Lane_Build"></a>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>Produces evidence, not verdicts: Task_Gates going red does not end the process or loop by itself — “this version breaks us” is a finding the decider needs to see, not a reason for this lane to stop the run — and Task_Mvp exists so that finding is checked against a real deployed build rather than a description of one.</td>
     </tr>
     <tr>
-      <td>Reviewer / SME</td>
+      <td><a id="lane-Lane_Review"></a>Reviewer / SME</td>
       <td><code class="language-plaintext highlighter-rouge">reviewer</code></td>
       <td>Narrower than a general release review: the question is only whether what upstream-pins.json lists as bound still holds against the deployed MVP, not whether the new version is good on its own terms, and a finding here (GW_Findings) sends the run back to the Agent lane’s own impact analysis rather than stopping it.</td>
     </tr>
     <tr>
-      <td>Publication manager</td>
+      <td><a id="lane-Lane_Publication"></a>Publication manager</td>
       <td><code class="language-plaintext highlighter-rouge">publication-manager</code></td>
       <td>Holds the one call in this subprocess that policy marks unrelaxable: PM_Decide’s lane admits a person only, because a pin change is not an edit to the corpus but a change to what the published artefact is BUILT FROM — the fact that puts this decision in the publication manager’s lane rather than the editor’s, which owns corpus changes elsewhere in this repository.</td>
     </tr>
@@ -1042,76 +1220,76 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Scope the delta pinned → candidate</strong><br /><code class="language-plaintext highlighter-rouge">A_Scope</code></td>
+      <td><a id="step-A_Scope"></a><strong>Scope the delta pinned → candidate</strong><br /><code class="language-plaintext highlighter-rouge">A_Scope</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></a></td>
       <td>Restricted to the directories that reach our output — for a Jekyll theme <code class="language-plaintext highlighter-rouge">_sass</code>, <code class="language-plaintext highlighter-rouge">_includes</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">assets</code>. Upstream’s own docs, CI and tests cannot reach us, and counting them makes a harmless release look alarming.<br />The changelog is the claim; <code class="language-plaintext highlighter-rouge">git diff --stat pinned..candidate</code> over those paths is the evidence.</td>
     </tr>
     <tr>
-      <td><strong>Impact analysis what of ours binds it</strong><br /><code class="language-plaintext highlighter-rouge">A_Impact</code></td>
+      <td><a id="step-A_Impact"></a><strong>Impact analysis what of ours binds it</strong><br /><code class="language-plaintext highlighter-rouge">A_Impact</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></a></td>
       <td>The half a changelog cannot supply, because upstream does not know what you reached into. Worked from the row’s <code class="language-plaintext highlighter-rouge">binds</code> list in <code class="language-plaintext highlighter-rouge">upstream-pins.json</code>.<br />For the theme: <code class="language-plaintext highlighter-rouge">site-chrome/assets/js/docs-ui.js</code> MOVES the theme’s own search markup into the action launcher and binds <code class="language-plaintext highlighter-rouge">.search</code>, <code class="language-plaintext highlighter-rouge">#search-input</code> and <code class="language-plaintext highlighter-rouge">.search-label</code>; <code class="language-plaintext highlighter-rouge">docs-ui.css</code> overrides <code class="language-plaintext highlighter-rouge">.side-bar</code>, <code class="language-plaintext highlighter-rouge">.site-header</code> and <code class="language-plaintext highlighter-rouge">.main-header</code>; three e2e specs assert the structure the theme emits. An upstream rename of any of those is not a build failure — it is a shipped feature that quietly stops working.</td>
     </tr>
     <tr>
-      <td><strong>MVP: build the candidate on a staging branch</strong><br /><code class="language-plaintext highlighter-rouge">Task_Mvp</code></td>
+      <td><a id="step-Task_Mvp"></a><strong>MVP: build the candidate on a staging branch</strong><br /><code class="language-plaintext highlighter-rouge">Task_Mvp</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
-      <td>An MVP is a DEPLOYED BUILD, not a description of one. The pin is moved on a branch and <code class="language-plaintext highlighter-rouge">feature-staging.yml</code> publishes it under <code class="language-plaintext highlighter-rouge">STAGING/&lt;branch-slug&gt;/</code>, so the reviewer looks at the artefact rather than at a screenshot — the same argument the merge discipline makes about rendered work.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/feature-staging.html"><code class="language-plaintext highlighter-rouge">feature-staging</code></a></td>
+      <td>An MVP is a DEPLOYED BUILD, not a description of one. The pin is moved on a branch and <code class="language-plaintext highlighter-rouge">feature-staging.yml</code> publishes it under <code class="language-plaintext highlighter-rouge">branches/&lt;branch-slug&gt;/</code>, so the reviewer looks at the artefact rather than at a screenshot — the same argument the merge discipline makes about rendered work.</td>
     </tr>
     <tr>
-      <td><strong>Run the row’s gates tests · e2e · site-links</strong><br /><code class="language-plaintext highlighter-rouge">Task_Gates</code></td>
+      <td><a id="step-Task_Gates"></a><strong>Run the row’s gates tests · e2e · site-links</strong><br /><code class="language-plaintext highlighter-rouge">Task_Gates</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">content-test</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-test.html"><code class="language-plaintext highlighter-rouge">content-test</code></a></td>
       <td>The <code class="language-plaintext highlighter-rouge">mvp</code> commands declared for this tenant. For the theme: <code class="language-plaintext highlighter-rouge">bun test</code>, <code class="language-plaintext highlighter-rouge">CI=1 bunx playwright test</code> (a11y, action tiles, sidebar panels, QA panel) and <code class="language-plaintext highlighter-rouge">scripts/site-links.ts --site ./_site</code>, which checks the navbar tiles against the BUILT site rather than against the attribute — the distinction that let a 404 ship unnoticed once already.<br />A red gate is EVIDENCE, not an exit. It does not end the process and it does not loop by itself: “this version breaks us” is a finding the decider needs, not a reason to stop before they see it.</td>
     </tr>
     <tr>
-      <td><strong>Post the MVP evidence staging URL + gate results</strong><br /><code class="language-plaintext highlighter-rouge">A_Evidence</code></td>
+      <td><a id="step-A_Evidence"></a><strong>Post the MVP evidence staging URL + gate results</strong><br /><code class="language-plaintext highlighter-rouge">A_Evidence</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">delivery-summary</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/delivery-summary.html"><code class="language-plaintext highlighter-rouge">delivery-summary</code></a></td>
       <td>Staging URL, gate results and the impact analysis, on the PR. Enough for the reviewer to answer without opening anything else.</td>
     </tr>
     <tr>
-      <td><strong>Review the MVP against what we bind to</strong><br /><code class="language-plaintext highlighter-rouge">R_Review</code></td>
+      <td><a id="step-R_Review"></a><strong>Review the MVP against what we bind to</strong><br /><code class="language-plaintext highlighter-rouge">R_Review</code></td>
       <td>Reviewer / SME</td>
-      <td><code class="language-plaintext highlighter-rouge">staging-review</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/staging-review.html"><code class="language-plaintext highlighter-rouge">staging-review</code></a></td>
       <td>A narrower question than “is the new version good”: does everything in <code class="language-plaintext highlighter-rouge">binds</code> still hold, checked against the deployed page.<br />A <code class="language-plaintext highlighter-rouge">userTask</code>, and the lane admits <code class="language-plaintext highlighter-rouge">person</code> and <code class="language-plaintext highlighter-rouge">agent</code> — a review agent is a legitimate reviewer here, and the separation that matters is the next lane’s: a reviewer cannot accept.</td>
     </tr>
     <tr>
-      <td><strong>Options analysis adopt · hold · decline</strong><br /><code class="language-plaintext highlighter-rouge">Call_OptionsAnalysis</code></td>
+      <td><a id="step-Call_OptionsAnalysis"></a><strong>Options analysis adopt · hold · decline</strong><br /><code class="language-plaintext highlighter-rouge">Call_OptionsAnalysis</code></td>
       <td>Agent</td>
       <td>calls <a href="options-analysis.html">Options analysis</a></td>
       <td>On the single edge into <code class="language-plaintext highlighter-rouge">PM_Decide</code>, and deliberately not earlier: the MVP build and its gates are HOW the options’ costs are measured, so an analysis before <code class="language-plaintext highlighter-rouge">Task_Mvp</code> would weigh alternatives against no evidence. Everything the decider needs exists by the time the reviewer has finished and the fixable findings are fixed.<br />In the Agent lane, because this step produces the analysis and does not make the decision — <code class="language-plaintext highlighter-rouge">PM_Decide</code> is a <code class="language-plaintext highlighter-rouge">userTask</code> whose lane admits <code class="language-plaintext highlighter-rouge">person</code> only, and putting the analysis in the agent’s lane is what keeps that separation legible rather than implied. A subprocess that decided would be a second accepting party.<br />Reached through the loop as well as straight through: <code class="language-plaintext highlighter-rouge">SF_UA_8</code> re-enters at <code class="language-plaintext highlighter-rouge">A_Impact</code>, so a run where the reviewer found something fixable arrives here a second time with different evidence. That is a genuine re-analysis and its <code class="language-plaintext highlighter-rouge">op="note"</code> appends rather than deduping, which is the behaviour wanted — a second note records that the options were weighed again against changed inputs.</td>
     </tr>
     <tr>
-      <td><strong>Adopt, hold or decline</strong><br /><code class="language-plaintext highlighter-rouge">PM_Decide</code></td>
+      <td><a id="step-PM_Decide"></a><strong>Adopt, hold or decline</strong><br /><code class="language-plaintext highlighter-rouge">PM_Decide</code></td>
       <td>Publication manager</td>
-      <td>calls <a href="ask-the-person.html">Ask the person</a><br /><code class="language-plaintext highlighter-rouge">decision-audit</code></td>
+      <td>calls <a href="ask-the-person.html">Ask the person</a><br /><a href="../../../en/cat-harness/processes/skills/decision-audit.html"><code class="language-plaintext highlighter-rouge">decision-audit</code></a></td>
       <td>A PERSON decides. The lane admits <code class="language-plaintext highlighter-rouge">person</code> only, so <code class="language-plaintext highlighter-rouge">activity-fulfilment-kind</code> fails the moment somebody makes an agent the accepting party, and <code class="language-plaintext highlighter-rouge">relaxable="false"</code> means no package may relax the step.<br />The publication manager rather than the editor because a pin is not a change to the corpus — it is a change to what the published artefact is BUILT FROM, and that role is the one accountable for what is live.<br />Deliberately NOT a DMN-backed gateway. Every computed gateway in this repository reduces to arithmetic over tool output; this one weighs a rendering nobody can score against the cost of staying behind, and a table here would look authoritative without being so.</td>
     </tr>
     <tr>
-      <td><strong>Move the pin and open the PR</strong><br /><code class="language-plaintext highlighter-rouge">A_ApplyPin</code></td>
+      <td><a id="step-A_ApplyPin"></a><strong>Move the pin and open the PR</strong><br /><code class="language-plaintext highlighter-rouge">A_ApplyPin</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">prepare-merge</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/prepare-merge.html"><code class="language-plaintext highlighter-rouge">prepare-merge</code></a></td>
       <td>The pin literal moves in the one file <code class="language-plaintext highlighter-rouge">upstream-pins.json</code> declares, and the PR body says what the version range changed in RENDERED output — the evidence, not just the verdict.</td>
     </tr>
     <tr>
-      <td><strong>Record the hold or the decline</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordOutcome</code></td>
+      <td><a id="step-A_RecordOutcome"></a><strong>Record the hold or the decline</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordOutcome</code></td>
       <td>Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></a></td>
       <td>A HOLD is a block with an expiry and a revisit trigger: a hold with neither cannot be told from abandoned work, and the next watcher run re-raises the same pin with no memory of why it was left. A DECLINE is a scrapped bean carrying its reasons — what stops the next agent re-entering the same dead end.<br />Either way the decision is written down before the process ends, and the bean is resolved from here: a run that stops at “we looked and said no” is as finished as one that moved the pin.</td>
     </tr>
     <tr>
-      <td><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanOpen</code></td>
+      <td><a id="step-Call_BeanOpen"></a><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanOpen</code></td>
       <td>Agent</td>
-      <td>calls <a href="bean-open.html">Open the bean</a><br /><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
-      <td>Process_BeanOpen: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn (bean m8gz, owner 2026-10-24); the gateway after this reads which end it reached.</td>
+      <td>calls <a href="bean-open.html">Open the bean</a><br /><a href="../../../en/cat-harness/processes/skills/bean-coordination.html"><code class="language-plaintext highlighter-rouge">bean-coordination</code></a></td>
+      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn (bean m8gz, owner 2026-10-24); the gateway after this reads which end it reached.</td>
     </tr>
     <tr>
-      <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose</code></td>
+      <td><a id="step-Call_BeanClose"></a><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose</code></td>
       <td>Agent</td>
-      <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Process_BeanClose: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
+      <td>calls <a href="bean-close.html">Close the bean</a><br /><a href="../../../en/cat-harness/processes/skills/todo-manager.html"><code class="language-plaintext highlighter-rouge">todo-manager</code></a></td>
+      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1147,7 +1325,7 @@
     </tr>
     <tr>
       <td><strong>Bean claimed?</strong><br /><code class="language-plaintext highlighter-rouge">GW_BeanYours</code></td>
-      <td>Reads which end Process_BeanOpen reached. <code class="language-plaintext highlighter-rouge">claimed</code>: the bean is in progress and this process works it. <code class="language-plaintext highlighter-rouge">not yours</code>: a sibling session or a human holds it, nothing was written to it, and this process stops here rather than work a bean it does not own (bean-coordination).</td>
+      <td>Reads which end <a href="bean-open.html">Process_BeanOpen</a> reached. <code class="language-plaintext highlighter-rouge">claimed</code>: the bean is in progress and this process works it. <code class="language-plaintext highlighter-rouge">not yours</code>: a sibling session or a human holds it, nothing was written to it, and this process stops here rather than work a bean it does not own (bean-coordination).</td>
       <td><strong>claimed</strong> → Scope the delta pinned → candidate<br /><strong>not yours</strong> → Not yours — left alone</td>
     </tr>
   </tbody>

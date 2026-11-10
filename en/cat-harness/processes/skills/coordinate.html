@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="../../../../assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="../../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  
+
+  
+
+  
+    <script src="../../../../assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="../../../../assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>coordinate (skill) | WHO IRIS</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="coordinate (skill)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
+<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
+<link rel="canonical" href="https://litlfred.github.io/who-iris/en/cat-harness/processes/skills/coordinate.html" />
+<meta property="og:url" content="https://litlfred.github.io/who-iris/en/cat-harness/processes/skills/coordinate.html" />
+<meta property="og:site_name" content="WHO IRIS" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="coordinate (skill)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.","headline":"coordinate (skill)","url":"https://litlfred.github.io/who-iris/en/cat-harness/processes/skills/coordinate.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!--
+  The configured colour scheme, published for site-chrome/assets/js/docs-ui.js.
+
+  just-the-docs' first stylesheet is `just-the-docs-default.css`, which is
+  whatever `color_scheme` in _config.yml compiled to -- so `jtd.getTheme()`
+  returns the string "default" on a fresh load, never "dark". The scheme
+  toggle needs to know what "default" MEANS here, and reading it from the
+  config is the one way that does not go stale when the config changes.
+
+  FIRST in this file since 2026-09-24, because the first-paint snippet below
+  reads it too, and a script can only read what the parser has already seen.
+-->
+<script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script>
+<!--
+  THE FIRST PAINT IS DARK — owner, 2026-09-24: *"when any
+  page/foio-asst/cat-harness first loads if flashes white before goignt o
+  dark mode. instead it should deafult dark mode then turn to light mode to
+  prevent light flash in dark."*
+
+  WHY IT FLASHED. The site is configured dark, so the theme's first
+  stylesheet already paints dark. But `docs-ui.js` is deferred, and on load
+  it applied a STORED choice with `jtd.setTheme(name)`, which swaps that
+  stylesheet's href -- to the dark file, when the default file already was
+  dark. The swap unloads the sheet that was painting the ground, and until
+  the new one arrives the browser's WHITE canvas shows. Every reader who had
+  ever pressed the light/dark control got that on every page. And nothing
+  painted `html` at all, so any moment without the theme's sheet was white.
+
+  So, FIRST THING in this include, before every stylesheet it emits:
+
+  1. decide the scheme -- the reader's stored choice (`fa-color-scheme`, the
+     key `docs-ui.js` writes), else the OS, else LIGHT -- and put it on
+     `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
+     it ever paints the wrong way first;
+  2. if that is not the configured scheme, switch the theme's sheet NOW,
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
+  3. paint `html` itself, dark unless the scheme is light, so a sheet in
+     flight shows the page's ground rather than white.
+
+  The theme's own stylesheet link is ABOVE this include (just-the-docs emits
+  `head_custom.html` last in its head), which is why step 2 exists: there is
+  no hook before it, and none is needed -- nothing paints until the head is
+  parsed, and this runs while it is being parsed.
+
+  INLINE, which the rest of this file avoids so that no `script-src`
+  relaxation is ever needed. This is the one exception, and it is the only
+  way to run before first paint: a `src` script here is a network round-trip
+  on the critical path of every page. It interpolates nothing into markup,
+  and a CSP added later needs this block's hash.
+
+  ELSE LIGHT -- owner, 2026-10-15, "follow os else light". The declared
+  `color_scheme` only names the sheet shipped first. The ONE source: tools'
+  `scheme-css.ts` lifts this script; `docs-ui.js` reads its attribute.
+
+  NO LIQUID between the markers. `first-paint-scheme.e2e.ts` lifts these
+  exact bytes into a replica page, so the spec tests what ships.
+
+  The generated dashboards that write their OWN head (`state-visualizer.ts`,
+  `gen-translation-status.ts`) do not carry this. They switch nothing with
+  script, so they cannot flash: their first CSS paints dark, and the same spec
+  holds them to that. Giving them this snippet would switch ON their
+  `data-fa-scheme="light"` rules for the first time -- and those were never
+  finished (axe, 2026-09-24: 3 to 6 contrast failures per dashboard in light,
+  dark-scheme tag colours on a light ground). A light palette for them is its
+  own piece of work, not a side effect of this one.
+-->
+<!-- fa-first-paint:begin -->
+<script>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+<style>html{background-color:#27262b}html[data-fa-scheme="light"]{background-color:#ffffff}</style>
+<!-- fa-first-paint:end -->
+<!-- PROSE HERE IS NOT FREE: these are HTML comments, so every byte ships on
+     every page (2356 of them). A comment in this file is a POINTER; the
+     reasoning goes in the artefact. Measured, with the cost this change paid
+     before measuring, in assets/harness/site.json's front matter. -->
+<!-- THE RENDER STATE. pending here; ready/failed from assets/js/kg-render.js,
+     which carries the contract. No attribute = no dynamic region on this page.
+     The number is a MINIMUM cross-checking registrations, not a count. -->
+<meta name="fa-render-regions" content="1">
+<script>document.documentElement.setAttribute("data-fa-render","pending");</script>
+<!--
+  The browser-tab icon, from the same declared mark the sidebar title
+  (`title.html`) renders — reused rather than looked up by its own
+  `browser-icon` role. There WAS a second role for exactly that, on
+  `mark-small` in `harness.json`, and it went unread: nothing in this
+  repo ever emitted a favicon at all, `rel="icon"` included. It also could
+  not have driven this lookup as declared — `imagesForRole()`
+  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
+  mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
+  the already-resolved `icon` (the same field `title.html` reads) sidesteps
+  that and, more importantly, is what was asked for: the sidebar mark and the
+  tab icon are meant to be the SAME glyph, so one declaration driving both is
+  correct, not just convenient — flip `icon` in `harness.json` and both
+  follow in one edit, no template change needed.
+
+  SVG-only. No PNG/ICO fallback exists in the repo and none is generated
+  here — every browser this matters for (evergreen Chrome/Firefox/Edge, and
+  Safari since 16) reads `type="image/svg+xml"` directly; a raster fallback
+  would need generating actual image files, which is out of scope for this
+  change.
+
+  `relative_url`, same as `title.html` and `landing.html` — a bare
+  `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
+  for.
+--><!--
+  Site-wide styling for the BPMN workflow figures.
+
+  just-the-docs pulls this file into <head> on every page. The diagrams are wide
+  (a swimlane process does not shrink well), so the figure scrolls horizontally
+  inside its own container rather than forcing the page body to scroll.
+
+  The SVGs carry their own white backdrop — see scripts/render-bpmn.ts — so they
+  stay legible under the dark colour scheme even if this stylesheet is missing.
+-->
+<style>
+  .bpmn-figure {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid rgba(128, 128, 128, 0.35);
+    border-radius: 6px;
+    margin: 1em 0 0.4em;
+  }
+  .bpmn-figure img {
+    display: block;
+    width: 100%;
+    min-width: 1200px;
+    max-width: none;
+  }
+  .bpmn-source {
+    margin-top: 0;
+    font-size: 0.75rem;
+  }
+</style>
+
+<!--
+  Site UI: a QR of the current page in the sidebar header, and zoom /
+  full-width controls on the figures.
+
+  Loaded as same-origin files with no inline script, so no script-src
+  relaxation is needed. The QR is generated in the browser from
+  window.location.href rather than baked per page at build time, so it is
+  right for anchors, query strings, and both the directory and .html forms of
+  the same page. The UTF-8 shim must come after the encoder: without it the
+  encoder's stringToBytes is single-byte and a non-ASCII character in a URL
+  silently encodes to mojibake.
+-->
+<!--
+  The TRANSLATION INDEX — which source page has a translation in which locale.
+
+  `mountNavLocale` in docs-ui.js reads this to decide what the left-hand navbar
+  shows: with the source language selected it does nothing, and with `fr`
+  selected it swaps each nav item that HAS a French page for that page, IN
+  PLACE OF the English one. An item with no translation is left exactly as it
+  is — that is the fallback, and it is the absence of a rewrite rather than a
+  code path of its own.
+
+  Generated into `docs/_data/translations.json` by
+  `content/pipeline/translation-index.ts`, from what each page DECLARES about
+  itself: `lang`, and `translation_source` naming the page it expresses. NOT
+  from a scan for directories whose names look like language subtags — see
+  that module's header for why that inference is wrong in both directions.
+
+  THREE STATES, and the third is the reason this is a JSON island rather than
+  a conditional. (The tag name is written inside {% raw %}
+  below because LIQUID PARSES TAGS INSIDE AN HTML COMMENT — the comment
+  wrapper means nothing to it — so naming a tag in prose is a syntax error at
+  build time, and the message points at the THEME's head.html because Liquid
+  attributes an include's line to the includer. This comment cost one red
+  deploy.
+
+  AND THEN IT COST A SECOND ONE, differently, which is why this paragraph now
+  describes the wrapper rather than spelling it. It used to SPELL both halves
+  as an example — and the closing half ENDED THIS COMMENT eighteen lines
+  early, so every line below it rendered as visible body text at the top of
+  EVERY PAGE on the site. Reported by the owner from the staging URL,
+  2026-09-19.
+
+  The asymmetry is the lesson: a Liquid tag has an escape, and the closing
+  comment delimiter has NONE. There is no way to write those three characters
+  inside a comment and have the comment survive them, because the parser is
+  not looking for an escape — it stops at the first match. So the rule is not
+  "escape it carefully", it is DO NOT WRITE IT: describe it, or name it one
+  character at a time. Guarded by
+  scripts/tests/html-comment-delimiters.test.ts, which fails on an opening
+  delimiter appearing inside an open comment — the one machine-detectable
+  signature of somebody trying.)
+  A {% if %} would have to choose between the second and
+  third rows below, and there is no expression that can:
+
+    1. the data file is there      -> `index` is an object; filter the nav.
+    2. it is there and EMPTY       -> `pages` is `{}`; there is nothing to
+                                      swap, so every item correctly falls back
+                                      to the source language.
+    3. the data file is ABSENT     -> `jsonify` emits `null`, and docs-ui.js
+                                      leaves the navbar EXACTLY as built.
+
+  A build that could not determine the translation set must never render as a
+  folio that has no translations. `null` is how that is said.
+
+  `baseurl` travels with it because the client has no other way to strip the
+  site prefix off a nav `href` before matching it.
+-->
+<!-- MOVED 2026-10-02 to assets/harness/site.json: fetched once instead of
+     inlined 2356x (9482 B/page, 22.34 MB, ONE payload). The three states above
+     are unchanged; a fourth — the file is unreachable — is data-fa-render. -->
+<!--
+  Translation metadata for this page, consumed by docs-ui.js to auto-render
+  language coverage and QA badges. The translation pipeline stamps front matter;
+  this block publishes it to the client. No manual editing needed.
+-->
+<script type="application/json" id="fa-translation-meta">{
+  "lang": "en",
+  "translationStatus": "",
+  "translationSource": "",
+  "supportedLocales": ["ar","zh","en","fr","ru","es"],
+  "availableLocales": null,
+  "translationQa":{
+    "key": "page.translation",
+    "slug": "en-cat-harness-processes-skills-coordinate",
+    "src": "../../../../assets/qa/en-cat-harness-processes-skills-coordinate/page.translation.json",
+    "index": "../../../../assets/qa/en-cat-harness-processes-skills-coordinate/qa-index.json",
+    "list": "../../../../assets/qa/translation-qa-pages.json"
+  },
+  "sweep":{
+    "absent": "who-iris publishes no translation QA sweep on this site",
+    "run": false,
+    "sweptAt": "",
+    "totalPages": 0,
+    "pagesWithTranslations": 0,
+    "complete": false
+  },
+  "statusSrc":"../../../../assets/translation-status/index.json"
+}</script>
+<!--
+  Where the action tiles point.
+
+  RESOLVED, not composed. `scripts/sync-docs-harness.ts` writes
+  `docs/_data/harness.json` from the instance's own `cat-harness.json`,
+  through `siteLinks` in `scripts/site-links.ts` -- which computes every path
+  with `artefactStub` and `renderingPath`, the same functions the knowledge
+  graph exporter and the Pages workflow use. The tile therefore cannot
+  disagree with what is published.
+
+  This block previously wrote `../../../../kg/` by hand. Nothing
+  has ever been published at `<base>/kg/` -- the renderings sit at the base,
+  named after the stub -- so the only entry point to the viewer anywhere on
+  this site was a 404 from the day it was added. See bean `udx8`, and the
+  identical defect AGENTS.md records against the README's chapter PDFs. A
+  path built by convention is a claim; `bun run cat site:links --site _site`
+  checks it against the tree that actually ships, and the Pages workflow runs
+  that check after the export.
+
+  `path` is site-ROOT-relative and gets `relative_url`, which is what makes it
+  right under this site's `/folio-assistant/` baseurl. `url` is off-site and
+  is printed as-is. `source` is no longer taken from `aux_links`: those were
+  removed so the forge link stops appearing as text at the top of the main
+  panel (the owner asked for it as an icon, not a header), and the URL is
+  resolved from the git remote instead of written down twice.
+-->
+<!--
+  THE NAVBAR ICON ROW — which icons this instance shows, and where each goes.
+
+  `null` when the instance has not decided, and that is NOT the same as an
+  empty list: `navbarIcons` absent means "inherit, and nothing up the chain has
+  said either", while `[]` means the instance chose to show none. docs-ui.js
+  reads the two apart, and `jsonify` emits `null` for the first exactly as the
+  translations block above relies on.
+
+  Resolved in `sync-docs-harness.ts`: the icon list walks `needs` with the site
+  owner as the floor, and the hrefs come from this instance's own declared
+  visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
+  or in JavaScript.
+-->
+<!--
+  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
+  The row is the same on every page of a build, so it is written once into a
+  cached file instead of into each page. `data-fa-row-src` is the contract the
+  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
+  the name once it has filled the island, and a reader that finds it still
+  named and empty reports a failed load rather than "declared none".
+-->
+<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
+     moving it, in assets/harness/site.json's front matter. -->
+<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
+
+<!--
+  The todo index — a PERSON's outstanding items, published by
+  `scripts/gen-docs-pages.ts` to `/assets/todos/index.json`.
+
+  `relative_url` for the same reason every other path here uses it: the site is
+  served from `/folio-assistant` on the canonical deploy and from
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
+  404s on every deploy but one.
+
+  A URL rather than inline JSON, unlike `fa-site-links` above, because the
+  index grows with the todo corpus and inlining it would put the whole set into
+  every page's <head> whether the reader opens the board or not. A missing file
+  is reported by the fetch and the board is simply not mounted — a board that
+  opens empty is indistinguishable from a person with nothing outstanding, and
+  those are opposite facts.
+
+  `<meta>` and not a `<div>`: this is `<head>`, where flow content is not
+  permitted. A browser hoists a stray `<div>` into `<body>` and the code still
+  works, which is exactly what makes the mistake survive review.
+-->
+<!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
+     page has one and falls back to this. Rationale and measurement are in that
+     file's front matter, which is not served. -->
+<meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../../assets/todos/index.json">
+<!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
+     filters and groups by, and each todo's own page. -->
+<meta name="fa-todo-graph" content="../../../../todos.jsonld">
+
+<!--
+  THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
+  becomes its avatar.
+
+  R2 of issue #602: *"The threshold SHALL be declared data, not a literal in
+  the renderer."* `gen-docs-pages.ts` publishes the folio's own
+  `semantic-zoom.json`, and publishes NOTHING when the folio has not declared
+  one. So this `<meta>` may point at a 404, and that is a real state rather
+  than a defect: `docs-ui.js` reports it could not determine a threshold and
+  leaves every card's words in place. A default in either file would be the
+  literal R2 forbids, one layer further from where anybody looks for it.
+
+  The pointer is emitted UNCONDITIONALLY because Liquid cannot see whether the
+  generator wrote the file, and a conditional that guessed would make "this
+  folio declares no threshold" and "the build did not run" the same page.
+-->
+<meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json">
+
+<!--
+  THE DECLARED VISUALISATIONS, as tiles.
+
+  Owner, 2026-09-20: *"if harness declares visaluzers, those should have tile"*
+  — so the tile set is the `coverage.visualiser` obligation made reachable, not
+  a second registry. `graph-tiles.ts` derives it into `_data/harness.json`;
+  this hands it to `docs-ui.js` for BOTH surfaces, because a tile is declared
+  once and says where it shows.
+
+  INLINE rather than a second fetch, unlike the todo index above, and the two
+  are different for a reason worth stating: that index grows with the todo
+  corpus, while this one is bounded by the number of directories an instance
+  DECLARES — twelve here — and every page needs it before first paint or the
+  navbar would visibly grow tiles a moment after the reader arrives.
+
+  `jsonify` and not a hand-built string: a title carrying a quote would
+  otherwise close the attribute, and the quoting rule is Liquid's rather than
+  something this comment has to be right about.
+-->
+<!--
+  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
+  is the same on every page and was 12.5 KB of each one (measured on gh-pages
+  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
+  and deferred scripts run in document order, so the tiles are in place before
+  the first reader runs: no later paint than the inlined copy had.
+-->
+<meta name="fa-tiles" content="" data-fa-src="harness-data">
+<!--
+  THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
+  finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
+  instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
+  nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
+-->
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
+
+<!--
+  THE SITE'S BASEURL, for the tiles above.
+
+  Every other site-root path on this page is composed by Liquid: `relative_url`
+  prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
+  it, because they reach the client as JSON and are composed in `docs-ui.js`
+  after Liquid has finished — so the base has to travel with them.
+
+  IT SHIPPED WITHOUT ONE AND EVERY TILE 404ed (issue #801). `graph-tiles.ts`
+  stores `/beans/`, which is correct as data and is what `harness.links[].path`
+  stores too; written into an `href` unprefixed, a browser resolves it against
+  the ORIGIN, so the beans tile pointed at `litlfred.github.io/beans/`. The
+  owner found it by going looking for the board and landing there.
+
+  A meta of its own rather than reading the site index, which also carries a
+  `baseurl`: that document reads as `null` when `_data/translations.json` was
+  not built, and since 2026-10-02 it is FETCHED, so it is also absent until a
+  request resolves and may never arrive. Composing links out of an optional
+  block means the day it goes missing every tile silently points at the origin
+  again — which is this defect, with a second way to reach it. Two reasons for
+  one answer now.
+
+  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
+  `../..` two levels down, never the deploy's path, so the page is the same
+  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
+  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
+  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
+-->
+<meta name="fa-baseurl" content="../../../..">
+
+<!--
+  WHETHER THIS IS A PREVIEW, for the tiles above.
+
+  `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
+  `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
+  or a local build.
+
+  It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
+  `publish: "staging-only"` page from the canonical tree; a tile still pointing
+  at it would be a link to a 404 — `pb04`, a dead link being worse than no
+  link, and worse than usual here because the tile ALSO advertises content the
+  declaration is deliberately not publishing.
+
+  The filtering is client-side rather than baked into `harness.json` because
+  that file is generated once and committed, so it cannot know which deploy
+  will serve it. The page can be withheld at compose time because compose runs
+  per deploy; the data file cannot.
+
+  EMPTY IS THE SAFE VALUE, and it is what an absent `_data/build.yml` yields:
+  a build that cannot say it is a preview is treated as canonical and hides
+  the tile. That matches `compose-docs.ts`, which withholds unless positively
+  told `--staging` — one direction in both places, so the page and its tile
+  cannot disagree about which deploy they are on.
+
+  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
+  reader asks only whether it is empty, and the slug made every page differ
+  between previews. The branch is in `staging.json`, which the banner reads.
+-->
+<meta name="fa-staging" content="">
+
+<!--
+  WHICH SEARCH INDEX THIS PAGE IS SERVING.
+
+  `feature-staging.yml` fetches the PUBLISHED index before the build and
+  stamps what happened; `docs-site.yml` writes no such key, so the canonical
+  deploy leaves this empty and draws no warning. Bean `eof6`, on the owner's
+  ruling of 2026-09-22: *"staging uses last published index (w/ wanrnig)"*.
+
+  Three values, and the empty one is a real state rather than a fallback:
+
+    published    the preview serves the last published index. Results are
+                 about the MAIN SITE, not about this branch.
+    unavailable  the fetch failed; an empty index is served.
+    (empty)      not a staging build. No warning.
+
+  The bean this implements had first concluded that staging must disable
+  search outright, because a stale hit is "a wrong PASS, BELIEVED". The ruling
+  keeps search and attacks the belief instead — which is why the value is
+  emitted at all. An index swapped in with nothing on the page saying so would
+  be the unmarked staleness the bean was right to refuse.
+-->
+<meta name="fa-search-index" content="">
+
+<!--
+  A page left out of the search index ON PURPOSE (`search_exclude: true`)
+  says so in what is built, so `publish:verify`'s search-index check can tell
+  a deliberate exclusion from a truncated index (#2233). Front matter is gone
+  once Jekyll has run; without this marker the ~2,800 IG artefact pages that
+  #2194 excluded read as "4,189 pages offer a search box, 1,003 indexed".
+-->
+
+
+
+
+<!--
+  The bean index — the AGENT work plan, published by the same generator beside
+  the todo index above, for the same reason and read the same way. Separate
+  files rather than one combined document because the two stores are separate
+  graphs with separate declarations, and a consumer that wants only the human
+  half should not fetch 239 beans to get three todos.
+-->
+<meta name="fa-beans-src" content="../../../../assets/beans/index.json">
+<!--
+  The process index's entry point — the REPOSITORY's named-subgraph index,
+  whose children are the harness roots this site frames (`bun run
+  subgraph:jsonld`; bean `ax6r`, owner 2026-10-03: "Move to JSON-LD").
+  Read by assets/js/process-index.js on the page carrying
+  `[data-fa-process-index]` (the publication-workflow page), which walks it
+  down to every `processes` subgraph's `index.hydrated.jsonld`.
+-->
+<meta name="fa-processes-src" content="../../../../subgraph/index.jsonld">
+<!--
+  The deploy's stamp — when it was built and from which commit — which the
+  work-plan dashboard turns into "generated … · N commits behind main".
+  `build.json` on the main site, `staging.json` on a preview; written by the
+  deploy, never committed, because a committed timestamp is a merge conflict
+  on every pair of concurrent changes (bean `y7b3`).
+-->
+<meta name="fa-build-src" content="../../../../build.json">
+
+<!--
+  The discarded-items document — `fsh-guts.jsonld`, published at the base by
+  `docs-site.yml`. A URL and not inline JSON, for the todo index's reason and
+  then some: it carries every node's BODY, which is 64 KB against a 5 KB
+  document without them. Inlining that into every page's <head> would be
+  absurd for content reached through one control inside Settings.
+
+  `.json` rather than `.jsonld`. Both are published and they are the same
+  bytes; Pages has no media type for `.jsonld` and serves it as
+  octet-stream. `fetch().json()` would parse it anyway, but every other
+  rendering here uses the alias and one that did not would be the odd case a
+  later reader has to work out.
+
+  The viewer fetches this WHEN SETTINGS OPENS, never on page load, and a
+  fetch that fails is reported rather than shown as an empty trashcan —
+  "nothing discarded" and "could not read the document" are opposite facts.
+-->
+<!--
+  NOT on a folio's site that does not link its OWN fsh-guts (#2263 follow-up):
+  there this path is the folio's, where no document is published, and the
+  fetch's 404 painted "?" -- an error -- on the fish. With no meta the count is
+  ABSENT, and the row's fish is a link or an inert icon saying why
+  (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
+-->
+<!--
+  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
+  failure, not a performance one.
+
+  These five are served from stable paths with no hash in the name, so a
+  browser that has the page cached keeps the old CSS and JS until its
+  `max-age` runs out. On the live site that is invisible. On a branches/
+  preview it is the whole point of the deployment: the reviewer opens the URL
+  they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
+  see changes" — which is indistinguishable from a deploy that never
+  happened, and sends the next hour after the wrong cause. Measured
+  2026-09-21 on this branch: every byte of the change was verified present in
+  the publish ref while the page rendered the previous build.
+
+  The query is a HASH OF THE ASSET (`fa_asset_version`,
+  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
+  do. It was `site.time` until 2026-10-23, and the build time is new on every
+  build: every page then differed on every rebuild, so each re-push of a
+  preview stored a whole new copy of its HTML (bean `g196`).
+
+  NOT a cache-busting strategy for third-party assets, and not applied to
+  them: those are versioned in their own URLs already.
+-->
+<!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
+<link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
+<!-- Narrow viewports: wide content scrolls in its own box, never the page
+     (bean `2r2n`). The standalone viewers inline the same file through
+     `withViewerNav`, so both kinds of page read one set of rules. -->
+<link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
+
+<!--
+  The work-plan dashboard's styles, split from docs-ui.css so that
+  `state-visualizer.ts` can inline exactly these bytes into the generated
+  `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
+-->
+<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01">
+<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
+     `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
+     Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
+     roles that docs-ui.css consumes, and a custom property has to be set on a
+     matching element before the rule reading it takes effect. -->
+<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
+<!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
+     that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
+<link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
+<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
+     `avatars:css:check` fails the build when it is stale. One stylesheet
+     rather than 68 assets: the glyph is a mask and the colour is a property,
+     so a scheme swap is a custom property and the trash state is a selector. -->
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8">
+
+<!--
+  The kinds THIS INSTANCE DECLARES, for the avatar fan.
+
+  Owner: "shows the DECLared kinds for that instance, not inheritance." Written
+  by `sync-docs-harness.ts` from the instance's own `harness.json`, BEFORE
+  `resolveDirectories` overlays a dependency's. The effective set is strictly
+  larger, and showing it would name kinds this repository never claimed.
+
+  Inline rather than a fetched URL, unlike the todo index and the discarded
+  document: this is a dozen short strings, it is needed to render the fan at
+  all, and a fetch for that would put a spinner in front of a badge.
+-->
+<!-- NOT MOVED: same reason as fa-site-links above. -->
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
+<!--
+  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
+  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
+
+  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
+  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
+  A version query naming its content would write that change into every page: two
+  previews built 25 minutes apart differed on 1,351 pages for one count going
+  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
+  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
+-->
+<script src="../../../../assets/js/harness-data.js" defer></script>
+<script src="../../../../assets/js/vendor/qrcode.js" defer></script>
+<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
+<!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
+<script src="../../../../assets/js/kg-render.js" defer></script>
+<!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
+<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
+<!-- The edit, source and feedback links of every page, from the platform's one
+  recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
+  facts and this builds the hrefs. -->
+<script src="../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
+
+<!--
+  The work-plan dashboard. SELF-MOUNTING on any page carrying
+  `[data-fa-workplan]`, so docs-ui.js neither calls it nor knows it exists; a
+  page without that container pays one failed querySelector. The same file is
+  inlined verbatim into the generated state-visualiser pages.
+-->
+<script src="../../../../assets/js/work-plan.js" defer></script>
+<!--
+  The process index, self-mounting on `[data-fa-process-index]` the same way.
+  Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
+-->
+<script src="../../../../assets/js/process-index.js" defer></script>
+
+<!--
+  The landing panel — the instance's declared description drawn inside the
+  quiet part of its declared backdrop. Markup: `_includes/landing.html`.
+
+  The region comes in as custom properties (`--fl-x` …) set per instance from
+  `harness.json`, so this stylesheet knows nothing about where any
+  particular picture is quiet. That is the whole design: a downstream folio
+  swaps the art and the numbers and needs no CSS.
+-->
+<style>
+  .folio-landing { position: relative; margin: 0 0 2rem; }
+
+  /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
+     `landing.html` emits exactly one folio-landing class —
+     `folio-landing folio-landing--plain` — the no-stickies fallback, which
+     renders the description and no art. The art path moved to the sticky
+     board (`fa-sticky--backdrop` in docs-ui.css), which composites text into
+     the picture through a declared `textRegion` and a scrim.
+
+     So this block used to carry fourteen selectors of which ELEVEN matched
+     nothing: every rule reaching for `folio-landing__art`,
+     `folio-landing__text` or `folio-landing--no-region`. Measured before they
+     were cut — those three classes appear in no markup in this repository and
+     on none of the 331 published pages that were inlining the CSS for them.
+     CSS has no error for a selector that matches nothing, which is the same
+     silence that let `.fa-sticky--backdrop > .fa-sticky-art` ship wrong.
+
+     The reasoning did not go with them. The blend-direction argument for the
+     fade is now at `.fa-sticky--backdrop::before`, where a scrim replaces it;
+     the region, overflow and breakpoint-parity lessons were already
+     re-derived and better stated on `.fa-landing-sticky--fixed`. What is NOT
+     carried over is the `cqw` container-query sizing: the successor scales
+     through `--fa-text-scale` rather than container queries, so a note about
+     `container-type` not being its own query container would be advice about
+     a mechanism nothing here uses. Bean `alox`, issue #873. */
+  .folio-landing--plain {
+    position: static; width: auto; height: auto; color: inherit;
+  }
+  .folio-landing--plain p { font-size: inherit; font-weight: inherit; }
+</style>
+
+<!--
+  AN INSTANCE'S OWN WEBPAGE THEME, scoped to its pages.
+
+  Bean `7h3u`, on the owner's 2026-09-30 ruling to wire this at the PLATFORM
+  layer so every ingested IG gets it, rather than in one instance's page
+  generator.
+
+  WHY LIQUID AND NOT CSS. A webpage theme dresses one instance's pages, so it
+  has to be scoped by URL — and CSS cannot select on a URL. Jekyll is what
+  knows which page is rendering, so the scope is applied here and the VALUES
+  come from `_data/instance-themes.json`, written by `gen-themes-css.ts` from
+  each instance's declared `themes/`. That is the `site.data` pass-through bean
+  `kott` settled, and the owner's own instruction for this work: "reuse all
+  existing justthedocs infra".
+
+  WHY INLINE AND NOT A LINKED STYLESHEET. The same first-paint reasoning this
+  file already carries for the colour scheme: a sheet arriving after first
+  paint flashes the unthemed colours, which is the defect this file was
+  rewritten to remove.
+
+  WHAT IT RETHEMES, AND WHAT IT CANNOT. These three names are read by
+  `docs-ui.css` at 29 of its 33 `var(--x, #literal)` sites and DEFINED by
+  nothing — just-the-docs is Sass, so its own chrome compiles to literals and
+  no custom property can reach it. So this dresses the surfaces the site owns,
+  the left-hand nav among them, and leaves just-the-docs' compiled chrome
+  alone. Stated here because the alternative is a reader concluding the theme
+  is broken when it is doing exactly what it can.
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
+
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
+
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/coordinate.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#workflow-rule-reminder","label":"Workflow rule reminder"},{"href":"#when-to-invoke","label":"When to invoke"},{"href":"#inputs","label":"Inputs"},{"href":"#where-each-section-lives","label":"Where each section lives"},{"href":"#output","label":"Output"},{"href":"#anti-patterns","label":"Anti-patterns"},{"href":"#11-statusmd--master-ledger-pattern","label":"§11 STATUS.md + master ledger pattern"},{"href":"#12-multi-agent-same-goal-coordination","label":"§12 Multi-agent same-goal coordination","children":[{"href":"#when-you-detect-a-sibling-agent-on-your-task","label":"When you detect a sibling agent on your task","depth":1},{"href":"#watching-for-sibling-pr-contradictions","label":"Watching for sibling-PR contradictions","depth":1}],"fold":"2 sub-sections"},{"href":"#what-actually-reaches-a-sibling","label":"What actually reaches a sibling","children":[{"href":"#a-spawned-helper-is-reachable-and-the-owners-authority-is-not-relayed","label":"A spawned helper is reachable, and the owner’s authority is not relayed","depth":1},{"href":"#eleven-sessions-is-the-normal-case-not-the-exception","label":"Eleven sessions is the normal case, not the exception","depth":1},{"href":"#the-worked-example-a-voice-landing-in-a-directory-being-deleted","label":"The worked example: a voice landing in a directory being deleted","depth":1}],"fold":"3 sub-sections"},{"href":"#crossing-into-a-siblings-subject--permitted-and-what-it-costs","label":"Crossing into a sibling’s subject — permitted, and what it costs","children":[{"href":"#the-collision-surface-is-files-and-it-is-predictable-before-you-touch-one","label":"The collision surface is FILES, and it is predictable before you touch one","depth":1},{"href":"#duplicated-work-is-measured-in-what-was-already-pushed-not-in-what-is-open","label":"Duplicated work is measured in what was already pushed, not in what is open","depth":1}],"fold":"2 sub-sections"},{"href":"#starting-new-work--a-collision-review-recorded-before-the-first-edit-strict","label":"Starting new work — a collision review, recorded before the first edit (STRICT)","children":[{"href":"#when-it-runs--the-start-of-any-new-unit-of-work","label":"When it runs — the start of any new unit of work","depth":1},{"href":"#how-deep--scale-the-review-to-the-blast-radius","label":"How deep — scale the review to the blast radius","depth":1},{"href":"#the-five-steps-in-order-before-any-file-is-edited","label":"The five steps, in order, before any file is edited","depth":1},{"href":"#worked-example-a-platform-refactor","label":"Worked example: a platform refactor","depth":1}],"fold":"4 sub-sections"},{"href":"#related-skills","label":"Related skills"},{"href":"#flag-bearer-reflections","label":"Flag-bearer reflections"},{"href":"#sdlc-multi-agent-landscape--coverage","label":"SDLC multi-agent landscape & coverage"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header fa-site-bar fa-page-bar"><a class="fa-page-bar-home" href="../../../../">WHO IRIS</a>
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search WHO IRIS" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search WHO IRIS</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+<span class="fa-page-bar-locale" data-fa-slot="locale"></span></div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <blockquote class="note">
+  <p>The skill <code class="language-plaintext highlighter-rouge">coordinate</code> as its source file <a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/skills/sdlc-core/coordinate.md"><code class="language-plaintext highlighter-rouge">cat-harness/sdlc/skills/sdlc-core/coordinate.md</code></a> writes it, rendered by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> because it has no instruction page on this site — do not edit here. <a href="../index.html">All processes</a></p>
+</blockquote>
+<h1 id="coordinate--multi-agent--multi-pr-coordination">
+  
+  
+    <a href="#coordinate--multi-agent--multi-pr-coordination" class="anchor-heading" aria-labelledby="coordinate--multi-agent--multi-pr-coordination"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> /coordinate — multi-agent / multi-PR coordination
+  
+  
+</h1>
+    
+
+<p><strong>Skill <code class="language-plaintext highlighter-rouge">coordinate</code>:</strong> Coordinate work across multiple in-flight Claude PRs working toward a shared goal. Post intent + asks on related PRs, identify cherry-pickable work, respond to code-review comments on your own PR, periodically triage sibling PR activity (new comments, CI status, new commits), watch main + newly created branches/PRs, escalate inconsistent findings to the author, and keep a coordination ledger up to date.</p>
+
+<p><strong>Named by:</strong> <a href="../copy-into-folio.html">Copy a knowledge-graph asset into a folio</a>, <a href="../graph-detanglement.html">A sub-graph wants to leave</a>, <a href="../kg-separation.html">A knowledge graph leaves for its own repositories</a>, <a href="../named-query-execution.html">Execute audited named queries over partitioned W3C N-Quads distributions</a>, <a href="../nquads-distribution.html">Package and distribute partitioned W3C N-Quads and named queries</a>, <a href="../slice-sqlite-publish.html">Build and publish a per-slice SQLite file</a>, <a href="../sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a>, <a href="../methodology-from-source.html">Adopt a methodology from a source document</a>, <a href="../translation-workflow.html">Translation Workflow</a>, <a href="../ask-the-person.html">Ask the person</a>, <a href="../crdm-close.html">CRDM close-out</a>, <a href="../crdm-data-model.html">CRDM data model</a>, <a href="../crdm-deliver.html">CRDM Phase 6 — implement, MVP, acceptance</a>, <a href="../crdm-issue-linking.html">CRDM — link the work to an issue</a>, <a href="../crdm-needs.html">CRDM Phase 1 — needs</a>, <a href="../crdm-requirements-definition.html">CRDM Phases 2–4 — BPA and requirements</a>, <a href="../crdm-requirements.html">CRDM requirements</a>, <a href="../crdm-signoff.html">CRDM Phase 5 — beans and sign-off</a>, <a href="../hand-back-to-discussion.html">Hand back to the discussion</a>, <a href="../secure-agent-permissions.html">Secure agent permissions</a>, <a href="../session-state-machine.html">Session state machine</a>, <a href="../wireframe-design-review.html">Wireframe design review</a>, <a href="../activity-log.html">Agent activity log</a>, <a href="../bean-close.html">Close the bean</a>, <a href="../bean-drain.html">Drain the beans</a>, <a href="../bean-lifecycle.html">Agent bean lifecycle</a>, <a href="../bean-open.html">Open the bean</a>, <a href="../code-change-review.html">Code change and review</a>, <a href="../merge-base.html">Merge the base branch in</a>, <a href="../merge-refusal.html">A refused merge-train member</a>, <a href="../related-work.html">Related work: find, sort, summarize, ask to coordinate</a>, <a href="../requirements-filing.html">Requirements filing: promote, organise, trace, supersede, or retire</a>, <a href="../sme-test-data-review.html">SME Review of Decision Support and Indicator Test Data</a>, <a href="../stalled-agent-triage.html">Stalled-agent triage: collect handovers, consolidate themes, recommend, re-route</a>, <a href="../test-data-curation.html">Test Data Curation — Fixed Sets and Generated Recipes</a>, <a href="../upstream-pin-watch.html">Watching a pinned upstream dependency</a>, <a href="../upstream-version-adoption.html">Adopting an upstream version bump</a>, <a href="../getting-started.html">Getting started</a>, <a href="../authoring-a-document.html">Authoring a document</a>, <a href="../content-change-review-make.html">Make the content change</a>, <a href="../content-change-review.html">Content Change and Review</a>, <a href="../contributor-feedback.html">Contributor feedback on a working draft</a>, <a href="../editing-hci-validation.html">Editing and HCI validation</a>, <a href="../record-agent-step.html">Record agent step</a>, <a href="../review-log-watch.html">Review-log watch</a></p>
+
+<p>When several Claude branches are converging on the same long-term goal
+(e.g. “reach the precision target”, “close all violators of a rule”,
+“infrastructure overhaul”), each agent has only its own
+context.  Without coordination they will:</p>
+
+<ul>
+  <li>duplicate work (two agents both implementing the same helper),</li>
+  <li>silently diverge (one renames a symbol, another keeps the old name,
+the merge conflicts),</li>
+  <li>miss cherry-picks (one agent already wrote the template
+the others need),</li>
+  <li>accept inconsistent findings without flagging them to the author,</li>
+  <li>accept review-tool feedback without checking it against the actual
+artifact / sibling change proposal’s — pull request’s (PR’s) —
+framing (e.g. accepting an off-by-one “fix”
+that contradicts a definition another PR is also using),</li>
+  <li>miss new sibling PRs that opened mid-session (new branches landing
+on <code class="language-plaintext highlighter-rouge">main</code> with overlapping scope).</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/coordinate</code> is the protocol that prevents this.  None of the agents
+has all the answers; they look to the author for clarification on
+inconsistencies, and they cherry-pick from each other.</p>
+<h2 id="workflow-rule-reminder">
+  
+  
+    <a href="#workflow-rule-reminder" class="anchor-heading" aria-labelledby="workflow-rule-reminder"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Workflow rule reminder
+  
+  
+</h2>
+    
+
+<p>This skill assumes you’ve already created a branch + opened a PR for
+the work tranche being coordinated. Per
+<a href="continual-progress.html"><code class="language-plaintext highlighter-rouge">continual-progress</code></a> (STRICT, supersedes default
+“no auto-PR” guidance for this repo): <strong>always create a
+branch and open a PR at the start of every work tranche</strong> — ASAP, and
+<strong>never ask the user “want me to open the PR?”</strong> Branch + PR creation
+is pre-authorized; the only git action needing explicit permission is
+the <em>merge</em>. Commit early, commit often. Small structured commits
+cherry-pick cleanly; big mixed commits do not. Exception:
+integration-watcher batch audit-job sweeps may use a single bulk
+commit.</p>
+<h2 id="when-to-invoke">
+  
+  
+    <a href="#when-to-invoke" class="anchor-heading" aria-labelledby="when-to-invoke"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> When to invoke
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Start of a session where the user mentioned <strong>other branches/PRs</strong>
+by name (e.g. “coordinate with <code class="language-plaintext highlighter-rouge">claude/foo</code> and <code class="language-plaintext highlighter-rouge">claude/bar</code>”).</li>
+  <li>Whenever you start a new substantive task in a multi-PR effort —
+before making code changes, post intent on the relevant PRs.</li>
+  <li>When you finish a substantive task — post progress + concrete
+cherry-pickable artefacts (file paths, function names, templates,
+fixtures).</li>
+  <li><strong>Periodic triage between substantive commits</strong> (§7) — even with no
+external trigger, sibling PRs may have landed commits or comments
+that change your scope.  Run a quick triage every ~3–5 commits or
+when you finish a task and pick up the next one.</li>
+  <li><strong>When <code class="language-plaintext highlighter-rouge">main</code> lands new commits</strong> during your session — if any
+touch the same files, blocks, or scripts you
+are editing, treat as a sibling PR for §3 classification purposes.</li>
+  <li><strong>When a code-review comment lands on your own PR</strong> (gemini-code-
+assist, copilot-pull-request-reviewer, codex, or human reviewers)
+— see §5 <em>Responding to review comments</em>.</li>
+  <li>When you encounter a <strong>finding that contradicts another PR’s
+framing</strong> — write the disagreement up explicitly, post it to both
+PRs, and tag the author for resolution.</li>
+  <li><strong>A COLLISION — coordinate.</strong> A merge conflict caused by a
+sibling’s landed work is not merely a thing to resolve; it is the
+signal that two sessions are editing one subject. Resolve it AND
+coordinate.</li>
+  <li><strong>A POTENTIAL collision, seen in the work items — coordinate.</strong> Before
+you start a topic, and at each triage, scan for an <code class="language-plaintext highlighter-rouge">in-progress</code>
+work item whose scope overlaps yours. That is the cheapest collision to
+find, because it is the one found BEFORE either of you has written
+anything. How to read a sibling’s state out of the
+store, and the boundary of that inference, is
+<a href="https://github.com/litlfred/cat-harness/blob/main/work-plan/skills/work-plan/bean-coordination.md"><code class="language-plaintext highlighter-rouge">bean-coordination</code></a> §”Where a sibling
+session is visible from” — not restated here.</li>
+  <li><strong>When you START any new unit of work — before the first edit.</strong> A
+new story, epic, feature or task work item, an issue, CRDM Phase 6, a
+workplan tranche, or a handover pickup runs the collision review in
+§”Starting new work” below, scaled to its blast radius, and records
+it in the workplan work item.</li>
+</ul>
+<h2 id="inputs">
+  
+  
+    <a href="#inputs" class="anchor-heading" aria-labelledby="inputs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Inputs
+  
+  
+</h2>
+    
+
+<ul>
+  <li>The current PR number (your branch).</li>
+  <li>A list of sibling branch names or PR numbers (the user gives this,
+or list the open PRs labelled <code class="language-plaintext highlighter-rouge">in-flight</code> with the <em>list change proposals</em> <a href="https://github.com/litlfred/cat-harness/blob/main/skills/tools/folio-core/skills-and-tools.md#the-forge-operations-one-tool-node-each">forge-operation Tool</a>).</li>
+  <li>The shared goal in 1–2 sentences.</li>
+</ul>
+<h2 id="where-each-section-lives">
+  
+  
+    <a href="#where-each-section-lives" class="anchor-heading" aria-labelledby="where-each-section-lives"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where each section lives
+  
+  
+</h2>
+    
+
+<p>This skill was 732 lines and the Protocol was 478 of them — an agent reads the
+whole thing before acting, and at that length it skims. The Protocol now sits
+beside this file. <strong>Nothing was deleted and no step was renumbered</strong>, because
+other skills cite <code class="language-plaintext highlighter-rouge">coordinate §0a</code> and <code class="language-plaintext highlighter-rouge">coordinate.md §8a</code> and those citations
+have to keep resolving.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>section</th>
+      <th>where</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>workflow rule, when to invoke, inputs</td>
+      <td><strong>here</strong> — read before you start</td>
+    </tr>
+    <tr>
+      <td><strong>Protocol §1–§11</strong> — the eleven coordination steps</td>
+      <td><a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/skills/sdlc-core/coordinate/protocol.md"><code class="language-plaintext highlighter-rouge">coordinate/protocol.md</code></a></td>
+    </tr>
+    <tr>
+      <td>output, anti-patterns, §11 STATUS.md, §12 same-goal coordination, related skills</td>
+      <td><strong>here</strong></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>Coordinating:</strong> read this file for whether and when, then <code class="language-plaintext highlighter-rouge">protocol.md</code> for how.</p>
+<h2 id="output">
+  
+  
+    <a href="#output" class="anchor-heading" aria-labelledby="output"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Output
+  
+  
+</h2>
+    
+
+<p>After invocation, you should have:</p>
+
+<ul>
+  <li>Read every sibling PR’s body and changed-files list.</li>
+  <li>Posted at most one coordination comment per sibling PR (intent +
+asks), unless you’ve made progress that warrants a separate
+progress comment.</li>
+  <li>Triaged every open review-tool thread on your own PR (§5) and
+posted a single consolidated status comment.</li>
+  <li>Run a §7 periodic triage every 3–5 of your own commits, capturing
+new sibling-PR comments + commits + CI status in one table.</li>
+  <li>Run §8a (<code class="language-plaintext highlighter-rouge">git fetch origin main</code>) at each triage cycle and react
+to any main-landed changes that touch your scope.</li>
+  <li>Run §8b (newly-opened PRs / branches) at each triage cycle and
+prompt the author when a new sibling overlaps your scope keywords.</li>
+  <li>Identified the next concrete, non-overlapping task on your own
+workplan and started on it.</li>
+  <li>(Optional) Created or updated <code class="language-plaintext highlighter-rouge">docs/coordination/&lt;goal-slug&gt;.md</code>
+with the current state.</li>
+  <li>Escalated any inconsistencies via §6 with <code class="language-plaintext highlighter-rouge">@&lt;author&gt;</code> tagging.</li>
+</ul>
+<h2 id="anti-patterns">
+  
+  
+    <a href="#anti-patterns" class="anchor-heading" aria-labelledby="anti-patterns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Anti-patterns
+  
+  
+</h2>
+    
+
+<ul>
+  <li>❌ Post a coordination comment that just summarises your own PR.
+Sibling agents already read your PR body.</li>
+  <li>❌ Pick the same task as a sibling without posting first.  Even
+if their PR has been quiet, the human author may have given them
+a verbal lead.</li>
+  <li>❌ “Resolve” an inconsistency by rewriting your finding.  Escalate
+to the author.</li>
+  <li>❌ Accept a review-tool fix without verifying it against the
+artifact and sibling-PR conventions.  Bot suggestions can flip
+conventions silently.</li>
+  <li>❌ Reply per-thread on a 6-comment review pass.  Use one
+consolidated status comment + per-thread <code class="language-plaintext highlighter-rouge">accept</code> /
+<code class="language-plaintext highlighter-rouge">reject-with-reason</code> flags.</li>
+  <li>❌ Skip §7 triage between commits because “I would have heard if
+something landed” — you wouldn’t.  Sibling agents work in parallel
+and rarely interrupt each other.  Run the triage anyway.</li>
+  <li>❌ Silently merge / cherry-pick from <code class="language-plaintext highlighter-rouge">main</code> without §8a
+classification.  Main commits can also be inconsistent findings.</li>
+  <li>❌ Add a newly-opened PR to your scope without prompting the
+author (§8b).  The author may want it independent.</li>
+  <li>❌ Long prose.  Coordination comments are tables, file pointers,
+and one-line asks.</li>
+</ul>
+<h2 id="11-statusmd--master-ledger-pattern">
+  
+  
+    <a href="#11-statusmd--master-ledger-pattern" class="anchor-heading" aria-labelledby="11-statusmd--master-ledger-pattern"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> §11 STATUS.md + master ledger pattern
+  
+  
+</h2>
+    
+
+<p>A repeated flip-flop episode (a claim asserted and retracted across
+several sessions) motivates a more structured coordination layer that
+overlays this skill:</p>
+
+<ul>
+  <li><strong>Root <code class="language-plaintext highlighter-rouge">STATUS.md</code></strong> — single dashboard
+listing every goal + pointer to its master ledger + active PRs.</li>
+  <li><strong>Master ledger per goal</strong> — <code class="language-plaintext highlighter-rouge">docs/coordination/&lt;goal&gt;.md</code> holds
+the durable narrative: current canonical status, open tasks,
+flip-flop history, sessions log.</li>
+  <li><strong>Per-goal queue</strong> — the <code class="language-plaintext highlighter-rouge">beans</code> queue (<code class="language-plaintext highlighter-rouge">beans/</code>); each
+open task is one entry.</li>
+</ul>
+
+<p>When <code class="language-plaintext highlighter-rouge">/coordinate</code> runs, it now ALSO:</p>
+
+<ol>
+  <li><strong>Reads STATUS.md</strong> to find which goal(s) the current PR
+touches.</li>
+  <li><strong>Reads the goal’s master ledger</strong> to identify the current
+canonical status — overrides recent commit claims if the
+ledger records a retraction.</li>
+  <li><strong>Reads the queue</strong> to find sibling tasks in flight.</li>
+  <li><strong>References the ledger session log</strong> when posting intent
+comments on sibling PRs, so the comment is grounded in the
+durable record, not just session memory.</li>
+</ol>
+
+<p>See <code class="language-plaintext highlighter-rouge">session-intent</code> for the session-start / session-end
+ledger + queue update protocol — <code class="language-plaintext highlighter-rouge">/coordinate</code> is the sibling-PR
+arm; <code class="language-plaintext highlighter-rouge">/session-intent</code> is the durable-state arm. They are run
+together at session start.</p>
+<h2 id="12-multi-agent-same-goal-coordination">
+  
+  
+    <a href="#12-multi-agent-same-goal-coordination" class="anchor-heading" aria-labelledby="12-multi-agent-same-goal-coordination"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> §12 Multi-agent same-goal coordination
+  
+  
+</h2>
+    
+
+<p><strong>Multiple agents MAY work the same goal in parallel.</strong> Per author
+directive: agents coordinate with the user on goals, not with each
+other on task-level locks.</p>
+
+<p>Model:</p>
+
+<ul>
+  <li><strong>Goal</strong> = product (author’s directive). User-level concern.</li>
+  <li><strong>Queue</strong> = per-goal item list (the <code class="language-plaintext highlighter-rouge">beans</code> queue).</li>
+  <li><strong>Tasks</strong> are NOT exclusively claimed. Two agents may attack the
+same task with different methods — both threads have value.</li>
+  <li><strong>Coordination is with the USER</strong> on goal-level decisions, not
+agent-to-agent on task-level locks.</li>
+</ul>
+<h3 id="when-you-detect-a-sibling-agent-on-your-task">
+  
+  
+    <a href="#when-you-detect-a-sibling-agent-on-your-task" class="anchor-heading" aria-labelledby="when-you-detect-a-sibling-agent-on-your-task"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> When you detect a sibling agent on your task
+  
+  
+</h3>
+    
+
+<p>Signals:</p>
+
+<ul>
+  <li>The queue entry has <code class="language-plaintext highlighter-rouge">co_assignees</code> populated, OR</li>
+  <li>A sibling PR (listed with the <em>list change proposals</em> <a href="https://github.com/litlfred/cat-harness/blob/main/skills/tools/folio-core/skills-and-tools.md#the-forge-operations-one-tool-node-each">forge-operation Tool</a>) has commits
+touching your task’s scope files within the last 24h, OR</li>
+  <li>The ledger session log shows another agent declared intent on
+the same task ID.</li>
+</ul>
+
+<p>Workflow:</p>
+
+<ol>
+  <li><strong>Do not silently abandon.</strong> Your independent attack is valuable.</li>
+  <li><strong>Post intent</strong> on the sibling PR (this skill §3) so the sibling
+sees you’re also working it.</li>
+  <li><strong>Ask the user</strong> with <code class="language-plaintext highlighter-rouge">AskUserQuestion</code> whether to keep both
+threads or have one stand down. Include rich context per AGENTS.md
+§User accessibility — quote what each agent is doing, what method,
+what’s been found, cost of running both.</li>
+  <li><strong>If user says one stands down</strong>, the standing-down agent appends
+partial results to the ledger and updates queue
+<code class="language-plaintext highlighter-rouge">status: "open"</code> (releasing the task). The continuing agent
+may pick up the partial results.</li>
+</ol>
+<h3 id="watching-for-sibling-pr-contradictions">
+  
+  
+    <a href="#watching-for-sibling-pr-contradictions" class="anchor-heading" aria-labelledby="watching-for-sibling-pr-contradictions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Watching for sibling-PR contradictions
+  
+  
+</h3>
+    
+
+<p>Per §8 of this skill: at each triage cycle, look for sibling-PR
+commits or comments that <strong>contradict</strong> your branch’s framing. Per
+§6: escalate inconsistent findings to the user. Do not silently
+adopt the sibling’s framing without an §6 conversation.</p>
+<h2 id="what-actually-reaches-a-sibling">
+  
+  
+    <a href="#what-actually-reaches-a-sibling" class="anchor-heading" aria-labelledby="what-actually-reaches-a-sibling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What actually reaches a sibling
+  
+  
+</h2>
+    
+
+<p><strong>Do not assume you can message a sibling session.</strong> Measured from a
+cloud session with eleven siblings live on one repository:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>channel</th>
+      <th>reaches a cloud sibling?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">list_sessions</code></td>
+      <td><strong>sees</strong> them — id, title, branch, task summary</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ListAgents</code></td>
+      <td><strong>no</strong> — “no other Claude session is running on this machine”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SendMessage</code></td>
+      <td><strong>no</strong> — the send is refused, target not reachable</td>
+    </tr>
+    <tr>
+      <td>a committed <strong>work item</strong></td>
+      <td>yes — every session reads the store at session start</td>
+    </tr>
+    <tr>
+      <td>a <strong>PR or issue</strong> comment</td>
+      <td>yes — to whoever looks, and it is durable</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>So <code class="language-plaintext highlighter-rouge">list_sessions</code> tells you WHO is working and on WHAT, and then the
+message has to travel through something committed.</p>
+
+<p>The practical order:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">list_sessions</code> (or the work items) to find WHO overlaps and how.</li>
+  <li>Write the coordination INTO the artefacts they will read — the
+work item, the PR body, the issue. A work item is the strongest, because
+<code class="language-plaintext highlighter-rouge">bean-coordination</code> §”The store on <code class="language-plaintext highlighter-rouge">main</code> is the one every sibling
+reads” makes it the one surface every session opens.</li>
+  <li>Only then consider a direct message, and only for a sibling
+<code class="language-plaintext highlighter-rouge">ListAgents</code> actually lists.</li>
+</ol>
+<h3 id="a-spawned-helper-is-reachable-and-the-owners-authority-is-not-relayed">
+  
+  
+    <a href="#a-spawned-helper-is-reachable-and-the-owners-authority-is-not-relayed" class="anchor-heading" aria-labelledby="a-spawned-helper-is-reachable-and-the-owners-authority-is-not-relayed"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A spawned helper is reachable, and the owner’s authority is not relayed
+  
+  
+</h3>
+    
+
+<p>The table above is for a session without the remote-session tools. A session
+that has <code class="language-plaintext highlighter-rouge">create_session</code> and <code class="language-plaintext highlighter-rouge">send_message</code> (the <code class="language-plaintext highlighter-rouge">claude-code-remote</code> server)
+<strong>can</strong> seed a helper session and message a cloud session it lists. Reaching
+it does not give it the owner’s authority: a helper’s permission layer may
+refuse pushes, messages back and even reads when its task arrived from another
+session, and it must refuse a relayed ruling (such as a merge window) as the
+owner’s. That refusal is correct. <code class="language-plaintext highlighter-rouge">conduct/security/zero-trust-handover</code> §”Who the principal is” puts a
+message relayed from another session on the NOT-the-principal list.</p>
+
+<p>So, when you seed a helper session:</p>
+
+<ol>
+  <li><strong>Quote the owner’s own words verbatim</strong> in the seed prompt, with the
+session they were typed in, and say which part the helper serves. The
+helper then knows what was asked, though it still cannot treat the words as
+instructions the owner gave it.</li>
+  <li><strong>Relay no rulings.</strong> A merge window, a re-pin consent, or an answer to
+an owner decision binds the session it was given in. Tell the helper to
+open PRs and leave them green, not to merge.</li>
+  <li><strong>Tell the owner, in your own turn, that each helper may ask for
+confirmation in its own session</strong>, and name the sessions. That is the
+only way the owner’s authority reaches it. A helper that stops to ask
+is working as designed. The ask is not a failure to route around.</li>
+  <li><strong>Give the helper a lane it can finish without the owner</strong>: a work item store or a
+set of repositories, the lanes of its siblings, and the report-back channel
+(<code class="language-plaintext highlighter-rouge">send_message</code> to the coordinator).</li>
+  <li><strong>Carry the <a href="https://github.com/litlfred/cat-harness/blob/main/skills/conduct/conduct-core/interaction-modality.md"><code class="language-plaintext highlighter-rouge">interaction-modality</code></a>
+rule in every seed prompt and subagent brief, and require the helper to pass
+it on.</strong> A helper that asks the owner directly must present every question
+twice in order — first the full question in chat (context, what differs,
+every identifier expanded, ≤ 4 numbered or lettered options with pros/cons/downstream/reversibility,
+recommended option first and marked <code class="language-plaintext highlighter-rouge">(Recommended)</code>, and stated default on
+silence), then the tappable card (<code class="language-plaintext highlighter-rouge">AskUserQuestion</code>, <code class="language-plaintext highlighter-rouge">request_decision</code>,
+<code class="language-plaintext highlighter-rouge">ask_question</code>, or <code class="language-plaintext highlighter-rouge">post_widget</code>) with the same option labels — never in
+prose alone and never asking the owner to type. A subagent or a sibling
+running beside a live discussion returns any owner question to the
+coordinator in the
+<a href="https://github.com/litlfred/cat-harness/blob/main/skills/conduct/conduct-core/hand-back-to-discussion.md"><code class="language-plaintext highlighter-rouge">hand-back-to-discussion</code></a>
+schema format. See <a href="opening-brief.html"><code class="language-plaintext highlighter-rouge">opening-brief</code></a> §”Briefing a sibling
+or a subagent — pass <code class="language-plaintext highlighter-rouge">interaction-modality</code> on (STRICT)”.</li>
+</ol>
+<h3 id="eleven-sessions-is-the-normal-case-not-the-exception">
+  
+  
+    <a href="#eleven-sessions-is-the-normal-case-not-the-exception" class="anchor-heading" aria-labelledby="eleven-sessions-is-the-normal-case-not-the-exception"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Eleven sessions is the normal case, not the exception
+  
+  
+</h3>
+    
+
+<p>Measured with eleven sessions on one repository, each merging <code class="language-plaintext highlighter-rouge">main</code> on a
+loop: one branch took <strong>four</strong> base merges in three hours, three of them
+conflicted. The rate IS the environment; coordinate earlier, not merge
+harder.</p>
+<h3 id="the-worked-example-a-voice-landing-in-a-directory-being-deleted">
+  
+  
+    <a href="#the-worked-example-a-voice-landing-in-a-directory-being-deleted" class="anchor-heading" aria-labelledby="the-worked-example-a-voice-landing-in-a-directory-being-deleted"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The worked example: a voice landing in a directory being deleted
+  
+  
+</h3>
+    
+
+<p>A branch migrated every voice from <code class="language-plaintext highlighter-rouge">&lt;instance&gt;/voices/</code> to
+<code class="language-plaintext highlighter-rouge">&lt;instance&gt;/skills/voices/</code>. Mid-flight, <code class="language-plaintext highlighter-rouge">main</code> landed a NEW voice in
+<code class="language-plaintext highlighter-rouge">cat-harness/voices/</code> — the directory the branch removes. Git’s rename
+detection then placed the new file inside another voice’s folder.</p>
+
+<p>Nothing was wrong with either piece of work. What was missing was that
+neither session knew about the other, and the work items said so the whole
+time: the migration’s work item was <code class="language-plaintext highlighter-rouge">in-progress</code> and names the directory.
+<strong>A work item scan by either session would have caught it before a line was
+written</strong>, which is exactly why the trigger above is worth having.</p>
+<h2 id="crossing-into-a-siblings-subject--permitted-and-what-it-costs">
+  
+  
+    <a href="#crossing-into-a-siblings-subject--permitted-and-what-it-costs" class="anchor-heading" aria-labelledby="crossing-into-a-siblings-subject--permitted-and-what-it-costs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Crossing into a sibling’s subject — permitted, and what it costs
+  
+  
+</h2>
+    
+
+<p>Crossing into a sibling’s stream is allowed, but coordinate, watch for
+collisions, and avoid duplicating work. Two rules follow.</p>
+
+<p><strong>1. The stream that owns a milestone’s WORK may repair the milestone.</strong> A
+checker must not rewrite a milestone — a gate that guesses replaces a stale
+belief with an invented one. A session that has re-measured the goal’s whole
+surface may. So the line is <strong>checker vs. session</strong>, not owner vs. non-owner.
+A session repairing somebody’s milestone re-measures every line it rewrites,
+in a fresh container, by running the thing — and says which clause it could
+not verify.</p>
+
+<p><strong>2. Crossing is permitted; colliding silently is not.</strong> Cross freely, but the
+crossing is what triggers this skill rather than what excuses skipping it.</p>
+<h3 id="the-collision-surface-is-files-and-it-is-predictable-before-you-touch-one">
+  
+  
+    <a href="#the-collision-surface-is-files-and-it-is-predictable-before-you-touch-one" class="anchor-heading" aria-labelledby="the-collision-surface-is-files-and-it-is-predictable-before-you-touch-one"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The collision surface is FILES, and it is predictable before you touch one
+  
+  
+</h3>
+    
+
+<p>A work item scan finds sessions working the same <em>subject</em>. It does not find two
+sessions about to edit the same <em>file</em> from different subjects:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>file</th>
+      <th>why two sessions want it</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">scripts/stale-paths-baseline.json</code></td>
+      <td><strong>two lines long.</strong> Every milestone repair removes its own entry. Two repairs in flight = a conflict whose wrong resolution silently empties a file whose stated property is that it <em>shrinks rather than fossilises</em> — and an empty baseline fails every finding, “which is the safe direction” only if somebody notices.</td>
+    </tr>
+    <tr>
+      <td>a shared work item</td>
+      <td>every stream appends its own outcome. <strong>“An append cannot collide” is false when two sessions append</strong>, because both land at EOF.</td>
+    </tr>
+    <tr>
+      <td>generated dirs (<code class="language-plaintext highlighter-rouge">auto-docs/</code>, <code class="language-plaintext highlighter-rouge">skill-instructions/</code>, kg-qa sidecars)</td>
+      <td>nobody edits them, everybody regenerates them. Take <code class="language-plaintext highlighter-rouge">main</code>’s copy and re-run the generator — never hand-merge. For <code class="language-plaintext highlighter-rouge">test/results/**</code>, <code class="language-plaintext highlighter-rouge">bun run cat qa:resolve-conflicts</code>: those are derived QA results whose record is on the <code class="language-plaintext highlighter-rouge">qa-reports</code> branch.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">test/attestations/**</code></td>
+      <td>judgements, not generated — no generator can reproduce one. Read both sides and keep both unless they are the same judgement; see <a href="prepare-merge.html"><code class="language-plaintext highlighter-rouge">prepare-merge</code></a> §”Conflicts in <code class="language-plaintext highlighter-rouge">test/results/</code> and <code class="language-plaintext highlighter-rouge">test/attestations/</code>”.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>Name the files you will touch, not just the work items</strong>, when you post intent.
+A sibling can dodge a file; it cannot dodge a subject it cannot see.</p>
+<h3 id="duplicated-work-is-measured-in-what-was-already-pushed-not-in-what-is-open">
+  
+  
+    <a href="#duplicated-work-is-measured-in-what-was-already-pushed-not-in-what-is-open" class="anchor-heading" aria-labelledby="duplicated-work-is-measured-in-what-was-already-pushed-not-in-what-is-open"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Duplicated work is measured in what was already pushed, not in what is open
+  
+  
+</h3>
+    
+
+<p>Before re-deriving a measurement, check whether a sibling’s <strong>pushed commit</strong> already carries it:
+an open PR’s diff is a fact, and reading it costs one call against a session’s
+worth of re-measurement.</p>
+<h2 id="starting-new-work--a-collision-review-recorded-before-the-first-edit-strict">
+  
+  
+    <a href="#starting-new-work--a-collision-review-recorded-before-the-first-edit-strict" class="anchor-heading" aria-labelledby="starting-new-work--a-collision-review-recorded-before-the-first-edit-strict"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Starting new work — a collision review, recorded before the first edit (STRICT)
+  
+  
+</h2>
+    
+
+<p><strong>This section is the rule’s only home.</strong> <code class="language-plaintext highlighter-rouge">bean-coordination</code>,
+<code class="language-plaintext highlighter-rouge">session-intent</code>, <code class="language-plaintext highlighter-rouge">continual-progress</code>, <code class="language-plaintext highlighter-rouge">opening-brief</code>, <code class="language-plaintext highlighter-rouge">issue-working</code> and
+<code class="language-plaintext highlighter-rouge">crdm-requirements-workflow</code> point here. They do not restate it.</p>
+<h3 id="when-it-runs--the-start-of-any-new-unit-of-work">
+  
+  
+    <a href="#when-it-runs--the-start-of-any-new-unit-of-work" class="anchor-heading" aria-labelledby="when-it-runs--the-start-of-any-new-unit-of-work"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> When it runs — the start of any new unit of work
+  
+  
+</h3>
+    
+
+<p>Run the review once, before the first edit, whenever you start:</p>
+
+<ul>
+  <li>a new story, epic, feature or task work item;</li>
+  <li>work on an issue, before you announce the branch;</li>
+  <li>CRDM Phase 6, implementation;</li>
+  <li>a new tranche of a workplan;</li>
+  <li>a pickup of someone else’s work from a handover.</li>
+</ul>
+
+<p>A pickup runs its own review. The previous session’s review is dated, and PRs
+may have opened since it was written.</p>
+<h3 id="how-deep--scale-the-review-to-the-blast-radius">
+  
+  
+    <a href="#how-deep--scale-the-review-to-the-blast-radius" class="anchor-heading" aria-labelledby="how-deep--scale-the-review-to-the-blast-radius"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> How deep — scale the review to the blast radius
+  
+  
+</h3>
+    
+
+<p>The review is proportional. The question is how much other work your change
+can collide with, not how big your diff is.</p>
+
+<ul>
+  <li><strong>A platform refactor gets the full review: all five steps, with messages
+to the owners.</strong> A platform refactor is a change to something that many
+pages, generators or open PRs depend on:
+    <ul>
+      <li>shared layout and includes: <code class="language-plaintext highlighter-rouge">_includes/</code>, <code class="language-plaintext highlighter-rouge">docs-ui.css</code>, <code class="language-plaintext highlighter-rouge">docs-ui.js</code>,
+the navbar;</li>
+      <li>a generator whose output is committed or published, such as
+<code class="language-plaintext highlighter-rouge">gen-ig-pages.ts</code> or <code class="language-plaintext highlighter-rouge">gen-navbar-include.ts</code>;</li>
+      <li>a schema, a BPMN process, a workflow or a gate that other work is
+checked against.</li>
+    </ul>
+
+    <p>A ten-line change to a shared include collides with every PR that
+regenerates it.</p>
+  </li>
+  <li><strong>A small, local story still runs steps 1 and 2, quickly.</strong> When they find
+nothing, record “no overlap found” in the work item, together with what you
+checked: the PR search, the work item search, and the terms you used. That takes
+about two minutes and one work item note.</li>
+  <li><strong>Only an overlap triggers steps 3 and 4.</strong> If steps 1 and 2 find a
+sibling on your files or your subject, name its owner and message it,
+whatever the size of your change.</li>
+</ul>
+
+<p>“No overlap found” with no record of what was checked is not a review. The
+next session cannot tell it from a review that was skipped.</p>
+
+<p>The work item trigger above catches a sibling working on the same <strong>subject</strong>.
+§”The collision surface is FILES” catches two sessions editing the same
+<strong>file</strong> from different subjects. A refactor causes both kinds at once, which
+is why it gets the full review and does not rely on either trigger.</p>
+<h3 id="the-five-steps-in-order-before-any-file-is-edited">
+  
+  
+    <a href="#the-five-steps-in-order-before-any-file-is-edited" class="anchor-heading" aria-labelledby="the-five-steps-in-order-before-any-file-is-edited"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The five steps, in order, before any file is edited
+  
+  
+</h3>
+    
+
+<ol>
+  <li><strong>List the open PRs and the files they change.</strong> Use the
+<em>list change proposals</em> <a href="https://github.com/litlfred/cat-harness/blob/main/skills/tools/folio-core/skills-and-tools.md#the-forge-operations-one-tool-node-each">forge-operation Tool</a>, then <em>list changed files</em> for each PR. Intersect the
+result with the files your work will touch. A PR that changes only
+<strong>generated</strong> files you will also regenerate is not a collision; say so
+and move on.</li>
+  <li><strong>Scan the <code class="language-plaintext highlighter-rouge">in-progress</code> work items for overlapping scope.</strong> Use
+<code class="language-plaintext highlighter-rouge">beans list --status in-progress --search &lt;term&gt;</code>, and search the subject
+as well as the ids: the file names, the generator, the page type. A work item id finds nothing
+when the overlapping work has no work item of its own; see
+<a href="https://github.com/litlfred/cat-harness/blob/main/work-plan/skills/work-plan/bean-coordination.md"><code class="language-plaintext highlighter-rouge">bean-coordination</code></a> §”The trigger is STARTING WORK”.</li>
+  <li><strong>Name the owning sessions.</strong> Use <code class="language-plaintext highlighter-rouge">list_sessions</code>, the <code class="language-plaintext highlighter-rouge">Claude-Session:</code>
+trailers on each PR’s commits, and <code class="language-plaintext highlighter-rouge">bun run cat sessions --since &lt;window&gt;</code>.
+<a href="https://github.com/litlfred/cat-harness/blob/main/work-plan/skills/work-plan/bean-coordination.md"><code class="language-plaintext highlighter-rouge">bean-coordination</code></a> §”Where a sibling session is
+visible from” says how far that inference goes.</li>
+  <li><strong>Message each owner with your intent and your asks.</strong> State what you will
+change, phase by phase, and the files each phase touches. Then ask two
+things: which order do we land in, and who owns each overlapping file.
+Send it through a channel that actually reaches them; §”What actually
+reaches a sibling” says which ones do. A PR comment also leaves a durable
+copy.</li>
+  <li><strong>Record the review in the workplan work item before editing.</strong> Write down each
+overlapping session, its PRs and work items, the files you share, and the phases
+affected; or “no overlap found” and what you checked. A review that exists
+only in the chat is gone when the container goes, and the next session has
+to run it again.</li>
+</ol>
+
+<p><strong>Phases that overlap a sibling wait.</strong> They wait until the sibling has agreed
+an order, or until its overlapping PR has landed. Phases that touch none of the
+sibling’s files can go ahead, and the review says which ones those are.</p>
+<h3 id="worked-example-a-platform-refactor">
+  
+  
+    <a href="#worked-example-a-platform-refactor" class="anchor-heading" aria-labelledby="worked-example-a-platform-refactor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Worked example: a platform refactor
+  
+  
+</h3>
+    
+
+<p>A refactor moving the per-page nav, the harness bar, icons, scripts and the IG
+chrome CSS into shared cached assets touches the layout of every page. Before
+any edit, the review found active sibling work on every layout file the plan
+needed: a navbar session (four PRs on <code class="language-plaintext highlighter-rouge">docs-ui.css</code>, <code class="language-plaintext highlighter-rouge">docs-ui.js</code>, the navbar
+include, <code class="language-plaintext highlighter-rouge">harness_details.html</code>, <code class="language-plaintext highlighter-rouge">head_custom.html</code>), and two IG sessions on
+<code class="language-plaintext highlighter-rouge">gen-ig-pages.ts</code>. The review went into the work item, the three owning sessions
+were asked for an order, and the only work that started touched none of their
+files. Without the review, five PRs would have been rebased into a refactor of
+the files they were editing.</p>
+<h2 id="related-skills">
+  
+  
+    <a href="#related-skills" class="anchor-heading" aria-labelledby="related-skills"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Related skills
+  
+  
+</h2>
+    
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bean-coordination</code> — the committed store siblings read, how to
+claim, and how far a sibling’s state can be inferred from it. The
+DETECTION half of this skill’s work item trigger lives there.</li>
+  <li><code class="language-plaintext highlighter-rouge">delivery-summary</code> — what to post <strong>after</strong> a feature lands
+(one PR scope).</li>
+  <li><code class="language-plaintext highlighter-rouge">watch</code> — passive monitoring of upstream branches.</li>
+  <li><code class="language-plaintext highlighter-rouge">diff</code> — per-block change report (one PR scope).</li>
+  <li><code class="language-plaintext highlighter-rouge">session-intent</code> — session-start / session-end ledger +
+queue update protocol (the durable-state arm of coordination).</li>
+  <li><code class="language-plaintext highlighter-rouge">pending-show</code> — read-only display of current session’s
+pending work (todos, intent, queue assignments).</li>
+  <li><code class="language-plaintext highlighter-rouge">prepare-merge-auto</code> — autonomous merge pipeline (uses
+this skill’s sibling-coord pattern).</li>
+  <li><code class="language-plaintext highlighter-rouge">specification-management</code> — governance of specification requirements,
+linking CRDM and spec-kit to the bootstrap Requirement definition.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">/coordinate</code> complements them: it is the <strong>active</strong> cross-PR
+protocol — including handling of code-review comments on your own
+PR — not a passive watcher and not a single-PR summary.</p>
+<h2 id="flag-bearer-reflections">
+  
+  
+    <a href="#flag-bearer-reflections" class="anchor-heading" aria-labelledby="flag-bearer-reflections"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Flag-bearer reflections
+  
+  
+</h2>
+    
+
+<p>Lessons from acting as flag-bearer across many sibling PRs on a shared
+goal. Apply when you hold the flag.</p>
+
+<ol>
+  <li>
+    <p><strong>Build the ledger hub FIRST, then post.</strong> Create
+<code class="language-plaintext highlighter-rouge">docs/coordination/&lt;goal&gt;.md</code> with: the direction (one boxed
+statement of the target), the <em>common infra everyone rows toward</em>
+(cheat-sheet step table, watcher queues, dashboards, a falsification
+anchor), and a per-PR “which way to row” roster with <strong>report-back
+slots</strong>. Post intent only after the hub exists, so every comment can
+link one canonical place. This is what makes “make sure all use common
+infra” actionable rather than a slogan.</p>
+  </li>
+  <li>
+    <p><strong>Tailor per-PR; then LISTEN.</strong> A flag-bearer that only broadcasts is
+half-doing the job. Pull each sibling’s current state (a background
+<code class="language-plaintext highlighter-rouge">Explore</code> agent reading PR bodies + last comments is ideal), and
+<strong>fold their findings back as sharpenings</strong> to your own plan. Record
+sharpenings in the ledger and amend the workplan — do not silently
+keep the stale plan.</p>
+  </li>
+  <li>
+    <p><strong>Anchor the cluster to one falsifiable target.</strong> Give every sibling a
+shared regression target. It turns “which way to row”
+into a checkable claim and prevents divergent re-derivations.</p>
+  </li>
+  <li>
+    <p><strong>Push-race coordination with background agents.</strong> When a background
+sub-agent and you both push to the same branch, wrap every push in a
+<code class="language-plaintext highlighter-rouge">fetch → rebase → retry</code> loop:
+<code class="language-plaintext highlighter-rouge">for i in 1 2 3 4; do git push &amp;&amp; break || { git fetch origin &lt;br&gt; -q;
+git rebase origin/&lt;br&gt;; sleep $((2**i)); }; done</code>. The agent’s commits
+may already be in your local history (shared working dir) — check
+<code class="language-plaintext highlighter-rouge">git log</code> before assuming a divergence.</p>
+  </li>
+  <li>
+    <p><strong>Billing-CI is noise — do not let it derail coordination.</strong> If CI
+fails setup-phase (≤5 s, simultaneous, no logs) on every push while
+local validation stays green, recognise the billing signature
+(<code class="language-plaintext highlighter-rouge">litlfred/qou</code> <code class="language-plaintext highlighter-rouge">AGENTS.md</code> “CI billing failures”), note <code class="language-plaintext highlighter-rouge">[skip-ci: billing]</code>, and keep
+working; never re-diagnose it as a code problem or pause the cluster
+for it.</p>
+  </li>
+</ol>
+<h2 id="sdlc-multi-agent-landscape--coverage">
+  
+  
+    <a href="#sdlc-multi-agent-landscape--coverage" class="anchor-heading" aria-labelledby="sdlc-multi-agent-landscape--coverage"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> SDLC multi-agent landscape &amp; coverage
+  
+  
+</h2>
+    
+
+<p>For systematic evaluation of multi-agent SDLC workflows (comparing Waterfall, Agile, and dynamic process models against this repository’s 69 BPMN processes) and the architectural gap checklist, see:</p>
+<ul>
+  <li>Methodology: <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/sdlc-agentic-landscape.md"><code class="language-plaintext highlighter-rouge">methodologies/sdlc-agentic-landscape.md</code></a> (derived from arXiv:2404.04834v4, He, Treude, and Lo)</li>
+  <li>Architectural analysis: <a href="https://github.com/litlfred/cat-harness/blob/main/docs/architecture/sdlc-agentic-coverage.md"><code class="language-plaintext highlighter-rouge">docs/architecture/sdlc-agentic-coverage.md</code></a></li>
+  <li>Cross-paper literature synthesis &amp; bidirectional adversarial pass: <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/agentic-se-literature-synthesis.md"><code class="language-plaintext highlighter-rouge">methodologies/agentic-se-literature-synthesis.md</code></a> (synthesizing arXiv:2404.04834v4, arXiv:2507.23348v1, arXiv:2607.00053v1, arXiv:2601.04544v1, arXiv:2402.02172v5 under epic <code class="language-plaintext highlighter-rouge">0ipy</code>)</li>
+</ul>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+
+  <p class="text-small mb-0">WHO IRIS — built with <a href="https://litlfred.github.io/folio-assistant/">folio-assistant</a>.</p><p class="text-small mb-0 fa-build-stamp">
+  deployed
+  <a href="https://github.com/litlfred/folio-assistant/actions"><code>dev</code></a></p>
+
+
+  
+</footer>
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+    
+  
+</body>
+</html>

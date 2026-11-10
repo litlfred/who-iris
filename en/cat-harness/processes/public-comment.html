@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/processes/public-comment.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/public-comment.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,8 +893,9 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/public-comment.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/public-comment.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="folio-assistant-core/">folio-assistant-core processes</a></p>
 </blockquote>
+
 <h1 id="public-comment-on-a-review-draft">
   
   
@@ -846,7 +905,7 @@
 </h1>
     
 
-<p><code class="language-plaintext highlighter-rouge">Process_PublicComment</code> · strict · 12 step(s)</p>
+<p><code class="language-plaintext highlighter-rouge">Process_PublicComment</code> · strict · 10 step(s)</p>
 
 <p>A frozen, line-numbered draft went out for public review. This is what
 happens to ONE comment that comes back: placed on the block it cites,
@@ -854,10 +913,232 @@ triaged, weighed by the review committee, decided by the editor and, if
 the decision changes the document, made on a feature branch whose
 staging preview shows the text before and after. The change set is
 reviewed by the same process as any content change
-(Process_ContentChangeReview); only the intake is new. Skill:
+(<a href="content-change-review.html">Process_ContentChangeReview</a>); only the intake is new. Skill:
 public-comment.</p>
+<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
 
-<p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
+<div class="pt-diagram" data-panel="public-comment.tasks.json">
+<img src="../../../assets/img/workflows/public-comment.svg" alt="BPMN diagram: Public comment on a review draft" />
+<div class="pt-layer">
+<button type="button" class="pt-mark" data-task="Task_Ingest" style="left:16.79%;top:19.88%" aria-expanded="false" aria-label="About step: Ingest and place each comment" title="About: Ingest and place each comment">i</button>
+<button type="button" class="pt-mark" data-task="Task_Triage" style="left:16.79%;top:36.82%" aria-expanded="false" aria-label="About step: Triage: confirm the anchor, type and priority" title="About: Triage: confirm the anchor, type and priority">i</button>
+<button type="button" class="pt-mark" data-task="Task_ProposeChangeSets" style="left:35.77%;top:19.88%" aria-expanded="false" aria-label="About step: Propose change-sets, as records with no issue yet" title="About: Propose change-sets, as records with no issue yet">i</button>
+<button type="button" class="pt-mark" data-task="Task_GroupChangeSets" style="left:44.53%;top:55.65%" aria-expanded="false" aria-label="About step: Agree each change-set's requirements on its issue" title="About: Agree each change-set's requirements on its issue">i</button>
+<button type="button" class="pt-mark" data-task="Task_RerouteChangeSet" style="left:55.11%;top:55.65%" aria-expanded="false" aria-label="About step: Re-route to another committee" title="About: Re-route to another committee">i</button>
+<button type="button" class="pt-mark" data-task="Task_Assign" style="left:55.11%;top:36.82%" aria-expanded="false" aria-label="About step: Assign to committee members" title="About: Assign to committee members">i</button>
+<button type="button" class="pt-mark" data-task="Task_CommitteeRecommends" style="left:66.06%;top:55.65%" aria-expanded="false" aria-label="About step: Recommend a decision, with a rationale" title="About: Recommend a decision, with a rationale">i</button>
+<button type="button" class="pt-mark" data-task="Task_EditorDecides" style="left:66.06%;top:73.53%" aria-expanded="false" aria-label="About step: Decide, weighing the recommendations" title="About: Decide, weighing the recommendations">i</button>
+<a class="pt-go" href="public-comment-change.html" style="left:84.12%;top:84.71%;width:1.75%;height:2.82%" aria-label="Open subprocess: Make the change, check it and merge it" title="Open subprocess: Make the change, check it and merge it"></a>
+<button type="button" class="pt-mark" data-task="CallActivity_MakeChange" style="left:89.42%;top:73.53%" aria-expanded="false" aria-label="About step: Make the change, check it and merge it" title="About: Make the change, check it and merge it">i</button>
+<button type="button" class="pt-mark" data-task="Task_Withdraw" style="left:68.98%;top:2.94%" aria-expanded="false" aria-label="About step: Record the withdrawal" title="About: Record the withdrawal">i</button>
+</div>
+<div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
+</div>
+<script>(function () {
+  Array.prototype.forEach.call(document.querySelectorAll(".pt-diagram:not([data-pt-ready])"), init);
+  function init(root) {
+  root.setAttribute("data-pt-ready", "");
+  // Every href in the sidecar is relative to the sidecar (it sits beside the
+  // process page), so a page elsewhere on the site that shows the same
+  // drawing resolves them to the same targets.
+  // A drawing with no sidecar (a page that only highlights steps, where no
+  // processes viewer is published) gets the highlight and nothing else.
+  var sidecar = root.getAttribute("data-panel");
+  var base = new URL(sidecar || "", location.href);
+  function abs(h) { try { return new URL(h, base).href; } catch (e) { return h; } }
+  // A page with no server-drawn markers gets them from the sidecar.
+  var drawn = !!root.querySelector(".pt-layer");
+  if (!drawn) {
+    var ly = document.createElement("div"); ly.className = "pt-layer"; root.appendChild(ly);
+    var pn = document.createElement("div"); pn.className = "pt-panel"; pn.setAttribute("role", "dialog");
+    pn.setAttribute("aria-label", "Task details"); pn.hidden = true; root.appendChild(pn);
+  }
+  var panel = root.querySelector(".pt-panel"), data = null, pending = null, open = null;
+  function load() {
+    if (data) return Promise.resolve(data);
+    if (!pending) pending = fetch(root.getAttribute("data-panel")).then(function (r) {
+      if (!r.ok) throw new Error(r.status + " " + r.statusText);
+      return r.json();
+    }).then(function (j) { data = j; return j; });
+    return pending;
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function link(l, cls) {
+    var e = el(l.href ? "a" : "code", cls, l.name);
+    if (l.href) e.href = abs(l.href); else e.title = "no page for this one";
+    return e;
+  }
+  function obj(stereo, name, kind) {
+    var box = el("div", "pt-obj pt-" + kind), head = el("div", "pt-head");
+    head.appendChild(el("span", "pt-st", "\u00ab" + stereo + "\u00bb"));
+    head.appendChild(typeof name === "string" ? el("b", null, name) : name);
+    box.appendChild(head);
+    return box;
+  }
+  function edge(label) { return el("div", "pt-edge", "\u2502 " + label + " \u25bc"); }
+  function render(t) {
+    panel.textContent = "";
+    var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
+    close.onclick = function () { hide(); }; panel.appendChild(close);
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
+    if (t.lane) {
+      var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
+      // The lane is a partition; the Role it names is who acts (owner,
+      // 2026-10-31: "i thought there was a Role/person or actor that should be
+      // linked"). Shown here too, not only in the Role box further down.
+      if (t.role) { ln.appendChild(el("span", "pt-st", " → role ")); ln.appendChild(link(t.role)); }
+      task.appendChild(ln);
+    }
+    if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
+    panel.appendChild(task);
+    if (t.calls) {
+      panel.appendChild(edge("calls"));
+      var cp = obj("Process", link(t.calls), "proc");
+      if (t.calls.diagram && t.calls.diagram !== t.calls.href) { var dg = el("div", "pt-attr"); dg.appendChild(link({ name: "diagram", href: t.calls.diagram })); cp.appendChild(dg); }
+      panel.appendChild(cp);
+    }
+    if (t.shared) {
+      panel.appendChild(edge("calls"));
+      var gt = obj(t.shared.type.replace(/^bpmn:/, ""), t.shared.id, "proc");
+      Object.keys(t.shared.inputs || {}).forEach(function (k) { gt.appendChild(el("div", "pt-attr", k + " = " + t.shared.inputs[k])); });
+      panel.appendChild(gt);
+    }
+    var sk_on = !(data && data.skills === false);
+    (sk_on ? t.skills : []).forEach(function (s) {
+      panel.appendChild(edge("requires"));
+      var sk = obj("Skill", link(s), "skill");
+      (s.methodologies || []).forEach(function (m) {
+        var row = el("div", "pt-attr"); row.appendChild(el("span", "pt-st", "uses-methodology \u2192 "));
+        row.appendChild(link(m)); sk.appendChild(row);
+      });
+      panel.appendChild(sk);
+    });
+    if (sk_on && !t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
+    if (t.role) {
+      panel.appendChild(edge("lane names"));
+      var role = obj("Role", link(t.role), "role");
+      if (t.role.title) role.appendChild(el("div", "pt-attr", "title = " + t.role.title));
+      if (sk_on) {
+        var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
+        if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
+        t.role.skills.forEach(function (s, i) {
+          if (i) list.appendChild(document.createTextNode(", "));
+          list.appendChild(link(s));
+          if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
+        });
+        role.appendChild(list);
+      }
+      panel.appendChild(role);
+    } else if (t.binding) {
+      panel.appendChild(el("div", "pt-none", "Lane role: " + t.binding + "."));
+    }
+  }
+  // THE MARKERS FOLLOW THE DRAWING, not the box around it. The site's figure
+  // viewer (docs-ui.js) swaps the <img> for an inlined <svg>, puts a toolbar
+  // above it, and zooms and pans it inside a scroll box. Positioned against
+  // this block, every marker and link drifted off its shape (owner,
+  // 2026-10-31: "misaligned"). So the layer is laid over wherever the drawing
+  // is actually drawn, and re-laid whenever that can change.
+  var layer = root.querySelector(".pt-layer"), queued = false;
+  function art() {
+    var c = root.querySelectorAll("img, svg");
+    for (var i = 0; i < c.length; i++) {
+      var e = c[i];
+      if (e.closest(".pt-layer, .pt-panel, .fa-figure-tools")) continue;
+      if (e.parentElement && e.parentElement.closest("svg")) continue;
+      return e;
+    }
+    return null;
+  }
+  // A page may name steps to pick out (a journey's step shows the tasks it
+  // realises): `data-pt-highlight="Task_A Task_B"`. Marked once the drawing
+  // is inline, which is when its shapes exist to mark.
+  var hl = (root.getAttribute("data-pt-highlight") || "").split(/\s+/).filter(Boolean);
+  if (hl.length) root.classList.add("pt-has-hl");
+  function mark(a) {
+    if (!hl.length || a.tagName.toLowerCase() !== "svg" || a.hasAttribute("data-pt-marked")) return;
+    a.setAttribute("data-pt-marked", "");
+    Array.prototype.forEach.call(a.querySelectorAll("[data-element-id]"), function (g) {
+      if (hl.indexOf(g.getAttribute("data-element-id")) >= 0) g.setAttribute("data-pt-hl", "");
+    });
+  }
+  function place() {
+    queued = false;
+    var a = art();
+    if (a) mark(a);
+    if (!layer || !a) return;
+    var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
+    var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
+    if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[\s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
+    if (vw > 0 && vh > 0 && w > 0 && h > 0) {
+      var k = vw / vh;
+      if (w / h > k) { var nw = h * k; x += (w - nw) / 2; w = nw; } else { var nh = w / k; y += (h - nh) / 2; h = nh; }
+    }
+    layer.style.left = x + "px"; layer.style.top = y + "px"; layer.style.width = w + "px"; layer.style.height = h + "px";
+    // Zoomed in, the drawing scrolls inside its box: markers past the edge are hidden with it.
+    var sc = a.parentElement;
+    while (sc && sc !== root && !(sc.scrollWidth > sc.clientWidth + 1 || sc.scrollHeight > sc.clientHeight + 1)) sc = sc.parentElement;
+    if (sc && sc !== root) {
+      var s = sc.getBoundingClientRect(), L = r.left + x, T = r.top + y;
+      layer.style.clipPath = "inset(" + Math.max(0, s.top - T) + "px " + Math.max(0, L + w - s.right) + "px " +
+        Math.max(0, T + h - s.bottom) + "px " + Math.max(0, s.left - L) + "px)";
+    } else layer.style.clipPath = "";
+    if (open) at(open);
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(place); } }
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(root);
+  if (window.MutationObserver) new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) if (!layer || !layer.contains(ms[i].target)) { schedule(); return; }
+  }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "viewBox"] });
+  root.addEventListener("scroll", schedule, true);
+  root.addEventListener("load", schedule, true);
+  window.addEventListener("resize", schedule);
+  schedule();
+  if (!drawn && sidecar) load().then(function (j) {
+    (j.markers || []).forEach(function (m) {
+      var t = j.tasks[m.id], to = t && t.calls ? (t.calls.diagram || t.calls.href) : null;
+      if (to && m.box) {
+        var g = el("a", "pt-go"); g.href = abs(to);
+        g.style.left = m.box.left + "%"; g.style.top = m.box.top + "%"; g.style.width = m.box.width + "%"; g.style.height = m.box.height + "%";
+        g.setAttribute("aria-label", "Open subprocess: " + m.name); g.title = "Open subprocess: " + m.name; layer.appendChild(g);
+      }
+      var b = el("button", "pt-mark", "i"); b.type = "button"; b.setAttribute("data-task", m.id);
+      b.style.left = m.left + "%"; b.style.top = m.top + "%"; b.setAttribute("aria-expanded", "false");
+      b.setAttribute("aria-label", "About step: " + m.name); b.title = "About: " + m.name; layer.appendChild(b);
+    });
+    schedule();
+  }).catch(function (e) { console.warn("task panel: could not load " + base.href + " (" + e.message + ")"); });
+  function at(b) {
+    var r = root.getBoundingClientRect(), m = b.getBoundingClientRect();
+    panel.style.left = (m.left + m.width / 2 - r.left) + "px"; panel.style.top = (m.top + m.height / 2 - r.top) + "px";
+  }
+  function hide() { panel.hidden = true; if (open) open.setAttribute("aria-expanded", "false"); open = null; }
+  root.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest(".pt-mark");
+    if (!b) return;
+    if (open === b) { hide(); return; }
+    if (open) open.setAttribute("aria-expanded", "false");
+    open = b; b.setAttribute("aria-expanded", "true");
+    at(b);
+    panel.hidden = false; panel.textContent = "Loading\u2026";
+    load().then(function (j) {
+      var t = j.tasks[b.getAttribute("data-task")];
+      if (open === b) { if (t) render(t); else panel.textContent = "No details for this task."; }
+    }).catch(function (e) { if (open === b) panel.textContent = "Could not load task details: " + e.message; });
+  });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && open) hide(); });
+  }
+})();</script>
+
 <h2 id="how-it-connects">
   
   
@@ -868,9 +1149,11 @@ public-comment.</p>
     
 
 <ul>
-  <li><strong>Called by:</strong> <a href="draft-to-publication.html">Draft, review and publish</a>, <a href="dsa-document-lifecycle.html">Data sharing agreement document life cycle</a></li>
-  <li><strong>Calls:</strong> <a href="content-change-review.html">Content Change and Review</a></li>
+  <li><strong>Called by:</strong> <a href="dsa-document-lifecycle.html">Data sharing agreement document life cycle</a>, <a href="public-comment-release.html">Release a draft for public comment</a></li>
+  <li><strong>Calls:</strong> <a href="public-comment-change.html">Make a decided public comment change</a></li>
+  <li><strong>Names the <code class="language-plaintext highlighter-rouge">public-comment</code> skill without calling this process:</strong> <a href="public-comment-change.html">Make a decided public comment change</a>, <a href="public-comment-release.html">Release a draft for public comment</a> — <code class="language-plaintext highlighter-rouge">activity-calls-skill-process</code> asks whether each should be a call activity.</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -892,39 +1175,29 @@ public-comment.</p>
   </thead>
   <tbody>
     <tr>
-      <td>Public commenter</td>
+      <td><a id="lane-Lane_Commenter"></a>Public commenter</td>
       <td><code class="language-plaintext highlighter-rouge">feedback-provider</code></td>
       <td>Outside the folio: returns comments on the review version through a matrix, a form or a letter, and may withdraw one at any time. Never moves a comment past received; everything after that is the review’s.</td>
     </tr>
     <tr>
-      <td>Intake agent</td>
+      <td><a id="lane-Lane_Intake"></a>Intake agent</td>
       <td><code class="language-plaintext highlighter-rouge">ingestion-agent</code></td>
       <td>Turns each returned row, form response or cited passage into one comment and resolves its anchor through the review version’s page/line map. A citation that resolves to nothing is kept as unplaced, never dropped.</td>
     </tr>
     <tr>
-      <td>Review coordinator</td>
+      <td><a id="lane-Lane_Coordinator"></a>Review coordinator</td>
       <td><code class="language-plaintext highlighter-rouge">review-coordinator</code></td>
       <td>Owns triage: confirms or moves each anchor, sets type and priority, closes duplicates, routes plain editorial points straight to the editor, and assigns the rest to committee members.</td>
     </tr>
     <tr>
-      <td>Review committee</td>
+      <td><a id="lane-Lane_Committee"></a>Review committee</td>
       <td><code class="language-plaintext highlighter-rouge">reviewer</code></td>
       <td>Recommends, does not decide: each member records one recommendation with a rationale, on GitHub or through the tool, and a later one replaces their earlier one. The editor weighs them.</td>
     </tr>
     <tr>
-      <td>Editor</td>
+      <td><a id="lane-Lane_Editor"></a>Editor</td>
       <td><code class="language-plaintext highlighter-rouge">editor</code></td>
-      <td>The one lane that decides. Every decision carries one of five codes and, for every code but accepted, a reason the commenter is owed. A decision that does not change the document ends here.</td>
-    </tr>
-    <tr>
-      <td>Author (human or agentic)</td>
-      <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td>Once the editor has dispensed a comment with a decision that changes the document, an author makes the edit: a person, or an agent acting in the author role. The edit is made on a feature branch, which may carry the edits for several comments, and recorded on each comment it answers, so a comment shows where its change is being made while it is made.</td>
-    </tr>
-    <tr>
-      <td>Change set — feature branch and staging</td>
-      <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
-      <td>Where the author’s edit is reviewed and lands: the feature branch’s staging preview gives before/after deep links to each comment’s anchor, the change set is reviewed as any content change, and each comment it answers is marked incorporated when it merges.</td>
+      <td>The one lane that decides. Every decision carries one of five codes and, for every code but accepted, a reason the commenter is owed. A decision that does not change the document ends here; one that does goes on to the change phase.</td>
     </tr>
   </tbody>
 </table></div>
@@ -937,7 +1210,7 @@ public-comment.</p>
 </h2>
     
 
-<p>Every one of the 12 step(s) is documented.</p>
+<p>Every one of the 10 step(s) is documented.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -950,75 +1223,63 @@ public-comment.</p>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Ingest and place each comment</strong><br /><code class="language-plaintext highlighter-rouge">Task_Ingest</code></td>
+      <td><a id="step-Task_Ingest"></a><strong>Ingest and place each comment</strong><br /><code class="language-plaintext highlighter-rouge">Task_Ingest</code></td>
       <td>Intake agent</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
-      <td>public-comment import / import-narrative: one record per row or cited passage, anchored through review-anchors.json. Status: received.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
+      <td>public-comment import / import-narrative: one record per row or cited passage, anchored through review-anchors.json. Status: received. When the review is also kept in a shared Google Sheet, build its Apps Script with Tool review-sheet-sync (from review/public-comment/sheet-sync.json) and have the sheet’s owner install it once (Extensions, Apps Script, run installTriggers): the sheet then keeps its page, section, line and comment links and its change-set joins current by itself.</td>
     </tr>
     <tr>
-      <td><strong>Triage: confirm the anchor, type and priority</strong><br /><code class="language-plaintext highlighter-rouge">Task_Triage</code></td>
+      <td><a id="step-Task_Triage"></a><strong>Triage: confirm the anchor, type and priority</strong><br /><code class="language-plaintext highlighter-rouge">Task_Triage</code></td>
       <td>Review coordinator</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
       <td>public-comment triage / reassign / duplicate. An unplaced or low-confidence anchor is placed here, by a person.</td>
     </tr>
     <tr>
-      <td><strong>Propose change-sets, as records with no issue yet</strong><br /><code class="language-plaintext highlighter-rouge">Task_ProposeChangeSets</code></td>
+      <td><a id="step-Task_ProposeChangeSets"></a><strong>Propose change-sets, as records with no issue yet</strong><br /><code class="language-plaintext highlighter-rouge">Task_ProposeChangeSets</code></td>
       <td>Intake agent</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
-      <td>public-comment-changesets seed / propose: the agent groups the comments to be weighed into change-sets, one per change the document may need, each a record under changesets/ with its requirements and members. A PROPOSAL: nothing is decided, no GitHub issue is opened, and a comment may sit in zero, one or several change-sets. The record is the only one; everything shown about a change-set is rendered from it.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
+      <td>public-comment-changesets seed / propose: the agent groups the comments to be weighed into change-sets, one per change the document may need, each a record under changesets/ with its requirements and members. A PROPOSAL: nothing is decided, no GitHub issue is opened, and a comment may sit in zero, one or several change-sets. The record is the only one; everything shown about a change-set is rendered from it. A comment that arrives later is triaged the same way (Tool review-log-watch, cs-requests.ts triage): the agent suggests an open change-set that shares its sections, or a new one, and the committees (TWG) of that change-set, as its own suggestion only; a person’s Change Set (human) or TWG (human) on the review sheet always wins. How a change-set came about does not matter: people adjudicate it.</td>
     </tr>
     <tr>
-      <td><strong>Agree each change-set’s requirements on its issue</strong><br /><code class="language-plaintext highlighter-rouge">Task_GroupChangeSets</code></td>
+      <td><a id="step-Task_GroupChangeSets"></a><strong>Agree each change-set’s requirements on its issue</strong><br /><code class="language-plaintext highlighter-rouge">Task_GroupChangeSets</code></td>
       <td>Review committee</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
-      <td>A change-set gets its primary GitHub issue the first time somebody engages with it (the Discuss form, a recommendation or decision on one of its comments, a mention, a PR), opened by the folio’s public-comment workflow; any number of other issues may discuss it and are linked. People agree the requirements there, and the committee or editor changes the record with cs-add / cs-remove / cs-title / cs-requirements / cs-committee / cs-merge / cs-split / cs-close / cs-new. The issue’s change-set section is rendered from the record and put back if hand-edited; the nightly reconcile keeps every issue in line. The issue is for requirements; the PR that closes it is for preview, review and approval.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
+      <td>A change-set gets its primary GitHub issue the first time somebody engages with it (the Discuss form, a recommendation or decision on one of its comments, a mention, a PR), opened by the folio’s public-comment workflow; any number of other issues may discuss it and are linked. People agree the requirements there, and the committee or editor changes the record with cs-add / cs-remove / cs-title / cs-requirements / cs-committee / cs-merge / cs-split / cs-close / cs-new. Making change-sets is people’s, in any of three ways, each like opening an issue: a row on the review sheet’s Review Change Sets with only a Title (the sheet script gives it the next id), a change-set issue from the folio’s change-set issue form, or feedback that says a change-set should be split, merged or moved. For the last two the agent proposes the change-sets and which comments go where, as a Decision needed question, and makes them only once an Editor sets Ready for agent to Yes. A comment is moved by typing another change-set’s id, or new, in Change Set (human). The issue’s change-set section is rendered from the record and put back if hand-edited; the nightly reconcile keeps every issue in line. The issue is for requirements; the PR that closes it is for preview, review and approval.</td>
     </tr>
     <tr>
-      <td><strong>Re-route a change-set to another committee, with a reason</strong><br /><code class="language-plaintext highlighter-rouge">Task_RerouteChangeSet</code></td>
+      <td><a id="step-Task_RerouteChangeSet"></a><strong>Re-route to another committee</strong><br /><code class="language-plaintext highlighter-rouge">Task_RerouteChangeSet</code></td>
       <td>Review committee</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
-      <td>public-comment-changesets reroute, or cs-committee: <TWG> — <why> on GitHub from a person in the committee or editor lane (bean se3i, issue #197). Moves the change-set to another TWG review committee and records who, when, from, to and why on the change-set record, so re-ingesting comments never resets it. Person-only (userTask): agents cannot re-route a change-set on their own.</why></TWG></td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
+      <td>public-comment-changesets reroute, or cs-committee: &lt;TWG&gt; — &lt;why&gt; on GitHub from a person in the committee or editor lane. Moves the change-set to another TWG review committee and records who, when, from, to and why on the change-set record, so re-ingesting comments never resets it. Person-only (userTask): agents cannot re-route a change-set on their own.</td>
     </tr>
     <tr>
-      <td><strong>Assign to committee members</strong><br /><code class="language-plaintext highlighter-rouge">Task_Assign</code></td>
+      <td><a id="step-Task_Assign"></a><strong>Assign to committee members</strong><br /><code class="language-plaintext highlighter-rouge">Task_Assign</code></td>
       <td>Review coordinator</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
       <td>public-comment assign: by GitHub login. A committee member who recommends on an unassigned comment is assigned it as they do.</td>
     </tr>
     <tr>
-      <td><strong>Recommend a decision, with a rationale</strong><br /><code class="language-plaintext highlighter-rouge">Task_CommitteeRecommends</code></td>
+      <td><a id="step-Task_CommitteeRecommends"></a><strong>Recommend a decision, with a rationale</strong><br /><code class="language-plaintext highlighter-rouge">Task_CommitteeRecommends</code></td>
       <td>Review committee</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
       <td>A GitHub comment tagged pc: PC-0042 / recommend: code, from a login in config.json committee, or public-comment recommend.</td>
     </tr>
     <tr>
-      <td><strong>Decide, weighing the recommendations</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditorDecides</code></td>
+      <td><a id="step-Task_EditorDecides"></a><strong>Decide, weighing the recommendations</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditorDecides</code></td>
       <td>Editor</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
       <td>public-comment decide, or decide: code on GitHub from a login in config.json editors. accepted, accepted-modified, not-accepted, noted, deferred; a reason for all but accepted. Also reopens a decided comment.</td>
     </tr>
     <tr>
-      <td><strong>Edit the document as decided, on a feature branch</strong><br /><code class="language-plaintext highlighter-rouge">Task_AuthorEdits</code></td>
-      <td>Author (human or agentic)</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
-      <td>public-comment edit –branch: the author (human, or an agent in the author role) edits the folio’s blocks as the decision says, on a feature branch for one change-set. Its PR says Closes #N for the change-set issue, and opening it moves that issue’s accepted comments to editing.</td>
+      <td><a id="step-CallActivity_MakeChange"></a><strong>Make the change, check it and merge it</strong><br /><code class="language-plaintext highlighter-rouge">CallActivity_MakeChange</code></td>
+      <td>Editor</td>
+      <td>calls <a href="public-comment-change.html">Make a decided public comment change</a><br /><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
+      <td>The second phase, drawn on its own page (public-comment-change.bpmn): an author edits the document as decided on a feature branch, the change set is reviewed on its staging preview, an independent QA gate checks the dispositions against the pull request, and each comment it answers is marked incorporated when it merges. A withdrawal still interrupts the comment while this runs.</td>
     </tr>
     <tr>
-      <td><strong>Review the change set on its staging preview</strong><br /><code class="language-plaintext highlighter-rouge">CallActivity_ChangeSet</code></td>
-      <td>Change set — feature branch and staging</td>
-      <td>calls <a href="content-change-review.html">Content Change and Review</a><br /><code class="language-plaintext highlighter-rouge">staging-review</code></td>
-      <td>The existing content-change review, unchanged, of the author’s branch: its PR lists the PC refs it answers, and its staging preview is the after side of every deep link. A change the reviewers send back returns to the author inside that process.</td>
-    </tr>
-    <tr>
-      <td><strong>Mark incorporated when the change set merges</strong><br /><code class="language-plaintext highlighter-rouge">Task_Incorporate</code></td>
-      <td>Change set — feature branch and staging</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
-      <td>public-comment incorporate, naming the branch, PR and staging URL; done by the folio’s workflow when the PR that closes a change-set issue merges. A PR closed unmerged moves nothing.</td>
-    </tr>
-    <tr>
-      <td><strong>Record the withdrawal</strong><br /><code class="language-plaintext highlighter-rouge">Task_Withdraw</code></td>
+      <td><a id="step-Task_Withdraw"></a><strong>Record the withdrawal</strong><br /><code class="language-plaintext highlighter-rouge">Task_Withdraw</code></td>
       <td>Public commenter</td>
-      <td><code class="language-plaintext highlighter-rouge">public-comment</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/public-comment.html"><code class="language-plaintext highlighter-rouge">public-comment</code></a></td>
       <td>public-comment withdraw, from any open status.</td>
     </tr>
   </tbody>
@@ -1051,7 +1312,7 @@ public-comment.</p>
     <tr>
       <td><strong>Does the decision change the document?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_ChangesDocument</code></td>
       <td>—</td>
-      <td><strong>no: not accepted, noted, deferred</strong> → Decided, answer recorded<br /><strong>yes: accepted</strong> → Edit the document as decided, on a feature branch</td>
+      <td><strong>no: not accepted, noted, deferred</strong> → Decided, answer recorded<br /><strong>yes: accepted</strong> → Make the change, check it and merge it</td>
     </tr>
   </tbody>
 </table></div>

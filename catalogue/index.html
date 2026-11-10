@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout><script src="../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content=".."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-29b6qoh3um2","here":"/catalogue/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#ic-held","label":"What is held, and what is only named"},{"href":"#ic-gates","label":"What the gates say about the 53 held bitstream(s)"},{"href":"#ic-nodes","label":"Every node"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout><script src="../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content=".."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-hucqb7hmk3","here":"/catalogue/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#ic-held","label":"What is held, and what is only named"},{"href":"#ic-gates","label":"What the gates say about the 67 held bitstream(s)"},{"href":"#ic-nodes","label":"Every node"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -890,7 +948,7 @@ catalogue <em>knows</em> — and, more usefully, what it records that it does no
 
 <div class="note">
 <p><strong>The gap is the point, not a backlog.</strong> This instance models
-<strong>60</strong> node(s) against <strong>273,559</strong> items across <strong>1,057,223</strong> files upstream.
+<strong>67</strong> node(s) against <strong>273,559</strong> items across <strong>1,057,223</strong> files upstream.
 Cataloguing by reference means recording that something exists without holding it,
 so a small number here is the design rather than a shortfall.</p>
 </div>
@@ -905,30 +963,30 @@ so a small number here is the design rather than a shortfall.</p>
 
 <div class="table-wrapper"><table class="kg">
 <tr><th>state</th><th>nodes</th><th>what it means</th></tr>
-<tr><td><span class="state materialized">materialized</span></td><td>18</td><td>the bytes are in this repository</td></tr>
-<tr><td><span class="state referenced">referenced</span></td><td>42</td><td>upstream, not here — a fact, not a gap</td></tr>
+<tr><td><span class="state materialized">materialized</span></td><td>22</td><td>the bytes are in this repository</td></tr>
+<tr><td><span class="state referenced">referenced</span></td><td>45</td><td>upstream, not here — a fact, not a gap</td></tr>
 <tr><td><span class="state unknown">unknown</span></td><td>0</td><td>nobody has looked; never rendered as either of the above</td></tr>
 </table></div>
 <h2 id="ic-gates">
   
   
-    <a href="#ic-gates" class="anchor-heading" aria-labelledby="ic-gates"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What the gates say about the 53 held bitstream(s)
+    <a href="#ic-gates" class="anchor-heading" aria-labelledby="ic-gates"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What the gates say about the 67 held bitstream(s)
   
   
 </h2>
     
 
-<p><strong>Not everything permitted is everything known.</strong> <code>sourceLoss</code> is unknown on 3 of them. A gate that returned <em>unknown</em> is a question
+<p><strong>Not everything permitted is everything known.</strong> <code>sourceLoss</code> is unknown on 11 of them. A gate that returned <em>unknown</em> is a question
 nobody has answered — which is a different state from a gate that was asked and
 said yes, and collapsing the two would turn an open question into a clearance.</p>
 
 <div class="table-wrapper"><table class="kg">
 <tr><th>gate</th><th>verdicts</th></tr>
-<tr><td><code>copyright</code></td><td><span class="state materialized">permitted: 9 of 9</span></td></tr>
-<tr><td><code>restrictions</code></td><td><span class="state materialized">permitted: 9 of 9</span></td></tr>
-<tr><td><code>retention</code></td><td><span class="state materialized">permitted: 9 of 9</span></td></tr>
-<tr><td><code>size</code></td><td><span class="state materialized">permitted: 9 of 9</span></td></tr>
-<tr><td><code>sourceLoss</code></td><td><span class="state materialized">permitted: 6 of 9</span> <span class="state unknown">unknown: 3 of 9</span></td></tr>
+<tr><td><code>copyright</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>restrictions</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>retention</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>size</code></td><td><span class="state materialized">permitted: 23 of 23</span></td></tr>
+<tr><td><code>sourceLoss</code></td><td><span class="state materialized">permitted: 12 of 23</span> <span class="state unknown">unknown: 11 of 23</span></td></tr>
 </table></div>
 <h2 id="ic-nodes">
   
@@ -942,12 +1000,36 @@ said yes, and collapsing the two would turn an open question into a clearance.</
 <p class="ic-filter" id="ic-filter" hidden>
 <label>State <select id="ic-filter-state"><option value="">every state</option><option value="materialized">materialized</option><option value="referenced">referenced</option><option value="unknown">unknown</option></select></label>
 <label>Find <input id="ic-filter-q" type="search" placeholder="title or id" autocomplete="off"></label>
-<span class="dim" role="status"><span id="ic-shown">60</span> of 60 shown</span>
+<span class="dim" role="status"><span id="ic-shown">67</span> of 67 shown</span>
 </p>
 
 <div class="table-wrapper"><table class="kg" id="ic-node-table">
 <thead><tr><th aria-sort="ascending"><button type="button" class="ic-sort" data-key="rank">state</button></th><th><button type="button" class="ic-sort" data-key="kind">kind</button></th><th><button type="button" class="ic-sort" data-key="node">node</button></th><th><button type="button" class="ic-sort" data-key="held">held as</button></th><th><button type="button" class="ic-sort" data-key="record">record</button></th><th><button type="button" class="ic-sort" data-key="bitstreams">bitstreams</button></th></tr></thead>
 <tbody>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health item/08c17880-005f-41a2-87f0-14f2bc1761bb" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240081949-eng/">Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health</a><br><code class="dim">item/08c17880-005f-41a2-87f0-14f2bc1761bb</code></td>
+  <td><code>9789240081949-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240081949-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="the maps toolkit: mhealth assessment and planning for scale item/1469660e-9540-46b6-9401-510f4e4b8a35" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789241509510-eng/">The MAPS Toolkit: mHealth Assessment and Planning for Scale</a><br><code class="dim">item/1469660e-9540-46b6-9401-510f4e4b8a35</code></td>
+  <td><code>9789241509510-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241509510-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for reporting substandard and falsified medical products item/187cabc7-3e82-412e-8cbb-1502a9da36ad" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240120747-eng/">Digital transformation handbook for reporting substandard and falsified medical products</a><br><code class="dim">item/187cabc7-3e82-412e-8cbb-1502a9da36ad</code></td>
+  <td><code>9789240120747-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240120747-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="publication and information products style guide item/18892cf3-5a4f-42a4-923c-a93f4a594dec" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
@@ -956,21 +1038,45 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital adaptation kit for immunizations: operational requirements for implementing who recommendations in digital systems item/50d01818-0fa6-43d4-a39e-5bfae735c547" data-held="1" data-record="1" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital implementation investment guide (diig): integrating digital interventions into health programmes item/1dc5ea7b-7de5-4814-876c-1ee302538f84" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240010567-eng/">Digital implementation investment guide (DIIG): integrating digital interventions into health programmes</a><br><code class="dim">item/1dc5ea7b-7de5-4814-876c-1ee302538f84</code></td>
+  <td><code>9789240010567-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240010567-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for primary health care item/32a98265-3e71-42fa-afdc-e7f62cc2622c" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240093362-eng/">Digital transformation handbook for primary health care</a><br><code class="dim">item/32a98265-3e71-42fa-afdc-e7f62cc2622c</code></td>
+  <td><code>9789240093362-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240093362-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital adaptation kit for immunizations: operational requirements for implementing who recommendations in digital systems item/50d01818-0fa6-43d4-a39e-5bfae735c547" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
   <td><a href="../en/cat-harness/library/who-iris/9789240099456-eng/">Digital adaptation kit for immunizations: operational requirements for implementing WHO recommendations in digital systems</a><br><code class="dim">item/50d01818-0fa6-43d4-a39e-5bfae735c547</code></td>
   <td><code>9789240099456-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240099456-eng/README.md">item page</a></td>
   <td>yes</td>
+  <td>2</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="monitoring and evaluating digital health interventions: a practical guide to conducting research and assessment item/53de8b1c-5a9a-40b7-8a48-9d1717de4cb7" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789241511766-eng/">Monitoring and Evaluating Digital Health Interventions: A practical guide to conducting research and assessment</a><br><code class="dim">item/53de8b1c-5a9a-40b7-8a48-9d1717de4cb7</code></td>
+  <td><code>9789241511766-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241511766-eng/README.md">item page</a></td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="leave no one behind: guidance for planning and implementing catch-up vaccination item/58333fc5-9ec5-4d14-b341-5ae257dd0ad1" data-held="1" data-record="1" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="leave no one behind: guidance for planning and implementing catch-up vaccination item/58333fc5-9ec5-4d14-b341-5ae257dd0ad1" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
   <td><a href="../en/cat-harness/library/who-iris/9789240016514-eng/">Leave no one behind: guidance for planning and implementing catch-up vaccination</a><br><code class="dim">item/58333fc5-9ec5-4d14-b341-5ae257dd0ad1</code></td>
   <td><code>9789240016514-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240016514-eng/README.md">item page</a></td>
   <td>yes</td>
-  <td>1</td>
+  <td>2</td>
 </tr>
 <tr data-state="materialized" data-rank="0" data-kind="item" data-node="who handbook for guideline development item/63e14c27-7448-41ec-be08-a96a25a47db6" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
@@ -980,19 +1086,43 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital documentation of covid-19 certificates: vaccination status: technical specifications and implementation guidance, 27 august 2021 item/96b90d2c-5e33-404d-b7a5-5601bac140bc" data-held="1" data-record="1" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="understanding national health workforce accounts item/81b0f40b-5dbc-491d-a2ac-b63c7f3f9f27" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/who-his-hwf-nhwa-20171-eng/">Understanding national health workforce accounts</a><br><code class="dim">item/81b0f40b-5dbc-491d-a2ac-b63c7f3f9f27</code></td>
+  <td><code>who-his-hwf-nhwa-20171-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/who-his-hwf-nhwa-20171-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital documentation of covid-19 certificates: vaccination status: technical specifications and implementation guidance, 27 august 2021 item/96b90d2c-5e33-404d-b7a5-5601bac140bc" data-held="1" data-record="1" data-bitstreams="2">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
   <td><a href="../en/cat-harness/library/who-iris/who-2019-ncov-digital-certificates-vaccination-20211-eng/">Digital documentation of COVID-19 certificates: vaccination status: technical specifications and implementation guidance, 27 August 2021</a><br><code class="dim">item/96b90d2c-5e33-404d-b7a5-5601bac140bc</code></td>
   <td><code>who-2019-ncov-digital-certificates-vaccination-20211-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/who-2019-ncov-digital-certificates-vaccination-20211-eng/README.md">item page</a></td>
   <td>yes</td>
+  <td>2</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital health interventions v1.0 item/98c528f1-48f0-4803-9a11-c83cd2e52c17" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/who-rhr-1806-eng/">Classification of Digital Health Interventions v1.0</a><br><code class="dim">item/98c528f1-48f0-4803-9a11-c83cd2e52c17</code></td>
+  <td><code>who-rhr-1806-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/who-rhr-1806-eng/README.md">item page</a></td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="who recommendations on antenatal care for a positive pregnancy experience item/9a90617b-f771-4d4d-a538-a51f87c51685" data-held="1" data-record="1" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="who recommendations on antenatal care for a positive pregnancy experience item/9a90617b-f771-4d4d-a538-a51f87c51685" data-held="1" data-record="1" data-bitstreams="3">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
   <td><a href="../en/cat-harness/library/who-iris/9789241549912-eng/">WHO recommendations on antenatal care for a positive pregnancy experience</a><br><code class="dim">item/9a90617b-f771-4d4d-a538-a51f87c51685</code></td>
   <td><code>9789241549912-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241549912-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>3</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health accounts item/9de774be-825d-4d81-8518-f87a64b58ea0" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/b0426/">National health accounts</a><br><code class="dim">item/9de774be-825d-4d81-8518-f87a64b58ea0</code></td>
+  <td><code>b0426</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/b0426/README.md">item page</a></td>
   <td>yes</td>
   <td>1</td>
 </tr>
@@ -1004,93 +1134,69 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>2</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital health interventions v1.0 item/govdoc:who-rhr-18.06" data-held="1" data-record="0" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: health workforce levels and trends 2026 item/bb4009bc-943c-4116-88e3-fe4f6cf1a400" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/who-rhr-1806-eng/">Classification of Digital Health Interventions v1.0</a><br><code class="dim">item/govdoc:WHO-RHR-18.06</code></td>
-  <td><code>who-rhr-1806-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/who-rhr-1806-eng/README.md">item page</a></td>
-  <td>—</td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240122925-eng/">National health workforce accounts: health workforce levels and trends 2026</a><br><code class="dim">item/bb4009bc-943c-4116-88e3-fe4f6cf1a400</code></td>
+  <td><code>9789240122925-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240122925-eng/README.md">item page</a></td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital implementation investment guide (diig): integrating digital interventions into health programmes item/isbn:9789240010567" data-held="1" data-record="0" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: a handbook item/c8db7b21-da29-4432-a6d7-61ffe3b2c1c1" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789240010567-eng/">Digital implementation investment guide (DIIG): integrating digital interventions into health programmes</a><br><code class="dim">item/isbn:9789240010567</code></td>
-  <td><code>9789240010567-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240010567-eng/README.md">item page</a></td>
-  <td>—</td>
+  <td><a href="../en/cat-harness/library/who-iris/9789241513111-eng/">National health workforce accounts: a handbook</a><br><code class="dim">item/c8db7b21-da29-4432-a6d7-61ffe3b2c1c1</code></td>
+  <td><code>9789241513111-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241513111-eng/README.md">item page</a></td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health item/isbn:9789240081949" data-held="1" data-record="0" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: a handbook item/c9312a35-1eeb-46be-8482-a5fd2a94ddb9" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789240081949-eng/">Classification of digital interventions, services and applications in health: a shared language to describe the uses of digital technology for health</a><br><code class="dim">item/isbn:9789240081949</code></td>
-  <td><code>9789240081949-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240081949-eng/README.md">item page</a></td>
-  <td>—</td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240081291-eng/">National health workforce accounts: a handbook</a><br><code class="dim">item/c9312a35-1eeb-46be-8482-a5fd2a94ddb9</code></td>
+  <td><code>9789240081291-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240081291-eng/README.md">item page</a></td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for primary health care item/isbn:9789240093362" data-held="1" data-record="0" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health supply chain architecture item/ceaeb260-196c-4589-9b19-f3ec436819e6" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789240093362-eng/">Digital transformation handbook for primary health care</a><br><code class="dim">item/isbn:9789240093362</code></td>
-  <td><code>9789240093362-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240093362-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health supply chain architecture item/isbn:9789240101197" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789240101197-eng/">Digital transformation handbook for health supply chain architecture</a><br><code class="dim">item/isbn:9789240101197</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240101197-eng/">Digital transformation handbook for health supply chain architecture</a><br><code class="dim">item/ceaeb260-196c-4589-9b19-f3ec436819e6</code></td>
   <td><code>9789240101197-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240101197-eng/README.md">item page</a></td>
-  <td>—</td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health product catalogue item/isbn:9789240116191" data-held="1" data-record="0" data-bitstreams="1">
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="national health workforce accounts: implementation guide item/dc583bce-4e95-4e27-9b2e-7b98bbe8a144" data-held="1" data-record="1" data-bitstreams="1">
   <td><span class="state materialized">materialized</span></td>
   <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789240116191-eng/">Digital transformation handbook for health product catalogue</a><br><code class="dim">item/isbn:9789240116191</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789241514446-eng/">National health workforce accounts: implementation guide</a><br><code class="dim">item/dc583bce-4e95-4e27-9b2e-7b98bbe8a144</code></td>
+  <td><code>9789241514446-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241514446-eng/README.md">item page</a></td>
+  <td>yes</td>
+  <td>1</td>
+</tr>
+<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for health product catalogue item/fd2019bb-dd79-4c1f-ac5d-9b5fadf35383" data-held="1" data-record="1" data-bitstreams="1">
+  <td><span class="state materialized">materialized</span></td>
+  <td><code>item</code></td>
+  <td><a href="../en/cat-harness/library/who-iris/9789240116191-eng/">Digital transformation handbook for health product catalogue</a><br><code class="dim">item/fd2019bb-dd79-4c1f-ac5d-9b5fadf35383</code></td>
   <td><code>9789240116191-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240116191-eng/README.md">item page</a></td>
-  <td>—</td>
+  <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="digital transformation handbook for reporting substandard and falsified medical products item/isbn:9789240120747" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789240120747-eng/">Digital transformation handbook for reporting substandard and falsified medical products</a><br><code class="dim">item/isbn:9789240120747</code></td>
-  <td><code>9789240120747-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789240120747-eng/README.md">item page</a></td>
+<tr data-state="referenced" data-rank="1" data-kind="collection" data-node="technical documents collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6" data-held="0" data-record="0" data-bitstreams="0">
+  <td><span class="state referenced">referenced</span></td>
+  <td><code>collection</code></td>
+  <td>Technical Documents<br><code class="dim">collection/29e98ea0-6645-4b2d-ae90-3cb8769881b6</code></td>
   <td>—</td>
-  <td>1</td>
+  <td>—</td>
+  <td>—</td>
 </tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="the maps toolkit: mhealth assessment and planning for scale item/isbn:9789241509510" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789241509510-eng/">The MAPS Toolkit: mHealth Assessment and Planning for Scale</a><br><code class="dim">item/isbn:9789241509510</code></td>
-  <td><code>9789241509510-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241509510-eng/README.md">item page</a></td>
+<tr data-state="referenced" data-rank="1" data-kind="collection" data-node="technical documents collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266" data-held="0" data-record="0" data-bitstreams="0">
+  <td><span class="state referenced">referenced</span></td>
+  <td><code>collection</code></td>
+  <td>Technical Documents<br><code class="dim">collection/43c3b8d5-432d-4e1b-a5bf-3cc6129d7266</code></td>
   <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="monitoring and evaluating digital health interventions: a practical guide to conducting research and assessment item/isbn:9789241511766" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789241511766-eng/">Monitoring and Evaluating Digital Health Interventions: A practical guide to conducting research and assessment</a><br><code class="dim">item/isbn:9789241511766</code></td>
-  <td><code>9789241511766-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241511766-eng/README.md">item page</a></td>
   <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="who recommendations on antenatal care for a positive pregnancy experience: web annexes item/isbn:9789241549912:webannexes" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789241549912-webannexes-eng/">WHO recommendations on antenatal care for a positive pregnancy experience: web annexes</a><br><code class="dim">item/isbn:9789241549912:webannexes</code></td>
-  <td><code>9789241549912-webannexes-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241549912-webannexes-eng/README.md">item page</a></td>
   <td>—</td>
-  <td>1</td>
-</tr>
-<tr data-state="materialized" data-rank="0" data-kind="item" data-node="web supplement who recommendations on antenatal care for a positive pregnancy experience: evidence base item/isbn:9789241549912:websupplement" data-held="1" data-record="0" data-bitstreams="1">
-  <td><span class="state materialized">materialized</span></td>
-  <td><code>item</code></td>
-  <td><a href="../en/cat-harness/library/who-iris/9789241549912-websupplement-eng/">Web supplement WHO recommendations on antenatal care for a positive pregnancy experience: evidence base</a><br><code class="dim">item/isbn:9789241549912:websupplement</code></td>
-  <td><code>9789241549912-websupplement-eng</code> &middot; <a href="https://github.com/litlfred/who-iris/blob/main/library/9789241549912-websupplement-eng/README.md">item page</a></td>
-  <td>—</td>
-  <td>1</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="collection" data-node="publications collection/hq-publications" data-held="0" data-record="0" data-bitstreams="0">
   <td><span class="state referenced">referenced</span></td>
@@ -1148,6 +1254,14 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>—</td>
   <td>—</td>
 </tr>
+<tr data-state="referenced" data-rank="1" data-kind="community" data-node="regional publications community/e938c08b-fbea-47ba-bcf4-7eebe173697d" data-held="0" data-record="0" data-bitstreams="0">
+  <td><span class="state referenced">referenced</span></td>
+  <td><code>community</code></td>
+  <td>Regional Publications<br><code class="dim">community/e938c08b-fbea-47ba-bcf4-7eebe173697d</code></td>
+  <td>—</td>
+  <td>—</td>
+  <td>—</td>
+</tr>
 <tr data-state="referenced" data-rank="1" data-kind="community" data-node="7. regional office for the western pacific community/ebd3b191-c322-4754-9415-469a1a0eb0c3" data-held="0" data-record="0" data-bitstreams="0">
   <td><span class="state referenced">referenced</span></td>
   <td><code>community</code></td>
@@ -1196,13 +1310,13 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="referenced" data-rank="1" data-kind="item" data-node="protecting all against tetanus: guide to sustaining maternal and neonatal tetanus elimination (mnte) and broadening tetanus protection for all populations item/09f6c202-64f2-4f91-bbc7-862f4fc28f47" data-held="0" data-record="1" data-bitstreams="1">
+<tr data-state="referenced" data-rank="1" data-kind="item" data-node="protecting all against tetanus: guide to sustaining maternal and neonatal tetanus elimination (mnte) and broadening tetanus protection for all populations item/09f6c202-64f2-4f91-bbc7-862f4fc28f47" data-held="0" data-record="1" data-bitstreams="2">
   <td><span class="state referenced">referenced</span></td>
   <td><code>item</code></td>
   <td>Protecting all against tetanus: guide to sustaining maternal and neonatal tetanus elimination (MNTE) and broadening tetanus protection for all populations<br><code class="dim">item/09f6c202-64f2-4f91-bbc7-862f4fc28f47</code></td>
   <td>—</td>
   <td>yes</td>
-  <td>1</td>
+  <td>2</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="item" data-node="rotavirus vaccines: who position paper – july 2021 – vaccins antirotavirus : note de synthèse de l’oms – juillet 2021 item/0c81a294-c943-40a5-b3c2-989dfac3d72c" data-held="0" data-record="1" data-bitstreams="1">
   <td><span class="state referenced">referenced</span></td>
@@ -1228,13 +1342,13 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="referenced" data-rank="1" data-kind="item" data-node="consolidated guidelines on hiv prevention, testing, treatment, service delivery and monitoring: recommendations for a public health approach item/1c992591-c558-4371-a07c-d243f65ef1d4" data-held="0" data-record="1" data-bitstreams="1">
+<tr data-state="referenced" data-rank="1" data-kind="item" data-node="consolidated guidelines on hiv prevention, testing, treatment, service delivery and monitoring: recommendations for a public health approach item/1c992591-c558-4371-a07c-d243f65ef1d4" data-held="0" data-record="1" data-bitstreams="2">
   <td><span class="state referenced">referenced</span></td>
   <td><code>item</code></td>
   <td>Consolidated guidelines on HIV prevention, testing, treatment, service delivery and monitoring: recommendations for a public health approach<br><code class="dim">item/1c992591-c558-4371-a07c-d243f65ef1d4</code></td>
   <td>—</td>
   <td>yes</td>
-  <td>1</td>
+  <td>2</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="item" data-node="measles vaccines: who position paper – april 2017 – note de synthèse de l’oms sur les vaccins contre la rougeole – avril 2017 item/20382594-e79f-46bf-813f-0907514235ba" data-held="0" data-record="1" data-bitstreams="1">
   <td><span class="state referenced">referenced</span></td>
@@ -1292,13 +1406,13 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="referenced" data-rank="1" data-kind="item" data-node="digital adaptation kit for hiv: operational requirements for implementing who recommendations in digital systems item/59e7ed01-0bb9-4729-ad54-b08f3a4ef850" data-held="0" data-record="1" data-bitstreams="1">
+<tr data-state="referenced" data-rank="1" data-kind="item" data-node="digital adaptation kit for hiv: operational requirements for implementing who recommendations in digital systems item/59e7ed01-0bb9-4729-ad54-b08f3a4ef850" data-held="0" data-record="1" data-bitstreams="2">
   <td><span class="state referenced">referenced</span></td>
   <td><code>item</code></td>
   <td>Digital adaptation kit for HIV: operational requirements for implementing WHO recommendations in digital systems<br><code class="dim">item/59e7ed01-0bb9-4729-ad54-b08f3a4ef850</code></td>
   <td>—</td>
   <td>yes</td>
-  <td>1</td>
+  <td>2</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="item" data-node="vaccines against influenza: who position paper – may 2022 – vaccins antigrippaux: note de synthèse de l’oms – mai 2022 item/5ec5d7e8-18fa-4299-b232-1d9ea7aa985a" data-held="0" data-record="1" data-bitstreams="1">
   <td><span class="state referenced">referenced</span></td>
@@ -1308,13 +1422,13 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="referenced" data-rank="1" data-kind="item" data-node="consolidated hiv guidelines: service delivery item/8c4885b7-edf2-4608-9bf7-4a64303314cf" data-held="0" data-record="1" data-bitstreams="1">
+<tr data-state="referenced" data-rank="1" data-kind="item" data-node="consolidated hiv guidelines: service delivery item/8c4885b7-edf2-4608-9bf7-4a64303314cf" data-held="0" data-record="1" data-bitstreams="2">
   <td><span class="state referenced">referenced</span></td>
   <td><code>item</code></td>
   <td>Consolidated HIV guidelines: service delivery<br><code class="dim">item/8c4885b7-edf2-4608-9bf7-4a64303314cf</code></td>
   <td>—</td>
   <td>yes</td>
-  <td>1</td>
+  <td>2</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="item" data-node="malaria vaccine: who position paper – march 2022 – rapport mensuel des cas de dracunculose, janvier 2022 item/9384a5ff-b9aa-4316-8be2-260d1bd5b163" data-held="0" data-record="1" data-bitstreams="1">
   <td><span class="state referenced">referenced</span></td>
@@ -1372,13 +1486,13 @@ said yes, and collapsing the two would turn an open question into a clearance.</
   <td>yes</td>
   <td>1</td>
 </tr>
-<tr data-state="referenced" data-rank="1" data-kind="item" data-node="consolidated guidelines on hiv testing services, 2019 item/d0fe15da-15f9-4ba5-bfe4-73658e98db6a" data-held="0" data-record="1" data-bitstreams="1">
+<tr data-state="referenced" data-rank="1" data-kind="item" data-node="consolidated guidelines on hiv testing services, 2019 item/d0fe15da-15f9-4ba5-bfe4-73658e98db6a" data-held="0" data-record="1" data-bitstreams="2">
   <td><span class="state referenced">referenced</span></td>
   <td><code>item</code></td>
   <td>Consolidated guidelines on HIV testing services, 2019<br><code class="dim">item/d0fe15da-15f9-4ba5-bfe4-73658e98db6a</code></td>
   <td>—</td>
   <td>yes</td>
-  <td>1</td>
+  <td>2</td>
 </tr>
 <tr data-state="referenced" data-rank="1" data-kind="item" data-node="polio vaccines: who position paper – june 2022 – vaccins antipoliomyélitiques: note de synthèse de l’oms – juin 2022 item/d5862fee-c17d-47f7-b987-948bd1c3013f" data-held="0" data-record="1" data-bitstreams="1">
   <td><span class="state referenced">referenced</span></td>

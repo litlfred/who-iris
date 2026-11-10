@@ -4848,15 +4848,15 @@
       },
       "keywords": [
         {
-          "term": "licensed",
-          "heading": false
-        },
-        {
           "term": "holders",
           "heading": false
         },
         {
           "term": "cc-by",
+          "heading": false
+        },
+        {
+          "term": "licensed",
           "heading": false
         }
       ],
@@ -4901,11 +4901,11 @@
           "heading": true
         },
         {
-          "term": "profile compliance",
+          "term": "spdx license",
           "heading": false
         },
         {
-          "term": "spdx license",
+          "term": "profile compliance",
           "heading": false
         },
         {
@@ -4913,11 +4913,11 @@
           "heading": false
         },
         {
-          "term": "compliance point",
+          "term": "license expressions",
           "heading": false
         },
         {
-          "term": "license expressions",
+          "term": "compliance point",
           "heading": false
         },
         {
@@ -4974,11 +4974,11 @@
           "heading": false
         },
         {
-          "term": "standards",
+          "term": "membership",
           "heading": false
         },
         {
-          "term": "membership",
+          "term": "standards",
           "heading": false
         },
         {
@@ -5052,15 +5052,15 @@
           "heading": false
         },
         {
-          "term": "data model",
-          "heading": false
-        },
-        {
-          "term": "copyrights",
+          "term": "annotating",
           "heading": false
         },
         {
           "term": "software",
+          "heading": false
+        },
+        {
+          "term": "data model",
           "heading": false
         }
       ],
@@ -5211,7 +5211,7 @@
           "heading": true
         },
         {
-          "term": "scoring system",
+          "term": "system package",
           "heading": false
         },
         {
@@ -5219,7 +5219,7 @@
           "heading": false
         },
         {
-          "term": "system package",
+          "term": "scoring system",
           "heading": false
         },
         {
@@ -5231,7 +5231,7 @@
           "heading": false
         },
         {
-          "term": "vulnerability",
+          "term": "hash",
           "heading": false
         }
       ],
@@ -5262,7 +5262,7 @@
           "heading": false
         },
         {
-          "term": "targeting",
+          "term": "browsing",
           "heading": false
         }
       ],
@@ -5307,11 +5307,11 @@
           "heading": false
         },
         {
-          "term": "maximum number",
+          "term": "occurrences",
           "heading": false
         },
         {
-          "term": "occurrences",
+          "term": "maximum number",
           "heading": false
         }
       ],
@@ -5342,7 +5342,7 @@
           "heading": false
         },
         {
-          "term": "nine",
+          "term": "omg",
           "heading": false
         }
       ],
@@ -5673,23 +5673,23 @@
           "heading": true
         },
         {
-          "term": "enables adopting",
-          "heading": false
-        },
-        {
           "term": "element characterization",
           "heading": false
         },
         {
-          "term": "adopting individuals",
-          "heading": false
-        },
-        {
-          "term": "characterization details",
+          "term": "enables adopting",
           "heading": false
         },
         {
           "term": "spdx serialization",
+          "heading": false
+        },
+        {
+          "term": "spdx content",
+          "heading": false
+        },
+        {
+          "term": "adopting individuals",
           "heading": false
         }
       ],
@@ -5724,11 +5724,11 @@
           "heading": false
         },
         {
-          "term": "official spdx",
+          "term": "munity specification",
           "heading": false
         },
         {
-          "term": "munity specification",
+          "term": "spdx specification",
           "heading": false
         }
       ],
@@ -5835,11 +5835,11 @@
           "heading": true
         },
         {
-          "term": "brackets surrounding",
+          "term": "quotation marks",
           "heading": false
         },
         {
-          "term": "quotation marks",
+          "term": "brackets surrounding",
           "heading": false
         },
         {
@@ -5943,15 +5943,15 @@
           "heading": true
         },
         {
-          "term": "global json-ld",
-          "heading": false
-        },
-        {
           "term": "spdx global",
           "heading": false
         },
         {
           "term": "spdx documents",
+          "heading": false
+        },
+        {
+          "term": "json-ld format",
           "heading": false
         }
       ],
@@ -5986,8 +5986,8 @@
           "heading": true
         },
         {
-          "term": "validation",
-          "heading": true
+          "term": "spdx json",
+          "heading": false
         }
       ],
       "extract": "An SPDX serialization in JSON-LD format is considered conformant to the SPDX specification if it adheres to the following two validation criteria: • Structural validation: The JSON-LD document must structurally validate against the SPDX JSON Schema. This schema defines the expected structure of the JSON-LD document, including the required elements, data types, and permissible values. • Semantic validation: The",
@@ -6035,6 +6035,10 @@
           "heading": false
         },
         {
+          "term": "ellis",
+          "heading": false
+        },
+        {
           "term": "martin",
           "heading": false
         },
@@ -6043,19 +6047,15 @@
           "heading": false
         },
         {
-          "term": "steve",
-          "heading": false
-        },
-        {
           "term": "thomas",
           "heading": false
         },
         {
-          "term": "philip",
+          "term": "steve",
           "heading": false
         },
         {
-          "term": "david",
+          "term": "philip",
           "heading": false
         }
       ],
@@ -6126,7 +6126,7 @@
           "heading": false
         },
         {
-          "term": "act",
+          "term": "externalref",
           "heading": false
         }
       ],
@@ -6196,15 +6196,15 @@
           "heading": false
         },
         {
+          "term": "maxcount builttime",
+          "heading": false
+        },
+        {
           "term": "agent supportlevel",
           "heading": false
         },
         {
           "term": "agent releasetime",
-          "heading": false
-        },
-        {
-          "term": "maxcount builttime",
           "heading": false
         },
         {
@@ -6301,11 +6301,11 @@
           "heading": false
         },
         {
-          "term": "profileidentifiertype rootelement",
+          "term": "extension externalidentifier",
           "heading": false
         },
         {
-          "term": "extension externalidentifier",
+          "term": "profileidentifiertype rootelement",
           "heading": false
         },
         {
@@ -6340,11 +6340,11 @@
           "heading": false
         },
         {
-          "term": "agent createdusing",
+          "term": "tool specversion",
           "heading": false
         },
         {
-          "term": "tool specversion",
+          "term": "agent createdusing",
           "heading": false
         },
         {
@@ -6636,11 +6636,11 @@
       },
       "keywords": [
         {
-          "term": "permits verification",
+          "term": "comment xsd",
           "heading": false
         },
         {
-          "term": "comment xsd",
+          "term": "permits verification",
           "heading": false
         },
         {
@@ -6777,12 +6777,12 @@
       },
       "keywords": [
         {
-          "term": "shared purpose",
-          "heading": false
-        },
-        {
           "term": "organization",
           "heading": true
+        },
+        {
+          "term": "shared purpose",
+          "heading": false
         },
         {
           "term": "work together",
@@ -7263,7 +7263,7 @@
           "heading": false
         },
         {
-          "term": "assertion",
+          "term": "relationshipcompleteness",
           "heading": false
         }
       ],
@@ -7356,7 +7356,7 @@
           "heading": false
         },
         {
-          "term": "indication",
+          "term": "stamp",
           "heading": false
         }
       ],
@@ -7481,15 +7481,11 @@
           "heading": false
         },
         {
-          "term": "explanatory text",
-          "heading": false
-        },
-        {
           "term": "spdx file",
           "heading": false
         },
         {
-          "term": "hereby agree",
+          "term": "explanatory text",
           "heading": false
         },
         {
@@ -7497,12 +7493,16 @@
           "heading": false
         },
         {
-          "term": "datalicense",
-          "heading": true
+          "term": "hereby agree",
+          "heading": false
         },
         {
           "term": "intellectual property",
           "heading": false
+        },
+        {
+          "term": "datalicense",
+          "heading": true
         },
         {
           "term": "warranties",
@@ -7655,11 +7655,11 @@
           "heading": true
         },
         {
-          "term": "aspect",
+          "term": "characterization",
           "heading": false
         },
         {
-          "term": "characterization",
+          "term": "aspect",
           "heading": false
         }
       ],
@@ -7748,11 +7748,11 @@
           "heading": true
         },
         {
-          "term": "additional characteristics",
+          "term": "resource outside",
           "heading": false
         },
         {
-          "term": "resource outside",
+          "term": "additional characteristics",
           "heading": false
         }
       ],
@@ -7899,12 +7899,12 @@
       },
       "keywords": [
         {
-          "term": "external element",
-          "heading": false
-        },
-        {
           "term": "identifier",
           "heading": true
+        },
+        {
+          "term": "external element",
+          "heading": false
         },
         {
           "term": "identifies",
@@ -8084,11 +8084,11 @@
           "heading": false
         },
         {
-          "term": "locator",
+          "term": "referenced core",
           "heading": false
         },
         {
-          "term": "referenced core",
+          "term": "locator",
           "heading": false
         }
       ],
@@ -8292,11 +8292,11 @@
           "heading": true
         },
         {
-          "term": "relationship",
+          "term": "spdxdocument",
           "heading": false
         },
         {
-          "term": "spdxdocument",
+          "term": "relationship",
           "heading": false
         }
       ],
@@ -8501,7 +8501,7 @@
           "heading": false
         },
         {
-          "term": "standards",
+          "term": "relevant",
           "heading": false
         }
       ],
@@ -8559,11 +8559,11 @@
           "heading": true
         },
         {
-          "term": "annotator",
+          "term": "commentary",
           "heading": false
         },
         {
-          "term": "commentary",
+          "term": "annotator",
           "heading": false
         }
       ],
@@ -8594,8 +8594,8 @@
           "heading": false
         },
         {
-          "term": "annotator",
-          "heading": false
+          "term": "subject",
+          "heading": true
         }
       ],
       "extract": "Summary An Element an annotator has made an assertion about. Description A subject is an Element an annotator has made an assertion about. Metadata https://spdx.org/rdf/3.0.1/terms/Core/subject Name: subject Nature: ObjectProperty Range: Element Referenced • /Core/Annotation 8.2.51 summary Summary A short description of an Element. System Package Data Exchange (SPDX©) v3.0 45 Description A summary is a short",
@@ -8927,11 +8927,11 @@
           "heading": false
         },
         {
-          "term": "looks like",
+          "term": "locator format",
           "heading": false
         },
         {
-          "term": "locator format",
+          "term": "looks like",
           "heading": false
         }
       ],
@@ -9327,11 +9327,11 @@
           "heading": true
         },
         {
-          "term": "individuals defined",
+          "term": "spdx project",
           "heading": false
         },
         {
-          "term": "spdx project",
+          "term": "individuals defined",
           "heading": false
         }
       ],
@@ -9446,7 +9446,7 @@
           "heading": false
         },
         {
-          "term": "a-za-z",
+          "term": "package data",
           "heading": false
         }
       ],
@@ -9595,7 +9595,7 @@
           "heading": false
         },
         {
-          "term": "softwarepurpose attributiontext",
+          "term": "string contentidentifier",
           "heading": false
         }
       ],
@@ -9830,7 +9830,7 @@
           "heading": false
         },
         {
-          "term": "snippet",
+          "term": "spdx data",
           "heading": false
         },
         {
@@ -10040,7 +10040,7 @@
           "heading": false
         },
         {
-          "term": "filekindtype",
+          "term": "directory",
           "heading": false
         }
       ],
@@ -10431,11 +10431,11 @@
           "heading": true
         },
         {
-          "term": "generated through",
+          "term": "source files",
           "heading": false
         },
         {
-          "term": "source files",
+          "term": "generated through",
           "heading": false
         },
         {
@@ -10451,7 +10451,7 @@
           "heading": false
         },
         {
-          "term": "components",
+          "term": "software",
           "heading": false
         }
       ],
@@ -10498,11 +10498,11 @@
           "heading": true
         },
         {
-          "term": "hardware",
+          "term": "software",
           "heading": false
         },
         {
-          "term": "software",
+          "term": "hardware",
           "heading": false
         }
       ],
@@ -10585,11 +10585,11 @@
           "heading": false
         },
         {
-          "term": "mincount maxcount",
+          "term": "type mincount",
           "heading": false
         },
         {
-          "term": "type mincount",
+          "term": "mincount maxcount",
           "heading": false
         }
       ],
@@ -10632,11 +10632,11 @@
           "heading": false
         },
         {
-          "term": "vulnerability scoring",
+          "term": "urn",
           "heading": false
         },
         {
-          "term": "urn",
+          "term": "vulnerability scoring",
           "heading": false
         },
         {
@@ -10820,11 +10820,11 @@
           "heading": true
         },
         {
-          "term": "stakeholder-specific vulnerability",
+          "term": "core datetime",
           "heading": false
         },
         {
-          "term": "core datetime",
+          "term": "stakeholder-specific vulnerability",
           "heading": false
         },
         {
@@ -10883,15 +10883,15 @@
           "heading": false
         },
         {
-          "term": "connects vulnerability",
-          "heading": false
-        },
-        {
           "term": "actionstatementtime core",
           "heading": false
         },
         {
           "term": "string actionstatementtime",
+          "heading": false
+        },
+        {
+          "term": "connects vulnerability",
           "heading": false
         },
         {
@@ -10934,11 +10934,11 @@
           "heading": false
         },
         {
-          "term": "elements representing",
+          "term": "urn",
           "heading": false
         },
         {
-          "term": "urn",
+          "term": "elements representing",
           "heading": false
         },
         {
@@ -11032,7 +11032,7 @@
           "heading": false
         },
         {
-          "term": "investigated",
+          "term": "vulnerability",
           "heading": false
         }
       ],
@@ -11081,15 +11081,15 @@
           "heading": false
         },
         {
-          "term": "vex relationship",
-          "heading": false
-        },
-        {
           "term": "statusnotes xsd",
           "heading": false
         },
         {
           "term": "vexversion xsd",
+          "heading": false
+        },
+        {
+          "term": "vex relationship",
           "heading": false
         },
         {
@@ -11696,7 +11696,7 @@
           "heading": false
         },
         {
-          "term": "conveys",
+          "term": "determined",
           "heading": false
         }
       ],
@@ -11723,11 +11723,11 @@
           "heading": true
         },
         {
-          "term": "vector string",
+          "term": "cvss",
           "heading": false
         },
         {
-          "term": "cvss",
+          "term": "vector string",
           "heading": false
         },
         {
@@ -11785,15 +11785,15 @@
       },
       "keywords": [
         {
+          "term": "withdrawn",
+          "heading": false
+        },
+        {
           "term": "withdrawntime",
           "heading": true
         },
         {
           "term": "vulnerability",
-          "heading": false
-        },
-        {
-          "term": "date",
           "heading": false
         }
       ],
@@ -11824,11 +11824,11 @@
           "heading": false
         },
         {
-          "term": "vulnerability scoring",
+          "term": "severity type",
           "heading": false
         },
         {
-          "term": "severity type",
+          "term": "vulnerability scoring",
           "heading": false
         },
         {
@@ -11894,6 +11894,10 @@
           "heading": false
         },
         {
+          "term": "update timelines",
+          "heading": false
+        },
+        {
           "term": "ssvcdecisiontype",
           "heading": true
         },
@@ -11907,10 +11911,6 @@
         },
         {
           "term": "publishing notification",
-          "heading": false
-        },
-        {
-          "term": "organization internal",
           "heading": false
         }
       ],
@@ -12065,8 +12065,8 @@
           "heading": false
         },
         {
-          "term": "classes",
-          "heading": true
+          "term": "anylicenseinfo",
+          "heading": false
         }
       ],
       "extract": "It also provides the base abstract class, AnyLicenseInfo, used for references to license information. The SimpleLicensingText class provides a place to record any license text found that does not match a license on the SPDX License List89. The ExpandedLicensing profile can be used to represent the complete parsed license expressions. Metadata https://spdx.org/rdf/3.0.1/terms/SimpleLicensing Name: SimpleLicensing",
@@ -12211,12 +12211,12 @@
           "heading": false
         },
         {
-          "term": "simplelicensingtext",
-          "heading": true
-        },
-        {
           "term": "licenseexpression string",
           "heading": false
+        },
+        {
+          "term": "simplelicensingtext",
+          "heading": true
         },
         {
           "term": "spdx license",
@@ -12542,10 +12542,6 @@
           "heading": false
         },
         {
-          "term": "simplelicensing anylicenseinfo",
-          "heading": false
-        },
-        {
           "term": "isdeprecatedlicenseid xsd",
           "heading": false
         },
@@ -12555,6 +12551,10 @@
         },
         {
           "term": "standardlicensetemplate xsd",
+          "heading": false
+        },
+        {
+          "term": "simplelicensing anylicenseinfo",
           "heading": false
         },
         {
@@ -12975,11 +12975,11 @@
           "heading": false
         },
         {
-          "term": "software foundation",
+          "term": "license",
           "heading": false
         },
         {
-          "term": "license",
+          "term": "software foundation",
           "heading": false
         },
         {
@@ -13080,7 +13080,7 @@
           "heading": false
         },
         {
-          "term": "listedlicense",
+          "term": "spdx license",
           "heading": false
         }
       ],
@@ -13672,11 +13672,11 @@
           "heading": false
         },
         {
-          "term": "preprocessing steps",
+          "term": "xsd",
           "heading": false
         },
         {
-          "term": "xsd",
+          "term": "preprocessing steps",
           "heading": false
         },
         {
@@ -13932,7 +13932,7 @@
           "heading": false
         },
         {
-          "term": "encompass",
+          "term": "encompasses",
           "heading": false
         }
       ],
@@ -14043,11 +14043,11 @@
           "heading": true
         },
         {
-          "term": "dataset",
+          "term": "registration",
           "heading": false
         },
         {
-          "term": "registration",
+          "term": "dataset",
           "heading": false
         },
         {
@@ -14094,11 +14094,11 @@
           "heading": false
         },
         {
-          "term": "categorical",
+          "term": "data exchange",
           "heading": false
         },
         {
-          "term": "data exchange",
+          "term": "categorical",
           "heading": false
         },
         {
@@ -14388,7 +14388,7 @@
           "heading": false
         },
         {
-          "term": "involved",
+          "term": "involvement",
           "heading": false
         }
       ],
@@ -14435,7 +14435,7 @@
           "heading": false
         },
         {
-          "term": "quantity",
+          "term": "aipackage",
           "heading": false
         }
       ],
@@ -14497,11 +14497,11 @@
           "heading": false
         },
         {
-          "term": "layers",
+          "term": "dictionaryentry",
           "heading": false
         },
         {
-          "term": "training",
+          "term": "layers",
           "heading": false
         }
       ],
@@ -14528,12 +14528,12 @@
           "heading": false
         },
         {
-          "term": "consumed during",
-          "heading": false
-        },
-        {
           "term": "inferenceenergyconsumption",
           "heading": true
+        },
+        {
+          "term": "consumed during",
+          "heading": false
         }
       ],
       "extract": "Summary Specifies the amount of energy consumed during inference time by an AI model that is being used in the AI system. Description The field specifies the amount of energy consumed during inference time by an AI model that is being used in the AI system. Metadata https://spdx.org/rdf/3.0.1/terms/AI/inferenceEnergyConsumption Name: inferenceEnergyConsumption Nature: ObjectProperty Range:",
@@ -14734,7 +14734,7 @@
           "heading": true
         },
         {
-          "term": "steps applied",
+          "term": "training data",
           "heading": false
         }
       ],
@@ -14792,11 +14792,11 @@
           "heading": false
         },
         {
-          "term": "risk assessment",
+          "term": "general safety",
           "heading": false
         },
         {
-          "term": "general safety",
+          "term": "risk assessment",
           "heading": false
         }
       ],
@@ -15043,7 +15043,7 @@
           "heading": false
         },
         {
-          "term": "build tools",
+          "term": "build tool",
           "heading": false
         },
         {
@@ -15086,7 +15086,7 @@
           "heading": false
         },
         {
-          "term": "urlscheme",
+          "term": "encapsulates",
           "heading": false
         }
       ],
@@ -15419,11 +15419,11 @@
           "heading": false
         },
         {
-          "term": "some industries",
+          "term": "conformant",
           "heading": false
         },
         {
-          "term": "conformant",
+          "term": "some industries",
           "heading": false
         }
       ],
@@ -15604,11 +15604,11 @@
           "heading": false
         },
         {
-          "term": "generalized fashion",
+          "term": "key-value stores",
           "heading": false
         },
         {
-          "term": "enables adopting",
+          "term": "duplicate names",
           "heading": false
         }
       ],
@@ -16269,7 +16269,7 @@
           "heading": false
         },
         {
-          "term": "paragraphs",
+          "term": "spacing",
           "heading": false
         },
         {
@@ -16602,8 +16602,8 @@
           "heading": true
         },
         {
-          "term": "mismatch",
-          "heading": false
+          "term": "name",
+          "heading": true
         }
       ],
       "extract": "C.12.1 Purpose To avoid a license mismatch merely because the name or title of the license is different than how the license is usually referred to or different than the SPDX full name. This also avoids a mismatch if the title or name of the license is simply not included. C.12.2 Guideline Ignore the license name or title for matching purposes, so long as what ignored is the title only and there is no additional",
@@ -16713,11 +16713,11 @@
           "heading": false
         },
         {
-          "term": "repository",
+          "term": "tagged",
           "heading": false
         },
         {
-          "term": "tagged",
+          "term": "repository",
           "heading": false
         }
       ],
@@ -17199,11 +17199,11 @@
           "heading": false
         },
         {
-          "term": "components",
+          "term": "qualifiers",
           "heading": false
         },
         {
-          "term": "qualifiers",
+          "term": "components",
           "heading": false
         },
         {
@@ -17281,11 +17281,11 @@
           "heading": false
         },
         {
-          "term": "component",
+          "term": "rules",
           "heading": true
         },
         {
-          "term": "rules",
+          "term": "component",
           "heading": true
         }
       ],
@@ -17339,15 +17339,15 @@
       },
       "keywords": [
         {
+          "term": "type",
+          "heading": true
+        },
+        {
           "term": "type cannot",
           "heading": false
         },
         {
           "term": "dash",
-          "heading": false
-        },
-        {
-          "term": "insensitive",
           "heading": false
         }
       ],
@@ -17545,11 +17545,11 @@
           "heading": true
         },
         {
-          "term": "purl",
+          "term": "package",
           "heading": false
         },
         {
-          "term": "package",
+          "term": "purl",
           "heading": false
         }
       ],
@@ -17665,11 +17665,11 @@
           "heading": false
         },
         {
-          "term": "split",
+          "term": "type-specific normalization",
           "heading": false
         },
         {
-          "term": "type-specific normalization",
+          "term": "split",
           "heading": false
         }
       ],
@@ -17731,15 +17731,11 @@
           "heading": false
         },
         {
-          "term": "copies",
-          "heading": false
-        },
-        {
           "term": "software",
           "heading": false
         },
         {
-          "term": "notice",
+          "term": "copies",
           "heading": false
         },
         {
@@ -17747,7 +17743,11 @@
           "heading": true
         },
         {
-          "term": "authors",
+          "term": "notice",
+          "heading": false
+        },
+        {
+          "term": "permission",
           "heading": false
         }
       ],
@@ -17778,11 +17778,11 @@
           "heading": false
         },
         {
-          "term": "ntia software",
+          "term": "spdx community",
           "heading": false
         },
         {
-          "term": "spdx community",
+          "term": "ntia software",
           "heading": false
         },
         {
@@ -17798,7 +17798,7 @@
           "heading": true
         },
         {
-          "term": "release candidate",
+          "term": "software package",
           "heading": false
         }
       ],
@@ -17825,10 +17825,6 @@
           "heading": true
         },
         {
-          "term": "patent claims",
-          "heading": false
-        },
-        {
           "term": "contributor necessary",
           "heading": false
         },
@@ -17837,12 +17833,16 @@
           "heading": false
         },
         {
-          "term": "contributor contributions",
+          "term": "patent claims",
           "heading": false
         },
         {
           "term": "community specification",
           "heading": true
+        },
+        {
+          "term": "contributor contributions",
+          "heading": false
         },
         {
           "term": "contributor agrees",
@@ -17872,15 +17872,11 @@
       },
       "keywords": [
         {
-          "term": "rights granted",
-          "heading": false
-        },
-        {
           "term": "license",
           "heading": true
         },
         {
-          "term": "copyright law",
+          "term": "rights granted",
           "heading": false
         },
         {
@@ -17888,7 +17884,7 @@
           "heading": false
         },
         {
-          "term": "applicable law",
+          "term": "artistic work",
           "heading": false
         },
         {
@@ -17896,11 +17892,15 @@
           "heading": false
         },
         {
+          "term": "copyright law",
+          "heading": false
+        },
+        {
           "term": "license terms",
           "heading": false
         },
         {
-          "term": "above rights",
+          "term": "applicable law",
           "heading": false
         }
       ],
@@ -17924,11 +17924,11 @@
       "heading": false
     },
     {
-      "term": "description xsd",
+      "term": "name xsd",
       "heading": false
     },
     {
-      "term": "name xsd",
+      "term": "description xsd",
       "heading": false
     },
     {
@@ -17948,11 +17948,11 @@
       "heading": true
     },
     {
-      "term": "software element",
+      "term": "defined spdx",
       "heading": false
     },
     {
-      "term": "defined spdx",
+      "term": "software element",
       "heading": false
     },
     {
@@ -17963,6 +17963,6 @@
   "links": {
     "repo": "litlfred/cat-harness",
     "branch": "main",
-    "dir": "library/omg-2024-spdx-3-0"
+    "dir": "library/conduct/omg-2024-spdx-3-0"
   }
 }

@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/processes/code-quality-gates.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/code-quality-gates.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,7 +893,7 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/processes/sdlc/code-quality-gates.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/code-quality-gates.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="cat-harness/">cat-harness processes</a></p>
 </blockquote>
 
 <h1 id="the-gates-a-change-must-pass-before-it-can-merge">
@@ -849,7 +907,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_CodeQualityGates</code> · strict · 9 step(s)</p>
 
-<p>The gates a change must pass before it can merge: the jobs of the code-quality workflow, each marked hard, warn-only or not a gate, joined by one question — did every hard one pass. EVERY GATE IS INDEPENDENT, AND NOTHING IN THE YAML SAYS SO IN ONE PLACE. Bean <code class="language-plaintext highlighter-rouge">7yvd</code>. The file reads as a long sequence; it is not one. NO gate declares <code class="language-plaintext highlighter-rouge">needs:</code> on another GATE, so they all start together and the wall-clock cost of the gates is the SLOWEST job, not the sum. The <code class="language-plaintext highlighter-rouge">needs:</code> in the file are on jobs that are not gates: <code class="language-plaintext highlighter-rouge">qa-publish</code> (arc <code class="language-plaintext highlighter-rouge">3fva</code>) waits for the corpus parts of <code class="language-plaintext highlighter-rouge">gates</code> whatever they concluded and stores the run’s QA results on the <code class="language-plaintext highlighter-rouge">qa-reports</code> branch, and nothing waits for it; and every job that READS the QA working copy waits for <code class="language-plaintext highlighter-rouge">qa-working-copy</code> (bean <code class="language-plaintext highlighter-rouge">jtfk</code>), which builds it once for the run instead of once per reader. That is the single most useful thing to know before adding a gate, and it is recoverable today only by checking for <code class="language-plaintext highlighter-rouge">needs:</code> keys that are not there. COUNT THE <code class="language-plaintext highlighter-rouge"># bpmn-node:</code> DECLARATIONS rather than trusting a number here: this paragraph said SIX until 2026-09-26, by which point there were eight — <code class="language-plaintext highlighter-rouge">typescript</code> had been split into <code class="language-plaintext highlighter-rouge">typescript</code> + <code class="language-plaintext highlighter-rouge">gates</code> and <code class="language-plaintext highlighter-rouge">skill-registration-chain</code> added — and the count was wrong in the one place a reader checks the shape.</p>
+<p>The gates a change must pass before it can merge: the jobs of the code-quality workflow, each marked hard, warn-only or not a gate, joined by one question — did every hard one pass. EVERY GATE IS INDEPENDENT, AND NOTHING IN THE YAML SAYS SO IN ONE PLACE. Bean <code class="language-plaintext highlighter-rouge">7yvd</code>. The file reads as a long sequence; it is not one. NO gate declares <code class="language-plaintext highlighter-rouge">needs:</code> on another GATE, so they all start together and the wall-clock cost of the gates is the SLOWEST job, not the sum. The <code class="language-plaintext highlighter-rouge">needs:</code> in the file are on jobs that are not gates: <code class="language-plaintext highlighter-rouge">qa-publish</code> (arc <code class="language-plaintext highlighter-rouge">3fva</code>) waits for the corpus parts of <code class="language-plaintext highlighter-rouge">gates</code> whatever they concluded and stores the run’s QA results on the <a href="../../../en/cat-harness/processes/skills/qa-reports.html"><code class="language-plaintext highlighter-rouge">qa-reports</code></a> branch, and nothing waits for it; and every job that READS the QA working copy waits for <code class="language-plaintext highlighter-rouge">qa-working-copy</code> (bean <code class="language-plaintext highlighter-rouge">jtfk</code>), which builds it once for the run instead of once per reader. That is the single most useful thing to know before adding a gate, and it is recoverable today only by checking for <code class="language-plaintext highlighter-rouge">needs:</code> keys that are not there. COUNT THE <code class="language-plaintext highlighter-rouge"># bpmn-node:</code> DECLARATIONS rather than trusting a number here: this paragraph said SIX until 2026-09-26, by which point there were eight — <code class="language-plaintext highlighter-rouge">typescript</code> had been split into <code class="language-plaintext highlighter-rouge">typescript</code> + <code class="language-plaintext highlighter-rouge">gates</code> and <code class="language-plaintext highlighter-rouge">skill-registration-chain</code> added — and the count was wrong in the one place a reader checks the shape.</p>
 
 <p>THE ASYMMETRY IS THE OTHER HALF, AND IT IS THE PART THAT DOES NOT GO STALE. Exactly TWO gates report without blocking — the Rust wildcard report and the dependency advisories, both STEPS of the <code class="language-plaintext highlighter-rouge">hygiene</code> job since bean <code class="language-plaintext highlighter-rouge">7fu5</code> — and every other gate is HARD. (<code class="language-plaintext highlighter-rouge">qa-publish</code> blocks nothing either, but it is not a gate at all, so it is drawn off the join rather than counted here.) Stated that way round on purpose: the warn-only set is named and closed, so it stays true as jobs are added, whereas “four are hard” needed editing the moment a ninth gate existed. Drawing them as equal boxes would be a lie a reader would act on, so the warn-only gates are labelled as such and the gateway after the join asks specifically about the HARD ones.</p>
 
@@ -860,25 +918,43 @@
 <p><code class="language-plaintext highlighter-rouge">TypeScript</code> IS ONE BOX STANDING FOR ROUGHLY THIRTY REPOSITORY GATES — workflow policy, AGENTS.md cross-references and claims, declared assets, workflow skill refs and BPMN coverage, the knowledge-graph audit, generated-docs currency, agent memory, and the ratchet that fails a check script no workflow runs. They are sequential only because one job runs them; each is independent, and <code class="language-plaintext highlighter-rouge">bun run cat gates</code> is the local runner derived from this job so a contributor can run the same set before pushing.</p>
 
 <p>Mechanical throughout. Nothing here waits on a person, which is what makes <code class="language-plaintext highlighter-rouge">build-pipeline</code> the right lane rather than a convenient one.</p>
-<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
+<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
 
 <div class="pt-diagram" data-panel="code-quality-gates.tasks.json">
 <img src="../../../assets/img/workflows/code-quality-gates.svg" alt="BPMN diagram: The gates a change must pass before it can merge" />
-<button type="button" class="pt-mark" data-task="Task_VerdictReuse" style="left:16.49%;top:26.56%" aria-expanded="false" aria-label="About step: Verdict reuse: tree already green? (NOT A GATE)" title="About: Verdict reuse: tree already green? (NOT A GATE)">i</button>
-<button type="button" class="pt-mark" data-task="Task_QaWorkingCopy" style="left:31.62%;top:57.81%" aria-expanded="false" aria-label="About step: QA working copy, built once (NOT A GATE)" title="About: QA working copy, built once (NOT A GATE)">i</button>
-<button type="button" class="pt-mark" data-task="Task_Hygiene" style="left:47.3%;top:14.06%" aria-expanded="false" aria-label="About step: Import hygiene (HARD) and advisories (WARN-ONLY)" title="About: Import hygiene (HARD) and advisories (WARN-ONLY)">i</button>
-<button type="button" class="pt-mark" data-task="Task_TypeScript" style="left:47.3%;top:39.06%" aria-expanded="false" aria-label="About step: TypeScript: lint, types and tests (HARD)" title="About: TypeScript: lint, types and tests (HARD)">i</button>
-<button type="button" class="pt-mark" data-task="Task_E2E" style="left:47.3%;top:26.56%" aria-expanded="false" aria-label="About step: End-to-end + accessibility (HARD)" title="About: End-to-end + accessibility (HARD)">i</button>
-<button type="button" class="pt-mark" data-task="Task_RepositoryGates" style="left:47.3%;top:51.56%" aria-expanded="false" aria-label="About step: Repository gates (HARD)" title="About: Repository gates (HARD)">i</button>
-<button type="button" class="pt-mark" data-task="Task_UnrunGates" style="left:47.3%;top:76.56%" aria-expanded="false" aria-label="About step: Registered gates that never run (HARD)" title="About: Registered gates that never run (HARD)">i</button>
-<button type="button" class="pt-mark" data-task="Task_SkillChain" style="left:47.3%;top:64.06%" aria-expanded="false" aria-label="About step: Skill-registration chain (UNMASKED)" title="About: Skill-registration chain (UNMASKED)">i</button>
-<button type="button" class="pt-mark" data-task="Task_QaPublish" style="left:77.03%;top:51.56%" aria-expanded="false" aria-label="About step: Publish QA results to qa-reports (NOT A GATE)" title="About: Publish QA results to qa-reports (NOT A GATE)">i</button>
+<div class="pt-layer">
+<button type="button" class="pt-mark" data-task="Task_VerdictReuse" style="left:17.23%;top:28.26%" aria-expanded="false" aria-label="About step: Verdict reuse: tree already green? (NOT A GATE)" title="About: Verdict reuse: tree already green? (NOT A GATE)">i</button>
+<button type="button" class="pt-mark" data-task="Task_QaWorkingCopy" style="left:35.29%;top:28.26%" aria-expanded="false" aria-label="About step: QA working copy, built once (NOT A GATE)" title="About: QA working copy, built once (NOT A GATE)">i</button>
+<button type="button" class="pt-mark" data-task="Task_Hygiene" style="left:35.29%;top:6.52%" aria-expanded="false" aria-label="About step: Import hygiene (HARD) and advisories (WARN-ONLY)" title="About: Import hygiene (HARD) and advisories (WARN-ONLY)">i</button>
+<button type="button" class="pt-mark" data-task="Task_TypeScript" style="left:55.94%;top:6.52%" aria-expanded="false" aria-label="About step: TypeScript: lint, types and tests (HARD)" title="About: TypeScript: lint, types and tests (HARD)">i</button>
+<button type="button" class="pt-mark" data-task="Task_E2E" style="left:35.29%;top:50%" aria-expanded="false" aria-label="About step: End-to-end + accessibility (HARD)" title="About: End-to-end + accessibility (HARD)">i</button>
+<button type="button" class="pt-mark" data-task="Task_RepositoryGates" style="left:55.94%;top:28.26%" aria-expanded="false" aria-label="About step: Repository gates (HARD)" title="About: Repository gates (HARD)">i</button>
+<button type="button" class="pt-mark" data-task="Task_UnrunGates" style="left:55.94%;top:71.74%" aria-expanded="false" aria-label="About step: Registered gates that never run (HARD)" title="About: Registered gates that never run (HARD)">i</button>
+<button type="button" class="pt-mark" data-task="Task_SkillChain" style="left:55.94%;top:50%" aria-expanded="false" aria-label="About step: Skill-registration chain (UNMASKED)" title="About: Skill-registration chain (UNMASKED)">i</button>
+<a class="pt-go" href="qa-publish.html" style="left:66.1%;top:42.03%;width:1.55%;height:3.48%" aria-label="Open subprocess: Publish QA results (not a gate)" title="Open subprocess: Publish QA results (not a gate)"></a>
+<button type="button" class="pt-mark" data-task="Task_QaPublish" style="left:70.77%;top:28.26%" aria-expanded="false" aria-label="About step: Publish QA results (not a gate)" title="About: Publish QA results (not a gate)">i</button>
+</div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
 <script>(function () {
   Array.prototype.forEach.call(document.querySelectorAll(".pt-diagram:not([data-pt-ready])"), init);
   function init(root) {
   root.setAttribute("data-pt-ready", "");
+  // Every href in the sidecar is relative to the sidecar (it sits beside the
+  // process page), so a page elsewhere on the site that shows the same
+  // drawing resolves them to the same targets.
+  // A drawing with no sidecar (a page that only highlights steps, where no
+  // processes viewer is published) gets the highlight and nothing else.
+  var sidecar = root.getAttribute("data-panel");
+  var base = new URL(sidecar || "", location.href);
+  function abs(h) { try { return new URL(h, base).href; } catch (e) { return h; } }
+  // A page with no server-drawn markers gets them from the sidecar.
+  var drawn = !!root.querySelector(".pt-layer");
+  if (!drawn) {
+    var ly = document.createElement("div"); ly.className = "pt-layer"; root.appendChild(ly);
+    var pn = document.createElement("div"); pn.className = "pt-panel"; pn.setAttribute("role", "dialog");
+    pn.setAttribute("aria-label", "Task details"); pn.hidden = true; root.appendChild(pn);
+  }
   var panel = root.querySelector(".pt-panel"), data = null, pending = null, open = null;
   function load() {
     if (data) return Promise.resolve(data);
@@ -891,7 +967,7 @@
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function link(l, cls) {
     var e = el(l.href ? "a" : "code", cls, l.name);
-    if (l.href) e.href = l.href; else e.title = "no page for this one";
+    if (l.href) e.href = abs(l.href); else e.title = "no page for this one";
     return e;
   }
   function obj(stereo, name, kind) {
@@ -906,9 +982,22 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
-    if (t.lane) { var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref })); task.appendChild(ln); }
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
+    if (t.lane) {
+      var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
+      // The lane is a partition; the Role it names is who acts (owner,
+      // 2026-10-31: "i thought there was a Role/person or actor that should be
+      // linked"). Shown here too, not only in the Role box further down.
+      if (t.role) { ln.appendChild(el("span", "pt-st", " → role ")); ln.appendChild(link(t.role)); }
+      task.appendChild(ln);
+    }
     if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
     panel.appendChild(task);
     if (t.calls) {
@@ -923,7 +1012,8 @@
       Object.keys(t.shared.inputs || {}).forEach(function (k) { gt.appendChild(el("div", "pt-attr", k + " = " + t.shared.inputs[k])); });
       panel.appendChild(gt);
     }
-    t.skills.forEach(function (s) {
+    var sk_on = !(data && data.skills === false);
+    (sk_on ? t.skills : []).forEach(function (s) {
       panel.appendChild(edge("requires"));
       var sk = obj("Skill", link(s), "skill");
       (s.methodologies || []).forEach(function (m) {
@@ -932,22 +1022,106 @@
       });
       panel.appendChild(sk);
     });
-    if (!t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
+    if (sk_on && !t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
     if (t.role) {
       panel.appendChild(edge("lane names"));
       var role = obj("Role", link(t.role), "role");
       if (t.role.title) role.appendChild(el("div", "pt-attr", "title = " + t.role.title));
-      var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
-      if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
-      t.role.skills.forEach(function (s, i) {
-        if (i) list.appendChild(document.createTextNode(", "));
-        list.appendChild(link(s));
-        if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
-      });
-      role.appendChild(list); panel.appendChild(role);
+      if (sk_on) {
+        var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
+        if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
+        t.role.skills.forEach(function (s, i) {
+          if (i) list.appendChild(document.createTextNode(", "));
+          list.appendChild(link(s));
+          if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
+        });
+        role.appendChild(list);
+      }
+      panel.appendChild(role);
     } else if (t.binding) {
       panel.appendChild(el("div", "pt-none", "Lane role: " + t.binding + "."));
     }
+  }
+  // THE MARKERS FOLLOW THE DRAWING, not the box around it. The site's figure
+  // viewer (docs-ui.js) swaps the <img> for an inlined <svg>, puts a toolbar
+  // above it, and zooms and pans it inside a scroll box. Positioned against
+  // this block, every marker and link drifted off its shape (owner,
+  // 2026-10-31: "misaligned"). So the layer is laid over wherever the drawing
+  // is actually drawn, and re-laid whenever that can change.
+  var layer = root.querySelector(".pt-layer"), queued = false;
+  function art() {
+    var c = root.querySelectorAll("img, svg");
+    for (var i = 0; i < c.length; i++) {
+      var e = c[i];
+      if (e.closest(".pt-layer, .pt-panel, .fa-figure-tools")) continue;
+      if (e.parentElement && e.parentElement.closest("svg")) continue;
+      return e;
+    }
+    return null;
+  }
+  // A page may name steps to pick out (a journey's step shows the tasks it
+  // realises): `data-pt-highlight="Task_A Task_B"`. Marked once the drawing
+  // is inline, which is when its shapes exist to mark.
+  var hl = (root.getAttribute("data-pt-highlight") || "").split(/\s+/).filter(Boolean);
+  if (hl.length) root.classList.add("pt-has-hl");
+  function mark(a) {
+    if (!hl.length || a.tagName.toLowerCase() !== "svg" || a.hasAttribute("data-pt-marked")) return;
+    a.setAttribute("data-pt-marked", "");
+    Array.prototype.forEach.call(a.querySelectorAll("[data-element-id]"), function (g) {
+      if (hl.indexOf(g.getAttribute("data-element-id")) >= 0) g.setAttribute("data-pt-hl", "");
+    });
+  }
+  function place() {
+    queued = false;
+    var a = art();
+    if (a) mark(a);
+    if (!layer || !a) return;
+    var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
+    var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
+    if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[\s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
+    if (vw > 0 && vh > 0 && w > 0 && h > 0) {
+      var k = vw / vh;
+      if (w / h > k) { var nw = h * k; x += (w - nw) / 2; w = nw; } else { var nh = w / k; y += (h - nh) / 2; h = nh; }
+    }
+    layer.style.left = x + "px"; layer.style.top = y + "px"; layer.style.width = w + "px"; layer.style.height = h + "px";
+    // Zoomed in, the drawing scrolls inside its box: markers past the edge are hidden with it.
+    var sc = a.parentElement;
+    while (sc && sc !== root && !(sc.scrollWidth > sc.clientWidth + 1 || sc.scrollHeight > sc.clientHeight + 1)) sc = sc.parentElement;
+    if (sc && sc !== root) {
+      var s = sc.getBoundingClientRect(), L = r.left + x, T = r.top + y;
+      layer.style.clipPath = "inset(" + Math.max(0, s.top - T) + "px " + Math.max(0, L + w - s.right) + "px " +
+        Math.max(0, T + h - s.bottom) + "px " + Math.max(0, s.left - L) + "px)";
+    } else layer.style.clipPath = "";
+    if (open) at(open);
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(place); } }
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(root);
+  if (window.MutationObserver) new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) if (!layer || !layer.contains(ms[i].target)) { schedule(); return; }
+  }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "viewBox"] });
+  root.addEventListener("scroll", schedule, true);
+  root.addEventListener("load", schedule, true);
+  window.addEventListener("resize", schedule);
+  schedule();
+  if (!drawn && sidecar) load().then(function (j) {
+    (j.markers || []).forEach(function (m) {
+      var t = j.tasks[m.id], to = t && t.calls ? (t.calls.diagram || t.calls.href) : null;
+      if (to && m.box) {
+        var g = el("a", "pt-go"); g.href = abs(to);
+        g.style.left = m.box.left + "%"; g.style.top = m.box.top + "%"; g.style.width = m.box.width + "%"; g.style.height = m.box.height + "%";
+        g.setAttribute("aria-label", "Open subprocess: " + m.name); g.title = "Open subprocess: " + m.name; layer.appendChild(g);
+      }
+      var b = el("button", "pt-mark", "i"); b.type = "button"; b.setAttribute("data-task", m.id);
+      b.style.left = m.left + "%"; b.style.top = m.top + "%"; b.setAttribute("aria-expanded", "false");
+      b.setAttribute("aria-label", "About step: " + m.name); b.title = "About: " + m.name; layer.appendChild(b);
+    });
+    schedule();
+  }).catch(function (e) { console.warn("task panel: could not load " + base.href + " (" + e.message + ")"); });
+  function at(b) {
+    var r = root.getBoundingClientRect(), m = b.getBoundingClientRect();
+    panel.style.left = (m.left + m.width / 2 - r.left) + "px"; panel.style.top = (m.top + m.height / 2 - r.top) + "px";
   }
   function hide() { panel.hidden = true; if (open) open.setAttribute("aria-expanded", "false"); open = null; }
   root.addEventListener("click", function (ev) {
@@ -956,7 +1130,7 @@
     if (open === b) { hide(); return; }
     if (open) open.setAttribute("aria-expanded", "false");
     open = b; b.setAttribute("aria-expanded", "true");
-    panel.style.left = b.style.left; panel.style.top = b.style.top;
+    at(b);
     panel.hidden = false; panel.textContent = "Loading\u2026";
     load().then(function (j) {
       var t = j.tasks[b.getAttribute("data-task")];
@@ -1001,7 +1175,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>CI/CD Pipeline</td>
+      <td><a id="lane-Lane_Ci"></a>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>Joins every job before asking anything, then GW_Hard asks specifically about the HARD gates — the two warn-only results reach the same join but never the gate, so this lane’s merge/block call is deliberately blind to a red warn-only step it also ran. No count is given here on purpose: this paragraph carried “seven jobs, five hard” and then “six-and-four”, and each was wrong the next time a job was split or folded (beans <code class="language-plaintext highlighter-rouge">om30</code>, <code class="language-plaintext highlighter-rouge">7fu5</code>). Count the <code class="language-plaintext highlighter-rouge"># bpmn-node:</code> lines in the workflow instead.</td>
     </tr>
@@ -1029,58 +1203,58 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Verdict reuse: tree already green? (NOT A GATE)</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerdictReuse</code></td>
+      <td><a id="step-Task_VerdictReuse"></a><strong>Verdict reuse: tree already green? (NOT A GATE)</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerdictReuse</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
-      <td>Bean <code class="language-plaintext highlighter-rouge">qbco</code>, issue #2456 (owner, 2026-10-07: “1y, 2y, 3y, 4y”). On a PUSH to <code class="language-plaintext highlighter-rouge">main</code> only; on any other event it is skipped and nothing waits for it. A merge-button merge of an up-to-date PR carries a tree CI has already tested. <code class="language-plaintext highlighter-rouge">verdict-reuse.sh</code> looks up the runs of this workflow on the merged head (the merge commit’s second parent) and answers <code class="language-plaintext highlighter-rouge">reuse=true</code> only when one concluded <code class="language-plaintext highlighter-rouge">success</code>, ran every job a reuse would skip, and tested exactly this tree: for a <code class="language-plaintext highlighter-rouge">pull_request</code> run, the <code class="language-plaintext highlighter-rouge">tested-tree:</code> its Task_QaWorkingCopy job wrote into its check run’s summary; for a dispatch, the head’s own tree. Then the four <code class="language-plaintext highlighter-rouge">bun test</code> shards (part of Task_TypeScript), the three e2e shards (Task_E2E) and the standalone ratchet (part of Task_RepositoryGates) are skipped on this push, and the summary names the run whose verdict stands. Everything that judges the tree against <code class="language-plaintext highlighter-rouge">main</code> or reads <code class="language-plaintext highlighter-rouge">qa-reports</code> still runs. A squash, an API error, a missing record or a mismatch is <code class="language-plaintext highlighter-rouge">reuse=false</code> and every job runs: could-not-determine is never green. Drawn before the fork because the jobs it can skip wait for it; the others do not. Since the same ruling, a newer push to <code class="language-plaintext highlighter-rouge">main</code> also cancels an older main run still in progress (the workflow’s <code class="language-plaintext highlighter-rouge">concurrency</code>), so main’s verdict history is thinned by decision.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
+      <td>Bean <code class="language-plaintext highlighter-rouge">qbco</code>, issue #2456 (owner, 2026-10-07: “1y, 2y, 3y, 4y”). On a PUSH to <code class="language-plaintext highlighter-rouge">main</code> only; on any other event it is skipped and nothing waits for it. A merge-button merge of an up-to-date PR carries a tree CI has already tested. <code class="language-plaintext highlighter-rouge">verdict-reuse.sh</code> looks up the runs of this workflow on the merged head (the merge commit’s second parent) and answers <code class="language-plaintext highlighter-rouge">reuse=true</code> only when one concluded <code class="language-plaintext highlighter-rouge">success</code>, ran every job a reuse would skip, and tested exactly this tree: for a <code class="language-plaintext highlighter-rouge">pull_request</code> run, the <code class="language-plaintext highlighter-rouge">tested-tree:</code> its Task_QaWorkingCopy job wrote into its check run’s summary; for a dispatch, the head’s own tree. Then the four <code class="language-plaintext highlighter-rouge">bun test</code> shards (part of Task_TypeScript), the three e2e shards (Task_E2E) and the standalone ratchet (part of Task_RepositoryGates) are skipped on this push, and the summary names the run whose verdict stands. Everything that judges the tree against <code class="language-plaintext highlighter-rouge">main</code> or reads <a href="../../../en/cat-harness/processes/skills/qa-reports.html"><code class="language-plaintext highlighter-rouge">qa-reports</code></a> still runs. A squash, an API error, a missing record or a mismatch is <code class="language-plaintext highlighter-rouge">reuse=false</code> and every job runs: could-not-determine is never green. Drawn before the fork because the jobs it can skip wait for it; the others do not. Since the same ruling, a newer push to <code class="language-plaintext highlighter-rouge">main</code> also cancels an older main run still in progress (the workflow’s <code class="language-plaintext highlighter-rouge">concurrency</code>), so main’s verdict history is thinned by decision.</td>
     </tr>
     <tr>
-      <td><strong>QA working copy, built once (NOT A GATE)</strong><br /><code class="language-plaintext highlighter-rouge">Task_QaWorkingCopy</code></td>
+      <td><a id="step-Task_QaWorkingCopy"></a><strong>QA working copy, built once (NOT A GATE)</strong><br /><code class="language-plaintext highlighter-rouge">Task_QaWorkingCopy</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">qa-reports</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/qa-reports.html"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
       <td>Bean <code class="language-plaintext highlighter-rouge">jtfk</code>, issue #2456. <code class="language-plaintext highlighter-rouge">bun run qa:working-copy</code> (bean <code class="language-plaintext highlighter-rouge">72a8</code>) — the bootstrap kg-export, then every declared QA writer — used to run INSIDE each job that reads the QA tree, and <code class="language-plaintext highlighter-rouge">qa-publish</code> ran the same writers again: nine builds of one tree from one commit, measured at 2,284 of 4,714 runner-seconds (48 %) on run 37659324493. Now the <code class="language-plaintext highlighter-rouge">qa-working-copy</code> job builds it once and uploads everything the build changed as an artifact with a sha256 manifest; each reader downloads it, checks the manifest against the hash this job reported and every restored file against the manifest, and only then judges. An artifact rather than a cache, because a cache key built from less than the real inputs serves stale data; an artifact is per run and exact. It judges nothing, so it is not a gate and does not reach GW_Join; a failed build fails every reader at its first step (they run <code class="language-plaintext highlighter-rouge">if: !cancelled()</code>), never a skip. Drawn feeding GW_Readers, the four tasks that wait for it; within them <code class="language-plaintext highlighter-rouge">typescript-static</code> and <code class="language-plaintext highlighter-rouge">gates-standalone</code> read no QA tree and do not wait, and <code class="language-plaintext highlighter-rouge">qa-publish</code> waits for it as well as for Task_RepositoryGates.</td>
     </tr>
     <tr>
-      <td><strong>Import hygiene (HARD) and advisories (WARN-ONLY)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Hygiene</code></td>
+      <td><a id="step-Task_Hygiene"></a><strong>Import hygiene (HARD) and advisories (WARN-ONLY)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Hygiene</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
       <td>FOUR QUESTIONS, ONE RUNNER — bean <code class="language-plaintext highlighter-rouge">7fu5</code>. They were four jobs (<code class="language-plaintext highlighter-rouge">lean-bare-import</code>, <code class="language-plaintext highlighter-rouge">python-imports</code>, <code class="language-plaintext highlighter-rouge">rust-wildcard</code>, <code class="language-plaintext highlighter-rouge">dependency-advisories</code>), each about a second of work behind a ~13 s checkout and a runner request; measured on <code class="language-plaintext highlighter-rouge">main</code> run 37133247484 (2026-10-03), the run took 21.7 min while its longest job executed for 174 s, the rest waiting for runners. Now they are steps of the <code class="language-plaintext highlighter-rouge">hygiene</code> job, and every step after the first gate runs <code class="language-plaintext highlighter-rouge">if: !cancelled()</code>, so a red one masks none of the others — the <code class="language-plaintext highlighter-rouge">om30</code> rule kept inside one job rather than by splitting it. (1) Lean, HARD: fail on any bare <code class="language-plaintext highlighter-rouge">import Mathlib</code> in content/<em>*/</em>.lean; in this platform repo there is no content/, so the step prints SKIP and states that nothing was scanned. (2) Python, HARD: ruff F401 (unused) and F403 (wildcard) over the Python trees that exist, then the Python tests; an absent tree is dropped rather than passed to ruff, and an empty set says SKIP. (3) Dependency advisories, WARN-ONLY by the owner’s ruling on bean <code class="language-plaintext highlighter-rouge">j41m</code>: is anything in the resolved tree KNOWN-VULNERABLE? The script exits 0 in every state and keeps them apart in its output; <code class="language-plaintext highlighter-rouge">.github/dependabot.yml</code> is the other half of that ruling and is not drawn here. (4) Rust wildcard imports, WARN-ONLY: report non-test <code class="language-plaintext highlighter-rouge">use …::*;</code> in tools/<em>*/</em>.rs; <code class="language-plaintext highlighter-rouge">continue-on-error</code>, and therefore the job’s LAST step, where it masks nothing.</td>
     </tr>
     <tr>
-      <td><strong>TypeScript: lint, types and tests (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_TypeScript</code></td>
+      <td><a id="step-Task_TypeScript"></a><strong>TypeScript: lint, types and tests (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_TypeScript</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
       <td>Three checks: <code class="language-plaintext highlighter-rouge">bun run cat lint</code>, <code class="language-plaintext highlighter-rouge">tsc --noEmit</code> and <code class="language-plaintext highlighter-rouge">bun test</code>. The repository gates it used to carry are Task_RepositoryGates now (bean <code class="language-plaintext highlighter-rouge">om30</code>). Since bean <code class="language-plaintext highlighter-rouge">dlqu</code> it is split across jobs: <code class="language-plaintext highlighter-rouge">typescript-static</code> (lint, then typecheck), <code class="language-plaintext highlighter-rouge">typescript-test</code> (<code class="language-plaintext highlighter-rouge">bun test</code> as four SEQUENTIAL shards on separate machines — Bun’s in-process <code class="language-plaintext highlighter-rouge">--parallel</code> worker pool hung at both 4 and 2 workers, measured — the shard passed in <code class="language-plaintext highlighter-rouge">BUN_OPTIONS</code> so the command stays the one <code class="language-plaintext highlighter-rouge">bun run cat gates</code> runs locally) each shard and <code class="language-plaintext highlighter-rouge">typescript-static</code> its own required check. A fourth job, <code class="language-plaintext highlighter-rouge">typescript</code>, carried one check name for all of them and was green only when the others succeeded; bean <code class="language-plaintext highlighter-rouge">5p4m</code> (issue #2456) removed it — a runner request for ~1 s of work that waited minutes for a runner — so branch protection names the five checks directly. The step-order rule the single job needed — <code class="language-plaintext highlighter-rouge">bun test</code> LAST, because Actions stops at the first failing step and a red-by-decision test would otherwise mask lint and typecheck — no longer has anything to order: separate jobs cannot mask each other. Measured on three <code class="language-plaintext highlighter-rouge">main</code> runs before the change: <code class="language-plaintext highlighter-rouge">bun test</code> alone was 7m30s-7m45s of an 8m14s-8m33s job.</td>
     </tr>
     <tr>
-      <td><strong>End-to-end + accessibility (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_E2E</code></td>
+      <td><a id="step-Task_E2E"></a><strong>End-to-end + accessibility (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_E2E</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
       <td>Install Chromium, check the rendered BPMN SVGs are current, then run the Playwright suite, which includes the accessibility checks. Hard: a failure blocks the PR. SHARDED since bean <code class="language-plaintext highlighter-rouge">dlqu</code> (drawn as one task, deliberately: a multi-instance marker would add a BPMN term to every instance’s UML overview, about 75 generated files, for a picture this sentence already gives): the suite runs as three <code class="language-plaintext highlighter-rouge">e2e-shard</code> jobs (<code class="language-plaintext highlighter-rouge">E2E_SHARD=i/3</code>, one Playwright worker per core in each), and each shard is its own required check, so a shard that failed, was cancelled or never ran is a red check of its own. Until bean <code class="language-plaintext highlighter-rouge">5p4m</code> (issue #2456) an <code class="language-plaintext highlighter-rouge">e2e</code> job carried one check name for the three and completed the task only when every instance succeeded; it was ~1 s of work behind a runner request that waited minutes, and was removed. Measured before the split: <code class="language-plaintext highlighter-rouge">playwright test</code> alone was 4m33s of a 5m16s job, the workflow’s slowest once <code class="language-plaintext highlighter-rouge">bun test</code> ran in parallel. The BPMN-render and <code class="language-plaintext highlighter-rouge">.bat</code>-wrapper checks run in shard 1 only, so they are asked once.</td>
     </tr>
     <tr>
-      <td><strong>Repository gates (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_RepositoryGates</code></td>
+      <td><a id="step-Task_RepositoryGates"></a><strong>Repository gates (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_RepositoryGates</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
       <td>The 43 repository-gate steps — workflow refs, lane and process documentation, kg:audit:check, detangle, skills, published packages — 150 <code class="language-plaintext highlighter-rouge">bun run</code> invocations in all. A SEPARATE job from Task_TypeScript since bean <code class="language-plaintext highlighter-rouge">om30</code>: they were one job in which <code class="language-plaintext highlighter-rouge">bun test</code> came second of 47 steps, and because Actions stops a job at its first failing step and no step was continue-on-error, a deliberate test failure on <code class="language-plaintext highlighter-rouge">main</code> meant none of these ran. A gate never asked and a gate that passed are indistinguishable from outside, which is <code class="language-plaintext highlighter-rouge">xom7</code> at the step rather than the workflow. No sequence dependency on Task_TypeScript is drawn because there is none: a red test must not stop these being asked. <code class="language-plaintext highlighter-rouge">bun run cat gates</code> derives its list from BOTH jobs, so the local set still cannot drift from CI’s.</td>
     </tr>
     <tr>
-      <td><strong>Registered gates that never run (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_UnrunGates</code></td>
+      <td><a id="step-Task_UnrunGates"></a><strong>Registered gates that never run (HARD)</strong><br /><code class="language-plaintext highlighter-rouge">Task_UnrunGates</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">check:gates-registered</code>, split out of Task_RepositoryGates by bean <code class="language-plaintext highlighter-rouge">dlqu</code>: one step of that job measured 1m46s-2m28s across four runs, the longest step in it by a factor of four, and a sequential job is as slow as the sum of its steps. In its own job it runs beside the rest rather than after them. It still asks the same question — is every gate a script registers actually run somewhere — and is still hard. It also carries <code class="language-plaintext highlighter-rouge">bun run cat security:gate</code> (bean <code class="language-plaintext highlighter-rouge">ieum</code>, owner 2026-10-07: “security check before release”): the security checks by name, plus third-party action SHA pinning outside staging-only workflows, as one step that merge-train’s gate call reaches. A blocking fail OR could-not-check fails the job.</td>
     </tr>
     <tr>
-      <td><strong>Skill-registration chain (UNMASKED)</strong><br /><code class="language-plaintext highlighter-rouge">Task_SkillChain</code></td>
+      <td><a id="step-Task_SkillChain"></a><strong>Skill-registration chain (UNMASKED)</strong><br /><code class="language-plaintext highlighter-rouge">Task_SkillChain</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
       <td>Runs the five <code class="language-plaintext highlighter-rouge">--check</code> commands that adding a skill stales, each on its own: gen-skill-docs, check:glossary, auto:docs:check, kg:audit:check, kg:detangle:check. CORRECTED 2026-09-26, after main split this workflow: the original justification is GONE. It read “the only place those five are read against the tree as checked out”, because at the time all six lived in one job behind <code class="language-plaintext highlighter-rouge">bun test</code>, which runs the kg-audit and detangle WRITERS and repaired two artefacts before their checks read them (bean <code class="language-plaintext highlighter-rouge">ymsu</code>). Task_RepositoryGates is now a separate job that runs all six and never runs <code class="language-plaintext highlighter-rouge">bun test</code>, so they are unmasked THERE. What survives is narrower and is the reason this is kept: one command a skill author runs (<code class="language-plaintext highlighter-rouge">bun run cat skill:register</code>) that regenerates and verifies the chain together, a committed QA sidecar saying which steps ran, and ONE named failure instead of six unrelated generated files — which is bean <code class="language-plaintext highlighter-rouge">v625</code>’s actual complaint. The unmasking argument belongs to Task_RepositoryGates now. Its first CI run earned the place: it went red on <code class="language-plaintext highlighter-rouge">kg:detangle:check</code> and the cause was <code class="language-plaintext highlighter-rouge">kg-detangle.ts</code> counting 1214 files of a gitignored <code class="language-plaintext highlighter-rouge">node_modules/</code> as graph nodes — 1441 where a clean checkout computes 227, pinned in a committed sidecar. Not a step in front of <code class="language-plaintext highlighter-rouge">bun test</code> either: measured on main’s run 36234052354, a failing step SKIPS every step behind it, so a red there would turn one named failure into forty-five unevaluated ones. 13s, in parallel. Beans <code class="language-plaintext highlighter-rouge">v625</code>, <code class="language-plaintext highlighter-rouge">fjwi</code>.</td>
     </tr>
     <tr>
-      <td><strong>Publish QA results to qa-reports (NOT A GATE)</strong><br /><code class="language-plaintext highlighter-rouge">Task_QaPublish</code></td>
+      <td><a id="step-Task_QaPublish"></a><strong>Publish QA results (not a gate)</strong><br /><code class="language-plaintext highlighter-rouge">Task_QaPublish</code></td>
       <td>CI/CD Pipeline</td>
-      <td>calls <a href="qa-publish.html">Publish and keep QA results on qa-reports</a><br /><code class="language-plaintext highlighter-rouge">qa-reports</code></td>
-      <td>Bean <code class="language-plaintext highlighter-rouge">16ei</code>, arc <code class="language-plaintext highlighter-rouge">3fva</code>. After Task_RepositoryGates, WHATEVER it concluded (<code class="language-plaintext highlighter-rouge">needs:</code> its two corpus parts, with <code class="language-plaintext highlighter-rouge">always()</code>), and after Task_QaWorkingCopy, whose copy it restores and publishes rather than building a second time (bean <code class="language-plaintext highlighter-rouge">jtfk</code>), <code class="language-plaintext highlighter-rouge">qa:publish --github</code> writes this run’s <code class="language-plaintext highlighter-rouge">test/results</code> trees to the orphan <code class="language-plaintext highlighter-rouge">qa-reports</code> branch: <code class="language-plaintext highlighter-rouge">main/&lt;sha&gt;/</code> on a push to main, <code class="language-plaintext highlighter-rouge">pr/&lt;n&gt;/&lt;head-sha&gt;/</code> on a same-repository PR (owner rulings D1, D3). A fork PR’s token is read-only, so it is skipped with a <code class="language-plaintext highlighter-rouge">::notice</code> naming why. It does NOT reach GW_Join: a red publish is its own red and never decides mergeability, and the hard gates never wait on it. The only job here holding <code class="language-plaintext highlighter-rouge">contents: write</code>, which is also how <code class="language-plaintext highlighter-rouge">bun run cat gates</code> knows not to run it locally. A CALL ACTIVITY: the key derivation, the fork skip and the never-<code class="language-plaintext highlighter-rouge">-f</code> retry loop are <code class="language-plaintext highlighter-rouge">qa-publish.bpmn</code>, which also draws the retention run that takes entries off the branch again.</td>
+      <td>calls <a href="qa-publish.html">Publish and keep QA results on qa-reports</a><br /><a href="../../../en/cat-harness/processes/skills/qa-reports.html"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
+      <td>Bean <code class="language-plaintext highlighter-rouge">16ei</code>, arc <code class="language-plaintext highlighter-rouge">3fva</code>. After Task_RepositoryGates, WHATEVER it concluded (<code class="language-plaintext highlighter-rouge">needs:</code> its two corpus parts, with <code class="language-plaintext highlighter-rouge">always()</code>), and after Task_QaWorkingCopy, whose copy it restores and publishes rather than building a second time (bean <code class="language-plaintext highlighter-rouge">jtfk</code>), <code class="language-plaintext highlighter-rouge">qa:publish --github</code> writes this run’s <code class="language-plaintext highlighter-rouge">test/results</code> trees to the orphan <a href="../../../en/cat-harness/processes/skills/qa-reports.html"><code class="language-plaintext highlighter-rouge">qa-reports</code></a> branch: <code class="language-plaintext highlighter-rouge">main/&lt;sha&gt;/</code> on a push to main, <code class="language-plaintext highlighter-rouge">pr/&lt;n&gt;/&lt;head-sha&gt;/</code> on a same-repository PR (owner rulings D1, D3). A fork PR’s token is read-only, so it is skipped with a <code class="language-plaintext highlighter-rouge">::notice</code> naming why. It does NOT reach GW_Join: a red publish is its own red and never decides mergeability, and the hard gates never wait on it. The only job here holding <code class="language-plaintext highlighter-rouge">contents: write</code>, which is also how <code class="language-plaintext highlighter-rouge">bun run cat gates</code> knows not to run it locally. A CALL ACTIVITY: the key derivation, the fork skip and the never-<code class="language-plaintext highlighter-rouge">-f</code> retry loop are <code class="language-plaintext highlighter-rouge">qa-publish.bpmn</code>, which also draws the retention run that takes entries off the branch again.</td>
     </tr>
   </tbody>
 </table></div>

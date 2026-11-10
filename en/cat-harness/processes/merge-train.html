@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -341,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -422,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -453,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -569,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -599,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=58659cb18af6">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=4f2f087d41d8">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -628,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["catalogue","code","docs","folio","glossary","health","library","processes","qa","schemas","skills","software-library","themes","tools","translation-sources","uploads"]</script>
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-29b6qoh3um2.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-29b6qoh3um2","here":"/en/cat-harness/processes/merge-train.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/merge-train.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,7 +893,7 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/processes/sdlc/merge-train.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/merge-train.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="cat-harness/">cat-harness processes</a></p>
 </blockquote>
 
 <h1 id="a-merge-train">
@@ -851,36 +909,59 @@
 
 <p>Land the ready pull requests as one train: place each by the merge-priority decision table, merge the members with <code class="language-plaintext highlighter-rouge">merge-base</code>, run the gate set on the combination, and on red eject the culprit rather than reject the train. A TRAIN OF PULL REQUESTS, landed together. Bean <code class="language-plaintext highlighter-rouge">hfag</code> (merge-pipeline epic), owner’s ruling 2026-10-02. One instance per train run, committed under <code class="language-plaintext highlighter-rouge">beans/workflows/</code> like every other instance, so a sibling steward sees the same position and the run’s record is what T4 will later be tuned from (R10).</p>
 
-<p>IT LINKS THE EXISTING PROCESSES AND DUPLICATES NONE. Each member is merged by <code class="language-plaintext highlighter-rouge">merge-base.bpmn</code> (<code class="language-plaintext highlighter-rouge">Process_MergeBase</code>); the train is gated by <code class="language-plaintext highlighter-rouge">code-quality-gates.bpmn</code> and <code class="language-plaintext highlighter-rouge">pr-checks-present.bpmn</code>; a refused or ejected member is handed back by <code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code> (<code class="language-plaintext highlighter-rouge">Process_MergeRefusal</code>, draft PR #1888 — until it lands the call stays opaque, which the engine permits). The ORDER is computed by <code class="language-plaintext highlighter-rouge">decisions/merge-priority.dmn</code>, whose inputs come from the ordering processes: <code class="language-plaintext highlighter-rouge">graph-detanglement.bpmn</code> (a PR that removes tangle edges unblocks others, input b) and <code class="language-plaintext highlighter-rouge">kg-separation.bpmn</code> (a PR that seeds the staging repos, input a; <code class="language-plaintext highlighter-rouge">seed:ready</code> on branch <code class="language-plaintext highlighter-rouge">claude/seed-ready</code> reports which). A landed member’s preview is taken down by <code class="language-plaintext highlighter-rouge">feature-staging.bpmn</code>, which this process does not repeat.</p>
+<p>IT LINKS THE EXISTING PROCESSES AND DUPLICATES NONE. Each member is merged by <code class="language-plaintext highlighter-rouge">merge-base.bpmn</code> (<a href="merge-base.html"><code class="language-plaintext highlighter-rouge">Process_MergeBase</code></a>); the train is gated by <code class="language-plaintext highlighter-rouge">code-quality-gates.bpmn</code> and <code class="language-plaintext highlighter-rouge">pr-checks-present.bpmn</code>; a refused or ejected member is handed back by <code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code> (<a href="merge-refusal.html"><code class="language-plaintext highlighter-rouge">Process_MergeRefusal</code></a>, draft PR #1888 — until it lands the call stays opaque, which the engine permits). The ORDER is computed by <code class="language-plaintext highlighter-rouge">decisions/merge-priority.dmn</code>, whose inputs come from the ordering processes: <code class="language-plaintext highlighter-rouge">graph-detanglement.bpmn</code> (a PR that removes tangle edges unblocks others, input b) and <code class="language-plaintext highlighter-rouge">kg-separation.bpmn</code> (a PR that seeds the staging repos, input a; <code class="language-plaintext highlighter-rouge">seed:ready</code> on branch <code class="language-plaintext highlighter-rouge">claude/seed-ready</code> reports which). A landed member’s preview is taken down by <code class="language-plaintext highlighter-rouge">feature-staging.bpmn</code>, which this process does not repeat.</p>
 
 <p>THE QUEUE STORES DECISIONS, NEVER GITHUB’S FACTS. CI status, mergeability, labels and head SHA are read live at each step (<code class="language-plaintext highlighter-rouge">schemas/sdlc/merge-queue.ts</code>). What this instance records is what the steward decided and the dated evidence it acted on.</p>
 
 <p>FROM THE LITERATURE (requirements note <code class="language-plaintext highlighter-rouge">cat-harness/docs/proposals/merge-pipeline-requirements.md</code>, branch <code class="language-plaintext highlighter-rouge">claude/merge-pipeline-library</code>): T3 cheap conflict prediction on authored paths (R6, R7; SQ19 §5.2 pp. 7-8) feeds the placement table; T7 retries a declared-flaky gate once (R11; TAP17 Table II p. 5); T2 attributes a red train from each member’s own CI before bisecting (SQ19 §2.1 pp. 2-3); T1 ejects the culprit and re-runs the rest rather than rejecting the whole train (R3; SQ19 §2.2 p. 3), handing it back with the reason (R4; SQ19 §3.2 p. 4). The tools behind the steps are <code class="language-plaintext highlighter-rouge">merge:overlap</code>, <code class="language-plaintext highlighter-rouge">merge:train</code> and <code class="language-plaintext highlighter-rouge">merge:leftover</code>, on branch <code class="language-plaintext highlighter-rouge">claude/merge-pipeline-tools</code>.</p>
-<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
+<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
 
 <div class="pt-diagram" data-panel="merge-train.tasks.json">
 <img src="../../../assets/img/workflows/merge-train.svg" alt="BPMN diagram: A merge train" />
-<button type="button" class="pt-mark" data-task="Task_ReadLive" style="left:11.83%;top:7.47%" aria-expanded="false" aria-label="About step: Read each queued PR's live facts" title="About: Read each queued PR's live facts">i</button>
-<button type="button" class="pt-mark" data-task="Task_TakeNext" style="left:18.88%;top:7.47%" aria-expanded="false" aria-label="About step: Take the next PR in queue order" title="About: Take the next PR in queue order">i</button>
-<button type="button" class="pt-mark" data-task="Task_Admit" style="left:29.67%;top:7.47%" aria-expanded="false" aria-label="About step: Admit it to the train, record the train id" title="About: Admit it to the train, record the train id">i</button>
-<button type="button" class="pt-mark" data-task="Call_HandBack" style="left:29.67%;top:22.41%" aria-expanded="false" aria-label="About step: Hand it back" title="About: Hand it back">i</button>
-<button type="button" class="pt-mark" data-task="Task_SiblingFix" style="left:36.31%;top:38.51%" aria-expanded="false" aria-label="About step: Fix the PR, then re-signal ready" title="About: Fix the PR, then re-signal ready">i</button>
-<button type="button" class="pt-mark" data-task="Call_ChecksPresent" style="left:47.51%;top:54.6%" aria-expanded="false" aria-label="About step: Find members with no CI on their head" title="About: Find members with no CI on their head">i</button>
-<button type="button" class="pt-mark" data-task="Call_MergeMembers" style="left:54.56%;top:54.6%" aria-expanded="false" aria-label="About step: Merge each member onto the base" title="About: Merge each member onto the base">i</button>
-<button type="button" class="pt-mark" data-task="Call_Gates" style="left:65.35%;top:54.6%" aria-expanded="false" aria-label="About step: Run the gate set on the train" title="About: Run the gate set on the train">i</button>
-<button type="button" class="pt-mark" data-task="Task_RetryFlaky" style="left:76.14%;top:68.39%" aria-expanded="false" aria-label="About step: Retry a declared-flaky gate once" title="About: Retry a declared-flaky gate once">i</button>
-<button type="button" class="pt-mark" data-task="Task_Attribute" style="left:81.54%;top:22.41%" aria-expanded="false" aria-label="About step: Attribute the failure: each member's own CI first" title="About: Attribute the failure: each member's own CI first">i</button>
-<button type="button" class="pt-mark" data-task="Task_Bisect" style="left:74.48%;top:7.47%" aria-expanded="false" aria-label="About step: Bisect the train" title="About: Bisect the train">i</button>
-<button type="button" class="pt-mark" data-task="Task_Eject" style="left:65.35%;top:22.41%" aria-expanded="false" aria-label="About step: Eject the culprit, record why" title="About: Eject the culprit, record why">i</button>
-<button type="button" class="pt-mark" data-task="Call_EjectHandBack" style="left:54.56%;top:22.41%" aria-expanded="false" aria-label="About step: Hand the culprit back" title="About: Hand the culprit back">i</button>
-<button type="button" class="pt-mark" data-task="Call_MergeToMain" style="left:93.98%;top:7.47%" aria-expanded="false" aria-label="About step: Land each member" title="About: Land each member">i</button>
-<button type="button" class="pt-mark" data-task="Task_Override" style="left:11.83%;top:85.63%" aria-expanded="false" aria-label="About step: Place it by hand, with a reason" title="About: Place it by hand, with a reason">i</button>
+<div class="pt-layer">
+<button type="button" class="pt-mark" data-task="Task_ReadLive" style="left:10.94%;top:5.16%" aria-expanded="false" aria-label="About step: Read each queued PR's live facts" title="About: Read each queued PR's live facts">i</button>
+<button type="button" class="pt-mark" data-task="Task_TakeNext" style="left:17.58%;top:5.16%" aria-expanded="false" aria-label="About step: Take the next PR in queue order" title="About: Take the next PR in queue order">i</button>
+<button type="button" class="pt-mark" data-task="Task_Admit" style="left:27.73%;top:5.16%" aria-expanded="false" aria-label="About step: Admit it to the train, record the train id" title="About: Admit it to the train, record the train id">i</button>
+<a class="pt-go" href="merge-refusal.html" style="left:24.9%;top:28.67%;width:0.94%;height:2.75%" aria-label="Open subprocess: Hand it back" title="Open subprocess: Hand it back"></a>
+<button type="button" class="pt-mark" data-task="Call_HandBack" style="left:27.93%;top:22.36%" aria-expanded="false" aria-label="About step: Hand it back" title="About: Hand it back">i</button>
+<button type="button" class="pt-mark" data-task="Task_SiblingFix" style="left:34.18%;top:38.42%" aria-expanded="false" aria-label="About step: Fix the PR, then re-signal ready" title="About: Fix the PR, then re-signal ready">i</button>
+<a class="pt-go" href="pr-checks-present.html" style="left:42.68%;top:63.3%;width:0.94%;height:2.75%" aria-label="Open subprocess: Find members with no CI on their head" title="Open subprocess: Find members with no CI on their head"></a>
+<button type="button" class="pt-mark" data-task="Call_ChecksPresent" style="left:45.51%;top:52.41%" aria-expanded="false" aria-label="About step: Find members with no CI on their head" title="About: Find members with no CI on their head">i</button>
+<a class="pt-go" href="merge-base.html" style="left:51.07%;top:63.3%;width:0.94%;height:2.75%" aria-label="Open subprocess: Merge each member onto the base" title="Open subprocess: Merge each member onto the base"></a>
+<button type="button" class="pt-mark" data-task="Call_MergeMembers" style="left:53.91%;top:52.41%" aria-expanded="false" aria-label="About step: Merge each member onto the base" title="About: Merge each member onto the base">i</button>
+<a class="pt-go" href="code-quality-gates.html" style="left:63.57%;top:63.3%;width:0.94%;height:2.75%" aria-label="Open subprocess: Run the gate set on the train" title="Open subprocess: Run the gate set on the train"></a>
+<button type="button" class="pt-mark" data-task="Call_Gates" style="left:66.41%;top:52.41%" aria-expanded="false" aria-label="About step: Run the gate set on the train" title="About: Run the gate set on the train">i</button>
+<button type="button" class="pt-mark" data-task="Task_RetryFlaky" style="left:76.95%;top:63.07%" aria-expanded="false" aria-label="About step: Retry a declared-flaky gate once" title="About: Retry a declared-flaky gate once">i</button>
+<button type="button" class="pt-mark" data-task="Task_Attribute" style="left:82.23%;top:22.36%" aria-expanded="false" aria-label="About step: Attribute the failure: each member's own CI first" title="About: Attribute the failure: each member's own CI first">i</button>
+<button type="button" class="pt-mark" data-task="Task_Bisect" style="left:75.39%;top:5.16%" aria-expanded="false" aria-label="About step: Bisect the train" title="About: Bisect the train">i</button>
+<button type="button" class="pt-mark" data-task="Task_Eject" style="left:65.04%;top:22.36%" aria-expanded="false" aria-label="About step: Eject the culprit, record why" title="About: Eject the culprit, record why">i</button>
+<a class="pt-go" href="merge-refusal.html" style="left:51.07%;top:28.67%;width:0.94%;height:2.75%" aria-label="Open subprocess: Hand the culprit back" title="Open subprocess: Hand the culprit back"></a>
+<button type="button" class="pt-mark" data-task="Call_EjectHandBack" style="left:54.88%;top:22.36%" aria-expanded="false" aria-label="About step: Hand the culprit back" title="About: Hand the culprit back">i</button>
+<a class="pt-go" href="merge-to-main.html" style="left:90.92%;top:16.06%;width:0.94%;height:2.75%" aria-label="Open subprocess: Land each member" title="Open subprocess: Land each member"></a>
+<button type="button" class="pt-mark" data-task="Call_MergeToMain" style="left:93.75%;top:5.16%" aria-expanded="false" aria-label="About step: Land each member" title="About: Land each member">i</button>
+<button type="button" class="pt-mark" data-task="Task_Override" style="left:10.94%;top:83.37%" aria-expanded="false" aria-label="About step: Place it by hand, with a reason" title="About: Place it by hand, with a reason">i</button>
+</div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
 <script>(function () {
   Array.prototype.forEach.call(document.querySelectorAll(".pt-diagram:not([data-pt-ready])"), init);
   function init(root) {
   root.setAttribute("data-pt-ready", "");
+  // Every href in the sidecar is relative to the sidecar (it sits beside the
+  // process page), so a page elsewhere on the site that shows the same
+  // drawing resolves them to the same targets.
+  // A drawing with no sidecar (a page that only highlights steps, where no
+  // processes viewer is published) gets the highlight and nothing else.
+  var sidecar = root.getAttribute("data-panel");
+  var base = new URL(sidecar || "", location.href);
+  function abs(h) { try { return new URL(h, base).href; } catch (e) { return h; } }
+  // A page with no server-drawn markers gets them from the sidecar.
+  var drawn = !!root.querySelector(".pt-layer");
+  if (!drawn) {
+    var ly = document.createElement("div"); ly.className = "pt-layer"; root.appendChild(ly);
+    var pn = document.createElement("div"); pn.className = "pt-panel"; pn.setAttribute("role", "dialog");
+    pn.setAttribute("aria-label", "Task details"); pn.hidden = true; root.appendChild(pn);
+  }
   var panel = root.querySelector(".pt-panel"), data = null, pending = null, open = null;
   function load() {
     if (data) return Promise.resolve(data);
@@ -893,7 +974,7 @@
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function link(l, cls) {
     var e = el(l.href ? "a" : "code", cls, l.name);
-    if (l.href) e.href = l.href; else e.title = "no page for this one";
+    if (l.href) e.href = abs(l.href); else e.title = "no page for this one";
     return e;
   }
   function obj(stereo, name, kind) {
@@ -908,9 +989,22 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
-    if (t.lane) { var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref })); task.appendChild(ln); }
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
+    if (t.lane) {
+      var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
+      // The lane is a partition; the Role it names is who acts (owner,
+      // 2026-10-31: "i thought there was a Role/person or actor that should be
+      // linked"). Shown here too, not only in the Role box further down.
+      if (t.role) { ln.appendChild(el("span", "pt-st", " → role ")); ln.appendChild(link(t.role)); }
+      task.appendChild(ln);
+    }
     if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
     panel.appendChild(task);
     if (t.calls) {
@@ -925,7 +1019,8 @@
       Object.keys(t.shared.inputs || {}).forEach(function (k) { gt.appendChild(el("div", "pt-attr", k + " = " + t.shared.inputs[k])); });
       panel.appendChild(gt);
     }
-    t.skills.forEach(function (s) {
+    var sk_on = !(data && data.skills === false);
+    (sk_on ? t.skills : []).forEach(function (s) {
       panel.appendChild(edge("requires"));
       var sk = obj("Skill", link(s), "skill");
       (s.methodologies || []).forEach(function (m) {
@@ -934,22 +1029,106 @@
       });
       panel.appendChild(sk);
     });
-    if (!t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
+    if (sk_on && !t.skills.length && !t.calls) panel.appendChild(el("div", "pt-none", "This task names no skill."));
     if (t.role) {
       panel.appendChild(edge("lane names"));
       var role = obj("Role", link(t.role), "role");
       if (t.role.title) role.appendChild(el("div", "pt-attr", "title = " + t.role.title));
-      var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
-      if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
-      t.role.skills.forEach(function (s, i) {
-        if (i) list.appendChild(document.createTextNode(", "));
-        list.appendChild(link(s));
-        if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
-      });
-      role.appendChild(list); panel.appendChild(role);
+      if (sk_on) {
+        var list = el("div", "pt-attr"); list.appendChild(el("span", "pt-st", "hasSkill: "));
+        if (!t.role.skills.length) list.appendChild(el("i", null, "none listed"));
+        t.role.skills.forEach(function (s, i) {
+          if (i) list.appendChild(document.createTextNode(", "));
+          list.appendChild(link(s));
+          if (s.via) list.appendChild(el("span", "pt-via", " (via " + s.via + ")"));
+        });
+        role.appendChild(list);
+      }
+      panel.appendChild(role);
     } else if (t.binding) {
       panel.appendChild(el("div", "pt-none", "Lane role: " + t.binding + "."));
     }
+  }
+  // THE MARKERS FOLLOW THE DRAWING, not the box around it. The site's figure
+  // viewer (docs-ui.js) swaps the <img> for an inlined <svg>, puts a toolbar
+  // above it, and zooms and pans it inside a scroll box. Positioned against
+  // this block, every marker and link drifted off its shape (owner,
+  // 2026-10-31: "misaligned"). So the layer is laid over wherever the drawing
+  // is actually drawn, and re-laid whenever that can change.
+  var layer = root.querySelector(".pt-layer"), queued = false;
+  function art() {
+    var c = root.querySelectorAll("img, svg");
+    for (var i = 0; i < c.length; i++) {
+      var e = c[i];
+      if (e.closest(".pt-layer, .pt-panel, .fa-figure-tools")) continue;
+      if (e.parentElement && e.parentElement.closest("svg")) continue;
+      return e;
+    }
+    return null;
+  }
+  // A page may name steps to pick out (a journey's step shows the tasks it
+  // realises): `data-pt-highlight="Task_A Task_B"`. Marked once the drawing
+  // is inline, which is when its shapes exist to mark.
+  var hl = (root.getAttribute("data-pt-highlight") || "").split(/\s+/).filter(Boolean);
+  if (hl.length) root.classList.add("pt-has-hl");
+  function mark(a) {
+    if (!hl.length || a.tagName.toLowerCase() !== "svg" || a.hasAttribute("data-pt-marked")) return;
+    a.setAttribute("data-pt-marked", "");
+    Array.prototype.forEach.call(a.querySelectorAll("[data-element-id]"), function (g) {
+      if (hl.indexOf(g.getAttribute("data-element-id")) >= 0) g.setAttribute("data-pt-hl", "");
+    });
+  }
+  function place() {
+    queued = false;
+    var a = art();
+    if (a) mark(a);
+    if (!layer || !a) return;
+    var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
+    var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
+    if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[\s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
+    if (vw > 0 && vh > 0 && w > 0 && h > 0) {
+      var k = vw / vh;
+      if (w / h > k) { var nw = h * k; x += (w - nw) / 2; w = nw; } else { var nh = w / k; y += (h - nh) / 2; h = nh; }
+    }
+    layer.style.left = x + "px"; layer.style.top = y + "px"; layer.style.width = w + "px"; layer.style.height = h + "px";
+    // Zoomed in, the drawing scrolls inside its box: markers past the edge are hidden with it.
+    var sc = a.parentElement;
+    while (sc && sc !== root && !(sc.scrollWidth > sc.clientWidth + 1 || sc.scrollHeight > sc.clientHeight + 1)) sc = sc.parentElement;
+    if (sc && sc !== root) {
+      var s = sc.getBoundingClientRect(), L = r.left + x, T = r.top + y;
+      layer.style.clipPath = "inset(" + Math.max(0, s.top - T) + "px " + Math.max(0, L + w - s.right) + "px " +
+        Math.max(0, T + h - s.bottom) + "px " + Math.max(0, s.left - L) + "px)";
+    } else layer.style.clipPath = "";
+    if (open) at(open);
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(place); } }
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(root);
+  if (window.MutationObserver) new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) if (!layer || !layer.contains(ms[i].target)) { schedule(); return; }
+  }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "viewBox"] });
+  root.addEventListener("scroll", schedule, true);
+  root.addEventListener("load", schedule, true);
+  window.addEventListener("resize", schedule);
+  schedule();
+  if (!drawn && sidecar) load().then(function (j) {
+    (j.markers || []).forEach(function (m) {
+      var t = j.tasks[m.id], to = t && t.calls ? (t.calls.diagram || t.calls.href) : null;
+      if (to && m.box) {
+        var g = el("a", "pt-go"); g.href = abs(to);
+        g.style.left = m.box.left + "%"; g.style.top = m.box.top + "%"; g.style.width = m.box.width + "%"; g.style.height = m.box.height + "%";
+        g.setAttribute("aria-label", "Open subprocess: " + m.name); g.title = "Open subprocess: " + m.name; layer.appendChild(g);
+      }
+      var b = el("button", "pt-mark", "i"); b.type = "button"; b.setAttribute("data-task", m.id);
+      b.style.left = m.left + "%"; b.style.top = m.top + "%"; b.setAttribute("aria-expanded", "false");
+      b.setAttribute("aria-label", "About step: " + m.name); b.title = "About: " + m.name; layer.appendChild(b);
+    });
+    schedule();
+  }).catch(function (e) { console.warn("task panel: could not load " + base.href + " (" + e.message + ")"); });
+  function at(b) {
+    var r = root.getBoundingClientRect(), m = b.getBoundingClientRect();
+    panel.style.left = (m.left + m.width / 2 - r.left) + "px"; panel.style.top = (m.top + m.height / 2 - r.top) + "px";
   }
   function hide() { panel.hidden = true; if (open) open.setAttribute("aria-expanded", "false"); open = null; }
   root.addEventListener("click", function (ev) {
@@ -958,7 +1137,7 @@
     if (open === b) { hide(); return; }
     if (open) open.setAttribute("aria-expanded", "false");
     open = b; b.setAttribute("aria-expanded", "true");
-    panel.style.left = b.style.left; panel.style.top = b.style.top;
+    at(b);
     panel.hidden = false; panel.textContent = "Loading\u2026";
     load().then(function (j) {
       var t = j.tasks[b.getAttribute("data-task")];
@@ -979,7 +1158,7 @@
     
 
 <ul>
-  <li><strong>Called by:</strong> no call activity names this process</li>
+  <li><strong>Called by:</strong> <a href="merge-manager-watch.html">Merge manager watch: wake, read the queue live, route</a></li>
   <li><strong>Calls:</strong> <a href="code-quality-gates.html">The gates a change must pass before it can merge</a>, <a href="merge-base.html">Merge the base branch in</a>, <a href="merge-refusal.html">A refused merge-train member</a>, <a href="merge-to-main.html">Merge to main</a>, <a href="pr-checks-present.html">Which open pull requests have no CI run on their head?</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
@@ -1003,22 +1182,22 @@
   </thead>
   <tbody>
     <tr>
-      <td>Merge steward</td>
+      <td><a id="lane-Lane_Steward"></a>Merge steward</td>
       <td><code class="language-plaintext highlighter-rouge">merge-steward</code></td>
       <td>Composes the train from the queue, decides nothing the placement table or the owner has not, attributes and ejects on red, and lands at the tested SHA.</td>
     </tr>
     <tr>
-      <td>Sibling session</td>
+      <td><a id="lane-Lane_Sibling"></a>Sibling session</td>
       <td><code class="language-plaintext highlighter-rouge">sibling-session</code></td>
       <td>The session that owns a handed-back PR. Fixes it on its own branch and re-signals ready; never merged on its behalf.</td>
     </tr>
     <tr>
-      <td>Build pipeline</td>
+      <td><a id="lane-Lane_Pipeline"></a>Build pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>Mechanical: merges, regenerates and runs the gates, and reports. Judges nothing a declaration has not decided.</td>
     </tr>
     <tr>
-      <td>Owner</td>
+      <td><a id="lane-Lane_Owner"></a>Owner</td>
       <td><code class="language-plaintext highlighter-rouge">user</code></td>
       <td>May override a placement, always with a reason. Releasing a merge to <code class="language-plaintext highlighter-rouge">main</code> is no longer drawn here: it is the Owner lane of <code class="language-plaintext highlighter-rouge">merge-to-main.bpmn</code>, which <code class="language-plaintext highlighter-rouge">Call_MergeToMain</code> descends into, so the owner’s release has one definition for every process that merges rather than one per diagram.</td>
     </tr>
@@ -1046,93 +1225,93 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Read each queued PR’s live facts</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReadLive</code></td>
+      <td><a id="step-Task_ReadLive"></a><strong>Read each queued PR’s live facts</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReadLive</code></td>
       <td>Merge steward</td>
-      <td><code class="language-plaintext highlighter-rouge">merge-queue</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/merge-queue.html"><code class="language-plaintext highlighter-rouge">merge-queue</code></a></td>
       <td>From GitHub and the checkout, now: authored paths, shared declarations, size, conflict risk and overlap KIND against the other queued PRs (T3), own CI and whether it ran on the head (T2). Tools: <code class="language-plaintext highlighter-rouge">merge:overlap</code> for the overlap facts, <code class="language-plaintext highlighter-rouge">check:head-has-run</code> for <code class="language-plaintext highlighter-rouge">ownCi</code>. Nothing read here is written to a queue entry; it is the input to the placement table.<br /><code class="language-plaintext highlighter-rouge">ownCi</code> IS NOT A VERDICT READ. Never ask whether anything is red: ask which workflow runs are OWED for the head’s event and whether each one is present and successful. The two readings come apart, measured 2026-10-02 on #1889’s head 7ab6119405 – 9 runs present, all 9 gating job NAMES matching, 3 of them in_progress with a null conclusion, and 3 check SUITES completed as <code class="language-plaintext highlighter-rouge">action_required</code> having executed nothing. A filter for conclusion = failure finds zero, and counting the runs does not catch it either. <code class="language-plaintext highlighter-rouge">check:head-has-run</code> is the only thing here that asks the owed question (bean <code class="language-plaintext highlighter-rouge">3pqn</code>), and the five states it distinguishes are the five values of <code class="language-plaintext highlighter-rouge">ownCi</code>. <code class="language-plaintext highlighter-rouge">Rule_HeadNotGreen</code> in merge-priority.dmn then hands back anything but <code class="language-plaintext highlighter-rouge">green</code>, so this is a gate the engine applies rather than advice a steward remembers.<br />Overlap kind matters as much as overlap: <code class="language-plaintext highlighter-rouge">merge:overlap</code> over all 36 open PRs on 2026-10-02 (459 pairs) found #1907 x #1909 NOT independent on <code class="language-plaintext highlighter-rouge">package.json</code> alone, with zero authored content shared. <code class="language-plaintext highlighter-rouge">generated-only</code> needs a regeneration and <code class="language-plaintext highlighter-rouge">shared-declaration</code> needs ordering; only <code class="language-plaintext highlighter-rouge">authored</code> needs a train.</td>
     </tr>
     <tr>
-      <td><strong>Take the next PR in queue order</strong><br /><code class="language-plaintext highlighter-rouge">Task_TakeNext</code></td>
+      <td><a id="step-Task_TakeNext"></a><strong>Take the next PR in queue order</strong><br /><code class="language-plaintext highlighter-rouge">Task_TakeNext</code></td>
       <td>Merge steward</td>
-      <td><code class="language-plaintext highlighter-rouge">merge-queue</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/merge-queue.html"><code class="language-plaintext highlighter-rouge">merge-queue</code></a></td>
       <td>Owner overrides at their positions first, then by the table’s rank, then by PR number, oldest first (<code class="language-plaintext highlighter-rouge">scripts/merge-queue.ts</code> <code class="language-plaintext highlighter-rouge">orderQueue</code>).</td>
     </tr>
     <tr>
-      <td><strong>Admit it to the train, record the train id</strong><br /><code class="language-plaintext highlighter-rouge">Task_Admit</code></td>
+      <td><a id="step-Task_Admit"></a><strong>Admit it to the train, record the train id</strong><br /><code class="language-plaintext highlighter-rouge">Task_Admit</code></td>
       <td>Merge steward</td>
-      <td><code class="language-plaintext highlighter-rouge">merge-queue</code></td>
-      <td>Writes the queue entry’s <code class="language-plaintext highlighter-rouge">trainId</code> and <code class="language-plaintext highlighter-rouge">placement</code> (rule, class, rank) with who decided and when. A decision, so it is stored; the facts it was decided on are not.<br />PRECONDITION, CHECKED RATHER THAN ASSUMED: the worktree carries no untracked, non-ignored file before the member is merged and the tree regenerated. <code class="language-plaintext highlighter-rouge">git status --porcelain</code> must be empty. The reason is specific: generated directory READMEs carry a per-subdirectory file count, and the writer counts the files GIT WOULD COMMIT – <code class="language-plaintext highlighter-rouge">git ls-files --cached --others --exclude-standard</code> (bootstrap-tools/scripts/git-files.ts:23). <code class="language-plaintext highlighter-rouge">--exclude-standard</code> already keeps IGNORED junk out, which is the <code class="language-plaintext highlighter-rouge">__pycache__</code> case that drove that line, but <code class="language-plaintext highlighter-rouge">--others</code> still counts an untracked file nobody has ignored. So a transient written by an earlier train step moves a committed count, <code class="language-plaintext highlighter-rouge">readme:subgraphs:check</code> goes red, and the red belongs to nobody. Train 6 hit this.<br />The count is volatile for a second reason the precondition cannot fix: two members each adding a file write different integers to one line. Measured in bean <code class="language-plaintext highlighter-rouge">y7b3</code> – 76 of 300 replayed merges conflicted on <code class="language-plaintext highlighter-rouge">beans/README.md</code>, every one on the <code class="language-plaintext highlighter-rouge">\| defs/ \| N files \|</code> line – and the exposure is wider than that bean states: 54 generated READMEs across 14 instances carry 207 such rows (measured 2026-10-02). <code class="language-plaintext highlighter-rouge">merge:main</code> already resolves them (<code class="language-plaintext highlighter-rouge">readme-generated-regions</code>), so the cost falls on merges made by plain git. The chosen fix is bean <code class="language-plaintext highlighter-rouge">ba9e</code>: take the integer off <code class="language-plaintext highlighter-rouge">main</code> into the KG’s <code class="language-plaintext highlighter-rouge">_data</code> layer, which classifies <code class="language-plaintext highlighter-rouge">take-base</code> and is therefore auto-resolved, leaving the README with a marker that is invariant until the directory crosses LIST_LIMIT. Not done here – it spans the pinned <code class="language-plaintext highlighter-rouge">bootstrap-tools</code> submodule.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/merge-queue.html"><code class="language-plaintext highlighter-rouge">merge-queue</code></a></td>
+      <td>Writes the queue entry’s <code class="language-plaintext highlighter-rouge">trainId</code> and <a href="../../../en/cat-harness/processes/skills/placement.html"><code class="language-plaintext highlighter-rouge">placement</code></a> (rule, class, rank) with who decided and when. A decision, so it is stored; the facts it was decided on are not.<br />PRECONDITION, CHECKED RATHER THAN ASSUMED: the worktree carries no untracked, non-ignored file before the member is merged and the tree regenerated. <code class="language-plaintext highlighter-rouge">git status --porcelain</code> must be empty. The reason is specific: generated directory READMEs carry a per-subdirectory file count, and the writer counts the files GIT WOULD COMMIT – <code class="language-plaintext highlighter-rouge">git ls-files --cached --others --exclude-standard</code> (bootstrap-tools/scripts/git-files.ts:23). <code class="language-plaintext highlighter-rouge">--exclude-standard</code> already keeps IGNORED junk out, which is the <code class="language-plaintext highlighter-rouge">__pycache__</code> case that drove that line, but <code class="language-plaintext highlighter-rouge">--others</code> still counts an untracked file nobody has ignored. So a transient written by an earlier train step moves a committed count, <code class="language-plaintext highlighter-rouge">readme:subgraphs:check</code> goes red, and the red belongs to nobody. Train 6 hit this.<br />The count is volatile for a second reason the precondition cannot fix: two members each adding a file write different integers to one line. Measured in bean <code class="language-plaintext highlighter-rouge">y7b3</code> – 76 of 300 replayed merges conflicted on <code class="language-plaintext highlighter-rouge">beans/README.md</code>, every one on the <code class="language-plaintext highlighter-rouge">\| defs/ \| N files \|</code> line – and the exposure is wider than that bean states: 54 generated READMEs across 14 instances carry 207 such rows (measured 2026-10-02). <code class="language-plaintext highlighter-rouge">merge:main</code> already resolves them (<code class="language-plaintext highlighter-rouge">readme-generated-regions</code>), so the cost falls on merges made by plain git. The chosen fix is bean <code class="language-plaintext highlighter-rouge">ba9e</code>: take the integer off <code class="language-plaintext highlighter-rouge">main</code> into the KG’s <code class="language-plaintext highlighter-rouge">_data</code> layer, which classifies <code class="language-plaintext highlighter-rouge">take-base</code> and is therefore auto-resolved, leaving the README with a marker that is invariant until the directory crosses LIST_LIMIT. Not done here – it spans the pinned <code class="language-plaintext highlighter-rouge">bootstrap-tools</code> submodule.</td>
     </tr>
     <tr>
-      <td><strong>Hand it back</strong><br /><code class="language-plaintext highlighter-rouge">Call_HandBack</code></td>
+      <td><a id="step-Call_HandBack"></a><strong>Hand it back</strong><br /><code class="language-plaintext highlighter-rouge">Call_HandBack</code></td>
       <td>Merge steward</td>
-      <td>calls <a href="merge-refusal.html">A refused merge-train member</a><br /><code class="language-plaintext highlighter-rouge">merge-conflict-patterns</code></td>
+      <td>calls <a href="merge-refusal.html">A refused merge-train member</a><br /><a href="../../../en/cat-harness/processes/skills/merge-conflict-patterns.html"><code class="language-plaintext highlighter-rouge">merge-conflict-patterns</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code> (PR #1888, bean <code class="language-plaintext highlighter-rouge">zacz</code>): a bean under the right epic, a hand-back to the owning session with a fail condition (agent-handoff, #1884), or a dispatch when nobody owns it. R4: the PR returns with its reason.</td>
     </tr>
     <tr>
-      <td><strong>Fix the PR, then re-signal ready</strong><br /><code class="language-plaintext highlighter-rouge">Task_SiblingFix</code></td>
+      <td><a id="step-Task_SiblingFix"></a><strong>Fix the PR, then re-signal ready</strong><br /><code class="language-plaintext highlighter-rouge">Task_SiblingFix</code></td>
       <td>Sibling session</td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/bean-coordination.html"><code class="language-plaintext highlighter-rouge">bean-coordination</code></a></td>
       <td>On the sibling’s own branch: merge main in, fix, push, and re-mark ready (<code class="language-plaintext highlighter-rouge">ready: &lt;head sha&gt;</code>). It re-enters the queue as a new placement; the ejection stays on its entry until a later train lands it.</td>
     </tr>
     <tr>
-      <td><strong>Find members with no CI on their head</strong><br /><code class="language-plaintext highlighter-rouge">Call_ChecksPresent</code></td>
+      <td><a id="step-Call_ChecksPresent"></a><strong>Find members with no CI on their head</strong><br /><code class="language-plaintext highlighter-rouge">Call_ChecksPresent</code></td>
       <td>Build pipeline</td>
-      <td>calls <a href="pr-checks-present.html">Which open pull requests have no CI run on their head?</a><br /><code class="language-plaintext highlighter-rouge">ci-health</code></td>
+      <td>calls <a href="pr-checks-present.html">Which open pull requests have no CI run on their head?</a><br /><a href="../../../en/cat-harness/processes/skills/ci-health.html"><code class="language-plaintext highlighter-rouge">ci-health</code></a></td>
       <td>GitHub runs no <code class="language-plaintext highlighter-rouge">pull_request</code> CI while a PR conflicts, so a member can arrive with nothing on its head (bean <code class="language-plaintext highlighter-rouge">u7be</code> item 3). That member is T2’s first suspect if the train goes red.</td>
     </tr>
     <tr>
-      <td><strong>Merge each member onto the base</strong><br /><code class="language-plaintext highlighter-rouge">Call_MergeMembers</code></td>
+      <td><a id="step-Call_MergeMembers"></a><strong>Merge each member onto the base</strong><br /><code class="language-plaintext highlighter-rouge">Call_MergeMembers</code></td>
       <td>Build pipeline</td>
-      <td>calls <a href="merge-base.html">Merge the base branch in</a><br /><code class="language-plaintext highlighter-rouge">prepare-merge</code></td>
+      <td>calls <a href="merge-base.html">Merge the base branch in</a><br /><a href="../../../en/cat-harness/processes/skills/prepare-merge.html"><code class="language-plaintext highlighter-rouge">prepare-merge</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">merge-base.bpmn</code> once per member, in order, <code class="language-plaintext highlighter-rouge">--no-regen</code>; then ONE <code class="language-plaintext highlighter-rouge">bun run cat regen</code> over the result. Tool: <code class="language-plaintext highlighter-rouge">merge:train</code>. Always onto the current base, never a cached one (R5).</td>
     </tr>
     <tr>
-      <td><strong>Run the gate set on the train</strong><br /><code class="language-plaintext highlighter-rouge">Call_Gates</code></td>
+      <td><a id="step-Call_Gates"></a><strong>Run the gate set on the train</strong><br /><code class="language-plaintext highlighter-rouge">Call_Gates</code></td>
       <td>Build pipeline</td>
-      <td>calls <a href="code-quality-gates.html">The gates a change must pass before it can merge</a><br /><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td>calls <a href="code-quality-gates.html">The gates a change must pass before it can merge</a><br /><a href="../../../en/cat-harness/processes/skills/platform-gates.html"><code class="language-plaintext highlighter-rouge">platform-gates</code></a></td>
       <td>Every gate CI runs, on the combination (R2): a member that passes alone can still break <code class="language-plaintext highlighter-rouge">main</code> with another. The merge-gate epic (<code class="language-plaintext highlighter-rouge">nok9</code>, #1887) adds its gates here when they land. The release security gate (<code class="language-plaintext highlighter-rouge">bun run cat security:gate</code>, bean <code class="language-plaintext highlighter-rouge">ieum</code>) is one of them: it runs inside the gate set, so no train merges past a blocking security finding or a security check that could not run.</td>
     </tr>
     <tr>
-      <td><strong>Retry a declared-flaky gate once</strong><br /><code class="language-plaintext highlighter-rouge">Task_RetryFlaky</code></td>
+      <td><a id="step-Task_RetryFlaky"></a><strong>Retry a declared-flaky gate once</strong><br /><code class="language-plaintext highlighter-rouge">Task_RetryFlaky</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">ci-health</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/ci-health.html"><code class="language-plaintext highlighter-rouge">ci-health</code></a></td>
       <td>T7, narrow (R11; TAP17 Table II p. 5): only gates on a declared flaky list (browser e2e), once, both outcomes recorded. A deterministic gate is never retried: that would spend a CI cycle to learn nothing.</td>
     </tr>
     <tr>
-      <td><strong>Attribute the failure: each member’s own CI first</strong><br /><code class="language-plaintext highlighter-rouge">Task_Attribute</code></td>
+      <td><a id="step-Task_Attribute"></a><strong>Attribute the failure: each member’s own CI first</strong><br /><code class="language-plaintext highlighter-rouge">Task_Attribute</code></td>
       <td>Merge steward</td>
-      <td><code class="language-plaintext highlighter-rouge">merge-queue</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/merge-queue.html"><code class="language-plaintext highlighter-rouge">merge-queue</code></a></td>
       <td>T2 (SQ19 §2.1 pp. 2-3). A member whose own PR CI is red, or never ran on its head, is the prime suspect, and the evidence is already on GitHub. Only when every member is green alone is the failure a real conflict between them.</td>
     </tr>
     <tr>
-      <td><strong>Bisect the train</strong><br /><code class="language-plaintext highlighter-rouge">Task_Bisect</code></td>
+      <td><a id="step-Task_Bisect"></a><strong>Bisect the train</strong><br /><code class="language-plaintext highlighter-rouge">Task_Bisect</code></td>
       <td>Merge steward</td>
-      <td><code class="language-plaintext highlighter-rouge">merge-queue</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/merge-queue.html"><code class="language-plaintext highlighter-rouge">merge-queue</code></a></td>
       <td>Halve the members and re-run the gates on each half until the conflicting one is found: two or three CI runs for three to six members. Only reached when the cheap evidence is silent.</td>
     </tr>
     <tr>
-      <td><strong>Eject the culprit, record why</strong><br /><code class="language-plaintext highlighter-rouge">Task_Eject</code></td>
+      <td><a id="step-Task_Eject"></a><strong>Eject the culprit, record why</strong><br /><code class="language-plaintext highlighter-rouge">Task_Eject</code></td>
       <td>Merge steward</td>
-      <td><code class="language-plaintext highlighter-rouge">merge-queue</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/merge-queue.html"><code class="language-plaintext highlighter-rouge">merge-queue</code></a></td>
       <td>T1 (R3; SQ19 §2.2 p. 3): the culprit leaves, the rest re-run. Writes <code class="language-plaintext highlighter-rouge">ejection</code> on its queue entry (train id, reason, evidence URL, when) and a dated evidence snapshot on this instance. The train is never rejected whole for one member.</td>
     </tr>
     <tr>
-      <td><strong>Hand the culprit back</strong><br /><code class="language-plaintext highlighter-rouge">Call_EjectHandBack</code></td>
+      <td><a id="step-Call_EjectHandBack"></a><strong>Hand the culprit back</strong><br /><code class="language-plaintext highlighter-rouge">Call_EjectHandBack</code></td>
       <td>Merge steward</td>
-      <td>calls <a href="merge-refusal.html">A refused merge-train member</a><br /><code class="language-plaintext highlighter-rouge">merge-conflict-patterns</code></td>
+      <td>calls <a href="merge-refusal.html">A refused merge-train member</a><br /><a href="../../../en/cat-harness/processes/skills/merge-conflict-patterns.html"><code class="language-plaintext highlighter-rouge">merge-conflict-patterns</code></a></td>
       <td>The same hand-back as a refused placement (#1888), carrying the ejection’s evidence (R4). Then the train re-runs without it.</td>
     </tr>
     <tr>
-      <td><strong>Land each member</strong><br /><code class="language-plaintext highlighter-rouge">Call_MergeToMain</code></td>
+      <td><a id="step-Call_MergeToMain"></a><strong>Land each member</strong><br /><code class="language-plaintext highlighter-rouge">Call_MergeToMain</code></td>
       <td>Merge steward</td>
-      <td>calls <a href="merge-to-main.html">Merge to main</a><br /><code class="language-plaintext highlighter-rouge">merge-to-main</code></td>
+      <td>calls <a href="merge-to-main.html">Merge to main</a><br /><a href="../../../en/cat-harness/processes/skills/merge-to-main.html"><code class="language-plaintext highlighter-rouge">merge-to-main</code></a></td>
       <td>Once per member, in train order, at the SHA the train’s gate set tested. <code class="language-plaintext highlighter-rouge">merge-to-main.bpmn</code> is where merging is a step with its own gate: it reads the head’s evidence live (the train’s green run is that evidence, and <code class="language-plaintext highlighter-rouge">merge:guard</code> re-evaluates it), establishes that the owner authorised THIS merge (explicitly, or by a standing ruling quoted verbatim with its date, e.g. 2026-10-01 “you may merge green PRs”, which covers green heads only and only the queue as it stood), records the authorisation, merges pinned to the head, and then confirms <code class="language-plaintext highlighter-rouge">main</code>, re-pins downstream mounts and notes the bean. Until 2026-10-09 this was two steps here, <code class="language-plaintext highlighter-rouge">Task_Release</code> in the owner’s lane bound to interaction-modality and <code class="language-plaintext highlighter-rouge">Task_Land</code> bound to prepare-merge; neither could refuse a merge, and neither said what happens when a repository has no CI. R1 still holds: what lands is exactly what CI tested. If <code class="language-plaintext highlighter-rouge">main</code> moved after the train’s CI started, re-run rather than land. Each member’s <code class="language-plaintext highlighter-rouge">trainId</code> is cleared, and its preview is then taken down by <code class="language-plaintext highlighter-rouge">feature-staging.bpmn</code>. A member the sub-process does not merge (held, refused, handed back) leaves the train with its reason on its queue entry.</td>
     </tr>
     <tr>
-      <td><strong>Place it by hand, with a reason</strong><br /><code class="language-plaintext highlighter-rouge">Task_Override</code></td>
+      <td><a id="step-Task_Override"></a><strong>Place it by hand, with a reason</strong><br /><code class="language-plaintext highlighter-rouge">Task_Override</code></td>
       <td>Owner</td>
-      <td><code class="language-plaintext highlighter-rouge">interaction-modality</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/interaction-modality.html"><code class="language-plaintext highlighter-rouge">interaction-modality</code></a></td>
       <td>Recorded as a queue entry whose placement is <code class="language-plaintext highlighter-rouge">override</code> with a position and a reason; the schema refuses one without a reason. It enters the next placement as the table’s <code class="language-plaintext highlighter-rouge">ownerOverride</code> input.</td>
     </tr>
   </tbody>
