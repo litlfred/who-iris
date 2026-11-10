@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-10T22:02:00.571Z",
+  "updated_at": "2026-11-10T23:45:23.944Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 275317,
+          "value": 293643,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,11 +138,11 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/4bb03f64dadd2e984b3c847c27c21f11737acffb — miss: main/4bb03f64dadd2e984b3c847c27c21f11737acffb has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/a43e8495806d66e64b652340c6596683eda8c783 — miss: main/4bb03f64dadd2e984b3c847c27c21f11737acffb has nothing under health"
     },
     {
       "id": "remote-mounts",
-      "state": "ok",
+      "state": "finding",
       "summary": "Each declared remote mount: its pinned bytes on disk, or why not (no network; `mount:remote:check`).",
       "thresholds": [
         {
@@ -162,12 +162,19 @@
         },
         {
           "metric": "remote-mounts-not-mounted",
-          "value": 0,
+          "value": 1,
           "unit": "count",
           "command": "bun run cat mount:remote:check"
         }
       ],
-      "findings": []
+      "findings": [
+        {
+          "summary": "cat-harness: missing — the pinned bytes are not on disk: cat-harness/ modified",
+          "metric": "remote-mounts-not-mounted",
+          "severity": "major",
+          "action": "Move the edits upstream to the fork, or delete or rename the directory, then `bun run cat mount:remote` (`--fresh` discards them)."
+        }
+      ]
     },
     {
       "id": "lsi-indexes",
@@ -188,7 +195,7 @@
     },
     {
       "id": "library-keywords",
-      "state": "ok",
+      "state": "finding",
       "summary": "Each library entry's LSI keywords: whether the extraction gives any, and any keywords.json still committed inside an entry.",
       "thresholds": [
         {
@@ -209,24 +216,37 @@
       "measurements": [
         {
           "metric": "library-keywords-entries",
-          "value": 24,
+          "value": 290,
           "unit": "count",
           "command": "bun run cat library:keywords"
         },
         {
           "metric": "library-keywords-entries-without",
-          "value": 0,
+          "value": 14,
           "unit": "count",
           "command": "bun run cat library:keywords"
         },
         {
           "metric": "library-keywords-legacy-files",
-          "value": 0,
+          "value": 68,
           "unit": "count",
           "command": "ls library/*/keywords.json"
         }
       ],
-      "findings": []
+      "findings": [
+        {
+          "summary": "14 entr(ies) the keyword extraction gives nothing: cat-harness/library/process/avila-2021-process-modeling-guidelines-slr, cat-harness/library/process/figl-strembeck-2015-flow-direction-experiment, cat-harness/library/process/hasic-2018-5pdm-decision-intelligence, cat-harness/library/process/hasic-2019-complexity-metrics-dmn, cat-harness/library/process/leopold-2016-bpmn-quality-issues-industry, …",
+          "metric": "library-keywords-entries-without",
+          "severity": "minor",
+          "action": "Open the entry's sections: a page with no text layer needs OCR at ingest (`l1-document-ingestion`); a very short entry has nothing to extract."
+        },
+        {
+          "summary": "68 keywords.json still committed inside an entry: cat-harness/library/conduct/agent-skill-best-practices---gemini-cli, cat-harness/library/conduct/agent-skills---google-antigravity-docs, cat-harness/library/conduct/arxiv-2503.18813v2, cat-harness/library/conduct/arxiv-2507.07974v2, cat-harness/library/conduct/arxiv-2510.19207v2, …",
+          "metric": "library-keywords-legacy-files",
+          "severity": "minor",
+          "action": "Remove them in one PR per repository: keywords are built at publish now (`assets/keywords/`), and the ingest record keeps only what was ingested."
+        }
+      ]
     },
     {
       "id": "staging-preview-orphans",
@@ -263,12 +283,12 @@
       ],
       "findings": [
         {
-          "summary": "`branches/claude-iris-referenced-library-links` (166.6 MB, 4833 files) — no open pull request; `claude/iris-referenced-library-links` is already in `main`, tip 2.5 h old.",
+          "summary": "`branches/claude-iris-referenced-library-links` (166.6 MB, 4833 files) — no open pull request; `claude/iris-referenced-library-links` is already in `main`, tip 4.2 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-referenced-library-links` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-referenced-library-links` and `cleanup_confirm: claude-iris-referenced-library-links`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         },
         {
-          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 3.5 h old.",
+          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 5.2 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-subset-ingest` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-subset-ingest` and `cleanup_confirm: claude-iris-subset-ingest`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         }
@@ -374,31 +394,31 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 149361254,
+          "value": 230719579,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 154679098,
+          "value": 172829602,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 153448448,
+          "value": 168381440,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
         {
           "metric": "pack-count",
-          "value": 2,
+          "value": 44,
           "unit": "count",
           "command": "git count-objects -v"
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 1.04,
+          "value": 0.75,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
