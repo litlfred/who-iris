@@ -44,6 +44,11 @@ Feature: The pages gen-iris-pages writes
     Given the replica's home page in site/
     Then it shows at least one and at most 10 recent submissions
 
+  @test:scripts/tests/gen-iris-pages.test.ts::the_IRIS_home_replica::stripsNestedXmlComments
+  Scenario: XML comments are stripped until none is left
+    Given SVG text with a comment, and one that a single removal pass would form
+    Then no comment survives and comment-free text is unchanged
+
   @test:scripts/tests/gen-iris-pages.test.ts::the_IRIS_home_replica::homeHasNoEmblemOrPhoto
   Scenario: carries no WHO emblem and no photograph
     Given the replica's home page in site/

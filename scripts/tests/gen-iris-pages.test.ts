@@ -19,6 +19,7 @@ import {
   RECENT_SUBMISSIONS_MAX,
   SITE_LOCALES,
   SITE_STRINGS,
+  stripXmlComments,
   catalogueProblems,
   fixedPagesOf,
   requirementsFromSkill,
@@ -146,6 +147,12 @@ describe("the IRIS home replica", () => {
     expect(rows.length).toBeGreaterThan(0);
     expect(rows.length).toBeLessThanOrEqual(RECENT_SUBMISSIONS_MAX);
     expect(RECENT_SUBMISSIONS_MAX).toBe(10);
+  });
+
+  it("stripsNestedXmlComments", () => {
+    expect(stripXmlComments("<svg><!-- a --><g/></svg>")).toBe("<svg><g/></svg>");
+    expect(stripXmlComments("<!-<!-- x -->- y -->z")).toBe("z");
+    expect(stripXmlComments("<a/>")).toBe("<a/>");
   });
 
   it("homeHasNoEmblemOrPhoto", () => {
