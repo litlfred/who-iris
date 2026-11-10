@@ -2323,6 +2323,17 @@ function itemPageHref(n: Node): string | undefined {
 function cataloguePageHref(): string {
   return `${replicaUp()}${CATALOGUE_ROUTE}/`;
 }
+/**
+ * Where an item's title and cover go. A held item has its library entry page.
+ * An item with none (catalogued by reference, owner 2026-11-10: "why not all
+ * links correct") goes to its own record upstream at WHO IRIS, which is the
+ * item's real page; it used to go to the catalogue page, which lists every
+ * node and says nothing more about this one. The catalogue page is left only
+ * for an item that records no upstream address at all.
+ */
+function itemHref(n: Node): string {
+  return itemPageHref(n) ?? sourceOf(n) ?? cataloguePageHref();
+}
 
 
 /**
@@ -2547,7 +2558,7 @@ function landingPage(all: Node[]): string {
         const text = [n.title, n.id, n.libraryId ?? "", authors.join(" "), cite, issued, spatial, commTitle ?? "", subjects.join(" "), abstract].join(" ").toLowerCase();
         return {
           title: n.title,
-          href: itemPageHref(n) ?? cataloguePageHref(),
+          href: itemHref(n),
           badge: t("Item"),
           meta,
           lang: langOf(n) !== LOCALE ? langOf(n) : undefined,
@@ -2809,7 +2820,7 @@ function searchPage(all: Node[]): string {
     const facetText = [...f.author, ...f.subject, ...f.publisher, ...f.series, ...f.itemtype].join(" ").toLowerCase();
     return {
       title: n.title,
-      href: itemPageHref(n) ?? cataloguePageHref(),
+      href: itemHref(n),
       cover: coverData(n),
       lang: langOf(n) !== LOCALE ? langOf(n) : undefined,
       authors,
@@ -3495,7 +3506,7 @@ function coverData(n: Node): { href: string; src: string; w: number; h: number; 
     return { text: br(t("cover<br>withheld")), title: t("A cover is rendered and recorded for this item. It is not displayed: the publication's cover carries the WHO emblem, and this replica is not published under WHO.") };
   }
   return {
-    href: itemPageHref(n) ?? cataloguePageHref(),
+    href: itemHref(n),
     src: cov.src,
     w: cov.w,
     h: cov.h,
@@ -3519,7 +3530,7 @@ function coverCell(n: Node): string {
     : !cov
     ? `<span class="nocover" title="${esc(t("no cover rendered"))}">${t("no cover")}</span>`
     : COVERS_SHOWN
-      ? `<a href="${esc(itemPageHref(n) ?? cataloguePageHref())}"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
+      ? `<a href="${esc(itemHref(n))}"><img src="${esc(cov.src)}" width="${cov.w}" height="${cov.h}"
         alt="${esc(cov.masked
           ? t("Cover of {title}, rendered here from page 1 of the held PDF, with the WHO emblem masked out", { title: n.title })
           : t("Cover of {title}, rendered here from page 1 of the held PDF", { title: n.title }))}" loading="lazy"></a>`
@@ -3561,7 +3572,7 @@ function submission(n: Node): string {
   return `<article class="sub">
   <div class="sub-cover">${coverHtml}</div>
   <div class="sub-body">
-    <a class="sub-title"${dataBlock(lang)} href="${esc(itemPageHref(n) ?? cataloguePageHref())}">${esc(n.title)}</a>
+    <a class="sub-title"${dataBlock(lang)} href="${esc(itemHref(n))}">${esc(n.title)}</a>
     <p class="sub-by">${byline}</p>
     ${
       abstract
