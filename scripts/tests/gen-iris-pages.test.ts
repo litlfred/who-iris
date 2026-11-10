@@ -19,6 +19,7 @@ import {
   RECENT_SUBMISSIONS_MAX,
   SITE_LOCALES,
   SITE_STRINGS,
+  stripXmlComments,
   catalogueProblems,
   fixedPagesOf,
   requirementsFromSkill,
@@ -154,6 +155,12 @@ describe("the IRIS home replica", () => {
     const titles = [...home.matchAll(/<a class="sub-title"[^>]* href="([^"]*)"/g)].map((m) => m[1]!);
     expect(titles.length).toBeGreaterThan(0);
     for (const href of titles) expect(href).toMatch(/^\.\.\/en\/cat-harness\/library\/who-iris\/[^/]+\/$/);
+  });
+
+  it("stripsNestedXmlComments", () => {
+    expect(stripXmlComments("<svg><!-- a --><g/></svg>")).toBe("<svg><g/></svg>");
+    expect(stripXmlComments("<!-<!-- x -->- y -->z")).toBe("z");
+    expect(stripXmlComments("<a/>")).toBe("<a/>");
   });
 
   it("homeHasNoEmblemOrPhoto", () => {

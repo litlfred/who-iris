@@ -2453,6 +2453,20 @@ function accessioned(n: Node): string | undefined {
  * a smaller blast radius. Items with no captured accession sort last, together,
  * by id: unknown is a position, not a zero.
  */
+/**
+ * Remove XML comments, repeated until nothing changes, so a comment that one
+ * pass of removal itself forms (`<!-<!---->-`) cannot survive (CodeQL
+ * js/incomplete-multi-character-sanitization).
+ */
+export function stripXmlComments(text: string): string {
+  let prev: string;
+  do {
+    prev = text;
+    text = text.replace(/<!--[\s\S]*?-->\s*/g, "");
+  } while (text !== prev);
+  return text;
+}
+
 /** How many items the home page's Recent Submissions shows. */
 export const RECENT_SUBMISSIONS_MAX = 10;
 
@@ -3781,9 +3795,8 @@ function kgToPortal(all: Node[]): string {
   const covers = all.filter((n) => coverSrc(n) !== undefined).length;
 
   const svg = existsSync(ARCH_SVG)
-    ? readFileSync(ARCH_SVG, "utf-8")
-        .replace(/^<\?xml[^>]*\?>\s*/, "")
-        .replace(/<!--[\s\S]*?-->\s*/g, "")
+    ? stripXmlComments(readFileSync(ARCH_SVG, "utf-8")
+        .replace(/^<\?xml[^>]*\?>\s*/, ""))
         .replace("GDHCN — DID trustlist (WHO SMART Trust)", "WHO signing DID — did:web + x5c chain")
     : undefined;
 
