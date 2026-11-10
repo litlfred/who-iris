@@ -140,7 +140,9 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     const handles = (rs: { handle: string }[]) => rs.map((r) => r.handle).sort();
     expect(afterLoad.length).toBeGreaterThan(0);
     expect(handles(afterLoad)).toEqual(handles(eager.complexSearch({ subject: 'Guidelines' })));
-  });
+    // It builds two stores from the whole corpus, so its time grows with the
+    // catalogue: 5.19 s on a CI runner at 235 nodes (who-iris#217), over bun's 5 s default.
+  }, 30_000);
 
   test("preparedQueriesExecute", () => {
     const engine = new IrisOxigraphEngine();
