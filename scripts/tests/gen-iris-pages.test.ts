@@ -430,7 +430,9 @@ describe("the catalogue page (bean kx0p)", () => {
     expect(gates).toMatch(/<span class="state [a-z]+">[a-zA-Z]+: \d+ of \d+<\/span>/);
     expect(gates).not.toMatch(/<\/span> \d/);
     expect(page).not.toContain("library/who-iris/#");
-    expect(catalogueViewer(all)).toContain("library/who-iris/#"); // the harness site's build keeps the viewer links
+    const full = catalogueViewer(all);
+    expect(full).toContain("library/who-iris/#"); // the harness site's build keeps the viewer links
+    expect(full).toContain("library/who-iris/b0426/"); // and links held item titles to their library entry pages
   });
 });
 

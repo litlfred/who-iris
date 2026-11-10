@@ -2201,20 +2201,14 @@ function replicaNav(): string {
 const LIBRARY_LINKS = libraryResolver(repoRootFor(HARNESS_ROOT), HARNESS_ROOT);
 
 /**
- * The library viewer's page for an item this instance holds, at the route the
- * platform DECLARES for it — `<locale>/<harness>/<library>/<instance>/#<instance>/<id>`,
- * the same href `LIBRARY_LINKS` gives when the page is on disk.
- *
- * Needed because the catalogue page is COMMITTED (move M1) while the viewer is
- * built at publish: `LIBRARY_LINKS` links the viewer only where its page is on
- * disk, so a committed page drawn from it would depend on whether the
- * checkout happened to hold a built site — current in one composition and
- * stale in the next, under the same `iris:pages:check`. The site that
- * publishes this page builds the viewer, so the declared route is where the
- * link lands. The locale is the page's own: the catalogue page is English.
- * `undefined` when the platform declares no library directory.
+ * The library listing for this instance, and one entry's page under it,
+ * relative to the site root (`<locale>/<harness>/<library>/<instance>/` and
+ * `.../<id>/`, the routes `gen-library-viz` publishes). `undefined` when the
+ * platform declares no library directory. Since 2026-10-30 an entry's page is
+ * a held item's one page (owner): the catalogue and the replica's home link
+ * there.
  */
-const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
+const LIBRARY_LISTING_ROUTE = ((): string | undefined => {
   const decl = readDeclaration(HARNESS_ROOT);
   // A top-level `library` entry, or (cat-harness#1032) the named sub-graph
   // whose `graph.json` declares the corpus FROM WITHIN: the viewer publishes
@@ -2232,10 +2226,27 @@ const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
   const lib =
     decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library")) ??
     decl?.directories?.find((d) => holdsCorpus(d));
-  if (decl?.name === undefined || lib === undefined) return () => undefined;
-  const visualiser = basename(lib.path.replace(/\/+$/, ""));
-  const route = visualiserRoute({ locale: "en", harness: decl.name, visualiser, subgraph: SUBJECT });
-  return (id) => `${route}/#${encodeURIComponent(`${SUBJECT}/${id}`)}`;
+  if (decl?.name === undefined || lib === undefined) return undefined;
+  return visualiserRoute({ locale: "en", harness: decl.name, visualiser: basename(lib.path.replace(/\/+$/, "")), subgraph: SUBJECT });
+})();
+
+/**
+ * The library viewer's page for an item this instance holds, at the route the
+ * platform DECLARES for it — `<locale>/<harness>/<library>/<instance>/#<instance>/<id>`,
+ * the same href `LIBRARY_LINKS` gives when the page is on disk.
+ *
+ * Needed because the catalogue page is COMMITTED (move M1) while the viewer is
+ * built at publish: `LIBRARY_LINKS` links the viewer only where its page is on
+ * disk, so a committed page drawn from it would depend on whether the
+ * checkout happened to hold a built site — current in one composition and
+ * stale in the next, under the same `iris:pages:check`. The site that
+ * publishes this page builds the viewer, so the declared route is where the
+ * link lands. The locale is the page's own: the catalogue page is English.
+ * `undefined` when the platform declares no library directory.
+ */
+const DECLARED_LIBRARY_VIEWER = ((): ((id: string) => string | undefined) => {
+  if (LIBRARY_LISTING_ROUTE === undefined) return () => undefined;
+  return (id) => `${LIBRARY_LISTING_ROUTE}/#${encodeURIComponent(`${SUBJECT}/${id}`)}`;
 })();
 
 /**
@@ -2285,20 +2296,6 @@ const REPLICA_ROUTE = (() => {
   return root.route;
 })();
 
-/**
- * The library listing for this instance, and one entry's page under it,
- * relative to the site root (`<locale>/<harness>/<library>/<instance>/` and
- * `.../<id>/`, the routes `gen-library-viz` publishes). `undefined` when the
- * platform declares no library directory. Since 2026-10-30 an entry's page is
- * a held item's one page (owner): the catalogue and the replica's home link
- * there.
- */
-const LIBRARY_LISTING_ROUTE = ((): string | undefined => {
-  const decl = readDeclaration(HARNESS_ROOT);
-  const lib = decl?.directories?.find((d) => (d.graphTypologies ?? []).includes("library"));
-  if (decl?.name === undefined || lib === undefined) return undefined;
-  return visualiserRoute({ locale: "en", harness: decl.name, visualiser: basename(lib.path.replace(/\/+$/, "")), subgraph: SUBJECT });
-})();
 function libraryEntryRoute(n: Node): string | undefined {
   const id = n.flavour === "item" ? n.libraryId : undefined;
   if (!id || !HELD_ITEM_LINKS(id) || LIBRARY_LISTING_ROUTE === undefined) return undefined;
