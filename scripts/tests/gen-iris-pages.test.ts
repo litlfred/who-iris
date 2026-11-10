@@ -16,6 +16,7 @@ import {
   OWNED,
   authoredDocs,
   renderAuthored,
+  RECENT_SUBMISSIONS_MAX,
   SITE_LOCALES,
   SITE_STRINGS,
   catalogueProblems,
@@ -138,6 +139,14 @@ describe("ingestion-notes is a projection of the skill, not a copy of it", () =>
 describe("the IRIS home replica", () => {
   // The REPLICA's home, which is in `site/` now (bean `2b5s`).
   const home = readFileSync(join(SITE, "index.html"), "utf-8");
+
+  it("recentSubmissionsCappedAtTen", () => {
+    // Owner, 2026-11-10 (who-iris#207): the strip shows at most 10 items, however many the catalogue holds.
+    const rows = home.match(/<article class="sub">/g) ?? [];
+    expect(rows.length).toBeGreaterThan(0);
+    expect(rows.length).toBeLessThanOrEqual(RECENT_SUBMISSIONS_MAX);
+    expect(RECENT_SUBMISSIONS_MAX).toBe(10);
+  });
 
   it("homeHasNoEmblemOrPhoto", () => {
     // The instruction this page exists under: a replica carrying the real mark
@@ -460,7 +469,12 @@ describe("the replica keeps only its IRIS-style home page (owner, 2026-10-30)", 
       .map((f) => JSON.parse(readFileSync(join(INSTANCE, "catalogue", "nodes", f), "utf-8")) as { flavour?: string; libraryId?: string })
       .filter((n) => n.flavour === "item" && n.libraryId && existsSync(join(LIB, n.libraryId)));
     expect(items.length).toBeGreaterThan(0);
-    for (const n of items) expect(home()).toContain(`href="../en/cat-harness/library/who-iris/${n.libraryId}/"`);
+    // Recent Submissions is capped at 10 (who-iris#207), so a held item is linked
+    // from the strip OR from the page's visualiser nav, which lists every held item.
+    for (const n of items) {
+      const url = `../en/cat-harness/library/who-iris/${n.libraryId}/`;
+      expect(home().includes(`href="${url}"`) || home().includes(`"href":"${url}"`), `${n.libraryId} is not linked from the home page`).toBe(true);
+    }
     expect(home()).not.toMatch(/href="(?:item-|collection-|community-list)/);
     expect(home()).toContain('href="../who-iris/catalogue/"');
   });

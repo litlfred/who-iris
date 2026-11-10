@@ -39,6 +39,11 @@ Feature: The pages gen-iris-pages writes
     Then no id repeats
     And they are R1, R2, ... in order with no gaps
 
+  @test:scripts/tests/gen-iris-pages.test.ts::the_IRIS_home_replica::recentSubmissionsCappedAtTen
+  Scenario: Recent Submissions shows at most 10 items
+    Given the replica's home page in site/
+    Then it shows at least one and at most 10 recent submissions
+
   @test:scripts/tests/gen-iris-pages.test.ts::the_IRIS_home_replica::homeHasNoEmblemOrPhoto
   Scenario: carries no WHO emblem and no photograph
     Given the replica's home page in site/

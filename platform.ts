@@ -77,7 +77,8 @@ export {
   toolsFromFolders,
 } from "@litlfred/folio-assistant-core/scripts/platform.ts";
 export { bytesFor, repoRelative } from "@litlfred/folio-assistant-core/scripts/lib/bytes.ts";
-export { resolvableIri, type CatalogueNode } from "@litlfred/folio-assistant-core/schemas/catalogue.ts";
+export { CATALOGUE_NODE_SCHEMA_TAG, CatalogueNodeSchema, resolvableIri, type CatalogueNode } from "@litlfred/folio-assistant-core/schemas/catalogue.ts";
+export { dspaceToRecord } from "@litlfred/folio-assistant-core/scripts/fetch-dspace-item.ts";
 export { dcRenderingsFor } from "@litlfred/folio-assistant-core/scripts/dc-render.ts";
 export { publicationBlockers } from "@litlfred/folio-assistant-core/schemas/materialization.ts";
 export { nodes as coverNodes, pngSize } from "@litlfred/folio-assistant-core/scripts/gen-covers.ts";

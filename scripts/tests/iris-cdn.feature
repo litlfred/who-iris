@@ -203,3 +203,39 @@ Feature: The IRIS CDN release: BagIt bags, detached JWS signing, the DSpace REST
     And manifest-sha256.txt is the first release's again
     And the JWS file is the first release's "header..sig1" again
     And the cursor is 2026-10-30T00:00:00Z again
+
+  @test:scripts/tests/iris-cdn.test.ts::IRIS_subset_—_catalogue_by_reference::handlesFileParses
+  Scenario: a handles file keeps one reason per Handle and refuses what is not a Handle
+    Given a handles file with a comment, a blank line and a repeated Handle
+    Then each Handle is picked once, with the reason written after it
+    And a line that is not a Handle is refused
+
+  @test:scripts/tests/iris-cdn.test.ts::IRIS_subset_—_catalogue_by_reference::sampleIsSeededAndDistinct
+  Scenario: a sample is reproducible from its seed
+    Given 17,248 matches and a seed
+    Then the same seed picks the same 100 distinct indices, all in range
+
+  @test:scripts/tests/iris-cdn.test.ts::IRIS_subset_—_catalogue_by_reference::nodeIsReferencedWithPdfLinkAndNoBytes
+  Scenario: the node is referenced and links the PDF on IRIS
+    Given an item with one ORIGINAL PDF and one TEXT bitstream
+    Then the node is referenced, has no libraryId and parents is []
+    And its one bitstream links to the IRIS download URL with no sha256 fixity
+
+  @test:scripts/tests/iris-cdn.test.ts::IRIS_subset_—_catalogue_by_reference::writesRecordAndNodeSkipsHeldAndDoesNotChurn
+  Scenario: held items are skipped and a re-run writes nothing
+    Given a catalogue holding a node for 10665/375230
+    When the subset names 10665/360869, 10665/375230 and an unknown Handle
+    Then only 10665/360869 is written, with every MeSH value kept
+    And 10665/375230 is reported as held and the unknown Handle as unresolved
+    And no file content is requested
+    And a re-run a day later rewrites nothing
+
+  @test:scripts/tests/iris-cdn.test.ts::IRIS_subset_—_catalogue_by_reference::refusesWithdrawnItems
+  Scenario: a withdrawn item is refused
+    Given an item IRIS marks withdrawn
+    Then nothing is written and the item is reported as refused
+
+  @test:scripts/tests/iris-cdn.test.ts::IRIS_subset_—_catalogue_by_reference::querySampleUsesOneRowPages
+  Scenario: a sample reads one-row Discovery pages for the query
+    Given a query with 5 matches
+    Then a sample of 2 returns 2 picks whose reason names the match count

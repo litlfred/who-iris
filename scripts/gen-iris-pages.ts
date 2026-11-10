@@ -2436,6 +2436,9 @@ function accessioned(n: Node): string | undefined {
  * a smaller blast radius. Items with no captured accession sort last, together,
  * by id: unknown is a position, not a zero.
  */
+/** How many items the home page's Recent Submissions shows. */
+export const RECENT_SUBMISSIONS_MAX = 10;
+
 export function recentOrder(items: Node[]): Node[] {
   return items.slice().sort((a, b) => {
     const da = accessioned(a);
@@ -2531,7 +2534,10 @@ function landingPage(all: Node[]): string {
   // so the sentence stays true when the catalogue grows.
   const REFERENCED_NODES = all.length - held.length;
 
-  const submissions = recentOrder(items).map((n) => submission(n)).join("\n");
+  // Capped at 10 (owner, 2026-11-10, who-iris#207): the catalogue now grows by
+  // thousands of referenced items, and every one of them on the home page in
+  // six languages would be megabytes of HTML. IRIS's own strip is short too.
+  const submissions = recentOrder(items).slice(0, RECENT_SUBMISSIONS_MAX).map((n) => submission(n)).join("\n");
 
   const itemsUpstream = cat.totalItemsUpstream;
   const filesUpstream = cat.totalFilesUpstream;
