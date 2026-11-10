@@ -148,6 +148,14 @@ describe("the IRIS home replica", () => {
     expect(RECENT_SUBMISSIONS_MAX).toBe(10);
   });
 
+  it("referencedItemsLinkToLibraryNotIris", () => {
+    // Owner, 2026-11-10 (card Q-IRIS-5 = A): a title in Recent Submissions goes
+    // to our library entry page, never to IRIS or the Handle resolver.
+    const titles = [...home.matchAll(/<a class="sub-title"[^>]* href="([^"]*)"/g)].map((m) => m[1]!);
+    expect(titles.length).toBeGreaterThan(0);
+    for (const href of titles) expect(href).toMatch(/^\.\.\/en\/cat-harness\/library\/who-iris\/[^/]+\/$/);
+  });
+
   it("homeHasNoEmblemOrPhoto", () => {
     // The instruction this page exists under: a replica carrying the real mark
     // is indistinguishable from the real site at a glance. Checked by name
