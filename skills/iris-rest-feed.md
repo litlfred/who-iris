@@ -88,3 +88,35 @@ Requests are made one at a time, with a User-Agent that names the project and
 its repository, and back off on 429 and 503. The initial load is paced to the budget stated in
 `Task_StateBudget` (`processes/iris-cdn-initial-load.bpmn`), including
 `maxRequestsPerSecond`.
+
+## A subset by reference: `run.ts subset`
+
+`bun scripts/iris-cdn/run.ts subset` catalogues part of IRIS without fetching any
+bytes (who-iris#207): for each item, the Dublin Core record as DSpace returns
+it and a `referenced` catalogue node whose ORIGINAL bitstreams link to
+`https://iris.who.int/bitstreams/{uuid}/download`. The subsets it reads live in
+[`scripts/iris-cdn/subsets/`](../scripts/iris-cdn/subsets/README.md).
+
+- **Which items.** A handles file goes first (for example the IRIS items a DAK
+  cites), then a Discovery query. The query is a field query on metadata
+  (`dc.title`, `dc.subject`, `dc.subject.mesh`, `dc.description.abstract`),
+  not a bare keyword. A bare keyword also searches the PDF text, so `vaccine`
+  matches a report that mentions one in passing.
+- **Write boolean operators in capitals.** Solr reads a lowercase `or` as a
+  word: `HIV or immunization or vaccine` matches fewer items than `vaccine`
+  alone.
+- **A Handle to an item:** `GET /server/api/pid/find?id=hdl:{handle}`
+  answers 302 to `/server/api/core/items/{uuid}`.
+- **An ISBN or govdoc to an item:** `query=dc.identifier.isbn:"{isbn13}"` or
+  `query=dc.identifier.govdoc:"WHO/HIV/2017.09"`.
+- **A sample** is one-row pages at seeded random offsets, so the same seed
+  gives the same items.
+- **No fixity is claimed.** IRIS reports an MD5. A sha256 is recorded only
+  once the bytes are fetched (R13), so the MD5 goes in the bitstream's note.
+- **Hand-made nodes win.** An item whose Handle or UUID another node already
+  carries is skipped and reported. The tool rewrites only its own nodes, the
+  ones whose note starts "Catalogued by reference by
+  scripts/iris-cdn/run.ts subset", and only when they changed.
+- **A token**, when IRIS gives one, comes from the `IRIS_DSPACE_TOKEN`
+  environment variable as `Authorization: Bearer …`. It never appears in an
+  argument, a file or a log.

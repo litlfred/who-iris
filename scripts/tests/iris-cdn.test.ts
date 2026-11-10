@@ -6,6 +6,8 @@ import { tmpdir } from "node:os";
 import { join as pjoin } from "node:path";
 import { createPrivateKey, webcrypto } from "node:crypto";
 import { allItemIds, changedSince, itemBitstreams, withdrawnOrHidden, type Fetcher } from "../iris-cdn/rest-feed.ts";
+import { catalogueSubset, keyOfHandle, nodeOf, OWN_NOTE_PREFIX, parseHandles, queryPicks, sampleIndices, type ItemResource } from "../iris-cdn/run.ts";
+import { mkdirSync as mkdirS, readdirSync as readdirS, writeFileSync as writeFileS } from "node:fs";
 
 const e = (path: string, body: string): PayloadEntry => ({ path, sha256: sha256Hex(body), bytes: Buffer.byteLength(body) });
 
@@ -639,5 +641,132 @@ describe("Task_Revert: automatic revert when post-publish verification fails (#1
     } finally {
       rmSync(repo, { recursive: true, force: true });
     }
+  });
+});
+
+const SUBSET_API = "https://iris.example/server/api";
+const SUBSET_UUID = "11111111-2222-4333-8444-555555555555";
+const SUBSET_HELD = "99999999-2222-4333-8444-555555555555";
+
+const subsetItem: ItemResource = {
+  uuid: SUBSET_UUID,
+  handle: "10665/360869",
+  name: "Guidelines on long-acting injectable cabotegravir for HIV prevention",
+  withdrawn: false,
+  inArchive: true,
+  discoverable: true,
+  metadata: {
+    "dc.title": [{ value: "Guidelines on long-acting injectable cabotegravir for HIV prevention", language: "en" }],
+    "dc.subject.mesh": [{ value: "HIV Infections", language: "en" }, { value: "Pre-Exposure Prophylaxis", language: "en" }],
+    "dc.identifier.uri": [{ value: "https://iris.who.int/handle/10665/360869" }],
+  },
+  _embedded: {
+    owningCollection: { uuid: "c0c0c0c0-2222-4333-8444-555555555555", name: "Publications" },
+    bundles: {
+      _embedded: {
+        bundles: [
+          { name: "ORIGINAL", _embedded: { bitstreams: { _embedded: { bitstreams: [{ uuid: "b1b1b1b1-2222-4333-8444-555555555555", name: "9789240054097-eng.pdf", sizeBytes: 1234, checkSum: { checkSumAlgorithm: "MD5", value: "0123456789abcdef0123456789abcdef" } }] } } } },
+          { name: "TEXT", _embedded: { bitstreams: { _embedded: { bitstreams: [{ uuid: "b2b2b2b2-2222-4333-8444-555555555555", name: "9789240054097-eng.pdf.txt", sizeBytes: 99, checkSum: { checkSumAlgorithm: "MD5", value: "f".repeat(32) } }] } } } },
+        ],
+      },
+    },
+  },
+};
+
+/** A fetcher over fixtures; counts requests and refuses anything that is not GET-able JSON here. */
+function subsetFetcherFixture(routes: Record<string, unknown>, redirects: Record<string, string> = {}): Fetcher & { calls: string[] } {
+  const calls: string[] = [];
+  const f = (async (url: string) => {
+    calls.push(url);
+    for (const [prefix, loc] of Object.entries(redirects)) if (url.startsWith(prefix)) return { ok: false, status: 302, headers: { get: (n: string) => (n === "location" ? loc : null) }, json: async () => ({}) };
+    for (const [prefix, body] of Object.entries(routes)) if (url.startsWith(prefix)) return { ok: true, status: 200, json: async () => body };
+    return { ok: false, status: 404, json: async () => ({}) };
+  }) as Fetcher & { calls: string[] };
+  f.calls = calls;
+  return f;
+}
+
+function subsetInstance(): string {
+  const root = mkdtempSync(pjoin(tmpdir(), "iris-subset-"));
+  mkdirS(pjoin(root, "catalogue", "nodes"), { recursive: true });
+  writeFileS(
+    pjoin(root, "catalogue", "nodes", "item-held.json"),
+    JSON.stringify({ $schema: "folio-catalogue-node/v1", id: `item/${SUBSET_HELD}`, kind: "item", title: "Held by hand", handle: "10665/375230", materialization: { state: "referenced", provenance: { upstream: "x" } } }),
+  );
+  return root;
+}
+
+describe("IRIS subset — catalogue by reference", () => {
+  test("handlesFileParses", () => {
+    expect(parseHandles("# comment\n10665/1 cited by A  # title\n\n10665/1 again\n10665/2\n")).toEqual([
+      { handle: "10665/1", reason: "cited by A" },
+      { handle: "10665/2", reason: "listed" },
+    ]);
+    expect(() => parseHandles("not-a-handle\n")).toThrow(/not a Handle/);
+    expect(keyOfHandle("10665/360869")).toBe("10665-360869");
+  });
+
+  test("sampleIsSeededAndDistinct", () => {
+    const a = sampleIndices(17248, 100, 207);
+    expect(a).toEqual(sampleIndices(17248, 100, 207));
+    expect(new Set(a).size).toBe(100);
+    expect(a.every((i) => i >= 0 && i < 17248)).toBe(true);
+    expect(sampleIndices(3, 10, 1)).toEqual([0, 1, 2]);
+  });
+
+  test("nodeIsReferencedWithPdfLinkAndNoBytes", () => {
+    const n = nodeOf(subsetItem, [{ uuid: "b1b1b1b1-2222-4333-8444-555555555555", name: "9789240054097-eng.pdf", bundle: "ORIGINAL", sizeBytes: 1234, checkSum: { checkSumAlgorithm: "MD5", value: "0123456789abcdef0123456789abcdef" } }], ["cited by the HIV DAK"], "10665-360869");
+    expect(n.materialization.state).toBe("referenced");
+    expect(n.handle).toBe("10665/360869");
+    expect(n.parents).toEqual([]);
+    expect(n.libraryId).toBeUndefined();
+    expect(n.metadataRef).toBe("catalogue/records/10665-360869.dc.json");
+    expect(n.bitstreams).toHaveLength(1);
+    expect(n.bitstreams[0]!.materialization.provenance).toEqual({ upstream: "https://iris.who.int/bitstreams/b1b1b1b1-2222-4333-8444-555555555555/download" });
+    expect(n.bitstreams[0]!.materialization.fixity).toBeUndefined();
+    expect(n.materialization.note).toStartWith(OWN_NOTE_PREFIX);
+    expect(n.materialization.note).toContain("cited by the HIV DAK");
+  });
+
+  test("writesRecordAndNodeSkipsHeldAndDoesNotChurn", async () => {
+    const root = subsetInstance();
+    const f = subsetFetcherFixture({ [`${SUBSET_API}/core/items/${SUBSET_UUID}`]: subsetItem }, { [`${SUBSET_API}/pid/find?id=${encodeURIComponent("hdl:10665/360869")}`]: `${SUBSET_API}/core/items/${SUBSET_UUID}` });
+    const picks = [
+      { handle: "10665/360869", reason: "cited by the HIV DAK" },
+      { handle: "10665/375230", reason: "cited by the HIV DAK" },
+      { handle: "10665/1", reason: "unknown" },
+    ];
+    const r = await catalogueSubset(f, root, picks, { api: SUBSET_API, now: new Date("2026-11-10T18:00:00Z") });
+    expect(r.written).toEqual(["10665/360869"]);
+    expect(r.skippedHeld).toEqual(["10665/375230"]);
+    expect(r.unresolved).toEqual(["10665/1"]);
+    const rec = JSON.parse(readFile(pjoin(root, "catalogue", "records", "10665-360869.dc.json"), "utf-8"));
+    expect(rec.$schema).toBe("folio-dublin-core/v1");
+    expect(rec.fields.find((x: { element: string; qualifier?: string }) => x.element === "subject" && x.qualifier === "mesh").values).toHaveLength(2);
+    expect(f.calls.some((u) => u.includes("/content"))).toBe(false);
+
+    // Re-run a day later with nothing changed upstream: nothing is rewritten.
+    const before = readdirS(pjoin(root, "catalogue", "records")).map((x) => readFile(pjoin(root, "catalogue", "records", x), "utf-8"));
+    const again = await catalogueSubset(f, root, picks.slice(0, 1), { api: SUBSET_API, now: new Date("2026-11-11T18:00:00Z") });
+    expect(again.written).toEqual([]);
+    expect(again.unchanged).toEqual(["10665/360869"]);
+    expect(readdirS(pjoin(root, "catalogue", "records")).map((x) => readFile(pjoin(root, "catalogue", "records", x), "utf-8"))).toEqual(before);
+  });
+
+  test("refusesWithdrawnItems", async () => {
+    const root = subsetInstance();
+    const f = subsetFetcherFixture({ [`${SUBSET_API}/core/items/${SUBSET_UUID}`]: { ...subsetItem, withdrawn: true } });
+    const r = await catalogueSubset(f, root, [{ uuid: SUBSET_UUID, reason: "q" }], { api: SUBSET_API });
+    expect(r.written).toEqual([]);
+    expect(r.refused[0]).toContain("withdrawn");
+  });
+
+  test("querySampleUsesOneRowPages", async () => {
+    const page = (uuid: string) => ({ _embedded: { searchResult: { page: { totalElements: 5 }, _embedded: { objects: [{ _embedded: { indexableObject: { uuid, metadata: {} } } }] } } } });
+    const f = subsetFetcherFixture({ [`${SUBSET_API}/discover/search/objects`]: page(SUBSET_UUID) });
+    const picks = await queryPicks(f, "dc.title:HIV", { sample: 2, seed: 7, api: SUBSET_API });
+    expect(picks).toHaveLength(2);
+    expect(picks[0]!.reason).toContain("5 matches");
+    expect(f.calls.every((u) => u.includes("query=dc.title%3AHIV"))).toBe(true);
   });
 });

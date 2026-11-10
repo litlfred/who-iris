@@ -7,6 +7,7 @@
  *   bun scripts/iris-cdn/run.ts reconcile    --release <dir>
  *   bun scripts/iris-cdn/run.ts verify       --release <dir> [--revert-on-failure]
  *   bun scripts/iris-cdn/run.ts revert       --release <dir>
+ *   bun scripts/iris-cdn/run.ts subset       [--handles <file>] [--query <q> --sample <n>] [--root .]   (who-iris#207, no bytes)
  *
  * `<dir>` is a checkout of the release-history git repository on Cloudflare
  * Artifacts. This script writes files into `<dir>` (or creates a `git revert`
@@ -34,11 +35,13 @@ import {
   collectionItemsPage,
   extractBitstreamsFromItem,
   IRIS_API,
+  type BitstreamStub,
   metadataSha,
   withdrawnOrHidden,
   type Fetcher,
 } from "./rest-feed.ts";
 import { buildIrisDataset } from "../build-iris-oxigraph.ts";
+import { CATALOGUE_NODE_SCHEMA_TAG, CatalogueNodeSchema, dspaceToRecord, type CatalogueNode } from "../../platform.ts";
 
 const USER_AGENT = "who-iris-cdn-exporter (+https://github.com/litlfred/who-iris)";
 
@@ -729,8 +732,335 @@ export async function runInitialLoad(opts: {
   return report;
 }
 
+// ---------------------------------------------------------------------------
+// A SUBSET catalogued by reference (who-iris#207): mode `subset`.
+//
+//   bun scripts/iris-cdn/run.ts subset [--handles <file>] [--query <q> [--sample <n> --seed <s> | --limit <n>]] [--root .] [--dry-run]
+//
+// For each item: `catalogue/records/<key>.dc.json` (the record as DSpace
+// returns it, via core's `dspaceToRecord`) and `catalogue/nodes/item-<key>.json`,
+// state `referenced`, whose ORIGINAL bitstreams link to
+// `https://iris.who.int/bitstreams/{uuid}/download`. No bytes are fetched.
+// `<key>` is the Handle with `/` as `-` (rule R1). A handles file goes first
+// (`<handle> <reason>`, `#` comments), then the Discovery query's matches.
+// `IRIS_DSPACE_TOKEN`, when set, is sent as `Authorization: Bearer …`.
+// It never touches a node it did not write: an item another node already
+// carries is skipped and reported. Its own nodes carry OWN_NOTE_PREFIX and are
+// rewritten only when what they say changed (the no-churn rule).
+// ---------------------------------------------------------------------------
+
+export const IRIS_ORIGIN = "https://iris.who.int";
+export const OWN_NOTE_PREFIX = "Catalogued by reference by scripts/iris-cdn/run.ts subset";
+
+type DspaceMetadata = Parameters<typeof dspaceToRecord>[1];
+
+/** One item Discovery or the core API returned. */
+export interface ItemResource {
+  uuid: string;
+  handle?: string | null;
+  name?: string;
+  withdrawn?: boolean;
+  inArchive?: boolean;
+  discoverable?: boolean;
+  metadata: DspaceMetadata;
+  _embedded?: Record<string, unknown>;
+}
+
+/** Why an item is in the subset: a cited Handle with its reason, or the query. */
+export interface Pick {
+  uuid?: string;
+  handle?: string;
+  reason: string;
+}
+
+/** `10665/360869` → `10665-360869`. Refuses anything that is not a Handle. */
+export function keyOfHandle(handle: string): string {
+  if (!/^\d+(?:\.\d+)*\/[A-Za-z0-9._-]+$/.test(handle)) throw new Error(`not a Handle: ${JSON.stringify(handle)}`);
+  return handle.replace("/", "-");
+}
+
+/** Parse a handles file: `10665/123 reason words`, `#` comments, blank lines. */
+export function parseHandles(text: string): Pick[] {
+  const out: Pick[] = [];
+  const seen = new Set<string>();
+  for (const raw of text.split("\n")) {
+    const line = raw.replace(/#.*$/, "").trim();
+    if (!line) continue;
+    const [handle, ...rest] = line.split(/\s+/);
+    keyOfHandle(handle!);
+    if (seen.has(handle!)) continue;
+    seen.add(handle!);
+    out.push({ handle, reason: rest.join(" ") || "listed" });
+  }
+  return out;
+}
+
+/** A small seeded PRNG (mulberry32), so a sample is reproducible from its seed. */
+export function seededRandom(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** `n` distinct indices in [0, total), from the seed. */
+export function sampleIndices(total: number, n: number, seed: number): number[] {
+  const rnd = seededRandom(seed);
+  const picked = new Set<number>();
+  const want = Math.min(n, total);
+  while (picked.size < want) picked.add(Math.floor(rnd() * total));
+  return [...picked].sort((a, b) => a - b);
+}
+
+const first = (md: DspaceMetadata, field: string): string | undefined => md[field]?.find((v) => v.value?.trim())?.value;
+
+const mediaTypeOf = (name: string): string | undefined =>
+  /\.pdf$/i.test(name) ? "application/pdf" : /\.docx$/i.test(name) ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document" : undefined;
+
+/** The node this tool writes for one item. Pure: the same inputs give the same node. */
+export function nodeOf(item: ItemResource, bitstreams: BitstreamStub[], reasons: string[], key: string): CatalogueNode {
+  const title = first(item.metadata, "dc.title") ?? item.name;
+  if (!title) throw new Error(`item ${item.uuid} has no dc.title`);
+  if (!item.handle) throw new Error(`item ${item.uuid} has no Handle`);
+  const owning = item._embedded?.owningCollection as { uuid?: string; name?: string } | undefined;
+  const where = owning?.uuid ? ` IRIS files it in the collection "${owning.name ?? "?"}" (${owning.uuid}), which is not a node here, so parents is [] (rule R10).` : "";
+  const originals = bitstreams.filter((b) => b.bundle === "ORIGINAL");
+  return CatalogueNodeSchema.parse({
+    $schema: CATALOGUE_NODE_SCHEMA_TAG,
+    id: `item/${item.uuid}`,
+    kind: "item",
+    flavour: "item",
+    title,
+    parents: [],
+    handle: item.handle,
+    bitstreams: originals.map((b) => ({
+      name: b.name,
+      bundle: "ORIGINAL",
+      bytes: b.sizeBytes,
+      ...(mediaTypeOf(b.name) ? { mediaType: mediaTypeOf(b.name) } : {}),
+      materialization: {
+        state: "referenced",
+        provenance: { upstream: `${IRIS_ORIGIN}/bitstreams/${b.uuid}/download` },
+        note: `Bytes not held. IRIS reports ${b.checkSum?.checkSumAlgorithm ?? "no"} checksum ${b.checkSum?.value ?? "-"}; a sha256 is recorded only once the bytes are fetched (rule R13).`,
+      },
+    })),
+    materialization: {
+      state: "referenced",
+      provenance: { upstream: `${IRIS_ORIGIN}/items/${item.uuid}` },
+      note: `${OWN_NOTE_PREFIX} (who-iris#207): the Dublin Core record from the DSpace REST API and a link to each ORIGINAL file on IRIS; nothing ingested. In the subset because: ${reasons.join("; ")}.${where}`,
+    },
+    metadataRef: `catalogue/records/${key}.dc.json`,
+  });
+}
+
+/** Canonical JSON with keys in the order given (2-space indent, LF, trailing newline). */
+const pretty = (v: unknown): string => JSON.stringify(v, null, 2) + "\n";
+
+/** A record without its retrieval time, so a re-read of unchanged metadata compares equal. */
+function recordBody(rec: Record<string, unknown>): string {
+  const { provenance, ...rest } = rec as { provenance?: Record<string, unknown> };
+  const { retrievedAt: _r, ...prov } = provenance ?? {};
+  return JSON.stringify({ ...rest, provenance: prov });
+}
+
+/** Handles and UUIDs of nodes already in the catalogue, split into ours and others'. */
+export function heldNodes(nodesDir: string): { others: Set<string>; ours: Set<string> } {
+  const others = new Set<string>();
+  const ours = new Set<string>();
+  if (!existsSync(nodesDir)) return { others, ours };
+  for (const f of readdirSync(nodesDir)) {
+    if (!f.endsWith(".json")) continue;
+    const n = JSON.parse(readFileSync(join(nodesDir, f), "utf-8")) as CatalogueNode;
+    const mine = typeof n.materialization?.note === "string" && n.materialization.note.startsWith(OWN_NOTE_PREFIX);
+    const set = mine ? ours : others;
+    if (n.handle) set.add(n.handle);
+    set.add(n.id.replace(/^item\//, ""));
+  }
+  return { others, ours };
+}
+
+export function subsetFetcher(opts: { token?: string; delayMs?: number } = {}): Fetcher & { requests: number } {
+  const delay = opts.delayMs ?? 500;
+  const headers: Record<string, string> = { "User-Agent": USER_AGENT, Accept: "application/json" };
+  if (opts.token) headers.Authorization = `Bearer ${opts.token}`;
+  const f = (async (url: string) => {
+    for (let attempt = 0; ; attempt++) {
+      const res = await fetch(url, { headers, redirect: "manual" });
+      f.requests++;
+      await Bun.sleep(delay);
+      if ((res.status === 429 || res.status === 503) && attempt < 5) {
+        await Bun.sleep(2 ** attempt * 1000);
+        continue;
+      }
+      return res;
+    }
+  }) as Fetcher & { requests: number };
+  f.requests = 0;
+  return f;
+}
+
+async function getJson<T>(fetcher: Fetcher, url: string): Promise<T> {
+  const res = await fetcher(url);
+  if (!res.ok) throw new Error(`GET ${url} → HTTP ${res.status}`);
+  return (await res.json()) as T;
+}
+
+type SearchBody = {
+  _embedded?: { searchResult?: { page?: { totalElements?: number }; _embedded?: { objects?: { _embedded?: { indexableObject?: ItemResource } }[] } } };
+};
+
+const searchUrl = (api: string, query: string, page: number, size: number) =>
+  `${api}/discover/search/objects?dsoType=ITEM&sort=dc.date.accessioned,DESC&size=${size}&page=${page}&query=${encodeURIComponent(query)}`;
+
+/** How many items a Discovery query matches. */
+export async function countMatches(fetcher: Fetcher, query: string, api = IRIS_API): Promise<number> {
+  const body = await getJson<SearchBody>(fetcher, searchUrl(api, query, 0, 1));
+  return body._embedded?.searchResult?.page?.totalElements ?? 0;
+}
+
+/** UUIDs of the query's matches: a seeded sample, the first `limit`, or all. */
+export async function queryPicks(fetcher: Fetcher, query: string, opts: { sample?: number; seed?: number; limit?: number; api?: string }): Promise<Pick[]> {
+  const api = opts.api ?? IRIS_API;
+  const total = await countMatches(fetcher, query, api);
+  const objectsOf = (b: SearchBody) => (b._embedded?.searchResult?._embedded?.objects ?? []).map((o) => o._embedded?.indexableObject).filter((x): x is ItemResource => !!x?.uuid);
+  const reason = `matches the subset query (${total} matches)`;
+  if (opts.sample !== undefined) {
+    const out: Pick[] = [];
+    for (const i of sampleIndices(total, opts.sample, opts.seed ?? 1)) {
+      const [it] = objectsOf(await getJson<SearchBody>(fetcher, searchUrl(api, query, i, 1)));
+      if (it) out.push({ uuid: it.uuid, reason: `${reason}, sampled with seed ${opts.seed ?? 1}` });
+    }
+    return out;
+  }
+  const want = Math.min(opts.limit ?? total, total);
+  const out: Pick[] = [];
+  for (let page = 0; out.length < want; page++) {
+    const got = objectsOf(await getJson<SearchBody>(fetcher, searchUrl(api, query, page, 100)));
+    if (got.length === 0) break;
+    for (const it of got) if (out.length < want) out.push({ uuid: it.uuid, reason });
+  }
+  return out;
+}
+
+/** A Handle → the item's UUID, through DSpace's PID resolver (a redirect to `/core/items/{uuid}`). */
+export async function uuidOfHandle(fetcher: Fetcher, handle: string, api = IRIS_API): Promise<string | undefined> {
+  const res = (await fetcher(`${api}/pid/find?id=${encodeURIComponent(`hdl:${handle}`)}`)) as Awaited<ReturnType<Fetcher>> & { headers?: { get(n: string): string | null } };
+  const loc = res.headers?.get("location") ?? "";
+  return /\/core\/items\/([0-9a-f-]{36})$/.exec(loc)?.[1];
+}
+
+export interface SubsetReport {
+  written: string[];
+  unchanged: string[];
+  skippedHeld: string[];
+  unresolved: string[];
+  refused: string[];
+  requests?: number;
+}
+
+/** Catalogue each pick under `root`. Handles first, then query picks; duplicates merge their reasons. */
+export async function catalogueSubset(
+  fetcher: Fetcher,
+  root: string,
+  picks: Pick[],
+  opts: { api?: string; now?: Date; dryRun?: boolean } = {},
+): Promise<SubsetReport> {
+  const api = opts.api ?? IRIS_API;
+  const now = (opts.now ?? new Date()).toISOString().replace(/\.\d+Z$/, "Z");
+  const nodesDir = join(root, "catalogue", "nodes");
+  const recordsDir = join(root, "catalogue", "records");
+  const report: SubsetReport = { written: [], unchanged: [], skippedHeld: [], unresolved: [], refused: [] };
+  const { others } = heldNodes(nodesDir);
+
+  // Resolve to UUIDs, merging reasons for an item picked more than once.
+  const byUuid = new Map<string, string[]>();
+  for (const p of picks) {
+    if (p.handle && others.has(p.handle)) {
+      report.skippedHeld.push(p.handle);
+      continue;
+    }
+    const uuid = p.uuid ?? (p.handle ? await uuidOfHandle(fetcher, p.handle, api) : undefined);
+    if (!uuid) {
+      report.unresolved.push(p.handle ?? "?");
+      continue;
+    }
+    byUuid.set(uuid, [...(byUuid.get(uuid) ?? []), p.reason]);
+  }
+
+  for (const [uuid, reasons] of byUuid) {
+    if (others.has(uuid)) {
+      report.skippedHeld.push(uuid);
+      continue;
+    }
+    const item = await getJson<ItemResource>(fetcher, `${api}/core/items/${uuid}?embed=bundles/bitstreams&embed=owningCollection`);
+    if (!item.handle || item.withdrawn || item.inArchive === false || item.discoverable === false) {
+      report.refused.push(`${uuid}: ${!item.handle ? "no Handle" : "withdrawn or not public"}`);
+      continue;
+    }
+    if (others.has(item.handle)) {
+      report.skippedHeld.push(item.handle);
+      continue;
+    }
+    const key = keyOfHandle(item.handle);
+    const bitstreams = await extractBitstreamsFromItem(fetcher, item as Parameters<typeof extractBitstreamsFromItem>[1], api);
+    const node = nodeOf(item, bitstreams, [...new Set(reasons)].sort(), key);
+    const record = dspaceToRecord(uuid, item.metadata, `${api}/core/items/${uuid}`, now);
+
+    const nodePath = join(nodesDir, `item-${key}.json`);
+    const recordPath = join(recordsDir, `${key}.dc.json`);
+    const nodeText = pretty(node);
+    const sameNode = existsSync(nodePath) && readFileSync(nodePath, "utf-8") === nodeText;
+    const sameRecord = existsSync(recordPath) && recordBody(JSON.parse(readFileSync(recordPath, "utf-8"))) === recordBody(record as Record<string, unknown>);
+    if (sameNode && sameRecord) {
+      report.unchanged.push(item.handle);
+      continue;
+    }
+    if (!opts.dryRun) {
+      mkdirSync(nodesDir, { recursive: true });
+      mkdirSync(recordsDir, { recursive: true });
+      if (!sameNode) writeFileSync(nodePath, nodeText);
+      if (!sameRecord) writeFileSync(recordPath, pretty(record));
+    }
+    report.written.push(item.handle);
+  }
+  return report;
+}
+
+
+async function subsetMain(rest: string[]): Promise<void> {
+  const arg = (name: string): string | undefined => {
+    const i = rest.indexOf(name);
+    return i >= 0 ? rest[i + 1] : undefined;
+  };
+  const root = arg("--root") ?? ".";
+  const handlesFile = arg("--handles");
+  const query = arg("--query");
+  const sample = arg("--sample");
+  const limit = arg("--limit");
+  if (!handlesFile && !query) throw new Error("subset: give --handles <file>, --query <q>, or both");
+  const fetcher = subsetFetcher({ token: process.env.IRIS_DSPACE_TOKEN || undefined, delayMs: Number(arg("--delay-ms") ?? 500) });
+  const picks: Pick[] = handlesFile ? parseHandles(readFileSync(handlesFile, "utf-8")) : [];
+  if (query) {
+    picks.push(
+      ...(await queryPicks(fetcher, query, {
+        sample: sample === undefined ? undefined : Number(sample),
+        seed: Number(arg("--seed") ?? 1),
+        limit: limit === undefined ? undefined : Number(limit),
+      })),
+    );
+  }
+  const report = await catalogueSubset(fetcher, root, picks, { dryRun: rest.includes("--dry-run") });
+  const counts = Object.fromEntries(Object.entries(report).map(([k, v]) => [k, (v as unknown[]).length]));
+  console.log(canonicalJson({ mode: "subset", ...report, counts, requests: fetcher.requests }));
+}
+
 async function main(): Promise<void> {
   const [mode, ...rest] = process.argv.slice(2);
+  if (mode === "subset") return subsetMain(rest);
   const relIdx = rest.indexOf("--release");
   const release = relIdx >= 0 ? rest[relIdx + 1] : undefined;
   if (!release || !existsSync(release)) throw new Error("--release <checkout of the Cloudflare git repository> is required");
