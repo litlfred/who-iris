@@ -82,7 +82,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "961b4d939d7d69874f44162d12407bd3f1d96c6b",
+          "ref": "97e844c10081c83078656e43e84488c4b26ffa89",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -94,9 +94,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-11-08",
-              "ref": "961b4d939d7d69874f44162d12407bd3f1d96c6b",
-              "evidence": "Owner litlfred, 2026-11-08: card Q-CIB-4 A (13:23Z, release-gated CI, full rollout in phases; phase 4 = the other layers) and Q-MM-1 A (\"non-content can merge/repin + 12hr\", window to 2026-11-08 19:00Z). Tools-only re-pin to cat-harness-tools 961b4d9 (#1722): a non-release PR runs the fast tier of layer-pr-checks; cat-harness#1158."
+              "on": "2026-11-10",
+              "ref": "97e844c10081c83078656e43e84488c4b26ffa89",
+              "evidence": "litlfred, 2026-11-10 17:27Z: decision card 'When should I republish the who-iris site?' option A 'After both PRs merge' (thread Fix who-iris library entry and search pages); tools-only re-pin to cat-harness-tools 97e844c (includes #1752, the Dublin Core line on library entry pages) so the republish carries it."
             }
           }
         }
