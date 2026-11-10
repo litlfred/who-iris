@@ -16,9 +16,15 @@
       "materialization": {
         "state": "referenced",
         "provenance": {
-          "upstream": "https://iris.who.int/bitstreams/7fab9788-d1f7-4204-a37e-db7c8784aa04/download"
+          "upstream": "https://iris.who.int/bitstreams/7fab9788-d1f7-4204-a37e-db7c8784aa04/download",
+          "local": "library/10665-24399/structure.json#source"
         },
-        "note": "Bytes not held. IRIS reports MD5 checksum d559a45ad5abd38f01802686ae6e9e3d; a sha256 is recorded only once the bytes are fetched (rule R13)."
+        "note": "The original bytes are not held. Fetched once on 2026-11-10 from https://iris.who.int/bitstreams/7fab9788-d1f7-4204-a37e-db7c8784aa04/download to a scratch folder, ingested into library/10665-24399 by scripts/iris-cdn/derive-referenced.py (OCR language hint: fr), and discarded; the sha256 is of the bytes that were read, and library/10665-24399/structure.json#source records it too. owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\".",
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "d0bea1243600f3687bc8ac21f5b8feaddcf80e0b2ef72d0e9ef6ca7dc5dd6f0b",
+          "verifiedAt": "2026-11-10"
+        }
       }
     },
     {
@@ -82,10 +88,39 @@
     }
   ],
   "materialization": {
-    "state": "referenced",
+    "state": "materialized",
     "provenance": {
       "upstream": "https://iris.who.int/items/9562ab39-7e32-4f2d-9692-6947ed1f26de"
     },
-    "note": "Catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207): the Dublin Core record from the DSpace REST API and a link to each ORIGINAL file on IRIS; nothing ingested. In the subset because: matches the subset query (17248 matches), sampled with seed 207. IRIS files it in the collection \"EB130\" (ea3b0a5f-bc39-4c18-9505-2a4e3866140e), which is not a node here, so parents is [] (rule R10)."
-  }
+    "localPath": "library/10665-24399",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "67,338 bytes of derived sections over 1 entry"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "special development authorization for WHO staff in development environment (owner, 2026-10-08), applied to the IRIS pilot by the owner on 2026-11-10 (cards Q-IRIS-7 = A, Q-IRIS-9 = B); owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\"",
+        "decidedAt": "2026-11-10",
+        "decidedBy": "owner (litlfred), 2026-11-10"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the ORIGINAL bitstreams stay at IRIS (referenced), with the sha256 of the bytes read"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "special development authorization for WHO staff in development environment (owner, 2026-10-08), applied to the IRIS pilot by the owner on 2026-11-10 (cards Q-IRIS-7 = A, Q-IRIS-9 = B); owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\"",
+        "decidedAt": "2026-11-10",
+        "decidedBy": "owner (litlfred), 2026-11-10"
+      }
+    },
+    "note": "Derived on 2026-11-10 without holding the PDFs: owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\". Each ORIGINAL bitstream was fetched to a scratch folder, ingested and discarded (scripts/iris-cdn/derive-referenced.py); the item's entry is library/10665-24399. The bitstreams stay referenced. First catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207)."
+  },
+  "libraryId": "10665-24399"
 }

@@ -16,9 +16,15 @@
       "materialization": {
         "state": "referenced",
         "provenance": {
-          "upstream": "https://iris.who.int/bitstreams/4e6a983c-551e-49f9-bd6a-5495a9bbdebc/download"
+          "upstream": "https://iris.who.int/bitstreams/4e6a983c-551e-49f9-bd6a-5495a9bbdebc/download",
+          "local": "library/10665-329964/structure.json#source"
         },
-        "note": "Bytes not held. IRIS reports MD5 checksum bc0e9b91bd0e0beaf76e8a6526ab9ac7; a sha256 is recorded only once the bytes are fetched (rule R13)."
+        "note": "The original bytes are not held. Fetched once on 2026-11-10 from https://iris.who.int/bitstreams/4e6a983c-551e-49f9-bd6a-5495a9bbdebc/download to a scratch folder, ingested into library/10665-329964 by scripts/iris-cdn/derive-referenced.py (OCR language hint: en), and discarded; the sha256 is of the bytes that were read, and library/10665-329964/structure.json#source records it too. owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\".",
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "8360af18abe63b46427048f4be2f40f6e6812aeabbfe5a2785a44f6df1dd8054",
+          "verifiedAt": "2026-11-10"
+        }
       }
     },
     {
@@ -29,9 +35,15 @@
       "materialization": {
         "state": "referenced",
         "provenance": {
-          "upstream": "https://iris.who.int/bitstreams/7069b673-a5f4-437c-be4d-69549ad0ff4a/download"
+          "upstream": "https://iris.who.int/bitstreams/7069b673-a5f4-437c-be4d-69549ad0ff4a/download",
+          "local": "library/10665-329964-rus/structure.json#source"
         },
-        "note": "Bytes not held. IRIS reports MD5 checksum 3f799862f4050abb1f7afe72c44e6297; a sha256 is recorded only once the bytes are fetched (rule R13)."
+        "note": "The original bytes are not held. Fetched once on 2026-11-10 from https://iris.who.int/bitstreams/7069b673-a5f4-437c-be4d-69549ad0ff4a/download to a scratch folder, ingested into library/10665-329964-rus by scripts/iris-cdn/derive-referenced.py (OCR language hint: ru), and discarded; the sha256 is of the bytes that were read, and library/10665-329964-rus/structure.json#source records it too. owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\".",
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "dabaa2bfce1959db2d8f9a6fffa26c7187b96732db3077f5faa3e70e83514eee",
+          "verifiedAt": "2026-11-10"
+        }
       }
     },
     {
@@ -42,9 +54,15 @@
       "materialization": {
         "state": "referenced",
         "provenance": {
-          "upstream": "https://iris.who.int/bitstreams/c48b3627-86e5-4a6a-bd6a-ff46385a09c3/download"
+          "upstream": "https://iris.who.int/bitstreams/c48b3627-86e5-4a6a-bd6a-ff46385a09c3/download",
+          "local": "library/10665-329964-chi/structure.json#source"
         },
-        "note": "Bytes not held. IRIS reports MD5 checksum c63158917893e4272d24d0e0274ba376; a sha256 is recorded only once the bytes are fetched (rule R13)."
+        "note": "The original bytes are not held. Fetched once on 2026-11-10 from https://iris.who.int/bitstreams/c48b3627-86e5-4a6a-bd6a-ff46385a09c3/download to a scratch folder, ingested into library/10665-329964-chi by scripts/iris-cdn/derive-referenced.py (OCR language hint: zh), and discarded; the sha256 is of the bytes that were read, and library/10665-329964-chi/structure.json#source records it too. owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\".",
+        "fixity": {
+          "algorithm": "sha256",
+          "digest": "5833ba44b6651e11b2745215e660f22b4a7b812b75bf29d74076873d9471d40f",
+          "verifiedAt": "2026-11-10"
+        }
       }
     },
     {
@@ -108,10 +126,39 @@
     }
   ],
   "materialization": {
-    "state": "referenced",
+    "state": "materialized",
     "provenance": {
       "upstream": "https://iris.who.int/items/34b20c11-d360-485c-a33b-803ad6f3ece5"
     },
-    "note": "Catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207): the Dublin Core record from the DSpace REST API and a link to each ORIGINAL file on IRIS; nothing ingested. In the subset because: cited by the HIV DAK (10665/375230 text, smart-hiv). IRIS files it in the collection \"Technical Documents\" (43c3b8d5-432d-4e1b-a5bf-3cc6129d7266), which is not a node here, so parents is [] (rule R10)."
-  }
+    "localPath": "library/10665-329964",
+    "purpose": "working",
+    "gates": {
+      "size": {
+        "verdict": "permitted",
+        "basis": "275,621 bytes of derived sections over 3 entries"
+      },
+      "restrictions": {
+        "verdict": "permitted",
+        "basis": "special development authorization for WHO staff in development environment (owner, 2026-10-08), applied to the IRIS pilot by the owner on 2026-11-10 (cards Q-IRIS-7 = A, Q-IRIS-9 = B); owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\"",
+        "decidedAt": "2026-11-10",
+        "decidedBy": "owner (litlfred), 2026-11-10"
+      },
+      "retention": {
+        "verdict": "unknown",
+        "basis": "no lifetime agreed for the derived sections"
+      },
+      "sourceLoss": {
+        "verdict": "unknown",
+        "basis": "derived sections are not the publication; the ORIGINAL bitstreams stay at IRIS (referenced), with the sha256 of the bytes read"
+      },
+      "copyright": {
+        "verdict": "permitted",
+        "basis": "special development authorization for WHO staff in development environment (owner, 2026-10-08), applied to the IRIS pilot by the owner on 2026-11-10 (cards Q-IRIS-7 = A, Q-IRIS-9 = B); owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\"",
+        "decidedAt": "2026-11-10",
+        "decidedBy": "owner (litlfred), 2026-11-10"
+      }
+    },
+    "note": "Derived on 2026-11-10 without holding the PDFs: owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\". Each ORIGINAL bitstream was fetched to a scratch folder, ingested and discarded (scripts/iris-cdn/derive-referenced.py); the item's entry is library/10665-329964, and its other language versions are library/10665-329964-rus, library/10665-329964-chi. The bitstreams stay referenced. First catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207)."
+  },
+  "libraryId": "10665-329964"
 }

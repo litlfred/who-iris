@@ -9,7 +9,12 @@ sha256 the catalogue already records, and writes a report. Items with no IRIS
 handle are looked up by file name through the DSpace search API, and the
 candidates are reported, never written into the catalogue by this script.
 
-usage: fetch-referenced-pdfs.py <who-iris root> <out dir> [--only id,id]
+With `--all` it fetches EVERY ORIGINAL PDF of an item, not only the first:
+the derived-KG ingestion (who-iris#207, owner 2026-11-10) ingests each language
+version, and IRIS often keeps the Arabic, Chinese, English and Russian PDFs of
+one publication on one item. A file already in the out dir is not fetched again.
+
+usage: fetch-referenced-pdfs.py <who-iris root> <out dir> [--only id,id] [--all]
 """
 import hashlib, json, os, sys, glob, urllib.request, urllib.parse
 
@@ -36,6 +41,12 @@ def get(url, accept_json=True):
         data = r.read()
     return json.loads(data) if accept_json else data
 
+def must_be_pdf(data, url):
+    """Refuse bytes that are not a PDF: IRIS answers some downloads with an HTML sign-in page."""
+    if not data.startswith(b"%PDF-"):
+        raise RuntimeError(f"refused: {url} returned {data[:40]!r}..., not a PDF")
+    return data
+
 def original_pdf(uuid, name):
     bundles = get(f"{IRIS}/server/api/core/items/{uuid}/bundles")["_embedded"]["bundles"]
     orig = next(b for b in bundles if b["name"] == "ORIGINAL")
@@ -43,7 +54,8 @@ def original_pdf(uuid, name):
     hit = [s for s in streams if s["name"] == name] or [s for s in streams if s["name"].lower().endswith(".pdf")]
     if not hit:
         raise RuntimeError(f"no PDF bitstream among {[s['name'] for s in streams]}")
-    return hit[0]["name"], get(hit[0]["_links"]["content"]["href"], accept_json=False)
+    href = hit[0]["_links"]["content"]["href"]
+    return hit[0]["name"], must_be_pdf(get(href, accept_json=False), href)
 
 def search(q):
     url = f"{IRIS}/server/api/discover/search/objects?" + urllib.parse.urlencode({"query": q, "dsoType": "ITEM", "size": 5})
@@ -59,6 +71,7 @@ def main():
     only = None
     if "--only" in sys.argv:
         only = set(sys.argv[sys.argv.index("--only") + 1].split(","))
+    every = "--all" in sys.argv
     os.makedirs(out, exist_ok=True)
     report = []
     for f in sorted(glob.glob(os.path.join(root, "catalogue/nodes/item-*.json"))):
@@ -79,11 +92,16 @@ def main():
             direct = up if "/bitstreams/" in up and up.endswith("/download") else None
             if not b["name"].lower().endswith(".pdf"):
                 continue
-            if any(r["slug"] == slug and r.get("result") == "fetched" for r in report):
+            if not every and any(r["slug"] == slug and r.get("result") == "fetched" for r in report):
                 continue  # one PDF per item: the cover is page 1 of the first
+            have = os.path.join(out, safe_name(slug), safe_name(b["name"]))
+            if os.path.exists(have) and open(have, "rb").read(5) == b"%PDF-":
+                row["result"] = "fetched"
+                report.append(row)
+                continue
             try:
                 if direct:
-                    pdf = get(direct, accept_json=False)
+                    pdf = must_be_pdf(get(direct, accept_json=False), direct)
                     sha = hashlib.sha256(pdf).hexdigest()
                     row.update(fetchedName=b["name"], bytes=len(pdf), sha256=sha, matches=True)
                     d = os.path.join(out, safe_name(slug))
