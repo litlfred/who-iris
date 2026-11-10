@@ -192,6 +192,7 @@ describe("the IRIS home replica", () => {
     const nodeDir = join(INSTANCE, "catalogue", "nodes");
     let pixelChecked = 0;
     let declaredChecked = 0;
+    const regions: { name: string; p: string; r: number[] }[] = [];
 
     for (const f of readdirSync(nodeDir).filter((x) => x.endsWith(".json"))) {
       const n = JSON.parse(readFileSync(join(nodeDir, f), "utf-8"));
@@ -216,25 +217,33 @@ describe("the IRIS home replica", () => {
           declaredChecked++;
 
           // (3) The pixels really are flat fill. Needs a decoder.
-          if (!pdfBackend) continue;
-          const out = execFileSync("python3", [
-            "-c",
-            [
-              "import pymupdf,sys",
-              "p,x0,y0,x1,y1 = sys.argv[1], *map(int, sys.argv[2:6])",
-              "pm = pymupdf.Pixmap(p)",
-              "pm = pymupdf.Pixmap(pm, 0) if pm.alpha else pm",
-              "b,W,n = pm.samples, pm.width, pm.n",
-              "cols = {tuple(b[(y*W+x)*n:(y*W+x)*n+3]) for y in range(y0,y1) for x in range(x0,x1)}",
-              "print(len(cols), sorted(cols)[0] if cols else ())",
-            ].join("\n"),
-            abs, String(r.x0), String(r.y0), String(r.x1), String(r.y1),
-          ]).toString().trim();
-          expect(out, `${b.name}: mask is not a single flat colour`).toMatch(/^1 /);
-          expect(out).toContain("128, 128, 128");
-          pixelChecked++;
+          if (pdfBackend) regions.push({ name: b.name, p: abs, r: [r.x0, r.y0, r.x1, r.y1] });
         }
       }
+    }
+
+    // (3) The pixels really are flat fill. Needs a decoder; one process for
+    // every region (with the pilot covers, who-iris#207, there are over a
+    // hundred, and a process each took minutes).
+    if (pdfBackend && regions.length) {
+      const lines = execFileSync("python3", [
+        "-c",
+        [
+          "import pymupdf,sys,json",
+          "for q in json.load(sys.stdin):",
+          "  x0,y0,x1,y1 = q['r']",
+          "  pm = pymupdf.Pixmap(q['p'])",
+          "  pm = pymupdf.Pixmap(pm, 0) if pm.alpha else pm",
+          "  b,W,n = pm.samples, pm.width, pm.n",
+          "  cols = {tuple(b[(y*W+x)*n:(y*W+x)*n+3]) for y in range(y0,y1) for x in range(x0,x1)}",
+          "  print(len(cols), sorted(cols)[0] if cols else ())",
+        ].join("\n"),
+      ], { input: JSON.stringify(regions) }).toString().trim().split("\n");
+      regions.forEach((q, i) => {
+        expect(lines[i], `${q.name}: mask is not a single flat colour`).toMatch(/^1 /);
+        expect(lines[i]).toContain("128, 128, 128");
+        pixelChecked++;
+      });
     }
 
     // A sweep that found nothing must not report clean — the `dh4f` shape.
@@ -247,7 +256,7 @@ describe("the IRIS home replica", () => {
     } else {
       expect(pixelChecked).toBe(declaredChecked);
     }
-  });
+  }, 60_000);
 });
 
 describe("the KG-to-portal page keeps its claims honest", () => {

@@ -72,9 +72,25 @@ def main():
                 continue
             row = {"slug": slug, "name": b["name"], "handle": n.get("handle")}
             up = (m.get("provenance") or {}).get("upstream") or ((n.get("materialization") or {}).get("provenance") or {}).get("upstream") or ""
-            uuid = up.rsplit("/items/", 1)[1] if "/items/" in up else None
+            item_up = ((n.get("materialization") or {}).get("provenance") or {}).get("upstream") or ""
+            uuid = next((u.rsplit("/items/", 1)[1] for u in (up, item_up) if "/items/" in u), None)
+            # A node catalogued by `run.ts subset` names the file itself
+            # (`/bitstreams/<uuid>/download`); that is fetched as named.
+            direct = up if "/bitstreams/" in up and up.endswith("/download") else None
+            if not b["name"].lower().endswith(".pdf"):
+                continue
+            if any(r["slug"] == slug and r.get("result") == "fetched" for r in report):
+                continue  # one PDF per item: the cover is page 1 of the first
             try:
-                if not uuid:
+                if direct:
+                    pdf = get(direct, accept_json=False)
+                    sha = hashlib.sha256(pdf).hexdigest()
+                    row.update(fetchedName=b["name"], bytes=len(pdf), sha256=sha, matches=True)
+                    d = os.path.join(out, safe_name(slug))
+                    os.makedirs(d, exist_ok=True)
+                    open(os.path.join(d, safe_name(b["name"])), "wb").write(pdf)
+                    row["result"] = "fetched"
+                elif not uuid:
                     row["searched"] = search(b["name"].rsplit(".", 1)[0])
                     row["result"] = "no handle recorded; candidates listed, nothing fetched"
                 else:
