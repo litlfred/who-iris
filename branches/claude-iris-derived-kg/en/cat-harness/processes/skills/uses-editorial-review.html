@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="../../../../assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="../../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  
+
+  
+
+  
+    <script src="../../../../assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="../../../../assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>uses-editorial-review (skill) | WHO IRIS</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="uses-editorial-review (skill)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
+<meta name="twitter:description" property="og:description" content="The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview." />
+<link rel="canonical" href="https://litlfred.github.io/who-iris/branches/claude-iris-derived-kg/en/cat-harness/processes/skills/uses-editorial-review.html" />
+<meta property="og:url" content="https://litlfred.github.io/who-iris/branches/claude-iris-derived-kg/en/cat-harness/processes/skills/uses-editorial-review.html" />
+<meta property="og:site_name" content="WHO IRIS" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="uses-editorial-review (skill)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"The WHO Institutional Repository for Information Sharing, catalogued by reference — 1,057,223 files known, a handful materialized as the pre-CDN preview.","headline":"uses-editorial-review (skill)","url":"https://litlfred.github.io/who-iris/branches/claude-iris-derived-kg/en/cat-harness/processes/skills/uses-editorial-review.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!--
+  The configured colour scheme, published for site-chrome/assets/js/docs-ui.js.
+
+  just-the-docs' first stylesheet is `just-the-docs-default.css`, which is
+  whatever `color_scheme` in _config.yml compiled to -- so `jtd.getTheme()`
+  returns the string "default" on a fresh load, never "dark". The scheme
+  toggle needs to know what "default" MEANS here, and reading it from the
+  config is the one way that does not go stale when the config changes.
+
+  FIRST in this file since 2026-09-24, because the first-paint snippet below
+  reads it too, and a script can only read what the parser has already seen.
+-->
+<script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script>
+<!--
+  THE FIRST PAINT IS DARK — owner, 2026-09-24: *"when any
+  page/foio-asst/cat-harness first loads if flashes white before goignt o
+  dark mode. instead it should deafult dark mode then turn to light mode to
+  prevent light flash in dark."*
+
+  WHY IT FLASHED. The site is configured dark, so the theme's first
+  stylesheet already paints dark. But `docs-ui.js` is deferred, and on load
+  it applied a STORED choice with `jtd.setTheme(name)`, which swaps that
+  stylesheet's href -- to the dark file, when the default file already was
+  dark. The swap unloads the sheet that was painting the ground, and until
+  the new one arrives the browser's WHITE canvas shows. Every reader who had
+  ever pressed the light/dark control got that on every page. And nothing
+  painted `html` at all, so any moment without the theme's sheet was white.
+
+  So, FIRST THING in this include, before every stylesheet it emits:
+
+  1. decide the scheme -- the reader's stored choice (`fa-color-scheme`, the
+     key `docs-ui.js` writes), else the OS, else LIGHT -- and put it on
+     `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
+     it ever paints the wrong way first;
+  2. if that is not the configured scheme, switch the theme's sheet NOW,
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
+  3. paint `html` itself, dark unless the scheme is light, so a sheet in
+     flight shows the page's ground rather than white.
+
+  The theme's own stylesheet link is ABOVE this include (just-the-docs emits
+  `head_custom.html` last in its head), which is why step 2 exists: there is
+  no hook before it, and none is needed -- nothing paints until the head is
+  parsed, and this runs while it is being parsed.
+
+  INLINE, which the rest of this file avoids so that no `script-src`
+  relaxation is ever needed. This is the one exception, and it is the only
+  way to run before first paint: a `src` script here is a network round-trip
+  on the critical path of every page. It interpolates nothing into markup,
+  and a CSP added later needs this block's hash.
+
+  ELSE LIGHT -- owner, 2026-10-15, "follow os else light". The declared
+  `color_scheme` only names the sheet shipped first. The ONE source: tools'
+  `scheme-css.ts` lifts this script; `docs-ui.js` reads its attribute.
+
+  NO LIQUID between the markers. `first-paint-scheme.e2e.ts` lifts these
+  exact bytes into a replica page, so the spec tests what ships.
+
+  The generated dashboards that write their OWN head (`state-visualizer.ts`,
+  `gen-translation-status.ts`) do not carry this. They switch nothing with
+  script, so they cannot flash: their first CSS paints dark, and the same spec
+  holds them to that. Giving them this snippet would switch ON their
+  `data-fa-scheme="light"` rules for the first time -- and those were never
+  finished (axe, 2026-09-24: 3 to 6 contrast failures per dashboard in light,
+  dark-scheme tag colours on a light ground). A light palette for them is its
+  own piece of work, not a side effect of this one.
+-->
+<!-- fa-first-paint:begin -->
+<script>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+<style>html{background-color:#27262b}html[data-fa-scheme="light"]{background-color:#ffffff}</style>
+<!-- fa-first-paint:end -->
+<!-- PROSE HERE IS NOT FREE: these are HTML comments, so every byte ships on
+     every page (2356 of them). A comment in this file is a POINTER; the
+     reasoning goes in the artefact. Measured, with the cost this change paid
+     before measuring, in assets/harness/site.json's front matter. -->
+<!-- THE RENDER STATE. pending here; ready/failed from assets/js/kg-render.js,
+     which carries the contract. No attribute = no dynamic region on this page.
+     The number is a MINIMUM cross-checking registrations, not a count. -->
+<meta name="fa-render-regions" content="1">
+<script>document.documentElement.setAttribute("data-fa-render","pending");</script>
+<!--
+  The browser-tab icon, from the same declared mark the sidebar title
+  (`title.html`) renders — reused rather than looked up by its own
+  `browser-icon` role. There WAS a second role for exactly that, on
+  `mark-small` in `harness.json`, and it went unread: nothing in this
+  repo ever emitted a favicon at all, `rel="icon"` included. It also could
+  not have driven this lookup as declared — `imagesForRole()`
+  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
+  mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
+  the already-resolved `icon` (the same field `title.html` reads) sidesteps
+  that and, more importantly, is what was asked for: the sidebar mark and the
+  tab icon are meant to be the SAME glyph, so one declaration driving both is
+  correct, not just convenient — flip `icon` in `harness.json` and both
+  follow in one edit, no template change needed.
+
+  SVG-only. No PNG/ICO fallback exists in the repo and none is generated
+  here — every browser this matters for (evergreen Chrome/Firefox/Edge, and
+  Safari since 16) reads `type="image/svg+xml"` directly; a raster fallback
+  would need generating actual image files, which is out of scope for this
+  change.
+
+  `relative_url`, same as `title.html` and `landing.html` — a bare
+  `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
+  for.
+--><!--
+  Site-wide styling for the BPMN workflow figures.
+
+  just-the-docs pulls this file into <head> on every page. The diagrams are wide
+  (a swimlane process does not shrink well), so the figure scrolls horizontally
+  inside its own container rather than forcing the page body to scroll.
+
+  The SVGs carry their own white backdrop — see scripts/render-bpmn.ts — so they
+  stay legible under the dark colour scheme even if this stylesheet is missing.
+-->
+<style>
+  .bpmn-figure {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid rgba(128, 128, 128, 0.35);
+    border-radius: 6px;
+    margin: 1em 0 0.4em;
+  }
+  .bpmn-figure img {
+    display: block;
+    width: 100%;
+    min-width: 1200px;
+    max-width: none;
+  }
+  .bpmn-source {
+    margin-top: 0;
+    font-size: 0.75rem;
+  }
+</style>
+
+<!--
+  Site UI: a QR of the current page in the sidebar header, and zoom /
+  full-width controls on the figures.
+
+  Loaded as same-origin files with no inline script, so no script-src
+  relaxation is needed. The QR is generated in the browser from
+  window.location.href rather than baked per page at build time, so it is
+  right for anchors, query strings, and both the directory and .html forms of
+  the same page. The UTF-8 shim must come after the encoder: without it the
+  encoder's stringToBytes is single-byte and a non-ASCII character in a URL
+  silently encodes to mojibake.
+-->
+<!--
+  The TRANSLATION INDEX — which source page has a translation in which locale.
+
+  `mountNavLocale` in docs-ui.js reads this to decide what the left-hand navbar
+  shows: with the source language selected it does nothing, and with `fr`
+  selected it swaps each nav item that HAS a French page for that page, IN
+  PLACE OF the English one. An item with no translation is left exactly as it
+  is — that is the fallback, and it is the absence of a rewrite rather than a
+  code path of its own.
+
+  Generated into `docs/_data/translations.json` by
+  `content/pipeline/translation-index.ts`, from what each page DECLARES about
+  itself: `lang`, and `translation_source` naming the page it expresses. NOT
+  from a scan for directories whose names look like language subtags — see
+  that module's header for why that inference is wrong in both directions.
+
+  THREE STATES, and the third is the reason this is a JSON island rather than
+  a conditional. (The tag name is written inside {% raw %}
+  below because LIQUID PARSES TAGS INSIDE AN HTML COMMENT — the comment
+  wrapper means nothing to it — so naming a tag in prose is a syntax error at
+  build time, and the message points at the THEME's head.html because Liquid
+  attributes an include's line to the includer. This comment cost one red
+  deploy.
+
+  AND THEN IT COST A SECOND ONE, differently, which is why this paragraph now
+  describes the wrapper rather than spelling it. It used to SPELL both halves
+  as an example — and the closing half ENDED THIS COMMENT eighteen lines
+  early, so every line below it rendered as visible body text at the top of
+  EVERY PAGE on the site. Reported by the owner from the staging URL,
+  2026-09-19.
+
+  The asymmetry is the lesson: a Liquid tag has an escape, and the closing
+  comment delimiter has NONE. There is no way to write those three characters
+  inside a comment and have the comment survive them, because the parser is
+  not looking for an escape — it stops at the first match. So the rule is not
+  "escape it carefully", it is DO NOT WRITE IT: describe it, or name it one
+  character at a time. Guarded by
+  scripts/tests/html-comment-delimiters.test.ts, which fails on an opening
+  delimiter appearing inside an open comment — the one machine-detectable
+  signature of somebody trying.)
+  A {% if %} would have to choose between the second and
+  third rows below, and there is no expression that can:
+
+    1. the data file is there      -> `index` is an object; filter the nav.
+    2. it is there and EMPTY       -> `pages` is `{}`; there is nothing to
+                                      swap, so every item correctly falls back
+                                      to the source language.
+    3. the data file is ABSENT     -> `jsonify` emits `null`, and docs-ui.js
+                                      leaves the navbar EXACTLY as built.
+
+  A build that could not determine the translation set must never render as a
+  folio that has no translations. `null` is how that is said.
+
+  `baseurl` travels with it because the client has no other way to strip the
+  site prefix off a nav `href` before matching it.
+-->
+<!-- MOVED 2026-10-02 to assets/harness/site.json: fetched once instead of
+     inlined 2356x (9482 B/page, 22.34 MB, ONE payload). The three states above
+     are unchanged; a fourth — the file is unreachable — is data-fa-render. -->
+<!--
+  Translation metadata for this page, consumed by docs-ui.js to auto-render
+  language coverage and QA badges. The translation pipeline stamps front matter;
+  this block publishes it to the client. No manual editing needed.
+-->
+<script type="application/json" id="fa-translation-meta">{
+  "lang": "en",
+  "translationStatus": "",
+  "translationSource": "",
+  "supportedLocales": ["ar","zh","en","fr","ru","es"],
+  "availableLocales": null,
+  "translationQa":{
+    "key": "page.translation",
+    "slug": "en-cat-harness-processes-skills-uses-editorial-review",
+    "src": "../../../../assets/qa/en-cat-harness-processes-skills-uses-editorial-review/page.translation.json",
+    "index": "../../../../assets/qa/en-cat-harness-processes-skills-uses-editorial-review/qa-index.json",
+    "list": "../../../../assets/qa/translation-qa-pages.json"
+  },
+  "sweep":{
+    "absent": "who-iris publishes no translation QA sweep on this site",
+    "run": false,
+    "sweptAt": "",
+    "totalPages": 0,
+    "pagesWithTranslations": 0,
+    "complete": false
+  },
+  "statusSrc":"../../../../assets/translation-status/index.json"
+}</script>
+<!--
+  Where the action tiles point.
+
+  RESOLVED, not composed. `scripts/sync-docs-harness.ts` writes
+  `docs/_data/harness.json` from the instance's own `cat-harness.json`,
+  through `siteLinks` in `scripts/site-links.ts` -- which computes every path
+  with `artefactStub` and `renderingPath`, the same functions the knowledge
+  graph exporter and the Pages workflow use. The tile therefore cannot
+  disagree with what is published.
+
+  This block previously wrote `../../../../kg/` by hand. Nothing
+  has ever been published at `<base>/kg/` -- the renderings sit at the base,
+  named after the stub -- so the only entry point to the viewer anywhere on
+  this site was a 404 from the day it was added. See bean `udx8`, and the
+  identical defect AGENTS.md records against the README's chapter PDFs. A
+  path built by convention is a claim; `bun run cat site:links --site _site`
+  checks it against the tree that actually ships, and the Pages workflow runs
+  that check after the export.
+
+  `path` is site-ROOT-relative and gets `relative_url`, which is what makes it
+  right under this site's `/folio-assistant/` baseurl. `url` is off-site and
+  is printed as-is. `source` is no longer taken from `aux_links`: those were
+  removed so the forge link stops appearing as text at the top of the main
+  panel (the owner asked for it as an icon, not a header), and the URL is
+  resolved from the git remote instead of written down twice.
+-->
+<!--
+  THE NAVBAR ICON ROW — which icons this instance shows, and where each goes.
+
+  `null` when the instance has not decided, and that is NOT the same as an
+  empty list: `navbarIcons` absent means "inherit, and nothing up the chain has
+  said either", while `[]` means the instance chose to show none. docs-ui.js
+  reads the two apart, and `jsonify` emits `null` for the first exactly as the
+  translations block above relies on.
+
+  Resolved in `sync-docs-harness.ts`: the icon list walks `needs` with the site
+  owner as the floor, and the hrefs come from this instance's own declared
+  visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
+  or in JavaScript.
+-->
+<!--
+  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
+  The row is the same on every page of a build, so it is written once into a
+  cached file instead of into each page. `data-fa-row-src` is the contract the
+  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
+  the name once it has filled the island, and a reader that finds it still
+  named and empty reports a failed load rather than "declared none".
+-->
+<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
+     moving it, in assets/harness/site.json's front matter. -->
+<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
+
+<!--
+  The todo index — a PERSON's outstanding items, published by
+  `scripts/gen-docs-pages.ts` to `/assets/todos/index.json`.
+
+  `relative_url` for the same reason every other path here uses it: the site is
+  served from `/folio-assistant` on the canonical deploy and from
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
+  404s on every deploy but one.
+
+  A URL rather than inline JSON, unlike `fa-site-links` above, because the
+  index grows with the todo corpus and inlining it would put the whole set into
+  every page's <head> whether the reader opens the board or not. A missing file
+  is reported by the fetch and the board is simply not mounted — a board that
+  opens empty is indistinguishable from a person with nothing outstanding, and
+  those are opposite facts.
+
+  `<meta>` and not a `<div>`: this is `<head>`, where flow content is not
+  permitted. A browser hoists a stray `<div>` into `<body>` and the code still
+  works, which is exactly what makes the mistake survive review.
+-->
+<!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
+     page has one and falls back to this. Rationale and measurement are in that
+     file's front matter, which is not served. -->
+<meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../../assets/todos/index.json">
+<!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
+     filters and groups by, and each todo's own page. -->
+<meta name="fa-todo-graph" content="../../../../todos.jsonld">
+
+<!--
+  THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
+  becomes its avatar.
+
+  R2 of issue #602: *"The threshold SHALL be declared data, not a literal in
+  the renderer."* `gen-docs-pages.ts` publishes the folio's own
+  `semantic-zoom.json`, and publishes NOTHING when the folio has not declared
+  one. So this `<meta>` may point at a 404, and that is a real state rather
+  than a defect: `docs-ui.js` reports it could not determine a threshold and
+  leaves every card's words in place. A default in either file would be the
+  literal R2 forbids, one layer further from where anybody looks for it.
+
+  The pointer is emitted UNCONDITIONALLY because Liquid cannot see whether the
+  generator wrote the file, and a conditional that guessed would make "this
+  folio declares no threshold" and "the build did not run" the same page.
+-->
+<meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json">
+
+<!--
+  THE DECLARED VISUALISATIONS, as tiles.
+
+  Owner, 2026-09-20: *"if harness declares visaluzers, those should have tile"*
+  — so the tile set is the `coverage.visualiser` obligation made reachable, not
+  a second registry. `graph-tiles.ts` derives it into `_data/harness.json`;
+  this hands it to `docs-ui.js` for BOTH surfaces, because a tile is declared
+  once and says where it shows.
+
+  INLINE rather than a second fetch, unlike the todo index above, and the two
+  are different for a reason worth stating: that index grows with the todo
+  corpus, while this one is bounded by the number of directories an instance
+  DECLARES — twelve here — and every page needs it before first paint or the
+  navbar would visibly grow tiles a moment after the reader arrives.
+
+  `jsonify` and not a hand-built string: a title carrying a quote would
+  otherwise close the attribute, and the quoting rule is Liquid's rather than
+  something this comment has to be right about.
+-->
+<!--
+  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
+  is the same on every page and was 12.5 KB of each one (measured on gh-pages
+  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
+  and deferred scripts run in document order, so the tiles are in place before
+  the first reader runs: no later paint than the inlined copy had.
+-->
+<meta name="fa-tiles" content="" data-fa-src="harness-data">
+<!--
+  THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
+  finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
+  instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
+  nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
+-->
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
+
+<!--
+  THE SITE'S BASEURL, for the tiles above.
+
+  Every other site-root path on this page is composed by Liquid: `relative_url`
+  prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
+  it, because they reach the client as JSON and are composed in `docs-ui.js`
+  after Liquid has finished — so the base has to travel with them.
+
+  IT SHIPPED WITHOUT ONE AND EVERY TILE 404ed (issue #801). `graph-tiles.ts`
+  stores `/beans/`, which is correct as data and is what `harness.links[].path`
+  stores too; written into an `href` unprefixed, a browser resolves it against
+  the ORIGIN, so the beans tile pointed at `litlfred.github.io/beans/`. The
+  owner found it by going looking for the board and landing there.
+
+  A meta of its own rather than reading the site index, which also carries a
+  `baseurl`: that document reads as `null` when `_data/translations.json` was
+  not built, and since 2026-10-02 it is FETCHED, so it is also absent until a
+  request resolves and may never arrive. Composing links out of an optional
+  block means the day it goes missing every tile silently points at the origin
+  again — which is this defect, with a second way to reach it. Two reasons for
+  one answer now.
+
+  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
+  `../..` two levels down, never the deploy's path, so the page is the same
+  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
+  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
+  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
+-->
+<meta name="fa-baseurl" content="../../../..">
+
+<!--
+  WHETHER THIS IS A PREVIEW, for the tiles above.
+
+  `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
+  `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
+  or a local build.
+
+  It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
+  `publish: "staging-only"` page from the canonical tree; a tile still pointing
+  at it would be a link to a 404 — `pb04`, a dead link being worse than no
+  link, and worse than usual here because the tile ALSO advertises content the
+  declaration is deliberately not publishing.
+
+  The filtering is client-side rather than baked into `harness.json` because
+  that file is generated once and committed, so it cannot know which deploy
+  will serve it. The page can be withheld at compose time because compose runs
+  per deploy; the data file cannot.
+
+  EMPTY IS THE SAFE VALUE, and it is what an absent `_data/build.yml` yields:
+  a build that cannot say it is a preview is treated as canonical and hides
+  the tile. That matches `compose-docs.ts`, which withholds unless positively
+  told `--staging` — one direction in both places, so the page and its tile
+  cannot disagree about which deploy they are on.
+
+  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
+  reader asks only whether it is empty, and the slug made every page differ
+  between previews. The branch is in `staging.json`, which the banner reads.
+-->
+<meta name="fa-staging" content="">
+
+<!--
+  WHICH SEARCH INDEX THIS PAGE IS SERVING.
+
+  `feature-staging.yml` fetches the PUBLISHED index before the build and
+  stamps what happened; `docs-site.yml` writes no such key, so the canonical
+  deploy leaves this empty and draws no warning. Bean `eof6`, on the owner's
+  ruling of 2026-09-22: *"staging uses last published index (w/ wanrnig)"*.
+
+  Three values, and the empty one is a real state rather than a fallback:
+
+    published    the preview serves the last published index. Results are
+                 about the MAIN SITE, not about this branch.
+    unavailable  the fetch failed; an empty index is served.
+    (empty)      not a staging build. No warning.
+
+  The bean this implements had first concluded that staging must disable
+  search outright, because a stale hit is "a wrong PASS, BELIEVED". The ruling
+  keeps search and attacks the belief instead — which is why the value is
+  emitted at all. An index swapped in with nothing on the page saying so would
+  be the unmarked staleness the bean was right to refuse.
+-->
+<meta name="fa-search-index" content="">
+
+<!--
+  A page left out of the search index ON PURPOSE (`search_exclude: true`)
+  says so in what is built, so `publish:verify`'s search-index check can tell
+  a deliberate exclusion from a truncated index (#2233). Front matter is gone
+  once Jekyll has run; without this marker the ~2,800 IG artefact pages that
+  #2194 excluded read as "4,189 pages offer a search box, 1,003 indexed".
+-->
+
+
+
+
+<!--
+  The bean index — the AGENT work plan, published by the same generator beside
+  the todo index above, for the same reason and read the same way. Separate
+  files rather than one combined document because the two stores are separate
+  graphs with separate declarations, and a consumer that wants only the human
+  half should not fetch 239 beans to get three todos.
+-->
+<meta name="fa-beans-src" content="../../../../assets/beans/index.json">
+<!--
+  The process index's entry point — the REPOSITORY's named-subgraph index,
+  whose children are the harness roots this site frames (`bun run
+  subgraph:jsonld`; bean `ax6r`, owner 2026-10-03: "Move to JSON-LD").
+  Read by assets/js/process-index.js on the page carrying
+  `[data-fa-process-index]` (the publication-workflow page), which walks it
+  down to every `processes` subgraph's `index.hydrated.jsonld`.
+-->
+<meta name="fa-processes-src" content="../../../../subgraph/index.jsonld">
+<!--
+  The deploy's stamp — when it was built and from which commit — which the
+  work-plan dashboard turns into "generated … · N commits behind main".
+  `build.json` on the main site, `staging.json` on a preview; written by the
+  deploy, never committed, because a committed timestamp is a merge conflict
+  on every pair of concurrent changes (bean `y7b3`).
+-->
+<meta name="fa-build-src" content="../../../../build.json">
+
+<!--
+  The discarded-items document — `fsh-guts.jsonld`, published at the base by
+  `docs-site.yml`. A URL and not inline JSON, for the todo index's reason and
+  then some: it carries every node's BODY, which is 64 KB against a 5 KB
+  document without them. Inlining that into every page's <head> would be
+  absurd for content reached through one control inside Settings.
+
+  `.json` rather than `.jsonld`. Both are published and they are the same
+  bytes; Pages has no media type for `.jsonld` and serves it as
+  octet-stream. `fetch().json()` would parse it anyway, but every other
+  rendering here uses the alias and one that did not would be the odd case a
+  later reader has to work out.
+
+  The viewer fetches this WHEN SETTINGS OPENS, never on page load, and a
+  fetch that fails is reported rather than shown as an empty trashcan —
+  "nothing discarded" and "could not read the document" are opposite facts.
+-->
+<!--
+  NOT on a folio's site that does not link its OWN fsh-guts (#2263 follow-up):
+  there this path is the folio's, where no document is published, and the
+  fetch's 404 painted "?" -- an error -- on the fish. With no meta the count is
+  ABSENT, and the row's fish is a link or an inert icon saying why
+  (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
+-->
+<!--
+  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
+  failure, not a performance one.
+
+  These five are served from stable paths with no hash in the name, so a
+  browser that has the page cached keeps the old CSS and JS until its
+  `max-age` runs out. On the live site that is invisible. On a branches/
+  preview it is the whole point of the deployment: the reviewer opens the URL
+  they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
+  see changes" — which is indistinguishable from a deploy that never
+  happened, and sends the next hour after the wrong cause. Measured
+  2026-09-21 on this branch: every byte of the change was verified present in
+  the publish ref while the page rendered the previous build.
+
+  The query is a HASH OF THE ASSET (`fa_asset_version`,
+  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
+  do. It was `site.time` until 2026-10-23, and the build time is new on every
+  build: every page then differed on every rebuild, so each re-push of a
+  preview stored a whole new copy of its HTML (bean `g196`).
+
+  NOT a cache-busting strategy for third-party assets, and not applied to
+  them: those are versioned in their own URLs already.
+-->
+<!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
+<link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
+<!-- Narrow viewports: wide content scrolls in its own box, never the page
+     (bean `2r2n`). The standalone viewers inline the same file through
+     `withViewerNav`, so both kinds of page read one set of rules. -->
+<link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
+
+<!--
+  The work-plan dashboard's styles, split from docs-ui.css so that
+  `state-visualizer.ts` can inline exactly these bytes into the generated
+  `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
+-->
+<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01">
+<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
+     `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
+     Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
+     roles that docs-ui.css consumes, and a custom property has to be set on a
+     matching element before the rule reading it takes effect. -->
+<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
+<!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
+     that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
+<link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
+<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
+     `avatars:css:check` fails the build when it is stale. One stylesheet
+     rather than 68 assets: the glyph is a mask and the colour is a property,
+     so a scheme swap is a custom property and the trash state is a selector. -->
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8">
+
+<!--
+  The kinds THIS INSTANCE DECLARES, for the avatar fan.
+
+  Owner: "shows the DECLared kinds for that instance, not inheritance." Written
+  by `sync-docs-harness.ts` from the instance's own `harness.json`, BEFORE
+  `resolveDirectories` overlays a dependency's. The effective set is strictly
+  larger, and showing it would name kinds this repository never claimed.
+
+  Inline rather than a fetched URL, unlike the todo index and the discarded
+  document: this is a dozen short strings, it is needed to render the fan at
+  all, and a fetch for that would put a spinner in front of a badge.
+-->
+<!-- NOT MOVED: same reason as fa-site-links above. -->
+<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
+<!--
+  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
+  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
+
+  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
+  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
+  A version query naming its content would write that change into every page: two
+  previews built 25 minutes apart differed on 1,351 pages for one count going
+  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
+  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
+-->
+<script src="../../../../assets/js/harness-data.js" defer></script>
+<script src="../../../../assets/js/vendor/qrcode.js" defer></script>
+<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
+<!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
+<script src="../../../../assets/js/kg-render.js" defer></script>
+<!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
+<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
+<!-- The edit, source and feedback links of every page, from the platform's one
+  recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
+  facts and this builds the hrefs. -->
+<script src="../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
+
+<!--
+  The work-plan dashboard. SELF-MOUNTING on any page carrying
+  `[data-fa-workplan]`, so docs-ui.js neither calls it nor knows it exists; a
+  page without that container pays one failed querySelector. The same file is
+  inlined verbatim into the generated state-visualiser pages.
+-->
+<script src="../../../../assets/js/work-plan.js" defer></script>
+<!--
+  The process index, self-mounting on `[data-fa-process-index]` the same way.
+  Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
+-->
+<script src="../../../../assets/js/process-index.js" defer></script>
+
+<!--
+  The landing panel — the instance's declared description drawn inside the
+  quiet part of its declared backdrop. Markup: `_includes/landing.html`.
+
+  The region comes in as custom properties (`--fl-x` …) set per instance from
+  `harness.json`, so this stylesheet knows nothing about where any
+  particular picture is quiet. That is the whole design: a downstream folio
+  swaps the art and the numbers and needs no CSS.
+-->
+<style>
+  .folio-landing { position: relative; margin: 0 0 2rem; }
+
+  /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
+     `landing.html` emits exactly one folio-landing class —
+     `folio-landing folio-landing--plain` — the no-stickies fallback, which
+     renders the description and no art. The art path moved to the sticky
+     board (`fa-sticky--backdrop` in docs-ui.css), which composites text into
+     the picture through a declared `textRegion` and a scrim.
+
+     So this block used to carry fourteen selectors of which ELEVEN matched
+     nothing: every rule reaching for `folio-landing__art`,
+     `folio-landing__text` or `folio-landing--no-region`. Measured before they
+     were cut — those three classes appear in no markup in this repository and
+     on none of the 331 published pages that were inlining the CSS for them.
+     CSS has no error for a selector that matches nothing, which is the same
+     silence that let `.fa-sticky--backdrop > .fa-sticky-art` ship wrong.
+
+     The reasoning did not go with them. The blend-direction argument for the
+     fade is now at `.fa-sticky--backdrop::before`, where a scrim replaces it;
+     the region, overflow and breakpoint-parity lessons were already
+     re-derived and better stated on `.fa-landing-sticky--fixed`. What is NOT
+     carried over is the `cqw` container-query sizing: the successor scales
+     through `--fa-text-scale` rather than container queries, so a note about
+     `container-type` not being its own query container would be advice about
+     a mechanism nothing here uses. Bean `alox`, issue #873. */
+  .folio-landing--plain {
+    position: static; width: auto; height: auto; color: inherit;
+  }
+  .folio-landing--plain p { font-size: inherit; font-weight: inherit; }
+</style>
+
+<!--
+  AN INSTANCE'S OWN WEBPAGE THEME, scoped to its pages.
+
+  Bean `7h3u`, on the owner's 2026-09-30 ruling to wire this at the PLATFORM
+  layer so every ingested IG gets it, rather than in one instance's page
+  generator.
+
+  WHY LIQUID AND NOT CSS. A webpage theme dresses one instance's pages, so it
+  has to be scoped by URL — and CSS cannot select on a URL. Jekyll is what
+  knows which page is rendering, so the scope is applied here and the VALUES
+  come from `_data/instance-themes.json`, written by `gen-themes-css.ts` from
+  each instance's declared `themes/`. That is the `site.data` pass-through bean
+  `kott` settled, and the owner's own instruction for this work: "reuse all
+  existing justthedocs infra".
+
+  WHY INLINE AND NOT A LINKED STYLESHEET. The same first-paint reasoning this
+  file already carries for the colour scheme: a sheet arriving after first
+  paint flashes the unthemed colours, which is the defect this file was
+  rewritten to remove.
+
+  WHAT IT RETHEMES, AND WHAT IT CANNOT. These three names are read by
+  `docs-ui.css` at 29 of its 33 `var(--x, #literal)` sites and DEFINED by
+  nothing — just-the-docs is Sass, so its own chrome compiles to literals and
+  no custom property can reach it. So this dresses the surfaces the site owns,
+  the left-hand nav among them, and leaves just-the-docs' compiled chrome
+  alone. Stated here because the alternative is a reader concluding the theme
+  is broken when it is doing exactly what it can.
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
+
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
+
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
+
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+var b=document.querySelector('[data-fa-staging-banner]'),d=document.querySelector('[data-fa-staging-detail]');
+if(b)document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');
+var m=location.pathname.match(/^(.*\/(?:branches|STAGING)\/[^/]+\/)/);
+if(!m){if(d)d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+var s=document.createElement('script');s.src=m[1]+'staging-banner.js';
+s.onerror=function(){if(d)d.textContent='\u2014 build details unavailable';};
+(document.head||document.documentElement).appendChild(s);
+})();</script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/uses-editorial-review.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#the-relation-you-are-auditing","label":"The relation you are auditing"},{"href":"#interprets-is-the-same-relation-under-a-second-field-name","label":"interprets is the same relation under a second field name"},{"href":"#the-prime-directive","label":"The prime directive"},{"href":"#workflow","label":"Workflow"},{"href":"#verdict-rubric","label":"Verdict rubric"},{"href":"#forward-references-and-foreshadows","label":"Forward references and foreshadows[]"},{"href":"#declaring-the-second-case","label":"Declaring the second case"},{"href":"#a-blocks-uses-may-be-carrying-the-whole-family","label":"A block’s uses[] may be carrying the whole family"},{"href":"#sibling-parity-is-evidence-only-until-a-bulk-edit-touched-the-family","label":"Sibling parity is evidence only until a bulk edit touched the family"},{"href":"#one-reading-is-not-the-standard","label":"One reading is not the standard"},{"href":"#reading-the-mechanical-findings-first","label":"Reading the mechanical findings first"},{"href":"#interaction-with-other-skills","label":"Interaction with other skills"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header fa-site-bar fa-page-bar"><a class="fa-page-bar-home" href="../../../../">WHO IRIS</a>
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search WHO IRIS" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search WHO IRIS</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+<span class="fa-page-bar-locale" data-fa-slot="locale"></span></div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <blockquote class="note">
+  <p>The skill <code class="language-plaintext highlighter-rouge">uses-editorial-review</code> as its source file <a href="https://github.com/litlfred/cat-harness/blob/main/skills/authoring/authoring-core/uses-editorial-review.md"><code class="language-plaintext highlighter-rouge">cat-harness/skills/authoring/authoring-core/uses-editorial-review.md</code></a> writes it, rendered by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> because it has no instruction page on this site — do not edit here. <a href="../index.html">All processes</a></p>
+</blockquote>
+<h1 id="uses-editorial-review">
+  
+  
+    <a href="#uses-editorial-review" class="anchor-heading" aria-labelledby="uses-editorial-review"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code class="language-plaintext highlighter-rouge">uses[]</code> Editorial Review
+  
+  
+</h1>
+    
+
+<p><strong>Skill <code class="language-plaintext highlighter-rouge">uses-editorial-review</code>:</strong> Adjudicate <code class="language-plaintext highlighter-rouge">uses-editorial-completeness</code> — read a block as a reader would and judge whether its <code class="language-plaintext highlighter-rouge">uses[]</code> is complete and genuinely expository. The human/agent half of the <code class="language-plaintext highlighter-rouge">uses</code> QA axis; the mechanical half runs in <code class="language-plaintext highlighter-rouge">qa-checkers-uses.ts</code>.</p>
+
+<p><strong>Named by:</strong> <a href="../review-narrative.html">Narrative review</a>, <a href="../voice-review.html">Voice overlay review</a>, <a href="../content-change-review-committee.html">Committee review of a content change</a></p>
+<h2 id="the-relation-you-are-auditing">
+  
+  
+    <a href="#the-relation-you-are-auditing" class="anchor-heading" aria-labelledby="the-relation-you-are-auditing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The relation you are auditing
+  
+  
+</h2>
+    
+
+<p><code class="language-plaintext highlighter-rouge">uses[]</code> is the <strong>editorial</strong> dependency relation: <em>what must a reader
+have read to follow this block?</em> It is authored content — a deliberate
+judgement about narrative order — and it is maintained by agents and
+humans, not generated.</p>
+
+<p><strong>The same relation exists at term scale</strong>: a glossary term’s <code class="language-plaintext highlighter-rouge">requires</code>,
+and a schema term’s <code class="language-plaintext highlighter-rouge">uses</code> in bootstrap’s <code class="language-plaintext highlighter-rouge">graph.schema.json</code>, say what a
+reader must know before the definition. Same discipline — AUTHORED, never
+inferred, with a text matcher kept only as a guard that list and prose agree
+(see the glossary ordering discipline, §”Ordered glossaries”).</p>
+
+<p>It is <strong>not</strong> any machine-derived dependency graph. A content type with a
+formal layer also derives a formal relation, from what its proofs actually
+invoke, and the two relations answer different questions and diverge in both
+directions, correctly. The layer that ships such a content type holds that
+comparison and names this skill from its side (for a paper folio, the science
+layer).</p>
+<h2 id="interprets-is-the-same-relation-under-a-second-field-name">
+  
+  
+    <a href="#interprets-is-the-same-relation-under-a-second-field-name" class="anchor-heading" aria-labelledby="interprets-is-the-same-relation-under-a-second-field-name"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code class="language-plaintext highlighter-rouge">interprets</code> is the same relation under a second field name
+  
+  
+</h2>
+    
+
+<p><code class="language-plaintext highlighter-rouge">uses[]</code> is the curated list. <strong><code class="language-plaintext highlighter-rouge">interprets</code> states the same reader-facing fact</strong>
+for a remark or example <em>about one specific block</em>, and the content graph counts
+<strong>both</strong>.</p>
+
+<p>Each editorial edge carries <code class="language-plaintext highlighter-rouge">editorialField</code> so a tool proposing an <strong>edit</strong> can
+still tell which field an author wrote: <strong>they are interchangeable to a reader
+and not to a writer</strong>, and collapsing them would make an automated edit
+rewrite the wrong field.</p>
+
+<p><strong>Two caveats, both of which change what a number means:</strong></p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">detangler-no-forward-ref</code> builds its own <code class="language-plaintext highlighter-rouge">uses</code>-only adjacency</strong> and does
+not consume the shared graph, so forward-pointing <code class="language-plaintext highlighter-rouge">interprets</code> edges are
+outside what it counts.</li>
+  <li><strong>The editorial graph is not acyclic.</strong> Counting both fields reveals genuine
+editorial cycles. Do not “fix” one without reading whether it is real.</li>
+</ul>
+
+<p><strong>Do not quote a count from prose — run the check against the corpus in front of
+you.</strong> A number in a document is a claim; only a run is evidence.</p>
+
+<p>For impact questions — <em>what breaks if this changes?</em> — use the union, via the
+content graph’s accessors, which default to it.</p>
+<h2 id="the-prime-directive">
+  
+  
+    <a href="#the-prime-directive" class="anchor-heading" aria-labelledby="the-prime-directive"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The prime directive
+  
+  
+</h2>
+    
+
+<p><strong>Never populate <code class="language-plaintext highlighter-rouge">uses[]</code> from a machine-derived dependency graph.</strong>
+Copying derived dependencies in destroys the editorial signal and inflates
+every ordering metric computed from it (graph energy, forward refs, cone
+size, PageRank). Never “sync” the two.</p>
+
+<p>When reviewing, do not open a block’s formal or generated sibling to decide
+what belongs in <code class="language-plaintext highlighter-rouge">uses[]</code>. The question is about the reader.</p>
+<h2 id="workflow">
+  
+  
+    <a href="#workflow" class="anchor-heading" aria-labelledby="workflow"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Workflow
+  
+  
+</h2>
+    
+
+<ol>
+  <li>
+    <p><strong>Read the <code class="language-plaintext highlighter-rouge">.md</code> as a reader.</strong> Cold. Do not read the <code class="language-plaintext highlighter-rouge">.ts</code> first —
+you want your own sense of what the block presumes before you see
+what the author declared.</p>
+  </li>
+  <li><strong>List what the narrative actually leans on.</strong> Note every point
+where the prose:
+    <ul>
+      <li>uses notation it does not introduce,</li>
+      <li>names an object (“the canonical $X$”) defined elsewhere,</li>
+      <li>argues <em>against</em> or <em>refines</em> a prior result,</li>
+      <li>presumes a construction the reader would otherwise have to
+reconstruct.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Now read <code class="language-plaintext highlighter-rouge">uses[]</code></strong> in the <code class="language-plaintext highlighter-rouge">.ts</code> manifest and compare both ways.</p>
+  </li>
+  <li>
+    <p><strong>Judge completeness.</strong> Anything from step 2 missing from <code class="language-plaintext highlighter-rouge">uses[]</code>
+that a reader would genuinely stumble over ⇒ <strong>fail (major)</strong>. A
+reader who could carry on unbothered ⇒ at most <strong>warn</strong>.</p>
+  </li>
+  <li><strong>Judge editorial fitness.</strong> For each listed entry, ask: <em>would a
+reader be worse off having not read this first?</em>
+    <ul>
+      <li>Yes ⇒ fine.</li>
+      <li>No, and it looks like a derived artefact (an entry the prose never
+mentions, copied from a generated dependency list) ⇒ <strong>fail
+(major)</strong>. This is the pollution case.</li>
+      <li>No, but it is defensible context ⇒ <strong>warn</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Write the sidecar entry</strong> under <code class="language-plaintext highlighter-rouge">uses-editorial-completeness</code> with
+<code class="language-plaintext highlighter-rouge">reviewer.kind: "agent"</code> (or <code class="language-plaintext highlighter-rouge">"human"</code>), citing file:line and a
+verbatim quote for every finding — the block-QA evidence contract.</li>
+</ol>
+<h2 id="verdict-rubric">
+  
+  
+    <a href="#verdict-rubric" class="anchor-heading" aria-labelledby="verdict-rubric"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Verdict rubric
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Verdict</th>
+      <th>When</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pass</code></td>
+      <td>List reads as a deliberate editorial judgement; nothing a reader needs is missing; nothing present is dead weight.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">warn</code></td>
+      <td>A marginal entry, or a missing dependency a reader could shrug off.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">fail</code></td>
+      <td>A missing dependency a reader would stumble over, <strong>or</strong> an entry that is plainly a copied-in derived dependency.</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2 id="forward-references-and-foreshadows">
+  
+  
+    <a href="#forward-references-and-foreshadows" class="anchor-heading" aria-labelledby="forward-references-and-foreshadows"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Forward references and <code class="language-plaintext highlighter-rouge">foreshadows[]</code>
+  
+  
+</h2>
+    
+
+<p>A <code class="language-plaintext highlighter-rouge">uses[]</code> entry pointing at a block that appears <em>later</em> in the chapter
+is a <code class="language-plaintext highlighter-rouge">detangler-no-forward-ref</code> finding. Sometimes that is right — the
+exposition really does defer — and <code class="language-plaintext highlighter-rouge">foreshadows[]</code> records it.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">foreshadows[]</code> is independent of <code class="language-plaintext highlighter-rouge">uses[]</code></strong>, so a chapter overview can name
+results it previews without asserting a dependency that is not real. It covers
+two cases you must keep apart:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>case</th>
+      <th>in <code class="language-plaintext highlighter-rouge">uses[]</code>?</th>
+      <th>who records it</th>
+      <th>cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Pure forward pointer</strong> — the prose names something coming later and does not depend on it</td>
+      <td>no</td>
+      <td><strong>derived</strong> from the <code class="language-plaintext highlighter-rouge">.md</code>, not authored</td>
+      <td>zero by construction: it never enters the dependency graph</td>
+    </tr>
+    <tr>
+      <td><strong>Deferred prerequisite</strong> — a real dependency the paper states later on purpose</td>
+      <td>yes</td>
+      <td><strong>declared</strong> by the author, and only the author</td>
+      <td>exempt from ordering <em>cost</em>; still counted for cycles, cones and depth</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>Do not hand-author the first case.</strong> <code class="language-plaintext highlighter-rouge">deriveForeshadows</code> reads the
+block’s own markdown links and backticked labels, keeps those that
+resolve to a real block sitting later in reading order and are not
+already in <code class="language-plaintext highlighter-rouge">uses[]</code>, and <code class="language-plaintext highlighter-rouge">loadChapterGraph</code> re-derives on every load.
+Writing them into the manifest duplicates the prose into metadata, where it
+goes stale.</p>
+
+<p>The derivation never reads deferral <em>language</em>; it matches links and labels
+only (phrasing detection misreads e.g. “<strong>Below</strong> $n^*$”, a numeric
+comparison).</p>
+<h2 id="declaring-the-second-case">
+  
+  
+    <a href="#declaring-the-second-case" class="anchor-heading" aria-labelledby="declaring-the-second-case"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Declaring the second case
+  
+  
+</h2>
+    
+
+<p>Only a deferred prerequisite needs your judgement: it exempts a real <code class="language-plaintext highlighter-rouge">uses[]</code>
+edge from the ordering metrics, hiding a genuine defect behind an authored
+claim that the disorder was intended, and nothing downstream re-opens it. The
+contract in <code class="language-plaintext highlighter-rouge">BlockBase.foreshadows</code> is strict — the prose must <strong>frame
+the reference as deferred</strong> (“we will need X, proved in chapter 9”).</p>
+
+<p>The bar is a first-person authorial hand-off that says the treatment
+happens <em>elsewhere</em>: “we establish this in X”, “we work this out
+separately”, “the derivation is recorded in X”.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Looks like a deferral</th>
+      <th>Actually</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bare cross-reference — “See [X] in Chapter 7”</td>
+      <td><code class="language-plaintext highlighter-rouge">ordering</code>. Says nothing about direction.</td>
+    </tr>
+    <tr>
+      <td>Organizational pointer — “these tables are projections of this master table”</td>
+      <td><code class="language-plaintext highlighter-rouge">ordering</code>. About structure, not sequence.</td>
+    </tr>
+    <tr>
+      <td>Block asserts the target’s conclusion as background, then reasons onward from it</td>
+      <td><code class="language-plaintext highlighter-rouge">ordering</code>. Consuming a result is the opposite of deferring it.</td>
+    </tr>
+    <tr>
+      <td>Target listed under “## Rigorous results” / “## Consumers / downstream”</td>
+      <td><code class="language-plaintext highlighter-rouge">ordering</code> — and check the direction; these often run target→source.</td>
+    </tr>
+    <tr>
+      <td>A forward-looking word (“below”, “later”, “we must show”)</td>
+      <td><code class="language-plaintext highlighter-rouge">ordering</code> unless the sentence is about <em>this target’s placement</em>. “Below $n^*$” is a numeric comparison; “we must show” is usually about research, not chapter order.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Two failure modes survive a verbatim quote, so check both before
+declaring:</p>
+
+<ul>
+  <li><strong>False locator.</strong> “the functor of the <em>next subsection</em>” where the
+target is 21 sections and ~300 blocks away. The prose defers; it does
+not defer <em>this far</em>, and the edge is a real defect.</li>
+  <li><strong>Mis-aimed deferral.</strong> The quoted sentence hands off to a <em>different</em>
+block than the edge under review. A deferral pointed elsewhere cannot
+exempt this one.</li>
+</ul>
+
+<p>Both are about the <em>declared</em> case only. A derived pointer is aimed by
+the link itself, so it cannot be mis-aimed, and it carries no exemption
+to abuse.</p>
+
+<p>Two rules police the field: <code class="language-plaintext highlighter-rouge">foreshadows-resolve</code> (every target must exist)
+and <code class="language-plaintext highlighter-rouge">foreshadows-not-self</code>. The <code class="language-plaintext highlighter-rouge">foreshadows-point-forward</code> criterion catches
+a target the reader has already passed, which is either a prerequisite
+filed in the wrong field or an inert back-reference.</p>
+<h2 id="a-blocks-uses-may-be-carrying-the-whole-family">
+  
+  
+    <a href="#a-blocks-uses-may-be-carrying-the-whole-family" class="anchor-heading" aria-labelledby="a-blocks-uses-may-be-carrying-the-whole-family"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A block’s <code class="language-plaintext highlighter-rouge">uses[]</code> may be carrying the whole family
+  
+  
+</h2>
+    
+
+<p><strong>Never judge an entry from the block’s own <code class="language-plaintext highlighter-rouge">.md</code> alone.</strong> A block is the head
+of a family — <code class="language-plaintext highlighter-rouge">X-proof</code>, <code class="language-plaintext highlighter-rouge">X-interpretation</code>, <code class="language-plaintext highlighter-rouge">X-tableN-data</code> — and the
+dependency you are looking for is often in a child while the <em>declaration</em> sits
+on the parent.</p>
+
+<ul>
+  <li><strong>Table children.</strong> Pointer-style blocks (“See Table 3”) keep their substance
+in <code class="language-plaintext highlighter-rouge">tbl:…-data</code>. A name-and-notation search of the parent’s <code class="language-plaintext highlighter-rouge">.md</code> reports an
+absence that is not real.</li>
+  <li><strong>Proof children.</strong> A proof cites what the statement assumes. The parent’s
+prose may never name a target its <strong>proof child cites by label</strong>; if the
+proof declares no <code class="language-plaintext highlighter-rouge">uses[]</code> of its own, the parent’s entry is the <strong>sole
+record</strong> of the dependency, and deleting it as “unsupported by the prose”
+erases the edge entirely.</li>
+</ul>
+
+<p>So before removing an entry, check whether any child leans on the target, and
+whether that child declares anything itself. An entry that looks like dead
+weight on the parent may be the family’s only declaration.</p>
+
+<p>Searching for the target’s <em>words</em> also misses a lean on the target’s <em>object</em>
+— a source writing “the canonical $\tilde w_\lambda$” depends on whatever
+defines the undeformed $w_\lambda$, whether or not it ever says so.</p>
+<h2 id="sibling-parity-is-evidence-only-until-a-bulk-edit-touched-the-family">
+  
+  
+    <a href="#sibling-parity-is-evidence-only-until-a-bulk-edit-touched-the-family" class="anchor-heading" aria-labelledby="sibling-parity-is-evidence-only-until-a-bulk-edit-touched-the-family"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sibling parity is evidence only until a bulk edit touched the family
+  
+  
+</h2>
+    
+
+<p>“All the siblings declare nothing, so declaring it here would be the anomaly”
+is evidence only if no bulk operation has run over the family: a bulk edit (for
+example a transitive-prune pass) produces parity <strong>by construction</strong>, so
+parity cannot distinguish a shared convention from shared damage.</p>
+
+<p>Before resting on it, check the <strong>family’s history</strong>, not just the block’s:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span> <span class="nt">--</span> &lt;chapter&gt;/&lt;sibling&gt;.ts   <span class="c"># for two or three siblings</span>
+</code></pre></div></div>
+
+<p>A convention shows up as blocks that were <em>authored</em> empty. Damage shows up as
+one commit emptying all of them on the same day. If the emptiness has a single
+commit behind it, parity tells you nothing about intent.</p>
+
+<p>The same caution applies to any evidence drawn from what “the corpus does”:
+a corpus that has been swept is a record of the sweep as much as of the authors.</p>
+<h2 id="one-reading-is-not-the-standard">
+  
+  
+    <a href="#one-reading-is-not-the-standard" class="anchor-heading" aria-labelledby="one-reading-is-not-the-standard"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> One reading is not the standard
+  
+  
+</h2>
+    
+
+<p>A single careful pass is not enough: on re-review, destructive <code class="language-plaintext highlighter-rouge">uses[]</code>
+verdicts and foreshadow declarations are overturned often, and keyword search
+over the <code class="language-plaintext highlighter-rouge">.md</code> alone misses real dependencies.</p>
+
+<p>Use <strong>two readers who cannot see each other’s verdicts</strong> for anything that
+edits the graph, and treat agreement as the signal. Where they disagree, or
+where either is unsure, leave the edge alone: a wrongly deleted editorial edge
+silently corrupts every ordering metric computed from the graph.</p>
+
+<p><strong>A retarget carries both burdens.</strong> It asserts this edge is wrong <em>and</em> that
+one is right, so it needs evidence for each half separately. When only the
+second half holds, it is an <strong>addition</strong>, not a swap.</p>
+<h2 id="reading-the-mechanical-findings-first">
+  
+  
+    <a href="#reading-the-mechanical-findings-first" class="anchor-heading" aria-labelledby="reading-the-mechanical-findings-first"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Reading the mechanical findings first
+  
+  
+</h2>
+    
+
+<p>Run the script half before adjudicating — it is cheap and it changes
+what you should look at:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bun run pipeline/qa-checkers-uses.ts   <span class="c"># via qa-sweep --axis uses</span>
+</code></pre></div></div>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Mechanical finding</th>
+      <th>What it means for your review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uses-editorial-hygiene</code> <strong>fail</strong> — unresolvable label</td>
+      <td>A dangling reference. Fix the label or add the missing block <em>before</em> judging completeness; the graph is wrong until you do.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uses-editorial-hygiene</code> <strong>warn</strong> — transitive redundancy</td>
+      <td>Tidiness only. The graph is correct, just not minimal. Do not let it distract from the completeness question.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>A content type with a formal layer adds its own advisory finding here; the
+layer that ships it says how to read it.</p>
+<h2 id="interaction-with-other-skills">
+  
+  
+    <a href="#interaction-with-other-skills" class="anchor-heading" aria-labelledby="interaction-with-other-skills"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Interaction with other skills
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Skill</th>
+      <th>Interaction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">content-graph</code></td>
+      <td>Owns the graph the mechanical checks read</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">prepare-merge</code></td>
+      <td>Runs the <code class="language-plaintext highlighter-rouge">uses</code> axis as part of the content gates</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>A content type’s own skills that consume or extend this relation are named by
+the layer that ships the type, which links down to this skill.</p>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+
+  <p class="text-small mb-0">WHO IRIS — built with <a href="https://litlfred.github.io/folio-assistant/">folio-assistant</a>.</p><p class="text-small mb-0 fa-build-stamp">
+  deployed
+  <a href="https://github.com/litlfred/folio-assistant/actions"><code>dev</code></a></p>
+
+
+  
+</footer>
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+    
+  
+</body>
+</html>
