@@ -11,7 +11,7 @@ Feature: The catalogue page's rows lead somewhere, and the page is themed
   Scenario: links each held item's title to its library entry page, and nothing to the retired replica
     Then the table has no link to an item- or collection- .html page
     And it has at least one link of the form ".../library/who-iris/<id>/"
-    And every such id exists as a directory under library/
+    And every such id exists as a directory under library/, or as a Dublin Core record of an item catalogued by reference
 
   @test:scripts/tests/catalogue-links.test.ts::the_catalogue's_rows_lead_somewhere_(qgjh)::linksLibraryIdsToViewerPage
   Scenario: links a held-as library id to the viewer page, which exists or is built at publish
