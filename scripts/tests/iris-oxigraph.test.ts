@@ -44,7 +44,7 @@ describe('WHO-IRIS Oxigraph Multi-Graph MVP', () => {
     expect(blankNodes.length).toBe(0);
 
     // Assert compound nodes are skolemized into deterministic https://iris.who.int/entity/item/ URIs
-    const skolemizedNodes = lines.filter(line => line.includes('https://iris.who.int/entity/item/'));
+    const skolemizedNodes = lines.filter(line => /<https:\/\/iris\.who\.int\/entity\/item\/[^>]+>/.test(line));
     expect(skolemizedNodes.length).toBeGreaterThan(10);
   });
 
