@@ -2178,7 +2178,9 @@ function replicaNav(): string {
   ];
   // The held items, each to its library entry page: since 2026-10-30 that is
   // the item's one page (owner), and the replica keeps only its home page.
-  for (const n of all.filter((x) => x.flavour === "item")) {
+  // Held items only: an item catalogued by reference has a page too, but
+  // listing 17k of them in every page's rail would swamp it.
+  for (const n of all.filter((x) => x.flavour === "item" && x.libraryId)) {
     const href = itemPageHref(n);
     if (href !== undefined) entries.push({ label: n.title, href });
   }
@@ -2297,9 +2299,23 @@ const REPLICA_ROUTE = (() => {
 })();
 
 function libraryEntryRoute(n: Node): string | undefined {
-  const id = n.flavour === "item" ? n.libraryId : undefined;
-  if (!id || !HELD_ITEM_LINKS(id) || LIBRARY_LISTING_ROUTE === undefined) return undefined;
-  return `${LIBRARY_LISTING_ROUTE}${encodeURIComponent(id)}/`;
+  if (LIBRARY_LISTING_ROUTE === undefined || n.flavour !== "item") return undefined;
+  const id = n.libraryId;
+  if (id) return HELD_ITEM_LINKS(id) ? `${LIBRARY_LISTING_ROUTE}${encodeURIComponent(id)}/` : undefined;
+  return catalogued(n);
+}
+/**
+ * The library entry page of an item catalogued BY REFERENCE — owner,
+ * 2026-11-10: its link goes to *"our ingested record in linbrary and
+ * associated KG"*, not IRIS (card Q-IRIS-5 = A). The library publishes one
+ * page per `referenced` item whose Dublin Core record resolves, named by the
+ * record's stem (cat-harness-tools `referencedCatalogueEntries`).
+ */
+function catalogued(n: Node): string | undefined {
+  const ref = n.metadataRef;
+  if (n.materialization.state !== "referenced" || !ref || !ref.endsWith(".dc.json") || ref.includes("..")) return undefined;
+  if (!existsSync(join(INSTANCE, ref))) return undefined;
+  return `${LIBRARY_LISTING_ROUTE}${encodeURIComponent(basename(ref).slice(0, -".dc.json".length))}/`;
 }
 /** A catalogue row's title: a held item links to its library entry page; anything else is plain text. */
 function titleCell(n: Node): string {
@@ -2324,11 +2340,12 @@ function cataloguePageHref(): string {
   return `${replicaUp()}${CATALOGUE_ROUTE}/`;
 }
 /**
- * Where an item's title and cover go. A held item has its library entry page.
- * An item with none (catalogued by reference, owner 2026-11-10: "why not all
- * links correct") goes to its own record upstream at WHO IRIS, which is the
- * item's real page; it used to go to the catalogue page, which lists every
- * node and says nothing more about this one. The catalogue page is left only
+ * Where an item's title and cover go: its library entry page. A held item
+ * has one, and since 2026-11-10 so does an item catalogued by reference
+ * ({@link catalogued}; owner: *"i dont wnat this this link to go to iris"*).
+ * An item with neither goes to its own record upstream at WHO IRIS; it used
+ * to go to the catalogue page, which lists every node and says nothing more
+ * about this one. The catalogue page is left only
  * for an item that records no upstream address at all.
  */
 function itemHref(n: Node): string {

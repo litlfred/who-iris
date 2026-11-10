@@ -56,7 +56,14 @@ describe("the catalogue's rows lead somewhere (qgjh)", () => {
     expect(nodes).not.toMatch(/href="[^"]*(?:item|collection)-[^"]+\.html"/);
     const entries = [...nodes.matchAll(/href="[^"#]*\/library\/who-iris\/([^"/]+)\/"/g)].map((m) => m[1]!);
     expect(entries.length).toBeGreaterThan(0);
-    for (const id of entries) expect(existsSync(join(INSTANCE, "library", id)), id).toBe(true);
+    // A held item has its directory; an item catalogued by reference has its
+    // Dublin Core record, and the library publishes its entry page from that
+    // (owner, 2026-11-10, card Q-IRIS-5 = A; cat-harness-tools#1765).
+    for (const id of entries) {
+      const held = existsSync(join(INSTANCE, "library", id));
+      const record = existsSync(join(INSTANCE, "catalogue", "records", `${id}.dc.json`));
+      expect(held || record, id).toBe(true);
+    }
   });
 
   it("linksLibraryIdsToViewerPage", () => {

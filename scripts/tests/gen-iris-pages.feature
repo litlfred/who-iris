@@ -44,6 +44,12 @@ Feature: The pages gen-iris-pages writes
     Given the replica's home page in site/
     Then it shows at least one and at most 10 recent submissions
 
+  @test:scripts/tests/gen-iris-pages.test.ts::the_IRIS_home_replica::referencedItemsLinkToLibraryNotIris
+  Scenario: every Recent Submissions title goes to its library entry page
+    Given the replica's home page in site/
+    Then each submission title links to a page under the who-iris library
+    And none links to IRIS or the Handle resolver
+
   @test:scripts/tests/gen-iris-pages.test.ts::the_IRIS_home_replica::stripsNestedXmlComments
   Scenario: XML comments are stripped until none is left
     Given SVG text with a comment, and one that a single removal pass would form
