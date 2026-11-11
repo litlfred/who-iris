@@ -4,7 +4,7 @@ doc_title: "Guía para la inversión en la implementación digital (DIIG)"
 section_id: sec-005-11-la-función-de-la-guía-en-la-planificación-e-i
 section_title: "La función de la guía en la planificación e implementación de un emprendimiento digital de salud"
 section_number: 1.1
-pages: 16-17
+pages: 16-18
 source_pdf: 10665-353151.pdf
 source_sha256: 8bb0b6ab5e83cb7e
 toc_source: inferred
@@ -248,4 +248,6 @@ Alignment
 Principios para 
 el desarrollo 
 digital
-Fig. 1.1.1.
+Fig. 1.1.1. 	
+Planificación e implementación de un emprendimiento de salud digital: fases, pasos y recursos
+WHO Smart  Guidelines
