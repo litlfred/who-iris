@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p026",
-      "file": "figures/vfig-p026.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p026.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "line charts with uncertainty bands of HBV and HCV incidence, 2015–2024",
         "page": 26
       },
       "page": 26,
@@ -112,18 +116,99 @@
         ],
         "between": [],
         "outside": 72
-      }
+      },
+      "shows": [
+        "Figure 3.1"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 3.1: four line charts with shaded uncertainty bands for 2015–2024, HBV in blue (top) and HCV in green (bottom). The right-hand panels show incidence as number per 100 000 population per year (axis 0–30); the HBV rate falls from about 18 to about 11, while the HCV rate declines slightly from about 13 to about 11. The left-hand panels (absolute numbers) are shown with their axis labels cropped off.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 3-1: أربعة مخططات خطية مع نطاقات مظللة لعدم اليقين للفترة 2015–2024، فيروس التهاب الكبد B باللون الأزرق (في الأعلى) وفيروس التهاب الكبد C باللون الأخضر (في الأسفل). تعرض اللوحتان اليمنيان معدل الوقوع بعدد الحالات لكل 100 000 نسمة سنوياً (المحور 0–30)؛ إذ ينخفض معدل فيروس التهاب الكبد B من نحو 18 إلى نحو 11، بينما ينخفض معدل فيروس التهاب الكبد C انخفاضاً طفيفاً من نحو 13 إلى نحو 11. أما اللوحتان اليسريان (الأعداد المطلقة) فتظهران وقد اقتُطعت تسميات محاورهما.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.1的一部分：2015–2024年四幅带阴影不确定性区间的折线图，乙型肝炎病毒为蓝色（上），丙型肝炎病毒为绿色（下）。右侧图显示每年每10万人口的发病数（坐标轴0–30）；乙肝病毒发病率从约18降至约11，丙肝病毒发病率从约13小幅降至约11。左侧图（绝对数）的坐标轴标签被裁切。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 3.1: cuatro gráficos de líneas con bandas sombreadas de incertidumbre para 2015–2024, el VHB en azul (arriba) y el VHC en verde (abajo). Los paneles de la derecha muestran la incidencia como número por 100 000 habitantes por año (eje 0–30); la tasa del VHB desciende de aproximadamente 18 a aproximadamente 11, mientras que la del VHC disminuye ligeramente de aproximadamente 13 a aproximadamente 11. Los paneles de la izquierda (números absolutos) aparecen con las etiquetas de los ejes recortadas.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 3.1 : quatre graphiques linéaires avec bandes d’incertitude ombrées pour 2015–2024, le VHB en bleu (en haut) et le VHC en vert (en bas). Les panneaux de droite montrent l’incidence en nombre pour 100 000 habitants par an (axe 0–30) ; le taux du VHB passe d’environ 18 à environ 11, tandis que celui du VHC baisse légèrement d’environ 13 à environ 11. Les panneaux de gauche (nombres absolus) apparaissent avec leurs étiquettes d’axe rognées.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 3.1: четыре линейных графика с затенёнными интервалами неопределённости за 2015–2024 гг., ВГВ — синим (вверху), ВГС — зелёным (внизу). На правых панелях показана заболеваемость на 100 000 населения в год (ось 0–30): показатель для ВГВ снижается примерно с 18 до 11, для ВГС — незначительно, примерно с 13 до 11. Левые панели (абсолютные числа) показаны с обрезанными подписями осей.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p027",
-      "file": "figures/vfig-p027.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p027.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "small-multiple line charts of HBV incidence by WHO region",
         "page": 27
       },
       "page": 27,
@@ -237,18 +322,99 @@
         ],
         "between": [],
         "outside": 80
-      }
+      },
+      "shows": [
+        "Figure 3.2"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 3.2: six blue line charts with shaded uncertainty bands showing trends in new HBV infections by WHO region; the lower row is labelled European Region, Eastern Mediterranean Region and Western Pacific Region, while the upper-row titles and some axis labels are cropped. All panels show declining incidence, most steeply in the European and Western Pacific regions (Western Pacific falling from about 0.17 to about 0.09 on its axis).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 3-2: ستة مخططات خطية زرقاء مع نطاقات مظللة لعدم اليقين تبيّن اتجاهات حالات العدوى الجديدة بفيروس التهاب الكبد B حسب أقاليم المنظمة؛ ويحمل الصف السفلي تسميات الإقليم الأوروبي وإقليم شرق المتوسط وإقليم غرب المحيط الهادئ، بينما اقتُطعت عناوين الصف العلوي وبعض تسميات المحاور. وتُظهر جميع اللوحات انخفاضاً في معدل الوقوع، وهو الأشد في الإقليم الأوروبي وإقليم غرب المحيط الهادئ (إذ ينخفض في غرب المحيط الهادئ من نحو 0.17 إلى نحو 0.09 على محوره).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.2的一部分：六幅带阴影不确定性区间的蓝色折线图，显示按世卫组织区域划分的乙型肝炎病毒新发感染趋势；下排标注为欧洲区域、东地中海区域和西太平洋区域，上排标题和部分坐标轴标签被裁切。所有图均显示发病呈下降趋势，欧洲区域和西太平洋区域下降最明显（西太平洋在其坐标轴上从约0.17降至约0.09）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 3.2: seis gráficos de líneas azules con bandas sombreadas de incertidumbre que muestran la tendencia de las nuevas infecciones por el VHB por región de la OMS; la fila inferior está rotulada Región de Europa, Región del Mediterráneo Oriental y Región del Pacífico Occidental, mientras que los títulos de la fila superior y algunas etiquetas de los ejes están recortados. Todos los paneles muestran una incidencia descendente, más marcada en las regiones de Europa y del Pacífico Occidental (en el Pacífico Occidental baja de aproximadamente 0,17 a aproximadamente 0,09 en su eje).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 3.2 : six graphiques linéaires bleus avec bandes d’incertitude ombrées montrant l’évolution des nouvelles infections à VHB par Région de l’OMS ; la rangée inférieure est intitulée Région européenne, Région de la Méditerranée orientale et Région du Pacifique occidental, tandis que les titres de la rangée supérieure et certaines étiquettes d’axe sont rognés. Tous les panneaux montrent une incidence en baisse, plus marquée dans les Régions européenne et du Pacifique occidental (le Pacifique occidental passant d’environ 0,17 à environ 0,09 sur son axe).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 3.2: шесть синих линейных графиков с затенёнными интервалами неопределённости, показывающих динамику новых случаев инфицирования ВГВ по регионам ВОЗ; нижний ряд подписан «Европейский регион», «Регион Восточного Средиземноморья» и «Регион Западной части Тихого океана», а заголовки верхнего ряда и часть подписей осей обрезаны. На всех панелях заболеваемость снижается, наиболее заметно в Европейском регионе и Регионе Западной части Тихого океана (в последнем — примерно с 0,17 до 0,09 по его оси).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p028",
-      "file": "figures/vfig-p028.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p028.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "small-multiple line charts of HCV incidence by WHO region",
         "page": 28
       },
       "page": 28,
@@ -371,18 +537,99 @@
         ],
         "between": [],
         "outside": 86
-      }
+      },
+      "shows": [
+        "Figure 3.3"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 3.3: six green line charts with shaded uncertainty bands showing trends in new HCV infections by WHO region; the lower row is labelled European Region, Eastern Mediterranean Region and Western Pacific Region, while the upper-row titles are cropped. Most panels show flat or gently declining lines; the upper-middle panel is the exception, rising from about 0.12 to about 0.18 on its axis.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 3-3: ستة مخططات خطية خضراء مع نطاقات مظللة لعدم اليقين تبيّن اتجاهات حالات العدوى الجديدة بفيروس التهاب الكبد C حسب أقاليم المنظمة؛ ويحمل الصف السفلي تسميات الإقليم الأوروبي وإقليم شرق المتوسط وإقليم غرب المحيط الهادئ، بينما اقتُطعت عناوين الصف العلوي. وتُظهر معظم اللوحات خطوطاً مستوية أو منخفضة قليلاً؛ والاستثناء هو اللوحة الوسطى العليا التي ترتفع من نحو 0.12 إلى نحو 0.18 على محورها.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.3的一部分：六幅带阴影不确定性区间的绿色折线图，显示按世卫组织区域划分的丙型肝炎病毒新发感染趋势；下排标注为欧洲区域、东地中海区域和西太平洋区域，上排标题被裁切。多数图的曲线平稳或缓慢下降；上排中间一幅例外，在其坐标轴上从约0.12升至约0.18。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 3.3: seis gráficos de líneas verdes con bandas sombreadas de incertidumbre que muestran la tendencia de las nuevas infecciones por el VHC por región de la OMS; la fila inferior está rotulada Región de Europa, Región del Mediterráneo Oriental y Región del Pacífico Occidental, y los títulos de la fila superior están recortados. La mayoría de los paneles muestran líneas estables o en ligero descenso; la excepción es el panel superior central, que sube de aproximadamente 0,12 a aproximadamente 0,18 en su eje.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 3.3 : six graphiques linéaires verts avec bandes d’incertitude ombrées montrant l’évolution des nouvelles infections à VHC par Région de l’OMS ; la rangée inférieure est intitulée Région européenne, Région de la Méditerranée orientale et Région du Pacifique occidental, et les titres de la rangée supérieure sont rognés. La plupart des panneaux montrent des courbes stables ou en légère baisse ; l’exception est le panneau central supérieur, qui monte d’environ 0,12 à environ 0,18 sur son axe.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 3.3: шесть зелёных линейных графиков с затенёнными интервалами неопределённости, показывающих динамику новых случаев инфицирования ВГС по регионам ВОЗ; нижний ряд подписан «Европейский регион», «Регион Восточного Средиземноморья» и «Регион Западной части Тихого океана», заголовки верхнего ряда обрезаны. На большинстве панелей линии ровные или слегка снижаются; исключение — верхняя средняя панель, где показатель растёт примерно с 0,12 до 0,18 по её оси.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p029",
-      "file": "figures/vfig-p029.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p029.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "map legends for HBV and HCV incidence-rate maps",
         "page": 29
       },
       "page": 29,
@@ -511,18 +758,100 @@
           "Number per 100 000"
         ],
         "outside": 28
-      }
+      },
+      "shows": [
+        "Figure 3.4",
+        "Figure 3.5"
+      ],
+      "narrative": [
+        {
+          "text": "Legend fragments of the country maps in Figures 3.4 and 3.5 (number per 100 000 population). The HBV legend uses blue classes <2, 2–10, 11–19 and ≥20; the HCV legend uses green classes <5, 5–12, 13–19 and ≥20; both include No data and Not applicable. The maps themselves are almost entirely cropped out.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "أجزاء من مفاتيح خرائط البلدان في الشكلين 3-4 و3-5 (العدد لكل 100 000 نسمة). يستخدم مفتاح فيروس التهاب الكبد B فئات زرقاء: أقل من 2، و2–10، و11–19، و20 فأكثر؛ ويستخدم مفتاح فيروس التهاب الكبد C فئات خضراء: أقل من 5، و5–12، و13–19، و20 فأكثر؛ ويتضمن كلاهما فئتي \"لا توجد بيانات\" و\"لا ينطبق\". أما الخرائط نفسها فمقتطعة بالكامل تقريباً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.4和图3.5国家级地图的图例片段（每10万人口发病数）。乙肝病毒图例使用蓝色分级：<2、2–10、11–19和≥20；丙肝病毒图例使用绿色分级：<5、5–12、13–19和≥20；两者均包括“无数据”和“不适用”。地图本身几乎全部被裁切。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragmentos de las leyendas de los mapas por país de las figuras 3.4 y 3.5 (número por 100 000 habitantes). La leyenda del VHB usa clases azules <2, 2–10, 11–19 y ≥20; la del VHC usa clases verdes <5, 5–12, 13–19 y ≥20; ambas incluyen «Sin datos» y «No aplicable». Los mapas en sí están casi totalmente recortados.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragments des légendes des cartes par pays des figures 3.4 et 3.5 (nombre pour 100 000 habitants). La légende du VHB utilise des classes bleues <2, 2–10, 11–19 et ≥20 ; celle du VHC des classes vertes <5, 5–12, 13–19 et ≥20 ; toutes deux comprennent « Pas de données » et « Sans objet ». Les cartes elles-mêmes sont presque entièrement rognées.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Фрагменты легенд карт по странам на рисунках 3.4 и 3.5 (число на 100 000 населения). В легенде ВГВ используются синие классы <2, 2–10, 11–19 и ≥20; в легенде ВГС — зелёные классы <5, 5–12, 13–19 и ≥20; обе включают «Нет данных» и «Неприменимо». Сами карты почти полностью обрезаны.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p031",
-      "file": "figures/vfig-p031.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p031.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "small-multiple line charts of HBV prevalence in children under 5 by WHO region",
         "page": 31
       },
       "page": 31,
@@ -638,7 +967,7 @@
             "to": null,
             "bbox": [
               219.38,
-              195.0,
+              195,
               402.42,
               213.9
             ]
@@ -666,18 +995,99 @@
         ],
         "between": [],
         "outside": 51
-      }
+      },
+      "shows": [
+        "Figure 3.7"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 3.7: six blue line charts with shaded uncertainty bands showing prevalence of chronic HBV infection among children under 5 years by WHO region; the lower row is labelled European Region, Eastern Mediterranean Region and Western Pacific Region, and the upper-row titles are cropped. All regions decline; the steepest fall is in the upper-right panel, from about 0.55 to about 0.25.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 3-7: ستة مخططات خطية زرقاء مع نطاقات مظللة لعدم اليقين تبيّن معدل انتشار العدوى المزمنة بفيروس التهاب الكبد B بين الأطفال دون سن الخامسة حسب أقاليم المنظمة؛ ويحمل الصف السفلي تسميات الإقليم الأوروبي وإقليم شرق المتوسط وإقليم غرب المحيط الهادئ، واقتُطعت عناوين الصف العلوي. وتنخفض المعدلات في جميع الأقاليم، وأشد انخفاض في اللوحة العليا اليمنى، من نحو 0.55 إلى نحو 0.25.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.7的一部分：六幅带阴影不确定性区间的蓝色折线图，显示按世卫组织区域划分的5岁以下儿童慢性乙肝病毒感染流行率；下排标注为欧洲区域、东地中海区域和西太平洋区域，上排标题被裁切。所有区域均呈下降，右上图降幅最大，从约0.55降至约0.25。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 3.7: seis gráficos de líneas azules con bandas sombreadas de incertidumbre que muestran la prevalencia de la infección crónica por el VHB en menores de 5 años por región de la OMS; la fila inferior está rotulada Región de Europa, Región del Mediterráneo Oriental y Región del Pacífico Occidental, y los títulos de la fila superior están recortados. Todas las regiones descienden; la caída más pronunciada está en el panel superior derecho, de aproximadamente 0,55 a aproximadamente 0,25.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 3.7 : six graphiques linéaires bleus avec bandes d’incertitude ombrées montrant la prévalence de l’infection chronique à VHB chez les enfants de moins de 5 ans par Région de l’OMS ; la rangée inférieure est intitulée Région européenne, Région de la Méditerranée orientale et Région du Pacifique occidental, et les titres de la rangée supérieure sont rognés. Toutes les Régions sont en baisse ; la chute la plus forte figure dans le panneau supérieur droit, d’environ 0,55 à environ 0,25.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 3.7: шесть синих линейных графиков с затенёнными интервалами неопределённости, показывающих распространённость хронической инфекции ВГВ среди детей в возрасте до 5 лет по регионам ВОЗ; нижний ряд подписан «Европейский регион», «Регион Восточного Средиземноморья» и «Регион Западной части Тихого океана», заголовки верхнего ряда обрезаны. Во всех регионах показатель снижается; наиболее резкое снижение — на верхней правой панели, примерно с 0,55 до 0,25.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p032",
-      "file": "figures/vfig-p032.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p032.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "part of a choropleth map of HBV prevalence in children under 5",
         "page": 32
       },
       "page": 32,
@@ -881,7 +1291,7 @@
             "to": null,
             "bbox": [
               227.72,
-              510.0,
+              510,
               227.72,
               586.59
             ]
@@ -972,18 +1382,100 @@
           "prevalence of chronic HBV infection among children aged under 5 years to 0.1%"
         ],
         "outside": 25
-      }
+      },
+      "shows": [
+        "Figure 3.8",
+        "Table 3.4"
+      ],
+      "narrative": [
+        {
+          "text": "Lower part of Figure 3.8, a world choropleth map of chronic HBV prevalence among children under 5 years, with legend Prevalence (%): <0.1, 0.1–0.9, ≥1, No data and Not applicable. The darkest shading (≥1%) is visible across much of central and southern Africa and in Papua New Guinea. Below it the title of Table 3.4 and its header row (WHO region, Country) appear.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الجزء السفلي من الشكل 3-8، وهو خريطة عالمية مظللة لمعدل انتشار العدوى المزمنة بفيروس التهاب الكبد B بين الأطفال دون سن الخامسة، مع مفتاح معدل الانتشار (%): أقل من 0.1، و0.1–0.9، و1 فأكثر، و\"لا توجد بيانات\"، و\"لا ينطبق\". ويظهر التظليل الأغمق (1% فأكثر) في معظم أنحاء وسط أفريقيا وجنوبها وفي بابوا غينيا الجديدة. وتحتها يظهر عنوان الجدول 3-4 وصف العناوين (إقليم المنظمة، البلد).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.8的下半部分：5岁以下儿童慢性乙肝病毒感染流行率的世界分级设色地图，图例为流行率（%）：<0.1、0.1–0.9、≥1、无数据和不适用。中部和南部非洲大部分地区以及巴布亚新几内亚显示为最深色（≥1%）。其下方为表3.4的标题及表头（世卫组织区域、国家）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte inferior de la figura 3.8, mapa mundial coroplético de la prevalencia de la infección crónica por el VHB en menores de 5 años, con la leyenda Prevalencia (%): <0,1, 0,1–0,9, ≥1, Sin datos y No aplicable. El sombreado más oscuro (≥1%) se ve en gran parte de África central y meridional y en Papua Nueva Guinea. Debajo aparecen el título del cuadro 3.4 y su fila de encabezado (Región de la OMS, País).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie inférieure de la figure 3.8, carte choroplèthe mondiale de la prévalence de l’infection chronique à VHB chez les enfants de moins de 5 ans, avec la légende Prévalence (%) : <0,1, 0,1–0,9, ≥1, Pas de données et Sans objet. La teinte la plus foncée (≥1 %) apparaît dans une grande partie de l’Afrique centrale et australe et en Papouasie-Nouvelle-Guinée. En dessous figurent le titre du tableau 3.4 et sa ligne d’en-tête (Région de l’OMS, Pays).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Нижняя часть рисунка 3.8 — картограммы мира, показывающей распространённость хронической инфекции ВГВ среди детей в возрасте до 5 лет, с легендой «Распространённость (%)»: <0,1, 0,1–0,9, ≥1, «Нет данных» и «Неприменимо». Самая тёмная заливка (≥1%) видна на большей части Центральной и Южной Африки и в Папуа — Новой Гвинее. Ниже приведены заголовок таблицы 3.4 и строка её заголовков («Регион ВОЗ», «Страна»).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p033",
-      "file": "figures/vfig-p033.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p033.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a table of HBV and HCV prevalence by WHO region and two global trend line charts",
         "page": 33
       },
       "page": 33,
@@ -1503,9 +1995,9 @@
             "to": null,
             "bbox": [
               56.69,
-              218.0,
+              218,
               197.92,
-              218.0
+              218
             ]
           },
           {
@@ -1513,9 +2005,9 @@
             "to": null,
             "bbox": [
               197.93,
-              218.0,
+              218,
               282.84,
-              218.0
+              218
             ]
           },
           {
@@ -1533,9 +2025,9 @@
             "to": null,
             "bbox": [
               282.84,
-              218.0,
+              218,
               367.75,
-              218.0
+              218
             ]
           },
           {
@@ -1553,9 +2045,9 @@
             "to": null,
             "bbox": [
               367.75,
-              218.0,
+              218,
               452.67,
-              218.0
+              218
             ]
           },
           {
@@ -1573,9 +2065,9 @@
             "to": null,
             "bbox": [
               452.67,
-              218.0,
+              218,
               537.58,
-              218.0
+              218
             ]
           },
           {
@@ -1794,18 +2286,100 @@
           "Millions per year"
         ],
         "outside": 59
-      }
+      },
+      "shows": [
+        "Table 3.5",
+        "Figure 3.9"
+      ],
+      "narrative": [
+        {
+          "text": "Table 3.5 and Figure 3.9. The table gives, by WHO region, prevalence in the general population (%) and total number of people infected (millions), with 95% uncertainty intervals, for chronic HBV and HCV infection; globally 2.9% (240 million) for chronic HBV and 0.6% (47 million) for HCV, with the Western Pacific (102 million) and African (64 million) regions having the most people with chronic HBV. Figure 3.9 shows two line charts with uncertainty bands, labelled “Millions per year”: chronic HBV (blue) declining slightly from about 260 to about 240 million, and HCV (green) from about 58 to about 47 million.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الجدول 3-5 والشكل 3-9. يقدّم الجدول، حسب أقاليم المنظمة، معدل الانتشار في عموم السكان (%) والعدد الإجمالي للمصابين (بالملايين)، مع فترات عدم اليقين 95%، للعدوى المزمنة بفيروس التهاب الكبد B والعدوى بفيروس التهاب الكبد C؛ وعلى الصعيد العالمي يبلغ 2.9% (240 مليوناً) لفيروس التهاب الكبد B المزمن و0.6% (47 مليوناً) لفيروس التهاب الكبد C، ويضم إقليما غرب المحيط الهادئ (102 مليون) وأفريقيا (64 مليوناً) أكبر عدد من المصابين بفيروس التهاب الكبد B المزمن. ويعرض الشكل 3-9 مخططين خطيين مع نطاقات عدم اليقين، يحملان تسمية \"ملايين في السنة\": فيروس التهاب الكبد B المزمن (بالأزرق) ينخفض قليلاً من نحو 260 إلى نحو 240 مليوناً، وفيروس التهاب الكبد C (بالأخضر) من نحو 58 إلى نحو 47 مليوناً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "表3.5和图3.9。该表按世卫组织区域列出慢性乙肝病毒感染和丙肝病毒感染在普通人群中的流行率（%）和感染总人数（百万），附95%不确定性区间；全球慢性乙肝为2.9%（2.4亿），丙肝为0.6%（4700万），西太平洋区域（1.02亿）和非洲区域（6400万）的慢性乙肝感染者最多。图3.9为两幅带不确定性区间的折线图，标注为“每年百万”：慢性乙肝（蓝色）从约2.6亿小幅降至约2.4亿，丙肝（绿色）从约5800万降至约4700万。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Cuadro 3.5 y figura 3.9. El cuadro presenta, por región de la OMS, la prevalencia en la población general (%) y el número total de personas infectadas (millones), con intervalos de incertidumbre del 95%, para la infección crónica por el VHB y la infección por el VHC; a nivel mundial, 2,9% (240 millones) para el VHB crónico y 0,6% (47 millones) para el VHC, y las regiones del Pacífico Occidental (102 millones) y de África (64 millones) concentran más personas con VHB crónico. La figura 3.9 muestra dos gráficos de líneas con bandas de incertidumbre, rotulados «Millones por año»: el VHB crónico (azul) desciende ligeramente de aproximadamente 260 a aproximadamente 240 millones, y el VHC (verde) de aproximadamente 58 a aproximadamente 47 millones.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Tableau 3.5 et figure 3.9. Le tableau donne, par Région de l’OMS, la prévalence dans la population générale (%) et le nombre total de personnes infectées (millions), avec intervalles d’incertitude à 95 %, pour l’infection chronique à VHB et l’infection à VHC ; au niveau mondial, 2,9 % (240 millions) pour le VHB chronique et 0,6 % (47 millions) pour le VHC, les Régions du Pacifique occidental (102 millions) et de l’Afrique (64 millions) comptant le plus de personnes atteintes d’hépatite B chronique. La figure 3.9 présente deux graphiques linéaires avec bandes d’incertitude, intitulés « Millions par an » : le VHB chronique (bleu) baisse légèrement d’environ 260 à environ 240 millions, et le VHC (vert) d’environ 58 à environ 47 millions.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Таблица 3.5 и рисунок 3.9. В таблице по регионам ВОЗ приведены распространённость среди населения в целом (%) и общее число инфицированных (млн) с 95% интервалами неопределённости для хронической инфекции ВГВ и инфекции ВГС; в мире — 2,9% (240 млн) для хронического ВГВ и 0,6% (47 млн) для ВГС, причём больше всего людей с хроническим ВГВ в Регионе Западной части Тихого океана (102 млн) и Африканском регионе (64 млн). На рисунке 3.9 — два линейных графика с интервалами неопределённости с подписью оси «Млн в год»: хронический ВГВ (синий) незначительно снижается примерно с 260 до 240 млн, ВГС (зелёный) — примерно с 58 до 47 млн.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p034",
-      "file": "figures/vfig-p034.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p034.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "regional line charts of people with chronic HBV and a world prevalence map",
         "page": 34
       },
       "page": 34,
@@ -2001,18 +2575,100 @@
           "2024 (%)"
         ],
         "outside": 6
-      }
+      },
+      "shows": [
+        "Figure 3.10",
+        "Figure 3.11"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.10 (partly cropped at the top) and Figure 3.11. Figure 3.10 shows six blue line charts, 2015–2024, of the estimated number of people with chronic HBV infection by WHO region (millions; shaded areas are 95% uncertainty intervals); all lines are flat or slowly declining, e.g. Western Pacific from about 115 to about 102 million and European Region from about 11 to about 10 million. Figure 3.11 is a world choropleth map of chronic HBV prevalence in the general population, 2024 (%), with classes <2, 2–4.9, 5–7.9 and ≥8; the highest classes are concentrated in sub-Saharan Africa, with intermediate levels in parts of Asia and the Pacific.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-10 (مقتطع جزئياً من الأعلى) والشكل 3-11. يعرض الشكل 3-10 ستة مخططات خطية زرقاء للفترة 2015–2024 للعدد التقديري للمصابين بالعدوى المزمنة بفيروس التهاب الكبد B حسب أقاليم المنظمة (بالملايين؛ والمساحات المظللة تمثل فترات عدم اليقين 95%)؛ وجميع الخطوط مستوية أو تنخفض ببطء، مثل غرب المحيط الهادئ من نحو 115 إلى نحو 102 مليون والإقليم الأوروبي من نحو 11 إلى نحو 10 ملايين. والشكل 3-11 خريطة عالمية مظللة لمعدل انتشار العدوى المزمنة بفيروس التهاب الكبد B في عموم السكان، 2024 (%)، بفئات أقل من 2، و2–4.9، و5–7.9، و8 فأكثر؛ وتتركز أعلى الفئات في أفريقيا جنوب الصحراء الكبرى، مع مستويات متوسطة في أجزاء من آسيا والمحيط الهادئ.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.10（顶部部分被裁切）和图3.11。图3.10为2015–2024年按世卫组织区域划分的慢性乙肝病毒感染者估计人数的六幅蓝色折线图（百万；阴影为95%不确定性区间）；所有曲线平稳或缓慢下降，如西太平洋从约1.15亿降至约1.02亿，欧洲区域从约1100万降至约1000万。图3.11为2024年普通人群慢性乙肝病毒感染流行率（%）的世界分级设色地图，分级为<2、2–4.9、5–7.9和≥8；最高分级集中在撒哈拉以南非洲，亚洲和太平洋部分地区为中等水平。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.10 (parcialmente recortada en la parte superior) y figura 3.11. La figura 3.10 muestra seis gráficos de líneas azules, 2015–2024, del número estimado de personas con infección crónica por el VHB por región de la OMS (millones; las zonas sombreadas son intervalos de incertidumbre del 95%); todas las líneas son estables o descienden lentamente, p. ej., el Pacífico Occidental de aproximadamente 115 a aproximadamente 102 millones y la Región de Europa de aproximadamente 11 a aproximadamente 10 millones. La figura 3.11 es un mapa mundial coroplético de la prevalencia de la infección crónica por el VHB en la población general, 2024 (%), con clases <2, 2–4,9, 5–7,9 y ≥8; las clases más altas se concentran en el África subsahariana, con niveles intermedios en partes de Asia y el Pacífico.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.10 (partiellement rognée en haut) et figure 3.11. La figure 3.10 présente six graphiques linéaires bleus, 2015–2024, du nombre estimé de personnes atteintes d’infection chronique à VHB par Région de l’OMS (millions ; les zones ombrées sont des intervalles d’incertitude à 95 %) ; toutes les courbes sont stables ou en lente baisse, par exemple le Pacifique occidental d’environ 115 à environ 102 millions et la Région européenne d’environ 11 à environ 10 millions. La figure 3.11 est une carte choroplèthe mondiale de la prévalence de l’infection chronique à VHB dans la population générale, 2024 (%), avec les classes <2, 2–4,9, 5–7,9 et ≥8 ; les classes les plus élevées se concentrent en Afrique subsaharienne, avec des niveaux intermédiaires dans certaines parties de l’Asie et du Pacifique.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.10 (частично обрезан сверху) и рисунок 3.11. На рисунке 3.10 — шесть синих линейных графиков за 2015–2024 гг., показывающих оценочное число людей с хронической инфекцией ВГВ по регионам ВОЗ (млн; затенённые области — 95% интервалы неопределённости); все линии ровные или медленно снижаются, например в Регионе Западной части Тихого океана примерно со 115 до 102 млн, в Европейском регионе — примерно с 11 до 10 млн. Рисунок 3.11 — картограмма мира распространённости хронической инфекции ВГВ среди населения в целом, 2024 г. (%), с классами <2, 2–4,9, 5–7,9 и ≥8; самые высокие классы сосредоточены в Африке к югу от Сахары, промежуточные уровни — в части Азии и Тихоокеанского региона.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p035",
-      "file": "figures/vfig-p035.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p035.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a treemap of the global number of people with chronic HBV infection by country",
         "page": 35
       },
       "page": 35,
@@ -2369,18 +3025,99 @@
         ],
         "between": [],
         "outside": 54
-      }
+      },
+      "shows": [
+        "Figure 3.12"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.12, a treemap in which each rectangle is a country sized by its number of people with chronic HBV infection, coloured by region. China is by far the largest block, followed by India, then Nigeria, Indonesia, Ethiopia, Bangladesh and Viet Nam; other labelled countries include the Philippines, Pakistan, South Africa, Democratic Republic of the Congo, Angola, Mozambique, Sudan, Türkiye, Ghana, Niger, Myanmar, Kenya and Côte d'Ivoire, with many small unlabelled countries.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-12، مخطط شجري يمثل فيه كل مستطيل بلداً بحجم يتناسب مع عدد المصابين بالعدوى المزمنة بفيروس التهاب الكبد B فيه، ومُلوَّن حسب الإقليم. والصين هي الكتلة الأكبر بفارق كبير، تليها الهند، ثم نيجيريا وإندونيسيا وإثيوبيا وبنغلاديش وفييت نام؛ وتشمل البلدان الأخرى الموسومة الفلبين وباكستان وجنوب أفريقيا وجمهورية الكونغو الديمقراطية وأنغولا وموزامبيق والسودان وتركيا وغانا والنيجر وميانمار وكينيا وكوت ديفوار، إلى جانب كثير من البلدان الصغيرة غير الموسومة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.12：树状图，每个矩形代表一个国家，大小与其慢性乙肝病毒感染者人数成比例，按区域着色。中国是迄今最大的色块，其次是印度，然后是尼日利亚、印度尼西亚、埃塞俄比亚、孟加拉国和越南；其他标注的国家包括菲律宾、巴基斯坦、南非、刚果民主共和国、安哥拉、莫桑比克、苏丹、土耳其、加纳、尼日尔、缅甸、肯尼亚和科特迪瓦，另有许多未标注的小国。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.12: diagrama de árbol en el que cada rectángulo es un país con un tamaño proporcional a su número de personas con infección crónica por el VHB, coloreado por región. China es con diferencia el bloque más grande, seguida de la India y luego Nigeria, Indonesia, Etiopía, Bangladesh y Viet Nam; otros países rotulados son Filipinas, Pakistán, Sudáfrica, República Democrática del Congo, Angola, Mozambique, Sudán, Türkiye, Ghana, Níger, Myanmar, Kenya y Côte d'Ivoire, además de muchos países pequeños sin rótulo.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.12 : carte proportionnelle (treemap) dans laquelle chaque rectangle est un pays dont la taille correspond à son nombre de personnes atteintes d’infection chronique à VHB, colorié par Région. La Chine est de loin le bloc le plus grand, suivie de l’Inde, puis du Nigéria, de l’Indonésie, de l’Éthiopie, du Bangladesh et du Viet Nam ; d’autres pays étiquetés sont les Philippines, le Pakistan, l’Afrique du Sud, la République démocratique du Congo, l’Angola, le Mozambique, le Soudan, la Türkiye, le Ghana, le Niger, le Myanmar, le Kenya et la Côte d'Ivoire, avec de nombreux petits pays non étiquetés.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.12 — древовидная карта, где каждый прямоугольник — страна, размер которого соответствует числу людей с хронической инфекцией ВГВ, а цвет — региону. Китай — самый крупный блок с большим отрывом, далее Индия, затем Нигерия, Индонезия, Эфиопия, Бангладеш и Вьетнам; среди других подписанных стран — Филиппины, Пакистан, Южная Африка, Демократическая Республика Конго, Ангола, Мозамбик, Судан, Турция, Гана, Нигер, Мьянма, Кения и Кот-д'Ивуар, а также множество небольших неподписанных стран.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p036",
-      "file": "figures/vfig-p036.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p036.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "regional line charts of people with HCV infection and a world HCV prevalence map",
         "page": 36
       },
       "page": 36,
@@ -2587,18 +3324,100 @@
           "2024"
         ],
         "outside": 6
-      }
+      },
+      "shows": [
+        "Figure 3.13",
+        "Figure 3.14"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.13 (upper titles cropped) and Figure 3.14. Figure 3.13 shows six green line charts, 2015–2024, of the estimated number of people with HCV infection by WHO region (millions per year, with 95% uncertainty bands); most decline, e.g. Eastern Mediterranean from about 18 to about 12 million and European Region from about 8 to about 5.6 million. Figure 3.14 is a world choropleth map of HCV prevalence in the general population, 2024 (%), with classes <0.25, 0.25–0.49, 0.5–0.99, 1–1.99 and ≥2; higher prevalence is visible in parts of Africa, Central Asia, Pakistan and eastern Europe.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-13 (اقتُطعت العناوين العليا) والشكل 3-14. يعرض الشكل 3-13 ستة مخططات خطية خضراء للفترة 2015–2024 للعدد التقديري للمصابين بعدوى فيروس التهاب الكبد C حسب أقاليم المنظمة (ملايين في السنة، مع نطاقات عدم اليقين 95%)؛ وتنخفض معظمها، مثل شرق المتوسط من نحو 18 إلى نحو 12 مليوناً والإقليم الأوروبي من نحو 8 إلى نحو 5.6 ملايين. والشكل 3-14 خريطة عالمية مظللة لمعدل انتشار عدوى فيروس التهاب الكبد C في عموم السكان، 2024 (%)، بفئات أقل من 0.25، و0.25–0.49، و0.5–0.99، و1–1.99، و2 فأكثر؛ ويظهر انتشار أعلى في أجزاء من أفريقيا وآسيا الوسطى وباكستان وأوروبا الشرقية.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.13（上方标题被裁切）和图3.14。图3.13为2015–2024年按世卫组织区域划分的丙肝病毒感染者估计人数的六幅绿色折线图（每年百万，带95%不确定性区间）；多数呈下降，如东地中海从约1800万降至约1200万，欧洲区域从约800万降至约560万。图3.14为2024年普通人群丙肝病毒感染流行率（%）的世界分级设色地图，分级为<0.25、0.25–0.49、0.5–0.99、1–1.99和≥2；非洲部分地区、中亚、巴基斯坦和东欧的流行率较高。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.13 (títulos superiores recortados) y figura 3.14. La figura 3.13 muestra seis gráficos de líneas verdes, 2015–2024, del número estimado de personas con infección por el VHC por región de la OMS (millones por año, con bandas de incertidumbre del 95%); la mayoría descienden, p. ej., el Mediterráneo Oriental de aproximadamente 18 a aproximadamente 12 millones y la Región de Europa de aproximadamente 8 a aproximadamente 5,6 millones. La figura 3.14 es un mapa mundial coroplético de la prevalencia de la infección por el VHC en la población general, 2024 (%), con clases <0,25, 0,25–0,49, 0,5–0,99, 1–1,99 y ≥2; se observa una prevalencia más alta en partes de África, Asia Central, el Pakistán y Europa oriental.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.13 (titres supérieurs rognés) et figure 3.14. La figure 3.13 présente six graphiques linéaires verts, 2015–2024, du nombre estimé de personnes atteintes d’infection à VHC par Région de l’OMS (millions par an, avec bandes d’incertitude à 95 %) ; la plupart baissent, par exemple la Méditerranée orientale d’environ 18 à environ 12 millions et la Région européenne d’environ 8 à environ 5,6 millions. La figure 3.14 est une carte choroplèthe mondiale de la prévalence de l’infection à VHC dans la population générale, 2024 (%), avec les classes <0,25, 0,25–0,49, 0,5–0,99, 1–1,99 et ≥2 ; une prévalence plus élevée apparaît dans certaines parties de l’Afrique, en Asie centrale, au Pakistan et en Europe orientale.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.13 (верхние заголовки обрезаны) и рисунок 3.14. На рисунке 3.13 — шесть зелёных линейных графиков за 2015–2024 гг., показывающих оценочное число людей с инфекцией ВГС по регионам ВОЗ (млн в год, с 95% интервалами неопределённости); большинство снижаются, например в Регионе Восточного Средиземноморья примерно с 18 до 12 млн, в Европейском регионе — примерно с 8 до 5,6 млн. Рисунок 3.14 — картограмма мира распространённости инфекции ВГС среди населения в целом, 2024 г. (%), с классами <0,25, 0,25–0,49, 0,5–0,99, 1–1,99 и ≥2; более высокая распространённость видна в части Африки, в Центральной Азии, Пакистане и Восточной Европе.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p037",
-      "file": "figures/vfig-p037.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p037.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a stacked bar chart of the 20 countries with most HBV/HCV infections and an HCV treemap",
         "page": 37
       },
       "page": 37,
@@ -3259,18 +4078,100 @@
           "2024a"
         ],
         "outside": 11
-      }
+      },
+      "shows": [
+        "Figure 3.15",
+        "Figure 3.16"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.15 and Figure 3.16. Figure 3.15 is a stacked bar chart of millions of people living with HBV (blue) or HCV (green) in 2024 in 20 countries: China is highest (about 74 million in total, mostly HBV), followed by India (about 35 million), Nigeria, Indonesia and Pakistan, where HCV forms the larger share; the remaining countries run from Ethiopia down to Côte d'Ivoire. Figure 3.16 is a treemap of the global number of people with HCV infection by country, coloured by region, in which Pakistan and India are the largest blocks, followed by China, the United States of America, Nigeria, the Russian Federation, Indonesia, Bangladesh and Viet Nam.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-15 والشكل 3-16. الشكل 3-15 مخطط أعمدة مكدسة لعدد المتعايشين مع فيروس التهاب الكبد B (بالأزرق) أو فيروس التهاب الكبد C (بالأخضر) بالملايين في عام 2024 في 20 بلداً: تأتي الصين في المقدمة (نحو 74 مليوناً إجمالاً، معظمهم بفيروس التهاب الكبد B)، تليها الهند (نحو 35 مليوناً) ونيجيريا وإندونيسيا وباكستان، حيث يشكّل فيروس التهاب الكبد C الحصة الأكبر؛ وتتدرج البلدان المتبقية من إثيوبيا إلى كوت ديفوار. والشكل 3-16 مخطط شجري للعدد العالمي للمصابين بعدوى فيروس التهاب الكبد C حسب البلد، ملوّن حسب الإقليم، تمثل فيه باكستان والهند أكبر الكتل، تليهما الصين والولايات المتحدة الأمريكية ونيجيريا والاتحاد الروسي وإندونيسيا وبنغلاديش وفييت نام.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.15和图3.16。图3.15为堆积柱状图，显示2024年20个国家乙肝病毒（蓝色）或丙肝病毒（绿色）感染者人数（百万）：中国最高（合计约7400万，主要为乙肝），其次是印度（约3500万）、尼日利亚、印度尼西亚和巴基斯坦，巴基斯坦以丙肝占比更大；其余国家从埃塞俄比亚依次至科特迪瓦。图3.16为按国家划分的全球丙肝病毒感染者人数树状图，按区域着色，其中巴基斯坦和印度为最大色块，其次是中国、美利坚合众国、尼日利亚、俄罗斯联邦、印度尼西亚、孟加拉国和越南。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.15 y figura 3.16. La figura 3.15 es un gráfico de barras apiladas de los millones de personas con VHB (azul) o VHC (verde) en 2024 en 20 países: China es el más alto (unos 74 millones en total, mayoritariamente VHB), seguida de la India (unos 35 millones), Nigeria, Indonesia y el Pakistán, donde el VHC representa la mayor parte; los demás países van de Etiopía a Côte d'Ivoire. La figura 3.16 es un diagrama de árbol del número mundial de personas con infección por el VHC por país, coloreado por región, en el que el Pakistán y la India son los bloques más grandes, seguidos de China, los Estados Unidos de América, Nigeria, la Federación de Rusia, Indonesia, Bangladesh y Viet Nam.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.15 et figure 3.16. La figure 3.15 est un graphique à barres empilées des millions de personnes vivant avec le VHB (bleu) ou le VHC (vert) en 2024 dans 20 pays : la Chine est en tête (environ 74 millions au total, surtout le VHB), suivie de l’Inde (environ 35 millions), du Nigéria, de l’Indonésie et du Pakistan, où le VHC représente la plus grande part ; les autres pays vont de l’Éthiopie à la Côte d'Ivoire. La figure 3.16 est une carte proportionnelle (treemap) du nombre mondial de personnes atteintes d’infection à VHC par pays, coloriée par Région, où le Pakistan et l’Inde sont les plus grands blocs, suivis de la Chine, des États-Unis d’Amérique, du Nigéria, de la Fédération de Russie, de l’Indonésie, du Bangladesh et du Viet Nam.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.15 и рисунок 3.16. Рисунок 3.15 — столбчатая диаграмма с накоплением, показывающая число людей (млн), живущих с ВГВ (синий) или ВГС (зелёный) в 2024 г. в 20 странах: больше всего в Китае (около 74 млн, в основном ВГВ), далее Индия (около 35 млн), Нигерия, Индонезия и Пакистан, где бо́льшую долю составляет ВГС; остальные страны — от Эфиопии до Кот-д'Ивуара. Рисунок 3.16 — древовидная карта глобального числа людей с инфекцией ВГС по странам с цветом по регионам, где крупнейшие блоки — Пакистан и Индия, далее Китай, Соединённые Штаты Америки, Нигерия, Российская Федерация, Индонезия, Бангладеш и Вьетнам.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p039",
-      "file": "figures/vfig-p039.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p039.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "line charts of global and regional HBV-related deaths, 2015–2024",
         "page": 39
       },
       "page": 39,
@@ -3473,18 +4374,100 @@
           "South-East Asia Region"
         ],
         "outside": 23
-      }
+      },
+      "shows": [
+        "Figure 3.17",
+        "Figure 3.18"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.17 (left panel axis cropped) and Figure 3.18. Figure 3.17 shows global HBV-related mortality with 95% uncertainty bands, both rising slowly; the right panel (number per 100 000 population per year) rises from about 12.7 to about 13.6. Figure 3.18 shows six blue line charts of HBV-related deaths by WHO region (African, Americas, South-East Asia, European, Eastern Mediterranean and Western Pacific); all increase gradually, with the Western Pacific highest (about 470 000 to about 525 000) and South-East Asia rising from about 128 000 to about 162 000.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-17 (اقتُطع محور اللوحة اليسرى) والشكل 3-18. يعرض الشكل 3-17 معدل الوفيات العالمي المرتبط بفيروس التهاب الكبد B مع نطاقات عدم اليقين 95%، وكلاهما يرتفع ببطء؛ إذ ترتفع اللوحة اليمنى (العدد لكل 100 000 نسمة سنوياً) من نحو 12.7 إلى نحو 13.6. ويعرض الشكل 3-18 ستة مخططات خطية زرقاء للوفيات المرتبطة بفيروس التهاب الكبد B حسب أقاليم المنظمة (أفريقيا، والأمريكتان، وجنوب شرق آسيا، وأوروبا، وشرق المتوسط، وغرب المحيط الهادئ)؛ وتزداد جميعها تدريجياً، وأعلاها غرب المحيط الهادئ (من نحو 470 000 إلى نحو 525 000)، بينما يرتفع جنوب شرق آسيا من نحو 128 000 إلى نحو 162 000.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.17（左图坐标轴被裁切）和图3.18。图3.17显示带95%不确定性区间的全球乙肝病毒相关死亡情况，两者均缓慢上升；右图（每年每10万人口死亡数）从约12.7升至约13.6。图3.18为按世卫组织区域（非洲、美洲、东南亚、欧洲、东地中海和西太平洋）划分的乙肝病毒相关死亡数的六幅蓝色折线图；均逐步上升，西太平洋最高（约47万升至约52.5万），东南亚从约12.8万升至约16.2万。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.17 (eje del panel izquierdo recortado) y figura 3.18. La figura 3.17 muestra la mortalidad mundial relacionada con el VHB con bandas de incertidumbre del 95%, ambas en lento aumento; el panel derecho (número por 100 000 habitantes por año) sube de aproximadamente 12,7 a aproximadamente 13,6. La figura 3.18 muestra seis gráficos de líneas azules de las muertes relacionadas con el VHB por región de la OMS (África, las Américas, Asia Sudoriental, Europa, Mediterráneo Oriental y Pacífico Occidental); todas aumentan gradualmente, con el Pacífico Occidental en el nivel más alto (de unas 470 000 a unas 525 000) y Asia Sudoriental subiendo de unas 128 000 a unas 162 000.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.17 (axe du panneau gauche rogné) et figure 3.18. La figure 3.17 montre la mortalité mondiale liée au VHB avec bandes d’incertitude à 95 %, toutes deux en lente hausse ; le panneau droit (nombre pour 100 000 habitants par an) passe d’environ 12,7 à environ 13,6. La figure 3.18 présente six graphiques linéaires bleus des décès liés au VHB par Région de l’OMS (Afrique, Amériques, Asie du Sud-Est, Europe, Méditerranée orientale et Pacifique occidental) ; tous augmentent progressivement, le Pacifique occidental étant le plus élevé (d’environ 470 000 à environ 525 000) et l’Asie du Sud-Est passant d’environ 128 000 à environ 162 000.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.17 (ось левой панели обрезана) и рисунок 3.18. На рисунке 3.17 показана глобальная смертность, связанная с ВГВ, с 95% интервалами неопределённости; оба показателя медленно растут, на правой панели (число на 100 000 населения в год) — примерно с 12,7 до 13,6. На рисунке 3.18 — шесть синих линейных графиков числа смертей, связанных с ВГВ, по регионам ВОЗ (Африканский, Американский, Юго-Восточной Азии, Европейский, Восточного Средиземноморья и Западной части Тихого океана); все постепенно растут, наивысший уровень — в Регионе Западной части Тихого океана (примерно с 470 000 до 525 000), в Регионе Юго-Восточной Азии — рост примерно со 128 000 до 162 000.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p040",
-      "file": "figures/vfig-p040.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p040.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "regional HBV mortality-rate line charts and a world HBV mortality-rate map",
         "page": 40
       },
       "page": 40,
@@ -3561,7 +4544,7 @@
           {
             "id": "b0",
             "bbox": [
-              88.0,
+              88,
               110.38,
               537.26,
               404.39
@@ -3664,18 +4647,100 @@
           "country level, 2024"
         ],
         "outside": 5
-      }
+      },
+      "shows": [
+        "Figure 3.19",
+        "Figure 3.20"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.19 (upper titles cropped) and Figure 3.20. Figure 3.19 shows six blue line charts, 2015–2024, of HBV-related mortality rates by WHO region (number per 100 000 population per year, with 95% uncertainty bands); rates are roughly flat, highest at about 24 in the upper-left panel and about 22–24 in the Western Pacific, and about 4 in the European Region. Figure 3.20 is a world choropleth map of HBV-related mortality rates per 100 000 population in 2024, with classes <4, 4–6.9, 7–9.9 and ≥10; the highest class covers most of sub-Saharan Africa, China and parts of South-East Asia.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-19 (اقتُطعت العناوين العليا) والشكل 3-20. يعرض الشكل 3-19 ستة مخططات خطية زرقاء للفترة 2015–2024 لمعدلات الوفيات المرتبطة بفيروس التهاب الكبد B حسب أقاليم المنظمة (العدد لكل 100 000 نسمة سنوياً، مع نطاقات عدم اليقين 95%)؛ والمعدلات مستقرة تقريباً، وأعلاها نحو 24 في اللوحة العليا اليسرى ونحو 22–24 في غرب المحيط الهادئ، ونحو 4 في الإقليم الأوروبي. والشكل 3-20 خريطة عالمية مظللة لمعدلات الوفيات المرتبطة بفيروس التهاب الكبد B لكل 100 000 نسمة في عام 2024، بفئات أقل من 4، و4–6.9، و7–9.9، و10 فأكثر؛ وتغطي الفئة الأعلى معظم أفريقيا جنوب الصحراء الكبرى والصين وأجزاء من جنوب شرق آسيا.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.19（上方标题被裁切）和图3.20。图3.19为2015–2024年按世卫组织区域划分的乙肝病毒相关死亡率的六幅蓝色折线图（每年每10万人口死亡数，带95%不确定性区间）；死亡率大致平稳，左上图最高约为24，西太平洋约为22–24，欧洲区域约为4。图3.20为2024年每10万人口乙肝病毒相关死亡率的世界分级设色地图，分级为<4、4–6.9、7–9.9和≥10；最高分级覆盖撒哈拉以南非洲大部分地区、中国和东南亚部分地区。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.19 (títulos superiores recortados) y figura 3.20. La figura 3.19 muestra seis gráficos de líneas azules, 2015–2024, de las tasas de mortalidad relacionada con el VHB por región de la OMS (número por 100 000 habitantes por año, con bandas de incertidumbre del 95%); las tasas son aproximadamente estables, con el valor más alto, unos 24, en el panel superior izquierdo, unos 22–24 en el Pacífico Occidental y unos 4 en la Región de Europa. La figura 3.20 es un mapa mundial coroplético de las tasas de mortalidad relacionada con el VHB por 100 000 habitantes en 2024, con clases <4, 4–6,9, 7–9,9 y ≥10; la clase más alta abarca la mayor parte del África subsahariana, China y partes de Asia Sudoriental.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.19 (titres supérieurs rognés) et figure 3.20. La figure 3.19 présente six graphiques linéaires bleus, 2015–2024, des taux de mortalité liée au VHB par Région de l’OMS (nombre pour 100 000 habitants par an, avec bandes d’incertitude à 95 %) ; les taux sont à peu près stables, les plus élevés étant d’environ 24 dans le panneau supérieur gauche et d’environ 22–24 dans le Pacifique occidental, contre environ 4 dans la Région européenne. La figure 3.20 est une carte choroplèthe mondiale des taux de mortalité liée au VHB pour 100 000 habitants en 2024, avec les classes <4, 4–6,9, 7–9,9 et ≥10 ; la classe la plus élevée couvre la majeure partie de l’Afrique subsaharienne, la Chine et certaines parties de l’Asie du Sud-Est.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.19 (верхние заголовки обрезаны) и рисунок 3.20. На рисунке 3.19 — шесть синих линейных графиков за 2015–2024 гг., показывающих коэффициенты смертности, связанной с ВГВ, по регионам ВОЗ (число на 100 000 населения в год, с 95% интервалами неопределённости); показатели примерно стабильны, самый высокий — около 24 на верхней левой панели, около 22–24 в Регионе Западной части Тихого океана и около 4 в Европейском регионе. Рисунок 3.20 — картограмма мира коэффициентов смертности, связанной с ВГВ, на 100 000 населения в 2024 г. с классами <4, 4–6,9, 7–9,9 и ≥10; наивысший класс охватывает большую часть Африки к югу от Сахары, Китай и часть Юго-Восточной Азии.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p041",
-      "file": "figures/vfig-p041.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p041.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a treemap of HBV-related deaths by country and global HCV mortality line charts",
         "page": 41
       },
       "page": 41,
@@ -3686,7 +4751,7 @@
       ],
       "region": [
         56.88,
-        106.0,
+        106,
         539.85,
         752.82
       ],
@@ -3697,7 +4762,7 @@
           {
             "bbox": [
               56.88,
-              106.0,
+              106,
               539.85,
               439.16
             ],
@@ -3781,7 +4846,7 @@
             "id": "b1",
             "bbox": [
               56.88,
-              106.0,
+              106,
               273.3,
               175.91
             ],
@@ -3966,7 +5031,7 @@
             "id": "b15",
             "bbox": [
               273.3,
-              106.0,
+              106,
               322.18,
               136.89
             ],
@@ -4100,18 +5165,100 @@
           "Millions per year"
         ],
         "outside": 14
-      }
+      },
+      "shows": [
+        "Figure 3.21",
+        "Figure 3.22"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.21 and Figure 3.22. Figure 3.21 is a treemap of each country’s share of global HBV-related deaths in 2024, coloured by WHO region (African, Americas, Eastern Mediterranean, European, South-East Asia, Western Pacific), with only the top 20 countries labelled; China is by far the largest block, followed by India, Indonesia, Nigeria, Viet Nam, Bangladesh and Ethiopia. Figure 3.22 shows global HCV-related mortality with 95% uncertainty bands: absolute numbers decline from about 0.27 to about 0.24 million per year, and the rate from about 3.6 to about 2.9 per 100 000 population per year.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-21 والشكل 3-22. الشكل 3-21 مخطط شجري لحصة كل بلد من الوفيات العالمية المرتبطة بفيروس التهاب الكبد B في عام 2024، ملوّن حسب أقاليم المنظمة (أفريقيا، والأمريكتان، وشرق المتوسط، وأوروبا، وجنوب شرق آسيا، وغرب المحيط الهادئ)، ولا تُوسم فيه إلا البلدان العشرون الأولى؛ والصين هي الكتلة الأكبر بفارق كبير، تليها الهند وإندونيسيا ونيجيريا وفييت نام وبنغلاديش وإثيوبيا. ويعرض الشكل 3-22 معدل الوفيات العالمي المرتبط بفيروس التهاب الكبد C مع نطاقات عدم اليقين 95%: إذ تنخفض الأعداد المطلقة من نحو 0.27 إلى نحو 0.24 مليون في السنة، وينخفض المعدل من نحو 3.6 إلى نحو 2.9 لكل 100 000 نسمة سنوياً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.21和图3.22。图3.21为2024年各国在全球乙肝病毒相关死亡中所占份额的树状图，按世卫组织区域（非洲、美洲、东地中海、欧洲、东南亚、西太平洋）着色，仅标注前20个国家；中国是迄今最大的色块，其次是印度、印度尼西亚、尼日利亚、越南、孟加拉国和埃塞俄比亚。图3.22显示带95%不确定性区间的全球丙肝病毒相关死亡情况：绝对数从每年约27万降至约24万，死亡率从每年每10万人口约3.6降至约2.9。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.21 y figura 3.22. La figura 3.21 es un diagrama de árbol de la proporción de cada país en las muertes mundiales relacionadas con el VHB en 2024, coloreado por región de la OMS (África, las Américas, Mediterráneo Oriental, Europa, Asia Sudoriental y Pacífico Occidental), en el que solo se rotulan los 20 primeros países; China es con diferencia el bloque más grande, seguida de la India, Indonesia, Nigeria, Viet Nam, Bangladesh y Etiopía. La figura 3.22 muestra la mortalidad mundial relacionada con el VHC con bandas de incertidumbre del 95%: los números absolutos descienden de aproximadamente 0,27 a aproximadamente 0,24 millones por año, y la tasa de aproximadamente 3,6 a aproximadamente 2,9 por 100 000 habitantes por año.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.21 et figure 3.22. La figure 3.21 est une carte proportionnelle (treemap) de la part de chaque pays dans les décès mondiaux liés au VHB en 2024, coloriée par Région de l’OMS (Afrique, Amériques, Méditerranée orientale, Europe, Asie du Sud-Est, Pacifique occidental), seuls les 20 premiers pays étant étiquetés ; la Chine est de loin le plus grand bloc, suivie de l’Inde, de l’Indonésie, du Nigéria, du Viet Nam, du Bangladesh et de l’Éthiopie. La figure 3.22 montre la mortalité mondiale liée au VHC avec bandes d’incertitude à 95 % : les nombres absolus baissent d’environ 0,27 à environ 0,24 million par an, et le taux d’environ 3,6 à environ 2,9 pour 100 000 habitants par an.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.21 и рисунок 3.22. Рисунок 3.21 — древовидная карта доли каждой страны в глобальном числе смертей, связанных с ВГВ, в 2024 г., с цветом по регионам ВОЗ (Африканский, Американский, Восточного Средиземноморья, Европейский, Юго-Восточной Азии, Западной части Тихого океана); подписаны только 20 ведущих стран. Китай — самый крупный блок с большим отрывом, далее Индия, Индонезия, Нигерия, Вьетнам, Бангладеш и Эфиопия. На рисунке 3.22 показана глобальная смертность, связанная с ВГС, с 95% интервалами неопределённости: абсолютное число снижается примерно с 0,27 до 0,24 млн в год, а коэффициент — примерно с 3,6 до 2,9 на 100 000 населения в год.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p042",
-      "file": "figures/vfig-p042.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p042.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "small-multiple line charts of HCV-related deaths by WHO region",
         "page": 42
       },
       "page": 42,
@@ -4218,18 +5365,99 @@
         ],
         "between": [],
         "outside": 77
-      }
+      },
+      "shows": [
+        "Figure 3.23"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 3.23: six green line charts with shaded uncertainty bands of the absolute number of HCV-related deaths by WHO region, 2015–2024; the lower row is labelled European Region, Eastern Mediterranean Region and Western Pacific Region, and the upper-row titles are cropped. The European and Eastern Mediterranean regions decline (Eastern Mediterranean from about 72 000 to about 48 000), the Western Pacific is roughly flat at about 45 000–50 000, and two upper panels rise.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 3-23: ستة مخططات خطية خضراء مع نطاقات مظللة لعدم اليقين للعدد المطلق للوفيات المرتبطة بفيروس التهاب الكبد C حسب أقاليم المنظمة، 2015–2024؛ ويحمل الصف السفلي تسميات الإقليم الأوروبي وإقليم شرق المتوسط وإقليم غرب المحيط الهادئ، واقتُطعت عناوين الصف العلوي. وتنخفض الوفيات في الإقليم الأوروبي وإقليم شرق المتوسط (في شرق المتوسط من نحو 72 000 إلى نحو 48 000)، وتستقر تقريباً في غرب المحيط الهادئ عند نحو 45 000–50 000، وترتفع في لوحتين علويتين.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.23的一部分：2015–2024年按世卫组织区域划分的丙肝病毒相关死亡绝对数的六幅带阴影不确定性区间的绿色折线图；下排标注为欧洲区域、东地中海区域和西太平洋区域，上排标题被裁切。欧洲区域和东地中海区域呈下降（东地中海从约7.2万降至约4.8万），西太平洋大致平稳，约4.5万–5万，上排有两幅图呈上升。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 3.23: seis gráficos de líneas verdes con bandas sombreadas de incertidumbre del número absoluto de muertes relacionadas con el VHC por región de la OMS, 2015–2024; la fila inferior está rotulada Región de Europa, Región del Mediterráneo Oriental y Región del Pacífico Occidental, y los títulos de la fila superior están recortados. Las regiones de Europa y del Mediterráneo Oriental descienden (el Mediterráneo Oriental de unas 72 000 a unas 48 000), el Pacífico Occidental se mantiene aproximadamente estable en unas 45 000–50 000, y dos paneles superiores aumentan.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 3.23 : six graphiques linéaires verts avec bandes d’incertitude ombrées du nombre absolu de décès liés au VHC par Région de l’OMS, 2015–2024 ; la rangée inférieure est intitulée Région européenne, Région de la Méditerranée orientale et Région du Pacifique occidental, et les titres de la rangée supérieure sont rognés. Les Régions européenne et de la Méditerranée orientale sont en baisse (la Méditerranée orientale d’environ 72 000 à environ 48 000), le Pacifique occidental est à peu près stable autour de 45 000–50 000, et deux panneaux supérieurs sont en hausse.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 3.23: шесть зелёных линейных графиков с затенёнными интервалами неопределённости, показывающих абсолютное число смертей, связанных с ВГС, по регионам ВОЗ за 2015–2024 гг.; нижний ряд подписан «Европейский регион», «Регион Восточного Средиземноморья» и «Регион Западной части Тихого океана», заголовки верхнего ряда обрезаны. В Европейском регионе и Регионе Восточного Средиземноморья число смертей снижается (в последнем — примерно с 72 000 до 48 000), в Регионе Западной части Тихого океана оно примерно стабильно на уровне 45 000–50 000, а на двух верхних панелях растёт.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p043",
-      "file": "figures/vfig-p043.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p043.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "regional HCV mortality-rate line charts and a world HCV mortality-rate map",
         "page": 43
       },
       "page": 43,
@@ -4414,18 +5642,100 @@
           "a\t Shaded areas represent 95% uncertainty intervals."
         ],
         "outside": 7
-      }
+      },
+      "shows": [
+        "Figure 3.24",
+        "Figure 3.25"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.24 (upper titles cropped) and Figure 3.25. Figure 3.24 shows six green line charts, 2015–2024, of HCV-related mortality rates by WHO region (number per 100 000 population per year, with 95% uncertainty bands); the Eastern Mediterranean falls from about 10 to about 6 and the European Region from about 4.9 to about 3.3, while one upper panel rises slightly from about 1.8 to about 2.1. Figure 3.25 is a world choropleth map of HCV-related mortality rates per 100 000 population in 2024, with classes <2, 2–2.9, 3–4.9 and ≥5; the highest class appears in countries including the Russian Federation, Pakistan, parts of southern Africa and South America.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-24 (اقتُطعت العناوين العليا) والشكل 3-25. يعرض الشكل 3-24 ستة مخططات خطية خضراء للفترة 2015–2024 لمعدلات الوفيات المرتبطة بفيروس التهاب الكبد C حسب أقاليم المنظمة (العدد لكل 100 000 نسمة سنوياً، مع نطاقات عدم اليقين 95%)؛ إذ ينخفض المعدل في شرق المتوسط من نحو 10 إلى نحو 6 وفي الإقليم الأوروبي من نحو 4.9 إلى نحو 3.3، بينما يرتفع قليلاً في إحدى اللوحات العليا من نحو 1.8 إلى نحو 2.1. والشكل 3-25 خريطة عالمية مظللة لمعدلات الوفيات المرتبطة بفيروس التهاب الكبد C لكل 100 000 نسمة في عام 2024، بفئات أقل من 2، و2–2.9، و3–4.9، و5 فأكثر؛ وتظهر الفئة الأعلى في بلدان منها الاتحاد الروسي وباكستان وأجزاء من الجنوب الأفريقي وأمريكا الجنوبية.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.24（上方标题被裁切）和图3.25。图3.24为2015–2024年按世卫组织区域划分的丙肝病毒相关死亡率的六幅绿色折线图（每年每10万人口死亡数，带95%不确定性区间）；东地中海从约10降至约6，欧洲区域从约4.9降至约3.3，上排有一幅图从约1.8小幅升至约2.1。图3.25为2024年每10万人口丙肝病毒相关死亡率的世界分级设色地图，分级为<2、2–2.9、3–4.9和≥5；最高分级出现在俄罗斯联邦、巴基斯坦、非洲南部部分地区和南美洲等国家和地区。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.24 (títulos superiores recortados) y figura 3.25. La figura 3.24 muestra seis gráficos de líneas verdes, 2015–2024, de las tasas de mortalidad relacionada con el VHC por región de la OMS (número por 100 000 habitantes por año, con bandas de incertidumbre del 95%); el Mediterráneo Oriental baja de aproximadamente 10 a aproximadamente 6 y la Región de Europa de aproximadamente 4,9 a aproximadamente 3,3, mientras que un panel superior sube ligeramente de aproximadamente 1,8 a aproximadamente 2,1. La figura 3.25 es un mapa mundial coroplético de las tasas de mortalidad relacionada con el VHC por 100 000 habitantes en 2024, con clases <2, 2–2,9, 3–4,9 y ≥5; la clase más alta aparece en países como la Federación de Rusia, el Pakistán, partes de África meridional y América del Sur.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.24 (titres supérieurs rognés) et figure 3.25. La figure 3.24 présente six graphiques linéaires verts, 2015–2024, des taux de mortalité liée au VHC par Région de l’OMS (nombre pour 100 000 habitants par an, avec bandes d’incertitude à 95 %) ; la Méditerranée orientale passe d’environ 10 à environ 6 et la Région européenne d’environ 4,9 à environ 3,3, tandis qu’un panneau supérieur augmente légèrement d’environ 1,8 à environ 2,1. La figure 3.25 est une carte choroplèthe mondiale des taux de mortalité liée au VHC pour 100 000 habitants en 2024, avec les classes <2, 2–2,9, 3–4,9 et ≥5 ; la classe la plus élevée apparaît notamment dans la Fédération de Russie, au Pakistan, dans certaines parties de l’Afrique australe et en Amérique du Sud.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.24 (верхние заголовки обрезаны) и рисунок 3.25. На рисунке 3.24 — шесть зелёных линейных графиков за 2015–2024 гг., показывающих коэффициенты смертности, связанной с ВГС, по регионам ВОЗ (число на 100 000 населения в год, с 95% интервалами неопределённости); в Регионе Восточного Средиземноморья показатель снижается примерно с 10 до 6, в Европейском регионе — примерно с 4,9 до 3,3, а на одной из верхних панелей слегка растёт — примерно с 1,8 до 2,1. Рисунок 3.25 — картограмма мира коэффициентов смертности, связанной с ВГС, на 100 000 населения в 2024 г. с классами <2, 2–2,9, 3–4,9 и ≥5; наивысший класс отмечен, в частности, в Российской Федерации, Пакистане, части юга Африки и Южной Америки.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p044",
-      "file": "figures/vfig-p044.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p044.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a treemap of HCV-related deaths by country and combined HBV/HCV mortality line charts",
         "page": 44
       },
       "page": 44,
@@ -4838,18 +6148,100 @@
           "Millions per year"
         ],
         "outside": 13
-      }
+      },
+      "shows": [
+        "Figure 3.26",
+        "Figure 3.27"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 3.26 and Figure 3.27. Figure 3.26 is a treemap of each country’s share of global HCV-related deaths in 2024, coloured by WHO region, with only the top 20 countries labelled; Pakistan and India are the largest blocks, followed by China, the United States of America, Japan, Indonesia, the Russian Federation, Nigeria and South Africa. Figure 3.27 shows global HBV and HCV-related deaths combined (orange), HBV only (blue) and HCV only (green), 2015–2024, with uncertainty bands: combined deaths rise from about 1.2 to about 1.35 million per year, driven by HBV (about 0.95 to 1.1 million), while HCV stays near 0.25 million; the combined rate stays at about 16 per 100 000 population per year.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 3-26 والشكل 3-27. الشكل 3-26 مخطط شجري لحصة كل بلد من الوفيات العالمية المرتبطة بفيروس التهاب الكبد C في عام 2024، ملوّن حسب أقاليم المنظمة، ولا تُوسم فيه إلا البلدان العشرون الأولى؛ وتمثل باكستان والهند أكبر الكتل، تليهما الصين والولايات المتحدة الأمريكية واليابان وإندونيسيا والاتحاد الروسي ونيجيريا وجنوب أفريقيا. ويعرض الشكل 3-27 الوفيات العالمية المرتبطة بفيروسي التهاب الكبد B وC مجتمعين (بالبرتقالي)، وبفيروس التهاب الكبد B وحده (بالأزرق)، وبفيروس التهاب الكبد C وحده (بالأخضر)، 2015–2024، مع نطاقات عدم اليقين: ترتفع الوفيات المجتمعة من نحو 1.2 إلى نحو 1.35 مليون في السنة، مدفوعة بفيروس التهاب الكبد B (من نحو 0.95 إلى 1.1 مليون)، بينما يبقى فيروس التهاب الكبد C قرب 0.25 مليون؛ ويظل المعدل المجتمع عند نحو 16 لكل 100 000 نسمة سنوياً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.26和图3.27。图3.26为2024年各国在全球丙肝病毒相关死亡中所占份额的树状图，按世卫组织区域着色，仅标注前20个国家；巴基斯坦和印度为最大色块，其次是中国、美利坚合众国、日本、印度尼西亚、俄罗斯联邦、尼日利亚和南非。图3.27显示2015–2024年全球乙肝和丙肝病毒相关死亡合计（橙色）、仅乙肝（蓝色）和仅丙肝（绿色），带不确定性区间：合计死亡从每年约120万升至约135万，主要由乙肝驱动（约95万升至110万），丙肝保持在约25万；合计死亡率保持在每年每10万人口约16。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 3.26 y figura 3.27. La figura 3.26 es un diagrama de árbol de la proporción de cada país en las muertes mundiales relacionadas con el VHC en 2024, coloreado por región de la OMS, en el que solo se rotulan los 20 primeros países; el Pakistán y la India son los bloques más grandes, seguidos de China, los Estados Unidos de América, el Japón, Indonesia, la Federación de Rusia, Nigeria y Sudáfrica. La figura 3.27 muestra las muertes mundiales relacionadas con el VHB y el VHC combinados (naranja), solo con el VHB (azul) y solo con el VHC (verde), 2015–2024, con bandas de incertidumbre: las muertes combinadas aumentan de aproximadamente 1,2 a aproximadamente 1,35 millones por año, impulsadas por el VHB (de aproximadamente 0,95 a 1,1 millones), mientras que el VHC se mantiene cerca de 0,25 millones; la tasa combinada se mantiene en unos 16 por 100 000 habitantes por año.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 3.26 et figure 3.27. La figure 3.26 est une carte proportionnelle (treemap) de la part de chaque pays dans les décès mondiaux liés au VHC en 2024, coloriée par Région de l’OMS, seuls les 20 premiers pays étant étiquetés ; le Pakistan et l’Inde sont les plus grands blocs, suivis de la Chine, des États-Unis d’Amérique, du Japon, de l’Indonésie, de la Fédération de Russie, du Nigéria et de l’Afrique du Sud. La figure 3.27 montre les décès mondiaux liés au VHB et au VHC combinés (orange), au VHB seul (bleu) et au VHC seul (vert), 2015–2024, avec bandes d’incertitude : les décès combinés passent d’environ 1,2 à environ 1,35 million par an, portés par le VHB (d’environ 0,95 à 1,1 million), tandis que le VHC reste proche de 0,25 million ; le taux combiné reste d’environ 16 pour 100 000 habitants par an.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 3.26 и рисунок 3.27. Рисунок 3.26 — древовидная карта доли каждой страны в глобальном числе смертей, связанных с ВГС, в 2024 г., с цветом по регионам ВОЗ; подписаны только 20 ведущих стран. Крупнейшие блоки — Пакистан и Индия, далее Китай, Соединённые Штаты Америки, Япония, Индонезия, Российская Федерация, Нигерия и Южная Африка. На рисунке 3.27 показаны глобальные смерти, связанные с ВГВ и ВГС вместе (оранжевый), только с ВГВ (синий) и только с ВГС (зелёный) за 2015–2024 гг., с интервалами неопределённости: суммарное число смертей растёт примерно с 1,2 до 1,35 млн в год за счёт ВГВ (примерно с 0,95 до 1,1 млн), тогда как для ВГС оно остаётся около 0,25 млн; суммарный коэффициент держится на уровне около 16 на 100 000 населения в год.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p045",
-      "file": "figures/vfig-p045.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p045.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a map legend for combined HBV/HCV mortality rates",
         "page": 45
       },
       "page": 45,
@@ -5055,18 +6447,99 @@
         ],
         "between": [],
         "outside": 61
-      }
+      },
+      "shows": [
+        "Figure 3.28"
+      ],
+      "narrative": [
+        {
+          "text": "Legend fragment of the country map in Figure 3.28 (number per 100 000 population), with orange-to-red classes <6, 6–9.9, 10–14.9 and ≥15, plus No data and Not applicable; the map itself is not included.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من مفتاح خريطة البلدان في الشكل 3-28 (العدد لكل 100 000 نسمة)، بفئات متدرجة من البرتقالي إلى الأحمر: أقل من 6، و6–9.9، و10–14.9، و15 فأكثر، إضافة إلى \"لا توجد بيانات\" و\"لا ينطبق\"؛ ولا تتضمن الصورة الخريطة نفسها.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图3.28国家级地图的图例片段（每10万人口数），由橙色至红色分级：<6、6–9.9、10–14.9和≥15，另有“无数据”和“不适用”；不含地图本身。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragmento de la leyenda del mapa por país de la figura 3.28 (número por 100 000 habitantes), con clases de naranja a rojo <6, 6–9,9, 10–14,9 y ≥15, además de «Sin datos» y «No aplicable»; el mapa en sí no está incluido.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragment de la légende de la carte par pays de la figure 3.28 (nombre pour 100 000 habitants), avec des classes de l’orange au rouge <6, 6–9,9, 10–14,9 et ≥15, ainsi que « Pas de données » et « Sans objet » ; la carte elle-même n’est pas incluse.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Фрагмент легенды карты по странам на рисунке 3.28 (число на 100 000 населения) с классами от оранжевого к красному: <6, 6–9,9, 10–14,9 и ≥15, а также «Нет данных» и «Неприменимо»; сама карта не включена.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p052",
-      "file": "figures/vfig-p052.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p052.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a map legend for hepatitis B birth-dose vaccination implementation status",
         "page": 52
       },
       "page": 52,
@@ -5154,7 +6627,7 @@
             "to": null,
             "bbox": [
               92.74,
-              415.0,
+              415,
               287.23,
               527.55
             ]
@@ -5175,25 +6648,106 @@
             "bbox": [
               92.51,
               426.32,
-              287.0,
+              287,
               426.32
             ]
           }
         ],
         "between": [],
         "outside": 57
-      }
+      },
+      "shows": [
+        "Figure 4.1"
+      ],
+      "narrative": [
+        {
+          "text": "Legend fragment of the map in Figure 4.1 on hepatitis B birth-dose vaccination, with categories: Yes, throughout the country (text cropped); Yes, in certain regions; Yes, only in risk groups; Planned; Not administered; No data; and Not applicable. The map itself is not included.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من مفتاح الخريطة في الشكل 4-1 بشأن التطعيم بالجرعة الأولى من لقاح التهاب الكبد B عند الولادة، بالفئات التالية: نعم، في جميع أنحاء البلد (النص مقتطع)؛ نعم، في مناطق معينة؛ نعم، في الفئات المعرضة للخطر فقط؛ مُخطَّط له؛ لا يُعطى؛ لا توجد بيانات؛ لا ينطبق. ولا تتضمن الصورة الخريطة نفسها.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.1乙型肝炎出生剂量疫苗接种地图的图例片段，类别为：是，全国范围（文字被裁切）；是，部分地区；是，仅高危人群；已计划；未接种；无数据；不适用。不含地图本身。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragmento de la leyenda del mapa de la figura 4.1 sobre la vacunación contra la hepatitis B en el nacimiento, con las categorías: Sí, en todo el país (texto recortado); Sí, en determinadas regiones; Sí, solo en grupos de riesgo; Prevista; No administrada; Sin datos; y No aplicable. El mapa en sí no está incluido.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragment de la légende de la carte de la figure 4.1 sur la vaccination contre l’hépatite B à la naissance, avec les catégories : Oui, dans tout le pays (texte rogné) ; Oui, dans certaines régions ; Oui, uniquement dans les groupes à risque ; Prévue ; Non administrée ; Pas de données ; et Sans objet. La carte elle-même n’est pas incluse.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Фрагмент легенды карты на рисунке 4.1 о вакцинации против гепатита B при рождении с категориями: «Да, по всей стране» (текст обрезан); «Да, в отдельных регионах»; «Да, только в группах риска»; «Запланировано»; «Не проводится»; «Нет данных»; «Неприменимо». Сама карта не включена.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p053",
-      "file": "figures/vfig-p053.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p053.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "small-multiple line charts of birth-dose hepatitis B vaccine coverage by WHO region, without axis labels",
         "page": 53
       },
       "page": 53,
@@ -5293,26 +6847,107 @@
             "to": null,
             "bbox": [
               343.67,
-              520.0,
+              520,
               538.16,
-              520.0
+              520
             ]
           }
         ],
         "between": [],
         "outside": 65
-      }
+      },
+      "shows": [
+        "Figure 4.3"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 4.3: six blue line charts of timely birth-dose hepatitis B vaccination coverage by WHO region, 2000–2024; the lower row is labelled European Region, Eastern Mediterranean Region and Western Pacific Region, while the upper-row titles and all axis values are cropped or missing. All regions show increases over time; the Western Pacific rises sharply early on and stays highest, and one upper panel stays low with a gradual rise.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 4-3: ستة مخططات خطية زرقاء لتغطية التطعيم في الوقت المناسب بالجرعة الأولى من لقاح التهاب الكبد B عند الولادة حسب أقاليم المنظمة، 2000–2024؛ ويحمل الصف السفلي تسميات الإقليم الأوروبي وإقليم شرق المتوسط وإقليم غرب المحيط الهادئ، بينما اقتُطعت عناوين الصف العلوي وجميع قيم المحاور أو أنها غير موجودة. وتُظهر جميع الأقاليم زيادات بمرور الوقت؛ إذ يرتفع غرب المحيط الهادئ ارتفاعاً حاداً في وقت مبكر ويبقى الأعلى، وتبقى إحدى اللوحات العليا منخفضة مع ارتفاع تدريجي.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.3的一部分：2000–2024年按世卫组织区域划分的乙型肝炎及时出生剂量疫苗接种覆盖率的六幅蓝色折线图；下排标注为欧洲区域、东地中海区域和西太平洋区域，上排标题及所有坐标轴数值被裁切或缺失。所有区域均随时间上升；西太平洋早期急剧上升并保持最高，上排一幅图维持在低水平并缓慢上升。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 4.3: seis gráficos de líneas azules de la cobertura de la vacunación oportuna contra la hepatitis B en el nacimiento por región de la OMS, 2000–2024; la fila inferior está rotulada Región de Europa, Región del Mediterráneo Oriental y Región del Pacífico Occidental, mientras que los títulos de la fila superior y todos los valores de los ejes están recortados o ausentes. Todas las regiones aumentan con el tiempo; el Pacífico Occidental sube bruscamente al principio y se mantiene como la más alta, y un panel superior permanece bajo con un aumento gradual.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 4.3 : six graphiques linéaires bleus de la couverture de la vaccination contre l’hépatite B à la naissance administrée en temps voulu par Région de l’OMS, 2000–2024 ; la rangée inférieure est intitulée Région européenne, Région de la Méditerranée orientale et Région du Pacifique occidental, tandis que les titres de la rangée supérieure et toutes les valeurs des axes sont rognés ou absents. Toutes les Régions progressent au fil du temps ; le Pacifique occidental augmente fortement dès le début et reste le plus élevé, et un panneau supérieur reste bas avec une hausse progressive.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 4.3: шесть синих линейных графиков охвата своевременной вакцинацией против гепатита B при рождении по регионам ВОЗ за 2000–2024 гг.; нижний ряд подписан «Европейский регион», «Регион Восточного Средиземноморья» и «Регион Западной части Тихого океана», а заголовки верхнего ряда и все значения осей обрезаны или отсутствуют. Во всех регионах охват со временем растёт; в Регионе Западной части Тихого океана он резко возрастает в начале периода и остаётся самым высоким, а на одной из верхних панелей остаётся низким с постепенным ростом.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p054",
-      "file": "figures/vfig-p054.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p054.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "regional HepB3 coverage line charts and a world HepB3 coverage map",
         "page": 54
       },
       "page": 54,
@@ -5444,18 +7079,100 @@
           "Coverage"
         ],
         "outside": 9
-      }
+      },
+      "shows": [
+        "Figure 4.5",
+        "Figure 4.6"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 4.5 (upper titles cropped) and Figure 4.6. Figure 4.5 shows six blue line charts of third-dose hepatitis B vaccination coverage (%) by WHO region, 2000–2024; coverage rises in all regions, reaching about 90% in the European and Western Pacific regions and about 75–94% elsewhere, from starting points as low as about 3–5% in two upper panels. Figure 4.6 is a world map of third-dose coverage in 2024 with classes <90%, ≥90%, No universal hepatitis B infant immunization, No data and Not applicable; coverage below 90% is widespread across Africa, Latin America, parts of Europe and South-East Asia.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 4-5 (اقتُطعت العناوين العليا) والشكل 4-6. يعرض الشكل 4-5 ستة مخططات خطية زرقاء لتغطية التطعيم بالجرعة الثالثة من لقاح التهاب الكبد B (%) حسب أقاليم المنظمة، 2000–2024؛ وترتفع التغطية في جميع الأقاليم، فتبلغ نحو 90% في الإقليم الأوروبي وإقليم غرب المحيط الهادئ ونحو 75–94% في غيرهما، انطلاقاً من مستويات منخفضة تصل إلى نحو 3–5% في لوحتين علويتين. والشكل 4-6 خريطة عالمية لتغطية الجرعة الثالثة في عام 2024 بفئات: أقل من 90%، و90% فأكثر، و\"لا يوجد تمنيع شامل للرضع ضد التهاب الكبد B\"، و\"لا توجد بيانات\"، و\"لا ينطبق\"؛ وتنتشر التغطية الأقل من 90% على نطاق واسع في أفريقيا وأمريكا اللاتينية وأجزاء من أوروبا وجنوب شرق آسيا.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.5（上方标题被裁切）和图4.6。图4.5为2000–2024年按世卫组织区域划分的第三剂乙型肝炎疫苗接种覆盖率（%）的六幅蓝色折线图；所有区域覆盖率均上升，欧洲区域和西太平洋区域达到约90%，其他区域约75–94%，上排两幅图的起点低至约3–5%。图4.6为2024年第三剂覆盖率世界地图，分级为<90%、≥90%、未开展普遍婴儿乙肝免疫接种、无数据和不适用；非洲、拉丁美洲、欧洲部分地区和东南亚普遍低于90%。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 4.5 (títulos superiores recortados) y figura 4.6. La figura 4.5 muestra seis gráficos de líneas azules de la cobertura de la tercera dosis de la vacuna contra la hepatitis B (%) por región de la OMS, 2000–2024; la cobertura aumenta en todas las regiones, hasta alrededor del 90% en las regiones de Europa y del Pacífico Occidental y del 75–94% en las demás, desde puntos de partida de apenas un 3–5% en dos paneles superiores. La figura 4.6 es un mapa mundial de la cobertura de la tercera dosis en 2024 con las clases <90%, ≥90%, Sin inmunización universal de lactantes contra la hepatitis B, Sin datos y No aplicable; la cobertura inferior al 90% está extendida en África, América Latina, partes de Europa y Asia Sudoriental.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 4.5 (titres supérieurs rognés) et figure 4.6. La figure 4.5 présente six graphiques linéaires bleus de la couverture par la troisième dose de vaccin contre l’hépatite B (%) par Région de l’OMS, 2000–2024 ; la couverture augmente dans toutes les Régions, atteignant environ 90 % dans les Régions européenne et du Pacifique occidental et environ 75–94 % ailleurs, à partir de niveaux aussi bas qu’environ 3–5 % dans deux panneaux supérieurs. La figure 4.6 est une carte mondiale de la couverture par la troisième dose en 2024 avec les classes <90 %, ≥90 %, Pas de vaccination universelle des nourrissons contre l’hépatite B, Pas de données et Sans objet ; une couverture inférieure à 90 % est répandue en Afrique, en Amérique latine, dans certaines parties de l’Europe et en Asie du Sud-Est.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 4.5 (верхние заголовки обрезаны) и рисунок 4.6. На рисунке 4.5 — шесть синих линейных графиков охвата третьей дозой вакцины против гепатита B (%) по регионам ВОЗ за 2000–2024 гг.; охват растёт во всех регионах, достигая около 90% в Европейском регионе и Регионе Западной части Тихого океана и около 75–94% в остальных, при исходном уровне всего около 3–5% на двух верхних панелях. Рисунок 4.6 — карта мира охвата третьей дозой в 2024 г. с классами <90%, ≥90%, «Нет всеобщей иммунизации детей грудного возраста против гепатита B», «Нет данных» и «Неприменимо»; охват ниже 90% широко распространён в Африке, Латинской Америке, части Европы и Юго-Восточной Азии.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p056",
-      "file": "figures/vfig-p056.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p056.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "stacked horizontal bar charts of adult hepatitis B vaccination policies by risk group, globally and by region",
         "page": 56
       },
       "page": 56,
@@ -5811,7 +7528,7 @@
               68.96,
               722.63,
               108.6,
-              733.0
+              733
             ],
             "parent": "b0",
             "labels": [
@@ -6071,7 +7788,7 @@
               69.13,
               480.59,
               177.87,
-              491.0
+              491
             ],
             "parent": "b0",
             "labels": [
@@ -6432,18 +8149,99 @@
         ],
         "between": [],
         "outside": 52
-      }
+      },
+      "shows": [
+        "Figure 4.7"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 4.7: stacked horizontal bar charts of the number of countries with national policies on hepatitis B vaccination of adults (Yes, No, Unknown) for eight groups: A health care workers, B people living with HIV, C people who inject drugs, D men who have sex with men, E military personnel, F commercial sex workers, G people with HCV infection and H travellers. Globally (top panel), the “Yes” count is highest for health care workers (107) and lowest for travellers (26), with 73, 65, 60, 45, 43 and 43 for the groups in between. Regional panels for the African, Americas, South-East Asia, European, Eastern Mediterranean and Western Pacific regions follow the same pattern, with health care workers most often covered.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 4-7: مخططات أعمدة أفقية مكدسة لعدد البلدان التي لديها سياسات وطنية بشأن تطعيم البالغين ضد التهاب الكبد B (نعم، لا، غير معروف) لثماني فئات: أ العاملون في مجال الرعاية الصحية، ب المتعايشون مع فيروس العوز المناعي البشري، ج الأشخاص الذين يتعاطون المخدرات بالحقن، د الرجال الذين يمارسون الجنس مع الرجال، هـ الأفراد العسكريون، و المشتغلون بالجنس التجاري، ز المصابون بعدوى فيروس التهاب الكبد C، ح المسافرون. وعلى الصعيد العالمي (اللوحة العليا)، يكون عدد \"نعم\" أعلاه للعاملين في الرعاية الصحية (107) وأدناه للمسافرين (26)، مع 73 و65 و60 و45 و43 و43 للفئات الواقعة بينهما. وتتبع اللوحات الإقليمية لأقاليم أفريقيا والأمريكتين وجنوب شرق آسيا وأوروبا وشرق المتوسط وغرب المحيط الهادئ النمط نفسه، إذ يكون العاملون في الرعاية الصحية الأكثر شمولاً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.7：堆积横向条形图，显示针对八类人群制定成人乙型肝炎疫苗接种国家政策（是、否、未知）的国家数：A 卫生保健工作者，B 艾滋病毒感染者，C 注射吸毒者，D 男男性行为者，E 军事人员，F 商业性工作者，G 丙肝病毒感染者，H 旅行者。全球（上图）“是”的数量以卫生保健工作者最高（107），旅行者最低（26），其间各组为73、65、60、45、43和43。非洲、美洲、东南亚、欧洲、东地中海和西太平洋区域的分区域图呈现相同模式，卫生保健工作者最常被覆盖。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 4.7: gráficos de barras horizontales apiladas del número de países con políticas nacionales de vacunación de adultos contra la hepatitis B (Sí, No, Desconocido) para ocho grupos: A trabajadores de salud, B personas con el VIH, C personas que se inyectan drogas, D hombres que tienen relaciones sexuales con hombres, E personal militar, F trabajadores sexuales comerciales, G personas con infección por el VHC y H viajeros. A nivel mundial (panel superior), el número de «Sí» es máximo para los trabajadores de salud (107) y mínimo para los viajeros (26), con 73, 65, 60, 45, 43 y 43 para los grupos intermedios. Los paneles de las regiones de África, las Américas, Asia Sudoriental, Europa, el Mediterráneo Oriental y el Pacífico Occidental siguen el mismo patrón, con los trabajadores de salud cubiertos con mayor frecuencia.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 4.7 : graphiques à barres horizontales empilées du nombre de pays dotés de politiques nationales de vaccination des adultes contre l’hépatite B (Oui, Non, Inconnu) pour huit groupes : A agents de santé, B personnes vivant avec le VIH, C personnes qui s’injectent des drogues, D hommes ayant des rapports sexuels avec des hommes, E personnel militaire, F professionnel(le)s du sexe, G personnes atteintes d’infection à VHC et H voyageurs. Au niveau mondial (panneau supérieur), le nombre de « Oui » est le plus élevé pour les agents de santé (107) et le plus faible pour les voyageurs (26), avec 73, 65, 60, 45, 43 et 43 pour les groupes intermédiaires. Les panneaux des Régions de l’Afrique, des Amériques, de l’Asie du Sud-Est, de l’Europe, de la Méditerranée orientale et du Pacifique occidental suivent la même tendance, les agents de santé étant le plus souvent couverts.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 4.7: горизонтальные столбчатые диаграммы с накоплением, показывающие число стран с национальной политикой вакцинации взрослых против гепатита B («Да», «Нет», «Неизвестно») для восьми групп: A — работники здравоохранения, B — люди, живущие с ВИЧ, C — люди, употребляющие инъекционные наркотики, D — мужчины, практикующие секс с мужчинами, E — военнослужащие, F — работники коммерческого секса, G — люди с инфекцией ВГС, H — путешественники. В мире в целом (верхняя панель) число ответов «Да» наибольшее для работников здравоохранения (107) и наименьшее для путешественников (26), для промежуточных групп — 73, 65, 60, 45, 43 и 43. Панели по Африканскому, Американскому, Юго-Восточной Азии, Европейскому, Восточного Средиземноморья и Западной части Тихого океана регионам следуют той же закономерности: чаще всего охвачены работники здравоохранения.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p057",
-      "file": "figures/vfig-p057.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p057.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a map legend for national plans to eliminate mother-to-child transmission",
         "page": 57
       },
       "page": 57,
@@ -6512,18 +8310,99 @@
         ],
         "between": [],
         "outside": 78
-      }
+      },
+      "shows": [
+        "Figure 4.8"
+      ],
+      "narrative": [
+        {
+          "text": "Legend fragment of the map in Figure 4.8, with categories Plan exists, Plan does not exist (text cropped), No data and Not applicable; the map itself is not included.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من مفتاح الخريطة في الشكل 4-8، بالفئات: توجد خطة، ولا توجد خطة (النص مقتطع)، ولا توجد بيانات، ولا ينطبق؛ ولا تتضمن الصورة الخريطة نفسها.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.8地图的图例片段，类别为：有计划、无计划（文字被裁切）、无数据和不适用；不含地图本身。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragmento de la leyenda del mapa de la figura 4.8, con las categorías Existe un plan, No existe un plan (texto recortado), Sin datos y No aplicable; el mapa en sí no está incluido.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragment de la légende de la carte de la figure 4.8, avec les catégories Plan existant, Plan inexistant (texte rogné), Pas de données et Sans objet ; la carte elle-même n’est pas incluse.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Фрагмент легенды карты на рисунке 4.8 с категориями «План существует», «План не существует» (текст обрезан), «Нет данных» и «Неприменимо»; сама карта не включена.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p058",
-      "file": "figures/vfig-p058.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p058.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "stacked horizontal bar charts of policies to prevent mother-to-child transmission, globally and by region",
         "page": 58
       },
       "page": 58,
@@ -7196,18 +9075,99 @@
           "Region of the Americas"
         ],
         "outside": 38
-      }
+      },
+      "shows": [
+        "Figure 4.9"
+      ],
+      "narrative": [
+        {
+          "text": "Figure 4.9: stacked horizontal bar charts of the number of countries with policies to prevent mother-to-child transmission (Yes, No, Unknown) for five measures: A screening of all pregnant women for HBV (HBsAg testing), B provision of antiviral prophylaxis during pregnancy, C HBV immunoglobulin recommended to all HBV-exposed infants, D HBeAg or HBV DNA testing among all HBsAg-positive pregnant women, and E HCV screening among pregnant women. Globally, “Yes” counts fall from 128 (A) to 102, 87, 64 and 56 (E). Regional panels for the African, Americas, South-East Asia, European, Eastern Mediterranean and Western Pacific regions mostly show HBV screening of pregnant women as the most common policy.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 4-9: مخططات أعمدة أفقية مكدسة لعدد البلدان التي لديها سياسات للوقاية من انتقال العدوى من الأم إلى الطفل (نعم، لا، غير معروف) لخمسة تدابير: أ تحرّي فيروس التهاب الكبد B لدى جميع الحوامل (اختبار المستضد السطحي HBsAg)، ب توفير الوقاية بمضادات الفيروسات أثناء الحمل، ج التوصية بالغلوبولين المناعي لفيروس التهاب الكبد B لجميع الرضع المعرضين له، د اختبار المستضد HBeAg أو الحمض النووي لفيروس التهاب الكبد B لدى جميع الحوامل الإيجابيات للمستضد HBsAg، هـ تحرّي فيروس التهاب الكبد C لدى الحوامل. وعلى الصعيد العالمي، ينخفض عدد \"نعم\" من 128 (أ) إلى 102 و87 و64 و56 (هـ). وتُظهر اللوحات الإقليمية لأقاليم أفريقيا والأمريكتين وجنوب شرق آسيا وأوروبا وشرق المتوسط وغرب المحيط الهادئ في الغالب أن تحرّي فيروس التهاب الكبد B لدى الحوامل هو السياسة الأكثر شيوعاً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.9：堆积横向条形图，显示针对五项措施制定预防母婴传播政策（是、否、未知）的国家数：A 对所有孕妇进行乙肝病毒筛查（HBsAg检测），B 孕期提供抗病毒预防，C 建议所有乙肝病毒暴露婴儿使用乙肝免疫球蛋白，D 对所有HBsAg阳性孕妇进行HBeAg或乙肝病毒DNA检测，E 孕妇丙肝病毒筛查。全球“是”的数量从128（A）依次降至102、87、64和56（E）。非洲、美洲、东南亚、欧洲、东地中海和西太平洋区域的分区域图大多显示孕妇乙肝病毒筛查是最常见的政策。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 4.9: gráficos de barras horizontales apiladas del número de países con políticas para prevenir la transmisión maternoinfantil (Sí, No, Desconocido) para cinco medidas: A cribado del VHB en todas las embarazadas (prueba del HBsAg), B profilaxis antiviral durante el embarazo, C inmunoglobulina contra el VHB recomendada para todos los lactantes expuestos al VHB, D prueba del HBeAg o del ADN del VHB en todas las embarazadas HBsAg positivas y E cribado del VHC en embarazadas. A nivel mundial, el número de «Sí» baja de 128 (A) a 102, 87, 64 y 56 (E). Los paneles de las regiones de África, las Américas, Asia Sudoriental, Europa, el Mediterráneo Oriental y el Pacífico Occidental muestran en su mayoría que el cribado del VHB en embarazadas es la política más común.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 4.9 : graphiques à barres horizontales empilées du nombre de pays dotés de politiques de prévention de la transmission mère-enfant (Oui, Non, Inconnu) pour cinq mesures : A dépistage du VHB chez toutes les femmes enceintes (test HBsAg), B prophylaxie antivirale pendant la grossesse, C immunoglobulines anti-VHB recommandées pour tous les nourrissons exposés au VHB, D test HBeAg ou ADN du VHB chez toutes les femmes enceintes HBsAg positives et E dépistage du VHC chez les femmes enceintes. Au niveau mondial, le nombre de « Oui » passe de 128 (A) à 102, 87, 64 et 56 (E). Les panneaux des Régions de l’Afrique, des Amériques, de l’Asie du Sud-Est, de l’Europe, de la Méditerranée orientale et du Pacifique occidental montrent le plus souvent que le dépistage du VHB chez les femmes enceintes est la politique la plus courante.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рисунок 4.9: горизонтальные столбчатые диаграммы с накоплением, показывающие число стран с политикой профилактики передачи инфекции от матери ребёнку («Да», «Нет», «Неизвестно») по пяти мерам: A — скрининг всех беременных на ВГВ (тест на HBsAg), B — антивирусная профилактика во время беременности, C — иммуноглобулин против ВГВ, рекомендованный всем детям, подвергшимся воздействию ВГВ, D — тестирование на HBeAg или ДНК ВГВ всех HBsAg-положительных беременных, E — скрининг беременных на ВГС. В мире число ответов «Да» снижается со 128 (A) до 102, 87, 64 и 56 (E). Панели по Африканскому, Американскому, Юго-Восточной Азии, Европейскому, Восточного Средиземноморья и Западной части Тихого океана регионам в основном показывают, что скрининг беременных на ВГВ — наиболее распространённая политика.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p059",
-      "file": "figures/vfig-p059.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p059.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a map legend for implementation of HBV testing of women",
         "page": 59
       },
       "page": 59,
@@ -7218,7 +9178,7 @@
       "region": [
         57.05,
         202.43,
-        180.0,
+        180,
         302.7
       ],
       "assembly": {
@@ -7229,7 +9189,7 @@
             "bbox": [
               57.05,
               202.43,
-              180.0,
+              180,
               302.7
             ],
             "drawings": 7,
@@ -7254,7 +9214,7 @@
             "bbox": [
               57.19,
               202.43,
-              180.0,
+              180,
               302.7
             ],
             "parent": null,
@@ -7286,18 +9246,99 @@
         ],
         "between": [],
         "outside": 64
-      }
+      },
+      "shows": [
+        "Figure 4.10"
+      ],
+      "narrative": [
+        {
+          "text": "Legend fragment of the map in Figure 4.10, with green categories Implemented in >95% of clinics, Implemented in 50–95% of clinics, Implemented in <50% of clinics, plus Policy not in place, No data and Not applicable; the map itself is not included.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من مفتاح الخريطة في الشكل 4-10، بفئات خضراء: مُنفَّذة في أكثر من 95% من العيادات، ومُنفَّذة في 50–95% من العيادات، ومُنفَّذة في أقل من 50% من العيادات، إضافة إلى \"لا توجد سياسة\" و\"لا توجد بيانات\" و\"لا ينطبق\"؛ ولا تتضمن الصورة الخريطة نفسها.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.10地图的图例片段，绿色类别为：在>95%的诊所实施、在50–95%的诊所实施、在<50%的诊所实施，另有“无相关政策”“无数据”和“不适用”；不含地图本身。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragmento de la leyenda del mapa de la figura 4.10, con categorías verdes Aplicada en >95% de los consultorios, Aplicada en el 50–95% de los consultorios, Aplicada en <50% de los consultorios, además de Política inexistente, Sin datos y No aplicable; el mapa en sí no está incluido.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fragment de la légende de la carte de la figure 4.10, avec les catégories vertes Mise en œuvre dans >95 % des centres, Mise en œuvre dans 50–95 % des centres, Mise en œuvre dans <50 % des centres, ainsi que Pas de politique en place, Pas de données et Sans objet ; la carte elle-même n’est pas incluse.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Фрагмент легенды карты на рисунке 4.10 с зелёными категориями «Внедрено в >95% клиник», «Внедрено в 50–95% клиник», «Внедрено в <50% клиник», а также «Политика отсутствует», «Нет данных» и «Неприменимо»; сама карта не включена.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p062",
-      "file": "figures/vfig-p062.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p062.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "the header row of a table on HBV diagnosis and treatment coverage",
         "page": 62
       },
       "page": 62,
@@ -8554,11 +10595,89 @@
         ],
         "between": [],
         "outside": 114
-      }
+      },
+      "shows": [
+        "Table 4.2"
+      ],
+      "narrative": [
+        {
+          "text": "Header row of Table 4.2 (coverage of HBV diagnosis and treatment by WHO region, 2024), with columns: WHO region; number of people with a chronic HBV infection in 2024 (millions, 95% UI); number who had been diagnosed by the end of 2024 (millions); number on treatment for HBV by the end of 2024 (millions); percentage diagnosed; percentage of those diagnosed who were on treatment; and percentage of all people with chronic HBV on treatment. No data rows are included.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "صف العناوين في الجدول 4-2 (تغطية تشخيص فيروس التهاب الكبد B وعلاجه حسب أقاليم المنظمة، 2024)، بالأعمدة التالية: إقليم المنظمة؛ عدد المصابين بالعدوى المزمنة بفيروس التهاب الكبد B في عام 2024 (بالملايين، فترة عدم اليقين 95%)؛ عدد من شُخِّصوا بحلول نهاية عام 2024 (بالملايين)؛ عدد من يتلقون العلاج بحلول نهاية عام 2024 (بالملايين)؛ النسبة المئوية لمن شُخِّصوا؛ النسبة المئوية لمن يتلقون العلاج من بين من شُخِّصوا؛ النسبة المئوية لمن يتلقون العلاج من بين جميع المصابين بالعدوى المزمنة. ولا يتضمن أي صفوف بيانات.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "表4.2（2024年按世卫组织区域划分的乙肝病毒诊断和治疗覆盖率）的表头行，各列为：世卫组织区域；2024年慢性乙肝病毒感染者人数（百万，95%不确定性区间）；截至2024年底已诊断人数（百万）；截至2024年底接受乙肝治疗人数（百万）；已诊断百分比；已诊断者中接受治疗的百分比；所有慢性乙肝感染者中接受治疗的百分比。不含数据行。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Fila de encabezado del cuadro 4.2 (cobertura del diagnóstico y el tratamiento del VHB por región de la OMS, 2024), con las columnas: Región de la OMS; número de personas con infección crónica por el VHB en 2024 (millones, IC del 95%); número diagnosticado al final de 2024 (millones); número en tratamiento contra el VHB al final de 2024 (millones); porcentaje diagnosticado; porcentaje de los diagnosticados que estaban en tratamiento; y porcentaje de todas las personas con VHB crónico en tratamiento. No incluye filas de datos.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Ligne d’en-tête du tableau 4.2 (couverture du diagnostic et du traitement du VHB par Région de l’OMS, 2024), avec les colonnes : Région de l’OMS ; nombre de personnes atteintes d’infection chronique à VHB en 2024 (millions, IC à 95 %) ; nombre diagnostiqué fin 2024 (millions) ; nombre sous traitement contre le VHB fin 2024 (millions) ; pourcentage diagnostiqué ; pourcentage des personnes diagnostiquées sous traitement ; et pourcentage de toutes les personnes atteintes d’hépatite B chronique sous traitement. Aucune ligne de données n’est incluse.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Строка заголовков таблицы 4.2 (охват диагностикой и лечением ВГВ по регионам ВОЗ, 2024 г.) со столбцами: «Регион ВОЗ»; число людей с хронической инфекцией ВГВ в 2024 г. (млн, 95% ИН); число диагностированных к концу 2024 г. (млн); число получающих лечение ВГВ к концу 2024 г. (млн); доля диагностированных; доля получающих лечение среди диагностированных; доля получающих лечение среди всех людей с хроническим ВГВ. Строк с данными нет.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p063",
       "file": null,
+      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws",
       "role": "undetermined",
       "basis": {
         "method": "assembly",
@@ -8895,19 +11014,22 @@
         ],
         "between": [],
         "outside": 0
-      },
-      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws"
+      }
     },
     {
       "id": "vfig-p065",
-      "file": "figures/vfig-p065.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p065.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "the lower part of a map of national HBV treatment guidelines and a table header on HCV diagnosis and treatment",
         "page": 65
       },
       "page": 65,
@@ -10047,11 +12169,90 @@
           "Table 4.3.\tCoverage of HCV diagnosis and treatment, globally and by WHO region, 2024"
         ],
         "outside": 59
-      }
+      },
+      "shows": [
+        "Figure 4.14",
+        "Table 4.3"
+      ],
+      "narrative": [
+        {
+          "text": "Lower part of Figure 4.14, a world map of the status of national HBV treatment guidelines, with legend WHO 2024 HBV guidelines, European Association for the Study of the Liver (EASL) guidelines, No national guidelines, No data and Not applicable (the national-guidelines category is cropped); most visible countries are shaded light blue. Below it is the header row of Table 4.3 (coverage of HCV diagnosis and treatment by WHO region, 2024), with columns for cumulative numbers of people with HCV infection, diagnosed and treated in 2015–2024, the corresponding percentages, and the number diagnosed and alive in 2024 but not yet treated.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الجزء السفلي من الشكل 4-14، وهو خريطة عالمية لحالة المبادئ التوجيهية الوطنية لعلاج فيروس التهاب الكبد B، مع مفتاح يتضمن: المبادئ التوجيهية لمنظمة الصحة العالمية بشأن فيروس التهاب الكبد B لعام 2024، والمبادئ التوجيهية للرابطة الأوروبية لدراسة الكبد (EASL)، وعدم وجود مبادئ توجيهية وطنية، ولا توجد بيانات، ولا ينطبق (فئة المبادئ التوجيهية الوطنية مقتطعة)؛ ومعظم البلدان الظاهرة مظللة بالأزرق الفاتح. وتحتها صف العناوين في الجدول 4-3 (تغطية تشخيص فيروس التهاب الكبد C وعلاجه حسب أقاليم المنظمة، 2024)، بأعمدة للأعداد التراكمية للمصابين بعدوى فيروس التهاب الكبد C ومن شُخِّصوا ومن عولجوا في الفترة 2015–2024، والنسب المئوية المقابلة، وعدد من شُخِّصوا وكانوا على قيد الحياة في عام 2024 ولكن لم يُعالَجوا بعد.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.14的下半部分：国家乙肝病毒治疗指南状况世界地图，图例为世卫组织2024年乙肝病毒指南、欧洲肝脏研究学会（EASL）指南、无国家指南、无数据和不适用（“国家指南”类别被裁切）；可见的大多数国家以浅蓝色表示。其下方为表4.3（2024年按世卫组织区域划分的丙肝病毒诊断和治疗覆盖率）的表头行，各列为2015–2024年丙肝病毒感染者、已诊断者和已治疗者的累计人数、相应百分比，以及2024年已诊断、仍存活但尚未治疗的人数。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte inferior de la figura 4.14, mapa mundial de la situación de las directrices nacionales de tratamiento del VHB, con la leyenda Directrices de la OMS de 2024 sobre el VHB, Directrices de la Asociación Europea para el Estudio del Hígado (EASL), Sin directrices nacionales, Sin datos y No aplicable (la categoría de directrices nacionales está recortada); la mayoría de los países visibles están sombreados en azul claro. Debajo aparece la fila de encabezado del cuadro 4.3 (cobertura del diagnóstico y el tratamiento del VHC por región de la OMS, 2024), con columnas para los números acumulados de personas con infección por el VHC, diagnosticadas y tratadas en 2015–2024, los porcentajes correspondientes y el número de personas diagnosticadas y vivas en 2024 aún no tratadas.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie inférieure de la figure 4.14, carte mondiale de la situation des lignes directrices nationales de traitement du VHB, avec la légende Lignes directrices de l’OMS de 2024 sur le VHB, Lignes directrices de l’Association européenne pour l’étude du foie (EASL), Pas de lignes directrices nationales, Pas de données et Sans objet (la catégorie des lignes directrices nationales est rognée) ; la plupart des pays visibles sont en bleu clair. En dessous figure la ligne d’en-tête du tableau 4.3 (couverture du diagnostic et du traitement du VHC par Région de l’OMS, 2024), avec des colonnes pour les nombres cumulés de personnes atteintes d’infection à VHC, diagnostiquées et traitées en 2015–2024, les pourcentages correspondants et le nombre de personnes diagnostiquées et en vie en 2024 mais pas encore traitées.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Нижняя часть рисунка 4.14 — карты мира, показывающей статус национальных руководящих принципов лечения ВГВ, с легендой «Руководящие принципы ВОЗ 2024 г. по ВГВ», «Руководящие принципы Европейской ассоциации по изучению печени (EASL)», «Нет национальных руководящих принципов», «Нет данных» и «Неприменимо» (категория национальных руководящих принципов обрезана); большинство видимых стран окрашены в светло-синий цвет. Ниже — строка заголовков таблицы 4.3 (охват диагностикой и лечением ВГС по регионам ВОЗ, 2024 г.) со столбцами для накопленного числа людей с инфекцией ВГС, диагностированных и получивших лечение за 2015–2024 гг., соответствующих долей и числа диагностированных и живых в 2024 г., но ещё не получивших лечение.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p066",
       "file": null,
+      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws",
       "role": "undetermined",
       "basis": {
         "method": "assembly",
@@ -10088,7 +12289,7 @@
             "from": null,
             "to": null,
             "bbox": [
-              140.0,
+              140,
               113.63,
               282.61,
               475.95
@@ -10107,12 +12308,12 @@
         ],
         "between": [],
         "outside": 0
-      },
-      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws"
+      }
     },
     {
       "id": "vfig-p067",
       "file": null,
+      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws",
       "role": "undetermined",
       "basis": {
         "method": "assembly",
@@ -10178,12 +12379,12 @@
         ],
         "between": [],
         "outside": 0
-      },
-      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws"
+      }
     },
     {
       "id": "vfig-p068",
       "file": null,
+      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws",
       "role": "undetermined",
       "basis": {
         "method": "assembly",
@@ -10682,19 +12883,22 @@
         ],
         "between": [],
         "outside": 0
-      },
-      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws"
+      }
     },
     {
       "id": "vfig-p069",
-      "file": "figures/vfig-p069.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p069.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "the lower part of a map of national HCV treatment guidelines and a text box on Ghana and Italy",
         "page": 69
       },
       "page": 69,
@@ -10935,18 +13139,100 @@
           "Box 4.5.\t Country examples of hepatitis C services: Ghana and Italy"
         ],
         "outside": 3
-      }
+      },
+      "shows": [
+        "Figure 4.21",
+        "Box 4.5"
+      ],
+      "narrative": [
+        {
+          "text": "Lower part of Figure 4.21, a world map of national HCV treatment guidelines, with legend National guidelines, WHO 2022 HCV guidelines, European Association for the Study of the Liver (EASL) guidelines, No national guidelines, No data and Not applicable; most visible countries have national guidelines. Below it is Box 4.5, “Country examples of hepatitis C services: Ghana and Italy”, a two-column text box describing Ghana’s scale-up of hepatitis C services through the STOP Hep C Ghana initiative and Italy’s screening-driven HCV elimination strategy.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الجزء السفلي من الشكل 4-21، وهو خريطة عالمية للمبادئ التوجيهية الوطنية لعلاج فيروس التهاب الكبد C، مع مفتاح يتضمن: مبادئ توجيهية وطنية، والمبادئ التوجيهية لمنظمة الصحة العالمية بشأن فيروس التهاب الكبد C لعام 2022، والمبادئ التوجيهية للرابطة الأوروبية لدراسة الكبد (EASL)، وعدم وجود مبادئ توجيهية وطنية، ولا توجد بيانات، ولا ينطبق؛ ولدى معظم البلدان الظاهرة مبادئ توجيهية وطنية. وتحتها الإطار 4-5، \"أمثلة قُطرية على خدمات التهاب الكبد C: غانا وإيطاليا\"، وهو إطار نصي من عمودين يصف توسيع غانا نطاق خدمات التهاب الكبد C من خلال مبادرة STOP Hep C Ghana، واستراتيجية إيطاليا للتخلص من فيروس التهاب الكبد C القائمة على التحري.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图4.21的下半部分：国家丙肝病毒治疗指南世界地图，图例为国家指南、世卫组织2022年丙肝病毒指南、欧洲肝脏研究学会（EASL）指南、无国家指南、无数据和不适用；可见的大多数国家有国家指南。其下方为专栏4.5“丙型肝炎服务国家实例：加纳和意大利”，为两栏文字框，介绍加纳通过“STOP Hep C Ghana”倡议扩大丙型肝炎服务，以及意大利以筛查为驱动的丙肝病毒消除战略。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte inferior de la figura 4.21, mapa mundial de las directrices nacionales de tratamiento del VHC, con la leyenda Directrices nacionales, Directrices de la OMS de 2022 sobre el VHC, Directrices de la Asociación Europea para el Estudio del Hígado (EASL), Sin directrices nacionales, Sin datos y No aplicable; la mayoría de los países visibles tienen directrices nacionales. Debajo aparece el recuadro 4.5, «Ejemplos de servicios contra la hepatitis C en los países: Ghana e Italia», un recuadro de texto a dos columnas que describe la ampliación de los servicios contra la hepatitis C en Ghana mediante la iniciativa STOP Hep C Ghana y la estrategia de Italia de eliminación del VHC basada en el cribado.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie inférieure de la figure 4.21, carte mondiale des lignes directrices nationales de traitement du VHC, avec la légende Lignes directrices nationales, Lignes directrices de l’OMS de 2022 sur le VHC, Lignes directrices de l’Association européenne pour l’étude du foie (EASL), Pas de lignes directrices nationales, Pas de données et Sans objet ; la plupart des pays visibles disposent de lignes directrices nationales. En dessous figure l’encadré 4.5, « Exemples de services de lutte contre l’hépatite C dans les pays : Ghana et Italie », un encadré de texte sur deux colonnes décrivant l’extension des services de lutte contre l’hépatite C au Ghana grâce à l’initiative STOP Hep C Ghana et la stratégie italienne d’élimination du VHC fondée sur le dépistage.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Нижняя часть рисунка 4.21 — карты мира национальных руководящих принципов лечения ВГС, с легендой «Национальные руководящие принципы», «Руководящие принципы ВОЗ 2022 г. по ВГС», «Руководящие принципы Европейской ассоциации по изучению печени (EASL)», «Нет национальных руководящих принципов», «Нет данных» и «Неприменимо»; у большинства видимых стран есть национальные руководящие принципы. Ниже — вставка 4.5 «Примеры услуг по борьбе с гепатитом C в странах: Гана и Италия», текстовый блок в две колонки, описывающий расширение услуг по борьбе с гепатитом C в Гане в рамках инициативы STOP Hep C Ghana и стратегию Италии по элиминации ВГС на основе скрининга.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p073",
-      "file": "figures/vfig-p073.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p073.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "line charts of HBV new infections and deaths against dashed 2030 target trajectories",
         "page": 73
       },
       "page": 73,
@@ -11035,18 +13321,99 @@
         ],
         "between": [],
         "outside": 78
-      }
+      },
+      "shows": [
+        "Figure 5.1"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 5.1: two line charts, 2015–2024, comparing estimates (solid lines with shaded uncertainty bands) with dashed trajectories required to reach the 2030 elimination targets. In the left panel (new chronic HBV infections; axis values cropped) the solid line declines but stays above the steeper dashed trajectory. In the right panel (HBV-related deaths, millions) the solid line rises from about 0.95 to about 1.1 million while the dashed trajectory falls towards about 0.3 million.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 5-1: مخططان خطيان للفترة 2015–2024 يقارنان التقديرات (خطوط متصلة مع نطاقات مظللة لعدم اليقين) بالمسارات المتقطعة اللازمة لبلوغ غايات التخلص بحلول عام 2030. في اللوحة اليسرى (حالات العدوى المزمنة الجديدة بفيروس التهاب الكبد B؛ قيم المحور مقتطعة) ينخفض الخط المتصل لكنه يظل فوق المسار المتقطع الأشد انحداراً. وفي اللوحة اليمنى (الوفيات المرتبطة بفيروس التهاب الكبد B، بالملايين) يرتفع الخط المتصل من نحو 0.95 إلى نحو 1.1 مليون، بينما ينخفض المسار المتقطع نحو 0.3 مليون تقريباً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图5.1的一部分：2015–2024年两幅折线图，将估计值（实线，带阴影不确定性区间）与实现2030年消除目标所需的轨迹（虚线）进行比较。左图（慢性乙肝病毒新发感染；坐标轴数值被裁切）中实线下降，但仍高于更陡的虚线轨迹。右图（乙肝病毒相关死亡，百万）中实线从约95万升至约110万，而虚线轨迹降至约30万。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 5.1: dos gráficos de líneas, 2015–2024, que comparan las estimaciones (líneas continuas con bandas sombreadas de incertidumbre) con las trayectorias discontinuas necesarias para alcanzar las metas de eliminación de 2030. En el panel izquierdo (nuevas infecciones crónicas por el VHB; valores del eje recortados), la línea continua desciende pero se mantiene por encima de la trayectoria discontinua, más pronunciada. En el panel derecho (muertes relacionadas con el VHB, millones), la línea continua sube de aproximadamente 0,95 a aproximadamente 1,1 millones, mientras que la trayectoria discontinua baja hacia aproximadamente 0,3 millones.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 5.1 : deux graphiques linéaires, 2015–2024, comparant les estimations (lignes continues avec bandes d’incertitude ombrées) aux trajectoires en pointillés nécessaires pour atteindre les cibles d’élimination de 2030. Dans le panneau de gauche (nouvelles infections chroniques à VHB ; valeurs de l’axe rognées), la ligne continue baisse mais reste au-dessus de la trajectoire en pointillés, plus pentue. Dans le panneau de droite (décès liés au VHB, millions), la ligne continue monte d’environ 0,95 à environ 1,1 million tandis que la trajectoire en pointillés descend vers environ 0,3 million.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 5.1: два линейных графика за 2015–2024 гг., сравнивающих оценки (сплошные линии с затенёнными интервалами неопределённости) с пунктирными траекториями, необходимыми для достижения целевых показателей элиминации к 2030 г. На левой панели (новые случаи хронической инфекции ВГВ; значения оси обрезаны) сплошная линия снижается, но остаётся выше более крутой пунктирной траектории. На правой панели (смерти, связанные с ВГВ, млн) сплошная линия растёт примерно с 0,95 до 1,1 млн, тогда как пунктирная траектория снижается примерно до 0,3 млн.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p074",
-      "file": "figures/vfig-p074.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p074.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "line charts of HCV new infections and deaths against dashed 2030 target trajectories",
         "page": 74
       },
       "page": 74,
@@ -11342,7 +13709,7 @@
             "to": null,
             "bbox": [
               499.31,
-              552.0,
+              552,
               503.22,
               552.85
             ]
@@ -11390,11 +13757,89 @@
         ],
         "between": [],
         "outside": 90
-      }
+      },
+      "shows": [
+        "Figure 5.2"
+      ],
+      "narrative": [
+        {
+          "text": "Part of Figure 5.2: two green line charts, 2015–2024, comparing estimates (solid lines with shaded uncertainty bands) with dashed trajectories required to reach the 2030 elimination targets. In the left panel (new HCV infections; axis values cropped) the solid line is nearly flat while the dashed trajectory falls steeply. In the right panel (HCV-related deaths, millions) the solid line declines from about 0.27 to about 0.24 million, staying above the dashed trajectory, which falls to about 0.1 million.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "جزء من الشكل 5-2: مخططان خطيان أخضران للفترة 2015–2024 يقارنان التقديرات (خطوط متصلة مع نطاقات مظللة لعدم اليقين) بالمسارات المتقطعة اللازمة لبلوغ غايات التخلص بحلول عام 2030. في اللوحة اليسرى (حالات العدوى الجديدة بفيروس التهاب الكبد C؛ قيم المحور مقتطعة) يكاد الخط المتصل يكون مستوياً بينما ينخفض المسار المتقطع انخفاضاً حاداً. وفي اللوحة اليمنى (الوفيات المرتبطة بفيروس التهاب الكبد C، بالملايين) ينخفض الخط المتصل من نحو 0.27 إلى نحو 0.24 مليون، ويظل فوق المسار المتقطع الذي ينخفض إلى نحو 0.1 مليون.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图5.2的一部分：2015–2024年两幅绿色折线图，将估计值（实线，带阴影不确定性区间）与实现2030年消除目标所需的轨迹（虚线）进行比较。左图（丙肝病毒新发感染；坐标轴数值被裁切）中实线几乎持平，而虚线轨迹急剧下降。右图（丙肝病毒相关死亡，百万）中实线从约27万降至约24万，仍高于降至约10万的虚线轨迹。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Parte de la figura 5.2: dos gráficos de líneas verdes, 2015–2024, que comparan las estimaciones (líneas continuas con bandas sombreadas de incertidumbre) con las trayectorias discontinuas necesarias para alcanzar las metas de eliminación de 2030. En el panel izquierdo (nuevas infecciones por el VHC; valores del eje recortados), la línea continua es casi plana, mientras que la trayectoria discontinua desciende bruscamente. En el panel derecho (muertes relacionadas con el VHC, millones), la línea continua baja de aproximadamente 0,27 a aproximadamente 0,24 millones y se mantiene por encima de la trayectoria discontinua, que desciende a aproximadamente 0,1 millones.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Partie de la figure 5.2 : deux graphiques linéaires verts, 2015–2024, comparant les estimations (lignes continues avec bandes d’incertitude ombrées) aux trajectoires en pointillés nécessaires pour atteindre les cibles d’élimination de 2030. Dans le panneau de gauche (nouvelles infections à VHC ; valeurs de l’axe rognées), la ligne continue est presque plate tandis que la trajectoire en pointillés chute fortement. Dans le panneau de droite (décès liés au VHC, millions), la ligne continue baisse d’environ 0,27 à environ 0,24 million et reste au-dessus de la trajectoire en pointillés, qui descend à environ 0,1 million.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Часть рисунка 5.2: два зелёных линейных графика за 2015–2024 гг., сравнивающих оценки (сплошные линии с затенёнными интервалами неопределённости) с пунктирными траекториями, необходимыми для достижения целевых показателей элиминации к 2030 г. На левой панели (новые случаи инфицирования ВГС; значения оси обрезаны) сплошная линия почти горизонтальна, тогда как пунктирная траектория резко снижается. На правой панели (смерти, связанные с ВГС, млн) сплошная линия снижается примерно с 0,27 до 0,24 млн и остаётся выше пунктирной траектории, которая снижается примерно до 0,1 млн.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p075",
       "file": null,
+      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws",
       "role": "undetermined",
       "basis": {
         "method": "assembly",
@@ -11450,19 +13895,22 @@
         ],
         "between": [],
         "outside": 0
-      },
-      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws"
+      }
     },
     {
       "id": "vfig-p076",
-      "file": "figures/vfig-p076.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p076.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a cropped chart legend strip",
         "page": 76
       },
       "page": 76,
@@ -11603,7 +14051,84 @@
         ],
         "between": [],
         "outside": 99
-      }
+      },
+      "shows": [
+        "Figure 5.5"
+      ],
+      "narrative": [
+        {
+          "text": "Cropped legend strip from Figure 5.5 (funding required for HBV and HCV diagnosis and treatment), showing colour keys for “HBV laboratory tests” (blue) and “HCV treatment” (dark green), plus a red key whose label is cut off.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "شريط مفتاح مقتطع من الشكل 5-5 (التمويل اللازم لتشخيص فيروسي التهاب الكبد B وC وعلاجهما)، يعرض مفاتيح الألوان لـ\"الاختبارات المختبرية لفيروس التهاب الكبد B\" (بالأزرق) و\"علاج فيروس التهاب الكبد C\" (بالأخضر الداكن)، إضافة إلى مفتاح أحمر اقتُطعت تسميته.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图5.5（乙肝和丙肝病毒诊断和治疗所需资金）中被裁切的图例条，显示“乙肝病毒实验室检测”（蓝色）和“丙肝病毒治疗”（深绿色）的颜色标识，另有一个标签被截断的红色标识。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Franja de leyenda recortada de la figura 5.5 (financiación necesaria para el diagnóstico y el tratamiento del VHB y el VHC), que muestra las claves de color de «Pruebas de laboratorio del VHB» (azul) y «Tratamiento del VHC» (verde oscuro), además de una clave roja cuya etiqueta está cortada.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Bande de légende rognée de la figure 5.5 (financement nécessaire au diagnostic et au traitement du VHB et du VHC), montrant les codes couleur « Tests de laboratoire du VHB » (bleu) et « Traitement du VHC » (vert foncé), ainsi qu’un code rouge dont l’étiquette est coupée.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Обрезанная полоса легенды рисунка 5.5 (финансирование, необходимое для диагностики и лечения ВГВ и ВГС) с цветовыми обозначениями «Лабораторные тесты на ВГВ» (синий) и «Лечение ВГС» (тёмно-зелёный), а также красным обозначением, подпись к которому обрезана.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     }
   ]
 }

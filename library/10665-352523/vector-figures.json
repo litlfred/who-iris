@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p023",
-      "file": "figures/vfig-p023.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p023.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a pathway diagram of TB exposure, infection and disease (Figure 1.1)",
         "page": 23
       },
       "page": 23,
@@ -33,7 +37,7 @@
             "bbox": [
               421.06,
               566.8,
-              470.0,
+              470,
               575.07
             ],
             "drawings": 1,
@@ -96,7 +100,7 @@
             "bbox": [
               421.06,
               566.8,
-              470.0,
+              470,
               575.07
             ],
             "parent": null,
@@ -516,18 +520,99 @@
         ],
         "between": [],
         "outside": 38
-      }
+      },
+      "shows": [
+        "Figure 1.1"
+      ],
+      "narrative": [
+        {
+          "text": "Pathway diagram of TB exposure, infection and disease drawn as coloured bands: from 'Exposed' to an 'Infected' circle with lungs icon, then branching to 'Accessed health care system' (leading to preventive treatment) or 'Did NOT access health care system' (leading to Diseased, Feeling ill, Accessed health care system, Diagnosed and Treated, with a side branch for 'Un/misdiagnosed'). The render is cropped: the left edge (Susceptible/Exposed) and some stage labels along the top are cut off.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط مسار التعرض للسل والعدوى والمرض مرسوم على شكل أشرطة ملونة: من «التعرض» إلى دائرة «العدوى» مع أيقونة رئتين، ثم يتفرع إلى «الوصول إلى النظام الصحي» (المؤدي إلى العلاج الوقائي) أو «عدم الوصول إلى النظام الصحي» (المؤدي إلى المرض، ثم الشعور بالمرض، ثم الوصول إلى النظام الصحي، ثم التشخيص، ثم العلاج، مع فرع جانبي لـ«عدم التشخيص/التشخيص الخاطئ»). الصورة مقصوصة: الحافة اليسرى (المعرَّض للخطر/التعرض) وبعض تسميات المراحل في الأعلى غير ظاهرة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "以彩色条带绘制的结核病暴露、感染和发病路径图：从“暴露”到带有肺部图标的“感染”圆圈，随后分为“就诊于卫生保健系统”（通向预防性治疗）或“未就诊于卫生保健系统”（通向发病、感觉不适、就诊于卫生保健系统、确诊和治疗，另有“未诊断/误诊”分支）。 该渲染图被裁剪：左侧边缘（易感/暴露）和顶部部分阶段标签被截去。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de la trayectoria de exposición, infección y enfermedad tuberculosa dibujado como bandas de colores: de «Expuesto» a un círculo «Infectado» con un icono de pulmones, que se bifurca en «Acceso al sistema de atención de salud» (que conduce al tratamiento preventivo) o «Sin acceso al sistema de atención de salud» (que conduce a Enfermo, Sensación de malestar, Acceso al sistema de atención de salud, Diagnosticado y Tratado, con una rama lateral «No diagnosticado o mal diagnosticado»). La imagen está recortada: el borde izquierdo (Susceptible/Expuesto) y algunas etiquetas de etapas en la parte superior quedan cortados.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma du parcours d'exposition, d'infection et de maladie tuberculeuse dessiné sous forme de bandes colorées : de « Exposé » à un cercle « Infecté » avec une icône de poumons, puis bifurcation vers « A accédé au système de santé » (menant au traitement préventif) ou « N'a PAS accédé au système de santé » (menant à Malade, Se sent malade, A accédé au système de santé, Diagnostiqué et Traité, avec une branche latérale « Non diagnostiqué/mal diagnostiqué »). Le rendu est rogné : le bord gauche (Sensible/Exposé) et certaines étiquettes d'étapes en haut sont coupés.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема пути от контакта с ТБ к инфицированию и заболеванию в виде цветных полос: от «Контакт» к кругу «Инфицирован» со значком легких, затем разветвление на «Обращение в систему здравоохранения» (ведет к профилактическому лечению) и «НЕ обращался в систему здравоохранения» (ведет к этапам «Болен», «Плохое самочувствие», «Обращение в систему здравоохранения», «Диагноз поставлен», «Лечение», с боковой ветвью «Не диагностирован/диагностирован неверно»). Изображение обрезано: левый край («Восприимчивый»/«Контакт») и некоторые подписи этапов вверху не видны.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p026",
-      "file": "figures/vfig-p026.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p026.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "the TB pathway diagram with the early stages circled (Figure 2.1)",
         "page": 26
       },
       "page": 26,
@@ -1023,18 +1108,99 @@
         ],
         "between": [],
         "outside": 30
-      }
+      },
+      "shows": [
+        "Figure 2.1"
+      ],
+      "narrative": [
+        {
+          "text": "Pathway diagram of TB exposure, infection and disease drawn as coloured bands: from 'Exposed' to an 'Infected' circle with lungs icon, then branching to 'Accessed health care system' (leading to preventive treatment) or 'Did NOT access health care system' (leading to Diseased, Feeling ill, Accessed health care system, Diagnosed and Treated, with a side branch for 'Un/misdiagnosed'). A blue circle highlights the stages covered in Chapter 2: Susceptible, Exposed and Infected.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط مسار التعرض للسل والعدوى والمرض مرسوم على شكل أشرطة ملونة: من «التعرض» إلى دائرة «العدوى» مع أيقونة رئتين، ثم يتفرع إلى «الوصول إلى النظام الصحي» (المؤدي إلى العلاج الوقائي) أو «عدم الوصول إلى النظام الصحي» (المؤدي إلى المرض، ثم الشعور بالمرض، ثم الوصول إلى النظام الصحي، ثم التشخيص، ثم العلاج، مع فرع جانبي لـ«عدم التشخيص/التشخيص الخاطئ»). تُبرز دائرة زرقاء المراحل التي يتناولها الفصل 2: المعرَّض للخطر، والتعرض، والعدوى.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "以彩色条带绘制的结核病暴露、感染和发病路径图：从“暴露”到带有肺部图标的“感染”圆圈，随后分为“就诊于卫生保健系统”（通向预防性治疗）或“未就诊于卫生保健系统”（通向发病、感觉不适、就诊于卫生保健系统、确诊和治疗，另有“未诊断/误诊”分支）。 蓝色圆圈突出了第2章涵盖的阶段：易感、暴露和感染。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de la trayectoria de exposición, infección y enfermedad tuberculosa dibujado como bandas de colores: de «Expuesto» a un círculo «Infectado» con un icono de pulmones, que se bifurca en «Acceso al sistema de atención de salud» (que conduce al tratamiento preventivo) o «Sin acceso al sistema de atención de salud» (que conduce a Enfermo, Sensación de malestar, Acceso al sistema de atención de salud, Diagnosticado y Tratado, con una rama lateral «No diagnosticado o mal diagnosticado»). Un círculo azul destaca las etapas tratadas en el capítulo 2: Susceptible, Expuesto e Infectado.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma du parcours d'exposition, d'infection et de maladie tuberculeuse dessiné sous forme de bandes colorées : de « Exposé » à un cercle « Infecté » avec une icône de poumons, puis bifurcation vers « A accédé au système de santé » (menant au traitement préventif) ou « N'a PAS accédé au système de santé » (menant à Malade, Se sent malade, A accédé au système de santé, Diagnostiqué et Traité, avec une branche latérale « Non diagnostiqué/mal diagnostiqué »). Un cercle bleu met en évidence les étapes traitées au chapitre 2 : Sensible, Exposé et Infecté.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема пути от контакта с ТБ к инфицированию и заболеванию в виде цветных полос: от «Контакт» к кругу «Инфицирован» со значком легких, затем разветвление на «Обращение в систему здравоохранения» (ведет к профилактическому лечению) и «НЕ обращался в систему здравоохранения» (ведет к этапам «Болен», «Плохое самочувствие», «Обращение в систему здравоохранения», «Диагноз поставлен», «Лечение», с боковой ветвью «Не диагностирован/диагностирован неверно»). Синим кругом выделены этапы, рассматриваемые в главе 2: «Восприимчивый», «Контакт» и «Инфицирован».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p029",
-      "file": "figures/vfig-p029.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p029.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a diagram of costing items for contact investigation (Figure 2.2)",
         "page": 29
       },
       "page": 29,
@@ -1280,18 +1446,99 @@
         "connectors": [],
         "between": [],
         "outside": 27
-      }
+      },
+      "shows": [
+        "Figure 2.2"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram of costing items to strengthen contact investigation (Figure 2.2): five orange steps, each with an arrow listing cost items – identification of contacts (health care workers' time to interview the index TB patient; travel support for household or workplace visits); clinical evaluation (staff time for evaluation and follow-up; enabler or travel support for contacts); testing for TB disease or eligibility for TPT (travel support to the testing site; strengthening specimen collection transport); provide access to TPT (staff time for referral and follow-up); recording and reporting (data capture tools such as the WHO Prevent TB mobile application; staff time).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط لبنود التكاليف اللازمة لتعزيز تقصّي المخالطين (الشكل 2.2): خمس خطوات برتقالية، لكل منها سهم يسرد بنود التكاليف – تحديد المخالطين (وقت العاملين الصحيين لإجراء مقابلة مع مريض السل الدالّ؛ ودعم السفر لزيارة المنزل أو مكان العمل)؛ والتقييم السريري (وقت العاملين للتقييم والمتابعة؛ ودعم تمكيني أو دعم سفر للمخالطين)؛ واختبار مرض السل أو الأهلية للعلاج الوقائي من السل (دعم السفر إلى موقع الاختبار؛ وتعزيز نقل العينات المجمّعة)؛ وإتاحة العلاج الوقائي من السل (وقت العاملين للإحالة والمتابعة)؛ والتسجيل والإبلاغ (أدوات جمع البيانات مثل تطبيق WHO Prevent TB للهاتف المحمول؛ ووقت العاملين).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "加强接触者调查的成本项目示意图（图2.2）：五个橙色步骤，每个步骤带一个箭头列出成本项目——识别接触者（卫生工作者访谈指示病例的时间；家访或工作场所访视的交通支持）；临床评估（评估和随访的人员时间；接触者的激励或交通支持）；检测结核病或结核病预防性治疗（TPT）适用性（前往检测点的交通支持；加强标本采集运送）；提供TPT（转诊和随访的人员时间）；记录和报告（数据采集工具，如世卫组织Prevent TB移动应用程序；人员时间）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de las partidas de costos para fortalecer la investigación de contactos (figura 2.2): cinco pasos en naranja, cada uno con una flecha que enumera partidas de costos: identificación de contactos (tiempo del personal de salud para entrevistar al caso índice de TB; apoyo para desplazamientos a domicilio o lugar de trabajo); evaluación clínica (tiempo del personal para la evaluación y el seguimiento; incentivos o apoyo para desplazamientos de los contactos); pruebas de enfermedad tuberculosa o de idoneidad para el TPT (apoyo para desplazamientos al lugar de las pruebas; fortalecimiento del transporte de muestras); acceso al TPT (tiempo del personal para derivación y seguimiento); registro y notificación (herramientas de recopilación de datos, como la aplicación móvil WHO Prevent TB; tiempo del personal).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma des postes de coûts pour renforcer la recherche des contacts (figure 2.2) : cinq étapes orange, chacune accompagnée d'une flèche énumérant des postes de coûts – identification des contacts (temps des agents de santé pour l'entretien avec le cas index de TB ; aide aux déplacements pour les visites au domicile ou au lieu de travail) ; évaluation clinique (temps du personnel pour l'évaluation et le suivi ; mesures incitatives ou aide aux déplacements des contacts) ; dépistage de la TB-maladie ou de l'admissibilité au TPT (aide aux déplacements vers le site de dépistage ; renforcement du transport des échantillons) ; accès au TPT (temps du personnel pour l'orientation et le suivi) ; enregistrement et notification (outils de saisie des données tels que l'application mobile WHO Prevent TB ; temps du personnel).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема статей затрат на усиление обследования контактов (рисунок 2.2): пять оранжевых этапов, у каждого — стрелка с перечнем статей затрат: выявление контактов (время медработников на опрос индексного пациента с ТБ; транспортная поддержка для посещения домохозяйства или места работы); клиническое обследование (время персонала на обследование и наблюдение; стимулирующая или транспортная поддержка контактов); тестирование на ТБ или на показания к ПЛТ (транспортная поддержка для поездки в место тестирования; укрепление транспортировки образцов); обеспечение доступа к ПЛТ (время персонала на направление и наблюдение); учет и отчетность (средства сбора данных, например мобильное приложение WHO Prevent TB; время персонала).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p040",
-      "file": "figures/vfig-p040.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p040.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a screening flowchart for child contacts based on symptoms (Figure 2.3)",
         "page": 40
       },
       "page": 40,
@@ -1613,7 +1860,7 @@
               276.83,
               263.61,
               276.83,
-              277.0
+              277
             ]
           },
           {
@@ -1623,7 +1870,7 @@
               273.97,
               273.93,
               279.69,
-              277.0
+              277
             ]
           },
           {
@@ -1633,7 +1880,7 @@
               345.21,
               263.61,
               345.21,
-              277.0
+              277
             ]
           },
           {
@@ -1643,7 +1890,7 @@
               342.34,
               273.93,
               348.07,
-              277.0
+              277
             ]
           },
           {
@@ -1659,18 +1906,99 @@
         ],
         "between": [],
         "outside": 28
-      }
+      },
+      "shows": [
+        "Figure 2.3"
+      ],
+      "narrative": [
+        {
+          "text": "Flowchart for TB screening of child contacts aged under 15 years using TB symptoms (Figure 2.3). A positive symptom screen leads to 'Refer for diagnostic evaluation including mWRD & clinical evaluation as indicated'; a negative screen leads to 'Negative Screen – Refer for TPT'.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط انسيابي لتحرّي السل لدى الأطفال المخالطين دون سن 15 سنة باستخدام أعراض السل (الشكل 2.3). تؤدي نتيجة التحرّي الإيجابية للأعراض إلى «الإحالة للتقييم التشخيصي بما في ذلك اختبار mWRD والتقييم السريري حسب الاقتضاء»؛ وتؤدي النتيجة السلبية إلى «تحرٍّ سلبي – الإحالة للعلاج الوقائي من السل».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "使用结核病症状对15岁以下儿童接触者进行结核病筛查的流程图（图2.3）。症状筛查阳性者转向“转诊进行诊断评估，包括mWRD检测和必要的临床评估”；筛查阴性者转向“筛查阴性——转诊接受结核病预防性治疗（TPT）”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de flujo para el cribado de TB en niños menores de 15 años que son contactos, basado en los síntomas de TB (figura 2.3). Un cribado de síntomas positivo conduce a «Derivar para evaluación diagnóstica, incluidas mWRD y evaluación clínica según corresponda»; un cribado negativo conduce a «Cribado negativo – Derivar para TPT».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Logigramme du dépistage de la TB chez les enfants contacts de moins de 15 ans à partir des symptômes de TB (figure 2.3). Un dépistage des symptômes positif mène à « Orienter vers une évaluation diagnostique, y compris mWRD et évaluation clinique selon les besoins » ; un dépistage négatif mène à « Dépistage négatif – Orienter vers le TPT ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема скрининга на ТБ детей-контактов в возрасте до 15 лет по симптомам ТБ (рисунок 2.3). Положительный результат скрининга по симптомам ведет к «направлению на диагностическое обследование, включая mWRD и клиническое обследование по показаниям»; отрицательный — к «отрицательному результату скрининга и направлению на ПЛТ».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p041",
-      "file": "figures/vfig-p041.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p041.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a screening flowchart for child contacts based on chest X-ray (Figure 2.4)",
         "page": 41
       },
       "page": 41,
@@ -2048,18 +2376,99 @@
         ],
         "between": [],
         "outside": 28
-      }
+      },
+      "shows": [
+        "Figure 2.4"
+      ],
+      "narrative": [
+        {
+          "text": "Flowchart for TB screening of child contacts aged under 15 years using chest X-ray (CXR) (Figure 2.4). A positive CXR leads to 'Refer for diagnostic evaluation including mWRD & clinical evaluation as indicated'; a negative CXR leads to 'Negative Screen – Refer for TPT'.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط انسيابي لتحرّي السل لدى الأطفال المخالطين دون سن 15 سنة باستخدام التصوير الشعاعي للصدر (CXR) (الشكل 2.4). تؤدي النتيجة الإيجابية إلى «الإحالة للتقييم التشخيصي بما في ذلك اختبار mWRD والتقييم السريري حسب الاقتضاء»؛ وتؤدي النتيجة السلبية إلى «تحرٍّ سلبي – الإحالة للعلاج الوقائي من السل».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "使用胸部X线（CXR）对15岁以下儿童接触者进行结核病筛查的流程图（图2.4）。胸部X线阳性者转向“转诊进行诊断评估，包括mWRD检测和必要的临床评估”；阴性者转向“筛查阴性——转诊接受TPT”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de flujo para el cribado de TB en niños menores de 15 años que son contactos mediante radiografía de tórax (CXR) (figura 2.4). Una radiografía positiva conduce a «Derivar para evaluación diagnóstica, incluidas mWRD y evaluación clínica según corresponda»; una negativa conduce a «Cribado negativo – Derivar para TPT».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Logigramme du dépistage de la TB chez les enfants contacts de moins de 15 ans par radiographie thoracique (CXR) (figure 2.4). Une radiographie positive mène à « Orienter vers une évaluation diagnostique, y compris mWRD et évaluation clinique selon les besoins » ; une radiographie négative mène à « Dépistage négatif – Orienter vers le TPT ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема скрининга на ТБ детей-контактов в возрасте до 15 лет с помощью рентгенографии грудной клетки (CXR) (рисунок 2.4). Положительный результат ведет к «направлению на диагностическое обследование, включая mWRD и клиническое обследование по показаниям»; отрицательный — к «отрицательному результату скрининга и направлению на ПЛТ».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p042",
-      "file": "figures/vfig-p042.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p042.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "two screening flowcharts side by side (Figures 2.5 and 2.6)",
         "page": 42
       },
       "page": 42,
@@ -2165,7 +2574,7 @@
           },
           {
             "bbox": [
-              154.0,
+              154,
               199.76,
               223.86,
               293.28
@@ -2210,7 +2619,7 @@
           {
             "bbox": [
               200.8,
-              400.0,
+              400,
               283.25,
               473.55
             ],
@@ -2311,7 +2720,7 @@
           {
             "bbox": [
               614.55,
-              400.0,
+              400,
               687.39,
               447.32
             ],
@@ -2357,7 +2766,7 @@
           {
             "bbox": [
               511.53,
-              400.0,
+              400,
               593.98,
               473.55
             ],
@@ -2467,7 +2876,7 @@
           {
             "id": "b7",
             "bbox": [
-              154.0,
+              154,
               199.76,
               223.86,
               249.99
@@ -2520,7 +2929,7 @@
             "id": "b11",
             "bbox": [
               201.04,
-              400.0,
+              400,
               283.02,
               473.55
             ],
@@ -2614,7 +3023,7 @@
             "id": "b18",
             "bbox": [
               614.7,
-              400.0,
+              400,
               687.24,
               447.32
             ],
@@ -2681,7 +3090,7 @@
             "id": "b23",
             "bbox": [
               511.77,
-              400.0,
+              400,
               593.75,
               473.55
             ],
@@ -3368,18 +3777,100 @@
         ],
         "between": [],
         "outside": 6
-      }
+      },
+      "shows": [
+        "Figure 2.5",
+        "Figure 2.6"
+      ],
+      "narrative": [
+        {
+          "text": "Two flowcharts for TB screening of child contacts aged under 15 years. Left (Figure 2.5, parallel screening): TB symptoms and CXR are both assessed; if either or both are positive, the child is referred for diagnostic evaluation including mWRD and clinical evaluation, and if both are negative, 'Negative Screen – Refer for TPT'. Right (Figure 2.6, sequential positive serial screening): children with positive symptoms then have a CXR; a positive CXR leads to diagnostic evaluation, while a negative symptom screen leads to 'Negative Screen – Refer for TPT' and a negative CXR to 'Negative Screen – Explore alternate diagnoses – Refer for TPT'.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخططان انسيابيان لتحرّي السل لدى الأطفال المخالطين دون سن 15 سنة. اليسار (الشكل 2.5، التحرّي المتوازي): تُقيَّم أعراض السل والتصوير الشعاعي للصدر معاً؛ وإذا كانت إحداهما أو كلتاهما إيجابية يُحال الطفل للتقييم التشخيصي بما في ذلك اختبار mWRD والتقييم السريري، وإذا كانتا سلبيتين فـ«تحرٍّ سلبي – الإحالة للعلاج الوقائي من السل». اليمين (الشكل 2.6، التحرّي المتسلسل الإيجابي): يخضع الأطفال ذوو الأعراض الإيجابية بعد ذلك للتصوير الشعاعي للصدر؛ وتؤدي النتيجة الإيجابية إلى التقييم التشخيصي، بينما يؤدي التحرّي السلبي للأعراض إلى «تحرٍّ سلبي – الإحالة للعلاج الوقائي من السل»، ويؤدي التصوير السلبي إلى «تحرٍّ سلبي – استكشاف تشخيصات بديلة – الإحالة للعلاج الوقائي من السل».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "两个针对15岁以下儿童接触者的结核病筛查流程图。左图（图2.5，平行筛查）：同时评估结核病症状和胸部X线；任一项或两项阳性则转诊进行包括mWRD检测和临床评估在内的诊断评估，两项均阴性则“筛查阴性——转诊接受TPT”。右图（图2.6，序贯阳性串联筛查）：症状阳性的儿童再行胸部X线检查；X线阳性者进行诊断评估，症状筛查阴性者为“筛查阴性——转诊接受TPT”，X线阴性者为“筛查阴性——探查其他诊断——转诊接受TPT”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Dos diagramas de flujo para el cribado de TB en niños menores de 15 años que son contactos. Izquierda (figura 2.5, cribado en paralelo): se evalúan tanto los síntomas de TB como la CXR; si uno o ambos son positivos, se deriva al niño para evaluación diagnóstica, incluidas mWRD y evaluación clínica, y si ambos son negativos, «Cribado negativo – Derivar para TPT». Derecha (figura 2.6, cribado seriado secuencial positivo): los niños con síntomas positivos se someten después a CXR; una CXR positiva conduce a la evaluación diagnóstica, mientras que un cribado de síntomas negativo conduce a «Cribado negativo – Derivar para TPT» y una CXR negativa a «Cribado negativo – Explorar diagnósticos alternativos – Derivar para TPT».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Deux logigrammes du dépistage de la TB chez les enfants contacts de moins de 15 ans. À gauche (figure 2.5, dépistage en parallèle) : les symptômes de TB et la CXR sont évalués tous deux ; si l'un ou les deux sont positifs, l'enfant est orienté vers une évaluation diagnostique, y compris mWRD et évaluation clinique, et si les deux sont négatifs, « Dépistage négatif – Orienter vers le TPT ». À droite (figure 2.6, dépistage séquentiel positif en série) : les enfants présentant des symptômes passent ensuite une CXR ; une CXR positive mène à l'évaluation diagnostique, tandis qu'un dépistage des symptômes négatif mène à « Dépistage négatif – Orienter vers le TPT » et une CXR négative à « Dépistage négatif – Envisager d'autres diagnostics – Orienter vers le TPT ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Две блок-схемы скрининга на ТБ детей-контактов в возрасте до 15 лет. Слева (рисунок 2.5, параллельный скрининг): оцениваются и симптомы ТБ, и CXR; если один или оба результата положительны, ребенка направляют на диагностическое обследование, включая mWRD и клиническое обследование, а если оба отрицательны — «отрицательный результат скрининга, направление на ПЛТ». Справа (рисунок 2.6, последовательный положительный серийный скрининг): детям с положительным результатом по симптомам затем проводят CXR; положительная CXR ведет к диагностическому обследованию, отрицательный скрининг по симптомам — к «отрицательному результату скрининга, направлению на ПЛТ», а отрицательная CXR — к «отрицательному результату скрининга, поиску альтернативных диагнозов, направлению на ПЛТ».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p043",
-      "file": "figures/vfig-p043.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p043.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a sequential negative serial screening flowchart (Figure 2.7)",
         "page": 43
       },
       "page": 43,
@@ -3457,7 +3948,7 @@
             "bbox": [
               317.07,
               360.84,
-              352.0,
+              352,
               382.13
             ],
             "drawings": 2,
@@ -3470,7 +3961,7 @@
           {
             "bbox": [
               320.25,
-              400.0,
+              400,
               375.94,
               421.46
             ],
@@ -3485,7 +3976,7 @@
           {
             "bbox": [
               221.09,
-              400.0,
+              400,
               303.54,
               473.55
             ],
@@ -3599,7 +4090,7 @@
             "id": "b5",
             "bbox": [
               320.25,
-              400.0,
+              400,
               375.94,
               421.46
             ],
@@ -3613,7 +4104,7 @@
             "id": "b6",
             "bbox": [
               221.33,
-              400.0,
+              400,
               303.3,
               473.55
             ],
@@ -3942,18 +4433,99 @@
         ],
         "between": [],
         "outside": 19
-      }
+      },
+      "shows": [
+        "Figure 2.7"
+      ],
+      "narrative": [
+        {
+          "text": "Flowchart for sequential negative serial TB screening of child contacts aged under 15 years (Figure 2.7). Children with positive TB symptoms go directly to diagnostic evaluation including mWRD and clinical evaluation; those with negative symptoms have a CXR, where a positive result also leads to diagnostic evaluation and a negative result to 'Negative Screen – Refer for TPT'.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط انسيابي للتحرّي المتسلسل السلبي عن السل لدى الأطفال المخالطين دون سن 15 سنة (الشكل 2.7). ينتقل الأطفال ذوو الأعراض الإيجابية مباشرة إلى التقييم التشخيصي بما في ذلك اختبار mWRD والتقييم السريري؛ أما ذوو الأعراض السلبية فيخضعون للتصوير الشعاعي للصدر، حيث تؤدي النتيجة الإيجابية أيضاً إلى التقييم التشخيصي وتؤدي النتيجة السلبية إلى «تحرٍّ سلبي – الإحالة للعلاج الوقائي من السل».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "针对15岁以下儿童接触者的序贯阴性串联结核病筛查流程图（图2.7）。结核病症状阳性的儿童直接进行包括mWRD检测和临床评估在内的诊断评估；症状阴性者行胸部X线检查，结果阳性者同样进行诊断评估，阴性者为“筛查阴性——转诊接受TPT”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de flujo del cribado seriado secuencial negativo de TB en niños menores de 15 años que son contactos (figura 2.7). Los niños con síntomas de TB positivos pasan directamente a la evaluación diagnóstica, incluidas mWRD y evaluación clínica; los que tienen síntomas negativos se someten a CXR, cuyo resultado positivo también conduce a la evaluación diagnóstica y el negativo a «Cribado negativo – Derivar para TPT».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Logigramme du dépistage séquentiel négatif en série de la TB chez les enfants contacts de moins de 15 ans (figure 2.7). Les enfants présentant des symptômes de TB passent directement à l'évaluation diagnostique, y compris mWRD et évaluation clinique ; ceux sans symptômes passent une CXR, dont un résultat positif mène aussi à l'évaluation diagnostique et un résultat négatif à « Dépistage négatif – Orienter vers le TPT ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема последовательного отрицательного серийного скрининга на ТБ детей-контактов в возрасте до 15 лет (рисунок 2.7). Дети с положительным результатом по симптомам ТБ сразу направляются на диагностическое обследование, включая mWRD и клиническое обследование; детям с отрицательным результатом проводят CXR, положительный результат которой также ведет к диагностическому обследованию, а отрицательный — к «отрицательному результату скрининга, направлению на ПЛТ».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p044",
-      "file": "figures/vfig-p044.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p044.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a symptom screening flowchart for children living with HIV (Figure 2.8)",
         "page": 44
       },
       "page": 44,
@@ -4183,7 +4755,7 @@
             "to": null,
             "bbox": [
               344.94,
-              658.0,
+              658,
               344.94,
               667.15
             ]
@@ -4203,7 +4775,7 @@
             "to": null,
             "bbox": [
               276.57,
-              658.0,
+              658,
               276.57,
               668.15
             ]
@@ -4311,18 +4883,99 @@
         ],
         "between": [],
         "outside": 27
-      }
+      },
+      "shows": [
+        "Figure 2.8"
+      ],
+      "narrative": [
+        {
+          "text": "Flowchart for TB symptom screening of children living with HIV aged under 10 years (Figure 2.8). A positive symptom screen leads to referral for diagnostic evaluation including mWRD and clinical evaluation; a negative screen leads to 'Negative Screen – Refer for TPT'.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط انسيابي لتحرّي أعراض السل لدى الأطفال المتعايشين مع فيروس العوز المناعي البشري دون سن 10 سنوات (الشكل 2.8). تؤدي النتيجة الإيجابية إلى الإحالة للتقييم التشخيصي بما في ذلك اختبار mWRD والتقييم السريري؛ وتؤدي النتيجة السلبية إلى «تحرٍّ سلبي – الإحالة للعلاج الوقائي من السل».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "对10岁以下艾滋病毒感染儿童进行结核病症状筛查的流程图（图2.8）。症状筛查阳性者转诊进行包括mWRD检测和临床评估在内的诊断评估；阴性者为“筛查阴性——转诊接受TPT”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de flujo del cribado de síntomas de TB en niños menores de 10 años con VIH (figura 2.8). Un cribado positivo conduce a la derivación para evaluación diagnóstica, incluidas mWRD y evaluación clínica; uno negativo conduce a «Cribado negativo – Derivar para TPT».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Logigramme du dépistage des symptômes de TB chez les enfants de moins de 10 ans vivant avec le VIH (figure 2.8). Un dépistage positif mène à l'orientation vers une évaluation diagnostique, y compris mWRD et évaluation clinique ; un dépistage négatif mène à « Dépistage négatif – Orienter vers le TPT ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема скрининга по симптомам ТБ детей в возрасте до 10 лет, живущих с ВИЧ (рисунок 2.8). Положительный результат ведет к направлению на диагностическое обследование, включая mWRD и клиническое обследование; отрицательный — к «отрицательному результату скрининга, направлению на ПЛТ».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p047",
-      "file": "figures/vfig-p047.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p047.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "the TB pathway diagram with the prevention stages circled (Figure 3.1)",
         "page": 47
       },
       "page": 47,
@@ -4467,7 +5120,7 @@
             "from": null,
             "to": null,
             "bbox": [
-              285.0,
+              285,
               375.98,
               288.71,
               380.5
@@ -4550,7 +5203,7 @@
               329.49,
               527.31,
               329.49,
-              548.0
+              548
             ]
           },
           {
@@ -4729,7 +5382,7 @@
             "bbox": [
               254.57,
               405.71,
-              258.0,
+              258,
               412.03
             ]
           },
@@ -4779,7 +5432,7 @@
             "bbox": [
               272.57,
               405.71,
-              276.0,
+              276,
               412.03
             ]
           },
@@ -4826,18 +5479,99 @@
         ],
         "between": [],
         "outside": 25
-      }
+      },
+      "shows": [
+        "Figure 3.1"
+      ],
+      "narrative": [
+        {
+          "text": "Pathway diagram of TB exposure, infection and disease drawn as coloured bands: from 'Exposed' to an 'Infected' circle with lungs icon, then branching to 'Accessed health care system' (leading to preventive treatment) or 'Did NOT access health care system' (leading to Diseased, Feeling ill, Accessed health care system, Diagnosed and Treated, with a side branch for 'Un/misdiagnosed'). A blue oval highlights the stages covered in Chapter 3: Exposed, Infected, Accessed health care system and Preventive treatment. The left edge of the render is cropped.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط مسار التعرض للسل والعدوى والمرض مرسوم على شكل أشرطة ملونة: من «التعرض» إلى دائرة «العدوى» مع أيقونة رئتين، ثم يتفرع إلى «الوصول إلى النظام الصحي» (المؤدي إلى العلاج الوقائي) أو «عدم الوصول إلى النظام الصحي» (المؤدي إلى المرض، ثم الشعور بالمرض، ثم الوصول إلى النظام الصحي، ثم التشخيص، ثم العلاج، مع فرع جانبي لـ«عدم التشخيص/التشخيص الخاطئ»). يُبرز شكل بيضاوي أزرق المراحل التي يتناولها الفصل 3: التعرض، والعدوى، والوصول إلى النظام الصحي، والعلاج الوقائي. والحافة اليسرى من الصورة مقصوصة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "以彩色条带绘制的结核病暴露、感染和发病路径图：从“暴露”到带有肺部图标的“感染”圆圈，随后分为“就诊于卫生保健系统”（通向预防性治疗）或“未就诊于卫生保健系统”（通向发病、感觉不适、就诊于卫生保健系统、确诊和治疗，另有“未诊断/误诊”分支）。 蓝色椭圆突出了第3章涵盖的阶段：暴露、感染、就诊于卫生保健系统和预防性治疗。渲染图左侧边缘被裁剪。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de la trayectoria de exposición, infección y enfermedad tuberculosa dibujado como bandas de colores: de «Expuesto» a un círculo «Infectado» con un icono de pulmones, que se bifurca en «Acceso al sistema de atención de salud» (que conduce al tratamiento preventivo) o «Sin acceso al sistema de atención de salud» (que conduce a Enfermo, Sensación de malestar, Acceso al sistema de atención de salud, Diagnosticado y Tratado, con una rama lateral «No diagnosticado o mal diagnosticado»). Un óvalo azul destaca las etapas tratadas en el capítulo 3: Expuesto, Infectado, Acceso al sistema de atención de salud y Tratamiento preventivo. El borde izquierdo de la imagen está recortado.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma du parcours d'exposition, d'infection et de maladie tuberculeuse dessiné sous forme de bandes colorées : de « Exposé » à un cercle « Infecté » avec une icône de poumons, puis bifurcation vers « A accédé au système de santé » (menant au traitement préventif) ou « N'a PAS accédé au système de santé » (menant à Malade, Se sent malade, A accédé au système de santé, Diagnostiqué et Traité, avec une branche latérale « Non diagnostiqué/mal diagnostiqué »). Un ovale bleu met en évidence les étapes traitées au chapitre 3 : Exposé, Infecté, A accédé au système de santé et Traitement préventif. Le bord gauche du rendu est rogné.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема пути от контакта с ТБ к инфицированию и заболеванию в виде цветных полос: от «Контакт» к кругу «Инфицирован» со значком легких, затем разветвление на «Обращение в систему здравоохранения» (ведет к профилактическому лечению) и «НЕ обращался в систему здравоохранения» (ведет к этапам «Болен», «Плохое самочувствие», «Обращение в систему здравоохранения», «Диагноз поставлен», «Лечение», с боковой ветвью «Не диагностирован/диагностирован неверно»). Синим овалом выделены этапы, рассматриваемые в главе 3: «Контакт», «Инфицирован», «Обращение в систему здравоохранения» и «Профилактическое лечение». Левый край изображения обрезан.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p049",
-      "file": "figures/vfig-p049.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p049.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a line drawing of injection routes (Figure 3.2)",
         "page": 49
       },
       "page": 49,
@@ -4934,7 +5668,7 @@
             "bbox": [
               104.58,
               589.03,
-              212.0,
+              212,
               624.04
             ]
           },
@@ -4945,7 +5679,7 @@
               214.96,
               597.4,
               243.54,
-              627.0
+              627
             ]
           },
           {
@@ -4991,18 +5725,99 @@
         ],
         "between": [],
         "outside": 26
-      }
+      },
+      "shows": [
+        "Figure 3.2"
+      ],
+      "narrative": [
+        {
+          "text": "Line drawing of injection techniques (Figure 3.2): three syringes enter the skin at different angles – intramuscular (vertical, reaching the muscle), subcutaneous (angled, into the subcutaneous layer) and intradermal (almost flat, into the dermis). Layers labelled dermis (skin), subcutaneous layer and muscle. Labels at the right edge are partly cut off.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "رسم خطي لتقنيات الحقن (الشكل 3.2): ثلاث محاقن تدخل الجلد بزوايا مختلفة – داخل العضل (عمودياً حتى العضلة)، وتحت الجلد (بزاوية مائلة إلى الطبقة تحت الجلدية)، وداخل الأدمة (بشكل شبه مسطح في الأدمة). والطبقات مُعلَّمة: الأدمة (الجلد)، والطبقة تحت الجلدية، والعضلة. والتسميات عند الحافة اليمنى مقصوصة جزئياً.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "注射技术线条图（图3.2）：三支注射器以不同角度刺入皮肤——肌内注射（垂直，达肌肉）、皮下注射（倾斜，进入皮下层）和皮内注射（几乎平行，进入真皮）。各层标注为真皮（皮肤）、皮下层和肌肉。右侧边缘的标签部分被截去。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Dibujo lineal de las técnicas de inyección (figura 3.2): tres jeringas penetran en la piel con ángulos distintos: intramuscular (vertical, hasta el músculo), subcutánea (en ángulo, en la capa subcutánea) e intradérmica (casi paralela, en la dermis). Las capas se rotulan dermis (piel), capa subcutánea y músculo. Las etiquetas del borde derecho están parcialmente cortadas.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Dessin au trait des techniques d'injection (figure 3.2) : trois seringues pénètrent la peau selon des angles différents – intramusculaire (verticale, jusqu'au muscle), sous-cutanée (inclinée, dans la couche sous-cutanée) et intradermique (presque à plat, dans le derme). Les couches sont étiquetées derme (peau), couche sous-cutanée et muscle. Les étiquettes du bord droit sont partiellement coupées.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Контурный рисунок техник инъекций (рисунок 3.2): три шприца входят в кожу под разными углами — внутримышечно (вертикально, до мышцы), подкожно (под углом, в подкожный слой) и внутрикожно (почти параллельно, в дерму). Слои подписаны: дерма (кожа), подкожный слой и мышца. Подписи у правого края частично обрезаны.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p058",
-      "file": "figures/vfig-p058.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p058.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "an algorithm for TB infection testing and preventive treatment (Figure 3.4)",
         "page": 58
       },
       "page": 58,
@@ -5184,7 +5999,7 @@
               360.53,
               135.98,
               488.41,
-              170.0
+              170
             ],
             "drawings": 5,
             "pageEdge": false,
@@ -5950,7 +6765,7 @@
               378.58,
               140.98,
               378.58,
-              170.0
+              170
             ]
           },
           {
@@ -5960,7 +6775,7 @@
               374.93,
               166.07,
               382.24,
-              170.0
+              170
             ]
           },
           {
@@ -6306,18 +7121,99 @@
         ],
         "between": [],
         "outside": 13
-      }
+      },
+      "shows": [
+        "Figure 3.4"
+      ],
+      "narrative": [
+        {
+          "text": "Algorithm for TB infection testing and TB preventive treatment in children and adolescents (Figure 3.4), with three entry groups: HIV positive, household contact and other risk group. People living with HIV are screened for any symptom (current cough, fever, weight loss or night sweats); symptomatic people living with HIV and symptomatic contacts are investigated for TB disease. Asymptomatic contacts under 5 years go to the preventive-treatment decision; those aged 5 years and over and other risk groups have TST or IGRA, then CXR if positive or unavailable (abnormal CXR leads to TB investigation). The decision box 'Preventive treatment contraindicated?' leads to 'Defer' or 'Give preventive treatment', and all paths end with 'Follow up for TB disease as necessary, even for patients who have completed preventive treatment'.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "خوارزمية اختبار العدوى بالسل والعلاج الوقائي من السل لدى الأطفال والمراهقين (الشكل 3.4)، بثلاث فئات دخول: المصابون بفيروس العوز المناعي البشري، والمخالطون المنزليون، وفئات الخطر الأخرى. يُتحرّى لدى المتعايشين مع الفيروس وجود أي عَرَض (سعال حالي أو حمى أو فقدان وزن أو تعرّق ليلي)؛ ويُستقصى مرض السل لدى من لديهم أعراض ولدى المخالطين الذين لديهم أعراض. ينتقل المخالطون الذين لا أعراض لديهم دون 5 سنوات إلى قرار العلاج الوقائي؛ أما من هم في سن 5 سنوات فأكثر وفئات الخطر الأخرى فيخضعون لاختبار TST أو IGRA، ثم للتصوير الشعاعي للصدر إذا كانت النتيجة إيجابية أو غير متاحة (ويؤدي التصوير غير الطبيعي إلى استقصاء السل). تؤدي خانة القرار «هل العلاج الوقائي مضاد استطباب؟» إلى «تأجيل» العلاج الوقائي أو «إعطائه»، وتنتهي جميع المسارات بعبارة «متابعة مرض السل حسب الضرورة، حتى للمرضى الذين أتموا العلاج الوقائي».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "儿童和青少年结核感染检测及结核病预防性治疗算法（图3.4），有三个入口人群：艾滋病毒阳性者、家庭接触者和其他风险人群。艾滋病毒感染者筛查有无任何症状（当前咳嗽、发热、体重减轻或盗汗）；有症状者及有症状的接触者接受结核病调查。无症状的5岁以下接触者进入预防性治疗决策；5岁及以上者和其他风险人群接受TST或IGRA检测，结果阳性或无法检测时再行胸部X线（X线异常者接受结核病调查）。决策框“是否存在预防性治疗禁忌？”通向“推迟”或“给予预防性治疗”，所有路径最终均为“必要时随访结核病，即使是已完成预防性治疗的患者”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Algoritmo de pruebas de infección tuberculosa y tratamiento preventivo de la TB en niños y adolescentes (figura 3.4), con tres grupos de entrada: VIH positivo, contacto domiciliario y otro grupo de riesgo. A las personas con VIH se les cribe cualquier síntoma (tos actual, fiebre, pérdida de peso o sudores nocturnos); las personas sintomáticas y los contactos sintomáticos se investigan para descartar enfermedad tuberculosa. Los contactos asintomáticos menores de 5 años pasan a la decisión sobre el tratamiento preventivo; los de 5 años o más y otros grupos de riesgo se someten a TST o IGRA y luego a CXR si el resultado es positivo o no está disponible (una CXR anormal conduce a investigar la TB). La casilla de decisión «¿Está contraindicado el tratamiento preventivo?» conduce a «Aplazar» o «Administrar tratamiento preventivo», y todas las vías terminan en «Seguimiento de la enfermedad tuberculosa según sea necesario, incluso en pacientes que han completado el tratamiento preventivo».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Algorithme pour le test de l'infection tuberculeuse et le traitement préventif de la TB chez les enfants et les adolescents (figure 3.4), avec trois groupes d'entrée : séropositifs pour le VIH, contacts familiaux et autres groupes à risque. Les personnes vivant avec le VIH font l'objet d'un dépistage de tout symptôme (toux actuelle, fièvre, perte de poids ou sueurs nocturnes) ; les personnes symptomatiques et les contacts symptomatiques font l'objet d'une recherche de TB-maladie. Les contacts asymptomatiques de moins de 5 ans passent à la décision de traitement préventif ; ceux de 5 ans et plus et les autres groupes à risque passent un TST ou un IGRA, puis une CXR si le résultat est positif ou indisponible (une CXR anormale mène à la recherche de TB). La case de décision « Traitement préventif contre-indiqué ? » mène à « Différer » ou « Administrer le traitement préventif », et tous les parcours aboutissent à « Suivi de la TB-maladie si nécessaire, même pour les patients ayant terminé le traitement préventif ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Алгоритм тестирования на туберкулезную инфекцию и профилактического лечения ТБ у детей и подростков (рисунок 3.4) с тремя исходными группами: ВИЧ-положительные, домашние контакты и другие группы риска. У людей, живущих с ВИЧ, выявляют любой симптом (текущий кашель, лихорадка, потеря массы тела или ночная потливость); лица с симптомами и контакты с симптомами обследуются на ТБ. Контакты без симптомов в возрасте до 5 лет переходят к решению о профилактическом лечении; лицам 5 лет и старше и другим группам риска проводят TST или IGRA, затем CXR при положительном результате или его отсутствии (патологическая CXR ведет к обследованию на ТБ). Блок решения «Противопоказано ли профилактическое лечение?» ведет к «Отложить» или «Назначить профилактическое лечение», и все пути заканчиваются указанием «Наблюдение на предмет ТБ по мере необходимости, даже у пациентов, завершивших профилактическое лечение».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p073",
-      "file": "figures/vfig-p073.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p073.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "the TB pathway diagram with the diagnosis stages circled (Figure 4.1)",
         "page": 73
       },
       "page": 73,
@@ -6481,7 +7377,7 @@
             "to": null,
             "bbox": [
               301.1,
-              568.0,
+              568,
               304.89,
               574.43
             ]
@@ -6799,18 +7695,99 @@
         ],
         "between": [],
         "outside": 25
-      }
+      },
+      "shows": [
+        "Figure 4.1"
+      ],
+      "narrative": [
+        {
+          "text": "Pathway diagram of TB exposure, infection and disease drawn as coloured bands: from 'Exposed' to an 'Infected' circle with lungs icon, then branching to 'Accessed health care system' (leading to preventive treatment) or 'Did NOT access health care system' (leading to Diseased, Feeling ill, Accessed health care system, Diagnosed and Treated, with a side branch for 'Un/misdiagnosed'). A blue oval highlights the stages covered in Chapter 4: Diseased, Feeling ill, Accessed health care system, Diagnosed and Treated. The left edge of the render is cropped.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط مسار التعرض للسل والعدوى والمرض مرسوم على شكل أشرطة ملونة: من «التعرض» إلى دائرة «العدوى» مع أيقونة رئتين، ثم يتفرع إلى «الوصول إلى النظام الصحي» (المؤدي إلى العلاج الوقائي) أو «عدم الوصول إلى النظام الصحي» (المؤدي إلى المرض، ثم الشعور بالمرض، ثم الوصول إلى النظام الصحي، ثم التشخيص، ثم العلاج، مع فرع جانبي لـ«عدم التشخيص/التشخيص الخاطئ»). يُبرز شكل بيضاوي أزرق المراحل التي يتناولها الفصل 4: المرض، والشعور بالمرض، والوصول إلى النظام الصحي، والتشخيص، والعلاج. والحافة اليسرى من الصورة مقصوصة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "以彩色条带绘制的结核病暴露、感染和发病路径图：从“暴露”到带有肺部图标的“感染”圆圈，随后分为“就诊于卫生保健系统”（通向预防性治疗）或“未就诊于卫生保健系统”（通向发病、感觉不适、就诊于卫生保健系统、确诊和治疗，另有“未诊断/误诊”分支）。 蓝色椭圆突出了第4章涵盖的阶段：发病、感觉不适、就诊于卫生保健系统、确诊和治疗。渲染图左侧边缘被裁剪。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de la trayectoria de exposición, infección y enfermedad tuberculosa dibujado como bandas de colores: de «Expuesto» a un círculo «Infectado» con un icono de pulmones, que se bifurca en «Acceso al sistema de atención de salud» (que conduce al tratamiento preventivo) o «Sin acceso al sistema de atención de salud» (que conduce a Enfermo, Sensación de malestar, Acceso al sistema de atención de salud, Diagnosticado y Tratado, con una rama lateral «No diagnosticado o mal diagnosticado»). Un óvalo azul destaca las etapas tratadas en el capítulo 4: Enfermo, Sensación de malestar, Acceso al sistema de atención de salud, Diagnosticado y Tratado. El borde izquierdo de la imagen está recortado.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma du parcours d'exposition, d'infection et de maladie tuberculeuse dessiné sous forme de bandes colorées : de « Exposé » à un cercle « Infecté » avec une icône de poumons, puis bifurcation vers « A accédé au système de santé » (menant au traitement préventif) ou « N'a PAS accédé au système de santé » (menant à Malade, Se sent malade, A accédé au système de santé, Diagnostiqué et Traité, avec une branche latérale « Non diagnostiqué/mal diagnostiqué »). Un ovale bleu met en évidence les étapes traitées au chapitre 4 : Malade, Se sent malade, A accédé au système de santé, Diagnostiqué et Traité. Le bord gauche du rendu est rogné.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема пути от контакта с ТБ к инфицированию и заболеванию в виде цветных полос: от «Контакт» к кругу «Инфицирован» со значком легких, затем разветвление на «Обращение в систему здравоохранения» (ведет к профилактическому лечению) и «НЕ обращался в систему здравоохранения» (ведет к этапам «Болен», «Плохое самочувствие», «Обращение в систему здравоохранения», «Диагноз поставлен», «Лечение», с боковой ветвью «Не диагностирован/диагностирован неверно»). Синим овалом выделены этапы, рассматриваемые в главе 4: «Болен», «Плохое самочувствие», «Обращение в систему здравоохранения», «Диагноз поставлен» и «Лечение». Левый край изображения обрезан.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p075",
-      "file": "figures/vfig-p075.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p075.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a line chart of cough patterns (Figure 4.2) with Box 4.1",
         "page": 75
       },
       "page": 75,
@@ -6832,7 +7809,7 @@
             "bbox": [
               97.38,
               108.15,
-              359.0,
+              359,
               272.72
             ],
             "drawings": 9,
@@ -6908,7 +7885,7 @@
             "bbox": [
               97.38,
               108.15,
-              359.0,
+              359,
               272.72
             ]
           },
@@ -7006,18 +7983,99 @@
           "Arch Dis Child. 2005;90(11):1162–1165."
         ],
         "outside": 16
-      }
+      },
+      "shows": [
+        "Figure 4.2"
+      ],
+      "narrative": [
+        {
+          "text": "Line chart of differentiated cough patterns (Figure 4.2): intensity of cough (no scale) against duration in weeks (0–4). 'Acute cough with delayed recovery' (dotted red) peaks around week 1 and then declines; 'Recurrent acute cough' (dashed blue) shows two separate peaks near weeks 0.7 and 2.4; 'Persistent, non-remitting cough' (solid orange) rises steadily over 4 weeks. Below are a note on persistent cough (88.9% associated with TB in the cited study), the source, and the start of Box 4.1 listing common symptoms of TB in children.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط خطي لأنماط السعال المتمايزة (الشكل 4.2): شدة السعال (بدون مقياس) مقابل المدة بالأسابيع (0–4). «السعال الحاد مع تأخر التعافي» (منقّط أحمر) يبلغ ذروته نحو الأسبوع 1 ثم ينخفض؛ و«السعال الحاد المتكرر» (متقطع أزرق) يُظهر ذروتين منفصلتين قرب الأسبوعين 0.7 و2.4؛ و«السعال المستمر غير المنقطع» (متصل برتقالي) يرتفع باطّراد على مدى 4 أسابيع. وفي الأسفل ملاحظة عن السعال المستمر (مرتبط بالسل بنسبة 88.9% في الدراسة المذكورة)، والمصدر، وبداية الإطار 4.1 الذي يسرد الأعراض الشائعة للسل لدى الأطفال.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "不同咳嗽模式的折线图（图4.2）：咳嗽强度（无刻度）对应持续时间（周，0–4）。“恢复延迟的急性咳嗽”（红色点线）在第1周左右达到峰值后下降；“复发性急性咳嗽”（蓝色虚线）在约第0.7周和第2.4周出现两个独立峰值；“持续性、不缓解咳嗽”（橙色实线）在4周内稳步上升。下方为关于持续性咳嗽的说明（在所引研究中88.9%与结核病相关）、来源，以及列出儿童结核病常见症状的专栏4.1开头部分。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Gráfico de líneas de los patrones de tos diferenciados (figura 4.2): intensidad de la tos (sin escala) frente a la duración en semanas (0–4). La «tos aguda con recuperación tardía» (punteada roja) alcanza su máximo hacia la semana 1 y luego disminuye; la «tos aguda recurrente» (discontinua azul) muestra dos picos separados hacia las semanas 0,7 y 2,4; la «tos persistente que no remite» (continua naranja) aumenta de forma constante durante 4 semanas. Debajo figuran una nota sobre la tos persistente (asociada a la TB en el 88,9% de los casos en el estudio citado), la fuente y el inicio del recuadro 4.1, que enumera los síntomas comunes de la TB en los niños.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Graphique linéaire des profils de toux différenciés (figure 4.2) : intensité de la toux (sans échelle) en fonction de la durée en semaines (0–4). La « toux aiguë avec rétablissement tardif » (pointillés rouges) culmine vers la semaine 1 puis diminue ; la « toux aiguë récurrente » (tirets bleus) présente deux pics distincts vers les semaines 0,7 et 2,4 ; la « toux persistante sans rémission » (trait plein orange) augmente régulièrement sur 4 semaines. En dessous figurent une note sur la toux persistante (associée à la TB dans 88,9 % des cas dans l'étude citée), la source et le début de l'encadré 4.1 énumérant les symptômes courants de la TB chez l'enfant.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Линейный график различных типов кашля (рисунок 4.2): интенсивность кашля (без шкалы) в зависимости от продолжительности в неделях (0–4). «Острый кашель с замедленным выздоровлением» (красная пунктирная линия) достигает пика около 1-й недели, затем снижается; «рецидивирующий острый кашель» (синяя штриховая линия) имеет два отдельных пика около 0,7 и 2,4 недели; «стойкий непрекращающийся кашель» (оранжевая сплошная линия) неуклонно нарастает в течение 4 недель. Ниже приведены примечание о стойком кашле (в цитируемом исследовании в 88,9% случаев связан с ТБ), источник и начало вставки 4.1 с перечнем распространенных симптомов ТБ у детей.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p077",
-      "file": "figures/vfig-p077.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p077.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "annotated weight-for-age growth chart for girls (Figure 4.3) with text boxes",
         "page": 77
       },
       "page": 77,
@@ -7059,7 +8117,7 @@
           {
             "bbox": [
               70.87,
-              233.0,
+              233,
               524.41,
               339.17
             ],
@@ -7131,7 +8189,7 @@
             "id": "b1",
             "bbox": [
               70.87,
-              233.0,
+              233,
               524.41,
               339.17
             ],
@@ -7205,18 +8263,99 @@
           "Figure 4.3. Examples of abnormal growth curves"
         ],
         "outside": 2
-      }
+      },
+      "shows": [
+        "Figure 4.3"
+      ],
+      "narrative": [
+        {
+          "text": "Page render with two text boxes (weight loss or failure to thrive; other causes of chronic lung disease) above Figure 4.3, 'Examples of abnormal growth curves': a WHO weight-for-age chart for girls (birth to 5 years, z-score lines 3, 2, 0, −2, −3) with two plotted cases. Case 1, a girl aged 14 months, grew just below the +3 z-score line and then flattened, about 4 kg below her expected weight; case 2, a girl aged 2 years 7 months, grew along the +2 line and then had a static weight for 5 months, about 2 kg below expected.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "صفحة مُصوَّرة فيها إطاران نصيان (فقدان الوزن أو قصور النمو؛ والأسباب الأخرى لأمراض الرئة المزمنة) فوق الشكل 4.3 «أمثلة على منحنيات النمو غير الطبيعية»: مخطط منظمة الصحة العالمية للوزن مقابل العمر للبنات (من الولادة حتى 5 سنوات، خطوط الدرجات المعيارية 3 و2 و0 و−2 و−3) مع حالتين مرسومتين. الحالة 1، طفلة عمرها 14 شهراً، نمت تحت خط الدرجة +3 مباشرة ثم تسطّح منحناها، وهي أقل من وزنها المتوقع بنحو 4 كغ؛ والحالة 2، طفلة عمرها سنتان و7 أشهر، نمت على امتداد خط +2 ثم ثبت وزنها 5 أشهر، وهي أقل من الوزن المتوقع بنحو 2 كغ.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "页面渲染图，图4.3“异常生长曲线示例”上方有两个文本框（体重减轻或生长迟缓；慢性肺病的其他病因）：世卫组织女童年龄别体重图（出生至5岁，Z评分线3、2、0、−2、−3），绘有两个病例。病例1为14个月女童，生长曲线位于+3 Z评分线略下方，随后趋平，比预期体重低约4千克；病例2为2岁7个月女童，沿+2线生长，随后体重5个月停滞，比预期低约2千克。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Imagen de página con dos recuadros de texto (pérdida de peso o retraso del crecimiento; otras causas de enfermedad pulmonar crónica) sobre la figura 4.3, «Ejemplos de curvas de crecimiento anormales»: un gráfico de la OMS de peso para la edad en niñas (del nacimiento a los 5 años, curvas de puntuación z 3, 2, 0, −2, −3) con dos casos representados. El caso 1, una niña de 14 meses, creció justo por debajo de la curva +3 y después se estancó, unos 4 kg por debajo del peso esperado; el caso 2, una niña de 2 años y 7 meses, creció a lo largo de la curva +2 y luego mantuvo un peso estático durante 5 meses, unos 2 kg por debajo de lo esperado.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Rendu de page avec deux encadrés de texte (perte de poids ou retard de croissance ; autres causes de maladie pulmonaire chronique) au-dessus de la figure 4.3, « Exemples de courbes de croissance anormales » : une courbe OMS de poids pour l'âge chez les filles (de la naissance à 5 ans, courbes de z-scores 3, 2, 0, −2, −3) avec deux cas tracés. Le cas 1, une fillette de 14 mois, a grandi juste sous la courbe +3 puis sa courbe s'est aplatie, environ 4 kg sous le poids attendu ; le cas 2, une fillette de 2 ans et 7 mois, a suivi la courbe +2 puis a eu un poids stable pendant 5 mois, environ 2 kg sous le poids attendu.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Изображение страницы с двумя текстовыми вставками (потеря массы тела или задержка развития; другие причины хронических заболеваний легких) над рисунком 4.3 «Примеры аномальных кривых роста»: диаграмма ВОЗ «масса тела к возрасту» для девочек (от рождения до 5 лет, кривые z-оценок 3, 2, 0, −2, −3) с двумя нанесенными случаями. Случай 1 — девочка 14 месяцев, росла чуть ниже кривой +3, затем кривая выровнялась; масса примерно на 4 кг ниже ожидаемой. Случай 2 — девочка 2 лет 7 месяцев, росла по кривой +2, затем масса 5 месяцев не менялась; примерно на 2 кг ниже ожидаемой.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p093",
-      "file": "figures/vfig-p093.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p093.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a treatment decision flowchart (Algorithm A, Figure 4.4)",
         "page": 93
       },
       "page": 93,
@@ -7341,7 +8480,7 @@
           {
             "bbox": [
               73.53,
-              395.0,
+              395,
               511.46,
               418.93
             ],
@@ -7637,7 +8776,7 @@
             "id": "b7",
             "bbox": [
               73.53,
-              395.0,
+              395,
               511.46,
               418.93
             ],
@@ -7858,9 +8997,9 @@
             "to": null,
             "bbox": [
               258.77,
-              195.0,
+              195,
               258.77,
-              195.0
+              195
             ]
           },
           {
@@ -7958,7 +9097,7 @@
             "to": null,
             "bbox": [
               118.78,
-              470.0,
+              470,
               118.78,
               734.75
             ]
@@ -8407,18 +9546,99 @@
           "YES"
         ],
         "outside": 6
-      }
+      },
+      "shows": [
+        "Figure 4.4"
+      ],
+      "narrative": [
+        {
+          "text": "Treatment decision algorithm for children with presumptive pulmonary TB (Figure 4.4, Algorithm A). It starts with danger signs (stabilize and/or transfer), then children under 2 years, living with HIV and/or with severe acute malnutrition go straight to specimen collection for mWRD testing (e.g. Xpert MTB/RIF or Ultra) and urine LF-LAM, while others are first treated for the most likely non-TB condition and followed up in 1–2 weeks. If mWRD or LF-LAM detects Mycobacterium tuberculosis, or there was close or household TB contact in the previous 12 months, appropriate TB treatment is initiated; otherwise signs and symptoms and CXR features are scored (e.g. cough longer than 2 weeks +2, fever longer than 2 weeks +5, enlarged lymph nodes on CXR +17, miliary pattern +15, tachypnoea −1), and TB treatment is started if Sum A + Sum B > 10, or the child is followed up in 1–2 weeks.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "خوارزمية قرار العلاج للأطفال المشتبه بإصابتهم بالسل الرئوي (الشكل 4.4، الخوارزمية A). تبدأ بعلامات الخطر (التثبيت و/أو النقل)، ثم ينتقل الأطفال دون سن سنتين أو المتعايشون مع فيروس العوز المناعي البشري و/أو المصابون بسوء التغذية الحاد الوخيم مباشرة إلى جمع العينات لاختبار mWRD (مثل Xpert MTB/RIF أو Ultra) واختبار LF-LAM في البول، بينما يُعالَج الآخرون أولاً من الحالة غير السلية الأرجح ويُتابَعون بعد 1–2 أسبوع. إذا كشف اختبار mWRD أو LF-LAM عن المتفطرة السلية، أو وُجد مخالطة وثيقة أو منزلية لمريض سل خلال الأشهر الـ12 السابقة، يُبدأ علاج السل المناسب؛ وإلا تُحتسب درجات العلامات والأعراض وسمات التصوير الشعاعي للصدر (مثل سعال لأكثر من أسبوعين +2، وحمى لأكثر من أسبوعين +5، وتضخم العقد اللمفية في التصوير +17، والنمط الدخني +15، وتسرّع التنفس −1)، ويُبدأ علاج السل إذا كان مجموع A + مجموع B > 10، وإلا يُتابَع الطفل بعد 1–2 أسبوع.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "疑似肺结核儿童的治疗决策算法（图4.4，算法A）。首先评估危险体征（稳定病情和/或转诊），随后2岁以下、感染艾滋病毒和/或患有重度急性营养不良的儿童直接采集标本进行mWRD检测（如Xpert MTB/RIF或Ultra）及尿液LF-LAM检测，其他儿童则先治疗最可能的非结核病病症并于1–2周后随访。如mWRD或LF-LAM检出结核分枝杆菌，或过去12个月内有密切或家庭结核病接触史，则开始适当的结核病治疗；否则对体征和症状以及胸部X线特征进行评分（如咳嗽超过2周+2，发热超过2周+5，胸片示淋巴结肿大+17，粟粒样改变+15，呼吸急促−1），若A总分+B总分>10则开始结核病治疗，否则1–2周后随访。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Algoritmo de decisión terapéutica para niños con presunta TB pulmonar (figura 4.4, algoritmo A). Comienza con los signos de peligro (estabilizar y/o trasladar); después, los niños menores de 2 años, con VIH y/o con malnutrición aguda grave pasan directamente a la recogida de muestras para pruebas mWRD (p. ej., Xpert MTB/RIF o Ultra) y LF-LAM en orina, mientras que los demás reciben primero tratamiento para la afección no tuberculosa más probable y seguimiento en 1–2 semanas. Si la mWRD o la LF-LAM detectan Mycobacterium tuberculosis, o hubo contacto estrecho o domiciliario con TB en los 12 meses anteriores, se inicia el tratamiento antituberculoso adecuado; de lo contrario, se puntúan los signos y síntomas y los hallazgos de la CXR (p. ej., tos de más de 2 semanas +2, fiebre de más de 2 semanas +5, adenopatías en la CXR +17, patrón miliar +15, taquipnea −1) y se inicia el tratamiento si Suma A + Suma B > 10; si no, se hace seguimiento en 1–2 semanas.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Algorithme de décision thérapeutique pour les enfants présumés atteints de TB pulmonaire (figure 4.4, algorithme A). Il commence par les signes de danger (stabiliser et/ou transférer) ; ensuite, les enfants de moins de 2 ans, vivant avec le VIH et/ou souffrant de malnutrition aiguë sévère passent directement au prélèvement d'échantillons pour un test mWRD (par ex. Xpert MTB/RIF ou Ultra) et un LF-LAM urinaire, tandis que les autres sont d'abord traités pour l'affection non tuberculeuse la plus probable et revus dans 1 à 2 semaines. Si le mWRD ou le LF-LAM détecte Mycobacterium tuberculosis, ou en cas de contact étroit ou familial avec la TB au cours des 12 mois précédents, un traitement antituberculeux approprié est instauré ; sinon, les signes et symptômes et les caractéristiques de la CXR sont notés (par ex. toux de plus de 2 semaines +2, fièvre de plus de 2 semaines +5, adénopathies à la CXR +17, aspect miliaire +15, tachypnée −1), et le traitement est instauré si Somme A + Somme B > 10, sinon l'enfant est revu dans 1 à 2 semaines.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Алгоритм принятия решения о лечении детей с предполагаемым туберкулезом легких (рисунок 4.4, алгоритм A). Он начинается с признаков опасности (стабилизировать и/или перевести), затем дети в возрасте до 2 лет, живущие с ВИЧ и/или с тяжелой острой недостаточностью питания, сразу переходят к сбору образцов для тестирования mWRD (например, Xpert MTB/RIF или Ultra) и LF-LAM мочи, а остальных сначала лечат от наиболее вероятного заболевания, не связанного с ТБ, и повторно осматривают через 1–2 недели. Если mWRD или LF-LAM выявляют Mycobacterium tuberculosis или в предыдущие 12 месяцев был тесный или домашний контакт с ТБ, начинается соответствующее лечение ТБ; в противном случае проводится балльная оценка признаков и симптомов и рентгенологических признаков (например, кашель более 2 недель +2, лихорадка более 2 недель +5, увеличение лимфоузлов на CXR +17, милиарная картина +15, тахипноэ −1), и лечение ТБ начинается, если сумма A + сумма B > 10, иначе ребенка повторно осматривают через 1–2 недели.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p094",
-      "file": "figures/vfig-p094.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p094.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a treatment decision flowchart (Algorithm B, Figure 4.5)",
         "page": 94
       },
       "page": 94,
@@ -9579,18 +10799,99 @@
           "YES"
         ],
         "outside": 4
-      }
+      },
+      "shows": [
+        "Figure 4.5"
+      ],
+      "narrative": [
+        {
+          "text": "Treatment decision algorithm for children with presumptive pulmonary TB (Figure 4.5, Algorithm B). It starts with danger signs (stabilize and/or transfer), then children under 2 years, living with HIV and/or with severe acute malnutrition go straight to specimen collection for mWRD testing (e.g. Xpert MTB/RIF or Ultra) and urine LF-LAM, while others are first treated for the most likely non-TB condition and followed up in 1–2 weeks. If mWRD or LF-LAM detects Mycobacterium tuberculosis, or there was close or household TB contact in the previous 12 months, appropriate TB treatment is initiated; otherwise signs and symptoms alone are scored (e.g. cough longer than 2 weeks +5, fever longer than 2 weeks +10, haemoptysis +9, swollen lymph nodes +7, tachypnoea +2), and TB treatment is started if the sum is > 10, or the child is followed up in 1–2 weeks.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "خوارزمية قرار العلاج للأطفال المشتبه بإصابتهم بالسل الرئوي (الشكل 4.5، الخوارزمية B). تبدأ بعلامات الخطر (التثبيت و/أو النقل)، ثم ينتقل الأطفال دون سن سنتين أو المتعايشون مع فيروس العوز المناعي البشري و/أو المصابون بسوء التغذية الحاد الوخيم مباشرة إلى جمع العينات لاختبار mWRD (مثل Xpert MTB/RIF أو Ultra) واختبار LF-LAM في البول، بينما يُعالَج الآخرون أولاً من الحالة غير السلية الأرجح ويُتابَعون بعد 1–2 أسبوع. إذا كشف اختبار mWRD أو LF-LAM عن المتفطرة السلية، أو وُجد مخالطة وثيقة أو منزلية لمريض سل خلال الأشهر الـ12 السابقة، يُبدأ علاج السل المناسب؛ وإلا تُحتسب درجات العلامات والأعراض وحدها (مثل سعال لأكثر من أسبوعين +5، وحمى لأكثر من أسبوعين +10، ونفث الدم +9، وتورم العقد اللمفية +7، وتسرّع التنفس +2)، ويُبدأ علاج السل إذا كان المجموع > 10، وإلا يُتابَع الطفل بعد 1–2 أسبوع.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "疑似肺结核儿童的治疗决策算法（图4.5，算法B）。首先评估危险体征（稳定病情和/或转诊），随后2岁以下、感染艾滋病毒和/或患有重度急性营养不良的儿童直接采集标本进行mWRD检测（如Xpert MTB/RIF或Ultra）及尿液LF-LAM检测，其他儿童则先治疗最可能的非结核病病症并于1–2周后随访。如mWRD或LF-LAM检出结核分枝杆菌，或过去12个月内有密切或家庭结核病接触史，则开始适当的结核病治疗；否则仅对体征和症状进行评分（如咳嗽超过2周+5，发热超过2周+10，咯血+9，淋巴结肿大+7，呼吸急促+2），若总分>10则开始结核病治疗，否则1–2周后随访。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Algoritmo de decisión terapéutica para niños con presunta TB pulmonar (figura 4.5, algoritmo B). Comienza con los signos de peligro (estabilizar y/o trasladar); después, los niños menores de 2 años, con VIH y/o con malnutrición aguda grave pasan directamente a la recogida de muestras para pruebas mWRD (p. ej., Xpert MTB/RIF o Ultra) y LF-LAM en orina, mientras que los demás reciben primero tratamiento para la afección no tuberculosa más probable y seguimiento en 1–2 semanas. Si la mWRD o la LF-LAM detectan Mycobacterium tuberculosis, o hubo contacto estrecho o domiciliario con TB en los 12 meses anteriores, se inicia el tratamiento antituberculoso adecuado; de lo contrario, se puntúan solo los signos y síntomas (p. ej., tos de más de 2 semanas +5, fiebre de más de 2 semanas +10, hemoptisis +9, adenopatías +7, taquipnea +2) y se inicia el tratamiento si la suma es > 10; si no, se hace seguimiento en 1–2 semanas.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Algorithme de décision thérapeutique pour les enfants présumés atteints de TB pulmonaire (figure 4.5, algorithme B). Il commence par les signes de danger (stabiliser et/ou transférer) ; ensuite, les enfants de moins de 2 ans, vivant avec le VIH et/ou souffrant de malnutrition aiguë sévère passent directement au prélèvement d'échantillons pour un test mWRD (par ex. Xpert MTB/RIF ou Ultra) et un LF-LAM urinaire, tandis que les autres sont d'abord traités pour l'affection non tuberculeuse la plus probable et revus dans 1 à 2 semaines. Si le mWRD ou le LF-LAM détecte Mycobacterium tuberculosis, ou en cas de contact étroit ou familial avec la TB au cours des 12 mois précédents, un traitement antituberculeux approprié est instauré ; sinon, seuls les signes et symptômes sont notés (par ex. toux de plus de 2 semaines +5, fièvre de plus de 2 semaines +10, hémoptysie +9, adénopathies +7, tachypnée +2), et le traitement est instauré si la somme est > 10, sinon l'enfant est revu dans 1 à 2 semaines.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Алгоритм принятия решения о лечении детей с предполагаемым туберкулезом легких (рисунок 4.5, алгоритм B). Он начинается с признаков опасности (стабилизировать и/или перевести), затем дети в возрасте до 2 лет, живущие с ВИЧ и/или с тяжелой острой недостаточностью питания, сразу переходят к сбору образцов для тестирования mWRD (например, Xpert MTB/RIF или Ultra) и LF-LAM мочи, а остальных сначала лечат от наиболее вероятного заболевания, не связанного с ТБ, и повторно осматривают через 1–2 недели. Если mWRD или LF-LAM выявляют Mycobacterium tuberculosis или в предыдущие 12 месяцев был тесный или домашний контакт с ТБ, начинается соответствующее лечение ТБ; в противном случае проводится балльная оценка только признаков и симптомов (например, кашель более 2 недель +5, лихорадка более 2 недель +10, кровохарканье +9, увеличение лимфоузлов +7, тахипноэ +2), и лечение ТБ начинается, если сумма > 10, иначе ребенка повторно осматривают через 1–2 недели.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p107",
-      "file": "figures/vfig-p107.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p107.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "the TB pathway diagram with the treatment stages circled (Figure 5.1)",
         "page": 107
       },
       "page": 107,
@@ -10110,18 +11411,99 @@
         ],
         "between": [],
         "outside": 21
-      }
+      },
+      "shows": [
+        "Figure 5.1"
+      ],
+      "narrative": [
+        {
+          "text": "Pathway diagram of TB exposure, infection and disease drawn as coloured bands: from 'Exposed' to an 'Infected' circle with lungs icon, then branching to 'Accessed health care system' (leading to preventive treatment) or 'Did NOT access health care system' (leading to Diseased, Feeling ill, Accessed health care system, Diagnosed and Treated, with a side branch for 'Un/misdiagnosed'). A blue oval highlights the stages covered in Chapter 5: Diagnosed and Treated. The left edge and parts of the top labels are cropped.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط مسار التعرض للسل والعدوى والمرض مرسوم على شكل أشرطة ملونة: من «التعرض» إلى دائرة «العدوى» مع أيقونة رئتين، ثم يتفرع إلى «الوصول إلى النظام الصحي» (المؤدي إلى العلاج الوقائي) أو «عدم الوصول إلى النظام الصحي» (المؤدي إلى المرض، ثم الشعور بالمرض، ثم الوصول إلى النظام الصحي، ثم التشخيص، ثم العلاج، مع فرع جانبي لـ«عدم التشخيص/التشخيص الخاطئ»). يُبرز شكل بيضاوي أزرق المراحل التي يتناولها الفصل 5: التشخيص والعلاج. والحافة اليسرى وأجزاء من التسميات العلوية مقصوصة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "以彩色条带绘制的结核病暴露、感染和发病路径图：从“暴露”到带有肺部图标的“感染”圆圈，随后分为“就诊于卫生保健系统”（通向预防性治疗）或“未就诊于卫生保健系统”（通向发病、感觉不适、就诊于卫生保健系统、确诊和治疗，另有“未诊断/误诊”分支）。 蓝色椭圆突出了第5章涵盖的阶段：确诊和治疗。左侧边缘和顶部部分标签被裁剪。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de la trayectoria de exposición, infección y enfermedad tuberculosa dibujado como bandas de colores: de «Expuesto» a un círculo «Infectado» con un icono de pulmones, que se bifurca en «Acceso al sistema de atención de salud» (que conduce al tratamiento preventivo) o «Sin acceso al sistema de atención de salud» (que conduce a Enfermo, Sensación de malestar, Acceso al sistema de atención de salud, Diagnosticado y Tratado, con una rama lateral «No diagnosticado o mal diagnosticado»). Un óvalo azul destaca las etapas tratadas en el capítulo 5: Diagnosticado y Tratado. El borde izquierdo y parte de las etiquetas superiores están recortados.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma du parcours d'exposition, d'infection et de maladie tuberculeuse dessiné sous forme de bandes colorées : de « Exposé » à un cercle « Infecté » avec une icône de poumons, puis bifurcation vers « A accédé au système de santé » (menant au traitement préventif) ou « N'a PAS accédé au système de santé » (menant à Malade, Se sent malade, A accédé au système de santé, Diagnostiqué et Traité, avec une branche latérale « Non diagnostiqué/mal diagnostiqué »). Un ovale bleu met en évidence les étapes traitées au chapitre 5 : Diagnostiqué et Traité. Le bord gauche et une partie des étiquettes du haut sont rognés.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема пути от контакта с ТБ к инфицированию и заболеванию в виде цветных полос: от «Контакт» к кругу «Инфицирован» со значком легких, затем разветвление на «Обращение в систему здравоохранения» (ведет к профилактическому лечению) и «НЕ обращался в систему здравоохранения» (ведет к этапам «Болен», «Плохое самочувствие», «Обращение в систему здравоохранения», «Диагноз поставлен», «Лечение», с боковой ветвью «Не диагностирован/диагностирован неверно»). Синим овалом выделены этапы, рассматриваемые в главе 5: «Диагноз поставлен» и «Лечение». Левый край и часть верхних подписей обрезаны.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p140",
-      "file": "figures/vfig-p140.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p140.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a medicine-by-month grid for a shorter MDR/RR-TB regimen (Figure 5.2)",
         "page": 140
       },
       "page": 140,
@@ -12091,11 +13473,89 @@
           "11"
         ],
         "outside": 26
-      }
+      },
+      "shows": [
+        "Figure 5.2"
+      ],
+      "narrative": [
+        {
+          "text": "Grid showing TB medicines and duration of treatment for the standardized all-oral bedaquiline-containing shorter regimen (Figure 5.2), under the regimen notation '4–6 Bdq(6) – Lfx – Cfz – Z – E – Hh – Eto / 5 Lfx – Cfz – Z – E'. Rows are medicines and columns months 1–11: bedaquiline is orange for months 1–6; high-dose isoniazid and ethionamide/prothionamide are orange for months 1–4 and blue for months 5–6; levofloxacin, clofazimine, pyrazinamide and ethambutol are orange for months 1–9 and blue for months 10–11.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "شبكة تُبيّن أدوية السل ومدة العلاج للنظام العلاجي الأقصر الموحّد الفموي بالكامل المحتوي على البيداكويلين (الشكل 5.2)، تحت رمز النظام «4–6 Bdq(6) – Lfx – Cfz – Z – E – Hh – Eto / 5 Lfx – Cfz – Z – E». الصفوف للأدوية والأعمدة للأشهر 1–11: البيداكويلين باللون البرتقالي في الأشهر 1–6؛ والإيزونيازيد بجرعة عالية والإيثيوناميد/البروثيوناميد باللون البرتقالي في الأشهر 1–4 وبالأزرق في الأشهر 5–6؛ والليفوفلوكساسين والكلوفازيمين والبيرازيناميد والإيثامبوتول باللون البرتقالي في الأشهر 1–9 وبالأزرق في الأشهر 10–11.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "显示标准化全口服含贝达喹啉短程方案的抗结核药物和疗程的网格图（图5.2），上方为方案表示“4–6 Bdq(6) – Lfx – Cfz – Z – E – Hh – Eto / 5 Lfx – Cfz – Z – E”。行为药物，列为第1–11个月：贝达喹啉第1–6个月为橙色；高剂量异烟肼和乙硫异烟胺/丙硫异烟胺第1–4个月为橙色、第5–6个月为蓝色；左氧氟沙星、氯法齐明、吡嗪酰胺和乙胺丁醇第1–9个月为橙色、第10–11个月为蓝色。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Cuadrícula que muestra los medicamentos antituberculosos y la duración del tratamiento del régimen acortado estandarizado totalmente oral con bedaquilina (figura 5.2), bajo la notación «4–6 Bdq(6) – Lfx – Cfz – Z – E – Hh – Eto / 5 Lfx – Cfz – Z – E». Las filas son medicamentos y las columnas los meses 1 a 11: la bedaquilina está en naranja en los meses 1–6; la isoniazida en dosis altas y la etionamida/protionamida están en naranja en los meses 1–4 y en azul en los meses 5–6; la levofloxacina, la clofazimina, la pirazinamida y el etambutol están en naranja en los meses 1–9 y en azul en los meses 10–11.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Grille indiquant les médicaments antituberculeux et la durée du traitement pour le schéma thérapeutique court standardisé entièrement oral contenant de la bédaquiline (figure 5.2), sous la notation « 4–6 Bdq(6) – Lfx – Cfz – Z – E – Hh – Eto / 5 Lfx – Cfz – Z – E ». Les lignes correspondent aux médicaments et les colonnes aux mois 1 à 11 : la bédaquiline est en orange aux mois 1–6 ; l'isoniazide à forte dose et l'éthionamide/prothionamide sont en orange aux mois 1–4 et en bleu aux mois 5–6 ; la lévofloxacine, la clofazimine, le pyrazinamide et l'éthambutol sont en orange aux mois 1–9 et en bleu aux mois 10–11.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Таблица-сетка противотуберкулезных препаратов и продолжительности лечения для стандартизированного полностью перорального укороченного режима с бедаквилином (рисунок 5.2) под обозначением режима «4–6 Bdq(6) – Lfx – Cfz – Z – E – Hh – Eto / 5 Lfx – Cfz – Z – E». Строки — препараты, столбцы — месяцы 1–11: бедаквилин — оранжевым в месяцы 1–6; высокодозный изониазид и этионамид/протионамид — оранжевым в месяцы 1–4 и синим в месяцы 5–6; левофлоксацин, клофазимин, пиразинамид и этамбутол — оранжевым в месяцы 1–9 и синим в месяцы 10–11.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p204",
       "file": null,
+      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws",
       "role": "undetermined",
       "basis": {
         "method": "assembly",
@@ -12401,8 +13861,7 @@
         ],
         "between": [],
         "outside": 0
-      },
-      "unrendered_reason": "no drawing component on this page contains a text line, so there is no labelled region to render -- the caption candidates are recorded and nothing is claimed about what the page draws"
+      }
     }
   ]
 }

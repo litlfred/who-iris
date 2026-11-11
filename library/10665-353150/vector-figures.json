@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p025",
-      "file": "figures/vfig-p025.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p025.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a diagram comparing three approaches to digital health architecture",
         "page": 25
       },
       "page": 25,
@@ -102,7 +106,7 @@
             "bbox": [
               374.01,
               467.88,
-              411.0,
+              411,
               560.59
             ],
             "drawings": 1,
@@ -260,7 +264,7 @@
           {
             "id": "b4",
             "bbox": [
-              251.0,
+              251,
               481.5,
               312.44,
               547.14
@@ -290,7 +294,7 @@
             "bbox": [
               374.01,
               467.88,
-              411.0,
+              411,
               560.59
             ],
             "parent": null,
@@ -319,7 +323,7 @@
               169.21,
               533.1,
               187.11,
-              551.0
+              551
             ],
             "parent": "b1",
             "labels": [
@@ -332,7 +336,7 @@
               247.29,
               533.1,
               265.18,
-              551.0
+              551
             ],
             "parent": "b1",
             "labels": [
@@ -525,7 +529,7 @@
               205.75,
               218.11,
               223.64,
-              236.0
+              236
             ],
             "parent": null,
             "labels": [
@@ -1074,18 +1078,99 @@
           "du programme de santé."
         ],
         "outside": 31
-      }
+      },
+      "shows": [
+        "Schéma 1.3.1"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram (Schéma 1.3.1) comparing approaches to digital health architectures. On the left, a single health-domain use case with one application leads to project objectives, and a jumble of overlapping applications labelled \"MUD\" (Monolithic Un-architected) is marked inefficient; in the middle, a health programme with two linked applications leads to health programme objectives, also marked inefficient; on the right, several applications across health programmes or use cases connect through a \"Normes et interopérabilité\" layer to shared services (\"Service partagé\") and lead to health system objectives.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط (المخطط 1.3.1) يقارن بين نُهج بنى الصحة الرقمية. على اليسار، حالة استخدام واحدة في مجال الصحة بتطبيق واحد تؤدي إلى أهداف المشروع، ومجموعة متشابكة من التطبيقات المتداخلة موسومة \"MUD\" (برمجيات أحادية غير مُهيكلة) موصوفة بأنها غير فعالة؛ وفي الوسط، برنامج صحي بتطبيقين مترابطين يؤدي إلى أهداف البرنامج الصحي، وهو موصوف أيضاً بأنه غير فعال؛ وعلى اليمين، عدة تطبيقات عبر برامج صحية أو حالات استخدام تتصل عبر طبقة \"المعايير وقابلية التشغيل البيني\" بخدمات مشتركة وتؤدي إلى أهداف النظام الصحي.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "比较数字卫生架构不同方法的示意图（图1.3.1）。左侧，单一卫生领域用例及一个应用程序通向项目目标，一堆相互重叠、标为“MUD”（单体无架构）的应用程序被标为低效；中间，一个卫生规划及两个相连的应用程序通向卫生规划目标，同样被标为低效；右侧，跨卫生规划或用例的多个应用程序通过“标准与互操作性”层连接到共享服务，并通向卫生系统目标。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama (Schéma 1.3.1) que compara enfoques de arquitectura de salud digital. A la izquierda, un único caso de uso en el ámbito sanitario con una aplicación conduce a los objetivos del proyecto, y un amasijo de aplicaciones superpuestas rotulado «MUD» (monolíticas sin arquitectura) se marca como ineficaz; en el centro, un programa de salud con dos aplicaciones vinculadas conduce a los objetivos del programa, también marcado como ineficaz; a la derecha, varias aplicaciones de distintos programas de salud o casos de uso se conectan mediante una capa de «Normas e interoperabilidad» a servicios compartidos y conducen a los objetivos del sistema de salud.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma 1.3.1 comparant les approches des architectures de santé numérique. À gauche, un seul cas d’utilisation dans le domaine de la santé avec une application mène aux objectifs du projet, et un enchevêtrement d’applications superposées étiqueté « MUD » (Monolithic Un-architected) est marqué inefficace ; au centre, un programme de santé avec deux applications liées mène aux objectifs du programme de santé, également marqué inefficace ; à droite, plusieurs applications réparties entre programmes de santé ou cas d’utilisation sont reliées par une couche « Normes et interopérabilité » à des services partagés et mènent aux objectifs du système de santé.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема 1.3.1, сравнивающая подходы к архитектуре цифрового здравоохранения. Слева один сценарий использования в сфере здравоохранения с одним приложением ведёт к целям проекта, а нагромождение перекрывающихся приложений с подписью «MUD» (монолитные без архитектуры) отмечено как неэффективное; в центре программа здравоохранения с двумя связанными приложениями ведёт к целям программы и также отмечена как неэффективная; справа несколько приложений разных программ или сценариев использования связаны через уровень «Стандарты и функциональная совместимость» с общими сервисами и ведут к целям системы здравоохранения.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p066",
-      "file": "figures/vfig-p066.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p066.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a three-row diagram of stakeholder groups of a digital health intervention",
         "page": 66
       },
       "page": 66,
@@ -1385,18 +1470,99 @@
         ],
         "between": [],
         "outside": 46
-      }
+      },
+      "shows": [
+        "Schéma 4.3.1"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram (Schéma 4.3.1) of three stakeholder groups of a digital health intervention, each with an icon and definition: \"Équipe de planification\" (stakeholders guiding the system's development), \"Utilisateurs finaux\" (health workers, and possibly clients or patients, who interact directly with the intervention) and \"Bénéficiaires\" (clients or community members who benefit from the system).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط (المخطط 4.3.1) لثلاث فئات من أصحاب المصلحة في تدخل للصحة الرقمية، لكل منها أيقونة وتعريف: \"فريق التخطيط\" (أصحاب المصلحة الذين يوجهون تطوير النظام)، و\"المستخدمون النهائيون\" (العاملون الصحيون، وربما المرضى أو المستفيدون من الخدمات، الذين يتعاملون مباشرة مع التدخل)، و\"المستفيدون\" (أفراد المجتمع أو المستفيدون من الخدمات الذين يستفيدون من النظام).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "数字卫生干预措施三类利益攸关方的示意图（图4.3.1），每类配有图标和定义：“规划团队”（指导系统开发的利益攸关方）、“最终用户”（直接与干预措施互动的卫生工作者，也可能包括服务对象或患者）以及“受益人”（从系统中受益的服务对象或社区成员）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama (Schéma 4.3.1) de tres grupos de partes interesadas de una intervención de salud digital, cada uno con un icono y una definición: «Équipe de planification» (partes interesadas que orientan el desarrollo del sistema), «Utilisateurs finaux» (trabajadores sanitarios y, en su caso, clientes o pacientes que interactúan directamente con la intervención) y «Bénéficiaires» (clientes o miembros de la comunidad que se benefician del sistema).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma 4.3.1 présentant trois groupes de parties prenantes d’une intervention de santé numérique, chacun avec une icône et une définition : « Équipe de planification » (parties prenantes qui orientent le développement du système), « Utilisateurs finaux » (agents de santé, voire clients ou patients, qui interagissent directement avec l’intervention) et « Bénéficiaires » (clients ou membres de la communauté qui bénéficient du système).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема 4.3.1 с тремя группами заинтересованных сторон вмешательства в области цифрового здравоохранения, у каждой значок и определение: «Группа планирования» (заинтересованные стороны, направляющие развитие системы), «Конечные пользователи» (медицинские работники, а также, возможно, клиенты или пациенты, непосредственно взаимодействующие с вмешательством) и «Бенефициары» (клиенты или члены сообщества, получающие пользу от системы).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p099",
-      "file": "figures/vfig-p099.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p099.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a layered digital health enterprise architecture diagram with legend",
         "page": 99
       },
       "page": 99,
@@ -1683,7 +1849,7 @@
           {
             "id": "b5",
             "bbox": [
-              339.0,
+              339,
               149.8,
               411.63,
               409.08
@@ -1769,7 +1935,7 @@
               188.72,
               240.29,
               230.36,
-              265.0
+              265
             ],
             "parent": "b9",
             "labels": [
@@ -2473,18 +2639,99 @@
         ],
         "between": [],
         "outside": 4
-      }
+      },
+      "shows": [
+        "Schéma 6.2.2"
+      ],
+      "narrative": [
+        {
+          "text": "Layered diagram (Schéma 6.2.2) of a digital health enterprise architecture. The digital health platform holds \"Services partagés\" (domain services and registries such as client, facility, product and health worker registries), \"Sources de données\" (institution- and population-based data sources) and \"Services de données\" (analytics, dashboards, tools); an interoperability layer of enabling components sits below, followed by point-of-service applications for health programmes and use cases A–D, distinguishing reused and single-use applications, with external systems at right. A legend colour-codes investment types such as new software, improving, scaling, funded software in development and software to deactivate.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط متعدد الطبقات (المخطط 6.2.2) لبنية مؤسسية للصحة الرقمية. تضم منصة الصحة الرقمية \"الخدمات المشتركة\" (خدمات المجال والسجلات مثل سجلات المرضى والمرافق والمنتجات والعاملين الصحيين)، و\"مصادر البيانات\" (مصادر بيانات قائمة على المؤسسات وعلى السكان)، و\"خدمات البيانات\" (التحليلات ولوحات المتابعة والأدوات)؛ وتليها طبقة لقابلية التشغيل البيني من المكونات التمكينية، ثم تطبيقات نقاط تقديم الخدمة للبرامج الصحية وحالات الاستخدام من A إلى D، مع التمييز بين التطبيقات المعاد استخدامها والتطبيقات الأحادية الاستخدام، والنظم الخارجية على اليمين. ويستخدم مفتاح الألوان لتمييز أنواع الاستثمار مثل البرمجيات الجديدة والتحسين والتوسيع والبرمجيات الممولة قيد التطوير والبرمجيات المراد إيقافها.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "数字卫生企业架构分层示意图（图6.2.2）。数字卫生平台包括“共享服务”（领域服务及服务对象、机构、产品和卫生工作者等登记册）、“数据来源”（基于机构和基于人群的数据来源）和“数据服务”（分析、仪表板、工具）；其下为由支持性组件构成的互操作层，再下为面向卫生规划和用例A–D的服务点应用程序，区分可重复使用和单一用途的应用程序，右侧为外部系统。图例以颜色区分投资类型，如新软件、改进、扩大规模、开发中的已获资助软件以及待停用软件。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama por capas (Schéma 6.2.2) de una arquitectura empresarial de salud digital. La plataforma de salud digital comprende «Services partagés» (servicios de dominio y registros de clientes, establecimientos, productos y profesionales sanitarios), «Sources de données» (fuentes de datos institucionales y poblacionales) y «Services de données» (análisis, tableros, herramientas); debajo hay una capa de interoperabilidad de componentes habilitadores y luego las aplicaciones de punto de servicio para programas de salud y casos de uso A–D, que distinguen aplicaciones reutilizadas y de uso único, con sistemas externos a la derecha. Una leyenda codifica por colores tipos de inversión como software nuevo, mejora, ampliación, software financiado en desarrollo y software por desactivar.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma 6.2.2 en couches d’une architecture d’entreprise de santé numérique. La plateforme de santé numérique comprend des « Services partagés » (services du domaine et registres des clients, des établissements, des produits et des professionnels de santé), des « Sources de données » (sources basées sur l’institution et sur la population) et des « Services de données » (analytiques, tableaux de bord, outils) ; en dessous se trouvent une couche d’interopérabilité de composants favorables, puis les applications de point de service pour les programmes de santé et cas d’utilisation A à D, distinguant applications réutilisées et uniques, avec les systèmes externes à droite. Une légende code par couleur les types d’investissement, notamment nouveau logiciel, amélioration, échelonnement, logiciel financé en cours de développement et logiciel à désactiver.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Многоуровневая схема 6.2.2 архитектуры предприятия цифрового здравоохранения. Платформа цифрового здравоохранения включает «Общие сервисы» (предметные сервисы и регистры клиентов, учреждений, продуктов и медицинских работников), «Источники данных» (институциональные и популяционные) и «Сервисы данных» (аналитика, информационные панели, инструменты); ниже расположен уровень функциональной совместимости из вспомогательных компонентов, затем приложения в точках оказания услуг для программ и сценариев использования A–D с разделением на многократно используемые и единичные приложения; справа — внешние системы. Легенда цветом обозначает виды инвестиций: новое ПО, совершенствование, масштабирование, финансируемое ПО в разработке и ПО к выводу из эксплуатации.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p102",
-      "file": "figures/vfig-p102.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p102.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a current-state versus future-state national digital health architecture diagram",
         "page": 102
       },
       "page": 102,
@@ -2874,7 +3121,7 @@
             "bbox": [
               296.72,
               533.76,
-              353.0,
+              353,
               548.73
             ],
             "parent": "b3",
@@ -2887,7 +3134,7 @@
             "bbox": [
               296.72,
               551.36,
-              353.0,
+              353,
               566.33
             ],
             "parent": "b3",
@@ -3326,7 +3573,7 @@
               101.47,
               156.83,
               164.64,
-              171.0
+              171
             ],
             "parent": "b21",
             "labels": [
@@ -3338,7 +3585,7 @@
             "id": "b49",
             "bbox": [
               311.23,
-              314.0,
+              314,
               374.4,
               337.99
             ],
@@ -3397,7 +3644,7 @@
               339.43,
               156.83,
               402.6,
-              171.0
+              171
             ],
             "parent": "b27",
             "labels": [
@@ -3653,7 +3900,7 @@
             "id": "b72",
             "bbox": [
               348.36,
-              444.0,
+              444,
               411.53,
               458.17
             ],
@@ -4195,7 +4442,84 @@
         ],
         "between": [],
         "outside": 11
-      }
+      },
+      "shows": [
+        "Schéma 6.3.3"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram (Schéma 6.3.3) of an example national digital health enterprise architecture plan for Myanmar, contrasting a \"Current state\" with an \"État de la situation futur\". The current state shows scattered shared services (e.g. SARA surveys, DHIS2, eLMIS, census, GIS) and point-of-service applications; the future state organizes them into shared services, data sources and data services over an interoperability layer (authentication, encryption, transformation, queuing, validation, translation), with point-of-service applications for malaria, HIV/AIDS, tuberculosis and a patient portal, and colour-coded investment types per the legend.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط (المخطط 6.3.3) لمثال على خطة بنية مؤسسية وطنية للصحة الرقمية في ميانمار، يقارن \"الوضع الحالي\" بـ\"الوضع المستقبلي\". يُظهر الوضع الحالي خدمات مشتركة متفرقة (مثل مسوح SARA وDHIS2 وeLMIS والتعداد ونظم المعلومات الجغرافية) وتطبيقات لنقاط تقديم الخدمة؛ أما الوضع المستقبلي فينظمها في خدمات مشتركة ومصادر بيانات وخدمات بيانات فوق طبقة لقابلية التشغيل البيني (المصادقة والتشفير والتحويل والطوابير والتحقق والترجمة)، مع تطبيقات لنقاط تقديم الخدمة للملاريا وفيروس العوز المناعي البشري/الإيدز والسل وبوابة للمرضى، وأنواع الاستثمار مميزة بالألوان وفق المفتاح.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "缅甸国家数字卫生企业架构规划示例示意图（图6.3.3），对比“现状”与“未来状态”。现状显示分散的共享服务（如SARA调查、DHIS2、eLMIS、人口普查、地理信息系统）和服务点应用程序；未来状态将其整合为位于互操作层（身份验证、加密、转换、排队、验证、翻译）之上的共享服务、数据来源和数据服务，并配有面向疟疾、艾滋病毒/艾滋病、结核病的服务点应用程序和患者门户，投资类型按图例以颜色区分。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama (Schéma 6.3.3) de un ejemplo de plan nacional de arquitectura empresarial de salud digital en Myanmar, que contrasta la «situación actual» con la «situación futura». La situación actual muestra servicios compartidos dispersos (p. ej., encuestas SARA, DHIS2, eLMIS, censo, SIG) y aplicaciones de punto de servicio; la futura los organiza en servicios compartidos, fuentes de datos y servicios de datos sobre una capa de interoperabilidad (autenticación, cifrado, transformación, cola de espera, validación, traducción), con aplicaciones de punto de servicio para paludismo, VIH/sida, tuberculosis y un portal del paciente, y tipos de inversión codificados por colores según la leyenda.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma 6.3.3 présentant un exemple de plan d’architecture d’entreprise de santé numérique nationale au Myanmar, opposant l’« état actuel » à l’« état de la situation futur ». L’état actuel montre des services partagés dispersés (p. ex. enquêtes SARA, DHIS2, SIGL électronique, recensement, SIG) et des applications de point de service ; l’état futur les organise en services partagés, sources de données et services de données au-dessus d’une couche d’interopérabilité (authentification, cryptage, transformation, file d’attente, validation, traduction), avec des applications de point de service pour le paludisme, le VIH/sida, la tuberculose et un portail du patient, et des types d’investissement codés par couleur selon la légende.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема 6.3.3 с примером плана национальной архитектуры предприятия цифрового здравоохранения в Мьянме, противопоставляющая «текущее состояние» и «будущее состояние». В текущем состоянии показаны разрозненные общие сервисы (например, обследования SARA, DHIS2, eLMIS, перепись, ГИС) и приложения в точках оказания услуг; в будущем состоянии они организованы в общие сервисы, источники данных и сервисы данных поверх уровня функциональной совместимости (аутентификация, шифрование, преобразование, очередь, валидация, перевод), с приложениями для малярии, ВИЧ/СПИДа, туберкулёза и порталом пациента; виды инвестиций выделены цветом согласно легенде.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     }
   ]
 }
