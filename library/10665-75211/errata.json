@@ -1,0 +1,29 @@
+{
+  "$schema": "folio-document-errata/v1",
+  "entry": "10665-75211",
+  "errata": [
+    {
+      "id": "e1",
+      "kind": "error",
+      "block": "library/10665-75211/blocks/prose-sec-120",
+      "page": 158,
+      "quote": "reflect the preferred option selected during Section 9.2",
+      "reading": "selected during Section 8.2",
+      "evidence": "In Part 2, Section 8.2 is 'Agree on options to refine action plan' (p. 156), where the preferred option is chosen. Section 9.2 is 'Define stakeholder communication messages for each' implementation phase (p. 161), which comes later and selects no option.",
+      "narrative": [
+        {
+          "text": "Part 2, Section 8.4 says the preferred option was selected in Section 9.2. Options are agreed in Section 8.2; Section 9.2 is about stakeholder messages.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt69YZtQn3UstRNcFjd"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
+    }
+  ]
+}
