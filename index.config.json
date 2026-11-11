@@ -1,6 +1,6 @@
 {
   "$schema": "folio-index-config/v1",
-  "instances": [
+  "layers": [
     {
       "name": "who-iris",
       "source": {
@@ -148,6 +148,11 @@
           }
         }
       }
+    }
+  ],
+  "harnesses": [
+    {
+      "name": "who-iris"
     }
   ],
   "site": {
