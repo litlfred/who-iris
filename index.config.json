@@ -26,7 +26,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "4101d93a8f2968d24f34febb55554cc29c759daa",
+          "ref": "9ce98986f02b834271d61782ab19d41ba03e3ec6",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -42,8 +42,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "4101d93a8f2968d24f34febb55554cc29c759daa",
-              "evidence": "litlfred, 2026-11-11 08:55Z in thread cmsg_017WNUkNK8kdDziPK58Pv6G9MgLzYE4CC933YWuugjFYV2: 'They are listed but no visualizations' (figures not shown on the site); tools#1866 adds them; re-pin all to current mains as the merge manager asked."
+              "ref": "9ce98986f02b834271d61782ab19d41ba03e3ec6",
+              "evidence": "folio-assistant-core#746 merged (nav_exclude on bibliography reference pages, fixes Jekyll OOM) and #744 (control chars); re-pin for IRIS figures publish"
             }
           }
         }
