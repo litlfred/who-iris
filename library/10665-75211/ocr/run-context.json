@@ -1,13 +1,13 @@
 {
   "$schema": "folio-run-context/v1",
   "platform": {
-    "commit": "a930f06573bbd6e4031d4b399e79660ae65fd3c1"
+    "commit": "1d98c905b43fa37776d87a02f5a7856c925ce2bc"
   },
   "mounts": {
     "state": "locked",
     "lock": {
       "file": "index.lock.json",
-      "sha256": "817627e1ff00b0bcf2f0473290bc98cfc0533a0638c84f77c547c1bada9bcf0b"
+      "sha256": "36021c92363bb091785d276bfd4531fddd413661ea1bbaee419c6dca48348cf3"
     },
     "instances": [
       {
@@ -23,17 +23,17 @@
       {
         "instance": "cat-harness",
         "repository": "litlfred/cat-harness",
-        "sha": "c79654460f1267aa6b85e0ca35b2a53a62455b7b"
+        "sha": "4041cf5620e287a98d7ddeb465dd5841185114d0"
       },
       {
         "instance": "cat-harness-tools",
         "repository": "litlfred/cat-harness-tools",
-        "sha": "ee36dcb23fee580b728ec2a28a0bc1133e87a1cc"
+        "sha": "02897c223c9710d42a7a4d949131a4a5faf23c41"
       },
       {
         "instance": "folio-assistant-core",
         "repository": "litlfred/folio-assistant-core",
-        "sha": "15dd79a03525701b0593897ea82dc81f9397be37"
+        "sha": "1874fd5fd7a1f57ea13faf619af66d25aef31e97"
       }
     ]
   },
@@ -90,7 +90,7 @@
   "invoker": {
     "kind": "system",
     "id": "cat-harness-tools/scripts/pdf-ocr.py",
-    "script_hash": "784e18f6ea0a3c1ebe596a714e4a40f61c540befd184815def197f5481bfb0d1"
+    "script_hash": "ff1bebb840b44905431ce00179f6efade6a8129fa52e096108a4ccaab659ff78"
   },
   "inputs": [
     {

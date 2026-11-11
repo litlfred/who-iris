@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO guidelines for screening and treatment of precancerous lesions for cervical cancer prevention
+# WHO guidelines WHO guidelines for screening and treatment of precancerous lesions for cervical cancer prevention
 
 ingested source material — attributed to its document, not folio content
 
