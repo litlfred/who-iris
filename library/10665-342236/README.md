@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# CONTINGENCY FUND FOR EMERGENCIES
+# Contingency fund for emergencies: 2020 annual report
 
 ingested source material — attributed to its document, not folio content
 

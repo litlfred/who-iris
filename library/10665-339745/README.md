@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Digital Adaptation Kit for Antenatal Care
+# Digital adaptation kit for antenatal care: operational requirements for implementing WHO recommendations in digital systems
 
 ingested source material — attributed to its document, not folio content
 

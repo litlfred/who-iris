@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "recommandations sur les interventions numériques pour le renforcement des systèmes de santé",
+  "title": "Lignes directrices de l'OMS : recommandations sur les interventions numériques pour le renforcement des systèmes de santé",
   "contains": [
     "library/10665-354400/sections/sec-front-matter",
     "library/10665-354400/sections/sec-000",
@@ -65,11 +65,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240046641-fre.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution – Pas d’utilisation \ncommerciale – Partage dans les mêmes conditions 3\""
+  },
   "meta": {
     "doc_id": "10665-354400",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-354400.dc.json dc.title",
     "source_file": "10665-354400.pdf",
     "source_sha256": "d15434ae2a82cb21cfa21223b87133524636b03032d3be72a27eb06fec6b3c91",
     "pages": 150,

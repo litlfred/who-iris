@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# S ECOND M EETING OF THE G LOBAL W ORKING G ROUP ON TB/HIV
+# Second meeting of the Global Working Group on TB/HIV : 14-16 June 2002, Durban, South Africa
 
 ingested source material — attributed to its document, not folio content
 

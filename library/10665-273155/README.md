@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# HIV DIAGNOSIS AND ARV USE IN HIV-EXPOSED INFANTS: A PROGRAMMATIC UPDATE
+# HIV diagnosis and ARV use in HIV-exposed infants: a programmatic update
 
 ingested source material — attributed to its document, not folio content
 

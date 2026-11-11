@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Ethics in epidemics, emergencies and disasters: Research, surveillance and patient care
+# Ethics in epidemics, emergencies and disasters: research, surveillance and patient care: training manual
 
 ingested source material — attributed to its document, not folio content
 

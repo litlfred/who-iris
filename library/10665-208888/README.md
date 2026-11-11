@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# CAUSALITY ASSESSMENT
+# Évaluation du lien de causalité pour les manifestations postvaccinales indésirables (MAPI). Manuel d’utilisation de la classification OMS révisée
 
 ingested source material — attributed to its document, not folio content
 

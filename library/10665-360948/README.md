@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# PERSON-CENTRED HIV STRATEGIC INFORMATION
+# Consolidated guidelines on person-centred HIV strategic information: strengthening routine data for impact
 
 ingested source material — attributed to its document, not folio content
 

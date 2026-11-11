@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-220134
+# VACCINATION CERTIFICATE REQUIREMENTS FOR INTERNATIONAL TRAVEL = CERTIFICATS DE VACCINATION EXIGÉS DANS LES VOYAGES INTERNATIONAUX
 
 ingested source material — attributed to its document, not folio content
 

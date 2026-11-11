@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Herpex Simplex Virus Type 2: Programmatic and Research Priorities in Developing Countries
+# Herpes simplex virus type 2 : programmatic and research priorities in developing countries : report of a WHO/UNAIDS/LSHTM workshop, London, 14-16 February 2001
 
 ingested source material — attributed to its document, not folio content
 

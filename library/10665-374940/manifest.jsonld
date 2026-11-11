@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Meeting report_DJA 05 Sep 2012 final (Rus)",
+  "title": "Укрепление национальных систем эпиднадзора в отношении элиминации кори и краснухи в Европейском регионе ВОЗ: Бонн, Германия, 8–9 декабря 2011 г.: отчет совещания",
   "contains": [
     "library/10665-374940/sections/page-001",
     "library/10665-374940/sections/page-002",
@@ -62,10 +62,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of WHO-EURO-2012-8681-48453-71954-rus.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-374940",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-374940.dc.json dc.title",
     "source_file": "10665-374940.pdf",
     "source_sha256": "4a2e6f70be1fa00389251e5912b393aea82eac2f3a97a691fb010e37fb6444ec",
     "pages": 48,

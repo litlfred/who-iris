@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Preparación para una gripe pandémica
+# Preparación para una gripe pandémica: marco para el intercambio de virus gripales y el acceso a las vacunas y otros beneficios
 
 ingested source material — attributed to its document, not folio content
 

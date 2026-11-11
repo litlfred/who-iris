@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# #2 Ethical issues in HIV
+# Guiding principles on ethical issues in HIV surveillance
 
 ingested source material — attributed to its document, not folio content
 

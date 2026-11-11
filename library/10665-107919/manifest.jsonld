@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "8th National Tuberculosis Programme Managers Meeting and13th Wolfheze Workshop",
+  "title": "8th National Tuberculosis Programme Managers Meeting and 13th Wolfheze Workshop: Wolfheze 2008: tuberculosis management, surveillance and evaluation in Europe with high rates or threat of multidrug resistant tuberculosis: The Hague, the Netherlands, 1–2 June 2008",
   "contains": [
     "library/10665-107919/sections/sec-front-matter",
     "library/10665-107919/sections/sec-000",
@@ -35,10 +35,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of WHO-EURO-2008-8568-48340-71771-eng.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-107919",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-107919.dc.json dc.title",
     "source_file": "10665-107919.pdf",
     "source_sha256": "e222709601eabc8d5cb52ddcb8eaf2ebd5b2b02154d522a74db6e7aa203afcf7",
     "pages": 44,

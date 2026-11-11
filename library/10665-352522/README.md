@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO consolidated guidelines on tuberculosis
+# WHO consolidated guidelines on tuberculosis: module 5: management of tuberculosis in children and adolescents
 
 ingested source material — attributed to its document, not folio content
 

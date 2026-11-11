@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# The case for investing in public health
+# The case for investing in public health: the strengthening public health services and capacity. A key pillar of the European regional health policy framework Health 2020
 
 ingested source material — attributed to its document, not folio content
 

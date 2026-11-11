@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-72461
+# La supplémentation en iode par voie buccale ne réduit pas la réponse en anticorps neutralisants au vaccin antipoliomyélitique buccal / R. E. Taffs ... [et al.]
 
 ingested source material — attributed to its document, not folio content
 

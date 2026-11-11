@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Poliomyélite : intensification de l’Initiative mondiale pour l’éradication de la poliomyélite
+# Poliomyélite : intensification de l’Initiative mondiale pour l’éradication de la poliomyélite : rapport du Secrétariat
 
 ingested source material — attributed to its document, not folio content
 

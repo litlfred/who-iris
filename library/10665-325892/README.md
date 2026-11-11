@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# UPDATE OF RECOMMENDATIONS ON FIRST- AND SECOND-LINE ANTIRETROVIRAL REGIMENS
+# Policy brief: update of recommendations on first- and second-line antiretroviral regimens
 
 ingested source material — attributed to its document, not folio content
 

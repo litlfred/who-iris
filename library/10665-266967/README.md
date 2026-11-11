@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# The Value of Duck-embryo Vaccine and High-Egg-Passage Flury Vaccine in Experimental Rabies Infection in Guinea-pigs
+# The value of duck-embryo vaccine and high-egg-passage Flury vaccine in experimental rabies infection in guinea-pigs
 
 ingested source material — attributed to its document, not folio content
 

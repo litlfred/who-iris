@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-67518
+# Caracteristiques d' activité et de stabilité des vaccines antivarioliques utilisés dans les programmes d' éradication de la variole en Afrique de l' ouest et du centre-ouest / par A. Bernstein et M.Z. Bierly
 
 ingested source material — attributed to its document, not folio content
 

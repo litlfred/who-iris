@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-145614
+# Acta resumida de la primera sesión
 
 ingested source material — attributed to its document, not folio content
 

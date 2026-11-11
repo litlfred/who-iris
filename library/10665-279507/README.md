@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHA71.7 Santé numérique
+# Santé numérique
 
 ingested source material — attributed to its document, not folio content
 

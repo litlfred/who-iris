@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-266751
+# Possibilités d'amélioration des vaccins anticholériques et méthodes d'évaluation de leur efficacité
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Cartographie du risque de fièvre jaune et vaccination antiamarile recommandée pour les voyageurs
+# Cartographie du risque de fièvre jaune et vaccination antiamarile recommandée pour les voyageurs : projet de résolution proposé par l’Argentine
 
 ingested source material — attributed to its document, not folio content
 

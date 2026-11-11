@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-222160
+# MENINGOCOCCAL POLYSACCHARIDE VACCINES = VACCINS ANTIMÉNINGOCOCCIQUES POLYOSIDIQUES
 
 ingested source material — attributed to its document, not folio content
 

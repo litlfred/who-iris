@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-37905
+# Accélération des activités de vaccination : principes de planification / déclaration conjointe OMS/FISE
 
 ingested source material — attributed to its document, not folio content
 

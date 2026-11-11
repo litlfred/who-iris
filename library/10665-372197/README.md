@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Pandemic Inﬂuenza Preparedness Framework
+# Pandemic influenza preparedness framework: annual progress report, 1 January – 31 December 2022
 
 ingested source material — attributed to its document, not folio content
 

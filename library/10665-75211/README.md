@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# National eHealth Strategy Toolkit
+# National eHealth strategy toolkit
 
 ingested source material — attributed to its document, not folio content
 

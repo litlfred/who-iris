@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-264857
+# Étude de l'immunité humorale et cellulaire après vaccination antitétanique chez l'enfant africain malnutri et paludéen : 1 : étude de la réponse en anticorps antitétaniques
 
 ingested source material — attributed to its document, not folio content
 

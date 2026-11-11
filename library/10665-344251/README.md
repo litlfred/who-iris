@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Estrategia mundial sobre salud digital
+# Estrategia mundial sobre salud digital 2020–2025
 
 ingested source material — attributed to its document, not folio content
 

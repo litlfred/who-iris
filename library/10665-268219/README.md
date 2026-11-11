@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-268219
+# Adverse events monitoring as a routine component of vaccine clinical trials: evidence from the WHO Vaccine Trial Registry.
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Pandemic influenza preparedness Framework
+# Pandemic influenza preparedness framework for the sharing of influenza viruses and access to vaccines and other benefits
 
 ingested source material — attributed to its document, not folio content
 

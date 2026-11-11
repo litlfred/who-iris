@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-232378
+# OUTBREAK NEWS : Development of a vaccine effective against avian influenza H5N1 infection in humans
 
 ingested source material — attributed to its document, not folio content
 

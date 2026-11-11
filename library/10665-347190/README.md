@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Routine immunization profile Switzerland
+# Routine immunization profile: Switzerland
 
 ingested source material — attributed to its document, not folio content
 

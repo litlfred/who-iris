@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-338849
+# Recomendaciones provisionales para utilizar la vacuna contra la COVID-19 elaborada por Pfizer y BioNTech, BNT162b2, en el marco de la lista de uso en emergencias: orientaciones provisionales, 8 de enero de 2021
 
 ingested source material — attributed to its document, not folio content
 

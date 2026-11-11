@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# EB Document Format
+# Global smallpox vaccine reserve: report by the Secretariat
 
 ingested source material — attributed to its document, not folio content
 

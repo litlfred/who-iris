@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-174143
+# Доклад Исследовательской группы по выработке требований, рекомендуемых в отношении вакцины против полиомиэлита
 
 ingested source material — attributed to its document, not folio content
 

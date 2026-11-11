@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# COMPREHENSIVE PACKAGE OF CARE FOR INFANTS AND YOUNG CHILDREN EXPOSED TO HIV
+# Comprehensive package of care for infants and young children exposed to HIV: policy brief
 
 ingested source material — attributed to its document, not folio content
 

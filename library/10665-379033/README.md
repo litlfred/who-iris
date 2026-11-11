@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Clasificación de intervenciones, servicios , y aplicaciones digitales en salud
+# Clasificación de intervenciones, servicios y aplicaciones digitales en salud: un lenguaje compartido para describir los usos de la tecnología digital para la salud
 
 ingested source material — attributed to its document, not folio content
 

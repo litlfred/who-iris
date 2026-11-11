@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# HIV/AIDS treatment and care in Belarus Evaluation report (rus)
+# Лечение и уход в связи с ВИЧ/СПИДом в Беларуси: отчет оценочной миссии: январь 2014 г.
 
 ingested source material — attributed to its document, not folio content
 

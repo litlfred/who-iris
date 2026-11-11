@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Guía para la inversión en la implementación digital (DIIG)
+# Guía para la inversión en la implementación digital (DIIG): incorporación de intervenciones digitales en los programas de salud
 
 ingested source material — attributed to its document, not folio content
 

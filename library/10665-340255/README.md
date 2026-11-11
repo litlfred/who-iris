@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO consolidated guidelines on tuberculosis
+# WHO consolidated guidelines on tuberculosis: module 2: screening: systematic screening for tuberculosis disease
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Use of tuberculosis interferon-gamma release assays (IGRAs) in low- and middle-income countries
+# Use of tuberculosis interferon-gamma release assays (IGRAs) in low- and middle-income countries : policy statement
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-68092
+# Control of smallpox in Delhi Municipal Corporation / by P.H. Jeswani
 
 ingested source material — attributed to its document, not folio content
 

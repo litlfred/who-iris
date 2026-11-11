@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO operational handbook on tuberculosis
+# WHO operational handbook on tuberculosis: module 5: management of tuberculosis in children and adolescents
 
 ingested source material — attributed to its document, not folio content
 

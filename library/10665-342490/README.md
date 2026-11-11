@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# JOB AID FOR COVID-19 VACCINE ADMINISTRATION
+# Job aid for COVID-19 vaccine administration: Janssen–Cilag International NV (Belgium) Ad26.COV2.S COVID-19 vaccine (international non-proprietary name: Ad26.COV2.S COVID-19 Vaccine)
 
 ingested source material — attributed to its document, not folio content
 

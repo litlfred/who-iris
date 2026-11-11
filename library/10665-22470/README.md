@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-22470
+# Alocución del Director General a la 58ª Asamblea Mundial de la Salud: Ginebra, lunes 16 de mayo de 2005
 
 ingested source material — attributed to its document, not folio content
 

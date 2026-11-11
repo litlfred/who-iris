@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-174300
+# Очередной обзор программ вакцинации БЦЖ
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Developing Health Management Information Systems
+# Developing health management information systems : a practical guide for developing countries
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO consolidated guidelines on tuberculosis. Module 3: Diagnosis
+# WHO consolidated guidelines on tuberculosis: module 3: diagnosis: web annex B: evidence synthesis and analysis
 
 ingested source material — attributed to its document, not folio content
 

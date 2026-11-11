@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Meeting report_DJA 05 Sep 2012 final (Rus)
+# Укрепление национальных систем эпиднадзора в отношении элиминации кори и краснухи в Европейском регионе ВОЗ: Бонн, Германия, 8–9 декабря 2011 г.: отчет совещания
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# .doc_17/11/95
+# Pre-qualification of single-use injection devices under the PQS system : a guideline for manufacturers
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Casebook on Ethical Issues in International Health Research
+# Casebook on ethical issues in international health research / edited by Richard Cash [... et al]
 
 ingested source material — attributed to its document, not folio content
 

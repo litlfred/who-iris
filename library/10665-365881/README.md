@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Two years of work that can transform the health system in a fragile setting
+# Two years of work that can transform the health system in a fragile setting: WHO’s response to COVID-19 in Somalia, 2020–2022: road to an inclusive recovery
 
 ingested source material — attributed to its document, not folio content
 

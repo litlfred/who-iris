@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# recommendations on digital interventions for health system strengthening
+# WHO guideline: recommendations on digital interventions for health system strengthening
 
 ingested source material — attributed to its document, not folio content
 

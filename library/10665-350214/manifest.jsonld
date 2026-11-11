@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "COMPREHENSIVE PACKAGE OF CARE FOR INFANTS AND YOUNG CHILDREN EXPOSED TO HIV",
+  "title": "Comprehensive package of care for infants and young children exposed to HIV: policy brief",
   "contains": [
     "library/10665-350214/sections/sec-front-matter",
     "library/10665-350214/sections/sec-000",
@@ -91,11 +91,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240040236-eng.pdf, derived section sec-001-comprehensive-package-of-care-for-infants-and-yo.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-350214",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-350214.dc.json dc.title",
     "source_file": "10665-350214.pdf",
     "source_sha256": "4fd118adacc72d4b91a525ae2e57b95d852fcd6b72efeb87f7b667cb817016a0",
     "pages": 34,

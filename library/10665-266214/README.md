@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# VACCINS ANTIVARIOLIQUES SECS
+# Vaccins antivarioliques secs
 
 ingested source material — attributed to its document, not folio content
 

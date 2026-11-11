@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Pandemic Influenza Preparedness Framework for the sharing of influenza viruses and access to vaccines and other benefits
+# Pandemic Influenza Preparedness Framework for the sharing of influenza viruses and access to vaccines and other benefits: draft decision proposed by Secretariat with amendments by Member States
 
 ingested source material — attributed to its document, not folio content
 

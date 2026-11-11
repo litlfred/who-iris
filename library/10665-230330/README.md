@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-230330
+# Expanded Programme on Immunization (EPI) : Progress towards poliomyelitis eradication, WHO Western Pacific Region, January 1996-September 1997 = Programme élargi de vaccination (PEV) : Progrès réalisés vers l’éradication de la poliomyélite, Région OMS du Pacifique occidental, janvier 1996-septembre 1997
 
 ingested source material — attributed to its document, not folio content
 

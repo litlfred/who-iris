@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# #3 Counsellors module
+# WHO implementation tool for pre-exposure prophylaxis (PrEP) of HIV infection: module 3: counsellors
 
 ingested source material — attributed to its document, not folio content
 

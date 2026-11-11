@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Thiomersal as a vaccine preservative L’utilisation du thiomersal comme conservateur pour vaccins
+# Thiomersal as a vaccine preservative = L’utilisation du thiomersal comme conservateur pour vaccins
 
 ingested source material — attributed to its document, not folio content
 

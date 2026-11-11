@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# La vaccination dans le monde : vision et stratégie
+# La vaccination dans le monde : vision et stratégie : rapport du Secrétariat
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO guideline for screening and treatment of cervical pre-cancer lesions for cervical cancer prevention, second edition
+# WHO guideline for screening and treatment of cervical pre-cancer lesions for cervical cancer prevention
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# recommandations sur les interventions numériques pour le renforcement des systèmes de santé
+# Lignes directrices de l'OMS : recommandations sur les interventions numériques pour le renforcement des systèmes de santé
 
 ingested source material — attributed to its document, not folio content
 

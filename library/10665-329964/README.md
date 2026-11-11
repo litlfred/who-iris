@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO recommends social network-based HIV testing approaches for key populations as part of partner services package
+# WHO recommends social network-based HIV testing approaches for key populations as part of partner services package: policy brief
 
 ingested source material — attributed to its document, not folio content
 

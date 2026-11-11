@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Phase préparatoire à l’instauration de la vaccination anti-papillomavirus
+# Phase préparatoire à l' instauration de la vaccination anti-papillomavirus : directives stratégiques à l' intention des pays
 
 ingested source material — attributed to its document, not folio content
 

@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "EB Document Format",
+  "title": "Global smallpox vaccine reserve: report by the Secretariat",
   "contains": [
     "library/10665-20231/sections/page-001",
     "library/10665-20231/sections/page-002",
@@ -17,10 +17,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of B115_36-en.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-20231",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-20231.dc.json dc.title",
     "source_file": "10665-20231.pdf",
     "source_sha256": "ce2b872ae7942eac32e50fd183a573d1c0b081667f6e5aee8ce1f1eb7a6172f1",
     "pages": 3,

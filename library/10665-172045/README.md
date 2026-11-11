@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-172045
+# Joint and cosponsored United Nations programme on HIV/AIDS (draft resolution proposed by Professor Munevver Bertan, Professor J. M. S. Caldeira da Silva, Professor I. Chernozemsky, Dr V. Devo, Mrs P. Herzog, Dr J. Larivière, Dr J. G. S. Makumbi, Professor J. Mbede, Dr E. Nakamura, Dr Ngo Van Hop, Dr B. L. Shrestha and Mr J. F. Varder)
 
 ingested source material — attributed to its document, not folio content
 

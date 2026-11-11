@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Information Education and Communication
+# Information, education and communication: a guide for AIDS programme managers
 
 ingested source material — attributed to its document, not folio content
 

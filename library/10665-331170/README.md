@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO consolidated guidelines on tuberculosis: tuberculosis preventive treatment
+# WHO consolidated guidelines on tuberculosis: module 1: prevention: tuberculosis preventive treatment
 
 ingested source material — attributed to its document, not folio content
 

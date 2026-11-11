@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Final Resolution Template - English
+# Programme élargi de vaccination (résolution)
 
 ingested source material — attributed to its document, not folio content
 

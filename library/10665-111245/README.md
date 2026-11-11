@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# КОМИТЕТ А
+# Проект четвертого доклада Комитета А
 
 ingested source material — attributed to its document, not folio content
 

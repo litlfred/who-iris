@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# L’OMS RECOMMANDE QUE DES APPROCHES DE DÉPISTAGE DU VIH QUI S’APPUIENT SUR LES RÉSEAUX SOCIAUX SOIENT OFFERTES AUX POPULATIONS CLÉS, DANS LE CADRE D’UN DISPOSITIF DE SERVICES AUX PARTENAIRES
+# L’OMS recommande que des approches de dépistage du VIH qui s’appuient sur les réseaux sociaux soient offertes aux populations clés, dans le cadre d’un dispositif de services aux partenaires
 
 ingested source material — attributed to its document, not folio content
 

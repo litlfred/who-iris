@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 8th National Tuberculosis Programme Managers Meeting and13th Wolfheze Workshop
+# 8th National Tuberculosis Programme Managers Meeting and 13th Wolfheze Workshop: Wolfheze 2008: tuberculosis management, surveillance and evaluation in Europe with high rates or threat of multidrug resistant tuberculosis: The Hague, the Netherlands, 1–2 June 2008
 
 ingested source material — attributed to its document, not folio content
 

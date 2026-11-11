@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Measles and rubella elimination country profile Slovakia 2017 eliminated 2017 eliminated
+# Measles and rubella elimination country profile: Slovakia
 
 ingested source material — attributed to its document, not folio content
 

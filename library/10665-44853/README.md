@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Cadre de préparation en cas de grippe pandémique
+# Cadre de préparation en cas de grippe pandémique pour l'échange des virus grippaux et l'accès aux vaccins et autres avantages
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-354214
+# Предварительные рекомендации по применению инактивированной вакцины CoronaVac против COVID-19, разработанной Sinovac: Временное руководство (Первый выпуск 24 мая 2021 г., Обновлено 21 октября 2021 г., Обновлено 15 марта 2022 г.)
 
 ingested source material — attributed to its document, not folio content
 

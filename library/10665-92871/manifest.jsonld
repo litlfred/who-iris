@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-92871",
+  "title": "Way and Means of Implementing Resolutions of Regional Interest Adopted by the World Health Assembly and the Executive Board Report of the Regional Director",
   "contains": [
     "library/10665-92871/sections/sec-front-matter",
     "library/10665-92871/sections/sec-000",
@@ -36,9 +36,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of AFR.RC54.6.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-92871",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-92871.dc.json dc.title",
     "source_file": "10665-92871.pdf",
     "source_sha256": "518cef59839f0f4a34410936dbaac285bbcc6f9b334422eedb039c6a5b7f364c",
     "pages": 20,

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO international quality assessment scheme
+# WHO international quality assessment scheme for HIV antibody testing: results from the second distribution of sera.
 
 ingested source material — attributed to its document, not folio content
 

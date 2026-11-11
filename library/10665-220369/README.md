@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-220369
+# YELLOW-FEVER VACCINATING CENTRES_x000D_FOR INTERNATIONAL TRAVEL : Amendments to 1974 publication = CENTRES DE VACCINATION CONTRE LA FIÈVRE JAUNE POUR LES VOYAGES INTERNATIONAUX : Amendements à la publication de 1974
 
 ingested source material — attributed to its document, not folio content
 

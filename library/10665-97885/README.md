@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# The Immunological Basis for Immunization Series
+# The immunological basis for immunization series: module 16: mumps
 
 ingested source material — attributed to its document, not folio content
 

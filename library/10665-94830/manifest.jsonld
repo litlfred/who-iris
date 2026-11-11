@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO guidelines WHO guidelines for screening and treatment of precancerous lesions for cervical cancer prevention",
+  "title": "WHO guidelines for screening and treatment of precancerous lesions for cervical cancer prevention",
   "contains": [
     "library/10665-94830/sections/sec-front-matter",
     "library/10665-94830/sections/sec-000",
@@ -57,11 +57,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9789241548694_eng.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-94830",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-94830.dc.json dc.title",
     "source_file": "10665-94830.pdf",
     "source_sha256": "5c6a5fa531252ca7500d67ef58165c34aa63ac740a3f777279ab849254762904",
     "pages": 60,

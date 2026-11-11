@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# SEXUAL AND REPRODUCTIVE HEALTH AND RIGHTS INFOGRAPHIC SNAPSHOT KUWAIT 2021 1
+# Sexual and reproductive health and rights: infographic snapshot: Kuwait 2021
 
 ingested source material — attributed to its document, not folio content
 

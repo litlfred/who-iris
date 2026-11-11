@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Differentiated and simplified pre-exposure prophylaxis for HIV prevention
+# Differentiated and simplified pre-exposure prophylaxis for HIV prevention: update to WHO implementation guidance: technical brief
 
 ingested source material — attributed to its document, not folio content
 

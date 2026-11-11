@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-68008
+# Country report : country, Upper Volta
 
 ingested source material — attributed to its document, not folio content
 

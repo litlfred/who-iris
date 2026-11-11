@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 20207_SP_SNA Policy brief
+# La OMS recomienda la adopción de enfoques basados en las redes de contactos para la realización de pruebas del VIH en los grupos de población clave, en el marco de un conjunto de servicios para las parejas: sinopsis de políticas
 
 ingested source material — attributed to its document, not folio content
 

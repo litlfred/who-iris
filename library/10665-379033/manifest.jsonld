@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Clasificación de intervenciones, servicios , y aplicaciones digitales en salud",
+  "title": "Clasificación de intervenciones, servicios y aplicaciones digitales en salud: un lenguaje compartido para describir los usos de la tecnología digital para la salud",
   "contains": [
     "library/10665-379033/sections/page-001",
     "library/10665-379033/sections/page-002",
@@ -86,11 +86,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240093744-spa.pdf, derived section page-004.md: \"Creative Commons (CC BY-NC-SA 3\""
+  },
   "meta": {
     "doc_id": "10665-379033",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-379033.dc.json dc.title",
     "source_file": "10665-379033.pdf",
     "source_sha256": "ed433576b4ca757ab57a676a90f5271c940d4aedbc3514b6bd1cee57e0baa97f",
     "pages": 72,

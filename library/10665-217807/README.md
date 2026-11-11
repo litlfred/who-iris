@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-217807
+# YELLOW-FEVER VACCINATING CENTRES _x000D_FOR INTERNATIONAL TRAVEL = CENTRES DE VACCINATION CONTRE LA FIÈVRE JAUNE POUR LES VOYAGES INTERNATIONAUX
 
 ingested source material — attributed to its document, not folio content
 

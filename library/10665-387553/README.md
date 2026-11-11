@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-387553
+# Stratégie régionale pour améliorer l'accès aux médicaments et aux vaccins dans la Méditerranée orientale, pour la période 2020-2030 : accélérer la mise en oeuvre grâce à des systèmes de réglementation plus solides
 
 ingested source material — attributed to its document, not folio content
 

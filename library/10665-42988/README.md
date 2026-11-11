@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Strat Plan French.qxd
+# Plan stratégique de l' Initiative mondiale pour l' éradication de la poliomyélite : 2004-2008
 
 ingested source material — attributed to its document, not folio content
 

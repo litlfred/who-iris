@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# 10665-354399
+# Directriz de la OMS: recomendaciones sobre intervenciones digitales para fortalecer los sistemas de salud
 
 ingested source material — attributed to its document, not folio content
 

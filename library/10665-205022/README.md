@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Enumeration of CD4 T Lymphocytes
+# Enumeration of CD4 T lymphocytes : report of a workshop, Bangkok, Thailand, 6-10 June 2006
 
 ingested source material — attributed to its document, not folio content
 

@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# DIAGNOSING, PREVENTING AND MANAGING CRYPTOCOCCAL DISEASE AMONG ADULTS, ADOLESCENTS AND CHILDREN LIVING WITH HIV
+# Guidelines for diagnosing, preventing and managing cryptococcal disease among adults, adolescents and children living with HIV
 
 ingested source material — attributed to its document, not folio content
 

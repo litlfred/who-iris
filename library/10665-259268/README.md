@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Maternal Health
+# WHO recommendations on maternal health: guidelines approved by the WHO Guidelines Review Committee
 
 ingested source material — attributed to its document, not folio content
 

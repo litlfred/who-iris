@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# LONG-ACTING INJECTABLE CABOTEGRAVIR FOR HIV PREVENTION
+# Guidelines on long-acting injectable cabotegravir for HIV prevention
 
 ingested source material — attributed to its document, not folio content
 

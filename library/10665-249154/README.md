@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# POLICY GUIDANCE
+# The use of loop-mediated isothermal amplification (TB-LAMP) for the diagnosis of pulmonary tuberculosis: policy guidance
 
 ingested source material — attributed to its document, not folio content
 

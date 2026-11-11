@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO IMPLEMENTATION TOOL FOR PRE-EXPOSURE PROPHYLAXIS (PrEP) OF HIV INFECTION
+# WHO implementation tool for pre-exposure prophylaxis (PrEP) of HIV infection: module 13: integrating STI services
 
 ingested source material — attributed to its document, not folio content
 

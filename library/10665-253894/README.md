@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# EB Document Format
+# Картирование риска желтой лихорадки и рекомендованная вакцинация для лиц, совершающих поездки
 
 ingested source material — attributed to its document, not folio content
 

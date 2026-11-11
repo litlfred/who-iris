@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Gateways to integration
+# Gateways to integration : a case study from Swaziland: in support of the global plan towards the elimination of new HIV infections among children by 2015 and keeping their mothers alive
 
 ingested source material — attributed to its document, not folio content
 

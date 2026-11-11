@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# Global hepatitis report
+# Global hepatitis report 2026
 
 ingested source material — attributed to its document, not folio content
 
