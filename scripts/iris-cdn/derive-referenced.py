@@ -74,8 +74,10 @@ def sha256(p):
 
 # Sidecars written by people and agents, never by an ingest rung: a re-derive
 # keeps them. owner, 2026-11-11 (who-iris, card Q-ODD-1 = A): "add to L1 doc
-# schema errata"; the block summaries are the summaries thread's drafts.
-AUTHORED = ("summaries.json", "errata.json")
+# schema errata"; the block summaries are the summaries thread's drafts; the
+# tables (`tables/`, `tabular.csvw.json`) were transcribed by hand and cannot
+# be re-derived.
+AUTHORED = ("summaries.json", "errata.json", "tabular.csvw.json", "tables")
 
 PRUNE = """
 import { sidecarDefects } from "./cat-harness-tools/scripts/summaries.ts";
@@ -237,10 +239,14 @@ def main():
             if os.path.exists(entry):
                 # A re-run derives afresh, but what people and agents AUTHORED
                 # about the entry is not derived and is carried over.
+                hold = os.path.join(work, f"{slug}.kept")
+                shutil.rmtree(hold, ignore_errors=True)
                 for name in AUTHORED:
                     f = os.path.join(entry, name)
                     if os.path.exists(f):
-                        kept[name] = open(f, encoding="utf-8").read()
+                        os.makedirs(hold, exist_ok=True)
+                        shutil.move(f, os.path.join(hold, name))
+                        kept[name] = os.path.join(hold, name)
                 shutil.rmtree(entry)
             rc, out = run(args, root)
             if rc == 0:
@@ -249,9 +255,16 @@ def main():
             row["rung"] = (re.search(r"rung: (\S+)", out) or [None, None])[1]
             if rc != 0 or not os.path.isdir(entry):
                 row["result"] = "failed"; row["log"] = out[-1500:]
-                report.append(row); print(slug, "FAILED"); continue
-            for name, text in kept.items():
-                open(os.path.join(entry, name), "w", encoding="utf-8").write(text)
+                if kept:  # never lost: left where they were moved, and said so
+                    row["kept_at"] = os.path.dirname(next(iter(kept.values())))
+                report.append(row); print(slug, "FAILED", row.get("kept_at", "")); continue
+            for name, held in kept.items():
+                dest = os.path.join(entry, name)
+                if os.path.isdir(dest):
+                    shutil.rmtree(dest)
+                elif os.path.exists(dest):
+                    os.remove(dest)
+                shutil.move(held, dest)
             if "summaries.json" in kept:
                 prune_summaries(root, entry)
             if "errata.json" in kept:
