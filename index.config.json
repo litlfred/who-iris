@@ -82,7 +82,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "e643765130b139172c6c47662731744de459dfc2",
+          "ref": "bd544b168aee66e37a83c9f7c1204a6957bd16d8",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -95,8 +95,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "e643765130b139172c6c47662731744de459dfc2",
-              "evidence": "litlfred, 2026-11-10 23:56Z in thread 'WHO IRIS ingestion': \"On Iris, where is summary, sections, keywords etc? I should be able to toggle between source language and chosen locale translation when viewing a non source locale artefact.\"; who-iris pins cat-harness-tools PR #1832's head e6437651 (entry page: document first, abstract, language toggle) for PR #217's preview, until #1832 merges."
+              "ref": "bd544b168aee66e37a83c9f7c1204a6957bd16d8",
+              "evidence": "litlfred, 2026-11-11 ~01:59Z: merged cat-harness-tools#1787 and #1832 and who-iris#217, which was pinned to #1832's head until it merged; this moves the pin to tools main bd544b16, which carries both (and the link-out fix 1bfd3c90)."
             }
           }
         }
