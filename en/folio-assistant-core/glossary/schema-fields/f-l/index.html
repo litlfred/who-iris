@@ -913,11 +913,11 @@
 
 <p>Candidate terms extracted from every schema field with a doc comment: <code class="language-plaintext highlighter-rouge">&lt;Declaration&gt;.&lt;field&gt;</code> as the label, the comment’s first paragraph as the definition. Each is the asset’s own text, verbatim and not curated, and carries the badge “candidate, extracted”. A person promotes one by authoring it. Authored terms are on their owning instance’s page, and those pages, the counts and the sources are linked from the <a href="../../../../../en/folio-assistant-core/glossary/">glossary index</a>.</p>
 
-<p>From: bootstrap-tools 45 (<a href="../../../../../assets/glossary/bootstrap-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · cat-harness-tools 2476 (<a href="../../../../../assets/glossary/cat-harness-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · folio-assistant-core 187 (<a href="../../../../../assets/glossary/folio-assistant-core--kg-schema-fields.skos.jsonld">SKOS</a>).</p>
+<p>From: bootstrap-tools 45 (<a href="../../../../../assets/glossary/bootstrap-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · cat-harness-tools 2481 (<a href="../../../../../assets/glossary/cat-harness-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · folio-assistant-core 187 (<a href="../../../../../assets/glossary/folio-assistant-core--kg-schema-fields.skos.jsonld">SKOS</a>).</p>
 
 <p>One of 7 pages of this type, split by the first letter of the label: <a href="../../../../../en/folio-assistant-core/glossary/schema-fields/">all parts</a>.</p>
 
-<p><strong>Size:</strong> this page holds 500 terms and is 294 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
+<p><strong>Size:</strong> this page holds 502 terms and is 296 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
 
 <div class="table-wrapper"><table class="fa-gloss-mapping">
 <caption>Already somebody else's concept? — <code>check:term-mapping</code>, bean <code>7wou</code></caption>
@@ -932,7 +932,7 @@ be a term this corpus is right to coin.</p>
 
 <p><label for="fa-gloss-q">Filter terms</label>
 <input id="fa-gloss-q" type="search" autocomplete="off" style="min-height:44px;width:100%;max-width:32rem" /></p>
-<p aria-live="polite"><span id="fa-gloss-n">500</span> shown</p>
+<p aria-live="polite"><span id="fa-gloss-n">502</span> shown</p>
 
 <nav aria-label="Letters"><a href="#letter-F">F</a> <a href="#letter-G">G</a> <a href="#letter-H">H</a> <a href="#letter-I">I</a> <a href="#letter-J">J</a> <a href="#letter-K">K</a> <a href="#letter-L">L</a></nav>
 <h2 id="letter-F">
@@ -4105,6 +4105,13 @@ LibraryDocumentViewSchema.variant <span class="fa-gloss-status">candidate, extra
 <p>Which structure variant: only a PDF has pages and a TOC (library-document.ts).</p>
 <p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/ui/site-indexes.ts"><code>cat-harness-tools/schemas/ui/site-indexes.ts#LibraryDocumentViewSchema.variant</code></a></p>
 </dd>
+<dt id="cat-harness-tools--kg-schema-fields--site-indexes.libraryindexentryschema.catalogue" data-fa-state="extracted" data-fa-gloss="">
+LibraryIndexEntrySchema.catalogue <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The catalogue record behind this entry (<code>library-graph.ts</code> <code>catalogueInfo</code> / <code>referencedCatalogueEntries</code>, #1752 / #1765).</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/ui/site-indexes.ts"><code>cat-harness-tools/schemas/ui/site-indexes.ts#LibraryIndexEntrySchema.catalogue</code></a></p>
+</dd>
 <dt id="cat-harness-tools--kg-schema-fields--site-indexes.libraryindexentryschema.extractedtitle" data-fa-state="extracted" data-fa-gloss="">
 LibraryIndexEntrySchema.extractedTitle <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -4126,12 +4133,12 @@ LibraryIndexEntrySchema.referencedBy <span class="fa-gloss-status">candidate, ex
 <p>Absent means the reference scan did not run — a third state, not &quot;none&quot;.</p>
 <p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/ui/site-indexes.ts"><code>cat-harness-tools/schemas/ui/site-indexes.ts#LibraryIndexEntrySchema.referencedBy</code></a></p>
 </dd>
-<dt id="cat-harness-tools--kg-schema-fields--site-indexes.libraryindexentryschema.view" data-fa-state="extracted" data-fa-gloss="">
-LibraryIndexEntrySchema.view <span class="fa-gloss-status">candidate, extracted</span>
+<dt id="cat-harness-tools--kg-schema-fields--site-indexes.libraryindexentryschema.upstream" data-fa-state="extracted" data-fa-gloss="">
+LibraryIndexEntrySchema.upstream <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
 <dd>
-<p>The page that RENDERS this entry, site-root path with a leading <code>/</code> and no base (the avatar's convention): another layer's declared root for a referenced entry it renders, else the entry's own library page. GENERATED by <code>gen-library-viz</code>, never stored in the asset (#1881).</p>
-<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/ui/site-indexes.ts"><code>cat-harness-tools/schemas/ui/site-indexes.ts#LibraryIndexEntrySchema.view</code></a></p>
+<p>Original file URLs upstream for an entry catalogued by reference (#1765).</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/ui/site-indexes.ts"><code>cat-harness-tools/schemas/ui/site-indexes.ts#LibraryIndexEntrySchema.upstream</code></a></p>
 </dd>
 <dt id="cat-harness-tools--kg-schema-fields--site-indexes.libraryindexentryschema.viewable" data-fa-state="extracted" data-fa-gloss="">
 LibraryIndexEntrySchema.viewable <span class="fa-gloss-status">candidate, extracted</span>
@@ -4230,6 +4237,13 @@ LocalTermSchema.reason <span class="fa-gloss-status">candidate, extracted</span>
 <dd>
 <p>Why the authority's concept does not serve, so the next reader need not re-derive it.</p>
 <p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/content/term-adjudication.ts"><code>cat-harness-tools/schemas/content/term-adjudication.ts#LocalTermSchema.reason</code></a></p>
+</dd>
+<dt id="cat-harness-tools--kg-schema-fields--remote-mount.lockeddirectoryschema.except" data-fa-state="extracted" data-fa-gloss="">
+LockedDirectorySchema.except <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>A whole-layer mount (<code>id: &quot;*&quot;</code>) only: the opt-in sub-graphs the downstream has not switched on, relative to the layer root, no trailing slash. Not checked out, not copied, not in the digest (<code>switchedOffOptInPaths</code> in scripts/remote-mount.ts).</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/remote-mount.ts"><code>cat-harness-tools/schemas/kg/remote-mount.ts#LockedDirectorySchema.except</code></a></p>
 </dd>
 <dt id="cat-harness-tools--kg-schema-fields--remote-mount.lockeddirectoryschema.package" data-fa-state="extracted" data-fa-gloss="">
 LockedDirectorySchema.package <span class="fa-gloss-status">candidate, extracted</span>

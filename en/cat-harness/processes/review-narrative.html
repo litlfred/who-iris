@@ -918,7 +918,6 @@
 <img src="../../../assets/img/workflows/review-narrative.svg" alt="BPMN diagram: Narrative review" />
 <div class="pt-layer">
 <button type="button" class="pt-mark" data-task="Task_ReadFindings" style="left:16.77%;top:27.78%" aria-expanded="false" aria-label="About step: Read the sidecar findings" title="About: Read the sidecar findings">i</button>
-<a class="pt-go" href="criterion-adjudication.html" style="left:24.68%;top:62.96%;width:1.55%;height:8.89%" aria-label="Open subprocess: Adjudicate the voice findings" title="Open subprocess: Adjudicate the voice findings"></a>
 <button type="button" class="pt-mark" data-task="Task_AdjudicateVoice" style="left:29.35%;top:27.78%" aria-expanded="false" aria-label="About step: Adjudicate the voice findings" title="About: Adjudicate the voice findings">i</button>
 <a class="pt-go" href="voice-review.html" style="left:37.9%;top:62.96%;width:1.55%;height:8.89%" aria-label="Open subprocess: Voice overlay review" title="Open subprocess: Voice overlay review"></a>
 <button type="button" class="pt-mark" data-task="Call_VoiceOverlay" style="left:42.58%;top:27.78%" aria-expanded="false" aria-label="About step: Voice overlay review" title="About: Voice overlay review">i</button>
@@ -1143,7 +1142,7 @@
 
 <ul>
   <li><strong>Called by:</strong> <a href="review-task.html">Review task</a></li>
-  <li><strong>Calls:</strong> <a href="criterion-adjudication.html">Criterion adjudication</a>, <a href="voice-review.html">Voice overlay review</a></li>
+  <li><strong>Calls:</strong> <code class="language-plaintext highlighter-rouge">Process_CriterionAdjudication</code> (not loadable here), <a href="voice-review.html">Voice overlay review</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1202,7 +1201,7 @@
     <tr>
       <td><a id="step-Task_AdjudicateVoice"></a><strong>Adjudicate the voice findings</strong><br /><code class="language-plaintext highlighter-rouge">Task_AdjudicateVoice</code></td>
       <td>Narrative reviewer</td>
-      <td>calls <a href="criterion-adjudication.html">Criterion adjudication</a><br /><a href="../../../en/cat-harness/processes/skills/voice-editorial-review.html"><code class="language-plaintext highlighter-rouge">voice-editorial-review</code></a><br /><a href="../../../en/cat-harness/processes/skills/adjudication.html"><code class="language-plaintext highlighter-rouge">adjudication</code></a></td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_CriterionAdjudication</code><br /><a href="../../../en/cat-harness/processes/skills/voice-editorial-review.html"><code class="language-plaintext highlighter-rouge">voice-editorial-review</code></a><br /><code class="language-plaintext highlighter-rouge">adjudication</code></td>
       <td>Three outcomes, all legitimate: the register is wrong for this genre;<br />the criterion does not belong in this genre and should carry <code class="language-plaintext highlighter-rouge">profiles</code>;<br />or the block is a stated exception and a reviewer entry records why.</td>
     </tr>
     <tr>

@@ -1,0 +1,208 @@
+{
+  "$schema": "folio-library-document/v1",
+  "id": "10665-268219",
+  "title": "Adverse events monitoring as a routine component of vaccine clinical trials: evidence from the WHO Vaccine Trial Registry.",
+  "variant": "pdf",
+  "pages": 2,
+  "tocSource": "inferred",
+  "tocMethod": "font",
+  "toc": [
+    {
+      "level": 1,
+      "title": "Bulletin 2000 Feedback",
+      "number": null,
+      "page": 1,
+      "pageLabel": null,
+      "confidence": 0.6,
+      "evidence": [
+        "style"
+      ],
+      "source": "inferred",
+      "section": "sec-000-bulletin-2000-feedback"
+    },
+    {
+      "level": 2,
+      "title": "Adverse events monitoring as a routine component of vaccine clinical trials: evidence from the WHO Vaccine Trial Registry",
+      "number": null,
+      "page": 1,
+      "pageLabel": null,
+      "confidence": 0.6,
+      "evidence": [
+        "style"
+      ],
+      "source": "inferred",
+      "section": "sec-001-adverse-events-monitoring-as-a-routine-component"
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec-000-bulletin-2000-feedback",
+      "number": null,
+      "title": "Bulletin 2000 Feedback",
+      "level": 1,
+      "pageStart": 1,
+      "pageEnd": 1,
+      "labelStart": null,
+      "labelEnd": null,
+      "words": 0,
+      "summary": null,
+      "keywords": [],
+      "extract": null,
+      "extractCut": false
+    },
+    {
+      "id": "sec-001-adverse-events-monitoring-as-a-routine-component",
+      "number": null,
+      "title": "Adverse events monitoring as a routine component of vaccine clinical trials: evidence from the WHO Vaccine Trial Registry",
+      "level": 2,
+      "pageStart": 1,
+      "pageEnd": 2,
+      "labelStart": null,
+      "labelEnd": null,
+      "words": 1271,
+      "summary": {
+        "text": "A 2000 Bulletin feedback piece reporting on how adverse events following immunization were monitored in vaccine trials recorded in the WHO Vaccine Trial Registry. It notes that early-phase trials are too small to detect rare side-effects, defines adverse events according to Good Clinical Practice guidelines, and reviews 68 trials of vaccines against diseases such as cholera, hepatitis B, measles and typhoid. A closing table classifies the adverse events monitored, from local and mild systemic reactions to death, by short-term versus long-term follow-up.",
+        "status": "draft"
+      },
+      "keywords": [
+        {
+          "term": "vaccine trials",
+          "heading": true
+        },
+        {
+          "term": "vaccine adverse",
+          "heading": true
+        },
+        {
+          "term": "trial registry",
+          "heading": true
+        },
+        {
+          "term": "vaccine clinical",
+          "heading": true
+        },
+        {
+          "term": "adverse events",
+          "heading": true
+        },
+        {
+          "term": "aefis monitored",
+          "heading": false
+        },
+        {
+          "term": "aefi monitoring",
+          "heading": false
+        },
+        {
+          "term": "vaccine safety",
+          "heading": false
+        }
+      ],
+      "extract": "as a routine component of vaccine clinical trials: evidence from the WHO Vaccine Trial Registry The February 2000 Bulletin Round Table Discussion on vaccine adverse events includes a commentary by Clemens on evaluation of vaccine safety before and after licensure (1). Clemens emphasizes that sample sizes in Phase 1–3 vaccine clinical trials are generally too small to assess the potential of vaccines to produce rare",
+      "extractCut": true
+    }
+  ],
+  "checks": {
+    "figureSequenceGaps": [],
+    "pageLabelConflicts": {
+      "count": 0,
+      "items": []
+    }
+  },
+  "withheld": false,
+  "keywords": [
+    {
+      "term": "aefis monitored",
+      "heading": false
+    },
+    {
+      "term": "vaccine trials",
+      "heading": true
+    },
+    {
+      "term": "aefi monitoring",
+      "heading": true
+    },
+    {
+      "term": "vaccine adverse",
+      "heading": true
+    },
+    {
+      "term": "vaccine safety",
+      "heading": false
+    },
+    {
+      "term": "phase vaccine",
+      "heading": false
+    },
+    {
+      "term": "administered vaccine",
+      "heading": false
+    },
+    {
+      "term": "trial registry",
+      "heading": true
+    },
+    {
+      "term": "vaccine clinical",
+      "heading": true
+    },
+    {
+      "term": "immunization safety",
+      "heading": false
+    },
+    {
+      "term": "adverse events",
+      "heading": true
+    },
+    {
+      "term": "trials started",
+      "heading": false
+    }
+  ],
+  "pageLabels": [
+    {
+      "physical": 1,
+      "label": null,
+      "source": null,
+      "confidence": 0
+    },
+    {
+      "physical": 2,
+      "label": null,
+      "source": null,
+      "confidence": 0
+    }
+  ],
+  "figures": [
+    {
+      "kind": "table",
+      "number": "1",
+      "title": "Number of vaccine trials conducting short-term (<4 weeks) and long-term (5 4 weeks) monitoring of adverse events following immunization (AEFI),",
+      "page": 2,
+      "pageLabel": null,
+      "confidence": 0.8,
+      "evidence": [
+        "referenced",
+        "in-sequence"
+      ]
+    },
+    {
+      "kind": "table",
+      "number": "2",
+      "title": "Number of trials reporting adverse events following immunization (AEFIs) in short-term and long-term monitoring, WHO Vaccine Trial Registry, 1987–99 Type of AEFI",
+      "page": 2,
+      "pageLabel": null,
+      "confidence": 0.8,
+      "evidence": [
+        "referenced",
+        "in-sequence"
+      ]
+    }
+  ],
+  "links": {
+    "repo": "litlfred/who-iris",
+    "branch": "main",
+    "dir": "library/10665-268219"
+  }
+}

@@ -1223,7 +1223,7 @@
     <tr>
       <td><a id="step-Task_Brief"></a><strong>Brief the work</strong><br /><code class="language-plaintext highlighter-rouge">Task_Brief</code></td>
       <td>Authoring agent</td>
-      <td>shared step <code class="language-plaintext highlighter-rouge">GT_Brief</code><br /><a href="../../../en/cat-harness/processes/skills/opening-brief.html"><code class="language-plaintext highlighter-rouge">opening-brief</code></a></td>
+      <td>shared step <code class="language-plaintext highlighter-rouge">GT_Brief</code><br /><code class="language-plaintext highlighter-rouge">opening-brief</code></td>
       <td>What the work is and why, what is already measured with its provenance, how it will be done, and what would falsify the approach. The work item is already taken up when the process starts, so a sibling session sees the work before the brief is written.<br />Here the work is a sub-KG: what it is, and why it is staged here rather than in a repository of its own.</td>
     </tr>
     <tr>
@@ -1295,7 +1295,7 @@
     <tr>
       <td><a id="step-Task_Repoint"></a><strong>10 · Re-point: livesAt, seam, mount or subscription</strong><br /><code class="language-plaintext highlighter-rouge">Task_Repoint</code></td>
       <td>Platform authoring agent</td>
-      <td><a href="../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html"><code class="language-plaintext highlighter-rouge">sub-kg-lifecycle</code></a><br /><a href="../../../en/cat-harness/processes/skills/upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></a></td>
+      <td><a href="../../../en/cat-harness/processes/skills/sub-kg-lifecycle.html"><code class="language-plaintext highlighter-rouge">sub-kg-lifecycle</code></a><br /><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></td>
       <td>In the new repository <code class="language-plaintext highlighter-rouge">livesAt</code> goes (absent means it sits at the root of <code class="language-plaintext highlighter-rouge">repository</code>) and <code class="language-plaintext highlighter-rouge">platform.ts</code> points at where the platform now is. The host consumes it as a remote mount (a <code class="language-plaintext highlighter-rouge">source.remote</code> instance in its root <code class="language-plaintext highlighter-rouge">index.config.json</code>) if it imports its code, or a subscription if it only reads its content, pinned to a commit while staging. Additive: the host keeps its copy.</td>
     </tr>
     <tr>

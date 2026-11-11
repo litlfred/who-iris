@@ -922,7 +922,6 @@
 <button type="button" class="pt-mark" data-task="Call_NarrativeReview" style="left:58.14%;top:2.5%" aria-expanded="false" aria-label="About step: Narrative review" title="About: Narrative review">i</button>
 <a class="pt-go" href="review-code.html" style="left:50.96%;top:68.33%;width:2.38%;height:4%" aria-label="Open subprocess: Code node review" title="Open subprocess: Code node review"></a>
 <button type="button" class="pt-mark" data-task="Call_CodeReview" style="left:58.14%;top:52.5%" aria-expanded="false" aria-label="About step: Code node review" title="About: Code node review">i</button>
-<a class="pt-go" href="narrative-code-review.html" style="left:50.96%;top:43.33%;width:2.38%;height:4%" aria-label="Open subprocess: Prose and the code it describes" title="Open subprocess: Prose and the code it describes"></a>
 <button type="button" class="pt-mark" data-task="Call_NarrativeCodeReview" style="left:58.14%;top:27.5%" aria-expanded="false" aria-label="About step: Prose and the code it describes" title="About: Prose and the code it describes">i</button>
 <button type="button" class="pt-mark" data-task="Task_Consolidate" style="left:82.88%;top:27.5%" aria-expanded="false" aria-label="About step: Consolidate findings" title="About: Consolidate findings">i</button>
 <button type="button" class="pt-mark" data-task="Task_EditorDecides" style="left:82.88%;top:76.67%" aria-expanded="false" aria-label="About step: Accept, or send back" title="About: Accept, or send back">i</button>
@@ -1145,7 +1144,7 @@
 
 <ul>
   <li><strong>Called by:</strong> <a href="crdm-deliver.html">CRDM Phase 6 — implement, MVP, acceptance</a>, <a href="content-change-review-committee.html">Committee review of a content change</a></li>
-  <li><strong>Calls:</strong> <a href="review-code.html">Code node review</a>, <a href="narrative-code-review.html">Prose and the code it describes</a>, <a href="review-narrative.html">Narrative review</a></li>
+  <li><strong>Calls:</strong> <a href="review-code.html">Code node review</a>, <code class="language-plaintext highlighter-rouge">Process_NarrativeCodeReview</code> (not loadable here), <a href="review-narrative.html">Narrative review</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1203,7 +1202,7 @@
     <tr>
       <td><a id="step-Task_ClassifyChange"></a><strong>Classify what changed</strong><br /><code class="language-plaintext highlighter-rouge">Task_ClassifyChange</code></td>
       <td>Reviewer / SME</td>
-      <td><a href="../../../en/cat-harness/processes/skills/content-review.html"><code class="language-plaintext highlighter-rouge">content-review</code></a><br /><a href="../../../en/cat-harness/processes/skills/staging-review.html"><code class="language-plaintext highlighter-rouge">staging-review</code></a></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-review.html"><code class="language-plaintext highlighter-rouge">content-review</code></a><br /><code class="language-plaintext highlighter-rouge">staging-review</code></td>
       <td>Prose, code nodes, or both. This is the only decision the generic lane<br />makes on its own: everything after it is made inside a subprocess by<br />the role that lane binds.<br />Binds <a href="../../../en/cat-harness/processes/skills/content-review.html"><code class="language-plaintext highlighter-rouge">content-review</code></a>, the same skill as Task_Consolidate in this lane, because a paper skill belongs to the science layer, which this harness diagram cannot reach.<br />A paper process that wants semantic scoping adds it by<br />calling this process.</td>
     </tr>
     <tr>
@@ -1221,8 +1220,8 @@
     <tr>
       <td><a id="step-Call_NarrativeCodeReview"></a><strong>Prose and the code it describes</strong><br /><code class="language-plaintext highlighter-rouge">Call_NarrativeCodeReview</code></td>
       <td>Reviewer / SME</td>
-      <td>calls <a href="narrative-code-review.html">Prose and the code it describes</a></td>
-      <td>Descend into <a href="narrative-code-review.html">Process_NarrativeCodeReview</a>: judge what the pair checks<br />could not settle (a stale pair, a false or undetermined claim), and send<br />a disagreement with a checker to adjudication.</td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_NarrativeCodeReview</code></td>
+      <td>Descend into Process_NarrativeCodeReview: judge what the pair checks<br />could not settle (a stale pair, a false or undetermined claim), and send<br />a disagreement with a checker to adjudication.</td>
     </tr>
     <tr>
       <td><a id="step-Task_Consolidate"></a><strong>Consolidate findings</strong><br /><code class="language-plaintext highlighter-rouge">Task_Consolidate</code></td>

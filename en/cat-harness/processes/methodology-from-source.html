@@ -916,7 +916,6 @@
 <button type="button" class="pt-mark" data-task="A_Origin" style="left:18.2%;top:57.14%" aria-expanded="false" aria-label="About step: Establish origin and licence" title="About: Establish origin and licence">i</button>
 <a class="pt-go" href="document-ingestion.html" style="left:23.36%;top:84.29%;width:1.05%;height:6.86%" aria-label="Open subprocess: Ingest into library/" title="Open subprocess: Ingest into library/"></a>
 <button type="button" class="pt-mark" data-task="Call_Ingest" style="left:26.54%;top:57.14%" aria-expanded="false" aria-label="About step: Ingest into library/" title="About: Ingest into library/">i</button>
-<a class="pt-go" href="related-work.html" style="left:31.69%;top:84.29%;width:1.05%;height:6.86%" aria-label="Open subprocess: Related work: find, sort, ask" title="Open subprocess: Related work: find, sort, ask"></a>
 <button type="button" class="pt-mark" data-task="Call_RelatedWork" style="left:34.87%;top:57.14%" aria-expanded="false" aria-label="About step: Related work: find, sort, ask" title="About: Related work: find, sort, ask">i</button>
 <button type="button" class="pt-mark" data-task="A_Render" style="left:43.2%;top:57.14%" aria-expanded="false" aria-label="About step: Render the method: adopted vs refused" title="About: Render the method: adopted vs refused">i</button>
 <button type="button" class="pt-mark" data-task="A_Place" style="left:51.54%;top:57.14%" aria-expanded="false" aria-label="About step: Place by ownership; declare the directory" title="About: Place by ownership; declare the directory">i</button>
@@ -1142,7 +1141,7 @@
 
 <ul>
   <li><strong>Called by:</strong> no call activity names this process</li>
-  <li><strong>Calls:</strong> <a href="document-ingestion.html">Basic ingestion — an upload to an asset catalogued in library/</a>, <a href="related-work.html">Related work: find, sort, summarize, ask to coordinate</a></li>
+  <li><strong>Calls:</strong> <a href="document-ingestion.html">Basic ingestion — an upload to an asset catalogued in library/</a>, <code class="language-plaintext highlighter-rouge">Process_RelatedWork</code> (not loadable here)</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1212,7 +1211,7 @@
     <tr>
       <td><a id="step-Call_RelatedWork"></a><strong>Related work: find, sort, ask</strong><br /><code class="language-plaintext highlighter-rouge">Call_RelatedWork</code></td>
       <td>Agent</td>
-      <td>calls <a href="related-work.html">Related work: find, sort, summarize, ask to coordinate</a></td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_RelatedWork</code></td>
       <td>Search beans, issues and open PRs for work the method touches, categorize and summarize them, and ask the owner whether and how to coordinate. CRDM calls the same sub-process.</td>
     </tr>
     <tr>

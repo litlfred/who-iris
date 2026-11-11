@@ -923,7 +923,6 @@
 <button type="button" class="pt-mark" data-task="Task_PoInject" style="left:41.48%;top:12.64%" aria-expanded="false" aria-label="About step: Inject translations (PO → Markdown)" title="About: Inject translations (PO → Markdown)">i</button>
 <button type="button" class="pt-mark" data-task="Task_RoundTripQA" style="left:50.88%;top:12.64%" aria-expanded="false" aria-label="About step: Round-trip translation QA (back-translate)" title="About: Round-trip translation QA (back-translate)">i</button>
 <button type="button" class="pt-mark" data-task="Task_GlossaryCheck" style="left:60.28%;top:12.64%" aria-expanded="false" aria-label="About step: Check glossary terms (translation:glossary:check)" title="About: Check glossary terms (translation:glossary:check)">i</button>
-<a class="pt-go" href="adjudication.html" style="left:63.95%;top:63.34%;width:1.41%;height:3.74%" aria-label="Open subprocess: Adjudicate the flagged passage (human)" title="Open subprocess: Adjudicate the flagged passage (human)"></a>
 <button type="button" class="pt-mark" data-task="Task_Adjudicate" style="left:68.21%;top:48.52%" aria-expanded="false" aria-label="About step: Adjudicate the flagged passage (human)" title="About: Adjudicate the flagged passage (human)">i</button>
 <button type="button" class="pt-mark" data-task="Task_EditTranslation" style="left:41.48%;top:48.52%" aria-expanded="false" aria-label="About step: Edit the flagged passage and re-inject" title="About: Edit the flagged passage and re-inject">i</button>
 <button type="button" class="pt-mark" data-task="Task_WriteUnofficial" style="left:77.32%;top:12.64%" aria-expanded="false" aria-label="About step: Write status.json (unofficial)" title="About: Write status.json (unofficial)">i</button>
@@ -1149,7 +1148,7 @@
 
 <ul>
   <li><strong>Called by:</strong> no call activity names this process</li>
-  <li><strong>Calls:</strong> <a href="adjudication.html">Adjudication</a></li>
+  <li><strong>Calls:</strong> <code class="language-plaintext highlighter-rouge">Process_Adjudication</code> (not loadable here)</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1248,7 +1247,7 @@
     <tr>
       <td><a id="step-Task_Adjudicate"></a><strong>Adjudicate the flagged passage (human)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Adjudicate</code></td>
       <td>Human reviewer / adjudicator</td>
-      <td>calls <a href="adjudication.html">Adjudication</a><br /><a href="../../../en/cat-harness/processes/skills/translation-manager.html"><code class="language-plaintext highlighter-rouge">translation-manager</code></a><br /><a href="../../../en/cat-harness/processes/skills/adjudication.html"><code class="language-plaintext highlighter-rouge">adjudication</code></a></td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_Adjudication</code><br /><a href="../../../en/cat-harness/processes/skills/translation-manager.html"><code class="language-plaintext highlighter-rouge">translation-manager</code></a><br /><code class="language-plaintext highlighter-rouge">adjudication</code></td>
       <td>A human SME or editor reviews the flagged passage.<br />They may:<br />- Accept the translation as-is (false positive)<br />- Edit the translation and re-run QA<br />- Reject and request re-translation<br />The round trip establishes that two readings differ. Which one is<br />right is a human call.</td>
     </tr>
     <tr>

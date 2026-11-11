@@ -950,10 +950,10 @@ is <code class="language-plaintext highlighter-rouge">satisfies</code>, and it r
 to do that</em>, never <em>this skill is a tool</em>.</p>
 
 <div class="tg-grid">
-<a class="tg-stat" href="#every-tool"><b>202</b><span>Tool nodes</span></a>
-<a class="tg-stat" href="#does-every-satisfies-name-a-skill-that-exists"><b>89</b><span>skills satisfied</span></a>
-<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>173</b><span>invoked as a shell command</span></a>
-<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>30</b><span>reachable over MCP</span></a>
+<a class="tg-stat" href="#every-tool"><b>191</b><span>Tool nodes</span></a>
+<a class="tg-stat" href="#does-every-satisfies-name-a-skill-that-exists"><b>85</b><span>skills satisfied</span></a>
+<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>168</b><span>invoked as a shell command</span></a>
+<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>23</b><span>reachable over MCP</span></a>
 </div>
 
 <h2 id="by-instance">
@@ -981,7 +981,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
     </tr>
     <tr>
       <td><a href="cat-harness/">cat-harness</a></td>
-      <td>175</td>
+      <td>164</td>
     </tr>
     <tr>
       <td><a href="cat-harness-tools/">cat-harness-tools</a></td>
@@ -1014,19 +1014,19 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><span class="tg-tag tg-shell">shell</span></td>
-      <td>173</td>
+      <td>168</td>
     </tr>
     <tr>
       <td><span class="tg-tag tg-inproc">inProcess</span></td>
-      <td>35</td>
+      <td>26</td>
     </tr>
     <tr>
       <td><span class="tg-tag tg-mcp">mcp</span></td>
-      <td>30</td>
+      <td>23</td>
     </tr>
     <tr>
       <td><span class="tg-tag tg-manual">manual</span></td>
-      <td>6</td>
+      <td>5</td>
     </tr>
   </tbody>
 </table></div>
@@ -1041,11 +1041,11 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">none</code></td>
-      <td>178</td>
+      <td>168</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cli</code></td>
-      <td>22</td>
+      <td>21</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">container</code></td>
@@ -1066,9 +1066,88 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
 </h2>
     
 
-<p>Yes — all <strong>89</strong> skills named across <strong>202</strong> tools resolve to a
-skill document in this checkout. A <code class="language-plaintext highlighter-rouge">satisfies</code> pointing at nothing would be a
-tool advertising a capability the graph cannot locate.</p>
+<p><strong>17 of 85 do not.</strong> A <code class="language-plaintext highlighter-rouge">satisfies</code> naming a skill that is
+not in this checkout is a dangling reference — the tool advertises a capability
+the graph cannot locate.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>unresolved skill</th>
+      <th>named by</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
+      <td><code class="language-plaintext highlighter-rouge">open-work-lookup</code>, <code class="language-plaintext highlighter-rouge">sibling-sessions</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ci-health</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ci-health</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">continual-progress</code></td>
+      <td><code class="language-plaintext highlighter-rouge">gates</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">coordinate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">github-branches</code>, <code class="language-plaintext highlighter-rouge">github-pr-comment</code>, <code class="language-plaintext highlighter-rouge">github-pr-files</code>, <code class="language-plaintext highlighter-rouge">github-pr-list</code>, <code class="language-plaintext highlighter-rouge">github-pr-resolve-thread</code>, <code class="language-plaintext highlighter-rouge">github-pr-view</code>, <code class="language-plaintext highlighter-rouge">gitlab-branches</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-comment</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-files</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-list</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-resolve-thread</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-view</code>, <code class="language-plaintext highlighter-rouge">merge-overlap</code>, <code class="language-plaintext highlighter-rouge">stakeholder-map</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">decision-audit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">translation-signoff</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">diff</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-changeset</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
+      <td><code class="language-plaintext highlighter-rouge">feature-staging</code>, <code class="language-plaintext highlighter-rouge">ig-folio-site-workflow</code>, <code class="language-plaintext highlighter-rouge">stage-local</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">issue-working</code></td>
+      <td><code class="language-plaintext highlighter-rouge">open-work-lookup</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merge-conflict-patterns</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merge-leftover</code>, <code class="language-plaintext highlighter-rouge">merge-overlap</code>, <code class="language-plaintext highlighter-rouge">merge-train</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">package-release</code></td>
+      <td><code class="language-plaintext highlighter-rouge">npm</code>, <code class="language-plaintext highlighter-rouge">pack-tarball</code>, <code class="language-plaintext highlighter-rouge">package-release-manual</code>, <code class="language-plaintext highlighter-rouge">package-release-workflow</code>, <code class="language-plaintext highlighter-rouge">release-please</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pickup</code></td>
+      <td><code class="language-plaintext highlighter-rouge">github-pr-list</code>, <code class="language-plaintext highlighter-rouge">github-pr-request-review</code>, <code class="language-plaintext highlighter-rouge">github-pr-view</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-list</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-request-review</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-view</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">platform-gates</code></td>
+      <td><code class="language-plaintext highlighter-rouge">gates</code>, <code class="language-plaintext highlighter-rouge">judge-tree</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">prepare-merge</code></td>
+      <td><code class="language-plaintext highlighter-rouge">gates</code>, <code class="language-plaintext highlighter-rouge">gates-merged</code>, <code class="language-plaintext highlighter-rouge">judge-tree</code>, <code class="language-plaintext highlighter-rouge">merge-train</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">prepare-merge-auto</code></td>
+      <td><code class="language-plaintext highlighter-rouge">github-pr-checks</code>, <code class="language-plaintext highlighter-rouge">github-pr-comment</code>, <code class="language-plaintext highlighter-rouge">github-pr-list</code>, <code class="language-plaintext highlighter-rouge">github-pr-request-review</code>, <code class="language-plaintext highlighter-rouge">github-pr-view</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-comment</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-list</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-request-review</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-view</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">staging-review</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-changeset</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">visual-diff</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-block-screenshots</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">watch</code></td>
+      <td><code class="language-plaintext highlighter-rouge">github-pr-checks</code>, <code class="language-plaintext highlighter-rouge">github-pr-view</code>, <code class="language-plaintext highlighter-rouge">gitlab-mr-view</code></td>
+    </tr>
+  </tbody>
+</table></div>
 <h2 id="every-tool">
   
   
@@ -1176,38 +1255,6 @@ tool advertising a capability the graph cannot locate.</p>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">site-presentation-assets</code></td>
       <td>1 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="bean-claim-check"></a><a href="#bean-claim-check"><code class="language-plaintext highlighter-rouge">bean-claim-check</code></a><br />Check a bean is free, then claim it on every copy</td>
-      <td>For one bean: fetch every bean copy, read the last three commits on its file, skip it if another agent committed within the window or its last note is a claim, look for an open PR naming it in every listed repository, and only then set it in-progress with a dated claim note as a plain commit on every copy. A rejected push is fetched, rebased and re-checked, never forced.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-shell">shell</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
-      <td>10 in / 2 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="bean-query"></a><a href="#bean-query"><code class="language-plaintext highlighter-rouge">bean-query</code></a><br />Query the beans knowledge graph</td>
-      <td>Query the beans knowledge graph using named graph analytics or arbitrary SPARQL 1.1.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-mcp">mcp</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>3 in / 2 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="beans-cli"></a><a href="#beans-cli"><code class="language-plaintext highlighter-rouge">beans-cli</code></a><br />beans CLI</td>
-      <td>Read and write the work plan with the <code class="language-plaintext highlighter-rouge">beans</code> binary. The normal mechanism when it is installed.</td>
-      <td><span class="tg-tag tg-shell">shell</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code><br /><code class="language-plaintext highlighter-rouge">continual-progress</code><br /><code class="language-plaintext highlighter-rouge">idle-backlog</code><br /><code class="language-plaintext highlighter-rouge">pending-show</code><br /><code class="language-plaintext highlighter-rouge">session-intent</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>3 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="beans-manual"></a><a href="#beans-manual"><code class="language-plaintext highlighter-rouge">beans-manual</code></a><br />beans, by hand</td>
-      <td>Read and write the same work plan without the CLI — <code class="language-plaintext highlighter-rouge">scripts/beans-fallback.ts</code>, or editing a bean’s front matter directly. Equal standing to the CLI, not a degraded mode.</td>
-      <td><span class="tg-tag tg-manual">manual</span> <span class="tg-tag tg-shell">shell</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code><br /><code class="language-plaintext highlighter-rouge">continual-progress</code><br /><code class="language-plaintext highlighter-rouge">idle-backlog</code><br /><code class="language-plaintext highlighter-rouge">pending-show</code><br /><code class="language-plaintext highlighter-rouge">session-intent</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>3 in / 1 out</td>
       <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
     <tr>
@@ -1384,14 +1431,6 @@ tool advertising a capability the graph cannot locate.</p>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">graph-rendering</code></td>
       <td>2 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="drain-queue"></a><a href="#drain-queue"><code class="language-plaintext highlighter-rouge">drain-queue</code></a><br />Build a bean drain queue</td>
-      <td>Read every bean copy, keep the drainable open beans (task, bug, feature in todo or in-progress, not blocked, not owner-held), group them by the owner already working in that area, mark the ones another agent touched within the window as skip, and list everything left out with its reason and every bean whose copies disagree. The newest updated_at wins where copies disagree.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-shell">shell</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code><br /><code class="language-plaintext highlighter-rouge">idle-backlog</code></td>
-      <td>5 in / 2 out</td>
       <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
     <tr>
@@ -2655,54 +2694,6 @@ tool advertising a capability the graph cannot locate.</p>
       <td>Re-run a computation witness’s producer and say whether it reproduces the committed witness. Reads the command from <code class="language-plaintext highlighter-rouge">invocation.reproduce</code> (else <code class="language-plaintext highlighter-rouge">python3 &lt;scriptFile&gt;</code>) and the recorded package versions from <code class="language-plaintext highlighter-rouge">environment</code>; on a version mismatch it stops at <code class="language-plaintext highlighter-rouge">unknown</code>, since a different environment is not a reproduction test. Otherwise it runs the COMMITTED producer in a scratch git worktree, so the folio’s own checkout is never written, and compares the result with the committed witness with run-specific fields (commit, timing, environment) masked at every depth. <code class="language-plaintext highlighter-rouge">pass</code>, <code class="language-plaintext highlighter-rouge">fail</code> (with the differing JSON paths), or <code class="language-plaintext highlighter-rouge">unknown</code> (mismatch, non-zero exit, timeout, no witness written).</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">directory-conventions</code></td>
-      <td>4 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="work-plan-prime"></a><a href="#work-plan-prime"><code class="language-plaintext highlighter-rouge">work-plan-prime</code></a><br />Prime the work plan</td>
-      <td>Load the current work plan for this session — the same committed beans store the CLI reads, so a fresh container starts from the plan rather than from nothing.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-mcp">mcp</span> <span class="tg-tag tg-shell">shell</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code><br /><code class="language-plaintext highlighter-rouge">pending-show</code><br /><code class="language-plaintext highlighter-rouge">session-intent</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>0 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="workflow-complete"></a><a href="#workflow-complete"><code class="language-plaintext highlighter-rouge">workflow-complete</code></a><br />Complete a step</td>
-      <td>Record an enabled step as done — or supply the facts a decision gateway is computed from — and advance the instance. Refuses a step that is not enabled.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-mcp">mcp</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code><br /><code class="language-plaintext highlighter-rouge">process-state</code></td>
-      <td>8 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="workflow-gate"></a><a href="#workflow-gate"><code class="language-plaintext highlighter-rouge">workflow-gate</code></a><br />May this step be performed?</td>
-      <td>Ask before doing work a strict process governs. The content-agnostic processes refuse a step that is not enabled; the per-content-type ones advise.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-mcp">mcp</span></td>
-      <td><code class="language-plaintext highlighter-rouge">process-state</code></td>
-      <td>4 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="workflow-list"></a><a href="#workflow-list"><code class="language-plaintext highlighter-rouge">workflow-list</code></a><br />List processes</td>
-      <td>The BPMN processes this instance defines, and the instances currently open against them.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-mcp">mcp</span></td>
-      <td><code class="language-plaintext highlighter-rouge">process-state</code></td>
-      <td>0 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="workflow-next"></a><a href="#workflow-next"><code class="language-plaintext highlighter-rouge">workflow-next</code></a><br />What is enabled now</td>
-      <td>The activities an instance may work right now, each with the lane that owns it and the skill that implements it.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-mcp">mcp</span></td>
-      <td><code class="language-plaintext highlighter-rouge">process-state</code></td>
-      <td>1 in / 1 out</td>
-      <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
-    </tr>
-    <tr>
-      <td><a id="workflow-start"></a><a href="#workflow-start"><code class="language-plaintext highlighter-rouge">workflow-start</code></a><br />Start a process instance</td>
-      <td>Open an instance of a process for a subject. Idempotent: an existing instance for the same subject is returned rather than duplicated.</td>
-      <td><span class="tg-tag tg-inproc">inProcess</span> <span class="tg-tag tg-mcp">mcp</span></td>
-      <td><code class="language-plaintext highlighter-rouge">bean-coordination</code><br /><code class="language-plaintext highlighter-rouge">process-state</code></td>
       <td>4 in / 1 out</td>
       <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>

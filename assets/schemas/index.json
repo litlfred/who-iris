@@ -1330,6 +1330,15 @@
       "isTest": false
     },
     {
+      "module": "cat-harness-tools/schemas/kg/opt-in-roots.ts",
+      "instance": "cat-harness-tools",
+      "name": "opt-in-roots",
+      "graphNode": "none",
+      "reason": "a reader over declared opt-in sub-graphs; it defines no schema",
+      "summary": "Where a layer's opt-in sub-graphs are on disk.",
+      "isTest": false
+    },
+    {
       "module": "cat-harness-tools/schemas/kg/opt-in-subgraphs.ts",
       "instance": "cat-harness-tools",
       "name": "opt-in-subgraphs",
@@ -1345,6 +1354,22 @@
       "graphNode": "none",
       "reason": "a predicate and an encoder over path strings, not a schema",
       "summary": "Path segments a checkout can actually create — on every filesystem, not only",
+      "isTest": false
+    },
+    {
+      "module": "cat-harness-tools/schemas/kg/portfolio.test.ts",
+      "instance": "cat-harness-tools",
+      "name": "portfolio.test",
+      "graphNode": "undeclared",
+      "summary": "The portfolio kind: levels of linked libraries, each reached by a library",
+      "isTest": true
+    },
+    {
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "instance": "cat-harness-tools",
+      "name": "portfolio",
+      "graphNode": "schema",
+      "summary": "A portfolio: an umbrella knowledge graph that LINKS other graphs' libraries,",
       "isTest": false
     },
     {
@@ -34576,6 +34601,33 @@
       "exported": true
     },
     {
+      "id": "cat-harness-tools/schemas/kg/opt-in-roots.ts#OptInRoot",
+      "name": "OptInRoot",
+      "module": "cat-harness-tools/schemas/kg/opt-in-roots.ts",
+      "kind": "interface",
+      "doc": "One opt-in sub-graph: its qualified id and absolute path (no trailing separator).",
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "abs",
+          "type": "string",
+          "optional": false,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
       "id": "cat-harness-tools/schemas/kg/opt-in-subgraphs.ts#DeclaredOptIns",
       "name": "DeclaredOptIns",
       "module": "cat-harness-tools/schemas/kg/opt-in-subgraphs.ts",
@@ -34685,6 +34737,291 @@
       "unresolved": [],
       "external": [],
       "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#DiscoverSourceSchema",
+      "name": "DiscoverSourceSchema",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-object",
+      "doc": "Repositories found by name when the portfolio is read.",
+      "fields": [
+        {
+          "name": "discover",
+          "type": "z .object({ owner: z.string().min(1), prefixes: z.array(z.string().min(1)).min(1), /** Repository names (without owner)…",
+          "optional": false,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "MemberKind",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#LibrarySourceSchema",
+      "name": "LibrarySourceSchema",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-object",
+      "doc": "A layer's library catalogue: every item, or the items listed.",
+      "fields": [
+        {
+          "name": "library",
+          "type": "z .object({ /** The repository whose catalogue holds the items. */ repo: RepoName, /** Where its items' entry pages are…",
+          "optional": false,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/kg/portfolio.ts#RepoName"
+      ],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#Portfolio",
+      "name": "Portfolio",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioKind",
+      "name": "PortfolioKind",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-object",
+      "fields": [],
+      "extendsNames": [
+        "nodeKind"
+      ],
+      "values": [],
+      "refs": [],
+      "unresolved": [
+        "nodeKind"
+      ],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLevel",
+      "name": "PortfolioLevel",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLevelSchema",
+      "name": "PortfolioLevelSchema",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-object",
+      "doc": "One level, and the libraries whose members belong to it.",
+      "fields": [
+        {
+          "name": "id",
+          "type": "z.string().regex(/^[A-Z0-9][A-Za-z0-9-]*$/, \"a short id such as `L1`\")",
+          "optional": false,
+          "array": false,
+          "doc": "`L1`, `L2`, …: short, upper-case first. Unique within the portfolio."
+        },
+        {
+          "name": "title",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "description",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "libraries",
+          "type": "z.array(PortfolioLibrarySchema)",
+          "optional": false,
+          "array": true,
+          "doc": "Empty is allowed: a level the portfolio names before it has members."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrary",
+      "name": "PortfolioLibrary",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySchema",
+      "name": "PortfolioLibrarySchema",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-object",
+      "doc": "One library linked into a level.",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Slug",
+          "optional": false,
+          "array": false,
+          "doc": "Unique within the portfolio."
+        },
+        {
+          "name": "title",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "description",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "source",
+          "type": "PortfolioLibrarySourceSchema",
+          "optional": false,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySourceSchema",
+        "cat-harness-tools/schemas/kg/portfolio.ts#Slug"
+      ],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySourceSchema",
+      "name": "PortfolioLibrarySourceSchema",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-union",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioSchema",
+      "name": "PortfolioSchema",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-object",
+      "fields": [],
+      "extendsNames": [
+        "PortfolioKind"
+      ],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioKind"
+      ],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#RepoName",
+      "name": "RepoName",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-scalar",
+      "doc": "`owner/name` on the forge.",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": false
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#ReposSourceSchema",
+      "name": "ReposSourceSchema",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-object",
+      "doc": "Repositories listed by name.",
+      "fields": [
+        {
+          "name": "repos",
+          "type": "z.array(RepoName).min(1)",
+          "optional": false,
+          "array": true
+        },
+        {
+          "name": "memberKind",
+          "type": "MemberKind.optional()",
+          "optional": true,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/kg/portfolio.ts#RepoName"
+      ],
+      "unresolved": [],
+      "external": [
+        "MemberKind",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/portfolio.ts#Slug",
+      "name": "Slug",
+      "module": "cat-harness-tools/schemas/kg/portfolio.ts",
+      "kind": "zod-scalar",
+      "doc": "A short lower-case id: a URL segment.",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": false
     },
     {
       "id": "cat-harness-tools/schemas/kg/property-skills.ts#DeclarationProperty",
@@ -35570,6 +35907,13 @@
           "type": "z.number().int().nonnegative()",
           "optional": false,
           "array": false
+        },
+        {
+          "name": "except",
+          "type": "z.array(z.string().min(1).refine((p) => !p.split(\"/\").includes(\"..\") && !p.startsWith(\"/\"), \"an except path stays insid…",
+          "optional": true,
+          "array": true,
+          "doc": "A whole-layer mount (`id: \"*\"`) only: the opt-in sub-graphs the"
         },
         {
           "name": "package",
@@ -66389,6 +66733,32 @@
       "exported": true
     },
     {
+      "id": "cat-harness-tools/schemas/tools/tool-types.ts#ChangeSetActionSchema",
+      "name": "ChangeSetActionSchema",
+      "module": "cat-harness-tools/schemas/tools/tool-types.ts",
+      "kind": "zod-enum",
+      "doc": "A change-set verb of a public review: write the records (`seed`, `propose`,",
+      "fields": [],
+      "extendsNames": [],
+      "values": [
+        "seed",
+        "propose",
+        "add",
+        "list",
+        "body",
+        "adopt",
+        "check",
+        "reconcile",
+        "github",
+        "install",
+        "A change-set verb: check or reconcile the records, or handle one GitHub issue event."
+      ],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
       "id": "cat-harness-tools/schemas/tools/tool-types.ts#CommitShaSchema",
       "name": "CommitShaSchema",
       "module": "cat-harness-tools/schemas/tools/tool-types.ts",
@@ -73251,10 +73621,9 @@
         },
         {
           "name": "view",
-          "type": "z.string().regex(/^\\/[a-z0-9][a-z0-9._/-]*\\/$/).optional()",
+          "type": "z.string().regex(/^\\/[A-Za-z0-9][A-Za-z0-9._/-]*\\/$/).optional()",
           "optional": true,
-          "array": false,
-          "doc": "The page that RENDERS this entry, site-root path with a leading `/` and"
+          "array": false
         },
         {
           "name": "viewable",
@@ -73325,6 +73694,20 @@
           "optional": true,
           "array": false,
           "doc": "The structured half of `withheld` (issue #1794): which gates refused,"
+        },
+        {
+          "name": "catalogue",
+          "type": "z .object({ record: z.string().min(1).optional(), handle: z.string().min(1).optional(), xml: z.string().min(1).optional…",
+          "optional": true,
+          "array": false,
+          "doc": "The catalogue record behind this entry (`library-graph.ts` `catalogueInfo`"
+        },
+        {
+          "name": "upstream",
+          "type": "z .array( z .object({ label: z.string().min(1), href: z.string().url(), }) .strict(), ) .optional()",
+          "optional": true,
+          "array": true,
+          "doc": "Original file URLs upstream for an entry catalogued by reference (#1765)."
         },
         {
           "name": "avatar",
@@ -86421,6 +86804,54 @@
       "kind": "field",
       "optional": false,
       "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/kg/portfolio.ts#LibrarySourceSchema",
+      "to": "cat-harness-tools/schemas/kg/portfolio.ts#RepoName",
+      "via": "library",
+      "kind": "field",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLevelSchema",
+      "to": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySchema",
+      "via": "libraries",
+      "kind": "field",
+      "optional": false,
+      "array": true
+    },
+    {
+      "from": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySchema",
+      "to": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySourceSchema",
+      "via": "source",
+      "kind": "field",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySchema",
+      "to": "cat-harness-tools/schemas/kg/portfolio.ts#Slug",
+      "via": "id",
+      "kind": "field",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioSchema",
+      "to": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioKind",
+      "via": "",
+      "kind": "extends",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/kg/portfolio.ts#ReposSourceSchema",
+      "to": "cat-harness-tools/schemas/kg/portfolio.ts#RepoName",
+      "via": "repos",
+      "kind": "field",
+      "optional": false,
+      "array": true
     },
     {
       "from": "cat-harness-tools/schemas/kg/prov-jsonld.ts#Unaddressed",

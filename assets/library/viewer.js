@@ -1360,6 +1360,18 @@ function withheldBanner(e, bs){
     "html.fa-bp .block-actions>.ba-bookmark[aria-pressed=true]{opacity:1;filter:none;background:color-mix(in srgb,var(--link,#0b5cad) 24%,transparent);box-shadow:inset 0 0 0 1.5px var(--link,#0b5cad)}" +
     "html.fa-bp .block-actions>.ba-bookmark[aria-pressed=true]:hover{background:color-mix(in srgb,var(--link,#0b5cad) 34%,transparent)}" +
     "html.fa-bp .main-content .anchor-heading svg{visibility:visible;opacity:.35;filter:grayscale(1)}" +
+    // Owner, 2026-11-10: "make RHS grill icons 50% bigger on laptop". From
+    // laptop width up, the 🔗, 📣 and 🔖 are half again as big (20px -> 30px
+    // tiles, 1rem -> 1.5rem link icon) and the right gutter widens to fit,
+    // keeping the same spacing to the text. Tablets and phones are unchanged.
+    "@media (min-width:64rem){html.fa-bp .main-content-wrap{padding-right:3.25rem}" +
+    "html.fa-bp .main-content .anchor-heading{right:-3rem;width:2.25rem;padding:0 .375rem}" +
+    "html.fa-bp .main-content .anchor-heading svg{width:1.5rem;height:1.5rem}" +
+    "html.fa-bp .main-content .block-actions{width:2.25rem;margin-right:-4rem}" +
+    "html.fa-bp .main-content .fa-sec-actions{right:-3rem}" +
+    "html.fa-bp .fa-page-main.main-content:has(>.fa-sec-actions){margin-right:3.25rem}" +
+    "html.fa-bp .block-actions>.ba-trigger,html.fa-bp .block-actions>.ba-bookmark{width:30px;height:30px;font-size:20px}" +
+    "html.fa-bp .block-actions>.ba-trigger .ba-n{top:-5px;right:-8px;font-size:12px;padding:0 4px}}" +
     "html.fa-bp .main-content .fa-hot>.anchor-heading svg,html.fa-bp .main-content :hover>.anchor-heading svg,html.fa-bp .main-content .anchor-heading:focus svg" + ON +
     ".fa-block-panel .bp-copy{font:inherit;font-size:.82rem;margin:.1rem .35rem .3rem 0;padding:.3rem .6rem;border:1px solid #8886;border-radius:6px;background:none;color:inherit;cursor:pointer}" +
     ".fa-block-panel .bp-copy.ba-copied,.fa-block-panel .bp-bookmark[aria-pressed=true]{border-color:#2e7d32;background:#2e7d32;color:#fff}" +
@@ -2024,7 +2036,7 @@ fetch(DATA_HREF).then(function(r){
       " prose block(s) not yet summarised" + (sd ? ", <b>" + sd + "</b> agent draft(s) awaiting a person" : "") + "</span>";
   }
   if (G.refScan) {
-    var none = scoped.filter(function(e){ return e.refCount === 0; }).length;
+    var none = scoped.filter(function(e){ return e.refCount === 0 && e.provenance !== "catalogued"; }).length;
     $("badges").innerHTML += '<span class="badge">' +
       (none ? '<b>'+none+"</b> entr(ies) referenced by nothing" : "references scanned") +
       (G.refScan.unreadable.length
@@ -2051,3 +2063,30 @@ fetch(DATA_HREF).then(function(r){
   $("listing").innerHTML = '<p class="empty">The projection at <code>' + esc(DATA_HREF) + '</code> could not be read. ' +
     "That is not an empty corpus \u2014 it is a corpus that could not be loaded, and the page says so rather than showing nothing.</p>";
 });
+
+(function(){
+  var box = document.getElementById("lib-lang-toggle");
+  var dataEl = document.getElementById("lib-versions-data");
+  if (!box || !dataEl) return;
+  var d; try { d = JSON.parse(dataEl.textContent || "{}"); } catch (_e) { return; }
+  var vs = d.versions || [];
+  var loc = "en"; try { loc = localStorage.getItem("fa-locale") || "en"; } catch (_e) {}
+  var cur = vs.filter(function(v){ return v.id === d.current; })[0];
+  var src = vs.filter(function(v){ return v.source; })[0];
+  var mine = vs.filter(function(v){ return v.lang === loc; })[0];
+  if (!cur || !src) return;
+  var other = cur.source ? mine : src;
+  if (cur.source && loc !== src.lang && !mine) {
+    box.innerHTML = '<p class="note">No official WHO translation of this publication into your chosen language (' + esc(loc) + ').</p>';
+    box.hidden = false; return;
+  }
+  if (!other || other.id === cur.id) return;
+  var pair = cur.source ? [cur, other] : [other, cur];
+  box.innerHTML = '<span class="seg" role="group" aria-label="Language">' + pair.map(function(v){
+    var label = esc(v.name) + (v.source ? " (source)" : " (WHO official)");
+    return v.id === cur.id
+      ? '<button type="button" aria-pressed="true" lang="' + esc(v.lang) + '">' + label + "</button>"
+      : '<a class="seg-link" role="button" aria-pressed="false" lang="' + esc(v.lang) + '" hreflang="' + esc(v.lang) + '" href="' + esc(v.href) + '">' + label + "</a>";
+  }).join("") + "</span>";
+  box.hidden = false;
+})();

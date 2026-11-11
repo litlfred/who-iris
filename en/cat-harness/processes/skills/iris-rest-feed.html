@@ -796,7 +796,7 @@
 
 <link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/iris-rest-feed.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#what-live-iris-accepts","label":"What live IRIS accepts"},{"href":"#endpoints","label":"Endpoints"},{"href":"#nightly-changedsincecursor","label":"Nightly: changedSince(cursor)"},{"href":"#metadata-changes-without-the-pdf-changing","label":"Metadata changes without the PDF changing"},{"href":"#weekly-allitems-and-withdrawnorhidden","label":"Weekly: allItems and withdrawnOrHidden"},{"href":"#fixity","label":"Fixity"},{"href":"#politeness","label":"Politeness"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/iris-rest-feed.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#what-live-iris-accepts","label":"What live IRIS accepts"},{"href":"#endpoints","label":"Endpoints"},{"href":"#nightly-changedsincecursor","label":"Nightly: changedSince(cursor)"},{"href":"#metadata-changes-without-the-pdf-changing","label":"Metadata changes without the PDF changing"},{"href":"#weekly-allitems-and-withdrawnorhidden","label":"Weekly: allItems and withdrawnOrHidden"},{"href":"#fixity","label":"Fixity"},{"href":"#politeness","label":"Politeness"},{"href":"#a-subset-by-reference-runts-subset","label":"A subset by reference: run.ts subset"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -1064,6 +1064,46 @@ reports it. It is never retried silently.</p>
 its repository, and back off on 429 and 503. The initial load is paced to the budget stated in
 <code class="language-plaintext highlighter-rouge">Task_StateBudget</code> (<code class="language-plaintext highlighter-rouge">processes/iris-cdn-initial-load.bpmn</code>), including
 <code class="language-plaintext highlighter-rouge">maxRequestsPerSecond</code>.</p>
+<h2 id="a-subset-by-reference-runts-subset">
+  
+  
+    <a href="#a-subset-by-reference-runts-subset" class="anchor-heading" aria-labelledby="a-subset-by-reference-runts-subset"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A subset by reference: <code class="language-plaintext highlighter-rouge">run.ts subset</code>
+  
+  
+</h2>
+    
+
+<p><code class="language-plaintext highlighter-rouge">bun scripts/iris-cdn/run.ts subset</code> catalogues part of IRIS without fetching any
+bytes (who-iris#207): for each item, the Dublin Core record as DSpace returns
+it and a <code class="language-plaintext highlighter-rouge">referenced</code> catalogue node whose ORIGINAL bitstreams link to
+<code class="language-plaintext highlighter-rouge">https://iris.who.int/bitstreams/{uuid}/download</code>. The subsets it reads live in
+<a href="https://github.com/litlfred/who-iris/blob/main/scripts/iris-cdn/subsets/README.md"><code class="language-plaintext highlighter-rouge">scripts/iris-cdn/subsets/</code></a>.</p>
+
+<ul>
+  <li><strong>Which items.</strong> A handles file goes first (for example the IRIS items a DAK
+cites), then a Discovery query. The query is a field query on metadata
+(<code class="language-plaintext highlighter-rouge">dc.title</code>, <code class="language-plaintext highlighter-rouge">dc.subject</code>, <code class="language-plaintext highlighter-rouge">dc.subject.mesh</code>, <code class="language-plaintext highlighter-rouge">dc.description.abstract</code>),
+not a bare keyword. A bare keyword also searches the PDF text, so <code class="language-plaintext highlighter-rouge">vaccine</code>
+matches a report that mentions one in passing.</li>
+  <li><strong>Write boolean operators in capitals.</strong> Solr reads a lowercase <code class="language-plaintext highlighter-rouge">or</code> as a
+word: <code class="language-plaintext highlighter-rouge">HIV or immunization or vaccine</code> matches fewer items than <code class="language-plaintext highlighter-rouge">vaccine</code>
+alone.</li>
+  <li><strong>A Handle to an item:</strong> <code class="language-plaintext highlighter-rouge">GET /server/api/pid/find?id=hdl:{handle}</code>
+answers 302 to <code class="language-plaintext highlighter-rouge">/server/api/core/items/{uuid}</code>.</li>
+  <li><strong>An ISBN or govdoc to an item:</strong> <code class="language-plaintext highlighter-rouge">query=dc.identifier.isbn:"{isbn13}"</code> or
+<code class="language-plaintext highlighter-rouge">query=dc.identifier.govdoc:"WHO/HIV/2017.09"</code>.</li>
+  <li><strong>A sample</strong> is one-row pages at seeded random offsets, so the same seed
+gives the same items.</li>
+  <li><strong>No fixity is claimed.</strong> IRIS reports an MD5. A sha256 is recorded only
+once the bytes are fetched (R13), so the MD5 goes in the bitstream’s note.</li>
+  <li><strong>Hand-made nodes win.</strong> An item whose Handle or UUID another node already
+carries is skipped and reported. The tool rewrites only its own nodes, the
+ones whose note starts “Catalogued by reference by
+scripts/iris-cdn/run.ts subset”, and only when they changed.</li>
+  <li><strong>A token</strong>, when IRIS gives one, comes from the <code class="language-plaintext highlighter-rouge">IRIS_DSPACE_TOKEN</code>
+environment variable as <code class="language-plaintext highlighter-rouge">Authorization: Bearer …</code>. It never appears in an
+argument, a file or a log.</li>
+</ul>
 
           
 

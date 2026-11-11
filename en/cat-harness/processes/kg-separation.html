@@ -935,10 +935,8 @@
 <button type="button" class="pt-mark" data-task="Task_Create" style="left:61.21%;top:84.88%" aria-expanded="false" aria-label="About step: Create the repositories" title="About: Create the repositories">i</button>
 <button type="button" class="pt-mark" data-task="Task_Drain" style="left:64.65%;top:5.81%" aria-expanded="false" aria-label="About step: Drain: land, close or re-target the open PRs" title="About: Drain: land, close or re-target the open PRs">i</button>
 <button type="button" class="pt-mark" data-task="Task_Seed" style="left:73.43%;top:5.81%" aria-expanded="false" aria-label="About step: 10 · Seed both repositories" title="About: 10 · Seed both repositories">i</button>
-<a class="pt-go" href="upstream-version-adoption.html" style="left:74.94%;top:31.98%;width:0.41%;height:2.79%" aria-label="Open subprocess: 11 · Parent consumes, additively" title="Open subprocess: 11 · Parent consumes, additively"></a>
 <button type="button" class="pt-mark" data-task="Task_Consume" style="left:76.7%;top:25.58%" aria-expanded="false" aria-label="About step: 11 · Parent consumes, additively" title="About: 11 · Parent consumes, additively">i</button>
 <button type="button" class="pt-mark" data-task="Task_Release" style="left:79.98%;top:45.35%" aria-expanded="false" aria-label="About step: 12 · First release" title="About: 12 · First release">i</button>
-<a class="pt-go" href="publish-verification.html" style="left:81.48%;top:71.51%;width:0.41%;height:2.79%" aria-label="Open subprocess: Every identifier dereferences" title="Open subprocess: Every identifier dereferences"></a>
 <button type="button" class="pt-mark" data-task="Task_Verify" style="left:83.25%;top:65.12%" aria-expanded="false" aria-label="About step: Every identifier dereferences" title="About: Every identifier dereferences">i</button>
 <button type="button" class="pt-mark" data-task="Task_Cutover" style="left:86.52%;top:84.88%" aria-expanded="false" aria-label="About step: 13 · Cutover: retire the parent's copy" title="About: 13 · Cutover: retire the parent's copy">i</button>
 <button type="button" class="pt-mark" data-task="Task_CutoverCheck" style="left:90.65%;top:65.12%" aria-expanded="false" aria-label="About step: Measure the cutover: separation:cutover:check" title="About: Measure the cutover: separation:cutover:check">i</button>
@@ -1161,7 +1159,7 @@
 
 <ul>
   <li><strong>Called by:</strong> no call activity names this process</li>
-  <li><strong>Calls:</strong> <a href="ask-the-person.html">Ask the person</a>, <a href="publish-verification.html">Verify the export before it is deployed</a>, <a href="upstream-version-adoption.html">Adopting an upstream version bump</a></li>
+  <li><strong>Calls:</strong> <a href="ask-the-person.html">Ask the person</a>, <code class="language-plaintext highlighter-rouge">Process_PublishVerification</code> (not loadable here), <code class="language-plaintext highlighter-rouge">Process_UpstreamAdoption</code> (not loadable here)</li>
   <li><strong>Names the <code class="language-plaintext highlighter-rouge">kg-separation</code> skill without calling this process:</strong> <a href="sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a> — <code class="language-plaintext highlighter-rouge">activity-calls-skill-process</code> asks whether each should be a call activity.</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/kg-separation.html"><code class="language-plaintext highlighter-rouge">kg-separation</code></a></li>
@@ -1236,7 +1234,7 @@
     <tr>
       <td><a id="step-Task_Brief"></a><strong>Brief the work</strong><br /><code class="language-plaintext highlighter-rouge">Task_Brief</code></td>
       <td>Authoring agent</td>
-      <td>shared step <code class="language-plaintext highlighter-rouge">GT_Brief</code><br /><a href="../../../en/cat-harness/processes/skills/opening-brief.html"><code class="language-plaintext highlighter-rouge">opening-brief</code></a></td>
+      <td>shared step <code class="language-plaintext highlighter-rouge">GT_Brief</code><br /><code class="language-plaintext highlighter-rouge">opening-brief</code></td>
       <td>What the work is and why, what is already measured with its provenance, how it will be done, and what would falsify the approach. The work item is already taken up when the process starts, so a sibling session sees the work before the brief is written.<br />Here the work is a separation: what is separating, and why.</td>
     </tr>
     <tr>
@@ -1320,19 +1318,19 @@
     <tr>
       <td><a id="step-Task_Consume"></a><strong>11 · Parent consumes, additively</strong><br /><code class="language-plaintext highlighter-rouge">Task_Consume</code></td>
       <td>Platform authoring agent</td>
-      <td>calls <a href="upstream-version-adoption.html">Adopting an upstream version bump</a><br /><a href="../../../en/cat-harness/processes/skills/upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></a></td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_UpstreamAdoption</code><br /><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></td>
       <td>The parent pins the pair (a commit while staging, a version once released) — a code dependency as a <code class="language-plaintext highlighter-rouge">source.remote</code> instance in its root <code class="language-plaintext highlighter-rouge">index.config.json</code> (remote-mount skill), never a submodule — repoints its imports, and keeps its own copy until it is green with the dependency declared.</td>
     </tr>
     <tr>
       <td><a id="step-Task_Release"></a><strong>12 · First release</strong><br /><code class="language-plaintext highlighter-rouge">Task_Release</code></td>
       <td>Publication manager</td>
-      <td><a href="../../../en/cat-harness/processes/skills/package-release.html"><code class="language-plaintext highlighter-rouge">package-release</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">package-release</code></td>
       <td>Tag each repository, publish /v&lt;major&gt;/. From here the two are versioned independently; a tools release lists the content majors it supports.</td>
     </tr>
     <tr>
       <td><a id="step-Task_Verify"></a><strong>Every identifier dereferences</strong><br /><code class="language-plaintext highlighter-rouge">Task_Verify</code></td>
       <td>Build pipeline</td>
-      <td>calls <a href="publish-verification.html">Verify the export before it is deployed</a><br /><a href="../../../en/cat-harness/processes/skills/publish-verification.html"><code class="language-plaintext highlighter-rouge">publish-verification</code></a></td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_PublishVerification</code><br /><code class="language-plaintext highlighter-rouge">publish-verification</code></td>
       <td>After the release is live, every published identifier resolves to the file it names.</td>
     </tr>
     <tr>

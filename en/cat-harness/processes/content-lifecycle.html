@@ -923,9 +923,7 @@
 <button type="button" class="pt-mark" data-task="Task_Feedback" style="left:59.66%;top:70.31%" aria-expanded="false" aria-label="About step: Triage published feedback" title="About: Triage published feedback">i</button>
 <button type="button" class="pt-mark" data-task="Task_FeedbackBeans" style="left:68.05%;top:36.33%" aria-expanded="false" aria-label="About step: File feedback as beans" title="About: File feedback as beans">i</button>
 <button type="button" class="pt-mark" data-task="Task_Retire" style="left:81.97%;top:1.56%" aria-expanded="false" aria-label="About step: Retire or archive" title="About: Retire or archive">i</button>
-<a class="pt-go" href="bean-open.html" style="left:20.88%;top:20.47%;width:1.06%;height:1.88%" aria-label="Open subprocess: Open the bean" title="Open subprocess: Open the bean"></a>
 <button type="button" class="pt-mark" data-task="Call_BeanOpen" style="left:24.08%;top:13.05%" aria-expanded="false" aria-label="About step: Open the bean" title="About: Open the bean">i</button>
-<a class="pt-go" href="bean-close.html" style="left:87.83%;top:8.98%;width:1.06%;height:1.88%" aria-label="Open subprocess: Close the bean" title="Open subprocess: Close the bean"></a>
 <button type="button" class="pt-mark" data-task="Call_BeanClose" style="left:91.03%;top:1.56%" aria-expanded="false" aria-label="About step: Close the bean" title="About: Close the bean">i</button>
 </div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
@@ -1146,7 +1144,7 @@
 
 <ul>
   <li><strong>Called by:</strong> no call activity names this process</li>
-  <li><strong>Calls:</strong> <a href="bean-close.html">Close the bean</a>, <a href="bean-open.html">Open the bean</a>, <a href="editing-hci-validation.html">Editing and HCI validation</a>, <a href="draft-to-publication.html">Draft, review and publish</a></li>
+  <li><strong>Calls:</strong> <code class="language-plaintext highlighter-rouge">Process_BeanClose</code> (not loadable here), <code class="language-plaintext highlighter-rouge">Process_BeanOpen</code> (not loadable here), <a href="editing-hci-validation.html">Editing and HCI validation</a>, <a href="draft-to-publication.html">Draft, review and publish</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1225,8 +1223,8 @@
     <tr>
       <td><a id="step-Task_SeedBeans"></a><strong>Seed the work plan</strong><br /><code class="language-plaintext highlighter-rouge">Task_SeedBeans</code></td>
       <td>Editors + authoring agents</td>
-      <td>shared step <code class="language-plaintext highlighter-rouge">GT_SeedWorkPlan</code><br /><a href="../../../en/cat-harness/processes/skills/todo-manager.html"><code class="language-plaintext highlighter-rouge">todo-manager</code></a></td>
-      <td>The plan becomes beans, so a resumed session or a sibling agent can pick it up. The run’s own bean was claimed by the <a href="bean-open.html">Process_BeanOpen</a> call before this step, so this step only notes the seeded plan on it; the beans themselves are written with the agent’s own <code class="language-plaintext highlighter-rouge">beans create</code>, which no engine op performs. From here on, beans/ is the shared answer to ‘what is done, what is next’ — for humans and agents alike.</td>
+      <td>shared step <code class="language-plaintext highlighter-rouge">GT_SeedWorkPlan</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
+      <td>The plan becomes beans, so a resumed session or a sibling agent can pick it up. The run’s own bean was claimed by the Process_BeanOpen call before this step, so this step only notes the seeded plan on it; the beans themselves are written with the agent’s own <code class="language-plaintext highlighter-rouge">beans create</code>, which no engine op performs. From here on, beans/ is the shared answer to ‘what is done, what is next’ — for humans and agents alike.</td>
     </tr>
     <tr>
       <td><a id="step-CallActivity_Editing"></a><strong>Editing and HCI validation</strong><br /><code class="language-plaintext highlighter-rouge">CallActivity_Editing</code></td>
@@ -1255,7 +1253,7 @@
     <tr>
       <td><a id="step-Task_FeedbackBeans"></a><strong>File feedback as beans</strong><br /><code class="language-plaintext highlighter-rouge">Task_FeedbackBeans</code></td>
       <td>Editors + authoring agents</td>
-      <td><a href="../../../en/cat-harness/processes/skills/todo-manager.html"><code class="language-plaintext highlighter-rouge">todo-manager</code></a><br /><a href="../../../en/cat-harness/processes/skills/content-feedback.html"><code class="language-plaintext highlighter-rouge">content-feedback</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">todo-manager</code><br /><a href="../../../en/cat-harness/processes/skills/content-feedback.html"><code class="language-plaintext highlighter-rouge">content-feedback</code></a></td>
       <td>Triaged feedback re-enters the work plan as beans, which is how the next cycle knows what it is for.</td>
     </tr>
     <tr>
@@ -1267,14 +1265,14 @@
     <tr>
       <td><a id="step-Call_BeanOpen"></a><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanOpen</code></td>
       <td>Editors + authoring agents</td>
-      <td>calls <a href="bean-open.html">Open the bean</a><br /><a href="../../../en/cat-harness/processes/skills/bean-coordination.html"><code class="language-plaintext highlighter-rouge">bean-coordination</code></a></td>
-      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn; the gateway after this reads which end it reached.</td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_BeanOpen</code><br /><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
+      <td>Process_BeanOpen: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn; the gateway after this reads which end it reached.</td>
     </tr>
     <tr>
       <td><a id="step-Call_BeanClose"></a><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose</code></td>
       <td>Programme manager</td>
-      <td>calls <a href="bean-close.html">Close the bean</a><br /><a href="../../../en/cat-harness/processes/skills/todo-manager.html"><code class="language-plaintext highlighter-rouge">todo-manager</code></a></td>
-      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn; placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_BeanClose</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
+      <td>Process_BeanClose: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn; placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1305,7 +1303,7 @@
     </tr>
     <tr>
       <td><strong>Bean claimed?</strong><br /><code class="language-plaintext highlighter-rouge">GW_BeanYours</code></td>
-      <td>Reads which end <a href="bean-open.html">Process_BeanOpen</a> reached. <code class="language-plaintext highlighter-rouge">claimed</code>: the bean is in progress and this process works it. <code class="language-plaintext highlighter-rouge">not yours</code>: a sibling session or a human holds it, nothing was written to it, and this process stops here rather than work a bean it does not own (bean-coordination).</td>
+      <td>Reads which end Process_BeanOpen reached. <code class="language-plaintext highlighter-rouge">claimed</code>: the bean is in progress and this process works it. <code class="language-plaintext highlighter-rouge">not yours</code>: a sibling session or a human holds it, nothing was written to it, and this process stops here rather than work a bean it does not own (bean-coordination).</td>
       <td><strong>claimed</strong> → Seed the work plan<br /><strong>not yours</strong> → Not yours — left alone</td>
     </tr>
   </tbody>

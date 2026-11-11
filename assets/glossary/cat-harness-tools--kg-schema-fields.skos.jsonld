@@ -27602,6 +27602,63 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/portfolio.portfoliolevelschema.id",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PortfolioLevelSchema.id"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "`L1`, `L2`, …: short, upper-case first. Unique within the portfolio."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLevelSchema.id",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/portfolio.portfoliolevelschema.libraries",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PortfolioLevelSchema.libraries"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Empty is allowed: a level the portfolio names before it has members."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLevelSchema.libraries",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/portfolio.portfoliolibraryschema.id",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PortfolioLibrarySchema.id"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Unique within the portfolio."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/kg/portfolio.ts#PortfolioLibrarySchema.id",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/prov-jsonld.owned.file",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -29803,6 +29860,25 @@
         }
       ],
       "dcterms:source": "cat-harness-tools/schemas/library/referenced-source.ts#PublishedSourceSchema.url",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/remote-mount.lockeddirectoryschema.except",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "LockedDirectorySchema.except"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "A whole-layer mount (`id: \"*\"`) only: the opt-in sub-graphs the downstream has not switched on, relative to the layer root, no trailing slash. Not checked out, not copied, not in the digest (`switchedOffOptInPaths` in scripts/remote-mount.ts)."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/kg/remote-mount.ts#LockedDirectorySchema.except",
       "skos:note": "candidate"
     },
     {
@@ -33264,6 +33340,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/site-indexes.libraryindexentryschema.catalogue",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "LibraryIndexEntrySchema.catalogue"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The catalogue record behind this entry (`library-graph.ts` `catalogueInfo` / `referencedCatalogueEntries`, #1752 / #1765)."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/site-indexes.ts#LibraryIndexEntrySchema.catalogue",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/site-indexes.libraryindexentryschema.extractedtitle",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -33321,22 +33416,22 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/site-indexes.libraryindexentryschema.view",
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/site-indexes.libraryindexentryschema.upstream",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
       },
       "skos:prefLabel": [
         {
-          "@value": "LibraryIndexEntrySchema.view"
+          "@value": "LibraryIndexEntrySchema.upstream"
         }
       ],
       "skos:definition": [
         {
-          "@value": "The page that RENDERS this entry, site-root path with a leading `/` and no base (the avatar's convention): another layer's declared root for a referenced entry it renders, else the entry's own library page. GENERATED by `gen-library-viz`, never stored in the asset (#1881)."
+          "@value": "Original file URLs upstream for an entry catalogued by reference (#1765)."
         }
       ],
-      "dcterms:source": "cat-harness-tools/schemas/ui/site-indexes.ts#LibraryIndexEntrySchema.view",
+      "dcterms:source": "cat-harness-tools/schemas/ui/site-indexes.ts#LibraryIndexEntrySchema.upstream",
       "skos:note": "candidate"
     },
     {
