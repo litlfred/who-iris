@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Estrategia mundial sobre salud digital",
+  "title": "Estrategia mundial sobre salud digital 2020–2025",
   "contains": [
     "library/10665-344251/sections/sec-front-matter",
     "library/10665-344251/sections/sec-000",
@@ -35,11 +35,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240027572-spa.pdf, derived section sec-front-matter.md: \"Creative Commons (CC BY-NC-SA 3\""
+  },
   "meta": {
     "doc_id": "10665-344251",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-344251.dc.json dc.title",
     "source_file": "10665-344251.pdf",
     "source_sha256": "bd65bb39875c48aada774c46dc7b34d22748188fbb9dba901616d728230b18c5",
     "pages": 69,

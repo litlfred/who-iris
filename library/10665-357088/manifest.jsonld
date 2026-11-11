@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "DIAGNOSING, PREVENTING AND MANAGING CRYPTOCOCCAL DISEASE AMONG ADULTS, ADOLESCENTS AND CHILDREN LIVING WITH HIV",
+  "title": "Guidelines for diagnosing, preventing and managing cryptococcal disease among adults, adolescents and children living with HIV",
   "contains": [
     "library/10665-357088/sections/sec-front-matter",
     "library/10665-357088/sections/sec-000",
@@ -66,11 +66,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240052178-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-\nNonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-357088",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-357088.dc.json dc.title",
     "source_file": "10665-357088.pdf",
     "source_sha256": "9109100b97e686d57ed241b89524a42a3e0dd7628cfeb70e92fdffd341545207",
     "pages": 64,

@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": ".doc_17/11/95",
+  "title": "Pre-qualification of single-use injection devices under the PQS system : a guideline for manufacturers",
   "contains": [
     "library/10665-69096/sections/sec-front-matter",
     "library/10665-69096/sections/sec-000",
@@ -43,10 +43,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of a87348.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-69096",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-69096.dc.json dc.title",
     "source_file": "10665-69096.pdf",
     "source_sha256": "c05bd302ab0af261e34a9f7d9c011acf00bd5bf8020c29d6af61c8c2584664f3",
     "pages": 23,

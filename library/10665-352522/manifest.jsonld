@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO consolidated guidelines on tuberculosis",
+  "title": "WHO consolidated guidelines on tuberculosis: module 5: management of tuberculosis in children and adolescents",
   "contains": [
     "library/10665-352522/sections/sec-front-matter",
     "library/10665-352522/sections/sec-000",
@@ -48,11 +48,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240046764-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-352522",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-352522.dc.json dc.title",
     "source_file": "10665-352522.pdf",
     "source_sha256": "c8db061efbcb04cfe0b60190db11bf85493e04999517a6e83e0ed69a655dfc29",
     "pages": 128,

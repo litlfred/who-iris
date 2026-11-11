@@ -18,10 +18,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of A71_R7-en.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-279505",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-279505.dc.json dc.title",
     "source_file": "10665-279505.pdf",
     "source_sha256": "91be1bdc72867a823ff6a7b5f5a1ba33c8cf8ba87c9826d35a3be73793f9028f",
     "pages": 4,

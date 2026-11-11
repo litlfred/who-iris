@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "home-based records",
+  "title": "WHO recommendations on home-based records for maternal, newborn and child health",
   "contains": [
     "library/10665-274277/sections/sec-front-matter",
     "library/10665-274277/sections/sec-000",
@@ -31,11 +31,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789241550352-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-\nShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-274277",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-274277.dc.json dc.title",
     "source_file": "10665-274277.pdf",
     "source_sha256": "a34322031255ab50e63ef15836ade552f51078d88f889b740e0a80c6ca185850",
     "pages": 56,

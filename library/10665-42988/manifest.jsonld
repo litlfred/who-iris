@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Strat Plan French.qxd",
+  "title": "Plan stratégique de l' Initiative mondiale pour l' éradication de la poliomyélite : 2004-2008",
   "contains": [
     "library/10665-42988/sections/page-001",
     "library/10665-42988/sections/page-002",
@@ -59,10 +59,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9242591173.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-42988",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-42988.dc.json dc.title",
     "source_file": "10665-42988.pdf",
     "source_sha256": "741e27a103c8541574bac68c5708bb4e0657f263d5a20a40a6685c8ad238cd06",
     "pages": 45,

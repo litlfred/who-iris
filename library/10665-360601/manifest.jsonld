@@ -91,11 +91,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240052390-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-\nNonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-360601",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-360601.dc.json dc.title",
     "source_file": "10665-360601.pdf",
     "source_sha256": "1e165347271227f31cfba0afa69794853ba70e0b5c48589ca4de2b92ff4d6479",
     "pages": 144,

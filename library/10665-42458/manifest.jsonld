@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Herpex Simplex Virus Type 2: Programmatic and Research Priorities in Developing Countries",
+  "title": "Herpes simplex virus type 2 : programmatic and research priorities in developing countries : report of a WHO/UNAIDS/LSHTM workshop, London, 14-16 February 2001",
   "contains": [
     "library/10665-42458/sections/sec-front-matter",
     "library/10665-42458/sections/sec-000",
@@ -40,10 +40,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of WHO_HIV_AIDS_2001.05_eng.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-42458",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-42458.dc.json dc.title",
     "source_file": "10665-42458.pdf",
     "source_sha256": "ec76d912c35220079cfc5c99bdd8eec8d4a9acc92cedf147ff3c41d7d0564b09",
     "pages": 52,

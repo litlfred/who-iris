@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-379160",
+  "title": "تصنيف التدخلات والخدمات والتطبيقات الرقمية في مجال الصحة: لغة مشتركة لوصف استخدامات التكنولوجيا الرقمية من أجل الصحة",
   "contains": [
     "library/10665-379160/sections/page-001",
     "library/10665-379160/sections/page-002",
@@ -78,9 +78,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9789240093768-ara.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-379160",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-379160.dc.json dc.title",
     "source_file": "10665-379160.pdf",
     "source_sha256": "4a6b26a0e704cfd0146321d73517da2ef8d192079290d602a2e849a3aacd0ccc",
     "pages": 64,

@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "PERSON-CENTRED HIV STRATEGIC INFORMATION",
+  "title": "Consolidated guidelines on person-centred HIV strategic information: strengthening routine data for impact",
   "contains": [
     "library/10665-360948/sections/sec-front-matter",
     "library/10665-360948/sections/sec-000",
@@ -210,11 +210,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240055315-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-\nShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-360948",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-360948.dc.json dc.title",
     "source_file": "10665-360948.pdf",
     "source_sha256": "2647e4d36f0be1488c282ed60b846d8e3947faef9b5e9800c9f8fea9a355844f",
     "pages": 424,

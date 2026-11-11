@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "LONG-ACTING INJECTABLE CABOTEGRAVIR FOR HIV PREVENTION",
+  "title": "Guidelines on long-acting injectable cabotegravir for HIV prevention",
   "contains": [
     "library/10665-360869/sections/sec-front-matter",
     "library/10665-360869/sections/sec-000",
@@ -53,11 +53,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240054097-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-\nNonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-360869",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-360869.dc.json dc.title",
     "source_file": "10665-360869.pdf",
     "source_sha256": "b4283ebf5938054a660d231523aeadd3ef89daa29e7e84f3eae507848f6bcb07",
     "pages": 40,

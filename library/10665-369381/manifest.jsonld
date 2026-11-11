@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Integrated health services analysis: District and facility level",
+  "title": "Toolkit for analysis and use of routine health facility data: integrated health services analysis: district and facility level",
   "contains": [
     "library/10665-369381/sections/sec-front-matter",
     "library/10665-369381/sections/sec-000",
@@ -72,11 +72,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240060609-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-369381",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-369381.dc.json dc.title",
     "source_file": "10665-369381.pdf",
     "source_sha256": "ddf752af7a244e49b4207091195f66eeec5c384f27b55fa61f84b3b02d783a13",
     "pages": 120,

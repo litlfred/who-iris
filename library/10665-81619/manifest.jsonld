@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-81619",
+  "title": "Третий доклад Комитета А : (проект)",
   "contains": [
     "library/10665-81619/sections/page-001",
     "library/10665-81619/sections/page-002",
@@ -24,9 +24,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of ra5448.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-81619",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-81619.dc.json dc.title",
     "source_file": "10665-81619.pdf",
     "source_sha256": "3b4d0e10dc686297b4bc307e20b73396617503b122794b7ad27608d877907310",
     "pages": 10,

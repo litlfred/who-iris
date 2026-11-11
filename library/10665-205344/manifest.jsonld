@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Information Education and Communication",
+  "title": "Information, education and communication: a guide for AIDS programme managers",
   "contains": [
     "library/10665-205344/sections/page-001",
     "library/10665-205344/sections/page-002",
@@ -52,10 +52,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of B0224.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-205344",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-205344.dc.json dc.title",
     "source_file": "10665-205344.pdf",
     "source_sha256": "0fdcc9d570f32d5fc24ad8f63cf7f3385829974b9138cf60b9f0138c24e979f2",
     "pages": 38,

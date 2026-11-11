@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "#10 Testing module",
+  "title": "WHO implementation tool for pre-exposure prophylaxis (PrEP) of HIV infection: module 10: testing providers",
   "contains": [
     "library/10665-258516/sections/sec-front-matter",
     "library/10665-258516/sections/sec-000",
@@ -29,10 +29,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "WHO-HIV-2017.30-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-258516",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-258516.dc.json dc.title",
     "source_file": "10665-258516.pdf",
     "source_sha256": "7dd9b48bde7dfc3ffc3f99a6204ef985e3bdd7ce618bedb28ef52e42d9d680c1",
     "pages": 24,

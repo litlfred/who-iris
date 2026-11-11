@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-232378",
+  "title": "OUTBREAK NEWS : Development of a vaccine effective against avian influenza H5N1 infection in humans",
   "contains": [
     "library/10665-232378/sections/page-001",
     "library/10665-232378/sections/page-002",
@@ -27,9 +27,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of WER7904_25-40_ARA.PDF, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-232378",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-232378.dc.json dc.title",
     "source_file": "10665-232378.pdf",
     "source_sha256": "cc704385d0fbd735e9cc81e363bf30971d1e02c98ef78df2e4f8849561c15bc3",
     "pages": 13,

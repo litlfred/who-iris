@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Use of tuberculosis interferon-gamma release assays (IGRAs) in low- and middle-income countries",
+  "title": "Use of tuberculosis interferon-gamma release assays (IGRAs) in low- and middle-income countries : policy statement",
   "contains": [
     "library/10665-44759/sections/sec-front-matter",
     "library/10665-44759/sections/sec-000",
@@ -57,11 +57,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9789241502672_eng.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-44759",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-44759.dc.json dc.title",
     "source_file": "10665-44759.pdf",
     "source_sha256": "a9334cedbf720a2d9fb4a64a2d031a2c01c15d142a89783d4ff0202d0a6277c1",
     "pages": 70,

@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO consolidated guidelines on tuberculosis: tuberculosis preventive treatment",
+  "title": "WHO consolidated guidelines on tuberculosis: module 1: prevention: tuberculosis preventive treatment",
   "contains": [
     "library/10665-331170/sections/sec-front-matter",
     "library/10665-331170/sections/sec-000",
@@ -30,10 +30,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240001503-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-331170",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-331170.dc.json dc.title",
     "source_file": "10665-331170.pdf",
     "source_sha256": "2b115de4c00aaeb26cf0bdcb05f585140bed7dc7002742efe45a2b4c33596c0e",
     "pages": 56,

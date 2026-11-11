@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO consolidated guidelines on tuberculosis. Module 3: Diagnosis",
+  "title": "WHO consolidated guidelines on tuberculosis: module 3: diagnosis: web annex B: evidence synthesis and analysis",
   "contains": [
     "library/10665-381036/sections/page-001",
     "library/10665-381036/sections/page-002",
@@ -1183,11 +1183,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "B09341-eng.pdf, derived section page-002.md: \"Creative Commons Attribution-NonCommercial-\nShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-381036",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-381036.dc.json dc.title",
     "source_file": "10665-381036.pdf",
     "source_sha256": "83e481b3ccc61cf40773b6743c79186ae2dd1b160fc255606910f7f962c0dd16",
     "pages": 1169,

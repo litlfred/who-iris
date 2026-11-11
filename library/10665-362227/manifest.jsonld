@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO IMPLEMENTATION TOOL FOR PRE-EXPOSURE PROPHYLAXIS (PrEP) OF HIV INFECTION",
+  "title": "WHO implementation tool for pre-exposure prophylaxis (PrEP) of HIV infection: module 13: integrating STI services",
   "contains": [
     "library/10665-362227/sections/sec-front-matter",
     "library/10665-362227/sections/sec-000",
@@ -56,11 +56,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240057425-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-362227",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-362227.dc.json dc.title",
     "source_file": "10665-362227.pdf",
     "source_sha256": "22a6ad2521e462ec1c4329147a2e97a52288e29de10de3b853e5c31831d0dbf8",
     "pages": 50,

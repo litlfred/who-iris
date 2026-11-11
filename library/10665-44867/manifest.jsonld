@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Preparación para una gripe pandémica",
+  "title": "Preparación para una gripe pandémica: marco para el intercambio de virus gripales y el acceso a las vacunas y otros beneficios",
   "contains": [
     "library/10665-44867/sections/sec-front-matter",
     "library/10665-44867/sections/sec-000",
@@ -53,11 +53,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9789243503080_spa.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-44867",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-44867.dc.json dc.title",
     "source_file": "10665-44867.pdf",
     "source_sha256": "d3373da35f0e649072bd9833f5609ca1dbc6121987e6d016415a0e9a3915f671",
     "pages": 68,
