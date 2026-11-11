@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p012",
-      "file": "figures/vfig-p012.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p012.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a layered arrow diagram of UHC coverage dimensions",
         "page": 12
       },
       "page": 12,
@@ -103,18 +107,99 @@
         ],
         "between": [],
         "outside": 18
-      }
+      },
+      "shows": [
+        "Figure 1"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram of layers of UHC achievement affected by health system performance (Figure 1), adapted from Tanahashi. Horizontal arrows of decreasing length are grouped by dimension: Accountability (accountability coverage), Supply (availability of commodities and equipment, of human resources, accessibility of health facilities), Demand (contact coverage, continuous coverage), Quality (effective coverage) and Affordability (financial coverage). Dotted lines show each layer's gap from the 'Health system goal', labelled 'Potential for digital health interventions', above a 'Target population' base.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط لطبقات تحقيق التغطية الصحية الشاملة المتأثرة بأداء النظام الصحي (الشكل 1)، مقتبس من نموذج تاناهاشي. تُجمَّع أسهم أفقية متناقصة الطول بحسب البُعد: المساءلة (تغطية المساءلة)، والعرض (توافر السلع والمعدات، وتوافر الموارد البشرية، وإمكانية الوصول إلى المرافق الصحية)، والطلب (تغطية الاتصال، والتغطية المستمرة)، والجودة (التغطية الفعالة)، والقدرة على تحمل التكاليف (التغطية المالية). وتبيّن خطوط منقطة الفجوة بين كل طبقة و«هدف النظام الصحي»، بعنوان «إمكانات التدخلات الصحية الرقمية»، فوق قاعدة «الفئة السكانية المستهدفة».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "受卫生系统绩效影响的全民健康覆盖实现层级示意图（图1），改编自Tanahashi模型。长度递减的横向箭头按维度分组：问责（问责覆盖）、供给（商品和设备的可得性、人力资源的可得性、卫生设施的可及性）、需求（接触覆盖、持续覆盖）、质量（有效覆盖）和可负担性（财务覆盖）。虚线表示各层与“卫生系统目标”之间的差距，标注为“数字卫生干预措施的潜力”，底部为“目标人群”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de los niveles de logro de la CSU afectados por el desempeño del sistema de salud (figura 1), adaptado de Tanahashi. Flechas horizontales de longitud decreciente se agrupan por dimensión: rendición de cuentas (cobertura de rendición de cuentas), oferta (disponibilidad de productos y equipos, de recursos humanos, accesibilidad de los establecimientos de salud), demanda (cobertura de contacto, cobertura continua), calidad (cobertura efectiva) y asequibilidad (cobertura financiera). Líneas de puntos muestran la brecha de cada nivel respecto a la «Meta del sistema de salud», rotulada «Potencial de las intervenciones digitales en salud», sobre una base de «Población destinataria».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma des niveaux de réalisation de la CSU influencés par la performance du système de santé (figure 1), adapté de Tanahashi. Des flèches horizontales de longueur décroissante sont regroupées par dimension : redevabilité (couverture de redevabilité), offre (disponibilité des produits et équipements, des ressources humaines, accessibilité des établissements de santé), demande (couverture de contact, couverture continue), qualité (couverture effective) et accessibilité financière (couverture financière). Des lignes pointillées indiquent l’écart de chaque niveau par rapport à l’« Objectif du système de santé », intitulé « Potentiel des interventions de santé numérique », au-dessus d’une base « Population cible ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема уровней достижения ВОУЗ, зависящих от работы системы здравоохранения (рисунок 1), адаптированная по Танахаши. Горизонтальные стрелки убывающей длины сгруппированы по измерениям: подотчетность (охват учетом), предложение (наличие товаров и оборудования, кадровых ресурсов, доступность медицинских учреждений), спрос (контактный охват, непрерывный охват), качество (эффективный охват) и финансовая доступность (финансовый охват). Пунктирные линии показывают разрыв каждого уровня до «Цели системы здравоохранения», обозначенный как «Потенциал цифровых мер в области здравоохранения», над основанием «Целевая группа населения».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p015",
-      "file": "figures/vfig-p015.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p015.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a block diagram of components of digital health implementations",
         "page": 15
       },
       "page": 15,
@@ -472,18 +557,99 @@
         ],
         "between": [],
         "outside": 20
-      }
+      },
+      "shows": [
+        "Figure 2"
+      ],
+      "narrative": [
+        {
+          "text": "Block diagram of components of digital health implementations (Figure 2). Health content + Digital health interventions + Digital applications are shown as three coloured boxes joined by plus signs. Below, a 'Foundational layer: ICT and enabling environment' grid shows Leadership & governance across the top, with Strategy & investment; Services & applications (highlighted), Standards & interoperability and Infrastructure; Legislation, policy & compliance; and Workforce.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط كتلي لمكونات تنفيذ الصحة الرقمية (الشكل 2). يظهر المحتوى الصحي + التدخلات الصحية الرقمية + التطبيقات الرقمية في ثلاثة مربعات ملونة تربطها علامات الجمع. وفي الأسفل شبكة «الطبقة التأسيسية: تكنولوجيا المعلومات والاتصالات والبيئة التمكينية» تضم القيادة والحوكمة في الأعلى، ثم الاستراتيجية والاستثمار؛ والخدمات والتطبيقات (مميزة)، والمعايير وقابلية التشغيل البيني، والبنية التحتية؛ والتشريعات والسياسات والامتثال؛ والقوى العاملة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "数字卫生实施组成部分的框图（图2）。卫生内容 + 数字卫生干预措施 + 数字应用程序以三个由加号连接的彩色方框表示。下方为“基础层：信息通信技术和有利环境”网格，顶部为领导和治理，其下为战略和投资；服务和应用程序（突出显示）、标准和互操作性及基础设施；立法、政策和合规；以及卫生人力。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de bloques de los componentes de las implementaciones de salud digital (figura 2). Contenido sanitario + intervenciones digitales en salud + aplicaciones digitales se muestran como tres recuadros de colores unidos por signos más. Debajo, una cuadrícula «Capa fundamental: TIC y entorno propicio» muestra liderazgo y gobernanza en la parte superior, con estrategia e inversión; servicios y aplicaciones (resaltado), normas e interoperabilidad e infraestructura; legislación, políticas y cumplimiento; y personal.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma fonctionnel des composantes des mises en œuvre de la santé numérique (figure 2). Contenu sanitaire + interventions de santé numérique + applications numériques sont représentés par trois encadrés colorés reliés par des signes plus. En dessous, une grille « Couche fondamentale : TIC et environnement favorable » montre leadership et gouvernance en haut, avec stratégie et investissement ; services et applications (mis en évidence), normes et interopérabilité et infrastructure ; législation, politiques et conformité ; et personnel.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема компонентов внедрения цифровых технологий в здравоохранении (рисунок 2). Медицинский контент + цифровые меры в области здравоохранения + цифровые приложения показаны тремя цветными блоками, соединенными знаками «плюс». Ниже — сетка «Базовый уровень: ИКТ и благоприятная среда»: сверху руководство и управление, далее стратегия и инвестиции; услуги и приложения (выделено), стандарты и совместимость, инфраструктура; законодательство, политика и соблюдение норм; кадровые ресурсы.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p019",
-      "file": "figures/vfig-p019.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p019.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a classification chart of digital health interventions with highlighted items",
         "page": 19
       },
       "page": 19,
@@ -1314,7 +1480,7 @@
               369.13,
               358.93,
               426.76,
-              371.0
+              371
             ],
             "parent": "b2",
             "labels": [
@@ -1461,7 +1627,7 @@
             "bbox": [
               369.13,
               282.14,
-              382.0,
+              382,
               351.44
             ],
             "parent": "b2",
@@ -1476,7 +1642,7 @@
           {
             "id": "b37",
             "bbox": [
-              382.0,
+              382,
               282.14,
               426.76,
               351.44
@@ -1504,7 +1670,7 @@
             "bbox": [
               369.13,
               372.99,
-              382.0,
+              382,
               408.91
             ],
             "parent": "b2",
@@ -1517,7 +1683,7 @@
           {
             "id": "b39",
             "bbox": [
-              382.0,
+              382,
               372.99,
               426.76,
               408.91
@@ -1538,7 +1704,7 @@
             "bbox": [
               369.13,
               430.92,
-              382.0,
+              382,
               452.17
             ],
             "parent": "b2",
@@ -1550,7 +1716,7 @@
           {
             "id": "b41",
             "bbox": [
-              382.0,
+              382,
               430.92,
               426.76,
               452.17
@@ -2270,7 +2436,7 @@
             "bbox": [
               369.13,
               574.29,
-              382.0,
+              382,
               610.21
             ],
             "parent": "b2",
@@ -2283,7 +2449,7 @@
           {
             "id": "b86",
             "bbox": [
-              382.0,
+              382,
               574.29,
               426.76,
               610.21
@@ -3146,7 +3312,7 @@
             "bbox": [
               368.91,
               268.07,
-              382.0,
+              382,
               268.07
             ]
           },
@@ -3154,7 +3320,7 @@
             "from": "b25",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               268.07,
               426.99,
               268.07
@@ -3166,7 +3332,7 @@
             "bbox": [
               368.91,
               280.14,
-              382.0,
+              382,
               280.14
             ]
           },
@@ -3174,7 +3340,7 @@
             "from": "b25",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               280.14,
               426.99,
               280.14
@@ -3186,7 +3352,7 @@
             "bbox": [
               368.91,
               358.93,
-              382.0,
+              382,
               358.93
             ]
           },
@@ -3194,7 +3360,7 @@
             "from": "b26",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               358.93,
               426.99,
               358.93
@@ -3205,19 +3371,19 @@
             "to": "b26",
             "bbox": [
               368.91,
-              371.0,
-              382.0,
-              371.0
+              371,
+              382,
+              371
             ]
           },
           {
             "from": "b26",
             "to": "b2",
             "bbox": [
-              382.0,
-              371.0,
+              382,
+              371,
               426.99,
-              371.0
+              371
             ]
           },
           {
@@ -3226,7 +3392,7 @@
             "bbox": [
               368.91,
               412.36,
-              382.0,
+              382,
               412.36
             ]
           },
@@ -3234,7 +3400,7 @@
             "from": "b27",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               412.36,
               426.99,
               412.36
@@ -3246,7 +3412,7 @@
             "bbox": [
               368.91,
               428.92,
-              382.0,
+              382,
               428.92
             ]
           },
@@ -3254,7 +3420,7 @@
             "from": "b27",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               428.92,
               426.99,
               428.92
@@ -3476,7 +3642,7 @@
             "bbox": [
               368.91,
               282.14,
-              382.0,
+              382,
               282.14
             ]
           },
@@ -3484,7 +3650,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               282.14,
               426.99,
               282.14
@@ -3496,7 +3662,7 @@
             "bbox": [
               368.91,
               296.81,
-              382.0,
+              382,
               296.81
             ]
           },
@@ -3504,7 +3670,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               296.81,
               426.99,
               296.81
@@ -3516,7 +3682,7 @@
             "bbox": [
               368.91,
               311.48,
-              382.0,
+              382,
               311.48
             ]
           },
@@ -3524,7 +3690,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               311.48,
               426.99,
               311.48
@@ -3536,7 +3702,7 @@
             "bbox": [
               368.91,
               326.14,
-              382.0,
+              382,
               326.14
             ]
           },
@@ -3544,7 +3710,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               326.14,
               426.99,
               326.14
@@ -3556,7 +3722,7 @@
             "bbox": [
               368.91,
               340.81,
-              382.0,
+              382,
               340.81
             ]
           },
@@ -3564,7 +3730,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               340.81,
               426.99,
               340.81
@@ -3576,7 +3742,7 @@
             "bbox": [
               368.91,
               351.44,
-              382.0,
+              382,
               351.44
             ]
           },
@@ -3584,7 +3750,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               351.44,
               426.99,
               351.44
@@ -3596,7 +3762,7 @@
             "bbox": [
               368.91,
               372.99,
-              382.0,
+              382,
               372.99
             ]
           },
@@ -3604,7 +3770,7 @@
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               372.99,
               426.99,
               372.99
@@ -3616,7 +3782,7 @@
             "bbox": [
               368.91,
               383.62,
-              382.0,
+              382,
               383.62
             ]
           },
@@ -3624,7 +3790,7 @@
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               383.62,
               426.99,
               383.62
@@ -3636,7 +3802,7 @@
             "bbox": [
               368.91,
               398.29,
-              382.0,
+              382,
               398.29
             ]
           },
@@ -3644,7 +3810,7 @@
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               398.29,
               426.99,
               398.29
@@ -3656,7 +3822,7 @@
             "bbox": [
               368.91,
               408.91,
-              382.0,
+              382,
               408.91
             ]
           },
@@ -3664,7 +3830,7 @@
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               408.91,
               426.99,
               408.91
@@ -3676,7 +3842,7 @@
             "bbox": [
               368.91,
               430.92,
-              382.0,
+              382,
               430.92
             ]
           },
@@ -3684,7 +3850,7 @@
             "from": "b40",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               430.92,
               426.99,
               430.92
@@ -3696,7 +3862,7 @@
             "bbox": [
               368.91,
               441.54,
-              382.0,
+              382,
               441.54
             ]
           },
@@ -3704,7 +3870,7 @@
             "from": "b40",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               441.54,
               426.99,
               441.54
@@ -3716,7 +3882,7 @@
             "bbox": [
               368.91,
               452.17,
-              382.0,
+              382,
               452.17
             ]
           },
@@ -3724,7 +3890,7 @@
             "from": "b40",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               452.17,
               426.99,
               452.17
@@ -4856,7 +5022,7 @@
             "bbox": [
               368.91,
               560.22,
-              382.0,
+              382,
               560.22
             ]
           },
@@ -4864,7 +5030,7 @@
             "from": "b78",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               560.22,
               426.99,
               560.22
@@ -4876,7 +5042,7 @@
             "bbox": [
               368.91,
               572.29,
-              382.0,
+              382,
               572.29
             ]
           },
@@ -4884,7 +5050,7 @@
             "from": "b78",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               572.29,
               426.99,
               572.29
@@ -5016,7 +5182,7 @@
             "bbox": [
               368.91,
               574.29,
-              382.0,
+              382,
               574.29
             ]
           },
@@ -5024,7 +5190,7 @@
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               574.29,
               426.99,
               574.29
@@ -5036,7 +5202,7 @@
             "bbox": [
               368.91,
               584.91,
-              382.0,
+              382,
               584.91
             ]
           },
@@ -5044,7 +5210,7 @@
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               584.91,
               426.99,
               584.91
@@ -5056,7 +5222,7 @@
             "bbox": [
               368.91,
               599.58,
-              382.0,
+              382,
               599.58
             ]
           },
@@ -5064,7 +5230,7 @@
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               599.58,
               426.99,
               599.58
@@ -5076,7 +5242,7 @@
             "bbox": [
               368.91,
               610.21,
-              382.0,
+              382,
               610.21
             ]
           },
@@ -5084,7 +5250,7 @@
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               610.21,
               426.99,
               610.21
@@ -5113,18 +5279,99 @@
         ],
         "between": [],
         "outside": 5
-      }
+      },
+      "shows": [
+        "Figure 3"
+      ],
+      "narrative": [
+        {
+          "text": "Chart of interventions targeted in the guideline (Figure 3), based on the WHO Classification of digital health interventions v1.0, in four panels: 1.0 Clients, 2.0 Health workers, 3.0 Health system managers and 4.0 Data services, each listing numbered intervention categories. Orange outlines mark those included: solid for full inclusion (e.g. 1.1 targeted client communication, 2.2 client health records, 2.3 health worker decision support, 2.4 telemedicine, 2.8 health worker training, 3.2 supply chain management, 3.4 civil registration and vital statistics) and dotted for partial inclusion (e.g. 2.6 referral coordination).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط للتدخلات المستهدفة في المبدأ التوجيهي (الشكل 3)، استنادًا إلى تصنيف المنظمة للتدخلات الصحية الرقمية، الإصدار 1.0، في أربع لوحات: 1.0 العملاء، و2.0 العاملون الصحيون، و3.0 مديرو النظم الصحية، و4.0 خدمات البيانات، وتسرد كل منها فئات تدخلات مرقمة. وتميّز أطر برتقالية التدخلات المشمولة: متصلة للإدراج الكامل (مثل 1.1 التواصل الموجّه مع العملاء، و2.2 السجلات الصحية للعملاء، و2.3 دعم القرار للعاملين الصحيين، و2.4 التطبيب عن بُعد، و2.8 تدريب العاملين الصحيين، و3.2 إدارة سلسلة الإمداد، و3.4 التسجيل المدني والإحصاءات الحيوية) ومنقطة للإدراج الجزئي (مثل 2.6 تنسيق الإحالة).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "本指南所针对干预措施的图表（图3），基于世卫组织数字卫生干预措施分类第1.0版，分为四个部分：1.0服务对象、2.0卫生工作者、3.0卫生系统管理者和4.0数据服务，各列出编号的干预类别。橙色框标出纳入的类别：实线表示完全纳入（如1.1针对性的服务对象沟通、2.2服务对象健康记录、2.3卫生工作者决策支持、2.4远程医疗、2.8卫生工作者培训、3.2供应链管理、3.4民事登记和人口动态统计），虚线表示部分纳入（如2.6转诊协调）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Gráfico de las intervenciones abordadas en la directriz (figura 3), basado en la Clasificación de la OMS de las intervenciones digitales en salud v1.0, en cuatro paneles: 1.0 Clientes, 2.0 Trabajadores de salud, 3.0 Gestores de sistemas de salud y 4.0 Servicios de datos, cada uno con categorías de intervención numeradas. Los contornos naranjas marcan las incluidas: continuos para la inclusión completa (p. ej., 1.1 comunicación dirigida a los clientes, 2.2 historias clínicas de los clientes, 2.3 apoyo a las decisiones de los trabajadores de salud, 2.4 telemedicina, 2.8 formación de los trabajadores de salud, 3.2 gestión de la cadena de suministro, 3.4 registro civil y estadísticas vitales) y punteados para la inclusión parcial (p. ej., 2.6 coordinación de la derivación).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Graphique des interventions ciblées par la ligne directrice (figure 3), fondé sur la Classification OMS des interventions de santé numérique v1.0, en quatre volets : 1.0 Clients, 2.0 Agents de santé, 3.0 Gestionnaires du système de santé et 4.0 Services de données, chacun énumérant des catégories d’interventions numérotées. Des contours orange signalent celles qui sont incluses : en trait plein pour une inclusion complète (p. ex. 1.1 communication ciblée avec les clients, 2.2 dossiers de santé des clients, 2.3 aide à la décision pour les agents de santé, 2.4 télémédecine, 2.8 formation des agents de santé, 3.2 gestion de la chaîne d’approvisionnement, 3.4 enregistrement des faits d’état civil et statistiques de l’état civil) et en pointillés pour une inclusion partielle (p. ex. 2.6 coordination de l’orientation-recours).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема мер, охватываемых руководством (рисунок 3), на основе Классификации ВОЗ цифровых мер в области здравоохранения, версия 1.0, в четырех панелях: 1.0 Клиенты, 2.0 Работники здравоохранения, 3.0 Руководители системы здравоохранения и 4.0 Услуги данных, каждая с пронумерованными категориями мер. Оранжевые рамки отмечают включенные: сплошные — полное включение (например, 1.1 адресная коммуникация с клиентами, 2.2 медицинские записи клиентов, 2.3 поддержка принятия решений работниками здравоохранения, 2.4 телемедицина, 2.8 обучение работников здравоохранения, 3.2 управление цепочкой поставок, 3.4 регистрация актов гражданского состояния и статистика естественного движения населения), пунктирные — частичное включение (например, 2.6 координация направлений).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p024",
-      "file": "figures/vfig-p024.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p024.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "an illustrated pathway diagram linking ten recommendations",
         "page": 24
       },
       "page": 24,
@@ -5568,7 +5815,7 @@
             "bbox": [
               157.24,
               731.17,
-              254.0,
+              254,
               763.87
             ],
             "parent": "b1",
@@ -5876,7 +6123,7 @@
             "bbox": [
               447.22,
               737.71,
-              449.0,
+              449,
               740.46
             ]
           },
@@ -5903,18 +6150,99 @@
         ],
         "between": [],
         "outside": 9
-      }
+      },
+      "shows": [
+        "Figure 4"
+      ],
+      "narrative": [
+        {
+          "text": "Illustrated diagram of linkages of the recommendations across the health system (Figure 4). Dotted arrows connect illustrated panels describing outcomes, such as 'Births are notified and accounted for to receive services', 'Individuals can access health services and information', 'Health workers are accessible', 'Health commodities and supplies are available at the point of care', 'Health workers can provide appropriate and high quality care' and 'Deaths are notified and accounted for'. Each panel carries recommendation labels 1 to 10 (e.g. birth notification, death notification, stock notification and commodity management, telemedicine, targeted client communication, decision support, digital tracking, provision of training) with their status and a dimension tag (accountability, supply, demand or quality).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط مصوّر للروابط بين التوصيات عبر النظام الصحي (الشكل 4). تربط أسهم منقطة بين لوحات مصورة تصف النتائج، مثل «الإخطار بالمواليد واحتسابهم لتلقي الخدمات»، و«يمكن للأفراد الوصول إلى الخدمات والمعلومات الصحية»، و«العاملون الصحيون متاحون»، و«السلع والإمدادات الصحية متوفرة في مكان تقديم الرعاية»، و«يمكن للعاملين الصحيين تقديم رعاية ملائمة وعالية الجودة»، و«الإخطار بالوفيات واحتسابها». وتحمل كل لوحة تسميات التوصيات من 1 إلى 10 (مثل الإخطار بالمواليد، والإخطار بالوفيات، والإخطار بالمخزون وإدارة السلع، والتطبيب عن بُعد، والتواصل الموجّه مع العملاء، ودعم القرار، والتتبع الرقمي، وتوفير التدريب) مع حالتها ووسم البُعد (المساءلة أو العرض أو الطلب أو الجودة).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "建议在整个卫生系统中相互关联的图解示意图（图4）。虚线箭头连接描述结果的插图面板，如“出生得到通报和登记以获得服务”“个人可以获得卫生服务和信息”“卫生工作者可及”“护理点有卫生商品和用品”“卫生工作者能够提供适当和高质量的护理”以及“死亡得到通报和登记”。每个面板带有建议1至10的标签（如出生通报、死亡通报、库存通报和商品管理、远程医疗、针对性的服务对象沟通、决策支持、数字追踪、提供培训），并注明其推荐状态和维度标签（问责、供给、需求或质量）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama ilustrado de los vínculos entre las recomendaciones en todo el sistema de salud (figura 4). Flechas de puntos conectan paneles ilustrados que describen resultados, como «Los nacimientos se notifican y registran para recibir servicios», «Las personas pueden acceder a servicios e información de salud», «Los trabajadores de salud son accesibles», «Los productos y suministros sanitarios están disponibles en el punto de atención», «Los trabajadores de salud pueden prestar una atención adecuada y de alta calidad» y «Las defunciones se notifican y registran». Cada panel lleva etiquetas de las recomendaciones 1 a 10 (p. ej., notificación de nacimientos, notificación de defunciones, notificación de existencias y gestión de productos, telemedicina, comunicación dirigida a los clientes, apoyo a las decisiones, seguimiento digital, formación) con su estado y una etiqueta de dimensión (rendición de cuentas, oferta, demanda o calidad).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma illustré des liens entre les recommandations dans l’ensemble du système de santé (figure 4). Des flèches en pointillés relient des panneaux illustrés décrivant des résultats, tels que « Les naissances sont notifiées et comptabilisées pour recevoir des services », « Les personnes peuvent accéder aux services et informations de santé », « Les agents de santé sont accessibles », « Les produits et fournitures de santé sont disponibles au point de soins », « Les agents de santé peuvent dispenser des soins appropriés et de qualité » et « Les décès sont notifiés et comptabilisés ». Chaque panneau porte des étiquettes des recommandations 1 à 10 (p. ex. notification des naissances, notification des décès, notification des stocks et gestion des produits, télémédecine, communication ciblée avec les clients, aide à la décision, suivi numérique, formation) avec leur statut et une étiquette de dimension (redevabilité, offre, demande ou qualité).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Иллюстрированная схема взаимосвязей рекомендаций в системе здравоохранения (рисунок 4). Пунктирные стрелки соединяют иллюстрированные панели с описанием результатов, например «Рождения регистрируются и учитываются для получения услуг», «Люди имеют доступ к медицинским услугам и информации», «Работники здравоохранения доступны», «Медицинские товары и материалы имеются в месте оказания помощи», «Работники здравоохранения могут оказывать надлежащую и качественную помощь» и «Смерти регистрируются и учитываются». На каждой панели — метки рекомендаций 1–10 (например, уведомление о рождении, уведомление о смерти, уведомление о запасах и управление товарами, телемедицина, адресная коммуникация с клиентами, поддержка принятия решений, цифровое отслеживание, обучение) с их статусом и меткой измерения (подотчетность, предложение, спрос или качество).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p027",
-      "file": "figures/vfig-p027.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p027.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a layered arrow diagram of UHC coverage dimensions",
         "page": 27
       },
       "page": 27,
@@ -6003,18 +6331,99 @@
         "connectors": [],
         "between": [],
         "outside": 2
-      }
+      },
+      "shows": [
+        "Figure 1.1"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram of layers of UHC achievement affected by health system performance (Figure 1.1), adapted from Tanahashi. Horizontal arrows of decreasing length are grouped by dimension: Accountability (accountability coverage), Supply (availability of commodities and equipment, of human resources, accessibility of health facilities), Demand (contact coverage, continuous coverage), Quality (effective coverage) and Affordability (financial coverage). Dotted lines show each layer's gap from the 'Health system goal', labelled 'Potential for digital health interventions', above a 'Target population' base.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط لطبقات تحقيق التغطية الصحية الشاملة المتأثرة بأداء النظام الصحي (الشكل 1.1)، مقتبس من نموذج تاناهاشي. تُجمَّع أسهم أفقية متناقصة الطول بحسب البُعد: المساءلة (تغطية المساءلة)، والعرض (توافر السلع والمعدات، وتوافر الموارد البشرية، وإمكانية الوصول إلى المرافق الصحية)، والطلب (تغطية الاتصال، والتغطية المستمرة)، والجودة (التغطية الفعالة)، والقدرة على تحمل التكاليف (التغطية المالية). وتبيّن خطوط منقطة الفجوة بين كل طبقة و«هدف النظام الصحي»، بعنوان «إمكانات التدخلات الصحية الرقمية»، فوق قاعدة «الفئة السكانية المستهدفة».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "受卫生系统绩效影响的全民健康覆盖实现层级示意图（图1.1），改编自Tanahashi模型。长度递减的横向箭头按维度分组：问责（问责覆盖）、供给（商品和设备的可得性、人力资源的可得性、卫生设施的可及性）、需求（接触覆盖、持续覆盖）、质量（有效覆盖）和可负担性（财务覆盖）。虚线表示各层与“卫生系统目标”之间的差距，标注为“数字卫生干预措施的潜力”，底部为“目标人群”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de los niveles de logro de la CSU afectados por el desempeño del sistema de salud (figura 1.1), adaptado de Tanahashi. Flechas horizontales de longitud decreciente se agrupan por dimensión: rendición de cuentas (cobertura de rendición de cuentas), oferta (disponibilidad de productos y equipos, de recursos humanos, accesibilidad de los establecimientos de salud), demanda (cobertura de contacto, cobertura continua), calidad (cobertura efectiva) y asequibilidad (cobertura financiera). Líneas de puntos muestran la brecha de cada nivel respecto a la «Meta del sistema de salud», rotulada «Potencial de las intervenciones digitales en salud», sobre una base de «Población destinataria».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma des niveaux de réalisation de la CSU influencés par la performance du système de santé (figure 1.1), adapté de Tanahashi. Des flèches horizontales de longueur décroissante sont regroupées par dimension : redevabilité (couverture de redevabilité), offre (disponibilité des produits et équipements, des ressources humaines, accessibilité des établissements de santé), demande (couverture de contact, couverture continue), qualité (couverture effective) et accessibilité financière (couverture financière). Des lignes pointillées indiquent l’écart de chaque niveau par rapport à l’« Objectif du système de santé », intitulé « Potentiel des interventions de santé numérique », au-dessus d’une base « Population cible ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема уровней достижения ВОУЗ, зависящих от работы системы здравоохранения (рисунок 1.1), адаптированная по Танахаши. Горизонтальные стрелки убывающей длины сгруппированы по измерениям: подотчетность (охват учетом), предложение (наличие товаров и оборудования, кадровых ресурсов, доступность медицинских учреждений), спрос (контактный охват, непрерывный охват), качество (эффективный охват) и финансовая доступность (финансовый охват). Пунктирные линии показывают разрыв каждого уровня до «Цели системы здравоохранения», обозначенный как «Потенциал цифровых мер в области здравоохранения», над основанием «Целевая группа населения».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p029",
-      "file": "figures/vfig-p029.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p029.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a diagram of digital interventions bridging health system challenges",
         "page": 29
       },
       "page": 29,
@@ -6198,18 +6607,99 @@
         ],
         "between": [],
         "outside": 9
-      }
+      },
+      "shows": [
+        "Figure 1.2"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram of digital health interventions to overcome health system challenges (Figure 1.2). A rising arrow runs from 'Intervention of known efficacy' to 'Quality & coverage of health intervention', interrupted by health system challenges (low demand for services; poor adherence to guidelines; insufficient supply of commodities, insufficient supply of qualified health workers, geographic inaccessibility). Green arcs with phone, laptop and tablet icons, labelled 'Digital health interventions', bridge over each challenge.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط للتدخلات الصحية الرقمية للتغلب على تحديات النظام الصحي (الشكل 1.2). يمتد سهم صاعد من «تدخل معروف الفعالية» إلى «جودة التدخل الصحي وتغطيته»، تقطعه تحديات النظام الصحي (ضعف الطلب على الخدمات؛ وضعف الالتزام بالمبادئ التوجيهية؛ ونقص الإمداد بالسلع، ونقص العاملين الصحيين المؤهلين، وتعذر الوصول الجغرافي). وتعبر أقواس خضراء تحمل أيقونات هاتف وحاسوب محمول وجهاز لوحي، بعنوان «التدخلات الصحية الرقمية»، فوق كل تحدٍّ.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "数字卫生干预措施克服卫生系统挑战示意图（图1.2）。一条上升箭头从“已知疗效的干预措施”通向“卫生干预措施的质量和覆盖”，中途被卫生系统挑战打断（服务需求低；对指南依从性差；商品供应不足、合格卫生工作者供应不足、地理上难以到达）。带有手机、笔记本电脑和平板电脑图标、标注“数字卫生干预措施”的绿色弧线跨越每项挑战。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de las intervenciones digitales en salud para superar los retos del sistema de salud (figura 1.2). Una flecha ascendente va de «Intervención de eficacia conocida» a «Calidad y cobertura de la intervención de salud», interrumpida por retos del sistema de salud (baja demanda de servicios; escaso cumplimiento de las directrices; suministro insuficiente de productos, de trabajadores de salud cualificados, inaccesibilidad geográfica). Arcos verdes con iconos de teléfono, portátil y tableta, rotulados «Intervenciones digitales en salud», salvan cada reto.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma des interventions de santé numérique pour surmonter les difficultés du système de santé (figure 1.2). Une flèche ascendante va de « Intervention d’efficacité connue » à « Qualité et couverture de l’intervention de santé », interrompue par des difficultés du système de santé (faible demande de services ; mauvaise observance des lignes directrices ; approvisionnement insuffisant en produits, en agents de santé qualifiés, inaccessibilité géographique). Des arcs verts avec des icônes de téléphone, d’ordinateur portable et de tablette, intitulés « Interventions de santé numérique », enjambent chaque difficulté.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема цифровых мер в области здравоохранения для преодоления проблем системы здравоохранения (рисунок 1.2). Восходящая стрелка идет от «Меры с доказанной эффективностью» к «Качеству и охвату медицинской меры» и прерывается проблемами системы здравоохранения (низкий спрос на услуги; плохое соблюдение руководств; недостаточное снабжение товарами, нехватка квалифицированных работников здравоохранения, географическая недоступность). Зеленые дуги со значками телефона, ноутбука и планшета, подписанные «Цифровые меры в области здравоохранения», перекрывают каждую проблему.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p030",
-      "file": "figures/vfig-p030.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p030.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a three-column diagram linking health system challenges, digital interventions and ICT systems",
         "page": 30
       },
       "page": 30,
@@ -6482,7 +6972,7 @@
             "bbox": [
               226.79,
               363.7,
-              250.0,
+              250,
               382.87
             ],
             "parent": "b2",
@@ -6493,7 +6983,7 @@
           {
             "id": "b10",
             "bbox": [
-              250.0,
+              250,
               363.7,
               370.49,
               382.87
@@ -6509,7 +6999,7 @@
             "bbox": [
               226.79,
               213.7,
-              250.0,
+              250,
               232.86
             ],
             "parent": "b2",
@@ -6520,7 +7010,7 @@
           {
             "id": "b12",
             "bbox": [
-              250.0,
+              250,
               213.7,
               370.03,
               232.86
@@ -6536,7 +7026,7 @@
             "bbox": [
               226.79,
               235.63,
-              250.0,
+              250,
               248.1
             ],
             "parent": "b2",
@@ -6547,7 +7037,7 @@
           {
             "id": "b14",
             "bbox": [
-              250.0,
+              250,
               235.63,
               370.03,
               248.1
@@ -6562,7 +7052,7 @@
             "bbox": [
               226.79,
               388.27,
-              250.0,
+              250,
               407.43
             ],
             "parent": "b2",
@@ -6573,7 +7063,7 @@
           {
             "id": "b16",
             "bbox": [
-              250.0,
+              250,
               388.27,
               370.49,
               407.43
@@ -6589,7 +7079,7 @@
             "bbox": [
               226.79,
               303.39,
-              250.0,
+              250,
               315.86
             ],
             "parent": "b2",
@@ -6600,7 +7090,7 @@
           {
             "id": "b18",
             "bbox": [
-              250.0,
+              250,
               303.39,
               370.49,
               315.86
@@ -6615,7 +7105,7 @@
             "bbox": [
               226.79,
               321.27,
-              250.0,
+              250,
               333.74
             ],
             "parent": "b2",
@@ -6626,7 +7116,7 @@
           {
             "id": "b20",
             "bbox": [
-              250.0,
+              250,
               321.27,
               370.95,
               333.74
@@ -6641,7 +7131,7 @@
             "bbox": [
               226.79,
               278.82,
-              250.0,
+              250,
               297.99
             ],
             "parent": "b2",
@@ -6652,7 +7142,7 @@
           {
             "id": "b22",
             "bbox": [
-              250.0,
+              250,
               278.82,
               370.49,
               297.99
@@ -6732,7 +7222,7 @@
             "bbox": [
               226.38,
               363.7,
-              250.0,
+              250,
               363.7
             ]
           },
@@ -6740,7 +7230,7 @@
             "from": "b9",
             "to": "b10",
             "bbox": [
-              250.0,
+              250,
               363.7,
               370.9,
               363.7
@@ -6752,7 +7242,7 @@
             "bbox": [
               226.38,
               382.87,
-              250.0,
+              250,
               382.87
             ]
           },
@@ -6760,7 +7250,7 @@
             "from": "b9",
             "to": "b10",
             "bbox": [
-              250.0,
+              250,
               382.87,
               370.9,
               382.87
@@ -6772,7 +7262,7 @@
             "bbox": [
               226.38,
               213.7,
-              250.0,
+              250,
               213.7
             ]
           },
@@ -6780,7 +7270,7 @@
             "from": "b11",
             "to": "b12",
             "bbox": [
-              250.0,
+              250,
               213.7,
               370.44,
               213.7
@@ -6792,7 +7282,7 @@
             "bbox": [
               226.38,
               232.86,
-              250.0,
+              250,
               232.86
             ]
           },
@@ -6800,7 +7290,7 @@
             "from": "b11",
             "to": "b12",
             "bbox": [
-              250.0,
+              250,
               232.86,
               370.44,
               232.86
@@ -6812,7 +7302,7 @@
             "bbox": [
               226.38,
               235.63,
-              250.0,
+              250,
               235.63
             ]
           },
@@ -6820,7 +7310,7 @@
             "from": "b13",
             "to": "b14",
             "bbox": [
-              250.0,
+              250,
               235.63,
               370.44,
               235.63
@@ -6832,7 +7322,7 @@
             "bbox": [
               226.38,
               248.1,
-              250.0,
+              250,
               248.1
             ]
           },
@@ -6840,7 +7330,7 @@
             "from": "b13",
             "to": "b14",
             "bbox": [
-              250.0,
+              250,
               248.1,
               370.44,
               248.1
@@ -6852,7 +7342,7 @@
             "bbox": [
               226.38,
               388.27,
-              250.0,
+              250,
               388.27
             ]
           },
@@ -6860,7 +7350,7 @@
             "from": "b15",
             "to": "b16",
             "bbox": [
-              250.0,
+              250,
               388.27,
               370.9,
               388.27
@@ -6872,7 +7362,7 @@
             "bbox": [
               226.38,
               407.43,
-              250.0,
+              250,
               407.43
             ]
           },
@@ -6880,7 +7370,7 @@
             "from": "b15",
             "to": "b16",
             "bbox": [
-              250.0,
+              250,
               407.43,
               370.9,
               407.43
@@ -6892,7 +7382,7 @@
             "bbox": [
               226.38,
               303.39,
-              250.0,
+              250,
               303.39
             ]
           },
@@ -6900,7 +7390,7 @@
             "from": "b17",
             "to": "b18",
             "bbox": [
-              250.0,
+              250,
               303.39,
               370.9,
               303.39
@@ -6912,7 +7402,7 @@
             "bbox": [
               226.38,
               315.86,
-              250.0,
+              250,
               315.86
             ]
           },
@@ -6920,7 +7410,7 @@
             "from": "b17",
             "to": "b18",
             "bbox": [
-              250.0,
+              250,
               315.86,
               370.9,
               315.86
@@ -6932,7 +7422,7 @@
             "bbox": [
               226.38,
               321.27,
-              250.0,
+              250,
               321.27
             ]
           },
@@ -6940,7 +7430,7 @@
             "from": "b19",
             "to": "b20",
             "bbox": [
-              250.0,
+              250,
               321.27,
               371.36,
               321.27
@@ -6952,7 +7442,7 @@
             "bbox": [
               226.38,
               333.74,
-              250.0,
+              250,
               333.74
             ]
           },
@@ -6960,7 +7450,7 @@
             "from": "b19",
             "to": "b20",
             "bbox": [
-              250.0,
+              250,
               333.74,
               371.36,
               333.74
@@ -6972,7 +7462,7 @@
             "bbox": [
               226.38,
               278.82,
-              250.0,
+              250,
               278.82
             ]
           },
@@ -6980,7 +7470,7 @@
             "from": "b21",
             "to": "b22",
             "bbox": [
-              250.0,
+              250,
               278.82,
               370.9,
               278.82
@@ -6992,7 +7482,7 @@
             "bbox": [
               226.38,
               297.99,
-              250.0,
+              250,
               297.99
             ]
           },
@@ -7000,7 +7490,7 @@
             "from": "b21",
             "to": "b22",
             "bbox": [
-              250.0,
+              250,
               297.99,
               370.9,
               297.99
@@ -7009,18 +7499,99 @@
         ],
         "between": [],
         "outside": 9
-      }
+      },
+      "shows": [
+        "Figure 1.3"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram of how digital health interventions may address health system challenges through ICT systems (Figure 1.3), in three columns: Health system challenge, Digital health intervention (numbered per WHO's classification) and Applications and ICT systems. Insufficient supply of commodities links to 3.2.1 and 3.2.2 and a logistics management information system; lack of access to information or data links to 2.2.4, 4.1.2 and 4.1.3 and HMIS and electronic medical record; loss to follow-up of clients links to 1.1.3 and 2.2.1 and a client communication application and electronic medical record.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط يبيّن كيف يمكن للتدخلات الصحية الرقمية معالجة تحديات النظام الصحي من خلال نظم تكنولوجيا المعلومات والاتصالات (الشكل 1.3)، في ثلاثة أعمدة: تحدي النظام الصحي، والتدخل الصحي الرقمي (مرقّم وفق تصنيف المنظمة)، والتطبيقات ونظم تكنولوجيا المعلومات والاتصالات. يرتبط نقص الإمداد بالسلع بالتدخلين 3.2.1 و3.2.2 وبنظام معلومات إدارة اللوجستيات؛ ويرتبط نقص الوصول إلى المعلومات أو البيانات بالتدخلات 2.2.4 و4.1.2 و4.1.3 وبنظام المعلومات الإدارية الصحية والسجل الطبي الإلكتروني؛ ويرتبط انقطاع متابعة العملاء بالتدخلين 1.1.3 و2.2.1 وبتطبيق للتواصل مع العملاء والسجل الطبي الإلكتروني.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "数字卫生干预措施如何通过信息通信技术系统应对卫生系统挑战的示意图（图1.3），分三列：卫生系统挑战、数字卫生干预措施（按世卫组织分类编号）以及应用程序和信息通信技术系统。商品供应不足对应3.2.1和3.2.2及物流管理信息系统；无法获取信息或数据对应2.2.4、4.1.2和4.1.3及卫生管理信息系统和电子病历；服务对象失访对应1.1.3和2.2.1及服务对象沟通应用程序和电子病历。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de cómo las intervenciones digitales en salud pueden abordar los retos del sistema de salud mediante sistemas de TIC (figura 1.3), en tres columnas: reto del sistema de salud, intervención digital en salud (numerada según la clasificación de la OMS) y aplicaciones y sistemas de TIC. El suministro insuficiente de productos se vincula con 3.2.1 y 3.2.2 y un sistema de información para la gestión logística; la falta de acceso a información o datos, con 2.2.4, 4.1.2 y 4.1.3 y el SIGS y la historia clínica electrónica; y la pérdida de seguimiento de los clientes, con 1.1.3 y 2.2.1 y una aplicación de comunicación con los clientes y la historia clínica electrónica.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma montrant comment les interventions de santé numérique peuvent répondre aux difficultés du système de santé au moyen de systèmes TIC (figure 1.3), en trois colonnes : difficulté du système de santé, intervention de santé numérique (numérotée selon la classification de l’OMS) et applications et systèmes TIC. L’approvisionnement insuffisant en produits est relié à 3.2.1 et 3.2.2 et à un système d’information pour la gestion logistique ; le manque d’accès aux informations ou aux données à 2.2.4, 4.1.2 et 4.1.3 et au SIGS et au dossier médical électronique ; les perdus de vue parmi les clients à 1.1.3 et 2.2.1 et à une application de communication avec les clients et au dossier médical électronique.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема того, как цифровые меры в области здравоохранения могут решать проблемы системы здравоохранения с помощью систем ИКТ (рисунок 1.3), в трех столбцах: проблема системы здравоохранения, цифровая мера (с номерами по классификации ВОЗ) и приложения и системы ИКТ. Недостаточное снабжение товарами связано с мерами 3.2.1 и 3.2.2 и информационной системой управления логистикой; отсутствие доступа к информации или данным — с 2.2.4, 4.1.2 и 4.1.3 и ИСУЗ и электронной медицинской картой; потеря клиентов для последующего наблюдения — с 1.1.3 и 2.2.1 и приложением для коммуникации с клиентами и электронной медицинской картой.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p031",
-      "file": "figures/vfig-p031.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p031.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a block diagram of components of digital health implementations",
         "page": 31
       },
       "page": 31,
@@ -7408,18 +7979,99 @@
         ],
         "between": [],
         "outside": 22
-      }
+      },
+      "shows": [
+        "Figure 1.4"
+      ],
+      "narrative": [
+        {
+          "text": "Block diagram of components of digital health implementations (Figure 1.4). Health content + Digital health interventions + Digital applications are shown as three coloured boxes joined by plus signs. Below, a 'Foundational layer: ICT and enabling environment' grid shows Leadership & governance across the top, with Strategy & investment; Services & applications (highlighted), Standards & interoperability and Infrastructure; Legislation, policy & compliance; and Workforce.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط كتلي لمكونات تنفيذ الصحة الرقمية (الشكل 1.4). يظهر المحتوى الصحي + التدخلات الصحية الرقمية + التطبيقات الرقمية في ثلاثة مربعات ملونة تربطها علامات الجمع. وفي الأسفل شبكة «الطبقة التأسيسية: تكنولوجيا المعلومات والاتصالات والبيئة التمكينية» تضم القيادة والحوكمة في الأعلى، ثم الاستراتيجية والاستثمار؛ والخدمات والتطبيقات (مميزة)، والمعايير وقابلية التشغيل البيني، والبنية التحتية؛ والتشريعات والسياسات والامتثال؛ والقوى العاملة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "数字卫生实施组成部分的框图（图1.4）。卫生内容 + 数字卫生干预措施 + 数字应用程序以三个由加号连接的彩色方框表示。下方为“基础层：信息通信技术和有利环境”网格，顶部为领导和治理，其下为战略和投资；服务和应用程序（突出显示）、标准和互操作性及基础设施；立法、政策和合规；以及卫生人力。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de bloques de los componentes de las implementaciones de salud digital (figura 1.4). Contenido sanitario + intervenciones digitales en salud + aplicaciones digitales se muestran como tres recuadros de colores unidos por signos más. Debajo, una cuadrícula «Capa fundamental: TIC y entorno propicio» muestra liderazgo y gobernanza en la parte superior, con estrategia e inversión; servicios y aplicaciones (resaltado), normas e interoperabilidad e infraestructura; legislación, políticas y cumplimiento; y personal.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma fonctionnel des composantes des mises en œuvre de la santé numérique (figure 1.4). Contenu sanitaire + interventions de santé numérique + applications numériques sont représentés par trois encadrés colorés reliés par des signes plus. En dessous, une grille « Couche fondamentale : TIC et environnement favorable » montre leadership et gouvernance en haut, avec stratégie et investissement ; services et applications (mis en évidence), normes et interopérabilité et infrastructure ; législation, politiques et conformité ; et personnel.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема компонентов внедрения цифровых технологий в здравоохранении (рисунок 1.4). Медицинский контент + цифровые меры в области здравоохранения + цифровые приложения показаны тремя цветными блоками, соединенными знаками «плюс». Ниже — сетка «Базовый уровень: ИКТ и благоприятная среда»: сверху руководство и управление, далее стратегия и инвестиции; услуги и приложения (выделено), стандарты и совместимость, инфраструктура; законодательство, политика и соблюдение норм; кадровые ресурсы.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p042",
-      "file": "figures/vfig-p042.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p042.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a classification chart of digital health interventions with highlighted items",
         "page": 42
       },
       "page": 42,
@@ -8395,7 +9047,7 @@
             "bbox": [
               369.13,
               209.86,
-              382.0,
+              382,
               279.15
             ],
             "parent": "b2",
@@ -8410,7 +9062,7 @@
           {
             "id": "b37",
             "bbox": [
-              382.0,
+              382,
               209.86,
               426.76,
               279.15
@@ -8438,7 +9090,7 @@
             "bbox": [
               369.13,
               300.71,
-              382.0,
+              382,
               336.63
             ],
             "parent": "b2",
@@ -8451,7 +9103,7 @@
           {
             "id": "b39",
             "bbox": [
-              382.0,
+              382,
               300.71,
               426.76,
               336.63
@@ -8472,7 +9124,7 @@
             "bbox": [
               369.13,
               358.64,
-              382.0,
+              382,
               379.89
             ],
             "parent": "b2",
@@ -8484,7 +9136,7 @@
           {
             "id": "b41",
             "bbox": [
-              382.0,
+              382,
               358.64,
               426.76,
               379.89
@@ -8563,7 +9215,7 @@
             "id": "b46",
             "bbox": [
               430.89,
-              308.0,
+              308,
               443.76,
               348.13
             ],
@@ -8579,7 +9231,7 @@
             "id": "b47",
             "bbox": [
               443.76,
-              308.0,
+              308,
               488.52,
               348.13
             ],
@@ -9140,7 +9792,7 @@
             "id": "b81",
             "bbox": [
               431.22,
-              502.0,
+              502,
               444.09,
               544.51
             ],
@@ -9156,7 +9808,7 @@
             "id": "b82",
             "bbox": [
               444.09,
-              502.0,
+              502,
               488.85,
               544.51
             ],
@@ -9203,8 +9855,8 @@
             "id": "b85",
             "bbox": [
               369.13,
-              502.0,
-              382.0,
+              502,
+              382,
               537.92
             ],
             "parent": "b2",
@@ -9217,8 +9869,8 @@
           {
             "id": "b86",
             "bbox": [
-              382.0,
-              502.0,
+              382,
+              502,
               426.76,
               537.92
             ],
@@ -10020,7 +10672,7 @@
             "bbox": [
               368.91,
               195.79,
-              382.0,
+              382,
               195.79
             ]
           },
@@ -10028,7 +10680,7 @@
             "from": "b25",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               195.79,
               426.99,
               195.79
@@ -10040,7 +10692,7 @@
             "bbox": [
               368.91,
               207.86,
-              382.0,
+              382,
               207.86
             ]
           },
@@ -10048,7 +10700,7 @@
             "from": "b25",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               207.86,
               426.99,
               207.86
@@ -10060,7 +10712,7 @@
             "bbox": [
               368.91,
               286.64,
-              382.0,
+              382,
               286.64
             ]
           },
@@ -10068,7 +10720,7 @@
             "from": "b26",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               286.64,
               426.99,
               286.64
@@ -10080,7 +10732,7 @@
             "bbox": [
               368.91,
               298.71,
-              382.0,
+              382,
               298.71
             ]
           },
@@ -10088,7 +10740,7 @@
             "from": "b26",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               298.71,
               426.99,
               298.71
@@ -10100,7 +10752,7 @@
             "bbox": [
               368.91,
               340.08,
-              382.0,
+              382,
               340.08
             ]
           },
@@ -10108,7 +10760,7 @@
             "from": "b27",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               340.08,
               426.99,
               340.08
@@ -10120,7 +10772,7 @@
             "bbox": [
               368.91,
               356.64,
-              382.0,
+              382,
               356.64
             ]
           },
@@ -10128,7 +10780,7 @@
             "from": "b27",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               356.64,
               426.99,
               356.64
@@ -10350,7 +11002,7 @@
             "bbox": [
               368.91,
               209.86,
-              382.0,
+              382,
               209.86
             ]
           },
@@ -10358,7 +11010,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               209.86,
               426.99,
               209.86
@@ -10370,7 +11022,7 @@
             "bbox": [
               368.91,
               224.53,
-              382.0,
+              382,
               224.53
             ]
           },
@@ -10378,7 +11030,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               224.53,
               426.99,
               224.53
@@ -10390,7 +11042,7 @@
             "bbox": [
               368.91,
               239.19,
-              382.0,
+              382,
               239.19
             ]
           },
@@ -10398,7 +11050,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               239.19,
               426.99,
               239.19
@@ -10410,7 +11062,7 @@
             "bbox": [
               368.91,
               253.86,
-              382.0,
+              382,
               253.86
             ]
           },
@@ -10418,7 +11070,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               253.86,
               426.99,
               253.86
@@ -10430,7 +11082,7 @@
             "bbox": [
               368.91,
               268.53,
-              382.0,
+              382,
               268.53
             ]
           },
@@ -10438,7 +11090,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               268.53,
               426.99,
               268.53
@@ -10450,7 +11102,7 @@
             "bbox": [
               368.91,
               279.15,
-              382.0,
+              382,
               279.15
             ]
           },
@@ -10458,7 +11110,7 @@
             "from": "b36",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               279.15,
               426.99,
               279.15
@@ -10470,7 +11122,7 @@
             "bbox": [
               368.91,
               300.71,
-              382.0,
+              382,
               300.71
             ]
           },
@@ -10478,7 +11130,7 @@
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               300.71,
               426.99,
               300.71
@@ -10490,7 +11142,7 @@
             "bbox": [
               368.91,
               311.34,
-              382.0,
+              382,
               311.34
             ]
           },
@@ -10498,7 +11150,7 @@
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               311.34,
               426.99,
               311.34
@@ -10509,19 +11161,19 @@
             "to": "b38",
             "bbox": [
               368.91,
-              326.0,
-              382.0,
-              326.0
+              326,
+              382,
+              326
             ]
           },
           {
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
-              326.0,
+              382,
+              326,
               426.99,
-              326.0
+              326
             ]
           },
           {
@@ -10530,7 +11182,7 @@
             "bbox": [
               368.91,
               336.63,
-              382.0,
+              382,
               336.63
             ]
           },
@@ -10538,7 +11190,7 @@
             "from": "b38",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               336.63,
               426.99,
               336.63
@@ -10550,7 +11202,7 @@
             "bbox": [
               368.91,
               358.64,
-              382.0,
+              382,
               358.64
             ]
           },
@@ -10558,7 +11210,7 @@
             "from": "b40",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               358.64,
               426.99,
               358.64
@@ -10570,7 +11222,7 @@
             "bbox": [
               368.91,
               369.26,
-              382.0,
+              382,
               369.26
             ]
           },
@@ -10578,7 +11230,7 @@
             "from": "b40",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               369.26,
               426.99,
               369.26
@@ -10590,7 +11242,7 @@
             "bbox": [
               368.91,
               379.89,
-              382.0,
+              382,
               379.89
             ]
           },
@@ -10598,7 +11250,7 @@
             "from": "b40",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               379.89,
               426.99,
               379.89
@@ -10749,9 +11401,9 @@
             "to": "b46",
             "bbox": [
               430.67,
-              308.0,
+              308,
               443.76,
-              308.0
+              308
             ]
           },
           {
@@ -10759,9 +11411,9 @@
             "to": "b2",
             "bbox": [
               443.76,
-              308.0,
+              308,
               488.75,
-              308.0
+              308
             ]
           },
           {
@@ -11329,7 +11981,7 @@
             "to": "b88",
             "bbox": [
               226.16,
-              440.0,
+              440,
               226.16,
               447.81
             ]
@@ -11820,7 +12472,7 @@
             "bbox": [
               368.91,
               487.94,
-              382.0,
+              382,
               487.94
             ]
           },
@@ -11828,7 +12480,7 @@
             "from": "b78",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               487.94,
               426.99,
               487.94
@@ -11840,7 +12492,7 @@
             "bbox": [
               368.91,
               500.01,
-              382.0,
+              382,
               500.01
             ]
           },
@@ -11848,7 +12500,7 @@
             "from": "b78",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               500.01,
               426.99,
               500.01
@@ -11909,9 +12561,9 @@
             "to": "b2",
             "bbox": [
               444.09,
-              502.0,
+              502,
               489.07,
-              502.0
+              502
             ]
           },
           {
@@ -11979,19 +12631,19 @@
             "to": "b85",
             "bbox": [
               368.91,
-              502.0,
-              382.0,
-              502.0
+              502,
+              382,
+              502
             ]
           },
           {
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
-              502.0,
+              382,
+              502,
               426.99,
-              502.0
+              502
             ]
           },
           {
@@ -12000,7 +12652,7 @@
             "bbox": [
               368.91,
               512.63,
-              382.0,
+              382,
               512.63
             ]
           },
@@ -12008,7 +12660,7 @@
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               512.63,
               426.99,
               512.63
@@ -12020,7 +12672,7 @@
             "bbox": [
               368.91,
               527.3,
-              382.0,
+              382,
               527.3
             ]
           },
@@ -12028,7 +12680,7 @@
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               527.3,
               426.99,
               527.3
@@ -12040,7 +12692,7 @@
             "bbox": [
               368.91,
               537.92,
-              382.0,
+              382,
               537.92
             ]
           },
@@ -12048,7 +12700,7 @@
             "from": "b85",
             "to": "b2",
             "bbox": [
-              382.0,
+              382,
               537.92,
               426.99,
               537.92
@@ -12077,18 +12729,99 @@
         ],
         "between": [],
         "outside": 1
-      }
+      },
+      "shows": [
+        "Figure 2.1"
+      ],
+      "narrative": [
+        {
+          "text": "Chart of interventions targeted in the guideline (Figure 2.1), based on the WHO Classification of digital health interventions v1.0, in four panels: 1.0 Clients, 2.0 Health workers, 3.0 Health system managers and 4.0 Data services, each listing numbered intervention categories. Orange outlines mark those included: solid for full inclusion (e.g. 1.1 targeted client communication, 2.2 client health records, 2.3 health worker decision support, 2.4 telemedicine, 2.8 health worker training, 3.2 supply chain management, 3.4 civil registration and vital statistics) and dotted for partial inclusion (e.g. 2.6 referral coordination).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط للتدخلات المستهدفة في المبدأ التوجيهي (الشكل 2.1)، استنادًا إلى تصنيف المنظمة للتدخلات الصحية الرقمية، الإصدار 1.0، في أربع لوحات: 1.0 العملاء، و2.0 العاملون الصحيون، و3.0 مديرو النظم الصحية، و4.0 خدمات البيانات، وتسرد كل منها فئات تدخلات مرقمة. وتميّز أطر برتقالية التدخلات المشمولة: متصلة للإدراج الكامل (مثل 1.1 التواصل الموجّه مع العملاء، و2.2 السجلات الصحية للعملاء، و2.3 دعم القرار للعاملين الصحيين، و2.4 التطبيب عن بُعد، و2.8 تدريب العاملين الصحيين، و3.2 إدارة سلسلة الإمداد، و3.4 التسجيل المدني والإحصاءات الحيوية) ومنقطة للإدراج الجزئي (مثل 2.6 تنسيق الإحالة).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "本指南所针对干预措施的图表（图2.1），基于世卫组织数字卫生干预措施分类第1.0版，分为四个部分：1.0服务对象、2.0卫生工作者、3.0卫生系统管理者和4.0数据服务，各列出编号的干预类别。橙色框标出纳入的类别：实线表示完全纳入（如1.1针对性的服务对象沟通、2.2服务对象健康记录、2.3卫生工作者决策支持、2.4远程医疗、2.8卫生工作者培训、3.2供应链管理、3.4民事登记和人口动态统计），虚线表示部分纳入（如2.6转诊协调）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Gráfico de las intervenciones abordadas en la directriz (figura 2.1), basado en la Clasificación de la OMS de las intervenciones digitales en salud v1.0, en cuatro paneles: 1.0 Clientes, 2.0 Trabajadores de salud, 3.0 Gestores de sistemas de salud y 4.0 Servicios de datos, cada uno con categorías de intervención numeradas. Los contornos naranjas marcan las incluidas: continuos para la inclusión completa (p. ej., 1.1 comunicación dirigida a los clientes, 2.2 historias clínicas de los clientes, 2.3 apoyo a las decisiones de los trabajadores de salud, 2.4 telemedicina, 2.8 formación de los trabajadores de salud, 3.2 gestión de la cadena de suministro, 3.4 registro civil y estadísticas vitales) y punteados para la inclusión parcial (p. ej., 2.6 coordinación de la derivación).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Graphique des interventions ciblées par la ligne directrice (figure 2.1), fondé sur la Classification OMS des interventions de santé numérique v1.0, en quatre volets : 1.0 Clients, 2.0 Agents de santé, 3.0 Gestionnaires du système de santé et 4.0 Services de données, chacun énumérant des catégories d’interventions numérotées. Des contours orange signalent celles qui sont incluses : en trait plein pour une inclusion complète (p. ex. 1.1 communication ciblée avec les clients, 2.2 dossiers de santé des clients, 2.3 aide à la décision pour les agents de santé, 2.4 télémédecine, 2.8 formation des agents de santé, 3.2 gestion de la chaîne d’approvisionnement, 3.4 enregistrement des faits d’état civil et statistiques de l’état civil) et en pointillés pour une inclusion partielle (p. ex. 2.6 coordination de l’orientation-recours).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема мер, охватываемых руководством (рисунок 2.1), на основе Классификации ВОЗ цифровых мер в области здравоохранения, версия 1.0, в четырех панелях: 1.0 Клиенты, 2.0 Работники здравоохранения, 3.0 Руководители системы здравоохранения и 4.0 Услуги данных, каждая с пронумерованными категориями мер. Оранжевые рамки отмечают включенные: сплошные — полное включение (например, 1.1 адресная коммуникация с клиентами, 2.2 медицинские записи клиентов, 2.3 поддержка принятия решений работниками здравоохранения, 2.4 телемедицина, 2.8 обучение работников здравоохранения, 3.2 управление цепочкой поставок, 3.4 регистрация актов гражданского состояния и статистика естественного движения населения), пунктирные — частичное включение (например, 2.6 координация направлений).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p102",
-      "file": "figures/vfig-p102.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p102.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "an illustrated pathway diagram linking ten recommendations",
         "page": 102
       },
       "page": 102,
@@ -12642,7 +13375,7 @@
             "bbox": [
               428.53,
               629.51,
-              500.0,
+              500,
               636.39
             ],
             "parent": "b29",
@@ -12804,7 +13537,7 @@
               81.53,
               374.84,
               81.53,
-              547.0
+              547
             ]
           },
           {
@@ -12880,18 +13613,99 @@
         ],
         "between": [],
         "outside": 1
-      }
+      },
+      "shows": [
+        "Figure 4.1"
+      ],
+      "narrative": [
+        {
+          "text": "Illustrated diagram of linkages of the recommendations across the health system (Figure 4.1). Dotted arrows connect illustrated panels describing outcomes, such as 'Births are notified and accounted for to receive services', 'Individuals can access health services and information', 'Health workers are accessible', 'Health commodities and supplies are available at the point of care', 'Health workers can provide appropriate and high quality care' and 'Deaths are notified and accounted for'. Each panel carries recommendation labels 1 to 10 (e.g. birth notification, death notification, stock notification and commodity management, telemedicine, targeted client communication, decision support, digital tracking, provision of training) with their status and a dimension tag (accountability, supply, demand or quality).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط مصوّر للروابط بين التوصيات عبر النظام الصحي (الشكل 4.1). تربط أسهم منقطة بين لوحات مصورة تصف النتائج، مثل «الإخطار بالمواليد واحتسابهم لتلقي الخدمات»، و«يمكن للأفراد الوصول إلى الخدمات والمعلومات الصحية»، و«العاملون الصحيون متاحون»، و«السلع والإمدادات الصحية متوفرة في مكان تقديم الرعاية»، و«يمكن للعاملين الصحيين تقديم رعاية ملائمة وعالية الجودة»، و«الإخطار بالوفيات واحتسابها». وتحمل كل لوحة تسميات التوصيات من 1 إلى 10 (مثل الإخطار بالمواليد، والإخطار بالوفيات، والإخطار بالمخزون وإدارة السلع، والتطبيب عن بُعد، والتواصل الموجّه مع العملاء، ودعم القرار، والتتبع الرقمي، وتوفير التدريب) مع حالتها ووسم البُعد (المساءلة أو العرض أو الطلب أو الجودة).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "建议在整个卫生系统中相互关联的图解示意图（图4.1）。虚线箭头连接描述结果的插图面板，如“出生得到通报和登记以获得服务”“个人可以获得卫生服务和信息”“卫生工作者可及”“护理点有卫生商品和用品”“卫生工作者能够提供适当和高质量的护理”以及“死亡得到通报和登记”。每个面板带有建议1至10的标签（如出生通报、死亡通报、库存通报和商品管理、远程医疗、针对性的服务对象沟通、决策支持、数字追踪、提供培训），并注明其推荐状态和维度标签（问责、供给、需求或质量）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama ilustrado de los vínculos entre las recomendaciones en todo el sistema de salud (figura 4.1). Flechas de puntos conectan paneles ilustrados que describen resultados, como «Los nacimientos se notifican y registran para recibir servicios», «Las personas pueden acceder a servicios e información de salud», «Los trabajadores de salud son accesibles», «Los productos y suministros sanitarios están disponibles en el punto de atención», «Los trabajadores de salud pueden prestar una atención adecuada y de alta calidad» y «Las defunciones se notifican y registran». Cada panel lleva etiquetas de las recomendaciones 1 a 10 (p. ej., notificación de nacimientos, notificación de defunciones, notificación de existencias y gestión de productos, telemedicina, comunicación dirigida a los clientes, apoyo a las decisiones, seguimiento digital, formación) con su estado y una etiqueta de dimensión (rendición de cuentas, oferta, demanda o calidad).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma illustré des liens entre les recommandations dans l’ensemble du système de santé (figure 4.1). Des flèches en pointillés relient des panneaux illustrés décrivant des résultats, tels que « Les naissances sont notifiées et comptabilisées pour recevoir des services », « Les personnes peuvent accéder aux services et informations de santé », « Les agents de santé sont accessibles », « Les produits et fournitures de santé sont disponibles au point de soins », « Les agents de santé peuvent dispenser des soins appropriés et de qualité » et « Les décès sont notifiés et comptabilisés ». Chaque panneau porte des étiquettes des recommandations 1 à 10 (p. ex. notification des naissances, notification des décès, notification des stocks et gestion des produits, télémédecine, communication ciblée avec les clients, aide à la décision, suivi numérique, formation) avec leur statut et une étiquette de dimension (redevabilité, offre, demande ou qualité).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Иллюстрированная схема взаимосвязей рекомендаций в системе здравоохранения (рисунок 4.1). Пунктирные стрелки соединяют иллюстрированные панели с описанием результатов, например «Рождения регистрируются и учитываются для получения услуг», «Люди имеют доступ к медицинским услугам и информации», «Работники здравоохранения доступны», «Медицинские товары и материалы имеются в месте оказания помощи», «Работники здравоохранения могут оказывать надлежащую и качественную помощь» и «Смерти регистрируются и учитываются». На каждой панели — метки рекомендаций 1–10 (например, уведомление о рождении, уведомление о смерти, уведомление о запасах и управление товарами, телемедицина, адресная коммуникация с клиентами, поддержка принятия решений, цифровое отслеживание, обучение) с их статусом и меткой измерения (подотчетность, предложение, спрос или качество).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p104",
-      "file": "figures/vfig-p104.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p104.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a block diagram of components of digital health implementations",
         "page": 104
       },
       "page": 104,
@@ -13257,7 +14071,84 @@
         ],
         "between": [],
         "outside": 1
-      }
+      },
+      "shows": [
+        "Figure 4.2"
+      ],
+      "narrative": [
+        {
+          "text": "Block diagram of components of digital health implementations (Figure 4.2). Health content + Digital health interventions + Digital applications are shown as three coloured boxes joined by plus signs. Below, a 'Foundational layer: ICT and enabling environment' grid shows Leadership & governance across the top, with Strategy & investment; Services & applications (highlighted), Standards & interoperability and Infrastructure; Legislation, policy & compliance; and Workforce.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط كتلي لمكونات تنفيذ الصحة الرقمية (الشكل 4.2). يظهر المحتوى الصحي + التدخلات الصحية الرقمية + التطبيقات الرقمية في ثلاثة مربعات ملونة تربطها علامات الجمع. وفي الأسفل شبكة «الطبقة التأسيسية: تكنولوجيا المعلومات والاتصالات والبيئة التمكينية» تضم القيادة والحوكمة في الأعلى، ثم الاستراتيجية والاستثمار؛ والخدمات والتطبيقات (مميزة)، والمعايير وقابلية التشغيل البيني، والبنية التحتية؛ والتشريعات والسياسات والامتثال؛ والقوى العاملة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "数字卫生实施组成部分的框图（图4.2）。卫生内容 + 数字卫生干预措施 + 数字应用程序以三个由加号连接的彩色方框表示。下方为“基础层：信息通信技术和有利环境”网格，顶部为领导和治理，其下为战略和投资；服务和应用程序（突出显示）、标准和互操作性及基础设施；立法、政策和合规；以及卫生人力。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de bloques de los componentes de las implementaciones de salud digital (figura 4.2). Contenido sanitario + intervenciones digitales en salud + aplicaciones digitales se muestran como tres recuadros de colores unidos por signos más. Debajo, una cuadrícula «Capa fundamental: TIC y entorno propicio» muestra liderazgo y gobernanza en la parte superior, con estrategia e inversión; servicios y aplicaciones (resaltado), normas e interoperabilidad e infraestructura; legislación, políticas y cumplimiento; y personal.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma fonctionnel des composantes des mises en œuvre de la santé numérique (figure 4.2). Contenu sanitaire + interventions de santé numérique + applications numériques sont représentés par trois encadrés colorés reliés par des signes plus. En dessous, une grille « Couche fondamentale : TIC et environnement favorable » montre leadership et gouvernance en haut, avec stratégie et investissement ; services et applications (mis en évidence), normes et interopérabilité et infrastructure ; législation, politiques et conformité ; et personnel.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема компонентов внедрения цифровых технологий в здравоохранении (рисунок 4.2). Медицинский контент + цифровые меры в области здравоохранения + цифровые приложения показаны тремя цветными блоками, соединенными знаками «плюс». Ниже — сетка «Базовый уровень: ИКТ и благоприятная среда»: сверху руководство и управление, далее стратегия и инвестиции; услуги и приложения (выделено), стандарты и совместимость, инфраструктура; законодательство, политика и соблюдение норм; кадровые ресурсы.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     }
   ]
 }

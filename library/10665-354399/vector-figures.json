@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p046",
-      "file": "figures/vfig-p046.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p046.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a classification chart of digital health interventions with highlighted items",
         "page": 46
       },
       "page": 46,
@@ -561,7 +565,7 @@
           {
             "id": "b4",
             "bbox": [
-              168.0,
+              168,
               316.96,
               225.81,
               329.07
@@ -591,7 +595,7 @@
           {
             "id": "b6",
             "bbox": [
-              168.0,
+              168,
               378.33,
               225.81,
               390.44
@@ -698,7 +702,7 @@
           {
             "id": "b12",
             "bbox": [
-              168.0,
+              168,
               331.07,
               180.91,
               375.21
@@ -770,7 +774,7 @@
           {
             "id": "b16",
             "bbox": [
-              168.0,
+              168,
               392.44,
               180.91,
               421.87
@@ -3484,7 +3488,7 @@
             "bbox": [
               242.89,
               500.52,
-              288.0,
+              288,
               500.52
             ]
           },
@@ -3494,7 +3498,7 @@
             "bbox": [
               242.89,
               511.18,
-              288.0,
+              288,
               511.18
             ]
           },
@@ -3504,7 +3508,7 @@
             "bbox": [
               242.89,
               529.94,
-              288.0,
+              288,
               529.94
             ]
           },
@@ -3514,7 +3518,7 @@
             "bbox": [
               242.89,
               548.16,
-              288.0,
+              288,
               548.16
             ]
           },
@@ -3524,7 +3528,7 @@
             "bbox": [
               242.89,
               562.87,
-              288.0,
+              288,
               562.87
             ]
           },
@@ -3534,7 +3538,7 @@
             "bbox": [
               242.89,
               573.52,
-              288.0,
+              288,
               573.52
             ]
           },
@@ -3702,7 +3706,7 @@
             "from": "b2",
             "to": "b76",
             "bbox": [
-              431.0,
+              431,
               580.53,
               444.14,
               580.53
@@ -3722,7 +3726,7 @@
             "from": "b2",
             "to": "b76",
             "bbox": [
-              431.0,
+              431,
               592.63,
               444.14,
               592.63
@@ -3742,7 +3746,7 @@
             "from": "b2",
             "to": "b77",
             "bbox": [
-              431.0,
+              431,
               646.47,
               444.14,
               646.47
@@ -3762,7 +3766,7 @@
             "from": "b2",
             "to": "b77",
             "bbox": [
-              431.0,
+              431,
               663.09,
               444.14,
               663.09
@@ -3872,7 +3876,7 @@
             "from": "b2",
             "to": "b81",
             "bbox": [
-              431.0,
+              431,
               594.64,
               444.14,
               594.64
@@ -3892,7 +3896,7 @@
             "from": "b2",
             "to": "b81",
             "bbox": [
-              431.0,
+              431,
               609.35,
               444.14,
               609.35
@@ -3912,7 +3916,7 @@
             "from": "b2",
             "to": "b81",
             "bbox": [
-              431.0,
+              431,
               620.01,
               444.14,
               620.01
@@ -3932,7 +3936,7 @@
             "from": "b2",
             "to": "b81",
             "bbox": [
-              431.0,
+              431,
               630.67,
               444.14,
               630.67
@@ -3952,7 +3956,7 @@
             "from": "b2",
             "to": "b81",
             "bbox": [
-              431.0,
+              431,
               641.32,
               444.14,
               641.32
@@ -3972,7 +3976,7 @@
             "from": "b2",
             "to": "b83",
             "bbox": [
-              431.0,
+              431,
               664.96,
               444.14,
               664.96
@@ -3992,7 +3996,7 @@
             "from": "b2",
             "to": "b83",
             "bbox": [
-              431.0,
+              431,
               675.62,
               444.14,
               675.62
@@ -4131,7 +4135,84 @@
         ],
         "between": [],
         "outside": 6
-      }
+      },
+      "shows": [
+        "Figure 2.1"
+      ],
+      "narrative": [
+        {
+          "text": "Chart of interventions targeted in the guideline (Figure 2.1), based on the WHO Classification of digital health interventions v1.0, in four panels: 1.0 Clients, 2.0 Health workers, 3.0 Health system managers and 4.0 Data services, each listing numbered intervention categories. Orange outlines mark those included: solid for full inclusion (e.g. 1.1 targeted client communication, 2.2 client health records, 2.3 health worker decision support, 2.4 telemedicine, 2.8 health worker training, 3.2 supply chain management, 3.4 civil registration and vital statistics) and dotted for partial inclusion (e.g. 2.6 referral coordination). Labels are in Spanish.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط للتدخلات المستهدفة في المبدأ التوجيهي (الشكل 2.1)، استنادًا إلى تصنيف المنظمة للتدخلات الصحية الرقمية، الإصدار 1.0، في أربع لوحات: 1.0 العملاء، و2.0 العاملون الصحيون، و3.0 مديرو النظم الصحية، و4.0 خدمات البيانات، وتسرد كل منها فئات تدخلات مرقمة. وتميّز أطر برتقالية التدخلات المشمولة: متصلة للإدراج الكامل (مثل 1.1 التواصل الموجّه مع العملاء، و2.2 السجلات الصحية للعملاء، و2.3 دعم القرار للعاملين الصحيين، و2.4 التطبيب عن بُعد، و2.8 تدريب العاملين الصحيين، و3.2 إدارة سلسلة الإمداد، و3.4 التسجيل المدني والإحصاءات الحيوية) ومنقطة للإدراج الجزئي (مثل 2.6 تنسيق الإحالة). التسميات باللغة الإسبانية.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "本指南所针对干预措施的图表（图2.1），基于世卫组织数字卫生干预措施分类第1.0版，分为四个部分：1.0服务对象、2.0卫生工作者、3.0卫生系统管理者和4.0数据服务，各列出编号的干预类别。橙色框标出纳入的类别：实线表示完全纳入（如1.1针对性的服务对象沟通、2.2服务对象健康记录、2.3卫生工作者决策支持、2.4远程医疗、2.8卫生工作者培训、3.2供应链管理、3.4民事登记和人口动态统计），虚线表示部分纳入（如2.6转诊协调）。标签为西班牙文。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Gráfico de las intervenciones abordadas en la directriz (figura 2.1), basado en la Clasificación de la OMS de las intervenciones digitales en salud v1.0, en cuatro paneles: 1.0 Clientes, 2.0 Trabajadores de salud, 3.0 Gestores de sistemas de salud y 4.0 Servicios de datos, cada uno con categorías de intervención numeradas. Los contornos naranjas marcan las incluidas: continuos para la inclusión completa (p. ej., 1.1 comunicación dirigida a los clientes, 2.2 historias clínicas de los clientes, 2.3 apoyo a las decisiones de los trabajadores de salud, 2.4 telemedicina, 2.8 formación de los trabajadores de salud, 3.2 gestión de la cadena de suministro, 3.4 registro civil y estadísticas vitales) y punteados para la inclusión parcial (p. ej., 2.6 coordinación de la derivación). Los rótulos están en español.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Graphique des interventions ciblées par la ligne directrice (figure 2.1), fondé sur la Classification OMS des interventions de santé numérique v1.0, en quatre volets : 1.0 Clients, 2.0 Agents de santé, 3.0 Gestionnaires du système de santé et 4.0 Services de données, chacun énumérant des catégories d’interventions numérotées. Des contours orange signalent celles qui sont incluses : en trait plein pour une inclusion complète (p. ex. 1.1 communication ciblée avec les clients, 2.2 dossiers de santé des clients, 2.3 aide à la décision pour les agents de santé, 2.4 télémédecine, 2.8 formation des agents de santé, 3.2 gestion de la chaîne d’approvisionnement, 3.4 enregistrement des faits d’état civil et statistiques de l’état civil) et en pointillés pour une inclusion partielle (p. ex. 2.6 coordination de l’orientation-recours). Les libellés sont en espagnol.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема мер, охватываемых руководством (рисунок 2.1), на основе Классификации ВОЗ цифровых мер в области здравоохранения, версия 1.0, в четырех панелях: 1.0 Клиенты, 2.0 Работники здравоохранения, 3.0 Руководители системы здравоохранения и 4.0 Услуги данных, каждая с пронумерованными категориями мер. Оранжевые рамки отмечают включенные: сплошные — полное включение (например, 1.1 адресная коммуникация с клиентами, 2.2 медицинские записи клиентов, 2.3 поддержка принятия решений работниками здравоохранения, 2.4 телемедицина, 2.8 обучение работников здравоохранения, 3.2 управление цепочкой поставок, 3.4 регистрация актов гражданского состояния и статистика естественного движения населения), пунктирные — частичное включение (например, 2.6 координация направлений). Подписи на испанском языке.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     }
   ]
 }

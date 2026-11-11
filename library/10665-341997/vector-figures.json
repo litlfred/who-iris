@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p038",
-      "file": "figures/vfig-p038.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p038.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a swimlane process diagram of key family planning processes (Fig. 5)",
         "page": 38
       },
       "page": 38,
@@ -534,8 +538,8 @@
             "from": null,
             "to": null,
             "bbox": [
-              666.0,
-              357.0,
+              666,
+              357,
               675.03,
               361.17
             ]
@@ -619,18 +623,99 @@
           "a For key, see Table 6 (page 28)."
         ],
         "outside": 0
-      }
+      },
+      "shows": [
+        "Figure 5"
+      ],
+      "narrative": [
+        {
+          "text": "Fig. 5, a swimlane diagram of key family planning processes across three lanes: Health facility, Pharmacy and Health facility management. From Start, the flow runs through A. Registration and B. FP counselling to a 'Referral needed?' decision: No leads to C. FP service provision, Yes leads to D. Referral; both then pass to Billing and Dispensing before End. Configuration, Follow-up and Aggregate reporting sit in the management lane.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 5، مخطط بمسارات متوازية للعمليات الرئيسية لتنظيم الأسرة عبر ثلاثة مسارات: المرفق الصحي، والصيدلية، وإدارة المرفق الصحي. يبدأ التدفق من البداية مرورًا بـ A. التسجيل وB. المشورة بشأن تنظيم الأسرة وصولًا إلى قرار \"هل الإحالة مطلوبة؟\": \"لا\" يؤدي إلى C. تقديم خدمات تنظيم الأسرة، و\"نعم\" يؤدي إلى D. الإحالة؛ ثم يمر كلاهما إلى الفوترة والصرف قبل النهاية. وتقع التهيئة والمتابعة والإبلاغ التجميعي في مسار الإدارة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图5，计划生育关键流程的泳道图，分为三条泳道：卫生机构、药房和卫生机构管理。流程从“开始”经A. 登记、B. 计划生育咨询到达“是否需要转诊？”决策点：“否”进入C. 计划生育服务提供，“是”进入D. 转诊；两者随后进入计费和配药，最后结束。配置、随访和汇总报告位于管理泳道。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 5, diagrama de carriles de los procesos clave de planificación familiar en tres carriles: Establecimiento de salud, Farmacia y Gestión del establecimiento de salud. Desde el inicio, el flujo pasa por A. Registro y B. Asesoramiento en PF hasta la decisión «¿Se necesita derivación?»: No lleva a C. Prestación de servicios de PF y Sí lleva a D. Derivación; ambos pasan después a Facturación y Dispensación antes del final. Configuración, Seguimiento e Informes agregados figuran en el carril de gestión.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 5, diagramme en couloirs des principaux processus de planification familiale sur trois couloirs : Établissement de santé, Pharmacie et Gestion de l’établissement de santé. Depuis le début, le flux passe par A. Enregistrement et B. Conseil en PF jusqu’à la décision « Orientation nécessaire ? » : Non mène à C. Prestation de services de PF, Oui mène à D. Orientation ; les deux passent ensuite par Facturation et Délivrance avant la fin. Configuration, Suivi et Rapports agrégés figurent dans le couloir de gestion.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рис. 5 — диаграмма с дорожками ключевых процессов планирования семьи по трём дорожкам: медицинское учреждение, аптека и управление медицинским учреждением. От начала поток проходит через A. Регистрацию и B. Консультирование по ПС к решению «Требуется направление?»: «Нет» ведёт к C. Предоставлению услуг ПС, «Да» — к D. Направлению; затем оба переходят к выставлению счетов и отпуску препаратов перед завершением. Настройка, последующее наблюдение и сводная отчётность находятся на дорожке управления.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p039",
-      "file": "figures/vfig-p039.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p039.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a swimlane workflow of the registration business process (Fig. 6)",
         "page": 39
       },
       "page": 39,
@@ -1269,7 +1354,7 @@
             "bbox": [
               521.87,
               276.91,
-              539.0,
+              539,
               276.91
             ]
           },
@@ -1344,18 +1429,99 @@
           "Source: Adapted from PATH (23)."
         ],
         "outside": 0
-      }
+      },
+      "shows": [
+        "Figure 6"
+      ],
+      "narrative": [
+        {
+          "text": "Fig. 6, a swimlane workflow of the registration business process with Client and Clerk lanes in a health facility. The client arrives; the clerk gathers client details, searches for the client and checks 'Match found?': Yes leads to a 'Validate client details' subprocess (review socio-demographic data, update if needed), No leads to 'Create client record'; both end with 'Check in client' and hand off to B. Counselling. Source: adapted from PATH.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 6، مخطط سير عمل بمسارات متوازية لعملية التسجيل، مع مساري المستفيد والموظف الكتابي في المرفق الصحي. يصل المستفيد؛ فيجمع الموظف بياناته ويبحث عنه ويتحقق \"هل وُجدت مطابقة؟\": \"نعم\" تؤدي إلى عملية فرعية \"التحقق من بيانات المستفيد\" (مراجعة البيانات الاجتماعية الديمغرافية وتحديثها عند الحاجة)، و\"لا\" تؤدي إلى \"إنشاء سجل للمستفيد\"؛ وينتهي كلاهما بـ\"تسجيل حضور المستفيد\" والانتقال إلى B. المشورة. المصدر: مقتبس من PATH.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图6，登记业务流程的泳道工作流程图，卫生机构内分为服务对象和文员两条泳道。服务对象到达；文员收集服务对象信息、查找服务对象并判断“是否找到匹配？”：“是”进入“核实服务对象信息”子流程（审核社会人口学数据，必要时更新），“否”进入“创建服务对象记录”；两者最终都进行“服务对象签到”并转入B. 咨询。来源：改编自PATH。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 6, flujo de trabajo en carriles del proceso de registro, con los carriles Cliente y Empleado administrativo en un establecimiento de salud. El cliente llega; el empleado recopila sus datos, lo busca y comprueba «¿Se encontró coincidencia?»: Sí lleva al subproceso «Validar los datos del cliente» (revisar los datos sociodemográficos y actualizarlos si es necesario) y No lleva a «Crear registro del cliente»; ambos terminan con «Registrar la llegada del cliente» y pasan a B. Asesoramiento. Fuente: adaptado de PATH.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 6, flux de travail en couloirs du processus d’enregistrement, avec les couloirs Client et Commis dans un établissement de santé. Le client arrive ; le commis recueille ses informations, le recherche et vérifie « Correspondance trouvée ? » : Oui mène au sous-processus « Valider les informations du client » (revoir les données sociodémographiques, les mettre à jour si nécessaire), Non mène à « Créer un dossier client » ; les deux aboutissent à « Enregistrer l’arrivée du client » et passent à B. Conseil. Source : adapté de PATH.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рис. 6 — рабочий процесс регистрации в виде диаграммы с дорожками «Клиент» и «Регистратор» в медицинском учреждении. Клиент прибывает; регистратор собирает данные клиента, ищет его и проверяет «Найдено совпадение?»: «Да» ведёт к подпроцессу «Проверка данных клиента» (просмотр социально-демографических данных и их обновление при необходимости), «Нет» — к «Созданию записи клиента»; оба пути завершаются «Регистрацией прибытия клиента» и передачей в B. Консультирование. Источник: адаптировано из PATH.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p042",
       "file": "figures/vfig-p042.png",
-      "role": "undetermined",
+      "role": "decorative",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "only the vertical section-navigation tab strip",
         "page": 42
       },
       "page": 42,
@@ -1463,7 +1629,7 @@
             "bbox": [
               58.6,
               118.76,
-              1300.0,
+              1300,
               497.25
             ],
             "drawings": 141,
@@ -1722,7 +1888,7 @@
             "id": "b14",
             "bbox": [
               192.02,
-              235.0,
+              235,
               266.9,
               437.35
             ],
@@ -1734,7 +1900,7 @@
           {
             "id": "b15",
             "bbox": [
-              204.0,
+              204,
               347.49,
               251.92,
               383.44
@@ -1906,7 +2072,7 @@
           {
             "id": "b27",
             "bbox": [
-              204.0,
+              204,
               296.97,
               251.92,
               332.92
@@ -1920,7 +2086,7 @@
           {
             "id": "b28",
             "bbox": [
-              204.0,
+              204,
               246.98,
               251.92,
               282.92
@@ -1948,7 +2114,7 @@
             "id": "b30",
             "bbox": [
               431.18,
-              417.0,
+              417,
               456.43,
               431.37
             ],
@@ -1977,7 +2143,7 @@
             "bbox": [
               591.07,
               188.02,
-              639.0,
+              639,
               223.97
             ],
             "parent": "b13",
@@ -2030,7 +2196,7 @@
           {
             "id": "b36",
             "bbox": [
-              204.0,
+              204,
               389.43,
               251.92,
               425.37
@@ -2138,7 +2304,7 @@
               699.83,
               205.78,
               705.12,
-              206.0
+              206
             ]
           },
           {
@@ -2148,7 +2314,7 @@
               756.39,
               205.78,
               761.67,
-              206.0
+              206
             ]
           },
           {
@@ -2156,9 +2322,9 @@
             "to": "b13",
             "bbox": [
               812.95,
-              206.0,
+              206,
               821.57,
-              206.0
+              206
             ]
           },
           {
@@ -2225,10 +2391,10 @@
             "from": "b32",
             "to": "b13",
             "bbox": [
-              639.0,
-              206.0,
+              639,
+              206,
               648.56,
-              206.0
+              206
             ]
           },
           {
@@ -2374,18 +2540,96 @@
         ],
         "between": [],
         "outside": 66
-      }
+      },
+      "narrative": [
+        {
+          "text": "Vertical section-navigation tabs along the page edge.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "علامات تبويب عمودية للتنقل بين الأقسام على حافة الصفحة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "页面边缘的竖向章节导航标签。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Pestañas verticales de navegación por secciones en el borde de la página.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Onglets verticaux de navigation entre sections en bord de page.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Вертикальные вкладки навигации по разделам у края страницы.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p048",
       "file": "figures/vfig-p048.png",
-      "role": "undetermined",
+      "role": "decorative",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "only the vertical section-navigation tab strip",
         "page": 48
       },
       "page": 48,
@@ -3266,18 +3510,96 @@
         ],
         "between": [],
         "outside": 54
-      }
+      },
+      "narrative": [
+        {
+          "text": "Vertical section-navigation tabs along the page edge.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "علامات تبويب عمودية للتنقل بين الأقسام على حافة الصفحة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "页面边缘的竖向章节导航标签。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Pestañas verticales de navegación por secciones en el borde de la página.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Onglets verticaux de navigation entre sections en bord de page.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Вертикальные вкладки навигации по разделам у края страницы.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p053",
-      "file": "figures/vfig-p053.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p053.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a swimlane workflow of the referral business process (Fig. 10)",
         "page": 53
       },
       "page": 53,
@@ -4125,18 +4447,99 @@
           "a For key, see Table 6 (page 28)."
         ],
         "outside": 0
-      }
+      },
+      "shows": [
+        "Figure 10"
+      ],
+      "narrative": [
+        {
+          "text": "Fig. 10, a swimlane workflow of the referral business process with lanes for the client and healthcare provider at the health facility and the health-care provider at the referral health facility. After counselling, an 'Emergency referral?' decision leads either to an emergency subprocess (stabilize client and give pre-referral treatment, check if stable enough to transport, organize transport) or to identifying and contacting a referral facility; once the referral facility confirms it can accommodate, the provider gives information, discusses questions and a backup method, and the client goes to the referral facility, which receives the client for C. Service provision.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 10، مخطط سير عمل بمسارات متوازية لعملية الإحالة، مع مسارات للمستفيد ومقدم الرعاية الصحية في المرفق الصحي ولمقدم الرعاية الصحية في مرفق الإحالة. بعد المشورة، يؤدي قرار \"إحالة طارئة؟\" إما إلى عملية فرعية طارئة (تثبيت حالة المستفيد وتقديم العلاج قبل الإحالة، والتحقق من استقراره بما يكفي للنقل، وتنظيم النقل) أو إلى تحديد مرفق الإحالة والاتصال به؛ وبعد تأكيد مرفق الإحالة قدرته على الاستقبال، يقدم مقدم الرعاية المعلومات ويناقش الأسئلة ووسيلة احتياطية، ويتوجه المستفيد إلى مرفق الإحالة الذي يستقبله لـ C. تقديم الخدمة.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图10，转诊业务流程的泳道工作流程图，泳道包括卫生机构的服务对象和卫生保健提供者，以及转诊卫生机构的卫生保健提供者。咨询后，“紧急转诊？”决策点要么进入紧急子流程（稳定服务对象病情并给予转诊前治疗、判断是否足够稳定可转运、安排转运），要么进入确定并联系转诊机构；转诊机构确认可以接收后，提供者提供信息、讨论问题和备用方法，服务对象前往转诊机构，由其接收并进入C. 服务提供。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 10, flujo de trabajo en carriles del proceso de derivación, con carriles para el cliente y el prestador de atención de salud en el establecimiento de salud y para el prestador de atención de salud en el establecimiento de derivación. Tras el asesoramiento, la decisión «¿Derivación de urgencia?» conduce a un subproceso de urgencia (estabilizar al cliente y administrar tratamiento previo a la derivación, comprobar si está lo bastante estable para el traslado, organizar el transporte) o a identificar y contactar un establecimiento de derivación; cuando este confirma que puede atenderlo, el prestador da información, aclara dudas y ofrece un método de respaldo, y el cliente acude al establecimiento de derivación, que lo recibe para C. Prestación de servicios.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 10, flux de travail en couloirs du processus d’orientation, avec des couloirs pour le client et le prestataire de soins de l’établissement de santé et pour le prestataire de soins de l’établissement de recours. Après le conseil, la décision « Orientation d’urgence ? » mène soit à un sous-processus d’urgence (stabiliser le client et administrer un traitement pré-orientation, vérifier s’il est assez stable pour être transporté, organiser le transport), soit à l’identification et à la prise de contact avec un établissement de recours ; une fois que celui-ci confirme pouvoir accueillir le client, le prestataire fournit des informations, répond aux questions et propose une méthode de secours, puis le client se rend à l’établissement de recours, qui le reçoit pour C. Prestation de services.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рис. 10 — рабочий процесс направления в виде диаграммы с дорожками для клиента и поставщика медицинской помощи в медицинском учреждении и для поставщика медицинской помощи в учреждении, куда направляется клиент. После консультирования решение «Экстренное направление?» ведёт либо к экстренному подпроцессу (стабилизация состояния клиента и лечение до направления, проверка, достаточно ли он стабилен для транспортировки, организация транспорта), либо к выбору учреждения и связи с ним; после подтверждения того, что учреждение может принять клиента, поставщик предоставляет информацию, отвечает на вопросы и предлагает резервный метод, и клиент направляется в это учреждение, которое принимает его для C. Предоставления услуг.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p056",
-      "file": "figures/vfig-p056.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p056.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a swimlane workflow of the aggregate reporting business process (Fig. 11)",
         "page": 56
       },
       "page": 56,
@@ -4956,7 +5359,84 @@
           "a For key, see Table 6 (page 28)."
         ],
         "outside": 0
-      }
+      },
+      "shows": [
+        "Figure 11"
+      ],
+      "narrative": [
+        {
+          "text": "Fig. 11, a swimlane workflow of the aggregate reporting business process with lanes for facility staff, facility in charge and district health officer/staff. Facility staff check data quality, correct fixable issues, generate and check aggregate reports; if in-charge review is needed, the facility in charge reviews and either provides feedback (looping back to data checks) or submits data electronically. The district reviews submitted data and either ends the process or provides feedback to the facility.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "الشكل 11، مخطط سير عمل بمسارات متوازية لعملية الإبلاغ التجميعي، مع مسارات لموظفي المرفق ومسؤول المرفق والمسؤول/الموظفين الصحيين على مستوى المنطقة. يتحقق موظفو المرفق من جودة البيانات ويصححون المشكلات القابلة للتصحيح وينشئون التقارير التجميعية ويراجعونها؛ وإذا لزمت مراجعة المسؤول، يراجعها مسؤول المرفق ثم إما يقدم ملاحظات (مع العودة إلى التحقق من البيانات) أو يرسل البيانات إلكترونيًا. وتراجع المنطقة البيانات المرسلة ثم إما تنهي العملية أو تقدم ملاحظات إلى المرفق.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "图11，汇总报告业务流程的泳道工作流程图，泳道包括机构工作人员、机构负责人和地区卫生官员/工作人员。机构工作人员检查数据质量、纠正可修复的问题、生成并检查汇总报告；如需负责人审核，机构负责人进行审核后，要么提供反馈（返回数据检查），要么以电子方式提交数据。地区审核所提交的数据后，要么结束流程，要么向机构提供反馈。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figura 11, flujo de trabajo en carriles del proceso de informes agregados, con carriles para el personal del establecimiento, el responsable del establecimiento y el funcionario/personal de salud del distrito. El personal comprueba la calidad de los datos, corrige los problemas subsanables y genera y revisa los informes agregados; si se requiere revisión del responsable, este revisa y, o bien proporciona retroinformación (volviendo a la comprobación de datos), o bien envía los datos electrónicamente. El distrito revisa los datos enviados y finaliza el proceso o proporciona retroinformación al establecimiento.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Figure 11, flux de travail en couloirs du processus de rapports agrégés, avec des couloirs pour le personnel de l’établissement, le responsable de l’établissement et le responsable/personnel sanitaire de district. Le personnel vérifie la qualité des données, corrige les problèmes rectifiables, génère et vérifie les rapports agrégés ; si un examen par le responsable est nécessaire, celui-ci examine et soit fournit un retour (retour à la vérification des données), soit soumet les données par voie électronique. Le district examine les données soumises et soit clôt le processus, soit fournit un retour à l’établissement.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Рис. 11 — рабочий процесс сводной отчётности в виде диаграммы с дорожками для персонала учреждения, руководителя учреждения и районного медицинского должностного лица/персонала. Персонал проверяет качество данных, исправляет устранимые ошибки, формирует и проверяет сводные отчёты; если требуется проверка руководителем, он рассматривает отчёт и либо даёт обратную связь (с возвратом к проверке данных), либо отправляет данные в электронном виде. Район рассматривает представленные данные и либо завершает процесс, либо даёт обратную связь учреждению.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     }
   ]
 }
