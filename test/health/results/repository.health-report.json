@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-11T11:46:59.256Z",
+  "updated_at": "2026-11-11T13:26:06.847Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 309070,
+          "value": 310656,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,7 +138,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/8cec7c403eee522b719fcdf055124842a95a1c42 — miss: main/a43a4d27e379b2e3b81f70d393a89218a573cb59 has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/d3a689a4620d3d5efec7118366887aaea1784fbf — miss: main/a43a4d27e379b2e3b81f70d393a89218a573cb59 has nothing under health"
     },
     {
       "id": "remote-mounts",
@@ -270,17 +270,17 @@
       ],
       "findings": [
         {
-          "summary": "`branches/claude-iris-derived-kg` (181.7 MB, 5166 files) — no open pull request; `claude/iris-derived-kg` is already in `main`, tip 10.2 h old.",
+          "summary": "`branches/claude-iris-derived-kg` (181.7 MB, 5166 files) — no open pull request; `claude/iris-derived-kg` is already in `main`, tip 11.9 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-derived-kg` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-derived-kg` and `cleanup_confirm: claude-iris-derived-kg`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         },
         {
-          "summary": "`branches/claude-iris-referenced-library-links` (166.6 MB, 4833 files) — no open pull request; `claude/iris-referenced-library-links` is already in `main`, tip 16.3 h old.",
+          "summary": "`branches/claude-iris-referenced-library-links` (166.6 MB, 4833 files) — no open pull request; `claude/iris-referenced-library-links` is already in `main`, tip 17.9 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-referenced-library-links` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-referenced-library-links` and `cleanup_confirm: claude-iris-referenced-library-links`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         },
         {
-          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 17.2 h old.",
+          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 18.9 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-subset-ingest` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-subset-ingest` and `cleanup_confirm: claude-iris-subset-ingest`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         }
@@ -386,38 +386,38 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 357379839,
+          "value": 356999803,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 283615742,
+          "value": 334153665,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 268750848,
+          "value": 317176832,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
         {
           "metric": "pack-count",
-          "value": 7,
+          "value": 9,
           "unit": "count",
           "command": "git count-objects -v"
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 0.79,
+          "value": 0.94,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
       ],
       "findings": [
         {
-          "summary": "Tracked content at HEAD is 340.8 MB, past the 250 MB early-warning point.",
+          "summary": "Tracked content at HEAD is 340.5 MB, past the 250 MB early-warning point.",
           "metric": "tracked-tree-bytes",
           "severity": "minor",
           "action": "Note it and re-measure next sweep. No action is due until it approaches 1 GB; this exists so the approach is visible rather than sudden."
