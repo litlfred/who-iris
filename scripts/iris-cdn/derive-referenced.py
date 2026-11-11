@@ -27,7 +27,9 @@ For each referenced item whose ORIGINAL PDFs were fetched to a scratch folder
 4. The figures and tables the ingest extracted (`images/`, `figures/`) are
    KEPT: owner, 2026-11-11, "actually extract the figures" and "any tables
    too". They were removed at first as bytes of the original asset (one
-   six-language strategy carried 82 MB of them). The entry's own `cover.png` (an unmasked page 1) is replaced by the item's
+   six-language strategy carried 82 MB of them). They are stored as WebP at
+   quality 80, at most 1600 px on the long side (owner, card Q-FIG-1 = A,
+   2026-11-11): about a seventh of the PNG bytes. The entry's own `cover.png` (an unmasked page 1) is replaced by the item's
    masked cover where one exists, and removed otherwise: the emblem ruling of
    2026-09-21 still holds.
 5. `licence.json` records the licence the publication states (a Creative
@@ -75,6 +77,40 @@ def sha256(p):
 def run(cmd, cwd):
     r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
     return r.returncode, (r.stdout + r.stderr)
+
+
+def webp_figures(entry):
+    """Re-encode the kept figure renders as WebP and point the sidecars at them.
+
+    Q-FIG-1 = A (owner, 2026-11-11): quality 80, long side at most 1600 px.
+    Only files a sidecar names are touched; a file that will not decode is
+    left as it is and stays named, so the gap is visible rather than hidden.
+    """
+    from PIL import Image
+    for sidecar, key in (("images.json", "images"), ("vector-figures.json", "figures")):
+        path = os.path.join(entry, sidecar)
+        if not os.path.exists(path):
+            continue
+        doc = json.load(open(path))
+        for rec in doc.get(key) or []:
+            rel = rec.get("file")
+            if not rel or not rel.endswith(".png"):
+                continue
+            src = os.path.join(entry, rel)
+            if not os.path.exists(src) or os.path.getsize(src) == 0:
+                continue
+            try:
+                im = Image.open(src); im.load()
+            except Exception:
+                continue
+            if im.mode not in ("RGB", "RGBA", "L", "LA"):
+                im = im.convert("RGBA")
+            im.thumbnail((1600, 1600))
+            rec["file"] = rel[:-4] + ".webp"
+            im.save(os.path.join(entry, rec["file"]), "WEBP", quality=80, method=6)
+            os.remove(src)
+        json.dump(doc, open(path, "w"), indent=2, ensure_ascii=False)
+        open(path, "a").write("\n")
 
 
 def licence_for(entry_dir, pdf_name):
@@ -156,6 +192,7 @@ def main():
                 report.append(row); print(slug, "FAILED"); continue
             digest = sha256(pdf)
             os.remove(pdf)  # the bytes are never kept
+            webp_figures(entry)
             # The cover: the item's masked one for its own entry, none otherwise.
             cover = os.path.join(entry, "cover.png")
             masked = os.path.join(root, "library", f"{stem}-cover.png")
