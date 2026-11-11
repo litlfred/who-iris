@@ -14,4 +14,4 @@ granularity: page
 
 قضايا تتعلق بتصميم الدراسات
 
-8|306 بعلاممغأ 0/6 انلا ©
+©WHO/Christopher Black

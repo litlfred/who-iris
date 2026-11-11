@@ -51,11 +51,11 @@ periodo transcurrido entre el inicio del TAR y la defuncion.
 Resultados De un total de 146 pacientes, 96 (66%) eran mujeres;
 la mediana del recuento de linfocitos T CD4+ al comienzo del
 estudio fue de 129 células/ml. Seguin el analisis de Kaplan-
-Meier, el 13% de los pacientes habian muerto a los 12 meses,
+Meier, ‏اع‎ 13% de los pacientes habian muerto a los 12 meses,
 el 17% alos 24 meses, y el 20% a los 36 meses. En 40 de 79
 
 pacientes (51%) se detect6 una concentracion plasmatica de ARN
-de VIH-1 = 50 copias/ml alos 12 meses de iniciado el tratamiento,
+de VIH-1 = 50 copias/ml alos 12 meses de iniciado ‏اع‎ tratamiento,
 asociada a un escaso cumplimiento del TAR. Entre los 29 pacientes
 con mas de 1000 copias/ml a los 12 meses, se detectaron
 mutaciones de resistencia a los inhibidores no nucledsidos de
@@ -74,49 +74,49 @@ transmitir el VIH-1 a su pareja y a los lactantes. Se requieren
 urgentemente estrategias que aborden las necesidades especiales
 de ese grupo de edad.
 
-paddle
+ملخص
 
-ogy uleab! Lully opbal yb! gil dgoVIl doglilog cLejSWI 3 1-jaYl ug nd! Gy waar SIySy3g Sloul 4S Ye clad!
+البقاء على قيد الحياة» وتركيزات حمض الرنا لفيروس الإيدز-1 في البلازماء ومقاومة الأدوية لدى المراهقين والشباب المصابين بفيروس
 
-lasys 79 Gy ga (%51) Lasse 40 gal Jo/ddaui 50 < 1-3.43l yas ntl
-dodlaol) Stil nd ge Wale clog dodlebl es Ge Lge 12 sx
-Ul Gaae 555 jgled Layys 29 oy 89 Aysdgall Glug rill Glolag
-Ab d9e5 ALS) dodlekl yo ines 12 sy Lo/deud 1000 egy
-8 (%79) 23 3 Ase jodSgJl pe ApuSed} dducib) Glade deglie
-ed gheUl A gals deus] Asucrih) GUadh Go UU doglicg Vl
-Aygolg AuScll Abutihl Gla dal) dagling VEU! Ge (%72) 21 3
-10 3 Ae jodSgJl AS) ddeuctih) Slash! Ge lants G2d9A<dl
-esi (%673) Aull 3 GSpLEL Qe diag ate bly SV Ledl yo (%35)
-we Ge yal 35 CS LS 45,5 Als)! plaza! G99 Gail Ipwsle
-Asstibl C85 Sole (%36) 96 JI Squat!
+لفيروس الإيدز-1 > 50 نسخة /مل لدى 40 مريضاً (9051) من بين 79 مريضاً
+بعد 12 شهراً من بدء المعالجة, ‎clog‏ مترافقاً مع ضعف الامتثال للمعالجة
+بمضادات الفيروسات القهقرية. ومن بين 9 مريضاً تجاوز تركيز حمض الرنا
+لديهم 1000 نسخة/مل بعد 12 ‎ines‏ من المعالجة, ‎ALS)‏ وجود طفرات
+مقاومة للمثبطات ال منتسخة العكسية غير النوكليوزيدية في 23 )%79( من
+الحالات: ومقاومة لكل من المثبطات المنتسخة العكسية وأدوية اللاميفودين
+في 21 )%72( من الحالات» ومقاومة للمثبطات المنتسخة العكسية وأدوية
+اللاميفودين وغيرها من المثبطات المنتسخة العكسية النوكليوزيدية في 10
+)%35( من الحالات. وأبلغ مئة وستة من المشاركين في الدراسة )%673( أنهم
+مارسوا الجنس دون استخدام الواقي الذكريء كما كانت 35 امرأة من بين
+النسوة ال 96 )%36( حاملا وقت المتابعة.
 
-dodlebl Goilng SLY! Wyre sylabl Gluls Qdalbl of re larw!
-pSliis Gosia pill GS! ble Ugo x0 dy Ayal] Glug pall Glolag
-BNIB O24) MI egio L-jLY Goad JBI Aso] 6S Gog WSyll
-Bugis Glhaslial ed9 U) dule delodig .2dyi Uo duuicdl
-4s yas) LAI ody) dol! GleLaeVI
+الاستنتاج: إن المراهقين والشباب المصابين بمرض الإيدز ويتلقون المعالجة
+بمضادات الفيروسات القهقرية معرضون لمخاطر الإخفاق الفيرولوجي وتفاقم
+المرض ومن ثم إمكانية انتقال فيروس الإيدز-1 منهم إلى القرين في العلاقة
+الجنسية وإلى الرضع. والحاجة ماسة إلى وضع استراتيجيات تستهدف
+الاحتياجات الخاصة لهذه الفئة العمرية.
 
 Bulletin of the World Health Organization I December 2008, 86 (12)
 
-ele 8 4 AH Glug pI Glolag Yoadler QI 1-juyl
-GU Akg Glug ndll Glolag dedlabl ue, bal ens Say
-ant earie che Ge Gly sb 529 Kale § Gills yéalt!
--1-5.Q91
+الإيدز-1 الذين يعالجون بمضادات الفيروسات القهقرية في هايتي
+الهدف: تقييم النتائج بعد المعالجة بمضادات الفيروسات القهقرية لدى
+ال مراهقين والشباب في ‎Kale‏ وهو ‎sb‏ يعاني من وباء متعمم لفيروس
+الإيدز-1.
 
-vaer SIS lodl 48 Ye slid OVO exaid Gel di pb)
-Jy 1-j2Yl goa nil Sola! Ag SU deglih! blély 1-j.0¥! wand! Gy
-CAS wae GA) A AAAI) Slag yd] Slolag dedlabl Gx ige 12
-Bole GLY dye Ge dalek! (ALU Igele dale 255 13 gy eaplas
-ceybe/ IST 1 gy be BABI UNE Ss ale GC Vaan 3l shee )) G
-Aodlebl Lull 3 OgSy Lab! Abs .2005 pouyd/Uel gill 319 2003
-Able) devel] Aalath LoLliyY) LEV [a5 dy ,Sg8)) SLug add) Glolag
-Bled! AB As clad] GV Iszol pads) jlo - OSI ules plustal gig
-lug pA) Globee dodbebl sds Ge Stel .%95 Lalaic 48 oly’:
-Bgl > 4 Ag ill
+الطريقة: أجري تقييم لاحتمالات البقاء على قيد الحياة» ولتركيزات حمض
+الرنا لفيروس الإيدز-1 وأنماط المقاومة للأدوية المضادة لفيروس الإيدز-1 بعد
+12 شهراً من المعالجة بمضادات الفيروسات القهقرية لدى مرضى تتراوح
+أعمارهم بين 13 و25 ‎dale‏ جاءوا لتلقّي المعالجة من مرض الإيدز في ‎Bole‏
+‏في (( بورتو أو برينس ))» في ‎ale‏ وذلك خلال الفترة ما بين 1 آذار/مارس
+3 و31 كانون الأول/ديسمبر 2005. وتلقى المشاركون في الدراسة العالجة
+بمضادات الفيروسات القهقرية وفقاً للدلائل الإرشادية منظمة الصحة العامية.
+وتم استخدام تحليل كابلان - ماير ‎pads)‏ احتمالات البقاء على قيد الحياة,
+بفواصل ثقة مقدارها %95. للمدة من بدء المعالجة بمضادات الفيروسات
+القهقرية حتى الوفاة.
 
-8 Aulytll 3 ySjLAL! 146) spb) G0 (%66) 96 GIS 2ldge9b!
-eget! bs uieCD4+ Ach! EdI det claws dasll aby SLY!
-ay saybl G0 13 Bgi 488 cle -OLIS Jule Lidgs Je/Ale 129
-Uy) aoe 55,3 WSs dygd 36 4s %205 Jygds 24 sy %175 yg 12
+الموجودات: كان 96 )%66( من المرضى ال146 المشاركين في الدراسة. من
+الإناث. وبلخ العدد الوسطي ‎det‏ الخلايا المناعية +024عند الخط القاعدي»
+9 خلية/مل. ووفقاً لتحليل كابلان- ‎cle‏ فقد توفي 9613 من المرضى بعد
+12 شهراً و9617 بعد 24 شهراً %205 بعد 36 شهرا وكان تركيز حمض الرنا
 
 975

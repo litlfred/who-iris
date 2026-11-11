@@ -9,8 +9,45 @@ source_pdf: 10665-342236.pdf
 source_sha256: 5248503e605d865a
 toc_source: outline
 ---
-©WHO / Philippe Metois
+Severe Tropical Cyclone (TC) Harold made landfall in 
+Vanuatu on the morning of 6 April 2020. By midday, 
+it was a category five storm lasting for two days, with 
+winds up to 215 kilometres per hour. Causing widespread 
+and severe damage, including collapsed and damaged 
+buildings and wind-strewn debris, TC Harold resulted in 
+multiple deaths and injuries, water- and vector-borne 
+illness, and complicated the national COVID-19 response. 
+The cyclone left interrupted public services, contamination 
+of water sources, water and food shortages, and 
+infrastructural damage to many buildings, including 
+health facilities.
+By 10 April, the CFE released US$ 185 680 to support the 
+Vanuatu Ministry of Health for three months to conduct 
+an emergency response assessment, finalize the Tropical 
+Cyclone Harold Health Sector Response Plan, support 
+national emergency medical team (EMT) deployment, 
+health sector coordination, health information 
+management, surveillance, and rapid facility repairs.
 CFE funds supported Vanuatu Ministry of Health activities in response to Tropical Cyclone Harold.
+©WHO / Philippe Metois
+The National Health Emergency Operations Center 
+(NHEOC) was already activated due to the COVID-19 global 
+pandemic. To guide the TC Harold response, on 7 April, 
+the National Health Incident Management Team met to 
+refine the NHEOC structure and developed the Tropical 
+Cyclone Harold Health Sector Response Plan. This plan 
+included two objectives: to initiate (1) health facility and 
+community impact and needs assessment, and (2) priority 
+response activities which aimed to:
+•	 provide life-saving services and essential medical support;
+•	 maintain minimum standards for provision and access 
+to health services;
+•	 minimize the risk of communicable disease outbreaks 
+and ensure access to treatment for chronic infectious 
+diseases, including tuberculosis and HIV;
+•	 minimize the risk of non-communicable diseases, 
+including continued access to medicines, nutrition 
+and psycho-social support.
 WHO Vanuatu provided critical rapid response support, 
 despite COVID-19 restrictions which led to delays in the 
 arrival of key resources and a lack of military logistical 
@@ -45,83 +82,4 @@ work, UN CERF funds were obtained and used
 to reimburse the CFE.
 ©WHO / Philippe Metois
 CFE funds enabled WHO Vanuatu to support rapid repairs for three damaged health facilities through procurement, transportation, and safe storage 
-of materials. 
-Following Turkish military operations in north-eastern 
-Syria (NES) in October 2019, more than 400 000 people 
-were displaced. By March 2020, more than 108 000 people, 
-including some 45 000 children and 27 000 women, 
-remained displaced in the Al-Hasakeh, Ar-Raqqa, and 
-Aleppo governorates. Nine national and five international 
-non-governmental organizations (NGOs) were operational 
-in NES, providing vital cross-border health supplies and 
-services between Iraq and the Syrian Arab Republic. 
-A health needs assessment conducted by WHO identified 
-priority needs for life-saving emergency care, reproductive 
-health, and child health for vulnerable groups. The public 
-health system and infrastructure also continued to suffer 
-from serious weakness and damage, following years of 
-exodus of qualified healthcare workers, attacks on health 
-facilities, and overall lack of robust health governance. 
-For example, out of 279 primary healthcare centers in NES, 
-only four were completely functional (1.4%), 37% partially 
-functional, while more than 61% were completely 
-not functional.
-The quality and availability of health services through 
-these functional and partially functional health facilities 
-depended heavily on cross-border support. However, 
-in spite of extensive United Nations Security Council 
-negotiations, the closing of the Yaroubia border crossing 
-point from Turkey to the Syrian Arabic Republic halted 
-WHO and partners’ ability to transport, warehouse, 
-and distribute essential health supplies in the NES. 
-This included medical equipment, interagency emergency 
-health kits (IAEHKs), trauma and surgical supplies, cholera 
-kits, and other medical supplies to provide critical health 
-services to a population of 1 432 750. 
-The border closings created a health crisis for populations 
-already living in overcrowded conditions. Lack of stable 
-and appropriate housing, potable water, and sanitation 
-resulted in increased vulnerability to disease and death. 
-It also led to an inability to manage the high number 
-of trauma cases caused by frequent 
-attacks from improvised explosive 
-devices, occasional air strikes, and 
-military clashes in NES. Interruption 
-of health services and surveillance 
-systems might have further led 
-to catastrophic outbreaks. 
-CFE funds allowed WHO to undertake life-saving activities 
-in the response, including:
-•	 procurement and airlifting of three shipments 
-of life‑saving health equipment and supply kits 
-from Erbil to Damascus, including IAEHKs, trauma 
-and surgical supplies, cholera kits, and other supplies 
-for pre‑positioning at health facilities;
-•	 provision of logistical support to NES partners to 
-expedite transport of supplies to meet urgent health 
-needs for 736 000 internally displaced persons, 
-refugees, returnees, and host communities in NES;
-•	 distribution of supplies from an 84-tonne shipment 
-to 18 hospitals in NES, including:
-•	 the provision of supplies to health authorities to 
-meet the needs of more than 50 primary healthcare 
-centres inside and outside the camps;
-•	 the delivery of supplies allowing nine national and 
-five international NGOs the ability to cover needs 
-for cross-border activities after operations were 
-significantly affected by the shut-down of WHO 
-cross-border operations due to border closures.
-WHO also secured additional funds from other sources 
-to transport the shipments by road from Damascus 
-to Qamashli to reach the planned beneficiaries in NES.
-To effectively procure and pre-position supplies in an 
-area badly affected by the ongoing humanitarian crisis, 
-WHO, in coordination with the Whole of Syria coordinator 
-through the Logistics cluster, contracted a cargo airline 
-to deliver supplies. These supplies covered urgent health 
-needs in NES for four to six months. 
-CFE funds were critical in WHO’s response in NES. The CFE 
-allowed WHO to provide life-saving emergency supplies and 
-support local health authorities in ensuring the availability 
-and continuity of health services to meet growing health 
-needs, alongside increasing COVID-19 cases.
+of materials.

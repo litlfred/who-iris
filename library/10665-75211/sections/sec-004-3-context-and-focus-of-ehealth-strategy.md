@@ -4,7 +4,7 @@ doc_title: "National eHealth Strategy Toolkit"
 section_id: sec-004-3-context-and-focus-of-ehealth-strategy
 section_title: "Context and focus of eHealth strategy"
 section_number: 3
-pages: 24-24
+pages: 24-25
 source_pdf: 10665-75211.pdf
 source_sha256: 87120f0b3c3bb638
 toc_source: inferred
@@ -88,3 +88,21 @@ public health planning, management and monitoring
 ∞
 ∞Undertake evaluation and monitoring to ensure that eHealth 
 delivers according to health priorities
+eHealth components 
+The national eHealth environment is made up of components, or building blocks (Figure 2), 
+which will be introduced or strengthened through the eHealth strategy.
+Figure 2. eHealth components
+ 
+Services and applications 
+Standards & interoperability
+Infrastructure
+Strategy
+and 
+investment   
+Legislation,
+policy and
+compliance 
+Leadership and governance
+Workforce
+The components can be grouped into the ICT environment and the enabling environment 
+(Table 4).

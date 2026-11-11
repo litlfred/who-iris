@@ -15,5 +15,5 @@ granularity: page
 الجزء 1
 إعداد رؤية وطنية للصحة الإلكترونية
 
-اذاهعل عملي زر (
-011101 0
+( ‏زر‎ World Health
+WSS Organization

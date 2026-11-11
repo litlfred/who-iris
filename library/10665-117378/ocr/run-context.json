@@ -1,39 +1,39 @@
 {
   "$schema": "folio-run-context/v1",
   "platform": {
-    "commit": "4bb03f64dadd2e984b3c847c27c21f11737acffb"
+    "commit": "a930f06573bbd6e4031d4b399e79660ae65fd3c1"
   },
   "mounts": {
     "state": "locked",
     "lock": {
       "file": "index.lock.json",
-      "sha256": "9a928db351639226224bc9ce5e268f2203a01b3c4d3c53b9f1b6d22bb46143af"
+      "sha256": "817627e1ff00b0bcf2f0473290bc98cfc0533a0638c84f77c547c1bada9bcf0b"
     },
     "instances": [
       {
         "instance": "bootstrap",
         "repository": "litlfred/bootstrap",
-        "sha": "12fa6d57dfad06ae73e234f116145dfc8d77ad50"
+        "sha": "1c36aef5ab70d7e95ee6026124cd004cab0c0990"
       },
       {
         "instance": "bootstrap-tools",
         "repository": "litlfred/bootstrap-tools",
-        "sha": "1dc08c906f3a9377534b753fed493b811e040ad7"
+        "sha": "30c4585d5dfbf6960e3ecca86b18d131d6cd3921"
       },
       {
         "instance": "cat-harness",
         "repository": "litlfred/cat-harness",
-        "sha": "6eed239af4a5a97ba8307cb0ef72a8c899f8eeb4"
+        "sha": "c79654460f1267aa6b85e0ca35b2a53a62455b7b"
       },
       {
         "instance": "cat-harness-tools",
         "repository": "litlfred/cat-harness-tools",
-        "sha": "ee8872fd6df96f8351d585b91ec465c75925bf16"
+        "sha": "ee36dcb23fee580b728ec2a28a0bc1133e87a1cc"
       },
       {
         "instance": "folio-assistant-core",
         "repository": "litlfred/folio-assistant-core",
-        "sha": "6086f86b80d5d3cde4f98fd95a15e47641d6ce0f"
+        "sha": "15dd79a03525701b0593897ea82dc81f9397be37"
       }
     ]
   },
@@ -74,13 +74,13 @@
   "invoker": {
     "kind": "system",
     "id": "cat-harness-tools/scripts/pdf-ocr.py",
-    "script_hash": "5e612c09ad51d376bc542a197e38c902feeb9469dd1d406426e36d80215df357"
+    "script_hash": "784e18f6ea0a3c1ebe596a714e4a40f61c540befd184815def197f5481bfb0d1"
   },
   "inputs": [
     {
-      "hash": "dee2b29d76fb",
+      "hash": "a5f036828c2a",
       "inputs": [
-        "../../../tmp/claude-0/-home-user/e2dae9bd-c250-567a-8edf-84c0c7231c62/scratchpad/derive/fetch/_ingest/10665-117378/10665-117378.pdf"
+        "../fetch/_ingest/10665-117378/10665-117378.pdf"
       ]
     }
   ]

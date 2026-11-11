@@ -10,4 +10,4 @@ source_sha256: 798e5653141fe8af
 text_source: ocr
 granularity: page
 ---
-مسن 00/108/6ا ©
+©WHO/TDR/Crump

@@ -53,244 +53,179 @@ processo de planeamento e asseguração da sua realização.
 Resultados
 As partes interessadas aceitam e apoiam, na generalidade, um plano de ação pragmático para a 
 eSaúde.
-4.1	 O papel do governo
-A Parte 1 esclareceu o papel do governo no desenvolvimento da estratégia de eSaúde do país. 
-Algumas estratégias são dirigidas com precisão, enquanto outras surgem de forma mais 
-colaborativa. Tal como na parte 1, o papel do governo terá agora uma relação direta com o modo 
-como o plano de ação de eSaúde é desenvolvido e com a natureza e o nível de envolvimento das 
+Pacote de Ferramentas da Estratégia Nacional de eSaúde - Parte 2: Desenvolver um Plano de Ação Nacional de eSaúde
+
+41 O papel dogoverno
+
+A Parte 1 esclareceu o papel do governo no desenvolvimento da estratégia de eSaúde do país.
+Algumas estratégias são dirigidas com precisão, enquanto outras surgem de forma mais
+colaborativa. Tal como na parte 1,o papel do governo terá agora uma relação direta com o modo
+como o plano de ação de eSaúde é desenvolvido e com a natureza e o nível de envolvimento das
 partes interessadas.
+
 Tabela 2. Papel do governo e implicações para o planeamento
-Mercado
-Papel do governo
-Implicações para o planeamento
-Plenamente 
+
+Papel do governo Implicações para o planeamento
+
+Plenamente
 regulado
-O governo promove o desenvolvimento e a 
-adoção da eSaúde a partir de um mandato 
-centralizado. A eSaúde é geralmente 
-implementada através de programas e 
-projetos nacionais ou estaduais de grande 
-escala.
-y
-y O governo é responsável pelo desenvolvimento das 
-principais linhas de ação e do plano
-y
-y São procurados comentários limitados das partes 
-interessadas; o plano é conduzido, sobretudo, pelo 
-governo
+
 Mercado guiado
-O governo executa a coordenação central 
-da eSaúde nas áreas de significado nacional. 
-Existe maior flexibilidade, bem como 
-controlo e regulamentação reduzidos, 
-nas áreas em que o setor da saúde e o 
-mercado estão mais bem posicionados para 
-desempenhar um papel no desenvolvimento 
-do ambiente de eSaúde.
-y
-y governo lidera e controla o desenvolvimento do plano 
-de ação
-y
-y O governo trabalha com as partes interessadas para 
-identificar atividades necessárias, já que elas poderão 
-ser responsáveis pela implementação de atividades do 
-plano
-y
-y O conteúdo do plano é conduzido pelo governo e pelas 
-partes interessadas multissetoriais importantes
+
 Mercado livre
-O governo não assume a autoridade 
-ou administração centralizada sobre o 
-desenvolvimento do ambiente nacional 
-de eSaúde. Há uma grande dependência 
-do mercado quanto ao desenvolvimento 
-colaborativo do ambiente nacional de 
+
+O governo promove o desenvolvimento e a
+adoção da eSaúde a partir de um mandato
+centralizado. A eSaúde é geralmente
+implementada através de programas e
+projetos nacionais ou estaduais de grande
+escala.
+
+O governo executa a coordenação central
+
+da eSaúde nas áreas de significado nacional.
+Existe maior flexibilidade, bem como
+controlo e regulamentação reduzidos,
+
+nas áreas em que o setor da saúde e o
+mercado estão mais bem posicionados para
+desempenhar um papel no desenvolvimento
+do ambiente de eSaúde.
+
+O governo não assume a autoridade
+
+ou administração centralizada sobre o
+desenvolvimento do ambiente nacional
+de eSaúde. Há uma grande dependência
+do mercado quanto ao desenvolvimento
+colaborativo do ambiente nacional de
 eSaúde.
-y
-y O governo desempenha um papel facilitador e 
-consultivo, para auxiliar no desenvolvimento de um 
-plano de ação o qual as diversas partes interessadas se 
+
+* O governo é responsável pelo desenvolvimento das
+principais linhas de ação e do plano
+
+* São procurados comentários limitados das partes
+interessadas; o plano é conduzido, sobretudo, pelo
+governo
+
+* governo lidera e controla o desenvolvimento do plano
+de ação
+
+* O governo trabalha com as partes interessadas para
+identificar atividades necessárias, já que elas poderão
+ser responsáveis pela implementação de atividades do
+plano
+
+* O conteúdo do plano é conduzido pelo governo e pelas
+partes interessadas multissetoriais importantes
+
+* O governo desempenha um papel facilitador e
+consultivo, para auxiliar no desenvolvimento de um
+plano de ação o qual as diversas partes interessadas se
 comprometem a implementar
-4.2	 Identificação das partes interessadas 
-As partes interessadas da saúde e de outros setores identificadas na Parte 1 devem ser revistas 
-para determinar o seu potencial envolvimento no desenvolvimento do plano de ação nacional. 
-Dependendo do papel do governo, algumas dessas partes interessadas poderão ser responsáveis 
-pela implementação de atividades fundamentais e, por conseguinte, devem estar profundamente 
-envolvidas na fase de planeamento. A outras, poderá ser solicitado que facultem a sua experiência 
+
+4.2 Identificação das partes interessadas
+
+As partes interessadas da saúde e de outros setores identificadas na Parte 1 devem ser revistas
+para determinar o seu potencial envolvimento no desenvolvimento do plano de ação nacional.
+Dependendo do papel do governo, algumas dessas partes interessadas poderão ser responsáveis
+pela implementação de atividades fundamentais e, por conseguinte, devem estar profundamente
+envolvidas na fase de planeamento. A outras, poderá ser solicitado que facultem a sua experiência
 na matéria em questão de forma limitada.
-Entre os exemplos de partes interessadas do setor da saúde que poderão ter de ser consultadas ou 
+
+Entre os exemplos de partes interessadas do setor da saúde que poderão ter de ser consultadas ou
 convidadas a participar no desenvolvimento do plano de ação incluem-se:
-f
-f associações de profissionais da saúde
-f
-f hospitais e associações de serviços de saúde
-f
-f académicos, instituições de investigação e grupos de reflexão
-f
-f entidades seguradoras de saúde e invalidez
-f
-f associações de doentes
-f
-f autoridades nacionais, estaduais e locais de saúde pública e cuidados de saúde
-f
-f prestadores de cuidados privados, incluindo organizações de saúde privadas, ONG e 
-associações de beneficência.
-As partes interessadas de setores que não o da saúde também desempenharão um papel 
-importante na implementação da visão nacional de eSaúde. Podem contribuir com recursos 
-(experiência ou serviços) e podem ter um forte interesse nos efeitos do ambiente de eSaúde; por 
-exemplo, na criação de novas oportunidades de negócio. Entre os exemplos deste tipo de partes 
-interessadas incluem-se:
-f
-f ministérios e prestadores de serviços de telecomunicações/TIC
-f
-f organizações de formação profissional e instituições académicas
-f
-f serviços de assistência social e comunitária
-f
-f organizações de defesa e proteção civil
-f
-f representantes da inovação, da indústria e da ciência
-f
-f representantes do erário público e das finanças
-f
-f organizações internacionais e doadores, como a Comissão Europeia, o Banco Mundial, o 
-Fundo Monetário Internacional e as agências especializadas das Nações Unidas.
-As partes interessadas da saúde e de outros setores com intervenção na Parte 1 devem ser 
-analisadas para se compreender como deve ser o seu envolvimento no desenvolvimento do plano 
-de ação, como nos exemplos de perguntas abaixo.
-f
-f Qual é o grau de influência de cada parte interessada no desenvolvimento e na adoção do 
-plano de ação?
-f
-f Que experiência ou recursos poderão estar disponíveis para apoiar o desenvolvimento do 
-plano de ação?
-f
-f Que papel pode a parte interessada desempenhar na implementação do próprio plano?
-4.3	 Identificação dos papéis das partes interessadas 
-Os grupos de partes interessadas identificados na Parte 1 devem ser analisados para determinar o 
-seu papel (Figura 6 e Tabela 3). A partir daí, podem ser planeados o nível, o foco, a frequência e o 
-meio de envolvimento. 
-Figura 6. Papéis comuns das partes interessadas no desenvolvimento de um plano de ação de eSaúde
-P
-a
-rt
-e
-s 
-in
-t
-e
-r
-e
-ss
-a
-d
-a
-s 
-e
-m
- g
-e
-r
-al
-P
-e
-ri
-t
-o
-s 
-n
-a
- 
-m
-a
-t
-é
-ri
-a
- 
-e
-m
- 
-q
-u
-e
-s
-t
-ã
-o
-D
-e
-t
-e
-n
-t
-o
-r
-e
-s
- 
-d
-a
-s
- 
-a
-t
-i
+
+» associações de profissionais da saúde
+
+» hospitais e associações de serviços de saúde
+
+» académicos, instituições de investigação e grupos de reflexão
+
 v
-i
-d
-a
-d
-e
-s
-Decisores
-I
-n
-ﬂ
-u
-e
-n
-c
-i
-a
-d
-o
-r
-e
-s
- 
-p
-r
-i
-n
-c
-i
-p
-a
-i
-s
+
+entidades seguradoras de saúde e invalidez
+
+» associações de doentes
+
+v
+
+v
+
+associações de beneficência.
+
+autoridades nacionais, estaduais e locais de saúde pública e cuidados de saúde
+
+prestadores de cuidados privados, incluindo organizações de saúde privadas, ONG e
+
+Pacote de Ferramentas da Estratégia Nacional de eSaúde - Parte 2: Desenvolver um Plano de Ação Nacional de eSaúde
+
+As partes interessadas de setores que não o da saúde também desempenharão um papel
+importante na implementação da visão nacional de eSaúde. Podem contribuir com recursos
+(experiência ou serviços) e podem ter um forte interesse nos efeitos do ambiente de eSaúde; por
+exemplo, na criação de novas oportunidades de negócio. Entre os exemplos deste tipo de partes
+interessadas incluem-se:
+
+» ministérios e prestadores de serviços de telecomunicações/TIC
+» organizações de formação profissional e instituições académicas
+» serviços de assistência social e comunitária
+
+» organizações de defesa e proteção civil
+
+» representantes da inovação, da indústria e da ciência
+
+» representantes do erário público e das finanças
+
+» organizações internacionais e doadores, como a Comissão Europeia, o Banco Mundial, o
+Fundo Monetário Internacional e as agências especializadas das Nações Unidas.
+
+As partes interessadas da saúde e de outros setores com intervenção na Parte 1 devem ser
+analisadas para se compreender como deve ser o seu envolvimento no desenvolvimento do plano
+de ação, como nos exemplos de perguntas abaixo.
+
+» Qualé o grau de influência de cada parte interessada no desenvolvimento e na adoção do
+plano de ação?
+
+» Que experiência ou recursos poderão estar disponíveis para apoiar o desenvolvimento do
+plano de ação?
+
+» Que papel pode a parte interessada desempenhar na implementação do próprio plano?
+
+43 Identificação dos papéis das partes interessadas
+
+Os grupos de partes interessadas identificados na Parte 1 devem ser analisados para determinar o
+seu papel (Figura 6 e Tabela 3). A partir daí, podem ser planeados o nível, o foco, a frequência e o
+meio de envolvimento.
+
+Figura 6. Papéis comuns das partes interessadas no desenvolvimento de um plano de ação de eSaúde
+
 Partes interessadas em geral
-Associações de proﬁssionais
+Associações de profissionais
+
 da saúde, associações de
+
 defesa dos doentes
+
+Influenciadores principais
+Executivos superiores em
+organizações da saúde relevantes,
+académicos, consultores, organizações
+internacionais e doadores
+
 Peritos na matéria em questão
-Setor de TIC da saúde,
-associações de proﬁssionais
-da saúde
+
+Setor de TIC da saúde, Decisores
+associações de profissionais Comissões diretivas da
+da saúde eSaúde nacional,
+
+Conselho das TIC
 Detentores das atividades
 Ministérios da saúde, da educação,
 do desenvolvimento, das TIC e
+
 das telecomunicações
-Inﬂuenciadores principais 
-Executivos superiores em
-organizações da saúde relevantes, 
-académicos, consultores, organizações 
-internacionais e doadores
-Decisores
-Comissões diretivas da
-eSaúde nacional,
-Conselho das TIC
- 
+
+Capítulo 4 Envolvimento com as partes interessadas » página 12
 Tabela 3. Papéis comuns das partes interessadas
 Grupo de partes 
 interessadas

@@ -169,6 +169,4 @@ la comunicación dirigida a los pacientes a través de los dispositivos móviles
 comunicación dirigida a los pacientes se define como la transmisión de recordatorios o contenido 
 de salud seleccionado para una población específica o para personas que están dentro de un grupo 
 demográfico o de salud predefinido (13).
-3.8	
-Puntos de cobertura múltiples:
-seguimiento digital de los servicios y
+3.8

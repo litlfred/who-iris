@@ -60,4 +60,29 @@ GG. Differentiating clearly positive from indeterminate
 results: A review of irreproducible HIV-1 PCR positive 
 samples from South Africa’s Early Infant Diagnosis 
 Program, 2010–2015. Diagnostic Microbiology and 
-Infectious Disease. 2018;91:248-255.
+Infectious Disease. 2018;91:248-255. 
+échantillon DPN no. 1 
+test no. 1
+échantillon DPN no. 1 
+test no. 2
+NÉGATIF
+Suivre les lignes 
+directrices actuelles1
+POSITIF
+Suivre les lignes 
+directrices actuelles1
+INDÉTERMINÉ
+NÉGATIF
+Suivre les lignes 
+directrices actuelles1
+POSITIF
+Suivre les lignes 
+directrices actuelles1
+INDÉTERMINÉ2
+Demander un 
+nouvel échantillon 
+dans les 
+4 semaines3,4
+Analyse ultérieure par 
+une équipe clinique 
+et de laboratoire4

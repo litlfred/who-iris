@@ -215,7 +215,4 @@ local policies on digital identities, into account when designing a programme to
 does no harm.
 Effective coverage 
 The proportion of individuals receiving satisfactory health services among the target population
-3.9 
-Effective coverage:
-digital provision of training 
-and educational content
+3.9

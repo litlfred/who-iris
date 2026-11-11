@@ -8,9 +8,12 @@
   "pages": 96,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T20:58:14Z",
+  "mtime": "2026-11-11T09:05:37Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "languages": [
+   "en"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -44,16 +47,166 @@
  "toc": [
   {
    "level": 1,
-   "title": "Blank Page",
-   "page": 8,
-   "source": "outline",
+   "title": "Acknowledgements",
+   "page": 9,
+   "source": "inferred",
    "number": null,
-   "confidence": null,
-   "evidence": null,
-   "page_label": "vi"
+   "confidence": 0.9,
+   "evidence": [
+    "contents",
+    "body",
+    "style"
+   ],
+   "page_label": "vii"
+  },
+  {
+   "level": 1,
+   "title": "Abbreviations",
+   "page": 12,
+   "source": "inferred",
+   "number": null,
+   "confidence": 0.9,
+   "evidence": [
+    "contents",
+    "body",
+    "style"
+   ],
+   "page_label": "x"
+  },
+  {
+   "level": 1,
+   "title": "Introduction",
+   "page": 13,
+   "source": "inferred",
+   "number": "1",
+   "confidence": 0.95,
+   "evidence": [
+    "contents",
+    "body",
+    "style",
+    "number"
+   ],
+   "page_label": "1"
+  },
+  {
+   "level": 1,
+   "title": "Global commitments, strategies and targets",
+   "page": 19,
+   "source": "inferred",
+   "number": "2",
+   "confidence": 0.8,
+   "evidence": [
+    "contents",
+    "body",
+    "number"
+   ],
+   "page_label": "7"
+  },
+  {
+   "level": 1,
+   "title": "Epidemic status and trends",
+   "page": 23,
+   "source": "inferred",
+   "number": "3",
+   "confidence": 0.95,
+   "evidence": [
+    "contents",
+    "body",
+    "style",
+    "number"
+   ],
+   "page_label": "11"
+  },
+  {
+   "level": 1,
+   "title": "Prevention, diagnosis and treatment",
+   "page": 49,
+   "source": "inferred",
+   "number": "4",
+   "confidence": 0.95,
+   "evidence": [
+    "contents",
+    "body",
+    "style",
+    "number"
+   ],
+   "page_label": "37"
+  },
+  {
+   "level": 1,
+   "title": "The road to elimination",
+   "page": 73,
+   "source": "inferred",
+   "number": "5",
+   "confidence": 0.95,
+   "evidence": [
+    "contents",
+    "body",
+    "style",
+    "number"
+   ],
+   "page_label": "61"
+  },
+  {
+   "level": 1,
+   "title": "References",
+   "page": 83,
+   "source": "inferred",
+   "number": null,
+   "confidence": 0.9,
+   "evidence": [
+    "contents",
+    "body",
+    "style"
+   ],
+   "page_label": "71"
+  },
+  {
+   "level": 1,
+   "title": "Methodological notes",
+   "page": 89,
+   "source": "inferred",
+   "number": "Annex 1",
+   "confidence": 0.95,
+   "evidence": [
+    "contents",
+    "body",
+    "style",
+    "number"
+   ],
+   "page_label": "77"
+  },
+  {
+   "level": 1,
+   "title": "The global hepatitis reporting process",
+   "page": 91,
+   "source": "inferred",
+   "number": "Annex 2",
+   "confidence": 0.95,
+   "evidence": [
+    "contents",
+    "body",
+    "style",
+    "number"
+   ],
+   "page_label": "79"
+  },
+  {
+   "level": 1,
+   "title": "World Health Assembly resolutions on viral hepatitis",
+   "page": 93,
+   "source": "inferred",
+   "number": "Annex 3",
+   "confidence": 0.8,
+   "evidence": [
+    "contents",
+    "body",
+    "number"
+   ],
+   "page_label": "81"
   }
  ],
- "toc_source": "outline",
+ "toc_source": "inferred",
  "toc_undetermined_reason": null,
  "figures": [
   {
@@ -2018,23 +2171,158 @@
  ],
  "sections": [
   {
-   "id": "sec-000-document",
+   "id": "sec-front-matter",
    "number": null,
-   "title": "Document",
+   "title": "Front matter",
    "level": 1,
    "page_start": 1,
-   "page_end": 96,
-   "n_chars": 282659,
-   "n_words": 41576,
+   "page_end": 9,
+   "n_chars": 6245,
+   "n_words": 893,
    "label_start": "A",
+   "label_end": "vii"
+  },
+  {
+   "id": "sec-000-acknowledgements",
+   "number": null,
+   "title": "Acknowledgements",
+   "level": 1,
+   "page_start": 9,
+   "page_end": 12,
+   "n_chars": 13101,
+   "n_words": 1760,
+   "label_start": "vii",
+   "label_end": "x"
+  },
+  {
+   "id": "sec-001-abbreviations",
+   "number": null,
+   "title": "Abbreviations",
+   "level": 1,
+   "page_start": 12,
+   "page_end": 13,
+   "n_chars": 1269,
+   "n_words": 166,
+   "label_start": "x",
+   "label_end": "1"
+  },
+  {
+   "id": "sec-002-1-introduction",
+   "number": "1",
+   "title": "Introduction",
+   "level": 1,
+   "page_start": 13,
+   "page_end": 19,
+   "n_chars": 17481,
+   "n_words": 2688,
+   "label_start": "1",
+   "label_end": "7"
+  },
+  {
+   "id": "sec-003-2-global-commitments-strategies-and-targets",
+   "number": "2",
+   "title": "Global commitments, strategies and targets",
+   "level": 1,
+   "page_start": 19,
+   "page_end": 23,
+   "n_chars": 12538,
+   "n_words": 1896,
+   "label_start": "7",
+   "label_end": "11"
+  },
+  {
+   "id": "sec-004-3-epidemic-status-and-trends",
+   "number": "3",
+   "title": "Epidemic status and trends",
+   "level": 1,
+   "page_start": 23,
+   "page_end": 49,
+   "n_chars": 58926,
+   "n_words": 9315,
+   "label_start": "11",
+   "label_end": "37"
+  },
+  {
+   "id": "sec-005-4-prevention-diagnosis-and-treatment",
+   "number": "4",
+   "title": "Prevention, diagnosis and treatment",
+   "level": 1,
+   "page_start": 49,
+   "page_end": 73,
+   "n_chars": 82398,
+   "n_words": 12540,
+   "label_start": "37",
+   "label_end": "61"
+  },
+  {
+   "id": "sec-006-5-the-road-to-elimination",
+   "number": "5",
+   "title": "The road to elimination",
+   "level": 1,
+   "page_start": 73,
+   "page_end": 83,
+   "n_chars": 42885,
+   "n_words": 6470,
+   "label_start": "61",
+   "label_end": "71"
+  },
+  {
+   "id": "sec-007-references",
+   "number": null,
+   "title": "References",
+   "level": 1,
+   "page_start": 83,
+   "page_end": 89,
+   "n_chars": 26022,
+   "n_words": 2875,
+   "label_start": "71",
+   "label_end": "77"
+  },
+  {
+   "id": "sec-008-annex-1-methodological-notes",
+   "number": "Annex 1",
+   "title": "Methodological notes",
+   "level": 1,
+   "page_start": 89,
+   "page_end": 91,
+   "n_chars": 9072,
+   "n_words": 1281,
+   "label_start": "77",
+   "label_end": "79"
+  },
+  {
+   "id": "sec-009-annex-2-the-global-hepatitis-reporting-process",
+   "number": "Annex 2",
+   "title": "The global hepatitis reporting process",
+   "level": 1,
+   "page_start": 91,
+   "page_end": 93,
+   "n_chars": 4809,
+   "n_words": 676,
+   "label_start": "79",
+   "label_end": "81"
+  },
+  {
+   "id": "sec-010-annex-3-world-health-assembly-resolutions-on-vir",
+   "number": "Annex 3",
+   "title": "World Health Assembly resolutions on viral hepatitis",
+   "level": 1,
+   "page_start": 93,
+   "page_end": 96,
+   "n_chars": 7529,
+   "n_words": 986,
+   "label_start": "81",
    "label_end": "84"
   }
  ],
  "diagnostics": {
   "pages_without_text": 7,
   "likely_scanned": false,
-  "toc_entries": 1,
-  "toc_inferred_entries": 0,
+  "toc_entries": 11,
+  "toc_inferred_entries": 11,
+  "toc_inferred_mean_confidence": 0.909,
+  "toc_inferred_empty_share": 0.0,
+  "toc_inferred_method": "contents",
   "figure_entries": 78,
   "figure_sequence_gaps": [],
   "page_label_conflicts": {
@@ -2058,8 +2346,9 @@
     "items": []
    }
   },
-  "sections": 1,
-  "chars_total": 282659,
-  "furniture_lines_stripped": 22
+  "sections": 12,
+  "chars_total": 282275,
+  "furniture_lines_stripped": 22,
+  "outline_rejected": "all 1 outline entries are machine bookmark names (\"Blank Page\"), not headings"
  }
 }

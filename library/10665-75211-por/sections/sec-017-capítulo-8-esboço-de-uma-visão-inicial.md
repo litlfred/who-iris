@@ -502,3 +502,4 @@ no Anexo A) para aumentar a credibilidade e o realismo do cenário. Uma vez dese
 cenários podem ser revistos e aperfeiçoados com os grupos de partes interessadas relevantes. Tal 
 proporciona uma oportunidade para a recolha de contributos e perspetivas no sentido de assegurar 
 que o cenário seja exato, e reforça a consciencialização e o apoio à visão nacional de eSaúde.
+Pacote de Ferramentas da Estratégia Nacional de eSaúde - Parte 1: Visão de eSaúde

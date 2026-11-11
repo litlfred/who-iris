@@ -150,258 +150,195 @@ f
 f académicos, instituições de investigação e grupos de reflexão
 f
 f entidades seguradoras de saúde e invalidez
-f
-f associações e grupos de defesa dos doentes
-f
-f público em geral
-f
-f autoridades nacionais, estaduais e locais de saúde pública e cuidados de saúde
-f
-f prestadores de cuidados privados, incluindo organizações de saúde privadas, associações 
+Pacote de Ferramentas da Estratégia Nacional de eSaúde - Parte 1: Visão de eSaúde
+
+» associações e grupos de defesa dos doentes
+
+v
+
+público em geral
+
+v
+
+autoridades nacionais, estaduais e locais de saúde pública e cuidados de saúde
+
+v
+
+prestadores de cuidados privados, incluindo organizações de saúde privadas, associações
 não governamentais e associações beneficentes
-f
-f fornecedores de TIC para a saúde (empresas locais, nacionais e internacionais)
-f
-f meios de comunicaçáo – nacional e local, generalista e especializada (por exemplo, em 
+
+v
+
+fornecedores de TIC para a saúde (empresas locais, nacionais e internacionais)
+
+v
+
+meios de comunicação - nacional e local, generalista e especializada (por exemplo, em
 cuidados de saúde).
-As partes interessadas externas ao setor da saúde também desempenham um papel importante 
-no desenvolvimento e na implementação da visão (por exemplo, por experiência ou serviços), ou 
-podem ser beneficiárias diretas (por exemplo, através de novas oportunidades de negócio). Entre 
+
+As partes interessadas externas ao setor da saúde também desempenham um papel importante
+no desenvolvimento e na implementação da visão (por exemplo, por experiência ou serviços), ou
+podem ser beneficiárias diretas (por exemplo, através de novas oportunidades de negócio). Entre
 os exemplos incluem-se:
-f
-f serviços civis nacionais, registos vitais e gabinetes de estatística
-f
-f ministérios das telecomunicações/TIC
-f
-f infraestruturas e prestadores de serviços de TIC do setor privado
-f
-f serviços comunitários, de assistência social e de ensino
-f
-f autoridades da defesa e da proteção civil
-f
-f instituições e ministérios da ciência, da indústria e da inovação
-f
-f autoridades do tesouro e das finanças
-f
-f organizações internacionais e doadores, como a Comissão Europeia, o Banco Mundial, o 
+
+» serviços civis nacionais, registos vitais e gabinetes de estatística
+
+» ministérios das telecomunicações/TIC
+
+» infraestruturas e prestadores de serviços de TIC do setor privado
+
+>» serviços comunitários, de assistência social e de ensino
+
+» autoridades da defesa e da proteção civil
+
+> instituições e ministérios da ciência, da indústria e da inovação
+
+» autoridades do tesouro e das finanças
+
+» organizações internacionais e doadores, como a Comissão Europeia, o Banco Mundial, o
 Fundo Monetário Internacional e as agências especializadas das Nações Unidas.
-Estas partes interessadas devem ser analisadas para informar o processo de envolvimento e o 
+
+Estas partes interessadas devem ser analisadas para informar o processo de envolvimento e o
 plano de comunicação.
-f
-f Quais são as principais preocupações, os interesses, o mandato, a experiência e as opiniões 
+
+» Quais são as principais preocupações, os interesses, o mandato, a experiência e as opiniões
 de cada grupo de partes interessadas?
-f
-f Qual é o grau de apoio e influência de cada grupo?
-f
-f Que experiência e/ou recursos poderão estar disponíveis para o desenvolvimento da 
+
+» Qual é o grau de apoio e influência de cada grupo?
+
+» Que experiência e/ou recursos poderão estar disponíveis para o desenvolvimento da
 estratégia atual, bem como para a implementação do plano de ação?
-f
-f Qual deve ser o papel de cada uma e como deve ser o seu envolvimento (Figura 7)?
-f
-f Há partes interessadas que não estejam “organizadas” mas cujos interesses devam ser 
+
+» Qual deve ser o papel de cada uma e como deve ser o seu envolvimento (Figura 7?
+
+» Há partes interessadas que não estejam “organizadas” mas cujos interesses devam ser
 considerados?
-O entendimento das diversas partes interessadas torna possível determinar o nível, o enfoque, a 
-frequência e o meio de envolvimento a utilizar. Os seus interesses, nível de influência e contributo 
-potencial devem ser bem compreendidos antes do início da comunicação. A investigação sobre os 
-interesses e capacidades das partes interessadas não só é útil para o processo de desenvolvimento 
-da estratégia, como também será necessária para a Parte 2, sobre o planeamento da 
+
+O entendimento das diversas partes interessadas torna possível determinar o nível, o enfoque, a
+frequência e o meio de envolvimento a utilizar. Os seus interesses, nível de influência e contributo
+potencial devem ser bem compreendidos antes do início da comunicação. A investigação sobre os
+interesses e capacidades das partes interessadas não só é útil para o processo de desenvolvimento
+da estratégia, como também será necessária para a Parte 2, sobre o planeamento da
 implementação.
-A equipa de estratégia terá de decidir como priorizar os seus esforços e como se envolver com 
-maior eficácia, particularmente com as partes interessadas mais afetadas pela estratégia ou mais 
-capazes de a influenciarem, bem como à sua implementação. O serviço aos verdadeiros clientes 
+
+A equipa de estratégia terá de decidir como priorizar os seus esforços e como se envolver com
+maior eficácia, particularmente com as partes interessadas mais afetadas pela estratégia ou mais
+capazes de a influenciarem, bem como à sua implementação. O serviço aos verdadeiros clientes
 da estratégia é vital para conseguir a aceitação da visão.
-5.3	 Clarificação dos papéis das partes interessadas
-As partes interessadas podem ser caraterizadas pelo papel, pelo contributo, pelo nível de 
-influência e pelo interesse que cada uma provavelmente terá no desenvolvimento de uma visão 
-nacional de eSaúde. O entendimento destes aspetos possibilitará o envolvimento estratégico de 
+
+Pacote de Ferramentas da Estratégia Nacional de eSaúde - Parte 1: Visão de eSaúde
+
+5.3 Clarificação dos papéis das partes interessadas
+
+As partes interessadas podem ser caraterizadas pelo papel, pelo contributo, pelo nível de
+influência e pelo interesse que cada uma provavelmente terá no desenvolvimento de uma visão
+nacional de eSaúde. O entendimento destes aspetos possibilitará o envolvimento estratégico de
 grupos-chave nos momentos certos do processo (Figura 7, Tabela 7).
-Figura 7. Quatro papéis habituais das partes interessadas no desenvolvimento de uma visão nacional de 
+
+Figura 7. Quatro papéis habituais das partes interessadas no desenvolvimento de uma visão nacional de
+
 eSaúde
-P
-ú
-b
-li
-c
-o
- e
- 
-p
-a
-r
-t
-e
-s 
-i
-n
-t
-e
-r
-e
-s
-s
-a
-d
-a
-s 
-e
-m
- 
-g
-e
-r
-a
-l
-P
-a
-r
-t
-e
-s
- i
-n
-t
-e
-r
-e
-s
-s
-a
-d
-a
-s
- 
-e
-n
-v
-o
-l
-v
-i
-d
-a
-s
- Decisores
-I
-n
-ﬂ
-u
-e
-n
-c
-i
-a
-d
-o
-r
-e
-s
- 
-p
-r
-i
-n
-c
-i
-p
-a
-i
-s
- Inﬂuenciadores principais: 
-Consultores, académicos e 
-executivos superiores de 
-organizações da saúde, do 
-ﬁnanciamento e do 
+
+Público e partes
+interessadas em geral:
+Cidadãos, prestadores de
+cuidados, famílias, grupos
+comunitários, empregadores
+
+Partes interessadas
+envolvidas:
+
+Grupos de defesa, executivos
+da saúde, seguradoras,
+associações de doentes
+
+Tabela 7. Papéis das partes interessadas numa visão nacional
+
+Papel
+
+astes interessa, da
+Is
+
+Influenciadores principais:
+Consultores, académicos e
+executivos superiores de
+organizações da saúde, do
+financiamento e do
 investimento
+
 Decisores:
 Comissão diretiva nacional
 da eSaúde
-Público e partes 
-interessadas em geral: 
-Cidadãos, prestadores de 
-cuidados, famílias, grupos 
-comunitários, empregadores
-Partes interessadas 
-envolvidas:
-Grupos de defesa, executivos 
-da saúde, seguradoras, 
-associações de doentes
- 
-Tabela 7. Papéis das partes interessadas numa visão nacional
-Papel
-Descrição
-Exemplos
-Decisores
-Definem a visão geral e a direção estratégica, 
-orientando a visão e o processo de planeamento. 
-São responsáveis pela aprovação, a ratificação 
-e o domínio da visão nacional de eSaúde e pela 
+
+Decio am a.
+
+Definem a visão geral e a direção estratégica,
+orientando a visão e o processo de planeamento.
+São responsáveis pela aprovação, a ratificação
+eo domínio da visão nacional de eSaúde e pela
 execução das recomendações estratégicas.
-y
-y Comissão diretiva nacional para a eSaúde
-y
-y Outros conselhos ou comissões do governo 
-dos quais a comissão diretiva dependa 
-hierarquicamente (por exemplo, a comissão 
-diretiva pode ser um subconjunto de um conselho 
-de saúde e/ou TIC ampliado)
-Influenciadores 
-principais
-Não estão diretamente envolvidos na tomada de 
-decisões mas são altamente influentes nas decisões 
-relacionadas à visão nacional de eSaúde. Tal deve-se 
-à sua reconhecida eminência e experiência na área e 
-ao seu papel como conselheiros formais ou informais 
+
+Não estão diretamente envolvidos na tomada de
+decisões mas são altamente influentes nas decisões
+relacionadas à visão nacional de eSaúde. Tal deve-se
+à sua reconhecida eminência e experiência na área e
+ao seu papel como conselheiros formais ou informais
 dos principais decisores.
-y
-y Executivos superiores das principais organizações 
-de saúde
-y
-y Executivos superiores de organizações de 
-financiamento e investimento
-y
-y Académicos e peritos eminentes
-y
-y Outros conselheiros de membros da comissão 
-diretiva e outros conselhos e comissões do 
-governo relevantes
-Partes 
-interessadas 
-envolvidas
-Não estão envolvidas na tomada de decisões, nem 
-têm influência sobre a mesma, mas são uma fonte de 
-experiência sobre os assuntos específicos. Têm um 
-profundo interesse pela visão nacional de eSaúde 
-devido ao impacto que esta terá sobre elas e/ou 
+
+Não estão envolvidas na tomada de decisões, nem
+têm influência sobre a mesma, mas são uma fonte de
+experiência sobre os assuntos específicos. Têm um
+profundo interesse pela visão nacional de eSaúde
+devido ao impacto que esta terá sobre elas e/ou
 sobre a sua organização.
-y
-y Membros de grupos de defesa (por exemplo, 
-privacidade, público, fornecedores, indústria, 
-sindicatos, etc.)
-y
-y Associações e grupos de defesa dos doentes
-y
-y Executivos de órgãos de saúde (por exemplo, 
-ONGs, hospitais, etc.)
-y
-y Comissões e programas de saúde
-Outras partes 
-interessadas e 
-público em geral
-Poderá haver segmentos do público em geral que 
-estejam cientes dos desenvolvimentos na eSaúde e 
+
+Poderá haver segmentos do público em geral que
+estejam cientes dos desenvolvimentos na eSaúde e
 interessados nos seus potenciais impactos.
-Poderá também haver um requerimento para pedir 
-ao público em geral que dê o seu contributo ou 
-aprovação aos componentes da visão nacional de 
+
+Poderá também haver um requerimento para pedir
+ao público em geral que dê o seu contributo ou
+aprovação aos componentes da visão nacional de
 eSaúde.
-y
-y Cidadãos
-y
-y Prestadores de cuidados
-y
-y Famílias
-y
-y Grupos comunitários
+
+* Comissão diretiva nacional para a eSaúde
+
+* Outros conselhos ou comissões do governo
+dos quais a comissão diretiva dependa
+hierarquicamente (por exemplo, a comissão
+diretiva pode ser um subconjunto de um conselho
+de saúde e/ou TIC ampliado)
+
+* Executivos superiores das principais organizações
+de saúde
+
+* Executivos superiores de organizações de
+financiamento e investimento
+
+* Académicos e peritos eminentes
+
+* Outros conselheiros de membros da comissão
+diretiva e outros conselhos e comissões do
+governo relevantes
+
+* Membros de grupos de defesa (por exemplo,
+privacidade, público, fornecedores, indústria,
+sindicatos, etc.)
+
+* Associações e grupos de defesa dos doentes
+
+* Executivos de órgãos de saúde (por exemplo,
+ONGs, hospitais, etc.)
+
+* Comissões e programas de saúde
+
+* Cidadãos
+
+* Prestadores de cuidados
+* Famílias
+
+* Grupos comunitários
+
 5.4	 Determinação da abordagem ao envolvimento das 
 partes interessadas
 Cada grupo de partes interessadas requer uma abordagem distinta ao envolvimento e às 
