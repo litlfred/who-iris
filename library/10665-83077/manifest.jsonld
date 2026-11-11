@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-83077",
+  "title": "甲委员会第一份报告：（草案）",
   "contains": [
     "library/10665-83077/sections/page-001",
     "library/10665-83077/sections/page-002",
@@ -18,9 +18,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of ca35.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-83077",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-83077.dc.json dc.title",
     "source_file": "10665-83077.pdf",
     "source_sha256": "55e81f4db95b1fa75e78784718ac493f8f829d7369ee653369c17ad9cce14433",
     "pages": 4,

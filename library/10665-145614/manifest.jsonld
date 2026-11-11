@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-145614",
+  "title": "Acta resumida de la primera sesión",
   "contains": [
     "library/10665-145614/sections/sec-front-matter",
     "library/10665-145614/sections/sec-000",
@@ -73,9 +73,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of EB22_Min-1_spa.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-145614",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-145614.dc.json dc.title",
     "source_file": "10665-145614.pdf",
     "source_sha256": "9f8ec13a3a858f98243a3363fac78978dc8e29ab714b4783c0a9872436eac870",
     "pages": 64,

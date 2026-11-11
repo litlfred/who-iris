@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Cadre de préparation en cas de grippe pandémique",
+  "title": "Cadre de préparation en cas de grippe pandémique pour l'échange des virus grippaux et l'accès aux vaccins et autres avantages",
   "contains": [
     "library/10665-44853/sections/sec-front-matter",
     "library/10665-44853/sections/sec-000",
@@ -52,11 +52,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9789242503081_fre.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-44853",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-44853.dc.json dc.title",
     "source_file": "10665-44853.pdf",
     "source_sha256": "56da4bcbc4f1c541c1ffc0673f7d85e9edea48e4fb4afdd29e0d2de8ddb9922e",
     "pages": 68,

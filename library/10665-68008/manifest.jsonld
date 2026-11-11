@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-68008",
+  "title": "Country report : country, Upper Volta",
   "contains": [
     "library/10665-68008/sections/page-001",
     "library/10665-68008/sections/page-002",
@@ -37,9 +37,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of SE_69.25.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-68008",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-68008.dc.json dc.title",
     "source_file": "10665-68008.pdf",
     "source_sha256": "8a26dce3fc1e94c0489b1b338075185fe37cfc135c3e5523f069b3ba9ce12954",
     "pages": 23,

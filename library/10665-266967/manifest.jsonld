@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "The Value of Duck-embryo Vaccine and High-Egg-Passage Flury Vaccine in Experimental Rabies Infection in Guinea-pigs",
+  "title": "The value of duck-embryo vaccine and high-egg-passage Flury vaccine in experimental rabies infection in guinea-pigs",
   "contains": [
     "library/10665-266967/sections/sec-front-matter",
     "library/10665-266967/sections/sec-000",
@@ -34,11 +34,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of PMC2554978.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-266967",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-266967.dc.json dc.title",
     "source_file": "10665-266967.pdf",
     "source_sha256": "1429c0170053ac8aee1bd22846c0db51680e0a8dc49878c055d1215a04ce2aa3",
     "pages": 8,

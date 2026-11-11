@@ -22,11 +22,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of PMC2647415.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-270157",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-270157.dc.json dc.title",
     "source_file": "10665-270157.pdf",
     "source_sha256": "8d92e149775a034a8f910c2d21f77de3d04b61ce01dba187f65b4e3032c6fb5b",
     "pages": 8,

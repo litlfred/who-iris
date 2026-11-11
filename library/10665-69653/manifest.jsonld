@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Phase préparatoire à l’instauration de la vaccination anti-papillomavirus",
+  "title": "Phase préparatoire à l' instauration de la vaccination anti-papillomavirus : directives stratégiques à l' intention des pays",
   "contains": [
     "library/10665-69653/sections/sec-front-matter",
     "library/10665-69653/sections/sec-000",
@@ -34,11 +34,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of WHO_RHR_06.11_fre.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-69653",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-69653.dc.json dc.title",
     "source_file": "10665-69653.pdf",
     "source_sha256": "e2c930118d5ec16c6ff28570ca67c6a5c1c9485720156222b4686b448386f4b2",
     "pages": 30,

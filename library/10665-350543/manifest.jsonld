@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "HIV/AIDS treatment and care in Belarus Evaluation report (rus)",
+  "title": "Лечение и уход в связи с ВИЧ/СПИДом в Беларуси: отчет оценочной миссии: январь 2014 г.",
   "contains": [
     "library/10665-350543/sections/sec-front-matter",
     "library/10665-350543/sections/sec-000",
@@ -40,10 +40,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of WHO-EURO-2014-4529-44292-62564-rus.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-350543",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-350543.dc.json dc.title",
     "source_file": "10665-350543.pdf",
     "source_sha256": "d519a2e29f59a825b76b1de4a7b747c39de70e86a5839f97e1f02054a65e6181",
     "pages": 43,

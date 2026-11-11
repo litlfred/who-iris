@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO international quality assessment scheme",
+  "title": "WHO international quality assessment scheme for HIV antibody testing: results from the second distribution of sera.",
   "contains": [
     "library/10665-261545/sections/page-001",
     "library/10665-261545/sections/page-002",
@@ -23,11 +23,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of PMC2393367.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-261545",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-261545.dc.json dc.title",
     "source_file": "10665-261545.pdf",
     "source_sha256": "18f84913f88248605e6bccbee867d747cd9e6f152e544cbcca0152e94d709671",
     "pages": 9,

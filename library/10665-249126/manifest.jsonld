@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "RC63_11 Item 16_Progress reports_FINAL FR",
+  "title": "Rapport de situation sur les programmes techniques : lutte antitabac ; cadres de vie sains ; maladies non transmissibles ; Objectifs du Millénaire pour le développement liés à la santé ; financement de la santé ; paludisme et résistance à l'artémisinine ; Programme élargi de vaccination ; prévention et traitement du VIH/sida",
   "contains": [
     "library/10665-249126/sections/page-001",
     "library/10665-249126/sections/page-002",
@@ -95,10 +95,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of WPR_RC063_11_Progress_Report_2012_fr.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-249126",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-249126.dc.json dc.title",
     "source_file": "10665-249126.pdf",
     "source_sha256": "43854aa62297293f73ad29f437300cf9db7c20f999907724f9aced9ed03eb2c8",
     "pages": 81,

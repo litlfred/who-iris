@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO operational handbook on tuberculosis",
+  "title": "WHO operational handbook on tuberculosis: module 5: management of tuberculosis in children and adolescents",
   "contains": [
     "library/10665-352523/sections/sec-front-matter",
     "library/10665-352523/sections/sec-000",
@@ -68,11 +68,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240046832-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-352523",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-352523.dc.json dc.title",
     "source_file": "10665-352523.pdf",
     "source_sha256": "2db8f0bdf5198740e383ec95baf6b8330f5a74a0f3dc2f897d521ab59789cb15",
     "pages": 264,

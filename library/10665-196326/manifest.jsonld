@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "Ethics in epidemics, emergencies and disasters: Research, surveillance and patient care",
+  "title": "Ethics in epidemics, emergencies and disasters: research, surveillance and patient care: training manual",
   "contains": [
     "library/10665-196326/sections/sec-front-matter",
     "library/10665-196326/sections/sec-000",
@@ -59,11 +59,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9789241549349-eng.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-196326",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-196326.dc.json dc.title",
     "source_file": "10665-196326.pdf",
     "source_sha256": "0fba439f59b52edf62c384964b27d88fd191736459048861b7236cf29a153cb2",
     "pages": 276,

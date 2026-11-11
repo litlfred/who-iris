@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "20115_Advance HIV disease policy brief For Web",
+  "title": "Package of care for children and adolescents with advanced HIV disease: stop AIDS: technical brief",
   "contains": [
     "library/10665-332907/sections/sec-front-matter",
     "library/10665-332907/sections/sec-000",
@@ -44,10 +44,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240008045-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike \n3\""
+  },
   "meta": {
     "doc_id": "10665-332907",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-332907.dc.json dc.title",
     "source_file": "10665-332907.pdf",
     "source_sha256": "4bb178e8c3f7bb5b5e36f6dd6b709f87eef12e960009ed6a1f01014664f0f69f",
     "pages": 32,

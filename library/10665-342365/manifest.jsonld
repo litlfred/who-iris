@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "WHO guideline for screening and treatment of cervical pre-cancer lesions for cervical cancer prevention, second edition",
+  "title": "WHO guideline for screening and treatment of cervical pre-cancer lesions for cervical cancer prevention",
   "contains": [
     "library/10665-342365/sections/sec-front-matter",
     "library/10665-342365/sections/sec-000",
@@ -68,11 +68,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240030824-eng.pdf, derived section sec-front-matter.md: \"Creative Commons Attribution-NonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-342365",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-342365.dc.json dc.title",
     "source_file": "10665-342365.pdf",
     "source_sha256": "f988426d31db3f19ff58d9df6572e8e3887da733363a2f029c6c83d3217e570b",
     "pages": 115,

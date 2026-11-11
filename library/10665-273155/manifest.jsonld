@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "HIV DIAGNOSIS AND ARV USE IN HIV-EXPOSED INFANTS: A PROGRAMMATIC UPDATE",
+  "title": "HIV diagnosis and ARV use in HIV-exposed infants: a programmatic update",
   "contains": [
     "library/10665-273155/sections/page-001",
     "library/10665-273155/sections/page-002",
@@ -38,11 +38,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "WHO-CDS-HIV-18.17-eng.pdf, derived section page-002.md: \"Creative Commons Attribution-\nNonCommercial-ShareAlike 3\""
+  },
   "meta": {
     "doc_id": "10665-273155",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-273155.dc.json dc.title",
     "source_file": "10665-273155.pdf",
     "source_sha256": "12b1fb9054d68b011fc5922c560005f0d9369bde2ff6d7639cca247b5b370f9f",
     "pages": 24,

@@ -38,11 +38,16 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "license": "LicenseRef-CC-as-stated",
+  "licenceRecord": {
+    "status": "stated",
+    "id": "LicenseRef-CC-as-stated",
+    "basis": "9789240027558-fre.pdf, derived section sec-front-matter.md: \"Creative Commons \nAttribution – Pas d’utilisation commerciale – Partage dans les mêmes conditions 3\""
+  },
   "meta": {
     "doc_id": "10665-344250",
-    "title_source": "corroborated",
-    "title_from": "structure.json metadata.title",
-    "title_verified": true,
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-344250.dc.json dc.title",
     "source_file": "10665-344250.pdf",
     "source_sha256": "49e09a6d7de7961e30d16b0a0e2247bf77ad8b1de9be08d22d731748a3bc1ee4",
     "pages": 71,

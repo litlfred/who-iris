@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "10665-174553",
+  "title": "Programme d'action pour les médicaments et vaccins essentiels: projet de résolution proposé par le Président du Comité ad hoc et les Rapporteurs",
   "contains": [
     "library/10665-174553/sections/page-001",
     "library/10665-174553/sections/page-002",
@@ -17,9 +17,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of EB73_Conf.Paper-8_fre.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-174553",
-    "title_source": "slug",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-174553.dc.json dc.title",
     "source_file": "10665-174553.pdf",
     "source_sha256": "25ccbb52842dd8ce1694c672f46427c64fceec37b43aaa5ba83ce3f2fb048f18",
     "pages": 3,

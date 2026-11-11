@@ -9,7 +9,7 @@
   "@type": [
     "cat-harness:SourceDocument"
   ],
-  "title": "CAUSALITY ASSESSMENT",
+  "title": "Évaluation du lien de causalité pour les manifestations postvaccinales indésirables (MAPI). Manuel d’utilisation de la classification OMS révisée",
   "contains": [
     "library/10665-208888/sections/sec-front-matter",
     "library/10665-208888/sections/sec-000",
@@ -90,10 +90,20 @@
   ],
   "provenance": "ingested",
   "inSubgraph": "https://litlfred.github.io/folio-assistant/who-iris/directory/library",
+  "licenceRecord": {
+    "status": "unknown",
+    "searched": [
+      {
+        "where": "every derived section of 9789242505337-fre.pdf, for 'CC BY' and 'Creative Commons'",
+        "result": "no match",
+        "on": "2026-11-10"
+      }
+    ]
+  },
   "meta": {
     "doc_id": "10665-208888",
-    "title_source": "pdf-info",
-    "title_from": "structure.json metadata.docinfo.Title",
+    "title_source": "dc-record",
+    "title_from": "catalogue/records/10665-208888.dc.json dc.title",
     "source_file": "10665-208888.pdf",
     "source_sha256": "db0e635d51915b9fc58e4c1d2ebe58de8f396c89ff385d1158b39183f87c557e",
     "pages": 61,
