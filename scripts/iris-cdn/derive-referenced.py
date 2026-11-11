@@ -24,10 +24,10 @@ For each referenced item whose ORIGINAL PDFs were fetched to a scratch folder
    `provenance.local` naming the entry's `structure.json#source` and the
    sha256 of the bytes that were read. The PDF itself is never written to this
    repository.
-4. The raster images and figure renderings the ingest extracted (`images/`,
-   `figures/`) are removed: they are bytes of the original asset, and one
-   six-language strategy alone carried 82 MB of them. `images.json` stays, as the record of which images the PDF
-   places and on which page. The entry's own `cover.png` (an unmasked page 1) is replaced by the item's
+4. The figures and tables the ingest extracted (`images/`, `figures/`) are
+   KEPT: owner, 2026-11-11, "actually extract the figures" and "any tables
+   too". They were removed at first as bytes of the original asset (one
+   six-language strategy carried 82 MB of them). The entry's own `cover.png` (an unmasked page 1) is replaced by the item's
    masked cover where one exists, and removed otherwise: the emblem ruling of
    2026-09-21 still holds.
 5. `licence.json` records the licence the publication states (a Creative
@@ -156,8 +156,6 @@ def main():
                 report.append(row); print(slug, "FAILED"); continue
             digest = sha256(pdf)
             os.remove(pdf)  # the bytes are never kept
-            shutil.rmtree(os.path.join(entry, "images"), ignore_errors=True)
-            shutil.rmtree(os.path.join(entry, "figures"), ignore_errors=True)
             # The cover: the item's masked one for its own entry, none otherwise.
             cover = os.path.join(entry, "cover.png")
             masked = os.path.join(root, "library", f"{stem}-cover.png")
