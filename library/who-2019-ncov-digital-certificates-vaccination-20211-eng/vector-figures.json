@@ -285,6 +285,7 @@
       "narrative": [
         {
           "text": "Figure 1, 'Guidance documents for DDCC'. Three boxes: DDCC: Vaccination Status, guidance on digitally documenting COVID-19 vaccination status, shown with the cover of this document; DDCC: SARS-CoV-2 Test Result, guidance on digitally documenting SARS-CoV-2 test results; and DDCC: History of SARS-CoV-2 Infection, guidance on digitally documenting history of SARS-CoV-2 infection.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -292,8 +293,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -712,6 +712,7 @@
       "narrative": [
         {
           "text": "Figure 2, 'Different illustrative formats of DDCC:VS'. Two existing paper formats: 1, the International Certificate of Vaccination or Prophylaxis (the yellow card); 2, a national immunization home-based record, pictured as a COVID-19 vaccination record card. Then, grouped under Digital Documentation of COVID-19 Certificates: Vaccination Status: 3, a handwritten paper certificate with only an HCID that links to a DDCC:VS, or with a 2D barcode containing the full DDCC:VS core data set; 4, a PDF print-out certificate with only an HCID linking to a DDCC:VS, or with a 2D barcode containing the full core data set; 5, a DDCC:VS held on a smartphone. Formats 3-5 are pictured as a 'National COVID-19 Certificate' with a QR code.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -719,8 +720,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -1283,6 +1283,7 @@
       "narrative": [
         {
           "text": "Figure 3, 'Continuity of Care scenario': the vaccine is administered, the core data set is recorded on the DDCC paper certificate, and the record is then made available in digital form. Four lanes: subject of care, vaccinator, data entry personnel, DDCC holder. (1) The subject of care arrives at the care site; (2) the vaccinator vaccinates and (3) records core data set elements on a paper certificate, which the holder receives as Point A, a paper record of DDCC:VS. Is there a digital health solution at the care site? If no, (5) data entry personnel record the elements in a digital health solution. If yes, (4) the vaccinator records them in one; then, does the care site have Internet connectivity? Yes leads directly, and no via step 5, to Point B: the record of vaccination status is available in a digital form. End.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -1290,8 +1291,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -1926,6 +1926,7 @@
       "narrative": [
         {
           "text": "Figure 4, 'Continuity of Care scenario: Paper First use case (UC001)'. The Figure 3 workflow with one path highlighted: arrival (1), vaccination (2), recording on the paper certificate (3) which gives Point A, then no digital health solution at the care site, so data entry personnel record the data in a digital health solution (5), reaching Point B, the record available in digital form. Step 4 and the connectivity decision are greyed out.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -1933,8 +1934,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -2609,6 +2609,7 @@
       "narrative": [
         {
           "text": "Figure 5, 'Continuity of Care scenario: Offline Digital use case (UC002)'. The Figure 3 workflow with one path highlighted: arrival (1), vaccination (2), paper recording (3) giving Point A; a digital health solution is at the care site, so the vaccinator records the data in it (4); the site has no Internet connectivity, so data entry personnel record the data (5), reaching Point B. The direct 'no digital solution' and 'connected' branches are greyed out.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -2616,8 +2617,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -3292,6 +3292,7 @@
       "narrative": [
         {
           "text": "Figure 6, 'Continuity of Care scenario: Online Digital use case (UC003)'. The Figure 3 workflow with one path highlighted: arrival (1), vaccination (2), paper recording (3) giving Point A; a digital health solution is at the care site and the vaccinator records the data in it (4); the site has Internet connectivity, so the record goes directly to Point B, available in digital form. Step 5 by data entry personnel is greyed out.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -3299,8 +3300,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -3695,6 +3695,7 @@
       "narrative": [
         {
           "text": "Figure 7, 'The relationships between digital services for Proof of Vaccination'. A digital health solution submits a vaccination event to the DDCC:VS generation service, which returns a DDCC:VS. The HCID is provided by an existing national system or issued by the generation service. The generation service registers the DDCC:VS with the DDCC:VS registry service and may optionally store it in a DDCC:VS repository. Optional dashed links: an online status check between the registry service and the repository, and online verification of a DDCC:VS between an optional status checking application and the registry service. A note explains that the HCID, the unique identifier in a DDCC:VS, is used throughout these services and lets verifiers search for and retrieve a DDCC:VS.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -3702,8 +3703,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -4330,6 +4330,7 @@
       "narrative": [
         {
           "text": "Figure 8, 'Proof of Vaccination scenario': verification of a claim of vaccination. Four lanes: DDCC holder, verifier, national PHA, international PHA. (1) The holder presents the DDCC:VS; (2) the verifier receives the claim. Is cryptographic verification required? No leads straight to Point C, the decision on the verification. Yes: (3) the verifier uses a status checking application; perform check online? No leads to Point C. Yes: (4) the national PHA performs an online check with its DDCC registry service; check with international PHA? If yes, (5) the international PHA performs an online check with its registry service; either way (6) results are communicated back to the verifier, then Point C and End.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -4337,8 +4338,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -5067,6 +5067,7 @@
       "narrative": [
         {
           "text": "Figure 9, 'Proof of Vaccination scenario: Manual Verification use case (UC004)'. The Figure 8 workflow with one path highlighted: the holder presents the DDCC:VS (1), the verifier receives the claim (2), no cryptographic verification is required, and the verifier goes directly to Point C, the decision on the claim. All the status-checking and PHA steps are greyed out.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -5074,8 +5075,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -5816,6 +5816,7 @@
       "narrative": [
         {
           "text": "Figure 10, 'Proof of Vaccination scenario: Offline Cryptographic Verification use case (UC005)'. The Figure 8 workflow with one path highlighted: presentation (1), receipt of the claim (2), cryptographic verification required, the verifier uses a status checking application (3) and does not check online, going to Point C. The online PHA checks are greyed out.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -5823,8 +5824,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -6555,6 +6555,7 @@
       "narrative": [
         {
           "text": "Figure 11, 'Proof of Vaccination scenario: Online Status Check (National DDCC:VS) use case (UC006)'. The Figure 8 workflow with one path highlighted: presentation (1), receipt (2), cryptographic verification required, status checking application (3), online check performed by the national PHA against its DDCC registry service (4), no international check, results communicated back to the verifier (6), Point C. The international PHA step is greyed out.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -6562,8 +6563,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -7294,6 +7294,7 @@
       "narrative": [
         {
           "text": "Figure 12, 'Proof of Vaccination scenario: Online Status Check (International DDCC:VS) use case (UC007)'. The Figure 8 workflow with one path highlighted: presentation (1), receipt (2), cryptographic verification required, status checking application (3), national PHA online check (4), check with the international PHA, which performs an online check with its DDCC registry service (5), results communicated back to the verifier (6), Point C. The manual and offline branches are greyed out.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -7301,8 +7302,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -7725,6 +7725,7 @@
       "narrative": [
         {
           "text": "Figure 13, 'The chain of trust'. Three linked boxes: CSCA (country signing certificate authority) and DSC (document signer certificate), each with a private and a public key, and DDCC (Digital Documentation of COVID-19 Certificate), marked with a QR code. Above, 'Signing and issuing a DDCC' runs in steps 1-3 from CSCA through DSC to DDCC. Below, a dotted 'Verifying a DDCC' arc runs in steps 1-3 the other way, from DDCC back to CSCA.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -7732,8 +7733,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -8094,6 +8094,7 @@
       "narrative": [
         {
           "text": "Figure 14, 'How digital signatures work', under the heading Document Signing. A signer starts from a document (vaccination data); a hash is calculated from the document, giving the document hash; the hash is digitally signed with a private key, giving the signed hash; the signed hash is added to the document, giving a document with a digitally signed hash (the DDCC:VS).",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -8101,8 +8102,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     },
@@ -8597,6 +8597,7 @@
       "narrative": [
         {
           "text": "Figure 15, 'How digital signature verification works'. The upper panel, Document Signing, repeats Figure 14: document, document hash, signed with the private key, signed hash added to the document to make the DDCC:VS. The signer sends the digitally signed document and the public key to the verifier. The lower panel, Document Validation: the verifier calculates a hash from the document and, using the public key, obtains the hash from the signed hash; the two values are compared, and a matching hash indicates a valid document, one that contains the information that was signed with the private key.",
+          "lang": "en",
           "state": "draft",
           "drafted_by": {
             "kind": "agent",
@@ -8604,8 +8605,7 @@
             "model": "not-disclosed",
             "session": "https://claude.ai/code/session_01Pc8vSeXCwp5Ckvmz56cMDs"
           },
-          "drafted_at": "2026-10-15",
-          "lang": "en"
+          "drafted_at": "2026-10-15"
         }
       ]
     }

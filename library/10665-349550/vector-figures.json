@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p037",
-      "file": "figures/vfig-p037.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p037.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a page with a four-part circular diagram and a text box",
         "page": 37
       },
       "page": 37,
@@ -379,7 +383,7 @@
             "id": "b22",
             "bbox": [
               204.64,
-              348.0,
+              348,
               232.08,
               375.44
             ],
@@ -579,18 +583,100 @@
         "connectors": [],
         "between": [],
         "outside": 0
-      }
+      },
+      "shows": [
+        "Figure 3.1",
+        "Box 3.6"
+      ],
+      "narrative": [
+        {
+          "text": "A page showing Fig. 3.1, “Key strengths of the WHO Congenital Syphilis Estimation Tool”, a circle with four numbered points: 1 estimates case rates, which is often difficult due to limited or no reporting; 2 evaluates progress needed to assess improvements in ANC-1 testing and treatment coverage targets; 3 estimates the amount of benzathine penicillin needed to treat maternal syphilis and prevent congenital syphilis; 4 demonstrates prevention of congenital syphilis and adverse birth outcomes due to testing and treatment scale-up. Below is Box 3.6, “Management of maternal syphilis”, a text box with WHO treatment recommendations.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "صفحة تعرض الشكل 3.1 «نقاط القوة الرئيسية لأداة المنظمة لتقدير الزهري الخلقي»، وهو دائرة بأربع نقاط مرقّمة: 1 تقدّر معدلات الحالات، وهو أمر صعب غالباً بسبب محدودية الإبلاغ أو انعدامه؛ 2 تقيّم التقدم اللازم لتقييم التحسّن في غايات تغطية الاختبار والعلاج في زيارة الرعاية السابقة للولادة الأولى؛ 3 تقدّر كمية البنزاثين بنسلين اللازمة لعلاج الزهري لدى الأمهات والوقاية من الزهري الخلقي؛ 4 تبيّن الوقاية من الزهري الخلقي ومن الحصائل الضائرة للولادة بفضل التوسّع في الاختبار والعلاج. وفي الأسفل الإطار 3.6 «تدبير الزهري لدى الأمهات»، وهو إطار نصي يتضمن توصيات المنظمة بشأن العلاج.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "该页显示图3.1“世卫组织先天梅毒估算工具的主要优势”，为一个带有四个编号要点的圆圈：1 估算病例率，而由于报告有限或缺失，这通常很困难；2 评价进展，以评估首次产前检查检测和治疗覆盖率目标的改善情况；3 估算治疗孕产妇梅毒和预防先天梅毒所需的苄星青霉素数量；4 证明扩大检测和治疗可预防先天梅毒和不良出生结局。下方为框3.6“孕产妇梅毒的管理”，是一个包含世卫组织治疗建议的文字框。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Página que muestra la Fig. 3.1, «Principales puntos fuertes de la herramienta de la OMS para estimar la sífilis congénita», un círculo con cuatro puntos numerados: 1 estima las tasas de casos, algo a menudo difícil por la notificación limitada o inexistente; 2 evalúa el progreso necesario para valorar las mejoras en las metas de cobertura de pruebas y tratamiento en la primera consulta prenatal; 3 estima la cantidad de penicilina benzatínica necesaria para tratar la sífilis materna y prevenir la sífilis congénita; 4 demuestra la prevención de la sífilis congénita y de los resultados adversos del parto gracias a la ampliación de las pruebas y el tratamiento. Debajo figura el Recuadro 3.6, «Manejo de la sífilis materna», con las recomendaciones de tratamiento de la OMS.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Page présentant la Fig. 3.1, « Principaux atouts de l’outil de l’OMS pour l’estimation de la syphilis congénitale », un cercle comportant quatre points numérotés : 1 estime les taux de cas, souvent difficiles à obtenir faute de notification ou en raison d’une notification limitée ; 2 évalue les progrès nécessaires pour apprécier l’amélioration des cibles de couverture du dépistage et du traitement lors de la première consultation prénatale ; 3 estime la quantité de benzathine pénicilline nécessaire pour traiter la syphilis maternelle et prévenir la syphilis congénitale ; 4 démontre la prévention de la syphilis congénitale et des issues défavorables de la naissance grâce à l’intensification du dépistage et du traitement. En dessous figure l’Encadré 3.6, « Prise en charge de la syphilis maternelle », avec les recommandations de traitement de l’OMS.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Страница с Рис. 3.1 «Основные преимущества инструмента ВОЗ для оценки врождённого сифилиса» — кругом с четырьмя пронумерованными пунктами: 1 — оценивает показатели заболеваемости, что часто затруднено из-за ограниченной отчётности или её отсутствия; 2 — оценивает прогресс, необходимый для определения улучшений в достижении целевых показателей охвата тестированием и лечением при первом дородовом посещении; 3 — оценивает количество бензатин-пенициллина, необходимого для лечения сифилиса у матерей и профилактики врождённого сифилиса; 4 — демонстрирует профилактику врождённого сифилиса и неблагоприятных исходов родов благодаря расширению тестирования и лечения. Ниже — Вставка 3.6 «Ведение сифилиса у матерей» с рекомендациями ВОЗ по лечению.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p067",
-      "file": "figures/vfig-p067.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p067.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a page with a four-level process diagram for EMTCT validation",
         "page": 67
       },
       "page": 67,
@@ -806,7 +892,7 @@
             "bbox": [
               156.56,
               542.47,
-              184.0,
+              184,
               569.91
             ],
             "parent": null,
@@ -1026,7 +1112,7 @@
             "id": "b26",
             "bbox": [
               261.73,
-              213.0,
+              213,
               289.17,
               240.44
             ],
@@ -1040,7 +1126,7 @@
             "bbox": [
               73.56,
               308.7,
-              101.0,
+              101,
               336.14
             ],
             "parent": null,
@@ -1132,7 +1218,7 @@
             "bbox": [
               235.56,
               382.35,
-              263.0,
+              263,
               409.79
             ],
             "parent": null,
@@ -1549,7 +1635,84 @@
         ],
         "between": [],
         "outside": 0
-      }
+      },
+      "shows": [
+        "Figure 7.1"
+      ],
+      "narrative": [
+        {
+          "text": "A page showing Fig. 7.1, “Process for validation of EMTCT or PTE certification, including the responsibilities of the health ministry, committees and secretariats at the national, regional and global levels”. Four rows, each with a chevron label, list nine numbered steps: the health ministry requests validation and establishes a national validation committee (steps 1–2); the national committee or task force conducts a preliminary assessment and submits a national report (3–4); the regional validation committee and secretariat review it and submit a regional report (5–7); and the Global Validation Advisory Committee reviews the report, after which the WHO Director-General signs a certificate (8–9).",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "صفحة تعرض الشكل 7.1 «عملية التحقق من القضاء على انتقال العدوى من الأم إلى الطفل أو الإشهاد على المسار نحو القضاء، بما في ذلك مسؤوليات وزارة الصحة واللجان والأمانات على المستويات الوطني والإقليمي والعالمي». تعرض أربعة صفوف، لكل منها تسمية على شكل سهم، تسع خطوات مرقّمة: تطلب وزارة الصحة التحقق وتنشئ لجنة وطنية للتحقق (الخطوتان 1–2)؛ وتجري اللجنة الوطنية أو فرقة العمل تقييماً أولياً وتقدّم تقريراً وطنياً (3–4)؛ وتستعرضه لجنة التحقق الإقليمية وأمانتها وتقدّم تقريراً إقليمياً (5–7)؛ وتستعرض اللجنة الاستشارية العالمية للتحقق التقرير، ثم يوقّع المدير العام للمنظمة شهادة (8–9).",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "该页显示图7.1“消除母婴传播验证或迈向消除路径认证的流程，包括卫生部以及国家、区域和全球层面委员会和秘书处的职责”。四行内容各配有一个箭头形标签，列出九个编号步骤：卫生部申请验证并成立国家验证委员会（步骤1–2）；国家委员会或工作组进行初步评估并提交国家报告（3–4）；区域验证委员会和秘书处审查后提交区域报告（5–7）；全球验证咨询委员会审查报告，随后世卫组织总干事签署证书（8–9）。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Página que muestra la Fig. 7.1, «Proceso de validación de la ETMI o de certificación de la vía hacia la eliminación, incluidas las responsabilidades del ministerio de salud y de los comités y secretarías a nivel nacional, regional y mundial». Cuatro filas, cada una con una etiqueta en forma de cheurón, enumeran nueve pasos: el ministerio de salud solicita la validación y crea un comité nacional de validación (pasos 1–2); el comité o grupo de trabajo nacional realiza una evaluación preliminar y presenta un informe nacional (3–4); el comité regional de validación y su secretaría lo examinan y presentan un informe regional (5–7); y el Comité Asesor Mundial de Validación examina el informe, tras lo cual el Director General de la OMS firma un certificado (8–9).",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Page présentant la Fig. 7.1, « Processus de validation de l’ETME ou de certification du parcours vers l’élimination, y compris les responsabilités du ministère de la santé, des comités et des secrétariats aux niveaux national, régional et mondial ». Quatre rangées, chacune avec une étiquette en chevron, énumèrent neuf étapes : le ministère de la santé demande la validation et crée un comité national de validation (étapes 1–2) ; le comité ou groupe de travail national procède à une évaluation préliminaire et soumet un rapport national (3–4) ; le comité régional de validation et son secrétariat l’examinent et soumettent un rapport régional (5–7) ; et le Comité consultatif mondial de validation examine le rapport, après quoi le Directeur général de l’OMS signe un certificat (8–9).",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Страница с Рис. 7.1 «Процесс валидации ЭПМР или сертификации пути к элиминации, включая обязанности министерства здравоохранения, комитетов и секретариатов на национальном, региональном и глобальном уровнях». В четырёх строках, каждая с меткой в виде шеврона, перечислены девять шагов: министерство здравоохранения запрашивает валидацию и создаёт национальный комитет по валидации (шаги 1–2); национальный комитет или рабочая группа проводит предварительную оценку и представляет национальный доклад (3–4); региональный комитет по валидации и секретариат рассматривают его и представляют региональный доклад (5–7); Глобальный консультативный комитет по валидации рассматривает доклад, после чего Генеральный директор ВОЗ подписывает сертификат (8–9).",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     }
   ]
 }

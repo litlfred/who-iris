@@ -2,13 +2,12 @@
   "@context": [
     "https://litlfred.github.io/who-iris/ns/context/v1.jsonld",
     {
-      "@base": "https://litlfred.github.io/folio/",
-      "smart-base": "https://litlfred.github.io/smart-base/v0/ns/"
+      "@base": "https://litlfred.github.io/folio/"
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-042-05",
   "@type": [
-    "smart-base:Indicator"
+    "cat-harness:Block"
   ],
   "kind": "indicator",
   "title": "Existence of cooperation between health workforce education and training institutions and regulatory bodies to agree on accreditation standards (Yes/Partial/No)",

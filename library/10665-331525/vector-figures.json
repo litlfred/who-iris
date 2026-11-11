@@ -4,14 +4,18 @@
   "figures": [
     {
       "id": "vfig-p015",
-      "file": "figures/vfig-p015.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p015.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a flowchart of the TB case-finding cascade and a cycle diagram of implementation considerations",
         "page": 15
       },
       "page": 15,
@@ -78,7 +82,7 @@
               187.08,
               204.86,
               278.83,
-              243.0
+              243
             ],
             "drawings": 3,
             "pageEdge": false,
@@ -134,7 +138,7 @@
               375.4,
               204.86,
               467.16,
-              243.0
+              243
             ],
             "drawings": 3,
             "pageEdge": false,
@@ -460,7 +464,7 @@
               232.92,
               209.04,
               232.92,
-              243.0
+              243
             ]
           },
           {
@@ -470,7 +474,7 @@
               229.11,
               238.9,
               236.73,
-              243.0
+              243
             ]
           },
           {
@@ -540,7 +544,7 @@
               421.28,
               209.04,
               421.28,
-              243.0
+              243
             ]
           },
           {
@@ -550,7 +554,7 @@
               417.47,
               238.9,
               425.09,
-              243.0
+              243
             ]
           },
           {
@@ -759,18 +763,100 @@
           "Fig. 1.2: Implementation considerations in the programmatic management of TPT"
         ],
         "outside": 3
-      }
+      },
+      "shows": [
+        "Figure 1.1",
+        "Figure 1.2"
+      ],
+      "narrative": [
+        {
+          "text": "Two diagrams. Figure 1.1 is a flowchart from 'Target population' to 'Active TB case finding', splitting into 'Presumptive TB' (test for TB disease; if TB confirmed, provide TB treatment; if no TB, give TPT) and 'No TB' (testing for TB infection*, assess for TPT, give TPT), all ending in 'Systematic follow-up'; the footnote reads '*PLHIV and child household contacts aged < 5 years'. Figure 1.2 is a ring of six circles around 'Additional funding': national policy or guidelines, health infrastructure, human resource capacity and training, demand creation, supervision and monitoring, and review and policy adjustment.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخططان. الشكل 1.1 مخطط انسيابي يبدأ من «الفئة المستهدفة» إلى «البحث النشط عن حالات السل»، ثم يتفرع إلى «السل المفترض» (اختبار مرض السل؛ عند تأكيد السل يُقدَّم علاج السل، وعند عدم وجوده يُعطى العلاج الوقائي من السل) و«لا سل» (اختبار عدوى السل*، وتقييم الأهلية للعلاج الوقائي، وإعطاء العلاج الوقائي)، وتنتهي جميعها بـ«المتابعة المنهجية»؛ وتقول الحاشية: «*المتعايشون مع فيروس العوز المناعي البشري والمخالطون المنزليون من الأطفال دون سن 5 سنوات». والشكل 1.2 حلقة من ست دوائر حول «التمويل الإضافي»: السياسة أو المبادئ التوجيهية الوطنية، والبنية التحتية الصحية، وقدرات الموارد البشرية والتدريب، وتوليد الطلب، والإشراف والرصد، والمراجعة وتعديل السياسات.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "两幅图。图1.1为流程图，从“目标人群”到“主动发现结核病病例”，再分为“疑似结核病”（检测结核病；确诊结核病则提供结核病治疗，无结核病则给予结核病预防性治疗）和“无结核病”（检测结核感染*、评估结核病预防性治疗、给予结核病预防性治疗），最终均进入“系统随访”；脚注为“*艾滋病毒感染者和5岁以下儿童家庭接触者”。图1.2为围绕“额外资金”的六个圆圈组成的环：国家政策或指南、卫生基础设施、人力资源能力和培训、需求创造、督导和监测，以及审查和政策调整。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Dos diagramas. La figura 1.1 es un diagrama de flujo que va de «Población destinataria» a «Búsqueda activa de casos de TB» y se divide en «Presunta TB» (prueba de enfermedad tuberculosa; si se confirma la TB, se administra tratamiento antituberculoso; si no hay TB, se administra TPT) y «Sin TB» (prueba de infección tuberculosa*, evaluación para el TPT y administración del TPT), y todo termina en «Seguimiento sistemático»; la nota dice «*PVVIH y contactos domiciliarios menores de 5 años». La figura 1.2 es un anillo de seis círculos alrededor de «Financiación adicional»: política o directrices nacionales, infraestructura sanitaria, capacidad y formación de los recursos humanos, creación de demanda, supervisión y seguimiento, y examen y ajuste de las políticas.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Deux schémas. La figure 1.1 est un logigramme allant de « Population cible » à « Recherche active des cas de TB », qui se divise en « TB présumée » (test de la TB maladie ; si la TB est confirmée, administration du traitement antituberculeux ; en l’absence de TB, administration du TPT) et « Pas de TB » (test de l’infection tuberculeuse*, évaluation pour le TPT, administration du TPT), le tout aboutissant au « Suivi systématique » ; la note indique « *PVVIH et contacts familiaux de moins de 5 ans ». La figure 1.2 est un anneau de six cercles autour de « Financement supplémentaire » : politique ou lignes directrices nationales, infrastructures de santé, capacités et formation des ressources humaines, création de la demande, supervision et suivi, et examen et ajustement des politiques.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Две схемы. Рисунок 1.1 — блок-схема от «Целевой группы населения» к «Активному выявлению случаев ТБ», которая разделяется на «Предполагаемый ТБ» (тест на ТБ; при подтвержденном ТБ — лечение ТБ, при отсутствии ТБ — ПЛТ) и «Нет ТБ» (тестирование на ТБ-инфекцию*, оценка для ПЛТ, назначение ПЛТ), и все пути ведут к «Систематическому последующему наблюдению»; сноска: «*ЛЖВ и дети младше 5 лет из числа бытовых контактов». Рисунок 1.2 — кольцо из шести кругов вокруг «Дополнительного финансирования»: национальная политика или руководства, инфраструктура здравоохранения, кадровый потенциал и обучение, формирование спроса, кураторство и мониторинг, а также анализ и корректировка политики.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p025",
-      "file": "figures/vfig-p025.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p025.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a list diagram of five contact investigation steps with costing items",
         "page": 25
       },
       "page": 25,
@@ -1062,18 +1148,99 @@
           "Fig. 2.1: Indicative costing items to strengthen contact investigations"
         ],
         "outside": 4
-      }
+      },
+      "shows": [
+        "Figure 2.1"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram (Fig. 2.1) pairing five steps of contact investigation with indicative costing items: identification of contacts (health care worker time to interview the index TB patient, travel to the household or workplace); clinical evaluation (worker time for evaluation and follow-up, enabler or travel support for contacts); testing for TB disease or eligibility for TPT (travel support to the testing site, specimen collection transport); provide access to TPT (worker time for referral and follow-up on TPT/TB treatment initiation and social support); and recording and reporting (data capture tools such as the WHO Prevent TB mobile application, worker time). The render also includes the preceding key point and text on strengthening household contact investigation.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط (الشكل 2.1) يربط خمس خطوات لتقصي المخالطين ببنود تكاليف إرشادية: تحديد المخالطين (وقت العامل الصحي لمقابلة مريض السل الدال، والسفر إلى المنزل أو مكان العمل)؛ والتقييم السريري (وقت العامل للتقييم والمتابعة، ودعم التمكين أو السفر للمخالطين)؛ واختبار مرض السل أو الأهلية للعلاج الوقائي (دعم السفر إلى موقع الاختبار، ونقل العينات)؛ وإتاحة العلاج الوقائي من السل (وقت العامل للإحالة ومتابعة بدء العلاج الوقائي أو علاج السل وخطط الدعم الاجتماعي)؛ والتسجيل والإبلاغ (أدوات جمع البيانات مثل تطبيق WHO Prevent TB للهاتف المحمول، ووقت العامل). ويتضمن العرض أيضاً النقطة الرئيسية السابقة ونصاً عن تعزيز تقصي المخالطين المنزليين.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "示意图（图2.1），将接触者调查的五个步骤与指示性成本项目对应：识别接触者（卫生工作者访谈指示结核病患者的时间、前往家庭或工作场所的差旅）；临床评估（工作者进行评估和随访的时间、为接触者提供的激励或差旅支持）；检测结核病或评估结核病预防性治疗资格（前往检测点的差旅支持、标本采集运输）；提供结核病预防性治疗（工作者转诊并跟进预防性治疗/结核病治疗启动及社会支持计划的时间）；以及记录和报告（数据采集工具，如世卫组织Prevent TB手机应用程序，以及工作者时间）。该渲染图还包含前面的要点和关于加强家庭接触者调查的正文。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama (fig. 2.1) que asocia cinco pasos de la investigación de contactos con partidas de costos indicativas: identificación de contactos (tiempo del trabajador de salud para entrevistar al paciente índice con TB, desplazamiento al hogar o lugar de trabajo); evaluación clínica (tiempo del trabajador para la evaluación y el seguimiento, apoyo facilitador o de transporte para los contactos); pruebas de enfermedad tuberculosa o de idoneidad para el TPT (apoyo para el desplazamiento al lugar de la prueba, transporte de muestras); acceso al TPT (tiempo del trabajador para la derivación y el seguimiento del inicio del TPT o del tratamiento antituberculoso y de los planes de apoyo social); y registro y notificación (herramientas de recopilación de datos como la aplicación móvil WHO Prevent TB, tiempo del trabajador). La imagen incluye también el punto clave anterior y el texto sobre el fortalecimiento de la investigación de contactos domiciliarios.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma (fig. 2.1) associant cinq étapes de l’investigation des contacts à des postes de coûts indicatifs : identification des contacts (temps de l’agent de santé pour interroger le patient index atteint de TB, déplacement au domicile ou sur le lieu de travail) ; évaluation clinique (temps de l’agent pour l’évaluation et le suivi, aide incitative ou au transport pour les contacts) ; dépistage de la TB maladie ou de l’éligibilité au TPT (aide au déplacement vers le site de dépistage, transport des échantillons) ; accès au TPT (temps de l’agent pour l’orientation et le suivi de l’instauration du TPT ou du traitement antituberculeux et des dispositifs de soutien social) ; et enregistrement et notification (outils de saisie des données comme l’application mobile WHO Prevent TB, temps de l’agent). Le rendu inclut aussi le point clé précédent et le texte sur le renforcement de l’investigation des contacts familiaux.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема (рис. 2.1), сопоставляющая пять этапов обследования контактов с ориентировочными статьями расходов: выявление контактов (время медработника на опрос индексного пациента с ТБ, поездки по месту жительства или работы); клиническая оценка (время медработника на оценку и наблюдение, стимулирующая или транспортная поддержка контактов); тестирование на ТБ или пригодность к ПЛТ (транспортная поддержка для посещения пункта тестирования, транспортировка образцов); обеспечение доступа к ПЛТ (время медработника на направление и контроль начала ПЛТ/лечения ТБ и программы социальной поддержки); регистрация и отчетность (инструменты сбора данных, например мобильное приложение ВОЗ Prevent TB, время медработника). Изображение также включает предшествующий ключевой момент и текст об усилении обследования бытовых контактов.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p026",
-      "file": "figures/vfig-p026.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p026.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "six columns of boxes listing building blocks for contact investigation",
         "page": 26
       },
       "page": 26,
@@ -1717,18 +1884,99 @@
         ],
         "between": [],
         "outside": 13
-      }
+      },
+      "shows": [
+        "Figure 2.2"
+      ],
+      "narrative": [
+        {
+          "text": "Diagram (Fig. 2.2) of six columns of blue boxes listing building blocks for contact investigation: prioritize contact investigation, define roles and responsibility, provide standard protocols and procedures, guidance on recording and reporting; health care worker, community workers/volunteers, former TB patients; counselling about the importance of contact investigation, risk assessment, TPT and adverse events management, interview techniques, follow-up and basic data collection; support for home visits/travel to health facility, additional human resources, enablers and incentives, information and communication tools; conduct early interview (one week), use local language, include environment assessment, include family counselling, referral for testing and starting TPT; and provide disclosure counselling (family/contact), ensure respectful treatment, obtain consent for investigation. Column headings are not shown in this render.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط (الشكل 2.2) من ستة أعمدة من المربعات الزرقاء تسرد اللبنات الأساسية لتقصي المخالطين: إعطاء الأولوية لتقصي المخالطين، وتحديد الأدوار والمسؤوليات، وتوفير بروتوكولات وإجراءات موحدة، وإرشادات بشأن التسجيل والإبلاغ؛ والعامل الصحي، والعاملون المجتمعيون/المتطوعون، ومرضى السل السابقون؛ والمشورة بشأن أهمية تقصي المخالطين، وتقييم المخاطر والعلاج الوقائي من السل وإدارة الأحداث الضائرة، وتقنيات المقابلة، والمتابعة وجمع البيانات الأساسية؛ ودعم الزيارات المنزلية/السفر إلى المرفق الصحي، والموارد البشرية الإضافية، والعوامل التمكينية والحوافز، وأدوات المعلومات والاتصال؛ وإجراء مقابلة مبكرة (أسبوع واحد)، واستخدام اللغة المحلية، وإدراج تقييم البيئة، وإدراج مشورة الأسرة، والإحالة للاختبار وبدء العلاج الوقائي؛ وتقديم المشورة بشأن الإفصاح (الأسرة/المخالط)، وضمان المعاملة باحترام، والحصول على الموافقة على التقصي. ولا تظهر عناوين الأعمدة في هذا العرض.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "示意图（图2.2），由六列蓝色方框组成，列出加强接触者调查的基本要素：优先开展接触者调查、明确角色和职责、提供标准规程和程序、记录和报告指导；卫生工作者、社区工作者/志愿者、既往结核病患者；关于接触者调查重要性的咨询、风险评估、结核病预防性治疗和不良事件管理、访谈技巧、随访和基本数据收集；家访/前往卫生机构的支持、额外人力资源、激励措施、信息和交流工具；尽早访谈（一周内）、使用当地语言、包括环境评估、包括家庭咨询、转诊检测并启动结核病预防性治疗；以及提供披露咨询（家庭/接触者）、确保尊重对待、获得调查同意。本渲染图中未显示列标题。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama (fig. 2.2) de seis columnas de recuadros azules que enumeran los elementos básicos de la investigación de contactos: priorizar la investigación de contactos, definir funciones y responsabilidades, proporcionar protocolos y procedimientos normalizados, orientación sobre registro y notificación; trabajador de salud, trabajadores comunitarios/voluntarios, antiguos pacientes con TB; asesoramiento sobre la importancia de la investigación de contactos, evaluación del riesgo, TPT y manejo de eventos adversos, técnicas de entrevista, seguimiento y recopilación básica de datos; apoyo para visitas domiciliarias/desplazamiento al establecimiento de salud, recursos humanos adicionales, facilitadores e incentivos, herramientas de información y comunicación; realizar una entrevista temprana (una semana), usar el idioma local, incluir una evaluación del entorno, incluir asesoramiento familiar, derivación para pruebas e inicio del TPT; y proporcionar asesoramiento sobre la revelación (familia/contacto), garantizar un trato respetuoso, obtener el consentimiento para la investigación. Los encabezados de columna no aparecen en esta imagen.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma (fig. 2.2) de six colonnes de cases bleues énumérant les éléments constitutifs de l’investigation des contacts : donner la priorité à l’investigation des contacts, définir les rôles et responsabilités, fournir des protocoles et procédures normalisés, orientations sur l’enregistrement et la notification ; agent de santé, agents communautaires/bénévoles, anciens patients atteints de TB ; conseil sur l’importance de l’investigation des contacts, évaluation des risques, TPT et prise en charge des événements indésirables, techniques d’entretien, suivi et collecte de données de base ; soutien aux visites à domicile/déplacements vers l’établissement de santé, ressources humaines supplémentaires, mesures incitatives, outils d’information et de communication ; mener un entretien précoce (une semaine), utiliser la langue locale, inclure une évaluation de l’environnement, inclure un conseil familial, orientation pour le dépistage et le démarrage du TPT ; et fournir un conseil sur la divulgation (famille/contact), garantir un traitement respectueux, obtenir le consentement à l’investigation. Les intitulés des colonnes n’apparaissent pas dans ce rendu.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема (рис. 2.2) из шести столбцов синих блоков с основными элементами обследования контактов: приоритизация обследования контактов, определение ролей и обязанностей, стандартные протоколы и процедуры, руководство по регистрации и отчетности; медицинский работник, общественные работники/волонтеры, бывшие пациенты с ТБ; консультирование о важности обследования контактов, оценка риска, ПЛТ и ведение нежелательных явлений, методы интервьюирования, последующее наблюдение и сбор базовых данных; поддержка визитов на дом/поездок в медучреждение, дополнительные кадровые ресурсы, стимулы и поощрения, информационно-коммуникационные инструменты; раннее интервью (в течение недели), использование местного языка, оценка окружающей среды, консультирование семьи, направление на тестирование и начало ПЛТ; консультирование по вопросам раскрытия информации (семья/контакт), уважительное отношение, получение согласия на обследование. Заголовки столбцов на этом изображении не показаны.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p044",
-      "file": "figures/vfig-p044.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p044.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a flowchart algorithm for TB screening and TPT",
         "page": 44
       },
       "page": 44,
@@ -1764,7 +2012,7 @@
             "bbox": [
               536.05,
               193.94,
-              592.0,
+              592,
               227.39
             ],
             "drawings": 3,
@@ -2177,7 +2425,7 @@
             "bbox": [
               536.05,
               193.94,
-              592.0,
+              592,
               211.85
             ],
             "parent": null,
@@ -2828,7 +3076,7 @@
             "bbox": [
               465.56,
               188.83,
-              473.0,
+              473,
               192.83
             ]
           },
@@ -2989,7 +3237,7 @@
               516.64,
               300.56,
               520.64,
-              308.0
+              308
             ]
           },
           {
@@ -3045,18 +3293,99 @@
         ],
         "between": [],
         "outside": 14
-      }
+      },
+      "shows": [
+        "Figure 4.1"
+      ],
+      "narrative": [
+        {
+          "text": "Flowchart (Fig. 4.1) of the algorithm for TB screening and TPT with three entry groups. People who are HIV positive are asked about any symptom of current cough, fever, weight loss or night sweats; household contacts are asked if symptomatic, and those without symptoms are split into under 5 years and 5 years and over; other risk groups go to TST or IGRA, where a positive or unavailable result leads to chest radiography and a negative result ends the pathway. Symptoms or an abnormal chest radiograph lead to 'Investigate for active TB'; people with no active TB, a normal or unavailable radiograph, or no symptoms are assessed for 'Preventive treatment contraindicated?', ending in 'Defer preventive treatment' or 'Give preventive treatment', followed by 'Follow up for active TB as necessary, even for patients who have completed preventive treatment'.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط انسيابي (الشكل 4.1) لخوارزمية فحص السل والعلاج الوقائي منه، بثلاث فئات للدخول. يُسأل المصابون بفيروس العوز المناعي البشري عن أي عرض من أعراض السعال الحالي أو الحمى أو فقدان الوزن أو التعرق الليلي؛ ويُسأل المخالطون المنزليون عما إذا كانت لديهم أعراض، ويُقسَّم من لا أعراض لديهم إلى من هم دون 5 سنوات ومن هم في سن 5 سنوات فأكثر؛ وتتجه فئات الخطر الأخرى إلى اختبار التوبركولين الجلدي أو مقايسة إطلاق الإنترفيرون غاما، حيث تؤدي النتيجة الإيجابية أو غير المتاحة إلى التصوير الشعاعي للصدر، وتُنهي النتيجة السلبية المسار. وتؤدي الأعراض أو الصورة الشعاعية غير الطبيعية إلى «التحري عن السل النشط»؛ ويُقيَّم من ليس لديهم سل نشط أو صورة شعاعية طبيعية أو غير متاحة أو أعراض بسؤال «هل العلاج الوقائي مضاد استطباب؟»، وينتهي ذلك بـ«تأجيل العلاج الوقائي» أو «إعطاء العلاج الوقائي»، تليه «متابعة السل النشط حسب الضرورة، حتى للمرضى الذين أكملوا العلاج الوقائي».",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "流程图（图4.1），展示结核病筛查和结核病预防性治疗算法，有三类入口人群。艾滋病毒阳性者询问是否有当前咳嗽、发热、体重减轻或盗汗中的任一症状；家庭接触者询问是否有症状，无症状者分为5岁以下和5岁及以上；其他风险人群进行结核菌素皮肤试验或γ干扰素释放试验，结果阳性或无法获得者进行胸部X线检查，结果阴性者路径结束。有症状或胸片异常者进入“调查活动性结核病”；无活动性结核病、胸片正常或无法获得、或无症状者评估“是否存在预防性治疗禁忌症？”，结果为“推迟预防性治疗”或“给予预防性治疗”，随后“必要时随访活动性结核病，即使对已完成预防性治疗的患者也是如此”。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de flujo (fig. 4.1) del algoritmo de cribado de la TB y TPT con tres grupos de entrada. A las personas con VIH se les pregunta por cualquier síntoma de tos actual, fiebre, pérdida de peso o sudores nocturnos; a los contactos domiciliarios se les pregunta si tienen síntomas, y los asintomáticos se dividen en menores de 5 años y de 5 años o más; los demás grupos de riesgo pasan a PT o IGRA, donde un resultado positivo o no disponible lleva a la radiografía de tórax y un resultado negativo pone fin al proceso. Los síntomas o una radiografía anormal llevan a «Investigar TB activa»; a las personas sin TB activa, con radiografía normal o no disponible o sin síntomas se les evalúa «¿Está contraindicado el tratamiento preventivo?», con el resultado «Aplazar el tratamiento preventivo» o «Administrar tratamiento preventivo», seguido de «Seguimiento de la TB activa según sea necesario, incluso en pacientes que han completado el tratamiento preventivo».",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Logigramme (fig. 4.1) de l’algorithme de dépistage de la TB et de TPT comportant trois groupes d’entrée. Les personnes vivant avec le VIH sont interrogées sur tout symptôme de toux actuelle, fièvre, perte de poids ou sueurs nocturnes ; on demande aux contacts familiaux s’ils présentent des symptômes, et les personnes asymptomatiques sont réparties entre moins de 5 ans et 5 ans et plus ; les autres groupes à risque passent un TCT ou un IGRA, un résultat positif ou indisponible menant à la radiographie thoracique et un résultat négatif mettant fin au parcours. Des symptômes ou une radiographie anormale mènent à « Rechercher une TB active » ; les personnes sans TB active, avec une radiographie normale ou indisponible ou sans symptômes sont évaluées sur la question « Traitement préventif contre-indiqué ? », aboutissant à « Différer le traitement préventif » ou « Administrer le traitement préventif », puis à « Suivi de la TB active si nécessaire, même pour les patients ayant achevé le traitement préventif ».",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Блок-схема (рис. 4.1) алгоритма скрининга на ТБ и ПЛТ с тремя входными группами. Людей с ВИЧ спрашивают о любом из симптомов: текущий кашель, лихорадка, потеря веса или ночная потливость; бытовые контакты спрашивают о наличии симптомов, а бессимптомных делят на детей младше 5 лет и лиц 5 лет и старше; другие группы риска проходят ТКП или IGRA, при положительном или недоступном результате выполняется рентгенография грудной клетки, при отрицательном путь завершается. Симптомы или патологическая рентгенограмма ведут к «Обследованию на активный ТБ»; лиц без активного ТБ, с нормальной или недоступной рентгенограммой либо без симптомов оценивают по вопросу «Противопоказано ли профилактическое лечение?», что приводит к «Отложить профилактическое лечение» или «Назначить профилактическое лечение», а затем к «Наблюдению на предмет активного ТБ по мере необходимости, даже у пациентов, завершивших профилактическое лечение».",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p093",
-      "file": "figures/vfig-p093.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p093.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "a four-tier pyramid of health data use",
         "page": 93
       },
       "page": 93,
@@ -3166,18 +3495,99 @@
         "connectors": [],
         "between": [],
         "outside": 30
-      }
+      },
+      "shows": [
+        "Figure 8.1"
+      ],
+      "narrative": [
+        {
+          "text": "Pyramid diagram (Fig. 8.1) of the use of health data at different levels of the health system. From base to apex: person-centred patient care/management, including patient monitoring; routine cascade data reviews for programme improvement, from national to facility level, including aggregate and individual-level/case surveillance data; national strategic plans and accountability towards multi-year goals and targets; and accountability towards global/UN commitments, Sustainable Development Goals. Side labels on the left are cut off in this render.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط هرمي (الشكل 8.1) لاستخدام البيانات الصحية على مختلف مستويات النظام الصحي. من القاعدة إلى القمة: رعاية المرضى وتدبيرهم المتمحوران حول الشخص، بما في ذلك رصد المرضى؛ والمراجعات الروتينية لبيانات السلسلة المتتالية لتحسين البرامج، من المستوى الوطني إلى مستوى المرافق، بما في ذلك البيانات الإجمالية وبيانات الترصد على المستوى الفردي/على مستوى الحالات؛ والخطط الاستراتيجية الوطنية والمساءلة تجاه الأهداف والغايات المتعددة السنوات؛ والمساءلة تجاه الالتزامات العالمية/التزامات الأمم المتحدة وأهداف التنمية المستدامة. والتسميات الجانبية على اليسار مقتطعة في هذا العرض.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "金字塔图（图8.1），展示卫生系统不同层级对卫生数据的使用。从底部到顶部依次为：以人为本的患者照护/管理，包括患者监测；为改进规划而进行的常规级联数据审查，从国家级到机构级，包括汇总数据和个体层面/病例监测数据；国家战略计划以及对多年度目标和指标的问责；对全球/联合国承诺和可持续发展目标的问责。本渲染图中左侧标签被截断。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama piramidal (fig. 8.1) del uso de los datos de salud en los distintos niveles del sistema de salud. De la base al vértice: atención/gestión de pacientes centrada en la persona, incluido el seguimiento de los pacientes; exámenes rutinarios de los datos de la cascada para mejorar el programa, del nivel nacional al de establecimiento, incluidos datos agregados y de vigilancia individual o de casos; planes estratégicos nacionales y rendición de cuentas respecto de metas y objetivos plurianuales; y rendición de cuentas respecto de los compromisos mundiales y de las Naciones Unidas y los Objetivos de Desarrollo Sostenible. Las etiquetas laterales de la izquierda aparecen cortadas en esta imagen.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagramme pyramidal (fig. 8.1) de l’utilisation des données de santé aux différents niveaux du système de santé. De la base au sommet : soins/prise en charge centrés sur la personne, y compris le suivi des patients ; examens systématiques des données de la cascade pour améliorer le programme, du niveau national à celui des établissements, y compris les données agrégées et les données de surveillance individuelles/par cas ; plans stratégiques nationaux et redevabilité à l’égard des buts et cibles pluriannuels ; et redevabilité à l’égard des engagements mondiaux/des Nations Unies et des objectifs de développement durable. Les libellés latéraux de gauche sont tronqués dans ce rendu.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Пирамидальная схема (рис. 8.1) использования медицинских данных на разных уровнях системы здравоохранения. От основания к вершине: пациентоориентированная помощь/ведение пациентов, включая мониторинг пациентов; регулярный анализ данных каскада для совершенствования программы — от национального уровня до уровня учреждений, включая агрегированные данные и данные индивидуального/поименного эпиднадзора; национальные стратегические планы и подотчетность в отношении многолетних целей и задач; подотчетность в отношении глобальных обязательств/обязательств ООН и Целей в области устойчивого развития. Боковые подписи слева на этом изображении обрезаны.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     },
     {
       "id": "vfig-p094",
-      "file": "figures/vfig-p094.png",
-      "role": "undetermined",
+      "file": "figures/vfig-p094.webp",
+      "role": "figure",
       "basis": {
-        "method": "assembly",
+        "method": "inspection",
         "by": {
-          "kind": "script",
-          "id": "cat-harness/scripts/pdf-vector-figures.py"
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed",
+          "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
         },
+        "at": "2026-11-11",
+        "saw": "an arrow diagram of five steps in the TPT cascade",
         "page": 94
       },
       "page": 94,
@@ -3304,7 +3714,84 @@
         ],
         "between": [],
         "outside": 23
-      }
+      },
+      "shows": [
+        "Figure 8.2"
+      ],
+      "narrative": [
+        {
+          "text": "Arrow diagram (Fig. 8.2) of critical numbers to monitor along the TPT pathway, in five boxes from left to right: # target population, # evaluated for eligibility, # eligible for TPT*, # started TPT and # completed TPT.",
+          "lang": "en",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "مخطط سهمي (الشكل 8.2) للأعداد الحاسمة التي ينبغي رصدها على طول مسار العلاج الوقائي من السل، في خمسة مربعات من اليسار إلى اليمين: عدد الفئة المستهدفة، وعدد من قُيّمت أهليتهم، وعدد المؤهلين للعلاج الوقائي*، وعدد من بدأوا العلاج الوقائي، وعدد من أكملوه.",
+          "lang": "ar",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "箭头图（图8.2），显示结核病预防性治疗路径中需要监测的关键数字，从左至右共五个方框：目标人群数、接受资格评估人数、符合结核病预防性治疗条件人数*、开始结核病预防性治疗人数和完成结核病预防性治疗人数。",
+          "lang": "zh",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Diagrama de flecha (fig. 8.2) de las cifras clave que deben vigilarse a lo largo de la vía del TPT, en cinco recuadros de izquierda a derecha: n.º de la población destinataria, n.º evaluados para determinar la idoneidad, n.º idóneos para el TPT*, n.º que iniciaron el TPT y n.º que completaron el TPT.",
+          "lang": "es",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Schéma en flèche (fig. 8.2) des chiffres essentiels à suivre le long du parcours du TPT, dans cinq cases de gauche à droite : nb de la population cible, nb évalués pour l’éligibilité, nb éligibles au TPT*, nb ayant commencé le TPT et nb ayant achevé le TPT.",
+          "lang": "fr",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        },
+        {
+          "text": "Схема в виде стрелки (рис. 8.2) с ключевыми показателями для мониторинга на пути ПЛТ, в пяти блоках слева направо: число лиц целевой группы, число прошедших оценку пригодности, число пригодных к ПЛТ*, число начавших ПЛТ и число завершивших ПЛТ.",
+          "lang": "ru",
+          "state": "draft",
+          "drafted_by": {
+            "kind": "agent",
+            "id": "claude-code",
+            "model": "not-disclosed",
+            "session": "https://claude.ai/code/session_01Qmmkt7LJVddPRBy6F6BnEb"
+          },
+          "drafted_at": "2026-11-11"
+        }
+      ]
     }
   ]
 }

@@ -2,13 +2,12 @@
   "@context": [
     "https://litlfred.github.io/who-iris/ns/context/v1.jsonld",
     {
-      "@base": "https://litlfred.github.io/folio/",
-      "smart-base": "https://litlfred.github.io/smart-base/v0/ns/"
+      "@base": "https://litlfred.github.io/folio/"
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-053-04",
   "@type": [
-    "smart-base:Indicator"
+    "cat-harness:Block"
   ],
   "kind": "indicator",
   "title": "Ability of HRHIS (or other mechanism) to generate information to report on implementation of the WHO Global Code of Practice on the International Recruitment of Health Personnel (Yes/Partial/No)",
