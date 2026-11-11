@@ -72,6 +72,95 @@ def sha256(p):
     return h.hexdigest()
 
 
+# Sidecars written by people and agents, never by an ingest rung: a re-derive
+# keeps them. owner, 2026-11-11 (who-iris, card Q-ODD-1 = A): "add to L1 doc
+# schema errata"; the block summaries are the summaries thread's drafts.
+AUTHORED = ("summaries.json", "errata.json")
+
+PRUNE = """
+import { sidecarDefects } from "./cat-harness-tools/scripts/summaries.ts";
+console.log(JSON.stringify(sidecarDefects(process.argv[1])));
+"""
+
+
+def prune_summaries(root, entry):
+    """Drop the summaries whose block the re-derive renamed or re-pointed.
+
+    A summary of a block that is no longer there, or that now reads another
+    section file, is a broken reference (`summaries.ts`, `sidecarDefects`).
+    A summary whose block text changed is only stale: it stays, and the
+    summaries drain redrafts it.
+    """
+    r = subprocess.run(["bun", "-e", PRUNE, entry], cwd=root, capture_output=True, text=True)
+    try:
+        defects = json.loads(r.stdout.strip().splitlines()[-1])
+    except (ValueError, IndexError):
+        return
+    gone = {d.split(":", 1)[0] for d in defects}
+    f = os.path.join(entry, "summaries.json")
+    doc = json.load(open(f, encoding="utf-8"))
+    doc["summaries"] = [x for x in doc["summaries"] if x["block"] not in gone]
+    if doc["summaries"]:
+        with open(f, "w", encoding="utf-8") as fh:
+            json.dump(doc, fh, ensure_ascii=False, indent=2)
+            fh.write("\n")
+    else:
+        os.remove(f)
+
+
+def _squash(t):
+    return re.sub(r"\s+", " ", t).strip().lower()
+
+
+def block_for_page(entry, page, quote=""):
+    """The prose block that prints `quote` on `page`, as the entry is now derived.
+
+    Of the sections that hold the page, the one whose text has the quote;
+    else the first. None when no prose block holds the page.
+    """
+    try:
+        st = json.load(open(os.path.join(entry, "structure.json"), encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    slug = os.path.basename(os.path.normpath(entry))
+    hits = []
+    for sec in st.get("sections", []):
+        a, b = sec.get("page_start"), sec.get("page_end")
+        if not (a and b and a <= page <= b):
+            continue
+        m = re.match(r"^(sec-\d{3}|sec-front-matter|page-\d{3})", sec["id"])
+        name = f"prose-{m.group(1) if m else sec['id']}"
+        if not os.path.exists(os.path.join(entry, "blocks", f"{name}.jsonld")):
+            continue
+        try:
+            text = open(os.path.join(entry, "sections", f"{sec['id']}.md"), encoding="utf-8").read()
+        except OSError:
+            text = ""
+        hits.append((bool(quote) and _squash(quote) in _squash(text), f"library/{slug}/blocks/{name}"))
+    hits.sort(key=lambda h: not h[0])
+    return hits[0][1] if hits else None
+
+
+def remap_errata(entry):
+    """Point each erratum that names its page at the block that holds the page now.
+
+    An erratum is about the PRINTED page, which a re-derive does not move; the
+    block that holds it is renamed when the sections are cut differently.
+    """
+    f = os.path.join(entry, "errata.json")
+    doc = json.load(open(f, encoding="utf-8"))
+    for e in doc["errata"]:
+        if e.get("page"):
+            b = block_for_page(entry, e["page"], e.get("quote", ""))
+            if b:
+                e["block"] = b
+            else:
+                e.pop("block", None)
+    with open(f, "w", encoding="utf-8") as fh:
+        json.dump(doc, fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+
+
 def run(cmd, cwd):
     r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
     return r.returncode, (r.stdout + r.stderr)
@@ -144,8 +233,15 @@ def main():
             if hints:
                 args += ["--lang-hint", ",".join(hints)]
             entry = os.path.join(root, "library", slug)
+            kept = {}
             if os.path.exists(entry):
-                shutil.rmtree(entry)  # a re-run derives afresh
+                # A re-run derives afresh, but what people and agents AUTHORED
+                # about the entry is not derived and is carried over.
+                for name in AUTHORED:
+                    f = os.path.join(entry, name)
+                    if os.path.exists(f):
+                        kept[name] = open(f, encoding="utf-8").read()
+                shutil.rmtree(entry)
             rc, out = run(args, root)
             if rc == 0:
                 rc, out2 = run(args + ["--promote", "--qa-later"], root)
@@ -154,6 +250,12 @@ def main():
             if rc != 0 or not os.path.isdir(entry):
                 row["result"] = "failed"; row["log"] = out[-1500:]
                 report.append(row); print(slug, "FAILED"); continue
+            for name, text in kept.items():
+                open(os.path.join(entry, name), "w", encoding="utf-8").write(text)
+            if "summaries.json" in kept:
+                prune_summaries(root, entry)
+            if "errata.json" in kept:
+                remap_errata(entry)
             digest = sha256(pdf)
             os.remove(pdf)  # the bytes are never kept
             # The cover: the item's masked one for its own entry, none otherwise.
