@@ -2063,3 +2063,30 @@ fetch(DATA_HREF).then(function(r){
   $("listing").innerHTML = '<p class="empty">The projection at <code>' + esc(DATA_HREF) + '</code> could not be read. ' +
     "That is not an empty corpus \u2014 it is a corpus that could not be loaded, and the page says so rather than showing nothing.</p>";
 });
+
+(function(){
+  var box = document.getElementById("lib-lang-toggle");
+  var dataEl = document.getElementById("lib-versions-data");
+  if (!box || !dataEl) return;
+  var d; try { d = JSON.parse(dataEl.textContent || "{}"); } catch (_e) { return; }
+  var vs = d.versions || [];
+  var loc = "en"; try { loc = localStorage.getItem("fa-locale") || "en"; } catch (_e) {}
+  var cur = vs.filter(function(v){ return v.id === d.current; })[0];
+  var src = vs.filter(function(v){ return v.source; })[0];
+  var mine = vs.filter(function(v){ return v.lang === loc; })[0];
+  if (!cur || !src) return;
+  var other = cur.source ? mine : src;
+  if (cur.source && loc !== src.lang && !mine) {
+    box.innerHTML = '<p class="note">No official WHO translation of this publication into your chosen language (' + esc(loc) + ').</p>';
+    box.hidden = false; return;
+  }
+  if (!other || other.id === cur.id) return;
+  var pair = cur.source ? [cur, other] : [other, cur];
+  box.innerHTML = '<span class="seg" role="group" aria-label="Language">' + pair.map(function(v){
+    var label = esc(v.name) + (v.source ? " (source)" : " (WHO official)");
+    return v.id === cur.id
+      ? '<button type="button" aria-pressed="true" lang="' + esc(v.lang) + '">' + label + "</button>"
+      : '<a class="seg-link" role="button" aria-pressed="false" lang="' + esc(v.lang) + '" hreflang="' + esc(v.lang) + '" href="' + esc(v.href) + '">' + label + "</a>";
+  }).join("") + "</span>";
+  box.hidden = false;
+})();
