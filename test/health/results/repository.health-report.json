@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-11T02:06:10.866Z",
+  "updated_at": "2026-11-11T07:27:02.139Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 296721,
+          "value": 305807,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,11 +138,11 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/58deb3d9848b13e74a79af05b0d51295d58686b8 — miss: main/957893a76386eb25677df88cc011d756c2eb49f0 has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/a65d01b53eb5fc46819049556fa3b915cc731bf3 — miss: main/87879494b2a85b5aa06ca97daf41dd7e97eea355 has nothing under health"
     },
     {
       "id": "remote-mounts",
-      "state": "ok",
+      "state": "finding",
       "summary": "Each declared remote mount: its pinned bytes on disk, or why not (no network; `mount:remote:check`).",
       "thresholds": [
         {
@@ -162,12 +162,19 @@
         },
         {
           "metric": "remote-mounts-not-mounted",
-          "value": 0,
+          "value": 1,
           "unit": "count",
           "command": "bun run cat mount:remote:check"
         }
       ],
-      "findings": []
+      "findings": [
+        {
+          "summary": "cat-harness: missing — cat-harness/cat-harness.json does not hash to the lock",
+          "metric": "remote-mounts-not-mounted",
+          "severity": "major",
+          "action": "Run `bun run cat mount:remote` and read the instance's outcome; re-pin from a checkout mounted from the lock if the lock is behind."
+        }
+      ]
     },
     {
       "id": "lsi-indexes",
@@ -209,7 +216,7 @@
       "measurements": [
         {
           "metric": "library-keywords-entries",
-          "value": 290,
+          "value": 287,
           "unit": "count",
           "command": "bun run cat library:keywords"
         },
@@ -221,7 +228,7 @@
         },
         {
           "metric": "library-keywords-legacy-files",
-          "value": 68,
+          "value": 65,
           "unit": "count",
           "command": "ls library/*/keywords.json"
         }
@@ -234,7 +241,7 @@
           "action": "Open the entry's sections: a page with no text layer needs OCR at ingest (`l1-document-ingestion`); a very short entry has nothing to extract."
         },
         {
-          "summary": "68 keywords.json still committed inside an entry: cat-harness/library/conduct/agent-skill-best-practices---gemini-cli, cat-harness/library/conduct/agent-skills---google-antigravity-docs, cat-harness/library/conduct/arxiv-2503.18813v2, cat-harness/library/conduct/arxiv-2507.07974v2, cat-harness/library/conduct/arxiv-2510.19207v2, …",
+          "summary": "65 keywords.json still committed inside an entry: cat-harness/library/conduct/agent-skill-best-practices---gemini-cli, cat-harness/library/conduct/agent-skills---google-antigravity-docs, cat-harness/library/conduct/arxiv-2503.18813v2, cat-harness/library/conduct/arxiv-2507.07974v2, cat-harness/library/conduct/arxiv-2510.19207v2, …",
           "metric": "library-keywords-legacy-files",
           "severity": "minor",
           "action": "Remove them in one PR per repository: keywords are built at publish now (`assets/keywords/`), and the ingest record keeps only what was ingested."
@@ -276,17 +283,17 @@
       ],
       "findings": [
         {
-          "summary": "`branches/claude-iris-derived-kg` (181.7 MB, 5166 files) — no open pull request; `claude/iris-derived-kg` is already in `main`, tip 33 min old.",
+          "summary": "`branches/claude-iris-derived-kg` (181.7 MB, 5166 files) — no open pull request; `claude/iris-derived-kg` is already in `main`, tip 5.9 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-derived-kg` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-derived-kg` and `cleanup_confirm: claude-iris-derived-kg`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         },
         {
-          "summary": "`branches/claude-iris-referenced-library-links` (166.6 MB, 4833 files) — no open pull request; `claude/iris-referenced-library-links` is already in `main`, tip 6.6 h old.",
+          "summary": "`branches/claude-iris-referenced-library-links` (166.6 MB, 4833 files) — no open pull request; `claude/iris-referenced-library-links` is already in `main`, tip 11.9 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-referenced-library-links` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-referenced-library-links` and `cleanup_confirm: claude-iris-referenced-library-links`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         },
         {
-          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 7.6 h old.",
+          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 12.9 h old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-subset-ingest` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-subset-ingest` and `cleanup_confirm: claude-iris-subset-ingest`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         }
@@ -357,7 +364,7 @@
     },
     {
       "id": "repository-size",
-      "state": "ok",
+      "state": "finding",
       "summary": "The repository's tracked content, and what a full-history clone of it costs. Two different questions, reported separately.",
       "thresholds": [
         {
@@ -392,25 +399,25 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 236314075,
+          "value": 341936141,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 182334584,
+          "value": 264670772,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 177771520,
+          "value": 259451904,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
         {
           "metric": "pack-count",
-          "value": 40,
+          "value": 5,
           "unit": "count",
           "command": "git count-objects -v"
         },
@@ -421,7 +428,14 @@
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
       ],
-      "findings": []
+      "findings": [
+        {
+          "summary": "Tracked content at HEAD is 326.1 MB, past the 250 MB early-warning point.",
+          "metric": "tracked-tree-bytes",
+          "severity": "minor",
+          "action": "Note it and re-measure next sweep. No action is due until it approaches 1 GB; this exists so the approach is visible rather than sudden."
+        }
+      ]
     },
     {
       "id": "bean-store",
