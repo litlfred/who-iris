@@ -1,676 +1,439 @@
 {
- "_schema": "pdf-structure/v1",
- "doc_id": "10665-192500",
- "source": {
-  "file": "10665-192500.pdf",
-  "sha256": "1b2fb0717c9277f58b9106b6268fd88c02555d5bcb5f84890b98d549ed1df16f",
-  "bytes": 16797481,
-  "pages": 40,
-  "text_source": "embedded",
-  "extractor": "pymupdf",
-  "mtime": "2026-11-11T07:28:04Z",
-  "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes",
-  "languages": [
-   "ar"
-  ]
- },
- "metadata": {
-  "arxiv": null,
-  "doi": null,
-  "title": "\u0627\u0644\u0628\u0631\u0646\u0627\u0645\u062c \u0627\u0644\u0645\u0648\u0633\u0639 \u0644\u0644\u062a\u0645\u0640\u0646\u0640\u064a\u0639 :\u062a\u0642\u0631\u064a\u0631 \u0645\u0631\u062d\u0644\u064a \u0648\u062a\u0642\u064a\u064a\u0645\u064a",
-  "authors_raw": null,
-  "title_lines": [
-   "\u062c \u0645 \u0639\u064a \u0629",
-   "\u0627\u0644 \u0645 \u062d \u0646",
-   "\u0627 \u0644 \u0639 \u0627",
-   "\u0644\u0645\u064a \u0646",
-   "\u0627 \u0644 \u062b \u0627",
-   "\u0627\u0644'\u0631\u0645",
-   "\u0627 \u0644 \u0628 \u0646 \u062f",
-   "\u0645 \u0646",
-   "\u062c\u062f \u0648 \u0644"
+  "source": {
+    "file": "10665-192500.pdf",
+    "sha256": "1b2fb0717c9277f58b9106b6268fd88c02555d5bcb5f84890b98d549ed1df16f",
+    "bytes": 16797481,
+    "mtime": "2026-11-11T12:26:39Z",
+    "mimetype_sniffed": "application/pdf",
+    "mimetype_source": "magic-bytes",
+    "pages": 40,
+    "text_source": "ocr",
+    "runContext": {
+      "sha256": "74f78ab2f64c1eb426d5b6fb1afe4b5339837b0d5a72a0c1505c3bfe1cd5eda0"
+    }
+  },
+  "metadata": {
+    "title": "\u0627\u0644\u0628\u0631\u0646\u0627\u0645\u062c \u0627\u0644\u0645\u0648\u0633\u0639 \u0644\u0644\u062a\u0645\u0640\u0646\u0640\u064a\u0639 :\u062a\u0642\u0631\u064a\u0631 \u0645\u0631\u062d\u0644\u064a \u0648\u062a\u0642\u064a\u064a\u0645\u064a",
+    "docinfo": {
+      "Author": "Kodak Capture Software",
+      "Creator": "Kodak Capture    ",
+      "CreationDate": "D:16010101000000Z"
+    },
+    "title_raw": "\u0627\u0644\u0628\u0631\u0646\u0627\u0645\u062c \u0627\u0644\u0645\u0648\u0633\u0639 \u0644\u0644\u062a\u0645\u0640\u0646\u0640\u064a\u0639 :\u062a\u0642\u0631\u064a\u0631 \u0645\u0631\u062d\u0644\u064a \u0648\u062a\u0642\u064a\u064a\u0645\u064a",
+    "title_source": "text",
+    "title_verified": false,
+    "title_evidence": {
+      "heading": "\u0645 \u0627 ORGANISATION MONDIALE DE \u062b\u0642",
+      "text": "\u0627\u0644\u0628\u0631\u0646\u0627\u0645\u062c \u0627\u0644\u0645\u0648\u0633\u0639 \u0644\u0644\u062a\u0645\u0640\u0646\u0640\u064a\u0639 :\u062a\u0642\u0631\u064a\u0631 \u0645\u0631\u062d\u0644\u064a \u0648\u062a\u0642\u064a\u064a\u0645\u064a",
+      "corroborated_by": [],
+      "browser_print": false
+    }
+  },
+  "_schema": "pdf-structure/v1",
+  "doc_id": "10665-192500",
+  "toc_source": "none",
+  "granularity": "page",
+  "sections": [
+    {
+      "id": "page-001",
+      "number": null,
+      "title": "Page 1",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "n_chars": 1532,
+      "n_words": 261
+    },
+    {
+      "id": "page-002",
+      "number": null,
+      "title": "Page 2",
+      "level": 1,
+      "page_start": 2,
+      "page_end": 2,
+      "n_chars": 1250,
+      "n_words": 223
+    },
+    {
+      "id": "page-003",
+      "number": null,
+      "title": "Page 3",
+      "level": 1,
+      "page_start": 3,
+      "page_end": 3,
+      "n_chars": 3371,
+      "n_words": 593
+    },
+    {
+      "id": "page-004",
+      "number": null,
+      "title": "Page 4",
+      "level": 1,
+      "page_start": 4,
+      "page_end": 4,
+      "n_chars": 227,
+      "n_words": 49
+    },
+    {
+      "id": "page-005",
+      "number": null,
+      "title": "Page 5",
+      "level": 1,
+      "page_start": 5,
+      "page_end": 5,
+      "n_chars": 3726,
+      "n_words": 606
+    },
+    {
+      "id": "page-006",
+      "number": null,
+      "title": "Page 6",
+      "level": 1,
+      "page_start": 6,
+      "page_end": 6,
+      "n_chars": 3643,
+      "n_words": 605
+    },
+    {
+      "id": "page-007",
+      "number": null,
+      "title": "Page 7",
+      "level": 1,
+      "page_start": 7,
+      "page_end": 7,
+      "n_chars": 3555,
+      "n_words": 595
+    },
+    {
+      "id": "page-008",
+      "number": null,
+      "title": "Page 8",
+      "level": 1,
+      "page_start": 8,
+      "page_end": 8,
+      "n_chars": 3750,
+      "n_words": 603
+    },
+    {
+      "id": "page-009",
+      "number": null,
+      "title": "Page 9",
+      "level": 1,
+      "page_start": 9,
+      "page_end": 9,
+      "n_chars": 3601,
+      "n_words": 611
+    },
+    {
+      "id": "page-010",
+      "number": null,
+      "title": "Page 10",
+      "level": 1,
+      "page_start": 10,
+      "page_end": 10,
+      "n_chars": 3475,
+      "n_words": 601
+    },
+    {
+      "id": "page-011",
+      "number": null,
+      "title": "Page 11",
+      "level": 1,
+      "page_start": 11,
+      "page_end": 11,
+      "n_chars": 3299,
+      "n_words": 560
+    },
+    {
+      "id": "page-012",
+      "number": null,
+      "title": "Page 12",
+      "level": 1,
+      "page_start": 12,
+      "page_end": 12,
+      "n_chars": 3526,
+      "n_words": 619
+    },
+    {
+      "id": "page-013",
+      "number": null,
+      "title": "Page 13",
+      "level": 1,
+      "page_start": 13,
+      "page_end": 13,
+      "n_chars": 2157,
+      "n_words": 379
+    },
+    {
+      "id": "page-014",
+      "number": null,
+      "title": "Page 14",
+      "level": 1,
+      "page_start": 14,
+      "page_end": 14,
+      "n_chars": 1049,
+      "n_words": 193
+    },
+    {
+      "id": "page-015",
+      "number": null,
+      "title": "Page 15",
+      "level": 1,
+      "page_start": 15,
+      "page_end": 15,
+      "n_chars": 3718,
+      "n_words": 654
+    },
+    {
+      "id": "page-016",
+      "number": null,
+      "title": "Page 16",
+      "level": 1,
+      "page_start": 16,
+      "page_end": 16,
+      "n_chars": 2890,
+      "n_words": 488
+    },
+    {
+      "id": "page-017",
+      "number": null,
+      "title": "Page 17",
+      "level": 1,
+      "page_start": 17,
+      "page_end": 17,
+      "n_chars": 3151,
+      "n_words": 515
+    },
+    {
+      "id": "page-018",
+      "number": null,
+      "title": "Page 18",
+      "level": 1,
+      "page_start": 18,
+      "page_end": 18,
+      "n_chars": 2943,
+      "n_words": 505
+    },
+    {
+      "id": "page-019",
+      "number": null,
+      "title": "Page 19",
+      "level": 1,
+      "page_start": 19,
+      "page_end": 19,
+      "n_chars": 3704,
+      "n_words": 634
+    },
+    {
+      "id": "page-020",
+      "number": null,
+      "title": "Page 20",
+      "level": 1,
+      "page_start": 20,
+      "page_end": 20,
+      "n_chars": 2913,
+      "n_words": 478
+    },
+    {
+      "id": "page-021",
+      "number": null,
+      "title": "Page 21",
+      "level": 1,
+      "page_start": 21,
+      "page_end": 21,
+      "n_chars": 2043,
+      "n_words": 468
+    },
+    {
+      "id": "page-022",
+      "number": null,
+      "title": "Page 22",
+      "level": 1,
+      "page_start": 22,
+      "page_end": 22,
+      "n_chars": 2175,
+      "n_words": 409
+    },
+    {
+      "id": "page-023",
+      "number": null,
+      "title": "Page 23",
+      "level": 1,
+      "page_start": 23,
+      "page_end": 23,
+      "n_chars": 1412,
+      "n_words": 254
+    },
+    {
+      "id": "page-024",
+      "number": null,
+      "title": "Page 24",
+      "level": 1,
+      "page_start": 24,
+      "page_end": 24,
+      "n_chars": 2136,
+      "n_words": 356
+    },
+    {
+      "id": "page-025",
+      "number": null,
+      "title": "Page 25",
+      "level": 1,
+      "page_start": 25,
+      "page_end": 25,
+      "n_chars": 2897,
+      "n_words": 501
+    },
+    {
+      "id": "page-026",
+      "number": null,
+      "title": "Page 26",
+      "level": 1,
+      "page_start": 26,
+      "page_end": 26,
+      "n_chars": 2181,
+      "n_words": 387
+    },
+    {
+      "id": "page-027",
+      "number": null,
+      "title": "Page 27",
+      "level": 1,
+      "page_start": 27,
+      "page_end": 27,
+      "n_chars": 1804,
+      "n_words": 284
+    },
+    {
+      "id": "page-028",
+      "number": null,
+      "title": "Page 28",
+      "level": 1,
+      "page_start": 28,
+      "page_end": 28,
+      "n_chars": 2280,
+      "n_words": 404
+    },
+    {
+      "id": "page-029",
+      "number": null,
+      "title": "Page 29",
+      "level": 1,
+      "page_start": 29,
+      "page_end": 29,
+      "n_chars": 2815,
+      "n_words": 453
+    },
+    {
+      "id": "page-030",
+      "number": null,
+      "title": "Page 30",
+      "level": 1,
+      "page_start": 30,
+      "page_end": 30,
+      "n_chars": 2865,
+      "n_words": 486
+    },
+    {
+      "id": "page-031",
+      "number": null,
+      "title": "Page 31",
+      "level": 1,
+      "page_start": 31,
+      "page_end": 31,
+      "n_chars": 3239,
+      "n_words": 565
+    },
+    {
+      "id": "page-032",
+      "number": null,
+      "title": "Page 32",
+      "level": 1,
+      "page_start": 32,
+      "page_end": 32,
+      "n_chars": 3085,
+      "n_words": 504
+    },
+    {
+      "id": "page-033",
+      "number": null,
+      "title": "Page 33",
+      "level": 1,
+      "page_start": 33,
+      "page_end": 33,
+      "n_chars": 203,
+      "n_words": 43
+    },
+    {
+      "id": "page-034",
+      "number": null,
+      "title": "Page 34",
+      "level": 1,
+      "page_start": 34,
+      "page_end": 34,
+      "n_chars": 1513,
+      "n_words": 272
+    },
+    {
+      "id": "page-035",
+      "number": null,
+      "title": "Page 35",
+      "level": 1,
+      "page_start": 35,
+      "page_end": 35,
+      "n_chars": 2592,
+      "n_words": 416
+    },
+    {
+      "id": "page-036",
+      "number": null,
+      "title": "Page 36",
+      "level": 1,
+      "page_start": 36,
+      "page_end": 36,
+      "n_chars": 2870,
+      "n_words": 459
+    },
+    {
+      "id": "page-037",
+      "number": null,
+      "title": "Page 37",
+      "level": 1,
+      "page_start": 37,
+      "page_end": 37,
+      "n_chars": 2929,
+      "n_words": 471
+    },
+    {
+      "id": "page-038",
+      "number": null,
+      "title": "Page 38",
+      "level": 1,
+      "page_start": 38,
+      "page_end": 38,
+      "n_chars": 3102,
+      "n_words": 512
+    },
+    {
+      "id": "page-039",
+      "number": null,
+      "title": "Page 39",
+      "level": 1,
+      "page_start": 39,
+      "page_end": 39,
+      "n_chars": 3008,
+      "n_words": 505
+    },
+    {
+      "id": "page-040",
+      "number": null,
+      "title": "Page 40",
+      "level": 1,
+      "page_start": 40,
+      "page_end": 40,
+      "n_chars": 1754,
+      "n_words": 368
+    }
   ],
-  "abstract": null,
-  "docinfo": {
-   "Author": "Kodak Capture Software",
-   "Creator": "Kodak Capture    ",
-   "CreationDate": "D:16010101000000Z"
-  },
-  "title_raw": "\u0627\u0644\u0628\u0631\u0646\u0627\u0645\u062c \u0627\u0644\u0645\u0648\u0633\u0639 \u0644\u0644\u062a\u0645\u0640\u0646\u0640\u064a\u0639 :\u062a\u0642\u0631\u064a\u0631 \u0645\u0631\u062d\u0644\u064a \u0648\u062a\u0642\u064a\u064a\u0645\u064a",
-  "title_source": "text",
-  "title_verified": false,
-  "title_evidence": {
-   "heading": "\u0645 \u0627 ORGANISATION MONDIALE DE \u062b\u0642",
-   "text": "\u0627\u0644\u0628\u0631\u0646\u0627\u0645\u062c \u0627\u0644\u0645\u0648\u0633\u0639 \u0644\u0644\u062a\u0645\u0640\u0646\u0640\u064a\u0639 :\u062a\u0642\u0631\u064a\u0631 \u0645\u0631\u062d\u0644\u064a \u0648\u062a\u0642\u064a\u064a\u0645\u064a",
-   "corroborated_by": [],
-   "browser_print": false
-  }
- },
- "toc": [
-  {
-   "level": 1,
-   "title": "\u0627\u0627\u0644\u0648\u0631\u0648\u0628\u064a",
-   "page": 2,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "2"
-  },
-  {
-   "level": 1,
-   "title": "\u062a\u0646\u062d\u0648",
-   "page": 5,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "5"
-  },
-  {
-   "level": 1,
-   "title": "1\u0645\u062d\u0622",
-   "page": 5,
-   "source": "inferred",
-   "number": "\u0660",
-   "confidence": 0.9,
-   "evidence": [
-    "style",
-    "number",
-    "numbered-style"
-   ],
-   "page_label": "5"
-  },
-  {
-   "level": 2,
-   "title": "\u0648\u062e\u0637\u0637",
-   "page": 7,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "7"
-  },
-  {
-   "level": 3,
-   "title": "\u0631\u064a \u0628",
-   "page": 9,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "9"
-  },
-  {
-   "level": 1,
-   "title": "(\u0623\u0646 \u0638 \u0631",
-   "page": 13,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.7,
-   "evidence": [
-    "style",
-    "numbered-style"
-   ],
-   "page_label": "13"
-  },
-  {
-   "level": 3,
-   "title": "\u0627\u0644\u0630 \u064a",
-   "page": 24,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "24"
-  },
-  {
-   "level": 3,
-   "title": "\u0623\u062b \u0644",
-   "page": 28,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "28"
-  }
- ],
- "toc_source": "inferred",
- "toc_undetermined_reason": null,
- "figures": [],
- "pages": [
-  {
-   "physical": 1,
-   "label": "1",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 2,
-   "label": "2",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 3,
-   "label": "3",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 4,
-   "label": "4",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 5,
-   "label": "5",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 6,
-   "label": "6",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 7,
-   "label": "7",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 8,
-   "label": "8",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 9,
-   "label": "9",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 10,
-   "label": "10",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 11,
-   "label": "11",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 12,
-   "label": "12",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 13,
-   "label": "13",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 14,
-   "label": "14",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 15,
-   "label": "15",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 16,
-   "label": "16",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 17,
-   "label": "17",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 18,
-   "label": "18",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 19,
-   "label": "19",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 20,
-   "label": "20",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 21,
-   "label": "21",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 22,
-   "label": "22",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 23,
-   "label": "23",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 24,
-   "label": "24",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 25,
-   "label": "25",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 26,
-   "label": "26",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 27,
-   "label": "27",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 28,
-   "label": "28",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 29,
-   "label": "29",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 30,
-   "label": "30",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 31,
-   "label": "31",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 32,
-   "label": "32",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 33,
-   "label": "33",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 34,
-   "label": "34",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 35,
-   "label": "35",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 36,
-   "label": "36",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 37,
-   "label": "37",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 38,
-   "label": "38",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  },
-  {
-   "physical": 39,
-   "label": "39",
-   "source": "interpolated",
-   "confidence": 0.5,
-   "evidence": [
-    "interpolated"
-   ]
-  },
-  {
-   "physical": 40,
-   "label": "40",
-   "source": "printed",
-   "confidence": 0.7,
-   "evidence": [
-    "printed"
-   ]
-  }
- ],
- "sections": [
-  {
-   "id": "sec-front-matter",
-   "number": null,
-   "title": "Front matter",
-   "level": 1,
-   "page_start": 1,
-   "page_end": 2,
-   "n_chars": 4736,
-   "n_words": 1489,
-   "label_start": "1",
-   "label_end": "2"
-  },
-  {
-   "id": "sec-000-\u0627\u0627\u0644\u0648\u0631\u0648\u0628\u064a",
-   "number": null,
-   "title": "\u0627\u0627\u0644\u0648\u0631\u0648\u0628\u064a",
-   "level": 1,
-   "page_start": 2,
-   "page_end": 5,
-   "n_chars": 11617,
-   "n_words": 3789,
-   "label_start": "2",
-   "label_end": "5"
-  },
-  {
-   "id": "sec-001-\u062a\u0646\u062d\u0648",
-   "number": null,
-   "title": "\u062a\u0646\u062d\u0648",
-   "level": 1,
-   "page_start": 5,
-   "page_end": 5,
-   "n_chars": 478,
-   "n_words": 143,
-   "label_start": "5",
-   "label_end": "5"
-  },
-  {
-   "id": "sec-002-\u0660-1\u0645\u062d\u0622",
-   "number": "\u0660",
-   "title": "1\u0645\u062d\u0622",
-   "level": 1,
-   "page_start": 5,
-   "page_end": 7,
-   "n_chars": 8802,
-   "n_words": 2844,
-   "label_start": "5",
-   "label_end": "7"
-  },
-  {
-   "id": "sec-003-\u0648\u062e\u0637\u0637",
-   "number": null,
-   "title": "\u0648\u062e\u0637\u0637",
-   "level": 2,
-   "page_start": 7,
-   "page_end": 9,
-   "n_chars": 13496,
-   "n_words": 4285,
-   "label_start": "7",
-   "label_end": "9"
-  },
-  {
-   "id": "sec-004-\u0631\u064a-\u0628",
-   "number": null,
-   "title": "\u0631\u064a \u0628",
-   "level": 3,
-   "page_start": 9,
-   "page_end": 13,
-   "n_chars": 21969,
-   "n_words": 7091,
-   "label_start": "9",
-   "label_end": "13"
-  },
-  {
-   "id": "sec-005-\u0623\u0646-\u0638-\u0631",
-   "number": null,
-   "title": "(\u0623\u0646 \u0638 \u0631",
-   "level": 1,
-   "page_start": 13,
-   "page_end": 24,
-   "n_chars": 45843,
-   "n_words": 14970,
-   "label_start": "13",
-   "label_end": "24"
-  },
-  {
-   "id": "sec-006-\u0627\u0644\u0630-\u064a",
-   "number": null,
-   "title": "\u0627\u0644\u0630 \u064a",
-   "level": 3,
-   "page_start": 24,
-   "page_end": 28,
-   "n_chars": 15579,
-   "n_words": 5037,
-   "label_start": "24",
-   "label_end": "28"
-  },
-  {
-   "id": "sec-007-\u0623\u062b-\u0644",
-   "number": null,
-   "title": "\u0623\u062b \u0644",
-   "level": 3,
-   "page_start": 28,
-   "page_end": 40,
-   "n_chars": 47447,
-   "n_words": 15532,
-   "label_start": "28",
-   "label_end": "40"
-  }
- ],
- "diagnostics": {
-  "pages_without_text": 0,
-  "likely_scanned": false,
-  "toc_entries": 8,
-  "toc_inferred_entries": 13,
-  "toc_inferred_mean_confidence": 0.631,
-  "toc_inferred_empty_share": 0.0,
-  "toc_inferred_method": "font",
-  "figure_entries": 0,
-  "figure_sequence_gaps": [],
-  "page_label_conflicts": {
-   "count": 0,
-   "items": []
-  },
-  "sections": 9,
-  "chars_total": 169967,
-  "furniture_lines_stripped": 73,
-  "headings_tidied": [
-   {
-    "title": "\u064a\u0646\u0628",
-    "page": 15,
-    "action": "dropped",
-    "why": "a single short word"
-   },
-   {
-    "title": "\u0646\u0644",
-    "page": 19,
-    "action": "dropped",
-    "why": "a single short word"
-   },
-   {
-    "title": "\u062a\u0646",
-    "page": 26,
-    "action": "dropped",
-    "why": "a single short word"
-   },
-   {
-    "title": "\u064a\u0646\u0628",
-    "page": 31,
-    "action": "dropped",
-    "why": "a single short word"
-   },
-   {
-    "title": "\u0637\u064a\u0642",
-    "page": 38,
-    "action": "dropped",
-    "why": "a single short word"
-   }
-  ]
- }
+  "structure_note": "Ingested at PAGE granularity by scripts/pdf-pages.py. This PDF carries no embedded outline and its inferred chapter structure was measurably wrong (bean 6xaz), so no chapter tree is claimed. A page is a determined division; an inferred chapter was not."
 }

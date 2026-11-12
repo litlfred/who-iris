@@ -154,7 +154,7 @@
     "gates": {
       "size": {
         "verdict": "permitted",
-        "basis": "17,043,204 bytes of derived sections over 4 entries"
+        "basis": "5,307,531 bytes of derived sections over 1 entry"
       },
       "restrictions": {
         "verdict": "permitted",
@@ -177,7 +177,7 @@
         "decidedBy": "owner (litlfred), 2026-11-10"
       }
     },
-    "note": "Derived on 2026-11-10 without holding the PDFs: owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\". Each ORIGINAL bitstream was fetched to a scratch folder, ingested and discarded (scripts/iris-cdn/derive-referenced.py); the item's entry is library/10665-75211, and its other language versions are library/10665-75211-ara, library/10665-75211-por, library/10665-75211-rus. The bitstreams stay referenced. First catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207)."
+    "note": "Derived on 2026-11-10 without holding the PDFs: owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\". Each ORIGINAL bitstream was fetched to a scratch folder, ingested and discarded (scripts/iris-cdn/derive-referenced.py); the item's entry is library/10665-75211. The bitstreams stay referenced. First catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207)."
   },
   "libraryId": "10665-75211"
 }
