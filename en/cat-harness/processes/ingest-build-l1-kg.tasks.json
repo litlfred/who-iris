@@ -52,7 +52,7 @@
   },
   {
    "id": "Task_Glossary",
-   "name": "Read glossary and abbreviations into candidate terms",
+   "name": "Read glossary into candidate terms",
    "left": 74.44,
    "top": 7.61,
    "box": {
@@ -77,11 +77,11 @@
   {
    "id": "Task_Link",
    "name": "Link L1 nodes into the corpus graph",
-   "left": 90,
-   "top": 53.26,
+   "left": 87.78,
+   "top": 48.91,
    "box": {
-    "left": 83.52,
-    "top": 65.22,
+    "left": 82.41,
+    "top": 69.57,
     "width": 1.78,
     "height": 5.22
    }
@@ -303,7 +303,7 @@
   },
   "Task_Glossary": {
    "id": "Task_Glossary",
-   "name": "Read glossary and abbreviations into candidate terms",
+   "name": "Read glossary into candidate terms",
    "type": "bpmn:ServiceTask",
    "stepHref": "ingest-build-l1-kg.html#step-Task_Glossary",
    "lane": "Ingestion Engine (agent, runs unattended)",
@@ -314,7 +314,8 @@
      "href": "../../../en/cat-harness/processes/skills/glossary-terms.html",
      "methodologies": [
       {
-       "name": "automatic-term-extraction"
+       "name": "automatic-term-extraction",
+       "href": "../../../en/cat-harness/methodologies/cat-harness/automatic-term-extraction/"
       }
      ]
     }

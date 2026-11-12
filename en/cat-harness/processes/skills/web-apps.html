@@ -92,10 +92,10 @@
 <meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
 <meta name="fa-beans-src" content="../../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../../build.json"><link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=3dc1393d297a"><link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../../assets/js/harness-data.js" defer></script>
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=5386a6134c28"><link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../../assets/css/avatars.css?v=f9b7f1805f0f"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../../assets/js/harness-data.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../../assets/js/kg-render.js" defer></script><script src="../../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=4d45b88bbab8" defer></script><script src="../../../../assets/js/edit-links.js?v=9c6835feddf7" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
+<script src="../../../../assets/js/docs-ui.js?v=0f40f53123fe" defer></script><script src="../../../../assets/js/edit-links.js?v=b4f948dbab24" defer></script><script src="../../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -292,7 +292,7 @@
 
 <p><strong>A layer that carries an app declares it; it does not publish it.</strong> Owner,
 2026-11-11 (cards Q-GAME-5 A and Q-GAME-7 A): a content layer with an app
-(the GDHCN onboarding game in smart-trust) must not become a harness to ship
+(a WHO onboarding game was the first) must not become a harness to ship
 it, and the one-off route VaxLink used (<code class="language-plaintext highlighter-rouge">web/</code> + its own <code class="language-plaintext highlighter-rouge">publish.sh</code> +
 <code class="language-plaintext highlighter-rouge">site.build.keep</code>) is retired. The kind and its visualiser are the harness’s,
 so every layer that mounts cat-harness gets them.</p>
@@ -316,8 +316,8 @@ and a lockfile (<code class="language-plaintext highlighter-rouge">package-lock.
 installs exact versions only.</li>
   <li>Declare the directory in the layer’s <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> with
 <code class="language-plaintext highlighter-rouge">"graphTypologies": ["web-app"]</code>.</li>
-  <li>Put a <code class="language-plaintext highlighter-rouge">web-app.json</code> (<code class="language-plaintext highlighter-rouge">web-app/0.1.0</code>, <code class="language-plaintext highlighter-rouge">schemas/ui/web-app.ts</code> in
-cat-harness-tools) at its root:</li>
+  <li>Put a <code class="language-plaintext highlighter-rouge">web-app.json</code> (<code class="language-plaintext highlighter-rouge">web-app/0.1.0</code>, the schema the Tool
+<code class="language-plaintext highlighter-rouge">web-app-build</code> reads) at its root:</li>
 </ol>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">

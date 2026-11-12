@@ -5,108 +5,108 @@
   {
    "id": "Task_StartRow",
    "name": "Start a change-set row",
-   "left": 14.26,
+   "left": 19.78,
    "top": 6.72,
    "box": {
-    "left": 10.88,
+    "left": 14.57,
     "top": 20.9,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_Propose",
    "name": "Propose a direction",
-   "left": 23.58,
+   "left": 30.58,
    "top": 30.6,
    "box": {
-    "left": 20.2,
+    "left": 25.36,
     "top": 44.78,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_ReadyForAgent",
    "name": "Set Ready for agent to Yes",
-   "left": 31.97,
+   "left": 41.37,
    "top": 54.48,
    "box": {
-    "left": 28.59,
+    "left": 36.15,
     "top": 68.66,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_EditInPullRequest",
    "name": "Edit the document in the row's pull request",
-   "left": 41.29,
+   "left": 52.16,
    "top": 30.6,
    "box": {
-    "left": 37.91,
+    "left": 46.94,
     "top": 44.78,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_AnswerPreview",
    "name": "Review the preview and answer",
-   "left": 51.07,
+   "left": 52.16,
    "top": 6.72,
    "box": {
-    "left": 47.69,
+    "left": 46.94,
     "top": 20.9,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_QaGate",
-   "name": "QA gate: review dispositions against the people and the pull request",
-   "left": 65.28,
+   "name": "QA gate: check dispositions and PR",
+   "left": 62.23,
    "top": 78.36,
    "box": {
-    "left": 61.91,
+    "left": 57.01,
     "top": 92.54,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_ReadyForMerge",
    "name": "Set Ready for merge to Yes",
-   "left": 78.56,
+   "left": 80.22,
    "top": 54.48,
    "box": {
-    "left": 75.19,
+    "left": 75,
     "top": 68.66,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_Merge",
    "name": "Merge the pull request",
-   "left": 85.09,
+   "left": 80.22,
    "top": 30.6,
    "box": {
-    "left": 81.71,
+    "left": 75,
     "top": 44.78,
-    "width": 1.12,
+    "width": 1.73,
     "height": 3.58
    }
   },
   {
    "id": "Task_CloseChangeSet",
    "name": "Close the change set: the issue, then the sheet row",
-   "left": 93.71,
-   "top": 32.84,
+   "left": 91.73,
+   "top": 30.6,
    "box": {
-    "left": 90.1,
-    "top": 42.54,
-    "width": 1.12,
+    "left": 86.51,
+    "top": 44.78,
+    "width": 1.73,
     "height": 3.58
    }
   }
@@ -630,7 +630,7 @@
   },
   "Task_QaGate": {
    "id": "Task_QaGate",
-   "name": "QA gate: review dispositions against the people and the pull request",
+   "name": "QA gate: check dispositions and PR",
    "type": "bpmn:ServiceTask",
    "stepHref": "contributor-feedback.html#step-Task_QaGate",
    "lane": "QA reviewer (independent)",

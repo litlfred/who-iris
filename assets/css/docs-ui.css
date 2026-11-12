@@ -1761,7 +1761,8 @@
    exactly how this tab reached 1.37:1. */
 .fa-lang-tab.is-unavailable {
   color: var(--fa-sidelang-muted);
-  cursor: default;
+  cursor: not-allowed;
+  text-decoration: line-through;
 }
 
 .fa-lang-tab.is-current {
@@ -1945,7 +1946,8 @@ a.fa-lang-tab:hover:not(.is-current) {
    and take the ratio with it. */
 .fa-page-lang-tab.is-unavailable {
   color: var(--fa-langbar-muted);
-  cursor: default;
+  cursor: not-allowed;
+  text-decoration: line-through;
 }
 
 .fa-page-lang-tab.is-current {
@@ -2120,7 +2122,15 @@ html:not([data-fa-scheme="light"]) .fa-page-bar {
   box-shadow: inset 4px 0 0 var(--fa-barpanel-accent);
 }
 [dir="rtl"] .fa-page-lang-bar[data-fa-slotted] .fa-page-lang-list .fa-page-lang-tab.is-current { box-shadow: inset -4px 0 0 var(--fa-barpanel-accent); }
-.fa-page-lang-bar[data-fa-slotted] .fa-page-lang-list span.fa-page-lang-tab.is-unavailable { color: var(--fa-barpanel-muted); }
+/* Not yet translated, in the IG bar: the muted token (4.83:1 light, 5.79:1
+   dark) alone read as one more language to pick (owner, 2026-11-11, card
+   Q-TRP-2 "A. Keep all six, clearly faded"). A strike-through marks it as
+   unavailable without lowering the ratio, which `opacity` would. */
+.fa-page-lang-bar[data-fa-slotted] .fa-page-lang-list span.fa-page-lang-tab.is-unavailable {
+  color: var(--fa-barpanel-muted);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
 .fa-page-lang-bar[data-fa-slotted] .fa-page-lang-list a.fa-page-lang-tab.is-remembered:not(.is-current) { text-decoration: underline; box-shadow: none; }
 
 /* ── Per-block QA badge (bean g6yr) ─────────────────────────────────

@@ -506,6 +506,8 @@
       // this one kept the literals, because the gate never opened this view.
       var tab = el(isAvailable ? "a" : "span", {
         href: isAvailable ? safeHref(localePath(basePath, loc)) : undefined,
+        // Says "unavailable" to a screen reader too, not only by its strike-through (Q-TRP-2).
+        "aria-disabled": isAvailable ? undefined : "true",
         "data-locale": loc,
         title: isAvailable
           ? LOCALE_NAMES[loc] + (isRemembered ? " \u2014 your saved language" : "")
@@ -638,6 +640,8 @@
 
       var tab = el(isAvailable ? "a" : "span", {
         href: isAvailable ? safeHref(localePath(basePath, loc)) : undefined,
+        // Says "unavailable" to a screen reader too, not only by its strike-through (Q-TRP-2).
+        "aria-disabled": isAvailable ? undefined : "true",
         title: isAvailable
           ? LOCALE_NAMES[loc] + (isRemembered ? " \u2014 your saved language" : "")
           : LOCALE_NAMES[loc] + " \u2014 not yet translated",

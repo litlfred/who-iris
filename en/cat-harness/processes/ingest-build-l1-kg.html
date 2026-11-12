@@ -92,10 +92,10 @@
 <meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
 <meta name="fa-beans-src" content="../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../build.json"><link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=3dc1393d297a"><link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../assets/css/avatars.css?v=4f2f087d41d8"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../assets/js/harness-data.js" defer></script>
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=5386a6134c28"><link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../assets/css/avatars.css?v=f9b7f1805f0f"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../assets/js/harness-data.js" defer></script>
 <script src="../../../assets/js/vendor/qrcode.js" defer></script>
 <script src="../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../assets/js/kg-render.js" defer></script><script src="../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=4d45b88bbab8" defer></script><script src="../../../assets/js/edit-links.js?v=9c6835feddf7" defer></script><script src="../../../assets/js/work-plan.js" defer></script><script src="../../../assets/js/process-index.js" defer></script><style>
+<script src="../../../assets/js/docs-ui.js?v=0f40f53123fe" defer></script><script src="../../../assets/js/edit-links.js?v=b4f948dbab24" defer></script><script src="../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../assets/js/work-plan.js" defer></script><script src="../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -285,9 +285,9 @@
 <button type="button" class="pt-mark" data-task="Task_Manifest" style="left:34.44%;top:7.61%" aria-expanded="false" aria-label="About step: Write manifest.jsonld referencing it" title="About: Write manifest.jsonld referencing it">i</button>
 <button type="button" class="pt-mark" data-task="Task_Assets" style="left:47.78%;top:7.61%" aria-expanded="false" aria-label="About step: Record assets[] — local path or remote URL" title="About: Record assets[] — local path or remote URL">i</button>
 <button type="button" class="pt-mark" data-task="Task_Bind" style="left:61.11%;top:7.61%" aria-expanded="false" aria-label="About step: Bind the folder to its bibliography slug" title="About: Bind the folder to its bibliography slug">i</button>
-<button type="button" class="pt-mark" data-task="Task_Glossary" style="left:74.44%;top:7.61%" aria-expanded="false" aria-label="About step: Read glossary and abbreviations into candidate terms" title="About: Read glossary and abbreviations into candidate terms">i</button>
+<button type="button" class="pt-mark" data-task="Task_Glossary" style="left:74.44%;top:7.61%" aria-expanded="false" aria-label="About step: Read glossary into candidate terms" title="About: Read glossary into candidate terms">i</button>
 <button type="button" class="pt-mark" data-task="Task_References" style="left:74.44%;top:48.91%" aria-expanded="false" aria-label="About step: Extract reference lists" title="About: Extract reference lists">i</button>
-<button type="button" class="pt-mark" data-task="Task_Link" style="left:90%;top:53.26%" aria-expanded="false" aria-label="About step: Link L1 nodes into the corpus graph" title="About: Link L1 nodes into the corpus graph">i</button>
+<button type="button" class="pt-mark" data-task="Task_Link" style="left:87.78%;top:48.91%" aria-expanded="false" aria-label="About step: Link L1 nodes into the corpus graph" title="About: Link L1 nodes into the corpus graph">i</button>
 </div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
@@ -582,7 +582,7 @@
       <td>Bind the folder name to the document’s bibliography slug, so library/&lt;bib-slug&gt;/ and its citation key are the same string: a citation resolves to a directory without a lookup table between them.</td>
     </tr>
     <tr>
-      <td><a id="step-Task_Glossary"></a><strong>Read glossary and abbreviations into candidate terms</strong><br /><code class="language-plaintext highlighter-rouge">Task_Glossary</code></td>
+      <td><a id="step-Task_Glossary"></a><strong>Read glossary into candidate terms</strong><br /><code class="language-plaintext highlighter-rouge">Task_Glossary</code></td>
       <td>Ingestion Engine (agent, runs unattended)</td>
       <td><a href="../../../en/cat-harness/processes/skills/glossary-terms.html"><code class="language-plaintext highlighter-rouge">glossary-terms</code></a></td>
       <td>The source’s glossary and abbreviations sections become candidate terms of a folio-glossary/v1 scheme with the Tool glossary-from-source, verbatim, each with source file#line, and an acronym as the notation of the term it expands. Terms a person owns are never changed, and only a person moves a term to authored. A source with no such section skips this step with nothing written.</td>
