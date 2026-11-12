@@ -4,12 +4,12 @@
     {
       "harness": "folio-assistant-core",
       "repository": "litlfred/folio-assistant-core",
-      "ref": "d6de1a61030855baa503b9445e2f53b1fa5c90ce"
+      "ref": "b2cec2562a7e3a5de3e8702813cf706537814996"
     },
     {
       "harness": "cat-harness",
       "repository": "litlfred/cat-harness",
-      "ref": "cccdd94f7699c892bf7b1feadb24f40f7ce7ac97"
+      "ref": "edaa380219fbc4f949db2c1f2e08c9a45e6a26ad"
     },
     {
       "harness": "cat-harness-tools",
@@ -89,7 +89,7 @@
     {
       "instance": "cat-harness",
       "repository": "litlfred/cat-harness",
-      "sha": "cccdd94f7699c892bf7b1feadb24f40f7ce7ac97",
+      "sha": "edaa380219fbc4f949db2c1f2e08c9a45e6a26ad",
       "upstreamRoot": "",
       "path": "cat-harness",
       "via": "cat-harness",
@@ -103,7 +103,7 @@
           "id": "*",
           "path": "cat-harness",
           "upstreamPath": ".",
-          "treeDigest": "7fa405d518267536d4352052ab8a075f59cd16d9bff92647f736e9ba5b23efd9",
+          "treeDigest": "eb9643c22066c4fa67c94ebe5e7742d03767cf7f9a7ac0a5ef7d8eda9727cfaf",
           "files": 2605,
           "except": [
             "docs/proposals",
@@ -123,7 +123,7 @@
         "basis": "consent",
         "by": "litlfred",
         "on": "2026-11-12",
-        "ref": "cccdd94f7699c892bf7b1feadb24f40f7ce7ac97",
+        "ref": "edaa380219fbc4f949db2c1f2e08c9a45e6a26ad",
         "approver": "unverified"
       }
     },
@@ -159,7 +159,7 @@
     {
       "instance": "folio-assistant-core",
       "repository": "litlfred/folio-assistant-core",
-      "sha": "d6de1a61030855baa503b9445e2f53b1fa5c90ce",
+      "sha": "b2cec2562a7e3a5de3e8702813cf706537814996",
       "upstreamRoot": "",
       "path": "folio-assistant-core",
       "via": "folio-assistant-core",
@@ -173,13 +173,12 @@
           "id": "*",
           "path": "folio-assistant-core",
           "upstreamPath": ".",
-          "treeDigest": "43f0b91e1a3e5deb074cc51a97fc8a5c4b4e0634b833c6715156b77b76737387",
-          "files": 1592,
+          "treeDigest": "4e9900fc34090ea3a177e5c9a7a2ffa9464e7333a3f456ca16383ea6d59395e6",
+          "files": 6412,
           "except": [
             "board",
             "dsa",
-            "library-extras",
-            "library/corpus"
+            "library-extras"
           ]
         }
       ],
@@ -187,7 +186,7 @@
         "basis": "consent",
         "by": "litlfred",
         "on": "2026-11-12",
-        "ref": "d6de1a61030855baa503b9445e2f53b1fa5c90ce",
+        "ref": "b2cec2562a7e3a5de3e8702813cf706537814996",
         "approver": "unverified"
       }
     }
