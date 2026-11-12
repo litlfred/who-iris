@@ -1,0 +1,1858 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/9789241511766-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Monitoring and evaluating digital health interventions: a practical guide to conducting research and assessment",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2016-12-13",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789241511766",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/252183",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/9789241511766-eng.dc.json",
+      "dcterms:hasVersion": "library/9789241511766-eng"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://www.k4health.org/toolkits/mhealth-planning-guide",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/handle/10665/185238",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/96311/1/9789241548687_eng.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://www.cgdev.org/sites/default/files/its-all-about-mee_1.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:identifier": "http://www.publicprivatedialogue.org/monitoring_and_evaluation/M&E%20Handbook%20July%2016%202008.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.4102/aej.v3i1.134",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://www.ifrc.org/Global/Publications/monitoring/IFRC-ME-Guide-8-2011.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-022.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://effectiveinterventions.cdc.gov/docs/default-source/project-start/Project_START_M_E_Field_Guide_10-1108.pdf?sfvrsn=0",
+      "dcterms:source": "library/9789241511766-eng/sections/page-022.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.marsdd.com/mars-library/crafting-your-value-proposition/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.marsdd.com/mars-library/business-model-design/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.commcarehq.org/home/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1126/science.1258926",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1016/j.evalprogplan.2010.07.001",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "bibo:doi": "10.1080/14719030410001675722",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "bibo:doi": "10.1002/tqem.20044",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://www.endvawnow.org/en/articles/335-monitoring-and-evaluation-frameworks-3-parts.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://www.ndi.org/files/Performance%20Monitoring%20and%20Evaluation%20Tips%20Building%20a%20Results%20Framework.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://r4d.dfid.gov.uk/pdf/outputs/mis_spc/DFID_ToC_Review_VogelV7.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://www.urbanreproductivehealth.org/toolkits/measuring-success/glossary-selected-planning-monitoring-and-evaluation-terms",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/96311/1/9789241548687_eng.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.k4health.org/toolkits/measuring-success/frameworks",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1991",
+      "bibo:doi": "10.1093/her/6.2.163",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://grameenfoundation.app.box.com/v/motechghanareport",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.gsma.com/mobilefordevelopment/programme/mhealth/mhealth-for-mnch-impact-model",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.unicef.org/southafrica/SAF_kbs2015_4_1MomConnectHowitworkswhatitachieves.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://sc4ccm.jsi.com/countries/malawi/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://iso25000.com/index.php/en/iso-25000-standards/iso-25010/58-functional-suitability",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://iso25000.com/index.php/en/iso-25000-standards/iso-25010?limit=3&start=3",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.cpc.unc.edu/measure/prh/rh_indicators/overview/types-of-indicators.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "bibo:doi": "10.1093/heapol/czp010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://www.cpc.unc.edu/measure/resources/publications/ms-11-46-d",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=64764",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1986",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1016/j.ijmmedinf.2012.11.016",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.fhi360.org/sites/default/files/media/documents/m4RH%20Kenya%20-%20Results%20from%20Pilot%20Study.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://www.who.int/healthinfo/systems/monitoring/en/index.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.atkearney.com/documents/10192/687794/GSMA+Evidence+for+Mobile+Health_v20_PRINT+HIRES.pdf/691847bc-3a65-4710-87eb-cc4753e8afce",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-054.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1988",
+      "bibo:doi": "10.1001/jama.1988.03410120089033",
+      "dcterms:source": "library/9789241511766-eng/sections/page-054.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/96311/1/9789241548687_eng.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://iso25000.com/index.php/en/iso-25000-standards/iso-25010/58-functional-suitability",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1994",
+      "dcterms:identifier": "http://www.jstor.org/stable/258934",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1007/s13142-011-0021-7",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1001/jama.2014.16819",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.2196/mhealth.4994",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.k4health.org/toolkits/mhealth-planning-guide/glossary",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "bibo:doi": "10.2345/0899-8205-46.s2.49",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.ideo.com/work/human-centered-design-toolkit/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://www.path.org/publications/files/TS_lmis_crdm.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:identifier": "https://web.cs.dal.ca/~hawkey/3130/srs_template-ieee.doc",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.usability.gov/how-to-and-tools/methods/use-cases.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.usability.gov/how-to-and-tools/methods/wireframing.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://www.path.org/publications/files/VAD_bid_product_vision.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.who.int/pmnch/knowledge/publications/ict_mhealth.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://sc4ccm.jsi.com/emerging-lessons/cstock/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-073.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.2196/mhealth.4764",
+      "dcterms:source": "library/9789241511766-eng/sections/page-073.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/96311/1/9789241548687_eng.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://www.urbanreproductivehealth.org/toolkits/measuring-success/glossary-selected-planning-monitoring-and-evaluation-terms",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1136/bmj.f6753",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.cdc.gov/nccdphp/dch/programs/healthycommunitiesprogram/tools/pdf/apply_theory.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "bibo:doi": "10.1186/1471-2288-6-54",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1988",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://store.elsevier.com/Epidemiology/Leon-Gordis/isbn-9781455737338/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.umsl.edu/~lindquists/qualdsgn.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "http://wilderdom.com/OEcourses/PROFLIT/Class6Qualitative1.htm",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://phprimer.afmc.ca/Part2-MethodsStudyingHealth/Chapter5AssessingEvidenceAndInformation/Appraisingscientificevidencequalitativeversusquantitativeresearch",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://www.xavier.edu/library/students/documents/qualitative_quantitative.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:identifier": "https://www.fhi360.org/resource/qualitative-research-methods-data-collectors-field-guide",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:identifier": "http://www.amstat.org/sections/srms/pamphlet.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://ocw.jhsph.edu/index.cfm/go/viewCourse/course/surveyresearchdesign/coursePage/index/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://guides.library.duke.edu/qualitative-research",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "http://www.socialresearchmethods.net/kb/sampprob.php",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1016/j.jval.2013.08.2291",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1993",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:identifier": "http://www.ehr-impact.eu/downloads/documents/EHRI_D1_3_Evaluation_Methodology_v1_0.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.ehealth-impact.org/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-103.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.who.int/choice/onehealthtool/en/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-103.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-120.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/96311/1/9789241548687_eng.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-120.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-120.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.k4health.org/sites/default/files/migrated_toolkit_files/DDIU_Information_Use_Mapping.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-120.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-120.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://www.cpc.unc.edu/measure/resources/publications/ms-11-46-d",
+      "dcterms:source": "library/9789241511766-eng/sections/page-120.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.1136/bmj.i1174",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.consort-statement.org/checklists/view/32-consort/66-title",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.strobe-statement.org/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://itidjournal.org/index.php/itid/article/view/1087",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1371/journal.pmed.1001395",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1097/OLQ.0b013e3181f68d7b",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "bibo:doi": "10.1080/10810730.2011.649106",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1186/1741-7015/11/80",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1016/j.ijgo.2010.11.020",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "bibo:doi": "10.1371/journal.pone.0052045",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "bibo:doi": "10.1186/1472-6947-9-51",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1371/journal.pone.0064662",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1016/j",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "bibo:doi": "10.2105/AJPH.94.3.361",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "bibo:doi": "10.1016/j.ypmed.2007.08.012",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "bibo:doi": "10.1207/S15327752JPA8103",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "bibo:doi": "10.1186/1745-6215-11-32",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "bibo:doi": "10.1093/intqhc/mzm042",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-133.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "bibo:doi": "10.1136/qshc.2008.029066",
+      "dcterms:source": "library/9789241511766-eng/sections/page-133.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/96311/1/9789241548687_eng.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.who.int/pmnch/knowledge/publications/ict_mhealth.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://www.endvawnow.org/en/articles/335-monitoring-and-evaluation-frameworks-3-parts.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://phprimer.afmc.ca/Part2-MethodsStudyingHealth/Chapter5AssessingEvidenceAndInformation/Appraisingscientificevidencequalitativeversusquantitativeresearch",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://www.xavier.edu/library/students/documents/qualitative_quantitative.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:identifier": "https://www.fhi360.org/resource/qualitative-research-methods-data-collectors-field-guide",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://guides.library.duke.edu/qualitative-research",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://iso25000.com/index.php/en/iso-25000-standards/iso-25010/58-functional-suitability",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.k4health.org/toolkits/mhealth-planning-guide/glossary",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.cpc.unc.edu/measure/resources/publications/ms-14-87-en",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1136/bmj.f6753",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://www.urbanreproductivehealth.org/toolkits/measuring-success/glossary-selected-planning-monitoring-and-evaluation-terms",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "http://www.socialresearchmethods.net/kb/sampprob.php",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1994",
+      "dcterms:identifier": "http://www.jstor.org/stable/258934",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://www.ndi.org/files/Performance%20Monitoring%20and%20Evaluation%20Tips%20Building%20a%20Results%20Framework.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1016/j.evalprogplan.2010.07.001",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://r4d.dfid.gov.uk/pdf/outputs/mis_spc/DFID_ToC_Review_VogelV7.pdf",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://iso25000.com/index.php/en/iso-25000-standards/iso-25010?limit=3&start=3",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.usability.gov/how-to-and-tools/methods/use-cases.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.marsdd.com/mars-library/crafting-your-value-proposition/",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    },
+    {
+      "@id": "references/9789241511766-eng.page-139.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.usability.gov/how-to-and-tools/methods/wireframing.html",
+      "dcterms:source": "library/9789241511766-eng/sections/page-139.md"
+    }
+  ]
+}

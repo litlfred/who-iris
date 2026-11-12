@@ -26,11 +26,11 @@
       ],
       "skos:definition": [
         {
-          "@value": "The general process for turning a shared paper, book or standard into an adopted methodology: establish origin and licence, ingest the source, find and summarize related work items and issues and ask whether to coordinate, render the method with its adopted and refused parts, place it by ownership, integrate it by calling existing processes, give every tool it uses a Tool node, and put it to the owner. Process: processes/library/methodology-from-source.bpmn."
+          "@value": "The general process for turning a shared paper, book or standard into an adopted methodology: establish origin and licence, ingest the source, find and summarize related work items and issues and ask whether to coordinate, render the method with its adopted and refused parts, place it by ownership, integrate it by calling existing processes, give every tool it uses a Tool node, and put it to the owner. Process: library/processes/methodology-from-source.bpmn."
         }
       ],
       "skos:notation": "adopt-methodology-from-source",
-      "dcterms:source": "cat-harness/skills/library/library-core/adopt-methodology-from-source.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/adopt-methodology-from-source.md",
       "skos:note": "candidate"
     },
     {
@@ -86,7 +86,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "ArchiMate models as knowledge-graph content: how an instance declares the Archi models it holds, what the `archimate` subgraph gives every model, view, element and relationship (an IRI, a thin page, and every view drawn as SVG from the model's own diagram, and its metamodel derived and checked), how to version the models, how to wire them into a folio's staging build and navbar, how to count and lower the crossed lines in a view before committing it, why every view carries a plain-language key, why names are the source's own terms linked to their SKOS concepts, and why no Java, no Archi CLI and no Archi HTML report is ever part of the pipeline. Read before adding, authoring, publishing or rendering an `.archimate` file, before citing an ArchiMate element from prose, and before reaching for Archi's own tooling in CI."
+          "@value": "ArchiMate models as knowledge-graph content: how a layer declares the Archi models it holds, what the `archimate` subgraph gives every model, view, element and relationship (an IRI, a thin page, and every view drawn as SVG from the model's own diagram, and its metamodel derived and checked), how to version the models, how to wire them into a folio's staging build and navbar, how to count and lower the crossed lines in a view before committing it, why every view carries a plain-language key, why names are the source's own terms linked to their SKOS concepts, and why no Java, no Archi CLI and no Archi HTML report is ever part of the pipeline. Read before adding, authoring, publishing or rendering an `.archimate` file, before citing an ArchiMate element from prose, and before reaching for Archi's own tooling in CI."
         }
       ],
       "skos:notation": "archimate-models",
@@ -150,7 +150,7 @@
         }
       ],
       "skos:notation": "asset-extraction",
-      "dcterms:source": "cat-harness/skills/library/library-core/asset-extraction.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/asset-extraction.md",
       "skos:note": "candidate"
     },
     {
@@ -211,26 +211,6 @@
       ],
       "skos:notation": "auto-docs",
       "dcterms:source": "cat-harness/skills/ui/ui-core/auto-docs.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/block-density",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "block-density"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Audits individual content blocks for single-topic coherence, length, and embedded tables. Blocks that cover multiple topics or exceed ~2/3 of a page should be split; large tables (>5 rows) must be their own `table` block. Child blocks from a split may belong in different chapters than the parent."
-        }
-      ],
-      "skos:notation": "block-density",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/block-density.md",
       "skos:note": "candidate"
     },
     {
@@ -349,26 +329,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/chapter-complexity-review",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "chapter-complexity-review"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Analyse a chapter's internal dependency graph to find backward edges (blocks that reference something defined later), compute graph energy, and suggest section/block reorderings that minimise complexity. Uses Graphviz for visualisation and brute-force permutation search for optimal section ordering."
-        }
-      ],
-      "skos:notation": "chapter-complexity-review",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/chapter-complexity-review.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/code-lists",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -385,7 +345,7 @@
         }
       ],
       "skos:notation": "code-lists",
-      "dcterms:source": "cat-harness/skills/library/library-core/code-lists.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/code-lists.md",
       "skos:note": "candidate"
     },
     {
@@ -485,22 +445,7 @@
         }
       ],
       "skos:notation": "content-acquisition",
-      "dcterms:source": "cat-harness/skills/library/library-core/content-acquisition.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/content-author",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "content-author"
-        }
-      ],
-      "skos:notation": "content-author",
-      "dcterms:source": "cat-harness/skills/authoring/content-lifecycle/content-author.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/content-acquisition.md",
       "skos:note": "candidate"
     },
     {
@@ -559,21 +504,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/content-plan",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "content-plan"
-        }
-      ],
-      "skos:notation": "content-plan",
-      "dcterms:source": "cat-harness/skills/authoring/content-lifecycle/content-plan.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/content-profiles",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -591,36 +521,6 @@
       ],
       "skos:notation": "content-profiles",
       "dcterms:source": "cat-harness/skills/authoring/authoring-core/content-profiles.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/content-publish",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "content-publish"
-        }
-      ],
-      "skos:notation": "content-publish",
-      "dcterms:source": "cat-harness/skills/authoring/content-lifecycle/content-publish.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/content-retire",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "content-retire"
-        }
-      ],
-      "skos:notation": "content-retire",
-      "dcterms:source": "cat-harness/skills/authoring/content-lifecycle/content-retire.md",
       "skos:note": "candidate"
     },
     {
@@ -685,7 +585,7 @@
         }
       ],
       "skos:notation": "copy-out-materialized",
-      "dcterms:source": "cat-harness/skills/library/large-datasets/copy-out-materialized.md",
+      "dcterms:source": "cat-harness/library/skills/large-datasets/copy-out-materialized.md",
       "skos:note": "candidate"
     },
     {
@@ -726,26 +626,6 @@
       ],
       "skos:notation": "covered-is-not-reachable",
       "dcterms:source": "cat-harness/skills/tools/folio-core/covered-is-not-reachable.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/create-sticky-note",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "create-sticky-note"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Draft a sticky note from the conversation, choose its theme and its place, preview it, and only then attach it to a node."
-        }
-      ],
-      "skos:notation": "create-sticky-note",
-      "dcterms:source": "cat-harness/skills/ui/theming/create-sticky-note.md",
       "skos:note": "candidate"
     },
     {
@@ -844,26 +724,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/deployment-awareness",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "deployment-awareness"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "The agent must know its UI surface — gh-pages, local server, with/without MCP, or chat discussion only — because deployment surfaces are declared architectural facts that decide which tools apply, forbid request-time assumptions, and require graceful degradation to chat."
-        }
-      ],
-      "skos:notation": "deployment-awareness",
-      "dcterms:source": "cat-harness/skills/ui/ui-core/deployment-awareness.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/deterministic-and-agentic",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -881,26 +741,6 @@
       ],
       "skos:notation": "deterministic-and-agentic",
       "dcterms:source": "cat-harness/skills/process/workflow/deterministic-and-agentic.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/devils-advocate-watcher",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "devils-advocate-watcher"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Logical devil's-advocate integration watcher — for every content block (.ts/.md) and formal sibling, constructs the strongest adversarial case that it is WRONG: the objection a hostile-but- competent referee would raise (false claim, vacuity, circularity, overclaim, hidden degree-of-freedom, logical non-sequitur, formal↔narrative divergence, citation misuse, definitional ambiguity, empirical fragility, domain implausibility, irreproducible compute). Fans out multiple adversarial-lens agents per block, then an adjudicator scores whether each objection survives rebuttal. Persists per-block <block>.qa.json entries under the `da-*` criteria family (reviewer.kind = \"agent\"). Operationalizes the standing Critical-distance red-team license (AGENTS.md). Inherits all shared mechanics (Monitor, subscriptions, queue, ledger, idle sweep, author-ask, watch-prepared-PRs, witness-drift recovery, billing-quick-fail flake) from `integration-watcher`."
-        }
-      ],
-      "skos:notation": "devils-advocate-watcher",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/devils-advocate-watcher.md",
       "skos:note": "candidate"
     },
     {
@@ -946,51 +786,11 @@
       ],
       "skos:definition": [
         {
-          "@value": "How a checkout of this harness generates and publishes its docs site: regenerating derived references, composing the docs layers and each instance's site into one Jekyll source, building it with just-the-docs, the post-build passes, the TypeDoc API reference, the knowledge-graph export, and the full-replace publish to gh-pages and its branches/ previews."
+          "@value": "How a checkout of this harness generates and publishes its docs site: regenerating derived references, composing the docs layers and each layer's site into one Jekyll source, building it with just-the-docs, the post-build passes, the TypeDoc API reference, the knowledge-graph export, and the full-replace publish to gh-pages and its branches/ previews."
         }
       ],
       "skos:notation": "docs-generation",
       "dcterms:source": "cat-harness/skills/ui/ui-core/docs-generation.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/domain-fencing",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "domain-fencing"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "How a domain-specific rule is kept out of the platform without being lost — the opt-in axis mechanism, why a profile is not a fence, and the test for whether a rule generalizes at all."
-        }
-      ],
-      "skos:notation": "domain-fencing",
-      "dcterms:source": "cat-harness/skills/kg/graph-management/domain-fencing.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/edge-kinds-and-blast-radius",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "edge-kinds-and-blast-radius"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "A graph has more than one kind of edge, and conflating them corrupts both the ordering and the impact answer. Interface edges versus implementation edges, the union rule for blast radius, and the split/merge signals — generalized out of the formal-math skills that first stated them."
-        }
-      ],
-      "skos:notation": "edge-kinds-and-blast-radius",
-      "dcterms:source": "cat-harness/skills/kg/graph-management/edge-kinds-and-blast-radius.md",
       "skos:note": "candidate"
     },
     {
@@ -1044,26 +844,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/exposition-swarm-drain",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "exposition-swarm-drain"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Drain the paper's narrative blocks through an exposition-quality swarm: a small fleet of grouped-batch agents each audit their batch against the Milnor exposition gate (expo-milnor-clarity, H1–H8) plus the deterministic narrative defect checks (proof-sketch-vs-kind, proof-no-lean-mention-in-prose, proof-cross-block-duplication), then RESOLVE the flagged blocks with conservative, math-preserving edits. Each swarm agent owns its own branch (commits, pushes, opens a PR); the foreground session runs auto prepare-merge on each swarm branch and repeats batch-by-batch until the paper is completely drained. Sister to `/integration-backlog` (that drains watcher findings; this drains exposition quality)."
-        }
-      ],
-      "skos:notation": "exposition-swarm-drain",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/exposition-swarm-drain.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/external-registry-contract",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -1076,11 +856,31 @@
       ],
       "skos:definition": [
         {
-          "@value": "The contract the `external-registry` role is held to: what a trusted registry outside this instance must provide for a portal to verify what it received, and what the verifier does when it cannot. The narrowest contract the diagrams require. A mechanical role's skill is a contract to test against, not instructions to read."
+          "@value": "The contract the `external-registry` role is held to: what a trusted registry outside this layer must provide for a portal to verify what it received, and what the verifier does when it cannot. The narrowest contract the diagrams require. A mechanical role's skill is a contract to test against, not instructions to read."
         }
       ],
       "skos:notation": "external-registry-contract",
       "dcterms:source": "cat-harness/skills/kg/kg-core/external-registry-contract.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/feedback-deep-links",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "feedback-deep-links"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The deep-link rule for every request for feedback, review, sign-off or acceptance on something rendered: carry the staging preview, one deep link per changed page with the same page on main, pages taken from the change rather than chosen, the third state said rather than hidden, and the request placed where the person will look."
+        }
+      ],
+      "skos:notation": "feedback-deep-links",
+      "dcterms:source": "cat-harness/skills/authoring/content-lifecycle/feedback-deep-links.md",
       "skos:note": "candidate"
     },
     {
@@ -1116,7 +916,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Scaffold a new folio instance from the harness — the instantiate affordance of the knowledge graph. Covers when to run folio-init vs remote-mount, what the scaffold writes, the builder shim, state branch seeding, write capability requirements, and --dry-run degradation."
+          "@value": "Scaffold a new folio layer from the harness — the instantiate affordance of the knowledge graph. Covers when to run folio-init vs remote-mount, what the scaffold writes, the builder shim, state branch seeding, write capability requirements, and --dry-run degradation."
         }
       ],
       "skos:notation": "folio-init",
@@ -1136,11 +936,31 @@
       ],
       "skos:definition": [
         {
-          "@value": "Triage what a person means when they ask to create a folio, and route them. Five requests share one sentence — a folio in a new repo, folio-assistant overlaid on an existing repo, a second folio in an instance that already has one, a content object they called a folio, or something the filesystem cannot tell apart. Reads the repository facts, runs them through the folio-intent decision table, asks a selectable question for what facts cannot settle, scaffolds, and reports the published URL. Use whenever a user asks to create, start, set up, or initialise a folio, a paper, a DAK, an IG, or \"folio-assistant\" itself."
+          "@value": "Triage what a person means when they ask to create a folio, and route them. Five requests share one sentence — a folio in a new repo, folio-assistant overlaid on an existing repo, a second folio in a layer that already has one, a content object they called a folio, or something the filesystem cannot tell apart. Reads the repository facts, runs them through the folio-intent decision table, asks a selectable question for what facts cannot settle, scaffolds, and reports the published URL. Use whenever a user asks to create, start, set up, or initialise a folio, a paper, a DAK, an IG, or \"folio-assistant\" itself."
         }
       ],
       "skos:notation": "getting-started",
       "dcterms:source": "cat-harness/skills/conduct/conduct-core/getting-started.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/git-friendly-churn",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "git-friendly-churn"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Write files that git keeps many versions of (caches, published sites, generated indexes) so each new version costs a small delta, not a whole copy. The rules: the same bytes when nothing changed, stable paths, per-build facts kept apart, no compressed blobs, and how to measure it."
+        }
+      ],
+      "skos:notation": "git-friendly-churn",
+      "dcterms:source": "cat-harness/skills/process/process-core/git-friendly-churn.md",
       "skos:note": "candidate"
     },
     {
@@ -1236,7 +1056,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "What an instance OWES for every directory it declares — a visualiser, a documentation entry, a governing skill, json/jsonld/schema.json serialisations at the directory's URL and at every node beneath it, and a starting README of its own. Read before declaring a directory, before adding a graph typology, and when reading `check:subgraph-coverage`. Carries which obligations are ranked as unmet promises rather than unanswered questions, why the discriminator is \"is this the static knowledge graph\", and which single obligation a harness may never waive."
+          "@value": "What a layer OWES for every directory it declares — a visualiser, a documentation entry, a governing skill, json/jsonld/schema.json serialisations at the directory's URL and at every node beneath it, and a starting README of its own. Read before declaring a directory, before adding a graph typology, and when reading `check:subgraph-coverage`. Carries which obligations are ranked as unmet promises rather than unanswered questions, why the discriminator is \"is this the static knowledge graph\", and which single obligation a harness may never waive."
         }
       ],
       "skos:notation": "harness-requirements",
@@ -1264,41 +1084,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/html-rendering-qc",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "html-rendering-qc"
-        }
-      ],
-      "skos:notation": "html-rendering-qc",
-      "dcterms:source": "cat-harness/skills/ui/ui-core/html-rendering-qc.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/incremental-render",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "incremental-render"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Rendering only what changed — seeding a build from a previous render, the two edges that decide what must re-run, why a step declares GRAPH TYPOLOGIES rather than paths, and the rule that could-not-determine always re-renders rather than serving a stale page."
-        }
-      ],
-      "skos:notation": "incremental-render",
-      "dcterms:source": "cat-harness/skills/ui/ui-core/incremental-render.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/index-config",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -1311,7 +1096,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "`index.config.json` at an instantiation root says which harnesses the checkout instantiates, where each one comes from (local, or a remote mount pinned to a SHA), each instance's config INLINE in its entry (a legacy `<name>.config.json` is only imported until `--inline` retires it), and which harness `/` is. Covers instantiated against declared, landing resolution and its error case, `index.lock.json` and its legacy fallback, the reserved `index` stem, the generated `.gitignore` block and its gate, and `index-config:migrate` (with `--inline`) for separated repositories."
+          "@value": "`index.config.json` at an instantiation root says which harnesses the checkout instantiates, where each one comes from (local, or a remote mount pinned to a SHA), each layer's config INLINE in its entry (a legacy `<name>.config.json` is only imported until `--inline` retires it), and which harness `/` is. Covers instantiated against declared, landing resolution and its error case, `index.lock.json` and its legacy fallback, the reserved `index` stem, the generated `.gitignore` block and its gate, and `index-config:migrate` (with `--inline`) for separated repositories."
         }
       ],
       "skos:notation": "index-config",
@@ -1351,7 +1136,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "How to make a new KIND of harness instance — choosing the prefix family, the keep-the-kind's-name default and the owner's right to decline it, which inherited files the new owner may repoint, and what a new GRAPH typology must declare. Read before naming a new instance, before adding a value to the graph-typology registry, and before building a visualiser. Carries the test that usually says \"this is not a new kind\"."
+          "@value": "How to make a new KIND of harness layer — choosing the prefix family, the keep-the-kind's-name default and the owner's right to decline it, which inherited files the new owner may repoint, and what a new GRAPH typology must declare. Read before naming a new layer, before adding a value to the graph-typology registry, and before building a visualiser. Carries the test that usually says \"this is not a new kind\"."
         }
       ],
       "skos:notation": "instance-kinds",
@@ -1371,31 +1156,11 @@
       ],
       "skos:definition": [
         {
-          "@value": "Every asset carries an id and a version and sits in DRAFT. Publication is a state, not a boolean, and `published` is refused by the schema because the formal process does not exist yet. Carries the id namespace rule, why a mirror never takes its subject's identity, and what a consumer may assume of a draft. Also the one home for which graph each instance publishes, where, under which IRI and schema, and what is stripped from it."
+          "@value": "Every asset carries an id and a version and sits in DRAFT. Publication is a state, not a boolean, and `published` is refused by the schema because the formal process does not exist yet. Carries the id namespace rule, why a mirror never takes its subject's identity, and what a consumer may assume of a draft. Also the one home for which graph each layer publishes, where, under which IRI and schema, and what is stripped from it."
         }
       ],
       "skos:notation": "instance-publication",
       "dcterms:source": "cat-harness/skills/kg/kg-core/instance-publication.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/integration-audit",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "integration-audit"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Sidecar-invalidation utility for the integration-watcher pipeline. Adds mechanical QA fields (script-reviewer entries) to per-block `.qa.json` sidecars and marks the existing entries stale so the next `qa-sweep` re-evaluates them. Use when a checker bug is fixed in a QA checker module (downstream \"fresh\" entries are now incorrect) or when a registry update adds a criterion the block hasn't been audited under."
-        }
-      ],
-      "skos:notation": "integration-audit",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/integration-audit.md",
       "skos:note": "candidate"
     },
     {
@@ -1431,7 +1196,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Journeys and workshops as knowledge-graph content: a DAK user scenario told as a journey map (`user-scenario` kind: ordered steps, per person what they do and feel, pain points, enablers, the record's trust state, and edges to stories, BPMN tasks, requirements, FHIR examples, building blocks and the DAK's data sets, decision tables and indicators), the `building-blocks` catalogue its steps use, a workshop that teaches from it (`workshop` kind: modules, objectives, questions for the room on each step, reference tables, sheets, job aids), the `journeys-viewer` visualiser that draws them for an instance and the layers it mounts, and the `check:journey-refs` gate that every reference they name resolves. Read before writing a journey or a workshop, before declaring the viewer, and before building a journey walkthrough app of your own."
+          "@value": "Journeys and workshops as knowledge-graph content: a DAK user scenario told as a journey map (`user-scenario` kind: ordered steps, per person what they do and feel, pain points, enablers, the record's trust state, and edges to stories, BPMN tasks, requirements, FHIR examples, building blocks and the DAK's data sets, decision tables and indicators), the `building-blocks` catalogue its steps use, a workshop that teaches from it (`workshop` kind: modules, objectives, questions for the room on each step, reference tables, sheets, job aids), the `journeys-viewer` visualiser that draws them for a layer and the layers it mounts, and the `check:journey-refs` gate that every reference they name resolves. Read before writing a journey or a workshop, before declaring the viewer, and before building a journey walkthrough app of your own."
         }
       ],
       "skos:notation": "journey-maps",
@@ -1491,7 +1256,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Serialize an instance's knowledge graph to one JSON document, for publication and inspection. Read when asked to visualize, audit or share the KG, before adding a node type to the export, and before minting or authoring any subject IRI — subjects are `<doc dir>/<kind>/<id>`, never `#fragments`."
+          "@value": "Serialize a layer's knowledge graph to one JSON document, for publication and inspection. Read when asked to visualize, audit or share the KG, before adding a node type to the export, and before minting or authoring any subject IRI — subjects are `<doc dir>/<kind>/<id>`, never `#fragments`."
         }
       ],
       "skos:notation": "kg-export",
@@ -1575,7 +1340,7 @@
         }
       ],
       "skos:notation": "kg-subscription",
-      "dcterms:source": "cat-harness/skills/library/large-datasets/kg-subscription.md",
+      "dcterms:source": "cat-harness/library/skills/large-datasets/kg-subscription.md",
       "skos:note": "candidate"
     },
     {
@@ -1635,7 +1400,7 @@
         }
       ],
       "skos:notation": "library-ingestion",
-      "dcterms:source": "cat-harness/skills/library/library-core/library-ingestion.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/library-ingestion.md",
       "skos:note": "candidate"
     },
     {
@@ -1675,7 +1440,7 @@
         }
       ],
       "skos:notation": "literature-search",
-      "dcterms:source": "cat-harness/skills/library/library-core/literature-search.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/literature-search.md",
       "skos:note": "candidate"
     },
     {
@@ -1730,7 +1495,7 @@
         }
       ],
       "skos:notation": "materialize-on-demand",
-      "dcterms:source": "cat-harness/skills/library/large-datasets/materialize-on-demand.md",
+      "dcterms:source": "cat-harness/library/skills/large-datasets/materialize-on-demand.md",
       "skos:note": "candidate"
     },
     {
@@ -1750,7 +1515,7 @@
         }
       ],
       "skos:notation": "materialize-remote",
-      "dcterms:source": "cat-harness/skills/library/large-datasets/materialize-remote.md",
+      "dcterms:source": "cat-harness/library/skills/large-datasets/materialize-remote.md",
       "skos:note": "candidate"
     },
     {
@@ -1766,7 +1531,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Compose several Tool nodes into one MCP service — naming, collisions, grouping and versioning. Read when a service will expose more than one tool, or when two instances' tools land in the same namespace."
+          "@value": "Compose several Tool nodes into one MCP service — naming, collisions, grouping and versioning. Read when a service will expose more than one tool, or when two layers' tools land in the same namespace."
         }
       ],
       "skos:notation": "mcp-assembly",
@@ -1849,26 +1614,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/named-query-execution",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "named-query-execution"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "How to execute audited SPARQL 1.1 named queries over partitioned W3C N-Quads dataset distributions across CLI, MCP tools, and WebAssembly browser clients. Enforces graph availability guards to prevent silent partial results, and typed parameter bindings to eliminate SPARQL injection."
-        }
-      ],
-      "skos:notation": "named-query-execution",
-      "dcterms:source": "cat-harness/skills/kg/graph-management/named-query-execution.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/npm-kg-distribution",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -1886,61 +1631,6 @@
       ],
       "skos:notation": "npm-kg-distribution",
       "dcterms:source": "cat-harness/skills/kg/kg-core/npm-kg-distribution.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/nquads-distribution",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "nquads-distribution"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "How to compile, partition by named subgraphs, and distribute W3C N-Quads datasets beside pre-compiled SPARQL 1.1 named queries for static edge and client-side querying. Enforces upstream skolemization for zero blank nodes, partition size budgets, and single-source-of-truth publishing via declared served directories."
-        }
-      ],
-      "skos:notation": "nquads-distribution",
-      "dcterms:source": "cat-harness/skills/kg/graph-management/nquads-distribution.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/one-voice-audit",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "one-voice-audit"
-        }
-      ],
-      "skos:notation": "one-voice-audit",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/one-voice-audit.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/one-voice-integration-watcher",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "one-voice-integration-watcher"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "One-voice integration watcher — watches origin/main + open active PRs + newly-opened PRs for content-block changes (`.md`, `.ts`, proof files), runs the per-block QA suite covering scholarly voice, AI-slop detection, section/chapter fit, canonical-vs-deprecated notation usage, and domain-boundary placement. Persists every finding to a sibling `<block>.qa.json` audit report (multi-reviewer, per-field SHA staleness). The watcher NEVER stops — when no events arrive it falls back to idle-sweep of the staleness backlog, rebuilding the audit knowledge base that feeds future content reviews. Inherits shared mechanics (Monitor, subscriptions, queue, ledger, idle sweep, author-ask, watch-prepared-PRs, witness-drift recovery, billing-quick-fail flake, sibling-PR comment protocol) from `integration-watcher`."
-        }
-      ],
-      "skos:notation": "one-voice-integration-watcher",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/one-voice-integration-watcher.md",
       "skos:note": "candidate"
     },
     {
@@ -1984,26 +1674,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/pdf-inline-viewer",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "pdf-inline-viewer"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Show a published PDF inside a generated page — search, scroll, jump to page, print and download — with the pinned pdf.js viewer the site build installs. Which two Tools do it, the publication-gate rule that decides whether a page may embed a document at all, why the viewer opens only allowlisted hosts, and the three pdf.js behaviours that were measured rather than assumed. Read before putting a PDF on a page, before bumping the pdf.js pin, and when an embedded viewer shows an empty frame."
-        }
-      ],
-      "skos:notation": "pdf-inline-viewer",
-      "dcterms:source": "cat-harness/skills/ui/ui-core/pdf-inline-viewer.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/placement",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -2016,7 +1686,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Establish where a new node belongs BEFORE you create it — which instance, which declared graph, which kind of node, and which of the two \"stub\" conventions applies. Read before adding a skill, role, actor, workflow, decision table, schema, tool or content object, and before writing any literal that names one folio."
+          "@value": "Establish where a new node belongs BEFORE you create it — which layer, which declared graph, which kind of node, and which of the two \"stub\" conventions applies. Read before adding a skill, role, actor, workflow, decision table, schema, tool or content object, and before writing any literal that names one folio."
         }
       ],
       "skos:notation": "placement",
@@ -2044,26 +1714,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/production-vs-exploratory-discipline",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "production-vs-exploratory-discipline"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Distinguish PRODUCTION (derived-only, no fits) from EXPLORATORY (empirical-fit probes OK as shape-hints) from NUMEROLOGY (post-hoc fits to known constants). The bright-line guide for which output goes where, the derivation-menu check, and the escalation path for off-menu coefficients, so empirical fits are not promoted into production scripts, \"closed\" status, dashboards or named constants."
-        }
-      ],
-      "skos:notation": "production-vs-exploratory-discipline",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/production-vs-exploratory-discipline.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/raci",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -2081,21 +1731,6 @@
       ],
       "skos:notation": "raci",
       "dcterms:source": "cat-harness/skills/process/raci/raci.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/readability-editing",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "readability-editing"
-        }
-      ],
-      "skos:notation": "readability-editing",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/readability-editing.md",
       "skos:note": "candidate"
     },
     {
@@ -2131,7 +1766,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Bring a harness, and every instance it depends on, into a checkout that does not hold it, from another repository at a pinned commit, as declared directories with a lock: a `source.remote` entry in the downstream's root `index.config.json` (legacy: `remoteMounts` on its declaration) and `mountDefaults` on the harness. Covers when to mount and when to subscribe instead, why there are no submodules and no `.deps/`, the transitive closure through `needs` and gitlinks, overrides by id, the lock, and the three states."
+          "@value": "Bring a harness, and every layer it depends on, into a checkout that does not hold it, from another repository at a pinned commit, as declared directories with a lock: a `source.remote` entry in the downstream's root `index.config.json` (legacy: `remoteMounts` on its declaration) and `mountDefaults` on the harness. Covers when to mount and when to subscribe instead, why there are no submodules and no `.deps/`, the transitive closure through `needs` and gitlinks, overrides by id, the lock, and the three states."
         }
       ],
       "skos:notation": "remote-mount",
@@ -2290,7 +1925,7 @@
         }
       ],
       "skos:notation": "sample-import",
-      "dcterms:source": "cat-harness/skills/library/large-datasets/sample-import.md",
+      "dcterms:source": "cat-harness/library/skills/large-datasets/sample-import.md",
       "skos:note": "candidate"
     },
     {
@@ -2516,7 +2151,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "A sub-KG is a knowledge graph staged as a directory inside a harnessed repository, declared as its own instance, that may later leave for a repository of its own. The lifecycle: declare it in place, grow it, stage it for separation (one import seam, the separation guard, a self-contained rehearsal), and then, each behind an explicit owner confirmation, create the repository, copy the staged contents in with history, re-point the declaration, verify on a fresh clone and delete the in-repo copy. The light sibling of kg-separation: use this for a DATA instance that leaves whole, and kg-separation when a graph must split into a content repository and a tools repository."
+          "@value": "A sub-KG is a knowledge graph staged as a directory inside a harnessed repository, declared as its own layer, that may later leave for a repository of its own. The lifecycle: declare it in place, grow it, stage it for separation (one import seam, the separation guard, a self-contained rehearsal), and then, each behind an explicit owner confirmation, create the repository, copy the staged contents in with history, re-point the declaration, verify on a fresh clone and delete the in-repo copy. The light sibling of kg-separation: use this for a DATA layer that leaves whole, and kg-separation when a graph must split into a content repository and a tools repository."
         }
       ],
       "skos:notation": "sub-kg-lifecycle",
@@ -2655,7 +2290,7 @@
         }
       ],
       "skos:notation": "term-disagreement",
-      "dcterms:source": "cat-harness/skills/library/library-core/term-disagreement.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/term-disagreement.md",
       "skos:note": "candidate"
     },
     {
@@ -2676,86 +2311,6 @@
       ],
       "skos:notation": "theme-art-intake",
       "dcterms:source": "cat-harness/skills/ui/theming/theme-art-intake.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/theme-artefacts",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "theme-artefacts"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "The per-surface SPECIALISATION layer — sticky, landing board, docs background, navbar avatar. Only what DIFFERS lives here; the general rule lives in its stage. Read this last, after the stage that owns your question."
-        }
-      ],
-      "skos:notation": "theme-artefacts",
-      "dcterms:source": "cat-harness/skills/ui/theming/theme-artefacts.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/theme-contrast",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "theme-contrast"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Why every scrim is measured over PURE BLACK rather than over the art actually in use, what the AAA floor is, and why the high-contrast pair declares no backdrop at all. The CONSUMER stage that says what the ink must survive."
-        }
-      ],
-      "skos:notation": "theme-contrast",
-      "dcterms:source": "cat-harness/skills/ui/theming/theme-contrast.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/theme-declaration",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "theme-declaration"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "What a theme IS as data — the palette, the three required layouts, and the per-image regions (`textRegion`, `avatarRegion`). The PRODUCER stage: this is where a number is written down, and the rule is that geometry over art is declared rather than derived, because no amount of arithmetic on an aspect ratio can see where a picture is quiet."
-        }
-      ],
-      "skos:notation": "theme-declaration",
-      "dcterms:source": "cat-harness/skills/ui/theming/theme-declaration.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/theme-generation",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "theme-generation"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Turning a declared theme into CSS — `bun run cat themes:css` — and the single consumer-side failure this stage exists to stop: a theme with no CSS rule falls back to an opaque surface and paints over its own art."
-        }
-      ],
-      "skos:notation": "theme-generation",
-      "dcterms:source": "cat-harness/skills/ui/theming/theme-generation.md",
       "skos:note": "candidate"
     },
     {
@@ -2855,7 +2410,7 @@
         }
       ],
       "skos:notation": "translation-manager",
-      "dcterms:source": "cat-harness/skills/library/library-core/translation-manager.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/translation-manager.md",
       "skos:note": "candidate"
     },
     {
@@ -2871,11 +2426,11 @@
       ],
       "skos:definition": [
         {
-          "@value": "The translation watcher: a scheduled fresh session that keeps every locale of every instance current after the source moves. Cold start, then, per instance, detect, refresh the templates, merge them into each locale, translate only the new and fuzzy strings with the fixed terms, run the gates, round-trip the changed strings, write the QA report, open one PR to main, merge it only where the instance declares merge-when-green, and report source mistakes as one issue. Use for \"refresh the translations\", \"a template check failed\", and when scheduling or running the watcher."
+          "@value": "The translation watcher: a scheduled fresh session that keeps every locale of every layer current after the source moves. Cold start, then, per layer, detect, refresh the templates, merge them into each locale, translate only the new and fuzzy strings with the fixed terms, run the gates, round-trip the changed strings, write the QA report, open one PR to main, merge it only where the layer declares merge-when-green, and report source mistakes as one issue. Use for \"refresh the translations\", \"a template check failed\", and when scheduling or running the watcher."
         }
       ],
       "skos:notation": "translation-refresh",
-      "dcterms:source": "cat-harness/skills/library/library-core/translation-refresh.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/translation-refresh.md",
       "skos:note": "candidate"
     },
     {
@@ -2975,7 +2530,7 @@
         }
       ],
       "skos:notation": "upload-naming",
-      "dcterms:source": "cat-harness/skills/library/library-core/upload-naming.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/upload-naming.md",
       "skos:note": "candidate"
     },
     {
@@ -2995,7 +2550,7 @@
         }
       ],
       "skos:notation": "upload-routes",
-      "dcterms:source": "cat-harness/skills/library/library-core/upload-routes.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/upload-routes.md",
       "skos:note": "candidate"
     },
     {
@@ -3015,7 +2570,7 @@
         }
       ],
       "skos:notation": "uploads-watch",
-      "dcterms:source": "cat-harness/skills/library/library-core/uploads-watch.md",
+      "dcterms:source": "cat-harness/library/skills/library-core/uploads-watch.md",
       "skos:note": "candidate"
     },
     {
@@ -3039,26 +2594,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/visualizer-loading",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "visualizer-loading"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "The general strategy for a complex visualizer: the generated page carries identity, layout and a pointer, and its bulky or repeated content is fetched from the Knowledge Graph in the browser rather than baked into every page. What must stay server-side, how to fetch, how to stay equivalent to the render being replaced, and how to verify a page whose content is not in its HTML. Read before generating any page that shows a KG node's data at length: an IG artefact view, a graph viewer, a schema or sidecar view."
-        }
-      ],
-      "skos:notation": "visualizer-loading",
-      "dcterms:source": "cat-harness/skills/ui/ui-core/visualizer-loading.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/vocabulary-authority",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -3079,63 +2614,23 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/voice-authoring-guidance",
+      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/web-apps",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
       },
       "skos:prefLabel": [
         {
-          "@value": "voice-authoring-guidance"
+          "@value": "web-apps"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Load the active voices' rules BEFORE writing, so a block is drafted in the register it will be reviewed against. The authoring half of the voice overlay; `voice-overlay-review` is the half that runs after."
+          "@value": "Interactive web apps as knowledge-graph content: a layer holds an app's source in a directory of kind `web-app` (one `web-app.json`), its UI strings go through the harness's translation process like any template, and the harness's `apps` visualiser (Tool `web-app-build`) builds it at publish and writes it to its own route with no site chrome, loaded only when a reader opens it. Read before adding an app to any layer, before writing a publish script for one (do not), and when an app's build or translations fail."
         }
       ],
-      "skos:notation": "voice-authoring-guidance",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/voice-authoring-guidance.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/voice-editorial-review",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "voice-editorial-review"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Adjudicate a `voice-*` finding — read the flagged passage as a reader of THAT genre would and decide whether the register is wrong, the criterion is out of scope, or the block is a stated exception. The human/agent half of the voice QA axis; the mechanical half runs in `qa-checkers-voice.ts`."
-        }
-      ],
-      "skos:notation": "voice-editorial-review",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/voice-editorial-review.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills/voice-overlay-review",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/cat-harness/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "voice-overlay-review"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Review a block against the active voices' rules and record the verdict on its QA sidecar. The human/agent half of the voice overlay; the mechanical half is whatever `patterns` and `terminology` a rule carries."
-        }
-      ],
-      "skos:notation": "voice-overlay-review",
-      "dcterms:source": "cat-harness/skills/authoring/authoring-core/voice-overlay-review.md",
+      "skos:notation": "web-apps",
+      "dcterms:source": "cat-harness/skills/ui/ui-core/web-apps.md",
       "skos:note": "candidate"
     },
     {

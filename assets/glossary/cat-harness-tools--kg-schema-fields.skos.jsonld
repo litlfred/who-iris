@@ -15024,6 +15024,215 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.documenterrataschema.entry",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "DocumentErrataSchema.entry"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The library entry's slug, the directory this file sits in."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#DocumentErrataSchema.entry",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.erratumschema.block",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ErratumSchema.block"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The block that prints it, e.g. `library/<slug>/blocks/prose-sec-003`, when one does."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema.block",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.erratumschema.evidence",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ErratumSchema.evidence"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "What shows it is an error, in a form a person can check: the other page, table or edition that disagrees, quoted or cited."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema.evidence",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.erratumschema.id",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ErratumSchema.id"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Stable within the entry: `e1`, `e2`, ... Never reused for another erratum."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema.id",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.erratumschema.narrative",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ErratumSchema.narrative"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The explanation a reader is shown, with its state and author."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema.narrative",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.erratumschema.page",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ErratumSchema.page"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The physical PDF page (1-based) it is printed on, when known."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema.page",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.erratumschema.quote",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ErratumSchema.quote"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The words as printed, verbatim, so the place can be found and checked."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema.quote",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-errata.erratumschema.reading",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ErratumSchema.reading"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The reading the evidence supports, when there is one. Never substituted for `quote`."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema.reading",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-footnotes.documentfootnotesschema.body_size",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "DocumentFootnotesSchema.body_size"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The span size carrying the most characters: what \"smaller than the body\" is measured against."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-footnotes.ts#DocumentFootnotesSchema.body_size",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-footnotes.documentfootnotesschema.status",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "DocumentFootnotesSchema.status"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "`undetermined` when every page was OCR'd: OCR text has no fonts, so no mark or note can be told from the body. `determined` otherwise, with the OCR'd pages that were not read in `pages_unread`."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-footnotes.ts#DocumentFootnotesSchema.status",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-footnotes.footnotecallschema.context",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "FootnoteCallSchema.context"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Up to 60 characters before the mark, so a reader can find it on the page."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteCallSchema.context",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/document-image.capturebasisschema.coverage",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -27013,6 +27222,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfdiagnosticsschema.headings_tidied",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PdfDiagnosticsSchema.headings_tidied"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Inferred headings that did not read as headings: a title cut to its last line, rejoined with the lines above it up to its number (`as`), or a body word, a reference's first author or a diagram's labels, dropped. Absent when none was."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfDiagnosticsSchema.headings_tidied",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfdiagnosticsschema.latex_overlay",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -27029,6 +27257,25 @@
         }
       ],
       "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfDiagnosticsSchema.latex_overlay",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfdiagnosticsschema.outline_rejected",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PdfDiagnosticsSchema.outline_rejected"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The PDF carried an outline and it was not used, with why: its entries are machine bookmark names (`_GoBack`, `_Hlk62546849`, `_TOC_250000`, \"Blank Page\", a merged file's name), or too few of them name a heading the pages print (a Russian edition carrying its English outline). The contents were then inferred, as for a PDF with no outline. Absent when the outline was used or there was none."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfDiagnosticsSchema.outline_rejected",
       "skos:note": "candidate"
     },
     {
@@ -27051,6 +27298,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfdiagnosticsschema.oversized_split",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PdfDiagnosticsSchema.oversized_split"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Sections too long to be one block (more than half of a document of 20 pages or more, or over 20,000 words) and how each was cut: at the headings inferred inside it, else one section per page. Absent when no section was cut."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfDiagnosticsSchema.oversized_split",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfdiagnosticsschema.page_label_conflicts",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -27067,6 +27333,25 @@
         }
       ],
       "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfDiagnosticsSchema.page_label_conflicts",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfdiagnosticsschema.pages_read_in_print_order",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PdfDiagnosticsSchema.pages_read_in_print_order"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Pages whose text stream drew the outline's first heading after the page's body, re-read in print order (1-based). Absent when none was."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfDiagnosticsSchema.pages_read_in_print_order",
       "skos:note": "candidate"
     },
     {
@@ -27260,6 +27545,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfsourceschema.languages",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PdfSourceSchema.languages"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The document's languages as the ingest was told them (`--lang-hint`, ISO 639-1). A reader asks this, not the entry's slug: 10665/202203 is Russian and its slug has no language suffix, because an item's first edition keeps the bare slug (owner, 2026-11-11, card Q-ODD-1 = A). Absent when the ingest was given none."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfSourceSchema.languages",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfsourceschema.math_source",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -27276,6 +27580,25 @@
         }
       ],
       "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfSourceSchema.math_source",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/pdf-structure.pdfsourceschema.ocr_pages",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "PdfSourceSchema.ocr_pages"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Pages whose embedded text layer failed `scripts/_text_quality.py` and were read from the OCR cache instead, each with the reason (owner, 2026-11-11, who-iris card Q-ODD-1 = A: \"force OCR when a page's text layer fails a quality check\"). The rest of the document keeps its embedded text, so `text_source` stays `embedded`. Absent when no page was replaced."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/pdf-structure.ts#PdfSourceSchema.ocr_pages",
       "skos:note": "candidate"
     },
     {
@@ -45956,6 +46279,63 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/web-app.webappbuildschema.installer",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "WebAppBuildSchema.installer"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Which installer reads the lockfile: `npm ci` or `bun install --frozen-lockfile`."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/web-app.ts#WebAppBuildSchema.installer",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/web-app.webappbuildschema.outdir",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "WebAppBuildSchema.outDir"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Where the build writes, relative to the app's directory."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/web-app.ts#WebAppBuildSchema.outDir",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/web-app.webappbuildschema.script",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "WebAppBuildSchema.script"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The `package.json` script that builds it."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/ui/web-app.ts#WebAppBuildSchema.script",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/webpage.webpage.documents",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -46884,6 +47264,25 @@
         }
       ],
       "dcterms:source": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema.tagline",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/workshop.workshoppresentationschema.tagrows",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "WorkshopPresentationSchema.tagRows"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "How a walkthrough step's policy card groups the rows of the tables it tags, in this order: each row a label, an optional glyph and the tables it gathers (VaxLink: \"Forces\" = decision rights + legal basis, \"Cost driver\", \"If it is missing\" = substitution patterns). Absent: one row per table, titled by the table."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema.tagRows",
       "skos:note": "candidate"
     },
     {

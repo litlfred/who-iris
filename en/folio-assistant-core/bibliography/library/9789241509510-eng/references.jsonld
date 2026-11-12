@@ -1,0 +1,287 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/9789241509510-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "The MAPS toolkit: mHealth assessment and planning for scale",
+      "dcterms:creator": [
+        "World Health Organization",
+        "United Nations Foundation",
+        "UNDP/UNFPA/WHO/World Bank Special Programme of Research, Development and Research Training in Human Reproduction",
+        "Johns Hopkins University"
+      ],
+      "dcterms:issued": "2015-09-23",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789241509510",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/185238",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/9789241509510-eng.dc.json",
+      "dcterms:hasVersion": "library/9789241509510-eng"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.k4health.org/toolkits/mhealth-planning-guide/glossary",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.who.int/pmnch/knowledge/publications/ict_mhealth.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:identifier": "http://www.ncbi.nlm.nih.gov/books/NBK216088/",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/20378/1/WHA58_28-en.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://s3.amazonaws.com/rdcms-himss/files/production/public/FileDownloads/HIMSS%20Interoperability%20Definition%20FINAL.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://www.expandnet.net/PDFs/ExpandNet-WHO",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:identifier": "http://www.mchip.net/sites/default/files/TLVManual.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://sc4ccm.jsi.com/files/2012/11/Pathway-to-Supply-Chain-Sustainability-Tool.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://www.usaid.gov/sites/default/files/documents/1864/Idea-to-Impact_Jan-2015-508.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://cgsd.columbia.edu/files/2012/11/mHealthBarriersWhitePaperFINAL.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://www.ghdonline.org/uploads/The_Bellagio_eHealth_Evaluation_Call_to_Action-Release.docx",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.itu.int/dms_pub/itu-d/opb/str/D-STR-E_HEALTH.05-2012-PDF-E.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://www.adaorganization.net/uploads/2/3/7/1/23713723/developing_mhealth_partnerships_for_scale_printer_friendly_low.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:identifier": "http://www.vitalwaveconsulting.com/pdf/2011/mHealth.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://www.vitalwaveconsulting.com/pdf/2013/Sustainable-Financing-mHealth.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    },
+    {
+      "@id": "references/9789241509510-eng.page-099.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://www.msh.org/sites/msh.org/files/AIDSTAR-Two_Use-of-ICT-in-FP_Final-Paper_November-7-2011.pdf",
+      "dcterms:source": "library/9789241509510-eng/sections/page-099.md"
+    }
+  ]
+}

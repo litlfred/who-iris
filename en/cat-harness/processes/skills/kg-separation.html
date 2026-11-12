@@ -43,122 +43,11 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <!--
-  The configured colour scheme, published for site-chrome/assets/js/docs-ui.js.
-
-  just-the-docs' first stylesheet is `just-the-docs-default.css`, which is
-  whatever `color_scheme` in _config.yml compiled to -- so `jtd.getTheme()`
-  returns the string "default" on a fresh load, never "dark". The scheme
-  toggle needs to know what "default" MEANS here, and reading it from the
-  config is the one way that does not go stale when the config changes.
-
-  FIRST in this file since 2026-09-24, because the first-paint snippet below
-  reads it too, and a script can only read what the parser has already seen.
--->
-<script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script>
-<!--
-  THE FIRST PAINT IS DARK — owner, 2026-09-24: *"when any
-  page/foio-asst/cat-harness first loads if flashes white before goignt o
-  dark mode. instead it should deafult dark mode then turn to light mode to
-  prevent light flash in dark."*
-
-  WHY IT FLASHED. The site is configured dark, so the theme's first
-  stylesheet already paints dark. But `docs-ui.js` is deferred, and on load
-  it applied a STORED choice with `jtd.setTheme(name)`, which swaps that
-  stylesheet's href -- to the dark file, when the default file already was
-  dark. The swap unloads the sheet that was painting the ground, and until
-  the new one arrives the browser's WHITE canvas shows. Every reader who had
-  ever pressed the light/dark control got that on every page. And nothing
-  painted `html` at all, so any moment without the theme's sheet was white.
-
-  So, FIRST THING in this include, before every stylesheet it emits:
-
-  1. decide the scheme -- the reader's stored choice (`fa-color-scheme`, the
-     key `docs-ui.js` writes), else the OS, else LIGHT -- and put it on
-     `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
-     it ever paints the wrong way first;
-  2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. `jtd.setTheme` loads the new
-     file beside the old, render-blocking, and drops the old one once it
-     has loaded (cat-harness#820): never a frame with no theme sheet;
-  3. paint `html` itself, dark unless the scheme is light, so a sheet in
-     flight shows the page's ground rather than white.
-
-  The theme's own stylesheet link is ABOVE this include (just-the-docs emits
-  `head_custom.html` last in its head), which is why step 2 exists: there is
-  no hook before it, and none is needed -- nothing paints until the head is
-  parsed, and this runs while it is being parsed.
-
-  INLINE, which the rest of this file avoids so that no `script-src`
-  relaxation is ever needed. This is the one exception, and it is the only
-  way to run before first paint: a `src` script here is a network round-trip
-  on the critical path of every page. It interpolates nothing into markup,
-  and a CSP added later needs this block's hash.
-
-  ELSE LIGHT -- owner, 2026-10-15, "follow os else light". The declared
-  `color_scheme` only names the sheet shipped first. The ONE source: tools'
-  `scheme-css.ts` lifts this script; `docs-ui.js` reads its attribute.
-
-  NO LIQUID between the markers. `first-paint-scheme.e2e.ts` lifts these
-  exact bytes into a replica page, so the spec tests what ships.
-
-  The generated dashboards that write their OWN head (`state-visualizer.ts`,
-  `gen-translation-status.ts`) do not carry this. They switch nothing with
-  script, so they cannot flash: their first CSS paints dark, and the same spec
-  holds them to that. Giving them this snippet would switch ON their
-  `data-fa-scheme="light"` rules for the first time -- and those were never
-  finished (axe, 2026-09-24: 3 to 6 contrast failures per dashboard in light,
-  dark-scheme tag colours on a light ground). A light palette for them is its
-  own piece of work, not a side effect of this one.
--->
-<!-- fa-first-paint:begin -->
+  <script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script><!-- fa-first-paint:begin -->
 <script>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
 <style>html{background-color:#27262b}html[data-fa-scheme="light"]{background-color:#ffffff}</style>
-<!-- fa-first-paint:end -->
-<!-- PROSE HERE IS NOT FREE: these are HTML comments, so every byte ships on
-     every page (2356 of them). A comment in this file is a POINTER; the
-     reasoning goes in the artefact. Measured, with the cost this change paid
-     before measuring, in assets/harness/site.json's front matter. -->
-<!-- THE RENDER STATE. pending here; ready/failed from assets/js/kg-render.js,
-     which carries the contract. No attribute = no dynamic region on this page.
-     The number is a MINIMUM cross-checking registrations, not a count. -->
-<meta name="fa-render-regions" content="1">
-<script>document.documentElement.setAttribute("data-fa-render","pending");</script>
-<!--
-  The browser-tab icon, from the same declared mark the sidebar title
-  (`title.html`) renders — reused rather than looked up by its own
-  `browser-icon` role. There WAS a second role for exactly that, on
-  `mark-small` in `harness.json`, and it went unread: nothing in this
-  repo ever emitted a favicon at all, `rel="icon"` included. It also could
-  not have driven this lookup as declared — `imagesForRole()`
-  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
-  mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
-  the already-resolved `icon` (the same field `title.html` reads) sidesteps
-  that and, more importantly, is what was asked for: the sidebar mark and the
-  tab icon are meant to be the SAME glyph, so one declaration driving both is
-  correct, not just convenient — flip `icon` in `harness.json` and both
-  follow in one edit, no template change needed.
-
-  SVG-only. No PNG/ICO fallback exists in the repo and none is generated
-  here — every browser this matters for (evergreen Chrome/Firefox/Edge, and
-  Safari since 16) reads `type="image/svg+xml"` directly; a raster fallback
-  would need generating actual image files, which is out of scope for this
-  change.
-
-  `relative_url`, same as `title.html` and `landing.html` — a bare
-  `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
-  for.
---><!--
-  Site-wide styling for the BPMN workflow figures.
-
-  just-the-docs pulls this file into <head> on every page. The diagrams are wide
-  (a swimlane process does not shrink well), so the figure scrolls horizontally
-  inside its own container rather than forcing the page body to scroll.
-
-  The SVGs carry their own white backdrop — see scripts/render-bpmn.ts — so they
-  stay legible under the dark colour scheme even if this stylesheet is missing.
--->
-<style>
+<!-- fa-first-paint:end --><meta name="fa-render-regions" content="1">
+<script>document.documentElement.setAttribute("data-fa-render","pending");</script><style>
   .bpmn-figure {
     overflow-x: auto;
     background: #fff;
@@ -176,85 +65,7 @@
     margin-top: 0;
     font-size: 0.75rem;
   }
-</style>
-
-<!--
-  Site UI: a QR of the current page in the sidebar header, and zoom /
-  full-width controls on the figures.
-
-  Loaded as same-origin files with no inline script, so no script-src
-  relaxation is needed. The QR is generated in the browser from
-  window.location.href rather than baked per page at build time, so it is
-  right for anchors, query strings, and both the directory and .html forms of
-  the same page. The UTF-8 shim must come after the encoder: without it the
-  encoder's stringToBytes is single-byte and a non-ASCII character in a URL
-  silently encodes to mojibake.
--->
-<!--
-  The TRANSLATION INDEX — which source page has a translation in which locale.
-
-  `mountNavLocale` in docs-ui.js reads this to decide what the left-hand navbar
-  shows: with the source language selected it does nothing, and with `fr`
-  selected it swaps each nav item that HAS a French page for that page, IN
-  PLACE OF the English one. An item with no translation is left exactly as it
-  is — that is the fallback, and it is the absence of a rewrite rather than a
-  code path of its own.
-
-  Generated into `docs/_data/translations.json` by
-  `content/pipeline/translation-index.ts`, from what each page DECLARES about
-  itself: `lang`, and `translation_source` naming the page it expresses. NOT
-  from a scan for directories whose names look like language subtags — see
-  that module's header for why that inference is wrong in both directions.
-
-  THREE STATES, and the third is the reason this is a JSON island rather than
-  a conditional. (The tag name is written inside {% raw %}
-  below because LIQUID PARSES TAGS INSIDE AN HTML COMMENT — the comment
-  wrapper means nothing to it — so naming a tag in prose is a syntax error at
-  build time, and the message points at the THEME's head.html because Liquid
-  attributes an include's line to the includer. This comment cost one red
-  deploy.
-
-  AND THEN IT COST A SECOND ONE, differently, which is why this paragraph now
-  describes the wrapper rather than spelling it. It used to SPELL both halves
-  as an example — and the closing half ENDED THIS COMMENT eighteen lines
-  early, so every line below it rendered as visible body text at the top of
-  EVERY PAGE on the site. Reported by the owner from the staging URL,
-  2026-09-19.
-
-  The asymmetry is the lesson: a Liquid tag has an escape, and the closing
-  comment delimiter has NONE. There is no way to write those three characters
-  inside a comment and have the comment survive them, because the parser is
-  not looking for an escape — it stops at the first match. So the rule is not
-  "escape it carefully", it is DO NOT WRITE IT: describe it, or name it one
-  character at a time. Guarded by
-  scripts/tests/html-comment-delimiters.test.ts, which fails on an opening
-  delimiter appearing inside an open comment — the one machine-detectable
-  signature of somebody trying.)
-  A {% if %} would have to choose between the second and
-  third rows below, and there is no expression that can:
-
-    1. the data file is there      -> `index` is an object; filter the nav.
-    2. it is there and EMPTY       -> `pages` is `{}`; there is nothing to
-                                      swap, so every item correctly falls back
-                                      to the source language.
-    3. the data file is ABSENT     -> `jsonify` emits `null`, and docs-ui.js
-                                      leaves the navbar EXACTLY as built.
-
-  A build that could not determine the translation set must never render as a
-  folio that has no translations. `null` is how that is said.
-
-  `baseurl` travels with it because the client has no other way to strip the
-  site prefix off a nav `href` before matching it.
--->
-<!-- MOVED 2026-10-02 to assets/harness/site.json: fetched once instead of
-     inlined 2356x (9482 B/page, 22.34 MB, ONE payload). The three states above
-     are unchanged; a fourth — the file is unreachable — is data-fa-render. -->
-<!--
-  Translation metadata for this page, consumed by docs-ui.js to auto-render
-  language coverage and QA badges. The translation pipeline stamps front matter;
-  this block publishes it to the client. No manual editing needed.
--->
-<script type="application/json" id="fa-translation-meta">{
+</style><script type="application/json" id="fa-translation-meta">{
   "lang": "en",
   "translationStatus": "",
   "translationSource": "",
@@ -276,400 +87,15 @@
     "complete": false
   },
   "statusSrc":"../../../../assets/translation-status/index.json"
-}</script>
-<!--
-  Where the action tiles point.
+}</script><script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script><meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../../assets/todos/index.json"><meta name="fa-todo-graph" content="../../../../todos.jsonld"><meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json"><meta name="fa-tiles" content="" data-fa-src="harness-data">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
-  RESOLVED, not composed. `scripts/sync-docs-harness.ts` writes
-  `docs/_data/harness.json` from the instance's own `cat-harness.json`,
-  through `siteLinks` in `scripts/site-links.ts` -- which computes every path
-  with `artefactStub` and `renderingPath`, the same functions the knowledge
-  graph exporter and the Pages workflow use. The tile therefore cannot
-  disagree with what is published.
-
-  This block previously wrote `../../../../kg/` by hand. Nothing
-  has ever been published at `<base>/kg/` -- the renderings sit at the base,
-  named after the stub -- so the only entry point to the viewer anywhere on
-  this site was a 404 from the day it was added. See bean `udx8`, and the
-  identical defect AGENTS.md records against the README's chapter PDFs. A
-  path built by convention is a claim; `bun run cat site:links --site _site`
-  checks it against the tree that actually ships, and the Pages workflow runs
-  that check after the export.
-
-  `path` is site-ROOT-relative and gets `relative_url`, which is what makes it
-  right under this site's `/folio-assistant/` baseurl. `url` is off-site and
-  is printed as-is. `source` is no longer taken from `aux_links`: those were
-  removed so the forge link stops appearing as text at the top of the main
-  panel (the owner asked for it as an icon, not a header), and the URL is
-  resolved from the git remote instead of written down twice.
--->
-<!--
-  THE NAVBAR ICON ROW — which icons this instance shows, and where each goes.
-
-  `null` when the instance has not decided, and that is NOT the same as an
-  empty list: `navbarIcons` absent means "inherit, and nothing up the chain has
-  said either", while `[]` means the instance chose to show none. docs-ui.js
-  reads the two apart, and `jsonify` emits `null` for the first exactly as the
-  translations block above relies on.
-
-  Resolved in `sync-docs-harness.ts`: the icon list walks `needs` with the site
-  owner as the floor, and the hrefs come from this instance's own declared
-  visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
-  or in JavaScript.
--->
-<!--
-  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
-  The row is the same on every page of a build, so it is written once into a
-  cached file instead of into each page. `data-fa-row-src` is the contract the
-  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
-  the name once it has filled the island, and a reader that finds it still
-  named and empty reports a failed load rather than "declared none".
--->
-<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
-     moving it, in assets/harness/site.json's front matter. -->
-<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
-
-<!--
-  The todo index — a PERSON's outstanding items, published by
-  `scripts/gen-docs-pages.ts` to `/assets/todos/index.json`.
-
-  `relative_url` for the same reason every other path here uses it: the site is
-  served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
-  404s on every deploy but one.
-
-  A URL rather than inline JSON, unlike `fa-site-links` above, because the
-  index grows with the todo corpus and inlining it would put the whole set into
-  every page's <head> whether the reader opens the board or not. A missing file
-  is reported by the fetch and the board is simply not mounted — a board that
-  opens empty is indistinguishable from a person with nothing outstanding, and
-  those are opposite facts.
-
-  `<meta>` and not a `<div>`: this is `<head>`, where flow content is not
-  permitted. A browser hoists a stray `<div>` into `<body>` and the code still
-  works, which is exactly what makes the mistake survive review.
--->
-<!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
-     page has one and falls back to this. Rationale and measurement are in that
-     file's front matter, which is not served. -->
-<meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
-<meta name="fa-todo-src" content="../../../../assets/todos/index.json">
-<!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
-     filters and groups by, and each todo's own page. -->
-<meta name="fa-todo-graph" content="../../../../todos.jsonld">
-
-<!--
-  THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
-  becomes its avatar.
-
-  R2 of issue #602: *"The threshold SHALL be declared data, not a literal in
-  the renderer."* `gen-docs-pages.ts` publishes the folio's own
-  `semantic-zoom.json`, and publishes NOTHING when the folio has not declared
-  one. So this `<meta>` may point at a 404, and that is a real state rather
-  than a defect: `docs-ui.js` reports it could not determine a threshold and
-  leaves every card's words in place. A default in either file would be the
-  literal R2 forbids, one layer further from where anybody looks for it.
-
-  The pointer is emitted UNCONDITIONALLY because Liquid cannot see whether the
-  generator wrote the file, and a conditional that guessed would make "this
-  folio declares no threshold" and "the build did not run" the same page.
--->
-<meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json">
-
-<!--
-  THE DECLARED VISUALISATIONS, as tiles.
-
-  Owner, 2026-09-20: *"if harness declares visaluzers, those should have tile"*
-  — so the tile set is the `coverage.visualiser` obligation made reachable, not
-  a second registry. `graph-tiles.ts` derives it into `_data/harness.json`;
-  this hands it to `docs-ui.js` for BOTH surfaces, because a tile is declared
-  once and says where it shows.
-
-  INLINE rather than a second fetch, unlike the todo index above, and the two
-  are different for a reason worth stating: that index grows with the todo
-  corpus, while this one is bounded by the number of directories an instance
-  DECLARES — twelve here — and every page needs it before first paint or the
-  navbar would visibly grow tiles a moment after the reader arrives.
-
-  `jsonify` and not a hand-built string: a title carrying a quote would
-  otherwise close the attribute, and the quoting rule is Liquid's rather than
-  something this comment has to be right about.
--->
-<!--
-  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
-  is the same on every page and was 12.5 KB of each one (measured on gh-pages
-  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
-  and deferred scripts run in document order, so the tiles are in place before
-  the first reader runs: no later paint than the inlined copy had.
--->
-<meta name="fa-tiles" content="" data-fa-src="harness-data">
-<!--
-  THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
-  finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
-  instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
-  nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
--->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
-
-<!--
-  THE SITE'S BASEURL, for the tiles above.
-
-  Every other site-root path on this page is composed by Liquid: `relative_url`
-  prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
-  it, because they reach the client as JSON and are composed in `docs-ui.js`
-  after Liquid has finished — so the base has to travel with them.
-
-  IT SHIPPED WITHOUT ONE AND EVERY TILE 404ed (issue #801). `graph-tiles.ts`
-  stores `/beans/`, which is correct as data and is what `harness.links[].path`
-  stores too; written into an `href` unprefixed, a browser resolves it against
-  the ORIGIN, so the beans tile pointed at `litlfred.github.io/beans/`. The
-  owner found it by going looking for the board and landing there.
-
-  A meta of its own rather than reading the site index, which also carries a
-  `baseurl`: that document reads as `null` when `_data/translations.json` was
-  not built, and since 2026-10-02 it is FETCHED, so it is also absent until a
-  request resolves and may never arrive. Composing links out of an optional
-  block means the day it goes missing every tile silently points at the origin
-  again — which is this defect, with a second way to reach it. Two reasons for
-  one answer now.
-
-  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
-  `../..` two levels down, never the deploy's path, so the page is the same
-  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
-  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
-  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
--->
-<meta name="fa-baseurl" content="../../../..">
-
-<!--
-  WHETHER THIS IS A PREVIEW, for the tiles above.
-
-  `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
-  `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a branches/<slug>/ preview", an empty one means the canonical deploy
-  or a local build.
-
-  It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
-  `publish: "staging-only"` page from the canonical tree; a tile still pointing
-  at it would be a link to a 404 — `pb04`, a dead link being worse than no
-  link, and worse than usual here because the tile ALSO advertises content the
-  declaration is deliberately not publishing.
-
-  The filtering is client-side rather than baked into `harness.json` because
-  that file is generated once and committed, so it cannot know which deploy
-  will serve it. The page can be withheld at compose time because compose runs
-  per deploy; the data file cannot.
-
-  EMPTY IS THE SAFE VALUE, and it is what an absent `_data/build.yml` yields:
-  a build that cannot say it is a preview is treated as canonical and hides
-  the tile. That matches `compose-docs.ts`, which withholds unless positively
-  told `--staging` — one direction in both places, so the page and its tile
-  cannot disagree about which deploy they are on.
-
-  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
-  reader asks only whether it is empty, and the slug made every page differ
-  between previews. The branch is in `staging.json`, which the banner reads.
--->
-<meta name="fa-staging" content="">
-
-<!--
-  WHICH SEARCH INDEX THIS PAGE IS SERVING.
-
-  `feature-staging.yml` fetches the PUBLISHED index before the build and
-  stamps what happened; `docs-site.yml` writes no such key, so the canonical
-  deploy leaves this empty and draws no warning. Bean `eof6`, on the owner's
-  ruling of 2026-09-22: *"staging uses last published index (w/ wanrnig)"*.
-
-  Three values, and the empty one is a real state rather than a fallback:
-
-    published    the preview serves the last published index. Results are
-                 about the MAIN SITE, not about this branch.
-    unavailable  the fetch failed; an empty index is served.
-    (empty)      not a staging build. No warning.
-
-  The bean this implements had first concluded that staging must disable
-  search outright, because a stale hit is "a wrong PASS, BELIEVED". The ruling
-  keeps search and attacks the belief instead — which is why the value is
-  emitted at all. An index swapped in with nothing on the page saying so would
-  be the unmarked staleness the bean was right to refuse.
--->
-<meta name="fa-search-index" content="">
-
-<!--
-  A page left out of the search index ON PURPOSE (`search_exclude: true`)
-  says so in what is built, so `publish:verify`'s search-index check can tell
-  a deliberate exclusion from a truncated index (#2233). Front matter is gone
-  once Jekyll has run; without this marker the ~2,800 IG artefact pages that
-  #2194 excluded read as "4,189 pages offer a search box, 1,003 indexed".
--->
-
-
-
-
-<!--
-  The bean index — the AGENT work plan, published by the same generator beside
-  the todo index above, for the same reason and read the same way. Separate
-  files rather than one combined document because the two stores are separate
-  graphs with separate declarations, and a consumer that wants only the human
-  half should not fetch 239 beans to get three todos.
--->
-<meta name="fa-beans-src" content="../../../../assets/beans/index.json">
-<!--
-  The process index's entry point — the REPOSITORY's named-subgraph index,
-  whose children are the harness roots this site frames (`bun run
-  subgraph:jsonld`; bean `ax6r`, owner 2026-10-03: "Move to JSON-LD").
-  Read by assets/js/process-index.js on the page carrying
-  `[data-fa-process-index]` (the publication-workflow page), which walks it
-  down to every `processes` subgraph's `index.hydrated.jsonld`.
--->
-<meta name="fa-processes-src" content="../../../../subgraph/index.jsonld">
-<!--
-  The deploy's stamp — when it was built and from which commit — which the
-  work-plan dashboard turns into "generated … · N commits behind main".
-  `build.json` on the main site, `staging.json` on a preview; written by the
-  deploy, never committed, because a committed timestamp is a merge conflict
-  on every pair of concurrent changes (bean `y7b3`).
--->
-<meta name="fa-build-src" content="../../../../build.json">
-
-<!--
-  The discarded-items document — `fsh-guts.jsonld`, published at the base by
-  `docs-site.yml`. A URL and not inline JSON, for the todo index's reason and
-  then some: it carries every node's BODY, which is 64 KB against a 5 KB
-  document without them. Inlining that into every page's <head> would be
-  absurd for content reached through one control inside Settings.
-
-  `.json` rather than `.jsonld`. Both are published and they are the same
-  bytes; Pages has no media type for `.jsonld` and serves it as
-  octet-stream. `fetch().json()` would parse it anyway, but every other
-  rendering here uses the alias and one that did not would be the odd case a
-  later reader has to work out.
-
-  The viewer fetches this WHEN SETTINGS OPENS, never on page load, and a
-  fetch that fails is reported rather than shown as an empty trashcan —
-  "nothing discarded" and "could not read the document" are opposite facts.
--->
-<!--
-  NOT on a folio's site that does not link its OWN fsh-guts (#2263 follow-up):
-  there this path is the folio's, where no document is published, and the
-  fetch's 404 painted "?" -- an error -- on the fish. With no meta the count is
-  ABSENT, and the row's fish is a link or an inert icon saying why
-  (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
--->
-<!--
-  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
-  failure, not a performance one.
-
-  These five are served from stable paths with no hash in the name, so a
-  browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a branches/
-  preview it is the whole point of the deployment: the reviewer opens the URL
-  they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
-  see changes" — which is indistinguishable from a deploy that never
-  happened, and sends the next hour after the wrong cause. Measured
-  2026-09-21 on this branch: every byte of the change was verified present in
-  the publish ref while the page rendered the previous build.
-
-  The query is a HASH OF THE ASSET (`fa_asset_version`,
-  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
-  do. It was `site.time` until 2026-10-23, and the build time is new on every
-  build: every page then differed on every rebuild, so each re-push of a
-  preview stored a whole new copy of its HTML (bean `g196`).
-
-  NOT a cache-busting strategy for third-party assets, and not applied to
-  them: those are versioned in their own URLs already.
--->
-<!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
-<!-- Narrow viewports: wide content scrolls in its own box, never the page
-     (bean `2r2n`). The standalone viewers inline the same file through
-     `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
-
-<!--
-  The work-plan dashboard's styles, split from docs-ui.css so that
-  `state-visualizer.ts` can inline exactly these bytes into the generated
-  `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
--->
-<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01">
-<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
-     `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
-     Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
-     roles that docs-ui.css consumes, and a custom property has to be set on a
-     matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
-<!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
-     that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
-<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
-     `avatars:css:check` fails the build when it is stale. One stylesheet
-     rather than 68 assets: the glyph is a mask and the colour is a property,
-     so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8">
-
-<!--
-  The kinds THIS INSTANCE DECLARES, for the avatar fan.
-
-  Owner: "shows the DECLared kinds for that instance, not inheritance." Written
-  by `sync-docs-harness.ts` from the instance's own `harness.json`, BEFORE
-  `resolveDirectories` overlays a dependency's. The effective set is strictly
-  larger, and showing it would name kinds this repository never claimed.
-
-  Inline rather than a fetched URL, unlike the todo index and the discarded
-  document: this is a dozen short strings, it is needed to render the fan at
-  all, and a fetch for that would put a spinner in front of a badge.
--->
-<!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
-<!--
-  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
-  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
-
-  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
-  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
-  A version query naming its content would write that change into every page: two
-  previews built 25 minutes apart differed on 1,351 pages for one count going
-  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
-  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
--->
-<script src="../../../../assets/js/harness-data.js" defer></script>
+<meta name="fa-beans-src" content="../../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../../build.json"><link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=3dc1393d297a"><link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../../assets/js/harness-data.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode.js" defer></script>
-<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
-<!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
-<script src="../../../../assets/js/kg-render.js" defer></script>
-<!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
-<!-- The edit, source and feedback links of every page, from the platform's one
-  recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
-  facts and this builds the hrefs. -->
-<script src="../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
-
-<!--
-  The work-plan dashboard. SELF-MOUNTING on any page carrying
-  `[data-fa-workplan]`, so docs-ui.js neither calls it nor knows it exists; a
-  page without that container pays one failed querySelector. The same file is
-  inlined verbatim into the generated state-visualiser pages.
--->
-<script src="../../../../assets/js/work-plan.js" defer></script>
-<!--
-  The process index, self-mounting on `[data-fa-process-index]` the same way.
-  Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
--->
-<script src="../../../../assets/js/process-index.js" defer></script>
-
-<!--
-  The landing panel — the instance's declared description drawn inside the
-  quiet part of its declared backdrop. Markup: `_includes/landing.html`.
-
-  The region comes in as custom properties (`--fl-x` …) set per instance from
-  `harness.json`, so this stylesheet knows nothing about where any
-  particular picture is quiet. That is the whole design: a downstream folio
-  swaps the art and the numbers and needs no CSS.
--->
-<style>
+<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../../assets/js/kg-render.js" defer></script><script src="../../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=4d45b88bbab8" defer></script><script src="../../../../assets/js/edit-links.js?v=9c6835feddf7" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -699,65 +125,7 @@
     position: static; width: auto; height: auto; color: inherit;
   }
   .folio-landing--plain p { font-size: inherit; font-weight: inherit; }
-</style>
-
-<!--
-  AN INSTANCE'S OWN WEBPAGE THEME, scoped to its pages.
-
-  Bean `7h3u`, on the owner's 2026-09-30 ruling to wire this at the PLATFORM
-  layer so every ingested IG gets it, rather than in one instance's page
-  generator.
-
-  WHY LIQUID AND NOT CSS. A webpage theme dresses one instance's pages, so it
-  has to be scoped by URL — and CSS cannot select on a URL. Jekyll is what
-  knows which page is rendering, so the scope is applied here and the VALUES
-  come from `_data/instance-themes.json`, written by `gen-themes-css.ts` from
-  each instance's declared `themes/`. That is the `site.data` pass-through bean
-  `kott` settled, and the owner's own instruction for this work: "reuse all
-  existing justthedocs infra".
-
-  WHY INLINE AND NOT A LINKED STYLESHEET. The same first-paint reasoning this
-  file already carries for the colour scheme: a sheet arriving after first
-  paint flashes the unthemed colours, which is the defect this file was
-  rewritten to remove.
-
-  WHAT IT RETHEMES, AND WHAT IT CANNOT. These three names are read by
-  `docs-ui.css` at 29 of its 33 `var(--x, #literal)` sites and DEFINED by
-  nothing — just-the-docs is Sass, so its own chrome compiles to literals and
-  no custom property can reach it. So this dresses the surfaces the site owns,
-  the left-hand nav among them, and leaves just-the-docs' compiled chrome
-  alone. Stated here because the alternative is a reader concluding the theme
-  is broken when it is doing exactly what it can.
---><!--
-  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
-
-  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
-  display background for their corresponding docs/ (ghpages) rendering".
-
-  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
-  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
-  that instance's, and its three crops. The FIRST tile whose scope the URL
-  contains wins; tiles come dependents first, so the content instance a page
-  is about beats the platform that renders it. The site owner is the fallback
-  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
-  no `art` gets no ground: a palette-only theme is a choice, not a gap.
-
-  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
-  words inside a measured quiet region of one crop, so the crop must be the
-  file. The page ground places nothing on the art, so a media query choosing
-  the crop is exact, and no markup is added to any page.
-
-  TWO SCRIMS, both the page's own background colour (not the theme's sticky
-  scrim, because the ink they protect is the page's ink). The page gets 85%,
-  so the art shows in the margins and under the header. The text column,
-  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
-  colour. The art runs the full range (measured: every crop of the three
-  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
-  pixel: text and links stay within 0.1:1 of the plain page in both schemes
-  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
-  A single 92% layer was measured first and dropped: it took dark-scheme
-  links from 4.14:1 to 3.35:1.
---><style id="fa-page-ground" data-instance="cat-harness">
+</style><style id="fa-page-ground" data-instance="cat-harness">
   /* Grumpy cyborg agents, the theme of cat-harness. */
   :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
   :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
@@ -906,7 +274,7 @@
 
 <p><strong>Skill <code class="language-plaintext highlighter-rouge">kg-separation</code>:</strong> Separate a Knowledge Graph into its own repository — as a CONTENT repository (files to read, no code) and a TOOLS repository (the code that writes and checks it) — once it is too large, or its consumers or cadence differ. The end-to-end method: the signals that trigger it, the preconditions, eleven stages each with the command that gates it, the owner’s decision points, how identifiers, QA and publication move, how the parent consumes the result, rollback, and the post-move sweep that a move between the pair owes before the parent re-pins. graph-detanglement owns stages 1–3; this skill owns the rest. Bootstrap + bootstrap-tools and cat-harness + the tools layer are the worked examples.</p>
 
-<p><strong>Named by:</strong> <a href="../copy-into-folio.html">Copy a knowledge-graph asset into a folio</a>, <a href="../graph-detanglement.html">A sub-graph wants to leave</a>, <a href="../kg-separation.html">A knowledge graph leaves for its own repositories</a>, <a href="../kg-to-portal.html">KG to public portal</a>, <a href="../mount-dependency.html">Remote-mount a dependency</a>, <a href="../mount-subgraph.html">Mount a declared subgraph</a>, <a href="../named-query-execution.html">Execute audited named queries over partitioned W3C N-Quads distributions</a>, <a href="../nquads-distribution.html">Package and distribute partitioned W3C N-Quads and named queries</a>, <a href="../slice-sqlite-publish.html">Build and publish a per-slice SQLite file</a>, <a href="../sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a>, <a href="../human-translation-workflow.html">Human Translation Workflow</a>, <a href="../methodology-from-source.html">Adopt a methodology from a source document</a>, <a href="../translation-workflow.html">Translation Workflow</a>, <a href="../actor-role-administration.html">Actor and role administration</a>, <a href="../ask-the-person.html">Ask the person</a>, <a href="../crdm-close.html">CRDM close-out</a>, <a href="../crdm-data-model.html">CRDM data model</a>, <a href="../crdm-deliver.html">CRDM Phase 6 — implement, MVP, acceptance</a>, <a href="../crdm-issue-linking.html">CRDM — link the work to an issue</a>, <a href="../crdm-needs.html">CRDM Phase 1 — needs</a>, <a href="../crdm-requirements-definition.html">CRDM Phases 2–4 — BPA and requirements</a>, <a href="../crdm-requirements.html">CRDM requirements</a>, <a href="../crdm-signoff.html">CRDM Phase 5 — beans and sign-off</a>, <a href="../hand-back-to-discussion.html">Hand back to the discussion</a>, <a href="../render-kg-to-cdn.html">Render a Knowledge Graph to a CDN</a>, <a href="../secure-agent-permissions.html">Secure agent permissions</a>, <a href="../session-state-machine.html">Session state machine</a>, <a href="../archimate-publish.html">Publish an ArchiMate model — every picture derived from it</a>, <a href="../harness-default-rendering.html">A harness’s default rendering</a>, <a href="../staging-render-log.html">Render log — the publish branch keeps its own history</a>, <a href="../wireframe-design-review.html">Wireframe design review</a>, <a href="../getting-started.html">Getting started</a>, <a href="../authoring-a-document.html">Authoring a document</a>, <a href="../content-change-review-make.html">Make the content change</a>, <a href="../content-change-review-publish.html">Merge and publish a content change</a>, <a href="../content-change-review-stage.html">Stage the content change</a>, <a href="../content-change-review.html">Content Change and Review</a>, <a href="../contributor-feedback.html">Contributor feedback on a working draft</a>, <a href="../draft-to-publication.html">Draft, review and publish</a>, <a href="../dsa-document-lifecycle.html">Data sharing agreement document life cycle</a>, <a href="../editing-hci-validation.html">Editing and HCI validation</a>, <a href="../folio-review-publish.html">Review and publish a folio</a>, <a href="../public-comment-change.html">Make a decided public comment change</a>, <a href="../public-comment-release.html">Release a draft for public comment</a>, <a href="../record-agent-step.html">Record agent step</a>, <a href="../review-log-watch.html">Review-log watch</a>, <a href="../iris-cdn-initial-load.html">IRIS CDN initial load</a>, <a href="../iris-cdn-nightly.html">IRIS CDN nightly change ingest</a>, <a href="../iris-cdn-reconcile.html">IRIS CDN weekly reconciliation</a>, <a href="../iris-cdn-sign-publish.html">Sign and publish an IRIS CDN release</a></p>
+<p><strong>Named by:</strong> <a href="../human-translation-workflow.html">Human Translation Workflow</a>, <a href="../methodology-from-source.html">Adopt a methodology from a source document</a>, <a href="../translation-workflow.html">Translation Workflow</a>, <a href="../copy-into-folio.html">Copy a knowledge-graph asset into a folio</a>, <a href="../graph-detanglement.html">A sub-graph wants to leave</a>, <a href="../kg-separation-authorise.html">Authorise the extraction</a>, <a href="../kg-separation-cutover.html">Cut over to the separated graph</a>, <a href="../kg-separation-move.html">Move the graph into its repositories</a>, <a href="../kg-separation-prepare.html">Prepare a graph to stand alone</a>, <a href="../kg-separation.html">A knowledge graph leaves for its own repositories</a>, <a href="../kg-to-portal.html">KG to public portal</a>, <a href="../mount-dependency.html">Remote-mount a dependency</a>, <a href="../mount-subgraph.html">Mount a declared subgraph</a>, <a href="../slice-sqlite-publish.html">Build and publish a per-slice SQLite file</a>, <a href="../sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a>, <a href="../actor-role-administration.html">Actor and role administration</a>, <a href="../ask-the-person.html">Ask the person</a>, <a href="../crdm-close.html">CRDM close-out</a>, <a href="../crdm-data-model.html">CRDM data model</a>, <a href="../crdm-deliver.html">CRDM Phase 6 — implement, MVP, acceptance</a>, <a href="../crdm-issue-linking.html">CRDM — link the work to an issue</a>, <a href="../crdm-needs.html">CRDM Phase 1 — needs</a>, <a href="../crdm-requirements-definition.html">CRDM Phases 2–4 — BPA and requirements</a>, <a href="../crdm-requirements.html">CRDM requirements</a>, <a href="../crdm-signoff.html">CRDM Phase 5 — beans and sign-off</a>, <a href="../hand-back-to-discussion.html">Hand back to the discussion</a>, <a href="../render-kg-to-cdn.html">Render a Knowledge Graph to a CDN</a>, <a href="../secure-agent-permissions.html">Secure agent permissions</a>, <a href="../session-state-machine.html">Session state machine</a>, <a href="../archimate-publish.html">Publish an ArchiMate model — every picture derived from it</a>, <a href="../harness-default-rendering.html">A harness’s default rendering</a>, <a href="../staging-render-log.html">Render log — the publish branch keeps its own history</a>, <a href="../web-app-publish.html">Publish a web app — declared, translated, built at its own route</a>, <a href="../wireframe-design-review.html">Wireframe design review</a>, <a href="../getting-started.html">Getting started</a>, <a href="../authoring-a-document.html">Authoring a document</a>, <a href="../content-change-review-make.html">Make the content change</a>, <a href="../content-change-review-publish.html">Merge and publish a content change</a>, <a href="../content-change-review-stage.html">Stage the content change</a>, <a href="../content-change-review.html">Content Change and Review</a>, <a href="../contributor-feedback.html">Contributor feedback on a working draft</a>, <a href="../draft-to-publication.html">Draft, review and publish</a>, <a href="../editing-hci-validation.html">Editing and HCI validation</a>, <a href="../folio-review-publish.html">Review and publish a folio</a>, <a href="../public-comment-change.html">Make a decided public comment change</a>, <a href="../public-comment-release.html">Release a draft for public comment</a>, <a href="../record-agent-step.html">Record agent step</a>, <a href="../review-log-watch.html">Review-log watch</a>, <a href="../iris-cdn-initial-load.html">IRIS CDN initial load</a>, <a href="../iris-cdn-nightly.html">IRIS CDN nightly change ingest</a>, <a href="../iris-cdn-reconcile.html">IRIS CDN weekly reconciliation</a>, <a href="../iris-cdn-sign-publish.html">Sign and publish an IRIS CDN release</a></p>
 
 <blockquote>
   <p>Skill id: <code class="language-plaintext highlighter-rouge">kg-separation</code> · Package: <code class="language-plaintext highlighter-rouge">graph-management</code>
@@ -945,7 +313,7 @@ work item before deciding:</p>
   </thead>
   <tbody>
     <tr>
-      <td>files and bytes per instance</td>
+      <td>files and bytes per layer</td>
       <td><code class="language-plaintext highlighter-rouge">git ls-files \| cut -d/ -f1 \| sort \| uniq -c</code></td>
     </tr>
     <tr>
@@ -965,11 +333,11 @@ work item before deciding:</p>
       <td><code class="language-plaintext highlighter-rouge">bun run cat kg:detangle</code></td>
     </tr>
     <tr>
-      <td>wrong-direction edges <strong>within one instance</strong> — modules bucketed into the proposed repos by path rule</td>
-      <td><code class="language-plaintext highlighter-rouge">check:partition</code> (its root is ONE instance; read the scope it prints)</td>
+      <td>wrong-direction edges <strong>within one layer</strong> — modules bucketed into the proposed repos by path rule</td>
+      <td><code class="language-plaintext highlighter-rouge">check:partition</code> (its root is ONE layer; read the scope it prints)</td>
     </tr>
     <tr>
-      <td>wrong-direction edges <strong>between instances</strong> — checked against each one’s declared <code class="language-plaintext highlighter-rouge">needs</code></td>
+      <td>wrong-direction edges <strong>between layers</strong> — checked against each one’s declared <code class="language-plaintext highlighter-rouge">needs</code></td>
       <td><code class="language-plaintext highlighter-rouge">bun run cat kg:detangle:direction</code>, blocking in CI</td>
     </tr>
     <tr>
@@ -991,7 +359,7 @@ work item before deciding:</p>
 </h2>
     
 
-<p><code class="language-plaintext highlighter-rouge">check:reference-direction</code> holds that nothing names an instance that depends
+<p><code class="language-plaintext highlighter-rouge">check:reference-direction</code> holds that nothing names a layer that depends
 on it. One kind of pointer does not break that rule: a lower layer citing a
 source <strong>as an example</strong>, where the one copy of that source lives in a layer
 above it. For example, a base IG layer’s document kind and voice quote a draft
@@ -1031,11 +399,11 @@ instead.</li>
 <ol>
   <li><strong>Names agree before the cut</strong> — directory, declared <code class="language-plaintext highlighter-rouge">name</code>, package name.
 A rename after the cut is a cross-repository change.</li>
-  <li><strong>One directory per instance</strong>, so extraction is one move, not a sift.</li>
+  <li><strong>One directory per layer</strong>, so extraction is one move, not a sift.</li>
   <li><strong>Every gate that guards the boundary has been watched failing</strong> — plant a
 violation, see it red, remove it. A boundary gate can pass while guarding
 nothing: unable to fail, blind to side-effect imports, or blind across
-instances.</li>
+layers.</li>
   <li><strong>The owner’s decisions are recorded in the work item</strong> (the list below).</li>
   <li><strong>“Generated output is the contract” is written down</strong>: what crosses the
 boundary is the generated file, and any tool may produce it.</li>
@@ -1111,16 +479,16 @@ what its own checks need.</li>
 </h3>
     
 
-<p>An instance can be planned as a content repository before its <code class="language-plaintext highlighter-rouge">-tools</code> pair
+<p>A layer can be planned as a content repository before its <code class="language-plaintext highlighter-rouge">-tools</code> pair
 is authorised. Declare it — <code class="language-plaintext highlighter-rouge">separation: "content"</code> in <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code>; the
-content half of an existing pair is read from the tools instance’s <code class="language-plaintext highlighter-rouge">supports</code>
+content half of an existing pair is read from the tools layer’s <code class="language-plaintext highlighter-rouge">supports</code>
 and needs nothing — and kg:audit’s <code class="language-plaintext highlighter-rouge">content-instance-holds-code</code> records a
 finding naming every code file still inside it. It is a <code class="language-plaintext highlighter-rouge">minor</code> QA
 <strong>warning</strong>, not a failure, because the tolerated set is small; a warning still
 names each file, so the violation is never silent. The remedy splits by what
 the code is: <strong>generic</strong> code (it works for any instance of its kind — any
-DSpace catalogue, any PDF) moves into the platform and takes the instance root
-as an argument; <strong>instance-specific</strong> code waits for <code class="language-plaintext highlighter-rouge">&lt;name&gt;-tools</code>.</p>
+DSpace catalogue, any PDF) moves into the platform and takes the layer root
+as an argument; <strong>layer-specific</strong> code waits for <code class="language-plaintext highlighter-rouge">&lt;name&gt;-tools</code>.</p>
 <h2 id="the-stages">
   
   
@@ -1208,7 +576,7 @@ the work looks finished.</p>
       <td>12</td>
       <td><strong>First release</strong>: tag, publish <code class="language-plaintext highlighter-rouge">/v&lt;major&gt;/</code></td>
       <td><code class="language-plaintext highlighter-rouge">publication-manager</code></td>
-      <td><code class="language-plaintext highlighter-rouge">check:version-bump</code>; every identifier dereferences (<a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/skills/sdlc-core/publish-verification.md"><code class="language-plaintext highlighter-rouge">publish-verification</code></a>)</td>
+      <td><code class="language-plaintext highlighter-rouge">check:version-bump</code>; every identifier dereferences (<code class="language-plaintext highlighter-rouge">publish-verification</code> (opt-in <code class="language-plaintext highlighter-rouge">cat-harness.sdlc</code>))</td>
     </tr>
     <tr>
       <td>13</td>
@@ -1220,7 +588,7 @@ the work looks finished.</p>
       <td>14</td>
       <td><strong>Independent refinement</strong>: each new release adopted by the parent as a reviewed step</td>
       <td><code class="language-plaintext highlighter-rouge">authoring-agent</code></td>
-      <td><a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/skills/sdlc-core/upstream-version-adoption.md"><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">upstream-version-adoption</code></td>
     </tr>
   </tbody>
 </table></div>
@@ -1277,15 +645,15 @@ creating the repositories and seeding them, and asks again:</p>
     </tr>
     <tr>
       <td>upward paths</td>
-      <td>a path DECLARED in the layer — a Tool module, a QA criterion source, a render target — resolves only in an instance above it, so it breaks the day the layer stands alone</td>
+      <td>a path DECLARED in the layer — a Tool module, a QA criterion source, a render target — resolves only in a layer above it, so it breaks the day the layer stands alone</td>
     </tr>
   </tbody>
 </table></div>
 
 <p><strong>A test about the WHOLE CHECKOUT lives at the top.</strong> A test that reads several
-sibling instances at once, or the aggregate root itself (<code class="language-plaintext highlighter-rouge">.github/</code>, <code class="language-plaintext highlighter-rouge">.gitignore</code>, the root
+sibling layers at once, or the aggregate root itself (<code class="language-plaintext highlighter-rouge">.github/</code>, <code class="language-plaintext highlighter-rouge">.gitignore</code>, the root
 declaration, <code class="language-plaintext highlighter-rouge">beans/</code>, <code class="language-plaintext highlighter-rouge">todos/</code>, <code class="language-plaintext highlighter-rouge">memory/</code>, <code class="language-plaintext highlighter-rouge">fsh-guts/</code>), is red in every layer
-it is placed in, so it goes in the root instance’s DECLARED test home —
+it is placed in, so it goes in the root layer’s DECLARED test home —
 <code class="language-plaintext highlighter-rouge">folio-assistant-tests</code> in <code class="language-plaintext highlighter-rouge">folio-assistant.json</code>, at <code class="language-plaintext highlighter-rouge">test/</code> — never in a layer
 and never at a path a runner hardcodes. Whatever names every layer belongs at the
 top, so each layer below stays standalone-green. Split a file when only some of
@@ -1319,14 +687,14 @@ its assertion verbatim and moves to the top-level test home above.</p>
 <p><strong><code class="language-plaintext highlighter-rouge">upward paths</code> counts what breaks, not what is out of sight.</strong> It counts
 declared paths that resolve above the layer, not dependents discovery cannot
 find: discovery is checkout-local on purpose, so a count of what it cannot see
-never reaches zero, and the risk is paths, not instances.</p>
+never reaches zero, and the risk is paths, not layers.</p>
 
-<p><strong>A seeding pair is not upward.</strong> A higher instance’s Tool nodes may resolve
+<p><strong>A seeding pair is not upward.</strong> A higher layer’s Tool nodes may resolve
 into their implementer below through <code class="language-plaintext highlighter-rouge">needs</code>; the two are seeded in the same
-step, so none of those paths can break on seeding day. The HIGHER instance
-says so, <code class="language-plaintext highlighter-rouge">seedsWith: [&lt;lower&gt;]</code> in its declaration, because a lower instance
+step, so none of those paths can break on seeding day. The HIGHER layer
+says so, <code class="language-plaintext highlighter-rouge">seedsWith: [&lt;lower&gt;]</code> in its declaration, because a lower layer
 naming one above it is the wrong direction. <code class="language-plaintext highlighter-rouge">seed:ready</code> states such paths in
-its note and does not count them; a path into any other instance above still
+its note and does not count them; a path into any other layer above still
 counts.</p>
 
 <p>Four things to keep straight:</p>
@@ -1334,7 +702,7 @@ counts.</p>
 <ul>
   <li><strong>The layer map is read off the declarations</strong>: <code class="language-plaintext highlighter-rouge">livesAt.path</code> is the
 directory, the longest <code class="language-plaintext highlighter-rouge">needs</code> chain is the depth, and the next layer is
-every instance one level up that needs this one. Nothing in the tool names
+every layer one level up that needs this one. Nothing in the tool names
 a directory.</li>
   <li><strong>Every threshold is in the decision table</strong>,
 <code class="language-plaintext highlighter-rouge">processes/kg/decisions/seed-readiness-gate.dmn</code>. The script works out each
@@ -1413,11 +781,11 @@ was <code class="language-plaintext highlighter-rouge">0.1.0</code>, so bootstra
   <li><strong>After that each is versioned on its own</strong>, by the same rules: semver, the
 bump computed from the exported surface (<code class="language-plaintext highlighter-rouge">check:version-bump</code>).</li>
   <li><strong>Tags are plain <code class="language-plaintext highlighter-rouge">v&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code> in each new repository</strong>: a
-standalone repository holds one instance, declared at its
+standalone repository holds one layer, declared at its
 root, so the tag needs no name. <code class="language-plaintext highlighter-rouge">check:version-bump</code> reads the plain form
-only there; a repository of several instances — the parent while the pair
+only there; a repository of several layers — the parent while the pair
 is staged — keeps <code class="language-plaintext highlighter-rouge">&lt;name&gt;-v&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code>, because a plain tag
-could not say which instance it released.</li>
+could not say which layer it released.</li>
   <li><strong>A tools release says which content versions it handles</strong> as a list of
 supported MAJOR versions (<code class="language-plaintext highlighter-rouge">bootstrap: [0]</code>), never a range expression —
 <code class="language-plaintext highlighter-rouge">instance-versioning</code> rule 2 forbids range syntax, and within one major a
@@ -1476,13 +844,13 @@ content major it does not list refuses rather than guesses.</li>
     
 
 <ol>
-  <li><strong>Downstream Gitignore Contract</strong>: When remote mounts populate an instance directory in the consumer repository, the consumer’s <code class="language-plaintext highlighter-rouge">.gitignore</code> must ignore the mounted paths. Otherwise, git treats external files as uncommitted local files. <code class="language-plaintext highlighter-rouge">index.config.json</code> automatically includes all <code class="language-plaintext highlighter-rouge">remoteMounts</code> paths in the generated <code class="language-plaintext highlighter-rouge">.gitignore</code>.</li>
-  <li><strong>Folded Layer Aliases</strong>: When an instance or subgraph is folded into another (e.g. <code class="language-plaintext highlighter-rouge">cat-openapi</code> folded into <code class="language-plaintext highlighter-rouge">cat-harness</code> as named subgraph <code class="language-plaintext highlighter-rouge">openapi</code>), external forks or dependencies may still carry <code class="language-plaintext highlighter-rouge">needs: ["cat-openapi"]</code>. <code class="language-plaintext highlighter-rouge">schemas/kg/harness-config.ts</code> maintains <code class="language-plaintext highlighter-rouge">FOLDED_INSTANCE_ALIASES</code> to resolve these.</li>
+  <li><strong>Downstream Gitignore Contract</strong>: When remote mounts populate a layer directory in the consumer repository, the consumer’s <code class="language-plaintext highlighter-rouge">.gitignore</code> must ignore the mounted paths. Otherwise, git treats external files as uncommitted local files. <code class="language-plaintext highlighter-rouge">index.config.json</code> automatically includes all <code class="language-plaintext highlighter-rouge">remoteMounts</code> paths in the generated <code class="language-plaintext highlighter-rouge">.gitignore</code>.</li>
+  <li><strong>Folded Layer Aliases</strong>: When a layer or subgraph is folded into another (e.g. <code class="language-plaintext highlighter-rouge">cat-openapi</code> folded into <code class="language-plaintext highlighter-rouge">cat-harness</code> as named subgraph <code class="language-plaintext highlighter-rouge">openapi</code>), external forks or dependencies may still carry <code class="language-plaintext highlighter-rouge">needs: ["cat-openapi"]</code>. <code class="language-plaintext highlighter-rouge">schemas/kg/harness-config.ts</code> maintains <code class="language-plaintext highlighter-rouge">FOLDED_INSTANCE_ALIASES</code> to resolve these.</li>
   <li><strong>Asset Permission &amp; License Validation</strong>: Pre-separation audits must verify <code class="language-plaintext highlighter-rouge">library/withheld.json</code> and copyright gates. Materializing or mounting a separated catalogue without verified asset clearance causes 404s and broken links on published documentation.</li>
   <li><strong>NPM Manifest in the KG</strong>: <code class="language-plaintext highlighter-rouge">package.json</code> is an authored pre-packaging asset in the Knowledge Graph (<code class="language-plaintext highlighter-rouge">role: "package-manifest"</code>), and <code class="language-plaintext highlighter-rouge">.tgz</code> release tarballs are tracked as <code class="language-plaintext highlighter-rouge">folio-binary-release/v1</code> state documents with SHA-256 integrity digests.</li>
   <li><strong>No Relative Directory Climbing Across Repositories</strong>: Once separated into standalone checkouts, climbing <code class="language-plaintext highlighter-rouge">../..</code> escapes the repository boundary into <code class="language-plaintext highlighter-rouge">.claude/worktrees/</code> or the parent filesystem and fails with <code class="language-plaintext highlighter-rouge">Cannot find module</code>. All cross-repository imports MUST be authored as package imports (e.g. <code class="language-plaintext highlighter-rouge">@litlfred/cat-harness/...</code> or via package <code class="language-plaintext highlighter-rouge">exports</code>), or resolved through package specifiers / tsconfig paths, NEVER through escaping filesystem <code class="language-plaintext highlighter-rouge">../..</code> traversals.</li>
   <li><strong>No Fixed-Depth Repository Root Assumptions (<code class="language-plaintext highlighter-rouge">REPO</code>)</strong>: <code class="language-plaintext highlighter-rouge">const REPO = resolve(import.meta.dir, "..", "..")</code> points at the checkout root in a monorepo and above it in a standalone repository, so the script cannot find <code class="language-plaintext highlighter-rouge">&lt;instance&gt;.json</code> or scans sibling worktrees. Resolve the root dynamically — search upward for <code class="language-plaintext highlighter-rouge">&lt;instance&gt;.json</code>, <code class="language-plaintext highlighter-rouge">index.config.json</code>, or <code class="language-plaintext highlighter-rouge">.git</code>.</li>
-  <li><strong>Clean Standalone Manifest (<code class="language-plaintext highlighter-rouge">package.json</code>) and Tooling Scaffolding</strong>: When extracting an instance to an upstream repository, <code class="language-plaintext highlighter-rouge">package.json</code> must be normalized:
+  <li><strong>Clean Standalone Manifest (<code class="language-plaintext highlighter-rouge">package.json</code>) and Tooling Scaffolding</strong>: When extracting a layer to an upstream repository, <code class="language-plaintext highlighter-rouge">package.json</code> must be normalized:
     <ul>
       <li>Operational commands must live under <code class="language-plaintext highlighter-rouge">"scripts"</code>, not leftover monorepo <code class="language-plaintext highlighter-rouge">"checkoutScripts"</code>.</li>
       <li>Script definitions must NOT hardcode monorepo subdirectory paths (e.g. <code class="language-plaintext highlighter-rouge">"bun run cat-harness-tools/scripts/..."</code> -&gt; <code class="language-plaintext highlighter-rouge">"bun run scripts/..."</code>).</li>
@@ -1490,14 +858,14 @@ content major it does not list refuses rather than guesses.</li>
       <li>Explicit <code class="language-plaintext highlighter-rouge">dependencies</code> and <code class="language-plaintext highlighter-rouge">devDependencies</code> must be declared.</li>
     </ul>
   </li>
-  <li><strong>Fan-Out Recursion Guard in <code class="language-plaintext highlighter-rouge">declaringInstances</code></strong>: When a mounted dependency carries its own nested <code class="language-plaintext highlighter-rouge">remoteMounts</code>, consumer remote fan-out must not mount sub-instances into roots that are already locked mounts of the parent checkout (<code class="language-plaintext highlighter-rouge">!lockedMountPaths(checkout).has(rel)</code>). Otherwise <code class="language-plaintext highlighter-rouge">remoteFanOut</code> mutates the child checkout’s tree and <code class="language-plaintext highlighter-rouge">treeDigest</code> verification fails.</li>
+  <li><strong>Fan-Out Recursion Guard in <code class="language-plaintext highlighter-rouge">declaringInstances</code></strong>: When a mounted dependency carries its own nested <code class="language-plaintext highlighter-rouge">remoteMounts</code>, consumer remote fan-out must not mount sub-layers into roots that are already locked mounts of the parent checkout (<code class="language-plaintext highlighter-rouge">!lockedMountPaths(checkout).has(rel)</code>). Otherwise <code class="language-plaintext highlighter-rouge">remoteFanOut</code> mutates the child checkout’s tree and <code class="language-plaintext highlighter-rouge">treeDigest</code> verification fails.</li>
   <li><strong>Relative Directory Symlink Handling in Staging &amp; Tarball Scripts</strong>: Recursive copies (<code class="language-plaintext highlighter-rouge">cpSync(..., { recursive: true })</code>) of trees with internal symlinked directories can recurse forever. Staging, site compilation, and packaging scripts must copy symlinks with <code class="language-plaintext highlighter-rouge">{ dereference: false }</code> or use archive utilities (such as <code class="language-plaintext highlighter-rouge">tar</code> or <code class="language-plaintext highlighter-rouge">rsync -a</code>) that preserve symlink references.</li>
   <li><strong>Purely Declarative Ontologies vs. Companion Toolsets (FR-7)</strong>: Purely declarative base repositories (such as <code class="language-plaintext highlighter-rouge">litlfred/bootstrap</code>) contain zero runtime execution code, zero test suites, and zero <code class="language-plaintext highlighter-rouge">package.json</code> manifests (FR-7). All graph compilation (JSON-LD export, BPMN diagram rendering, site staging, and schema validation) is executed by the companion tooling repository (<code class="language-plaintext highlighter-rouge">bootstrap-tools</code>). The declarative repository marks its render exemption (<code class="language-plaintext highlighter-rouge">renderExemption: true</code>) in its root manifest, and tooling scripts accept an explicit target repository argument (<code class="language-plaintext highlighter-rouge">--repo &lt;dir&gt;</code>).</li>
-  <li><strong>Toolchain Decentralization (<code class="language-plaintext highlighter-rouge">package.json</code>, <code class="language-plaintext highlighter-rouge">tsconfig.json</code>, <code class="language-plaintext highlighter-rouge">bunfig.toml</code>)</strong>: Tools and harness subgraphs must possess full standalone toolchain autonomy. <code class="language-plaintext highlighter-rouge">package.json</code> must be a standalone package manifest (e.g. <code class="language-plaintext highlighter-rouge">@litlfred/&lt;tools-layer&gt;</code>), <code class="language-plaintext highlighter-rouge">bunfig.toml</code> defines test preloads per instance, and <code class="language-plaintext highlighter-rouge">tsconfig.json</code> must set <code class="language-plaintext highlighter-rouge">"noEmit": true</code> and omit <code class="language-plaintext highlighter-rouge">rootDir</code>/<code class="language-plaintext highlighter-rouge">outDir</code> to prevent <code class="language-plaintext highlighter-rouge">error TS6059: File is not under rootDir</code> when cross-subgraph schemas or utilities are imported. See <a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/skills/sdlc-core/bun-use.md"><code class="language-plaintext highlighter-rouge">bun-use</code></a>.</li>
+  <li><strong>Toolchain Decentralization (<code class="language-plaintext highlighter-rouge">package.json</code>, <code class="language-plaintext highlighter-rouge">tsconfig.json</code>, <code class="language-plaintext highlighter-rouge">bunfig.toml</code>)</strong>: Tools and harness subgraphs must possess full standalone toolchain autonomy. <code class="language-plaintext highlighter-rouge">package.json</code> must be a standalone package manifest (e.g. <code class="language-plaintext highlighter-rouge">@litlfred/&lt;tools-layer&gt;</code>), <code class="language-plaintext highlighter-rouge">bunfig.toml</code> defines test preloads per layer, and <code class="language-plaintext highlighter-rouge">tsconfig.json</code> must set <code class="language-plaintext highlighter-rouge">"noEmit": true</code> and omit <code class="language-plaintext highlighter-rouge">rootDir</code>/<code class="language-plaintext highlighter-rouge">outDir</code> to prevent <code class="language-plaintext highlighter-rouge">error TS6059: File is not under rootDir</code> when cross-subgraph schemas or utilities are imported. See <code class="language-plaintext highlighter-rouge">bun-use</code>.</li>
   <li><strong>Monorepo Coordinator Demotion</strong>: Once tools and code are extracted to their respective packages, the root <code class="language-plaintext highlighter-rouge">package.json</code> is demoted to a private coordinator (<code class="language-plaintext highlighter-rouge">"private": true</code>) with narrowed <code class="language-plaintext highlighter-rouge">tsconfig.json</code> (<code class="language-plaintext highlighter-rouge">test/**/*.ts</code>). The root platform coordinates development workspaces, mounts, and integration tests, but never directly exports or publishes tool implementations.</li>
   <li><strong>Ephemeral File Purging and Root Hygiene</strong>: Ephemeral generated directories (<code class="language-plaintext highlighter-rouge">_kg/</code>, <code class="language-plaintext highlighter-rouge">build/</code>, <code class="language-plaintext highlighter-rouge">test-results/</code>) must NEVER be committed to the root repository or left unignored. Build outputs belong to the tool that produces them.</li>
-  <li><strong>Instance Memory Preservation</strong>: Root directories <code class="language-plaintext highlighter-rouge">beans/</code>, <code class="language-plaintext highlighter-rouge">todos/</code>, and <code class="language-plaintext highlighter-rouge">fsh-guts/</code> are the instance’s own durable working memory (the agent’s plan, the user’s todo queue, and the archival store). They are never overlaid across instances, never extracted to downstream packages, and stay at root by design.</li>
-  <li><strong>A cutover is not done until the instance has re-pointed and can publish itself</strong>: <code class="language-plaintext highlighter-rouge">livesAt</code> is not a comment — <code class="language-plaintext highlighter-rouge">remote-mount.ts</code> takes <code class="language-plaintext highlighter-rouge">livesAt.path</code> as the mount path and <code class="language-plaintext highlighter-rouge">seed-ready</code> reads it as “still staged”. A path that was only ever a mount inside the parent’s site build serves nothing on its own, and generated pages keep absolute links to the parent’s paths, which 404 once the bytes move. Before stage 13: <code class="language-plaintext highlighter-rouge">livesAt</code> is gone, <code class="language-plaintext highlighter-rouge">iriBase</code> is declared, and the instance’s own site builds from its own repository.</li>
+  <li><strong>Layer Memory Preservation</strong>: Root directories <code class="language-plaintext highlighter-rouge">beans/</code>, <code class="language-plaintext highlighter-rouge">todos/</code>, and <code class="language-plaintext highlighter-rouge">fsh-guts/</code> are the layer’s own durable working memory (the agent’s plan, the user’s todo queue, and the archival store). They are never overlaid across layers, never extracted to downstream packages, and stay at root by design.</li>
+  <li><strong>A cutover is not done until the layer has re-pointed and can publish itself</strong>: <code class="language-plaintext highlighter-rouge">livesAt</code> is not a comment — <code class="language-plaintext highlighter-rouge">remote-mount.ts</code> takes <code class="language-plaintext highlighter-rouge">livesAt.path</code> as the mount path and <code class="language-plaintext highlighter-rouge">seed-ready</code> reads it as “still staged”. A path that was only ever a mount inside the parent’s site build serves nothing on its own, and generated pages keep absolute links to the parent’s paths, which 404 once the bytes move. Before stage 13: <code class="language-plaintext highlighter-rouge">livesAt</code> is gone, <code class="language-plaintext highlighter-rouge">iriBase</code> is declared, and the layer’s own site builds from its own repository.</li>
   <li><strong>The replayer must never live inside a layer it replays</strong>: if every workflow (and every downstream folio’s staging build, through a reusable workflow) bootstraps by running a script inside the directory being retired, the cutover breaks the first step of every job. <strong>Before stage 13</strong>, grep every workflow the parent ships for paths into the directory being retired, and give the parent a bootstrap entry point that lives in the parent and needs nothing mounted (a dependency-free <code class="language-plaintext highlighter-rouge">.github/mount-from-lock.sh</code> that fetches the pinned replayer).</li>
   <li><strong>A downstream’s CI is part of “green” for a cutover</strong>: a reusable workflow called <code class="language-plaintext highlighter-rouge">@main</code> (<code class="language-plaintext highlighter-rouge">uses: litlfred/folio-assistant/.github/workflows/folio-staging.yml@main</code>) runs the PARENT’s current workflow in the DOWNSTREAM’s repository. A cutover that is green in the parent can therefore be red in every folio at once, and the red lands on whatever pull request the folio author opens next — it reads as their failure. Stage 12’s “green” includes one dispatched staging run of at least one downstream folio after the cutover commit.</li>
   <li><strong>A separated checkout must run its own tests and type-check its own subgraphs</strong>: run them in a fresh standalone clone. A test that reads <code class="language-plaintext highlighter-rouge">&lt;checkout&gt;/../package.json</code> fails with <code class="language-plaintext highlighter-rouge">ENOENT</code> outside the composed tree (lesson 6 by another route), and a <code class="language-plaintext highlighter-rouge">tsconfig.json</code> whose <code class="language-plaintext highlighter-rouge">include</code> omits named subgraphs (<code class="language-plaintext highlighter-rouge">openapi/</code>, <code class="language-plaintext highlighter-rouge">archimate/</code>) is green while never reading them. A test or type-check that silently depends on the composition, or silently skips part of the repository, is not evidence the separated repository works.</li>
@@ -1521,7 +889,7 @@ checkout at the matched pins.</p>
 
 <p>When another layer links into the moved path, declare the move first, so the
 layers can re-pin in any order:
-<a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/skills/sdlc-core/two-phase-move.md"><code class="language-plaintext highlighter-rouge">two-phase-move</code></a>.</p>
+<code class="language-plaintext highlighter-rouge">two-phase-move</code>.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -1648,7 +1016,7 @@ main commit of these repositories that includes a fix merged in this session,
 listed in the PR”) covers only the repositories and the window it names, and
 each pin made under it is listed where the owner will read it. When a
 consented ref turns out not to do (a consented <code class="language-plaintext highlighter-rouge">main</code> with no declaration of
-the instance), do not substitute another ref: keep the previous pin and report
+the layer), do not substitute another ref: keep the previous pin and report
 it.</p>
 <h3 id="the-order-that-worked-and-the-rules-for-several-sessions-at-once">
   

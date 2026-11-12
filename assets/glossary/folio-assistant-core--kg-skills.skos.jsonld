@@ -54,26 +54,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/audio-transcription",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "audio-transcription"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Turn recorded speech (a meeting recording, a video with audio, an interview) into a transcript the library can cite, and choose WHICH open-source recogniser to run for the job: whisper.cpp by default, faster-whisper, WhisperX with pyannote, Vosk, NVIDIA Parakeet/Canary, or Distil-Whisper. Covers audio extraction, why two exports of one recogniser are one opinion, how to compare transcripts (WER, CER, DER), translation, and what blocks a run. Use when an upload contains audio or video, when someone asks which transcription tool to use, or before declaring a new transcription Tool."
-        }
-      ],
-      "skos:notation": "audio-transcription",
-      "dcterms:source": "folio-assistant-core/skills/library/ingestion/audio-transcription.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/bib-human-review",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -91,26 +71,6 @@
       ],
       "skos:notation": "bib-human-review",
       "dcterms:source": "folio-assistant-core/skills/library/cataloguing/bib-human-review.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/bib-photo-ingestion-watcher",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "bib-photo-ingestion-watcher"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Integration-watcher for bib physical-review issues. When a page photo is uploaded to a `bib-physical-review` issue (or an in-repo source passage is agent-identified), OCR/read it, formalise the cited result (if the project has a formal-proof pipeline), confirm the project's usage matches the source, run machine + agent bib validation, then set the reference status to `validated` and refresh references.review.json. Use when processing a bib-physical-review issue that has an attached photo, or when ingesting an uploaded paper."
-        }
-      ],
-      "skos:notation": "bib-photo-ingestion-watcher",
-      "dcterms:source": "folio-assistant-core/skills/library/cataloguing/bib-photo-ingestion-watcher.md",
       "skos:note": "candidate"
     },
     {
@@ -174,6 +134,66 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/content-author",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "content-author"
+        }
+      ],
+      "skos:notation": "content-author",
+      "dcterms:source": "folio-assistant-core/skills/content/content-lifecycle-ext/content-author.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/content-plan",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "content-plan"
+        }
+      ],
+      "skos:notation": "content-plan",
+      "dcterms:source": "folio-assistant-core/skills/content/content-lifecycle-ext/content-plan.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/content-publish",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "content-publish"
+        }
+      ],
+      "skos:notation": "content-publish",
+      "dcterms:source": "folio-assistant-core/skills/content/content-lifecycle-ext/content-publish.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/content-retire",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "content-retire"
+        }
+      ],
+      "skos:notation": "content-retire",
+      "dcterms:source": "folio-assistant-core/skills/content/content-lifecycle-ext/content-retire.md",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/corpus-commit-contract",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -211,6 +231,26 @@
       ],
       "skos:notation": "deep-document-research",
       "dcterms:source": "folio-assistant-core/skills/deep-document-research.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/diff",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "diff"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Show per-block content changes with viewer links, changelog, and undo impact analysis"
+        }
+      ],
+      "skos:notation": "diff",
+      "dcterms:source": "folio-assistant-core/skills/content/content-lifecycle-ext/diff.md",
       "skos:note": "candidate"
     },
     {
@@ -279,86 +319,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/dsa-catalogue-status",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "dsa-catalogue-status"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Set the life-cycle status (`adms:status`, W3C DCAT 3 §6.4.30) on a Data Sharing Agreement's DCAT 3 catalogue record when the agreement is amended, renewed, terminated, or expires, while keeping all published versions readable at their immutable URLs (DSA building block B3, process step P14.5 `Task_SetStatus`)."
-        }
-      ],
-      "skos:notation": "dsa-catalogue-status",
-      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/dsa-catalogue-status.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/dsa-checksum",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "dsa-checksum"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Compute and record the SHA-256 cryptographic digest of a signed Data Sharing Agreement's legal text as a W3C DCAT 3 `spdx:checksum` (`spdx:Checksum` with `spdx:checksumAlgorithm_sha256` and 64-character lowercase hex `spdx:checksumValue`), verified by `check:dsa-hash` (DSA building block B3, process steps P2.2 `Task_Hash` and P2.2a `Task_HashSummary`)."
-        }
-      ],
-      "skos:notation": "dsa-checksum",
-      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/dsa-checksum.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/dsa-dcat-record",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "dsa-dcat-record"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Write the W3C DCAT 3 `dcat:Resource` and `dcat:Distribution` catalogue record for a Data Sharing Agreement (`dcat:downloadURL`, `spdx:checksum`, `odrl:hasPolicy`) and link versions with `dcat:version` and `dcat:previousVersion` (DSA building block B3, process step P2.4–5 `Task_Catalogue`)."
-        }
-      ],
-      "skos:notation": "dsa-dcat-record",
-      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/dsa-dcat-record.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/dsa-odrl-source",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "dsa-odrl-source"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Bind a computable Data Sharing Agreement's W3C ODRL 2.2 `Agreement` to its signed legal text distribution using DCMI Metadata Terms `dcterms:source`, naming the exact `dcat:Distribution` whose `spdx:checksum` is checked (DSA building block B3, process step P2.3 `Task_OdrlCitesText`)."
-        }
-      ],
-      "skos:notation": "dsa-odrl-source",
-      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/dsa-odrl-source.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/dublin-core-renderings",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -371,7 +331,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Render a catalogue's Dublin Core records in the two standard forms an outside reader can use: Dublin Core XML, which a harvester reads, and JSON-LD bound to DCMI Metadata Terms. Each rendering is published beside the item's page. Covers which records get one, which XML form is used and why, how every field maps from the record's own data (never composed), what cannot be expressed and how that is reported, and the gate. Read this before changing the mapping, adding a catalogue instance, or linking a rendering from a page."
+          "@value": "Render a catalogue's Dublin Core records in the two standard forms an outside reader can use: Dublin Core XML, which a harvester reads, and JSON-LD bound to DCMI Metadata Terms. Each rendering is published beside the item's page. Covers which records get one, which XML form is used and why, how every field maps from the record's own data (never composed), what cannot be expressed and how that is reported, and the gate. Read this before changing the mapping, adding a catalogue layer, or linking a rendering from a page."
         }
       ],
       "skos:notation": "dublin-core-renderings",
@@ -391,7 +351,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Turn a source publication's figures into computable diagrams when a folio is built from its L1 entry. Every declared figure gets a block, and each one is rebuilt in the form its type calls for: an ArchiMate view, BPMN, DMN, a FHIR logical model, or an SVG generated from data, always from one schema-backed source. The PDF crop stays beside the rebuild as the cited source. The figure-coverage check counts what is missing and what is still only a picture."
+          "@value": "Turn a figure into a computable diagram: every figure of a source publication when a folio is built from its L1 entry, and any hand-drawn figure in a folio, an IG or a demonstrator that is redrawn from a source. Every declared figure gets a block, and each one is rebuilt in the form its type calls for: an ArchiMate view, BPMN, DMN, a FHIR logical model, or an SVG generated from data, always from one schema-backed source. The PDF crop stays beside the rebuild as the cited source, and the rebuild keeps the original's layout. The figure-coverage check counts what is missing and what is still only a picture."
         }
       ],
       "skos:notation": "figure-rebuild",
@@ -419,46 +379,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/folio-board-diagram-interchange",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "folio-board-diagram-interchange"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "The content-folio half of the harness's board-diagram-interchange skill: binds processes/ui/board-place-note.bpmn and board-relocate.bpmn, folio board filters over pages and block kinds, and note-to-board arrow direction."
-        }
-      ],
-      "skos:notation": "folio-board-diagram-interchange",
-      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-board-diagram-interchange.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/folio-board-windows",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "folio-board-windows"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "The content-folio half of the harness's board-windows skill: binds processes/ui/board-open-close.bpmn, folio-glass pinning (todo/<id> and landing/<slot>), and content-type card chrome ([x], [linksrc], [edit])."
-        }
-      ],
-      "skos:notation": "folio-board-windows",
-      "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/folio-board-windows.md",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/folio-content-lifecycle",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -471,7 +391,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "The content-folio half of the harness's content-lifecycle skills (content-author, content-feedback, content-plan, content-publish, content-review, content-test, content-validate, evidence-appraisal): binds core lifecycle diagrams, quality-control and review-comments gates, and empirical vs. formal evidence rules."
+          "@value": "The content-folio half of the content-lifecycle skills (the harness's content-feedback, content-review, content-test, content-validate and evidence-appraisal; this layer's content-plan, content-author, content-publish and content-retire): binds core lifecycle diagrams, quality-control and review-comments gates, and empirical vs. formal evidence rules."
         }
       ],
       "skos:notation": "folio-content-lifecycle",
@@ -586,7 +506,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Add terms to an instance's glossary: local SKOS terms (folio-glossary/v1) with a definition, a code and links to external SKOS concepts, and references to whole external schemes. Rendered on the glossary/ page; gated by check:glossary. Authored terms go to gettext (.pot) for translation; a paper's glossary is one more scheme."
+          "@value": "Add terms to a layer's glossary: local SKOS terms (folio-glossary/v1) with a definition, a code and links to external SKOS concepts, and references to whole external schemes. Rendered on the glossary/ page; gated by check:glossary. Authored terms go to gettext (.pot) for translation; a paper's glossary is one more scheme."
         }
       ],
       "skos:notation": "glossary-terms",
@@ -634,6 +554,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/mesh-subject-indexing",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "mesh-subject-indexing"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Assign Medical Subject Headings (MeSH) to a work as a DRAFT for a person to review, in the four stages of skill-pipeline-subject-indexing: over-generate concepts, filter them by NLM's own rules, validate every heading against NLM's MeSH authority with Tool `mesh-authority`, and write the reviewed list. Never emits a heading the authority does not hold."
+        }
+      ],
+      "skos:notation": "mesh-subject-indexing",
+      "dcterms:source": "folio-assistant-core/skills/library/cataloguing/mesh-subject-indexing.md",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/normative-statements",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -666,26 +606,6 @@
       ],
       "skos:notation": "ontologist",
       "dcterms:source": "folio-assistant-core/skills/library/cataloguing/ontologist.md",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/oxigraph-catalogue-search",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "oxigraph-catalogue-search"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "How to compile, partition, distribute via CDN, and query digital library catalogue and Qualified Dublin Core metadata using Oxigraph in-memory WebAssembly on the static edge. Establishes the 2-tier on-demand loading hierarchy, upstream skolemization for zero blank nodes, append-only streaming partition writes, and SPARQL 1.1 cross-graph query recipes."
-        }
-      ],
-      "skos:notation": "oxigraph-catalogue-search",
-      "dcterms:source": "folio-assistant-core/skills/library/catalogue/oxigraph-catalogue-search.md",
       "skos:note": "candidate"
     },
     {
@@ -741,6 +661,26 @@
       ],
       "skos:notation": "public-comment-channels",
       "dcterms:source": "folio-assistant-core/skills/content/folio-document-adapter/public-comment-channels.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills/publish-extracted-statements",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant-core/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "publish-extracted-statements"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The standard step of adding source documents to a folio's working artifact: every statement extracted from a library source is published readably in the artifact's own pages AND in the shared extraction viewer, each with a link to its library entry and to the section it came from, and CI fails when the generated pages are stale. Generic across content types; each type's adapter says only how its pages look. Executable form: `processes/library/publish-extracted-statements.bpmn`."
+        }
+      ],
+      "skos:notation": "publish-extracted-statements",
+      "dcterms:source": "folio-assistant-core/skills/library/ingestion/publish-extracted-statements.md",
       "skos:note": "candidate"
     },
     {

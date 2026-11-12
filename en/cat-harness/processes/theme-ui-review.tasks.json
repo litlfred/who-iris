@@ -28,7 +28,7 @@
   },
   {
    "id": "A_Branding",
-   "name": "Branding: does it read as this instance?",
+   "name": "Branding: does it read as this layer?",
    "left": 43.25,
    "top": 57.14,
    "box": {
@@ -185,7 +185,7 @@
   },
   "A_Branding": {
    "id": "A_Branding",
-   "name": "Branding: does it read as this instance?",
+   "name": "Branding: does it read as this layer?",
    "type": "bpmn:Task",
    "stepHref": "theme-ui-review.html#step-A_Branding",
    "lane": "Agent",
@@ -333,8 +333,7 @@
       "name": "visual-diff"
      },
      {
-      "name": "voice-overlay-review",
-      "href": "../../../en/cat-harness/processes/skills/voice-overlay-review.html"
+      "name": "voice-overlay-review"
      }
     ]
    }

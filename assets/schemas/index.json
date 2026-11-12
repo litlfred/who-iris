@@ -448,6 +448,22 @@
       "isTest": false
     },
     {
+      "module": "cat-harness-tools/schemas/content/document-errata.ts",
+      "instance": "cat-harness-tools",
+      "name": "document-errata",
+      "graphNode": "schema",
+      "summary": "Errata of a library document: places where the SOURCE's own text is wrong,",
+      "isTest": false
+    },
+    {
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "instance": "cat-harness-tools",
+      "name": "document-footnotes",
+      "graphNode": "schema",
+      "summary": "A document's footnotes and the marks in its text that call them, as",
+      "isTest": false
+    },
+    {
       "module": "cat-harness-tools/schemas/content/document-image.ts",
       "instance": "cat-harness-tools",
       "name": "document-image",
@@ -3112,6 +3128,14 @@
       "isTest": false
     },
     {
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "instance": "cat-harness-tools",
+      "name": "web-app",
+      "graphNode": "schema",
+      "summary": "A web app a layer holds as source and publishes as a page of its own: one",
+      "isTest": false
+    },
+    {
       "module": "cat-harness-tools/schemas/ui/webpage.ts",
       "instance": "cat-harness-tools",
       "name": "webpage",
@@ -3165,7 +3189,7 @@
       "instance": "cat-harness",
       "name": "staging-comparison",
       "graphNode": "schema",
-      "summary": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is sdlc/skills/sdlc-core/staging-review.md §\"The deep-link rule\". Copied inline as `definitions.stagingLinks` into every skill contract that carries it; ",
+      "summary": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is skills/authoring/content-lifecycle/feedback-deep-links.md. Copied inline as `definitions.stagingLinks` into every skill contract that carries it; sche",
       "isTest": false
     },
     {
@@ -3275,6 +3299,14 @@
       "isTest": false
     },
     {
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "instance": "folio-assistant-core",
+      "name": "extracted-statement",
+      "graphNode": "schema",
+      "summary": "Statements extracted from library sources, as a list a page can be built from.",
+      "isTest": false
+    },
+    {
       "module": "folio-assistant-core/schemas/figure-data.test.ts",
       "instance": "folio-assistant-core",
       "name": "figure-data.test",
@@ -3342,7 +3374,7 @@
       "instance": "folio-assistant-core",
       "name": "library-ref.test",
       "graphNode": "undeclared",
-      "summary": "Cross-instance library references, against THIS checkout rather than fixtures.",
+      "summary": "Cross-layer library references, against THIS checkout rather than fixtures.",
       "isTest": true
     },
     {
@@ -3350,7 +3382,7 @@
       "instance": "folio-assistant-core",
       "name": "library-ref",
       "graphNode": "schema",
-      "summary": "A reference to an L1 source — in this instance, or in another one.",
+      "summary": "A reference to an L1 source — in this layer, or in another one.",
       "isTest": false
     },
     {
@@ -3407,7 +3439,7 @@
       "name": "own-namespace",
       "graphNode": "none",
       "reason": "two IRI constants, not a schema",
-      "summary": "This instance's own namespaces, derived from its declaration.",
+      "summary": "This layer's own namespaces, derived from its declaration.",
       "isTest": false
     },
     {
@@ -13665,6 +13697,322 @@
           "array": false
         }
       ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-errata.ts#DocumentErrata",
+      "name": "DocumentErrata",
+      "module": "cat-harness-tools/schemas/content/document-errata.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-errata.ts#DocumentErrataSchema",
+      "name": "DocumentErrataSchema",
+      "module": "cat-harness-tools/schemas/content/document-errata.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "$schema",
+          "type": "z.literal(DOCUMENT_ERRATA_SCHEMA)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "entry",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false,
+          "doc": "The library entry's slug, the directory this file sits in."
+        },
+        {
+          "name": "errata",
+          "type": "z.array(ErratumSchema).min(1)",
+          "optional": false,
+          "array": true
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "DOCUMENT_ERRATA_SCHEMA",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-errata.ts#Erratum",
+      "name": "Erratum",
+      "module": "cat-harness-tools/schemas/content/document-errata.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema",
+      "name": "ErratumSchema",
+      "module": "cat-harness-tools/schemas/content/document-errata.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "id",
+          "type": "z.string().regex(/^e\\d+$/, \"an erratum id is `e` and a number\")",
+          "optional": false,
+          "array": false,
+          "doc": "Stable within the entry: `e1`, `e2`, ... Never reused for another erratum."
+        },
+        {
+          "name": "kind",
+          "type": "z.enum(ERRATUM_KINDS)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "block",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The block that prints it, e.g. `library/<slug>/blocks/prose-sec-003`, when one does."
+        },
+        {
+          "name": "page",
+          "type": "z.number().int().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The physical PDF page (1-based) it is printed on, when known."
+        },
+        {
+          "name": "quote",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false,
+          "doc": "The words as printed, verbatim, so the place can be found and checked."
+        },
+        {
+          "name": "reading",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The reading the evidence supports, when there is one. Never substituted for `quote`."
+        },
+        {
+          "name": "evidence",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false,
+          "doc": "What shows it is an error, in a form a person can check: the other page,"
+        },
+        {
+          "name": "narrative",
+          "type": "NarrativeSlotSchema",
+          "optional": false,
+          "array": false,
+          "doc": "The explanation a reader is shown, with its state and author."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/content/narrative.ts#NarrativeSlotSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "ERRATUM_KINDS",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-footnotes.ts#DocumentFootnotes",
+      "name": "DocumentFootnotes",
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-footnotes.ts#DocumentFootnotesSchema",
+      "name": "DocumentFootnotesSchema",
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "$schema",
+          "type": "z.literal(DOCUMENT_FOOTNOTES_SCHEMA)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "entry",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "status",
+          "type": "z.enum([\"determined\", \"undetermined\"])",
+          "optional": false,
+          "array": false,
+          "doc": "`undetermined` when every page was OCR'd: OCR text has no fonts, so no"
+        },
+        {
+          "name": "pages_unread",
+          "type": "z.array(z.number().int().min(1)).optional()",
+          "optional": true,
+          "array": true
+        },
+        {
+          "name": "body_size",
+          "type": "z.number().min(0)",
+          "optional": false,
+          "array": false,
+          "doc": "The span size carrying the most characters: what \"smaller than the body\" is measured against."
+        },
+        {
+          "name": "footnotes",
+          "type": "z.array(FootnoteSchema)",
+          "optional": false,
+          "array": true
+        },
+        {
+          "name": "uncalled_notes",
+          "type": "z.array(UncalledNoteSchema)",
+          "optional": false,
+          "array": true
+        },
+        {
+          "name": "unlinked_marks",
+          "type": "z.array(z.object({ page: z.number().int().min(1), mark: z.string().min(1), context: z.string() }).strict())",
+          "optional": false,
+          "array": true
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteSchema",
+        "cat-harness-tools/schemas/content/document-footnotes.ts#UncalledNoteSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "DOCUMENT_FOOTNOTES_SCHEMA",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-footnotes.ts#Footnote",
+      "name": "Footnote",
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteCallSchema",
+      "name": "FootnoteCallSchema",
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "kind": "zod-object",
+      "doc": "A place in the text that calls a note: the page, and the words just before the mark.",
+      "fields": [
+        {
+          "name": "page",
+          "type": "z.number().int().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "context",
+          "type": "z.string()",
+          "optional": false,
+          "array": false,
+          "doc": "Up to 60 characters before the mark, so a reader can find it on the page."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteSchema",
+      "name": "FootnoteSchema",
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "marks",
+          "type": "z.array(FootnoteCallSchema).min(1)",
+          "optional": false,
+          "array": true
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteCallSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-footnotes.ts#NoteBase",
+      "name": "NoteBase",
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "kind": "undetermined",
+      "note": "{ /** `fn-p<page>-<n>`: the n-th note at the foot of that physical page. */ id: z.string().regex(/^fn-p\\d{3,}-\\d+$/), page: z.number().int().min(1), /** The ma…",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": false
+    },
+    {
+      "id": "cat-harness-tools/schemas/content/document-footnotes.ts#UncalledNoteSchema",
+      "name": "UncalledNoteSchema",
+      "module": "cat-harness-tools/schemas/content/document-footnotes.ts",
+      "kind": "undetermined",
+      "note": "z.object(NoteBase).strict()",
+      "fields": [],
       "extendsNames": [],
       "values": [],
       "refs": [],
@@ -51242,6 +51590,13 @@
           "doc": "A chapter's title in the room, by the id of the journey the chapter is"
         },
         {
+          "name": "tagRows",
+          "type": "z.array(z.object({ label: Text, icon: JourneyGlyphSchema.optional(), tables: z.array(Id).min(1) }).strict()).optional()",
+          "optional": true,
+          "array": true,
+          "doc": "How a walkthrough step's policy card groups the rows of the tables it"
+        },
+        {
           "name": "presenterNote",
           "type": "Text.optional()",
           "optional": true,
@@ -51301,6 +51656,7 @@
       "extendsNames": [],
       "values": [],
       "refs": [
+        "cat-harness-tools/schemas/process/user-scenario.ts#JourneyGlyphSchema",
         "cat-harness-tools/schemas/process/workshop.ts#Id",
         "cat-harness-tools/schemas/process/workshop.ts#Text"
       ],
@@ -71715,6 +72071,34 @@
           "optional": true,
           "array": false,
           "doc": "The flat outline ran against its own pages and `repair_outline` put it in page order. Absent when not."
+        },
+        {
+          "name": "outline_rejected",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The PDF carried an outline and it was not used, with why: its entries"
+        },
+        {
+          "name": "oversized_split",
+          "type": "z .array( z .object({ title: z.string(), page_start: z.number().int().min(1), page_end: z.number().int().min(1), words:…",
+          "optional": true,
+          "array": true,
+          "doc": "Sections too long to be one block (more than half of a document of 20"
+        },
+        {
+          "name": "headings_tidied",
+          "type": "z .array( z .object({ title: z.string(), page: z.number().int().min(1).nullable(), action: z.enum([\"rejoined\", \"dropped…",
+          "optional": true,
+          "array": true,
+          "doc": "Inferred headings that did not read as headings: a title cut to its last"
+        },
+        {
+          "name": "pages_read_in_print_order",
+          "type": "z.array(z.number().int().min(1)).optional()",
+          "optional": true,
+          "array": true,
+          "doc": "Pages whose text stream drew the outline's first heading after the"
         }
       ],
       "extendsNames": [],
@@ -72050,6 +72434,20 @@
           "optional": true,
           "array": false,
           "doc": "WHICH SOFTWARE produced the text, cited by digest: the"
+        },
+        {
+          "name": "ocr_pages",
+          "type": "z .array(z.object({ page: z.number().int().min(1), reason: z.string().min(1) }).strict()) .optional()",
+          "optional": true,
+          "array": true,
+          "doc": "Pages whose embedded text layer failed `scripts/_text_quality.py` and"
+        },
+        {
+          "name": "languages",
+          "type": "z.array(z.string().regex(/^[a-z]{2,3}(-[A-Za-z0-9]{1,8})*$/)).min(1).optional()",
+          "optional": true,
+          "array": true,
+          "doc": "The document's languages as the ingest was told them (`--lang-hint`,"
         }
       ],
       "extendsNames": [],
@@ -75023,6 +75421,135 @@
       "exported": true
     },
     {
+      "id": "cat-harness-tools/schemas/ui/web-app.ts#InnerPath",
+      "name": "InnerPath",
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "kind": "zod-scalar",
+      "doc": "A path inside the app's directory: relative, never climbing out.",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": false
+    },
+    {
+      "id": "cat-harness-tools/schemas/ui/web-app.ts#Text",
+      "name": "Text",
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "kind": "zod-scalar",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": false
+    },
+    {
+      "id": "cat-harness-tools/schemas/ui/web-app.ts#WebApp",
+      "name": "WebApp",
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/ui/web-app.ts#WebAppBuildSchema",
+      "name": "WebAppBuildSchema",
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "installer",
+          "type": "z.enum(INSTALLERS).default(\"npm\")",
+          "optional": true,
+          "array": false,
+          "doc": "Which installer reads the lockfile: `npm ci` or `bun install --frozen-lockfile`."
+        },
+        {
+          "name": "script",
+          "type": "z.string().regex(/^[a-z0-9:_-]+$/).default(\"build\")",
+          "optional": true,
+          "array": false,
+          "doc": "The `package.json` script that builds it."
+        },
+        {
+          "name": "outDir",
+          "type": "InnerPath.default(\"dist\")",
+          "optional": true,
+          "array": false,
+          "doc": "Where the build writes, relative to the app's directory."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/ui/web-app.ts#InnerPath"
+      ],
+      "unresolved": [],
+      "external": [
+        "INSTALLERS",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/ui/web-app.ts#WebAppId",
+      "name": "WebAppId",
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "kind": "zod-scalar",
+      "doc": "An app id: lower-case kebab, so it is a route segment as it stands.",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/ui/web-app.ts#WebAppKind",
+      "name": "WebAppKind",
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "kind": "zod-object",
+      "doc": "`web-app/0.1.0`, as a node kind.",
+      "fields": [],
+      "extendsNames": [
+        "nodeKind"
+      ],
+      "values": [],
+      "refs": [],
+      "unresolved": [
+        "nodeKind"
+      ],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/ui/web-app.ts#WebAppSchema",
+      "name": "WebAppSchema",
+      "module": "cat-harness-tools/schemas/ui/web-app.ts",
+      "kind": "zod-object",
+      "fields": [],
+      "extendsNames": [
+        "WebAppKind"
+      ],
+      "values": [],
+      "refs": [
+        "cat-harness-tools/schemas/ui/web-app.ts#WebAppKind"
+      ],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
       "id": "cat-harness-tools/schemas/ui/webpage.ts#WebPage",
       "name": "WebPage",
       "module": "cat-harness-tools/schemas/ui/webpage.ts",
@@ -75340,7 +75867,7 @@
       "name": "StagingLinks",
       "module": "cat-harness/schemas/staging-comparison.schema.json",
       "kind": "json-schema",
-      "doc": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is sdlc/skills/sdlc-core/staging-review.md §\"The deep-link rule\". Copied inline as `definitions.stagingLinks` into every skill contract that carries it; ",
+      "doc": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is skills/authoring/content-lifecycle/feedback-deep-links.md. Copied inline as `definitions.stagingLinks` into every skill contract that carries it; sche",
       "fields": [
         {
           "name": "branch",
@@ -77054,6 +77581,270 @@
       "exported": true
     },
     {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatement",
+      "name": "ExtractedStatement",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatements",
+      "name": "ExtractedStatements",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatementSchema",
+      "name": "ExtractedStatementSchema",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "id",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false,
+          "doc": "Stable within the list; the anchor the statement's row is published under."
+        },
+        {
+          "name": "statement",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false,
+          "doc": "The statement as captured, verbatim. Never paraphrased here."
+        },
+        {
+          "name": "kind",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The kind the extraction gave it: recommendation, requirement, candidate, …"
+        },
+        {
+          "name": "status",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "Its review state, as the extraction records it: published as is."
+        },
+        {
+          "name": "derivedFrom",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The id of the statement this one was derived from, when it was: a"
+        },
+        {
+          "name": "source",
+          "type": "StatementSourceSchema",
+          "optional": false,
+          "array": false
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "folio-assistant-core/schemas/extracted-statement.ts#StatementSourceSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatementsSchema",
+      "name": "ExtractedStatementsSchema",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "_schema",
+          "type": "z.literal(EXTRACTED_STATEMENTS_SCHEMA_ID)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "title",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "What the list is, in a reader's words: a heading for its part of the page."
+        },
+        {
+          "name": "statements",
+          "type": "z.array(ExtractedStatementSchema)",
+          "optional": false,
+          "array": true
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatementSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "EXTRACTED_STATEMENTS_SCHEMA_ID",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#StatementPage",
+      "name": "StatementPage",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#StatementPageSchema",
+      "name": "StatementPageSchema",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "zod-object",
+      "doc": "One generated page, declared in a committed file rather than on a command",
+      "fields": [
+        {
+          "name": "_schema",
+          "type": "z.literal(STATEMENT_PAGE_SCHEMA_ID)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "statements",
+          "type": "z.array(z.string().min(1)).min(1)",
+          "optional": false,
+          "array": true,
+          "doc": "The statement lists, in the order their parts appear."
+        },
+        {
+          "name": "out",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false,
+          "doc": "The page to write."
+        },
+        {
+          "name": "title",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "intro",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false
+        },
+        {
+          "name": "entryBase",
+          "type": "z.string().url()",
+          "optional": false,
+          "array": false,
+          "doc": "URL prefix of the library viewer: an entry's link is `<entryBase>/<libraryId>/`."
+        },
+        {
+          "name": "sectionBase",
+          "type": "z.string().url()",
+          "optional": false,
+          "array": false,
+          "doc": "URL prefix of the sources: a section's link is `<sectionBase>/<repo-relative section file>`."
+        },
+        {
+          "name": "tableAttr",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The content type's look, written after each table (for example a kramdown class)."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "STATEMENT_PAGE_SCHEMA_ID",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#StatementSource",
+      "name": "StatementSource",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/extracted-statement.ts#StatementSourceSchema",
+      "name": "StatementSourceSchema",
+      "module": "folio-assistant-core/schemas/extracted-statement.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "instance",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The DECLARED NAME of the layer holding the library; absent means this layer."
+        },
+        {
+          "name": "libraryId",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false,
+          "doc": "The library entry: `library/<libraryId>/`."
+        },
+        {
+          "name": "sectionId",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The section the statement was read from, when the extraction knows it."
+        },
+        {
+          "name": "page",
+          "type": "z.number().int().positive().optional()",
+          "optional": true,
+          "array": false,
+          "doc": "The page (or slide) the statement was read from, in the source's own numbering."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
       "id": "folio-assistant-core/schemas/figure-data.ts#Cell",
       "name": "Cell",
       "module": "folio-assistant-core/schemas/figure-data.ts",
@@ -78585,7 +79376,7 @@
         },
         {
           "name": "subgraph",
-          "type": "z .object({ /** Instance-relative, as the substrate's own subgraph tree names it: `skills/sdlc`. */ path: RelPathSchema…",
+          "type": "z .object({ /** Layer-relative, as the substrate's own subgraph tree names it: `skills/sdlc`. */ path: RelPathSchema, /…",
           "optional": false,
           "array": false
         },
@@ -78740,14 +79531,14 @@
       "name": "LibraryRef",
       "module": "folio-assistant-core/schemas/library-ref.ts",
       "kind": "interface",
-      "doc": "A citation into L1 content. `instance` absent means *this* instance.",
+      "doc": "A citation into L1 content. `instance` absent means *this* layer.",
       "fields": [
         {
           "name": "instance",
           "type": "string",
           "optional": true,
           "array": false,
-          "doc": "The DECLARED NAME of the instance holding the corpus — not a path."
+          "doc": "The DECLARED NAME of the layer holding the corpus — not a path."
         },
         {
           "name": "libraryId",
@@ -79095,7 +79886,7 @@
           "type": "z.string().min(1).optional()",
           "optional": true,
           "array": false,
-          "doc": "Where the bytes landed, instance-relative. Present iff `materialized`."
+          "doc": "Where the bytes landed, layer-relative. Present iff `materialized`."
         },
         {
           "name": "bytes",
@@ -80034,6 +80825,140 @@
       "exported": true
     },
     {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ReviewLog",
+      "name": "ReviewLog",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ReviewLogColumnRole",
+      "name": "ReviewLogColumnRole",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ReviewLogColumnSchema",
+      "name": "ReviewLogColumnSchema",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "header",
+          "type": "z.string()",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "role",
+          "type": "z.enum(REVIEW_LOG_COLUMN_ROLES).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "Absent when the header carries no role colour."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "REVIEW_LOG_COLUMN_ROLES",
+        "z"
+      ],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ReviewLogKind",
+      "name": "ReviewLogKind",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "zod-object",
+      "doc": "One review log (a Google Sheet) of the document, as a NODE beside its",
+      "fields": [],
+      "extendsNames": [
+        "nodeKind"
+      ],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "nodeKind"
+      ],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ReviewLogSchema",
+      "name": "ReviewLogSchema",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "zod-object",
+      "fields": [],
+      "extendsNames": [
+        "ReviewLogKind"
+      ],
+      "values": [],
+      "refs": [
+        "folio-assistant-core/schemas/public-comment.ts#ReviewLogKind"
+      ],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/public-comment.ts#ReviewLogTabSchema",
+      "name": "ReviewLogTabSchema",
+      "module": "folio-assistant-core/schemas/public-comment.ts",
+      "kind": "zod-object",
+      "fields": [
+        {
+          "name": "name",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "headerRow",
+          "type": "z.number().int().positive()",
+          "optional": false,
+          "array": false,
+          "doc": "1-based row of the column headers (a tab may open with an instructions row)."
+        },
+        {
+          "name": "rows",
+          "type": "z.number().int().nonnegative()",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "columns",
+          "type": "z.array(ReviewLogColumnSchema)",
+          "optional": false,
+          "array": true
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [
+        "folio-assistant-core/schemas/public-comment.ts#ReviewLogColumnSchema"
+      ],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
+      "exported": true
+    },
+    {
       "id": "folio-assistant-core/schemas/public-comment.ts#SourceSchema",
       "name": "SourceSchema",
       "module": "folio-assistant-core/schemas/public-comment.ts",
@@ -80465,6 +81390,13 @@
           "optional": true,
           "array": false,
           "doc": "The entry exactly as the citing document prints it, when no citation"
+        },
+        {
+          "name": "sources",
+          "type": "z.array(ReferenceSourceSchema).optional()",
+          "optional": true,
+          "array": true,
+          "doc": "Every place the work can be read, beyond `URL`: alternates, mirrors, repository records. Not CSL."
         }
       ],
       "extendsNames": [],
@@ -80473,7 +81405,8 @@
         "folio-assistant-core/schemas/reference.ts#CslDateSchema",
         "folio-assistant-core/schemas/reference.ts#CslNameSchema",
         "folio-assistant-core/schemas/reference.ts#ReferenceKeySchema",
-        "folio-assistant-core/schemas/reference.ts#ReferenceProvenanceSchema"
+        "folio-assistant-core/schemas/reference.ts#ReferenceProvenanceSchema",
+        "folio-assistant-core/schemas/reference.ts#ReferenceSourceSchema"
       ],
       "unresolved": [],
       "external": [
@@ -80511,6 +81444,56 @@
       "refs": [],
       "unresolved": [],
       "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/reference.ts#ReferenceSource",
+      "name": "ReferenceSource",
+      "module": "folio-assistant-core/schemas/reference.ts",
+      "kind": "type-alias",
+      "fields": [],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "folio-assistant-core/schemas/reference.ts#ReferenceSourceSchema",
+      "name": "ReferenceSourceSchema",
+      "module": "folio-assistant-core/schemas/reference.ts",
+      "kind": "zod-object",
+      "doc": "One place a work can be read: its publisher's page, a repository record",
+      "fields": [
+        {
+          "name": "url",
+          "type": "z.string().min(1)",
+          "optional": false,
+          "array": false
+        },
+        {
+          "name": "label",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "What a reader sees for the link."
+        },
+        {
+          "name": "kind",
+          "type": "z.string().min(1).optional()",
+          "optional": true,
+          "array": false,
+          "doc": "What kind of place it is: `canonical`, `repository`, `pinned`, `handle`, `doi`, `arxiv`, `mirror`."
+        }
+      ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [
+        "z"
+      ],
       "exported": true
     },
     {
@@ -83532,6 +84515,46 @@
       "kind": "field",
       "optional": false,
       "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/content/document-errata.ts#DocumentErrataSchema",
+      "to": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema",
+      "via": "errata",
+      "kind": "field",
+      "optional": false,
+      "array": true
+    },
+    {
+      "from": "cat-harness-tools/schemas/content/document-errata.ts#ErratumSchema",
+      "to": "cat-harness-tools/schemas/content/narrative.ts#NarrativeSlotSchema",
+      "via": "narrative",
+      "kind": "field",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/content/document-footnotes.ts#DocumentFootnotesSchema",
+      "to": "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteSchema",
+      "via": "footnotes",
+      "kind": "field",
+      "optional": false,
+      "array": true
+    },
+    {
+      "from": "cat-harness-tools/schemas/content/document-footnotes.ts#DocumentFootnotesSchema",
+      "to": "cat-harness-tools/schemas/content/document-footnotes.ts#UncalledNoteSchema",
+      "via": "uncalled_notes",
+      "kind": "field",
+      "optional": false,
+      "array": true
+    },
+    {
+      "from": "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteSchema",
+      "to": "cat-harness-tools/schemas/content/document-footnotes.ts#FootnoteCallSchema",
+      "via": "marks",
+      "kind": "field",
+      "optional": false,
+      "array": true
     },
     {
       "from": "cat-harness-tools/schemas/content/document-image.ts#DocumentImageSchema",
@@ -90143,6 +91166,14 @@
     },
     {
       "from": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema",
+      "to": "cat-harness-tools/schemas/process/user-scenario.ts#JourneyGlyphSchema",
+      "via": "tagRows",
+      "kind": "field",
+      "optional": true,
+      "array": true
+    },
+    {
+      "from": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema",
       "to": "cat-harness-tools/schemas/process/workshop.ts#Id",
       "via": "cast",
       "kind": "field",
@@ -90164,6 +91195,14 @@
       "kind": "field",
       "optional": true,
       "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema",
+      "to": "cat-harness-tools/schemas/process/workshop.ts#Id",
+      "via": "tagRows",
+      "kind": "field",
+      "optional": true,
+      "array": true
     },
     {
       "from": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema",
@@ -90300,6 +91339,14 @@
       "kind": "field",
       "optional": true,
       "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema",
+      "to": "cat-harness-tools/schemas/process/workshop.ts#Text",
+      "via": "tagRows",
+      "kind": "field",
+      "optional": true,
+      "array": true
     },
     {
       "from": "cat-harness-tools/schemas/process/workshop.ts#WorkshopPresentationSchema",
@@ -94278,6 +95325,22 @@
       "array": false
     },
     {
+      "from": "cat-harness-tools/schemas/ui/web-app.ts#WebAppBuildSchema",
+      "to": "cat-harness-tools/schemas/ui/web-app.ts#InnerPath",
+      "via": "outDir",
+      "kind": "field",
+      "optional": true,
+      "array": false
+    },
+    {
+      "from": "cat-harness-tools/schemas/ui/web-app.ts#WebAppSchema",
+      "to": "cat-harness-tools/schemas/ui/web-app.ts#WebAppKind",
+      "via": "",
+      "kind": "extends",
+      "optional": false,
+      "array": false
+    },
+    {
       "from": "cat-harness-tools/schemas/ui/webpage.ts#WebPage",
       "to": "cat-harness-tools/schemas/ui/webpage.ts#WebPageNode",
       "via": "nodes",
@@ -94449,6 +95512,22 @@
       "from": "folio-assistant-core/schemas/dublin-core.ts#DublinCoreRecordSchema",
       "to": "folio-assistant-core/schemas/dublin-core.ts#DcFieldSchema",
       "via": "fields",
+      "kind": "field",
+      "optional": false,
+      "array": true
+    },
+    {
+      "from": "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatementSchema",
+      "to": "folio-assistant-core/schemas/extracted-statement.ts#StatementSourceSchema",
+      "via": "source",
+      "kind": "field",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatementsSchema",
+      "to": "folio-assistant-core/schemas/extracted-statement.ts#ExtractedStatementSchema",
+      "via": "statements",
       "kind": "field",
       "optional": false,
       "array": true
@@ -95014,6 +96093,22 @@
       "array": false
     },
     {
+      "from": "folio-assistant-core/schemas/public-comment.ts#ReviewLogSchema",
+      "to": "folio-assistant-core/schemas/public-comment.ts#ReviewLogKind",
+      "via": "",
+      "kind": "extends",
+      "optional": false,
+      "array": false
+    },
+    {
+      "from": "folio-assistant-core/schemas/public-comment.ts#ReviewLogTabSchema",
+      "to": "folio-assistant-core/schemas/public-comment.ts#ReviewLogColumnSchema",
+      "via": "columns",
+      "kind": "field",
+      "optional": false,
+      "array": true
+    },
+    {
       "from": "folio-assistant-core/schemas/public-comment.ts#TransitionInput",
       "to": "folio-assistant-core/schemas/public-comment.ts#Anchor",
       "via": "anchor",
@@ -95092,6 +96187,14 @@
       "kind": "field",
       "optional": true,
       "array": false
+    },
+    {
+      "from": "folio-assistant-core/schemas/reference.ts#ReferenceNodeSchema",
+      "to": "folio-assistant-core/schemas/reference.ts#ReferenceSourceSchema",
+      "via": "sources",
+      "kind": "field",
+      "optional": true,
+      "array": true
     },
     {
       "from": "folio-assistant-core/schemas/reference.ts#StandaloneReferenceInput",
@@ -95235,6 +96338,15 @@
       "id": "archimate-model/v1",
       "source": "family",
       "decl": "cat-harness-tools/archimate/schemas/archimate.ts#ArchimateModelSchema",
+      "instance": "cat-harness-tools",
+      "typologies": [
+        "archimate"
+      ]
+    },
+    {
+      "id": "archimate-relationship-rules/v1",
+      "source": "family",
+      "decl": "cat-harness-tools/archimate/schemas/rules.ts#RelationshipRulesSchema",
       "instance": "cat-harness-tools",
       "typologies": [
         "archimate"
@@ -96282,6 +97394,19 @@
       "note": "no validator is named for it, so no schema defines it"
     },
     {
+      "id": "review-log",
+      "source": "node-kind",
+      "instance": "folio-assistant-core",
+      "decl": "folio-assistant-core/schemas/public-comment.ts#ReviewLogKind",
+      "tag": "review-log/1.0.0",
+      "parents": [],
+      "subclasses": [],
+      "typologies": [
+        "public-comments"
+      ],
+      "page": "en/folio-assistant-core/review-log/"
+    },
+    {
       "id": "review-verdicts",
       "source": "typology",
       "decl": "folio-assistant-core/schemas/review-verdict.ts#ReviewVerdictSchema",
@@ -96539,6 +97664,14 @@
       "typologies": [
         "waiver"
       ]
+    },
+    {
+      "id": "web-app/0.1.0",
+      "source": "family",
+      "typologies": [
+        "web-app"
+      ],
+      "note": "no validator is named for it, so no schema defines it"
     },
     {
       "id": "work-plan",

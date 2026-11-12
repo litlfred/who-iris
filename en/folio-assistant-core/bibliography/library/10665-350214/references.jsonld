@@ -1,0 +1,614 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-350214",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Comprehensive package of care for infants and young children exposed to HIV: policy brief",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2021-12-09",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240040236 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/350214",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-350214.dc.json",
+      "dcterms:hasVersion": "library/10665-350214"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://aidsinfo.unaids.org",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/342899",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/250796",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/336323",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1995",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1995",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://aidsinfo.unaids.org",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/340190",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md",
+      "dcterms:hasVersion": "library/10665-340190"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/246260",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/273155",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md",
+      "dcterms:hasVersion": "library/10665-273155"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/43557",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42021215059",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://academicmedicaleducation.com/meeting/international-workshop-hiv-pediatrics-2021/slide-set/co-trimoxazole-prophylaxis-children",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/331306",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    },
+    {
+      "@id": "references/10665-350214.sec-070.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/332904",
+      "dcterms:source": "library/10665-350214/sections/sec-070-references.md"
+    }
+  ]
+}

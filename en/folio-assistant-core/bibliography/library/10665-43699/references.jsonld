@@ -1,0 +1,727 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-43699",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "WHO case definitions of HIV for surveillance and revised clinical staging and immunological classification of HIV-related disease in adults and children",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2007-12-31",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789241595629",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/43699",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-43699.dc.json",
+      "dcterms:hasVersion": "library/10665-43699"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1986",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1986",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1988",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1987",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1988",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1988",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1994",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1993",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1994",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1993",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1992",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1989",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1850",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1992",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1990",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1994",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1886",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1992",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1993",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1992",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.64",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.65",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.66",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.67",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.68",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.69",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.70",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.71",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.72",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.73",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.74",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.75",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.76",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1996",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-43699.sec-012.77",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1995",
+      "dcterms:source": "library/10665-43699/sections/sec-012-references.md"
+    }
+  ]
+}

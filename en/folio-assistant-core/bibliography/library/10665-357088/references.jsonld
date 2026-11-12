@@ -1,0 +1,849 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-357088",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Guidelines for diagnosing, preventing and managing cryptococcal disease among adults, adolescents and children living with HIV",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2022-06-23",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240052178 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/357088",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This guideline provides updated, evidence-informed recommendations for diagnosing, preventing and managing cryptococcal disease among adults, adolescents and children living with HIV. Developed in accordance with WHO Guideline Review Committee procedures, it replaces the 2018 guidance and incorporates important new evidence published in 2021 on the preferred antifungal induction regimen for cryptococcal meningitis. The recommendations are based on systematic reviews using the GRADE approach and are supported by considerations of acceptability, values and preferences, feasibility and cost–effectiveness. The document addresses cryptococcal disease as a major opportunistic infection contributing substantially to HIV-related illness, disability and mortality, particularly in low- and middle-income countries, and identifies priority knowledge gaps to inform future research.\n\nThe guideline recommends updated approaches to the diagnosis, prevention and treatment of cryptococcal disease, including revised guidance on induction therapy for cryptococcal meningitis, while maintaining earlier recommendations where evidence remains unchanged. It also outlines principles for implementation within a public health approach and is intended to support HIV programme managers, policy-makers, health-care professionals and people living with HIV in improving the prevention, early diagnosis and clinical management of cryptococcal disease.",
+      "dcterms:source": "catalogue/records/10665-357088.dc.json",
+      "dcterms:hasVersion": "library/10665-357088"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/255884",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1995",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1996",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789241550277",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/345533",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://msfaccess.org/liposomal-amphotericin-b-solving-access-puzzle",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.hiv-druginteractions.org/prescribing-resources",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://eacs.sanfordguide.com/ois/cryptococcosis",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1991",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1992",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.64",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.65",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.66",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.67",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.68",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.69",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.70",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.71",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.72",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://www.gaffi.org/antifungal-drug-maps",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.73",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.74",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.75",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/342899",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-033.76",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.unaids.org/en/global-aids-monitoring",
+      "dcterms:source": "library/10665-357088/sections/sec-033-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-035.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-357088/sections/sec-035-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-035.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-357088/sections/sec-035-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-035.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://msfaccess.org/liposomal-amphotericin-b-solving-access-puzzle",
+      "dcterms:source": "library/10665-357088/sections/sec-035-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/260400",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://rsc.niaid.nih.gov/clinical-research-sites/daids-adverse-event-grading-tables",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.covidence.org",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    },
+    {
+      "@id": "references/10665-357088.sec-047.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-357088/sections/sec-047-references.md"
+    }
+  ]
+}

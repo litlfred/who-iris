@@ -43,122 +43,11 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <!--
-  The configured colour scheme, published for site-chrome/assets/js/docs-ui.js.
-
-  just-the-docs' first stylesheet is `just-the-docs-default.css`, which is
-  whatever `color_scheme` in _config.yml compiled to -- so `jtd.getTheme()`
-  returns the string "default" on a fresh load, never "dark". The scheme
-  toggle needs to know what "default" MEANS here, and reading it from the
-  config is the one way that does not go stale when the config changes.
-
-  FIRST in this file since 2026-09-24, because the first-paint snippet below
-  reads it too, and a script can only read what the parser has already seen.
--->
-<script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script>
-<!--
-  THE FIRST PAINT IS DARK — owner, 2026-09-24: *"when any
-  page/foio-asst/cat-harness first loads if flashes white before goignt o
-  dark mode. instead it should deafult dark mode then turn to light mode to
-  prevent light flash in dark."*
-
-  WHY IT FLASHED. The site is configured dark, so the theme's first
-  stylesheet already paints dark. But `docs-ui.js` is deferred, and on load
-  it applied a STORED choice with `jtd.setTheme(name)`, which swaps that
-  stylesheet's href -- to the dark file, when the default file already was
-  dark. The swap unloads the sheet that was painting the ground, and until
-  the new one arrives the browser's WHITE canvas shows. Every reader who had
-  ever pressed the light/dark control got that on every page. And nothing
-  painted `html` at all, so any moment without the theme's sheet was white.
-
-  So, FIRST THING in this include, before every stylesheet it emits:
-
-  1. decide the scheme -- the reader's stored choice (`fa-color-scheme`, the
-     key `docs-ui.js` writes), else the OS, else LIGHT -- and put it on
-     `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
-     it ever paints the wrong way first;
-  2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. `jtd.setTheme` loads the new
-     file beside the old, render-blocking, and drops the old one once it
-     has loaded (cat-harness#820): never a frame with no theme sheet;
-  3. paint `html` itself, dark unless the scheme is light, so a sheet in
-     flight shows the page's ground rather than white.
-
-  The theme's own stylesheet link is ABOVE this include (just-the-docs emits
-  `head_custom.html` last in its head), which is why step 2 exists: there is
-  no hook before it, and none is needed -- nothing paints until the head is
-  parsed, and this runs while it is being parsed.
-
-  INLINE, which the rest of this file avoids so that no `script-src`
-  relaxation is ever needed. This is the one exception, and it is the only
-  way to run before first paint: a `src` script here is a network round-trip
-  on the critical path of every page. It interpolates nothing into markup,
-  and a CSP added later needs this block's hash.
-
-  ELSE LIGHT -- owner, 2026-10-15, "follow os else light". The declared
-  `color_scheme` only names the sheet shipped first. The ONE source: tools'
-  `scheme-css.ts` lifts this script; `docs-ui.js` reads its attribute.
-
-  NO LIQUID between the markers. `first-paint-scheme.e2e.ts` lifts these
-  exact bytes into a replica page, so the spec tests what ships.
-
-  The generated dashboards that write their OWN head (`state-visualizer.ts`,
-  `gen-translation-status.ts`) do not carry this. They switch nothing with
-  script, so they cannot flash: their first CSS paints dark, and the same spec
-  holds them to that. Giving them this snippet would switch ON their
-  `data-fa-scheme="light"` rules for the first time -- and those were never
-  finished (axe, 2026-09-24: 3 to 6 contrast failures per dashboard in light,
-  dark-scheme tag colours on a light ground). A light palette for them is its
-  own piece of work, not a side effect of this one.
--->
-<!-- fa-first-paint:begin -->
+  <script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script><!-- fa-first-paint:begin -->
 <script>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
 <style>html{background-color:#27262b}html[data-fa-scheme="light"]{background-color:#ffffff}</style>
-<!-- fa-first-paint:end -->
-<!-- PROSE HERE IS NOT FREE: these are HTML comments, so every byte ships on
-     every page (2356 of them). A comment in this file is a POINTER; the
-     reasoning goes in the artefact. Measured, with the cost this change paid
-     before measuring, in assets/harness/site.json's front matter. -->
-<!-- THE RENDER STATE. pending here; ready/failed from assets/js/kg-render.js,
-     which carries the contract. No attribute = no dynamic region on this page.
-     The number is a MINIMUM cross-checking registrations, not a count. -->
-<meta name="fa-render-regions" content="1">
-<script>document.documentElement.setAttribute("data-fa-render","pending");</script>
-<!--
-  The browser-tab icon, from the same declared mark the sidebar title
-  (`title.html`) renders — reused rather than looked up by its own
-  `browser-icon` role. There WAS a second role for exactly that, on
-  `mark-small` in `harness.json`, and it went unread: nothing in this
-  repo ever emitted a favicon at all, `rel="icon"` included. It also could
-  not have driven this lookup as declared — `imagesForRole()`
-  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
-  mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
-  the already-resolved `icon` (the same field `title.html` reads) sidesteps
-  that and, more importantly, is what was asked for: the sidebar mark and the
-  tab icon are meant to be the SAME glyph, so one declaration driving both is
-  correct, not just convenient — flip `icon` in `harness.json` and both
-  follow in one edit, no template change needed.
-
-  SVG-only. No PNG/ICO fallback exists in the repo and none is generated
-  here — every browser this matters for (evergreen Chrome/Firefox/Edge, and
-  Safari since 16) reads `type="image/svg+xml"` directly; a raster fallback
-  would need generating actual image files, which is out of scope for this
-  change.
-
-  `relative_url`, same as `title.html` and `landing.html` — a bare
-  `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
-  for.
---><!--
-  Site-wide styling for the BPMN workflow figures.
-
-  just-the-docs pulls this file into <head> on every page. The diagrams are wide
-  (a swimlane process does not shrink well), so the figure scrolls horizontally
-  inside its own container rather than forcing the page body to scroll.
-
-  The SVGs carry their own white backdrop — see scripts/render-bpmn.ts — so they
-  stay legible under the dark colour scheme even if this stylesheet is missing.
--->
-<style>
+<!-- fa-first-paint:end --><meta name="fa-render-regions" content="1">
+<script>document.documentElement.setAttribute("data-fa-render","pending");</script><style>
   .bpmn-figure {
     overflow-x: auto;
     background: #fff;
@@ -176,85 +65,7 @@
     margin-top: 0;
     font-size: 0.75rem;
   }
-</style>
-
-<!--
-  Site UI: a QR of the current page in the sidebar header, and zoom /
-  full-width controls on the figures.
-
-  Loaded as same-origin files with no inline script, so no script-src
-  relaxation is needed. The QR is generated in the browser from
-  window.location.href rather than baked per page at build time, so it is
-  right for anchors, query strings, and both the directory and .html forms of
-  the same page. The UTF-8 shim must come after the encoder: without it the
-  encoder's stringToBytes is single-byte and a non-ASCII character in a URL
-  silently encodes to mojibake.
--->
-<!--
-  The TRANSLATION INDEX — which source page has a translation in which locale.
-
-  `mountNavLocale` in docs-ui.js reads this to decide what the left-hand navbar
-  shows: with the source language selected it does nothing, and with `fr`
-  selected it swaps each nav item that HAS a French page for that page, IN
-  PLACE OF the English one. An item with no translation is left exactly as it
-  is — that is the fallback, and it is the absence of a rewrite rather than a
-  code path of its own.
-
-  Generated into `docs/_data/translations.json` by
-  `content/pipeline/translation-index.ts`, from what each page DECLARES about
-  itself: `lang`, and `translation_source` naming the page it expresses. NOT
-  from a scan for directories whose names look like language subtags — see
-  that module's header for why that inference is wrong in both directions.
-
-  THREE STATES, and the third is the reason this is a JSON island rather than
-  a conditional. (The tag name is written inside {% raw %}
-  below because LIQUID PARSES TAGS INSIDE AN HTML COMMENT — the comment
-  wrapper means nothing to it — so naming a tag in prose is a syntax error at
-  build time, and the message points at the THEME's head.html because Liquid
-  attributes an include's line to the includer. This comment cost one red
-  deploy.
-
-  AND THEN IT COST A SECOND ONE, differently, which is why this paragraph now
-  describes the wrapper rather than spelling it. It used to SPELL both halves
-  as an example — and the closing half ENDED THIS COMMENT eighteen lines
-  early, so every line below it rendered as visible body text at the top of
-  EVERY PAGE on the site. Reported by the owner from the staging URL,
-  2026-09-19.
-
-  The asymmetry is the lesson: a Liquid tag has an escape, and the closing
-  comment delimiter has NONE. There is no way to write those three characters
-  inside a comment and have the comment survive them, because the parser is
-  not looking for an escape — it stops at the first match. So the rule is not
-  "escape it carefully", it is DO NOT WRITE IT: describe it, or name it one
-  character at a time. Guarded by
-  scripts/tests/html-comment-delimiters.test.ts, which fails on an opening
-  delimiter appearing inside an open comment — the one machine-detectable
-  signature of somebody trying.)
-  A {% if %} would have to choose between the second and
-  third rows below, and there is no expression that can:
-
-    1. the data file is there      -> `index` is an object; filter the nav.
-    2. it is there and EMPTY       -> `pages` is `{}`; there is nothing to
-                                      swap, so every item correctly falls back
-                                      to the source language.
-    3. the data file is ABSENT     -> `jsonify` emits `null`, and docs-ui.js
-                                      leaves the navbar EXACTLY as built.
-
-  A build that could not determine the translation set must never render as a
-  folio that has no translations. `null` is how that is said.
-
-  `baseurl` travels with it because the client has no other way to strip the
-  site prefix off a nav `href` before matching it.
--->
-<!-- MOVED 2026-10-02 to assets/harness/site.json: fetched once instead of
-     inlined 2356x (9482 B/page, 22.34 MB, ONE payload). The three states above
-     are unchanged; a fourth — the file is unreachable — is data-fa-render. -->
-<!--
-  Translation metadata for this page, consumed by docs-ui.js to auto-render
-  language coverage and QA badges. The translation pipeline stamps front matter;
-  this block publishes it to the client. No manual editing needed.
--->
-<script type="application/json" id="fa-translation-meta">{
+</style><script type="application/json" id="fa-translation-meta">{
   "lang": "en",
   "translationStatus": "",
   "translationSource": "",
@@ -276,400 +87,15 @@
     "complete": false
   },
   "statusSrc":"../../../../assets/translation-status/index.json"
-}</script>
-<!--
-  Where the action tiles point.
+}</script><script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script><meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../../assets/todos/index.json"><meta name="fa-todo-graph" content="../../../../todos.jsonld"><meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json"><meta name="fa-tiles" content="" data-fa-src="harness-data">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
-  RESOLVED, not composed. `scripts/sync-docs-harness.ts` writes
-  `docs/_data/harness.json` from the instance's own `cat-harness.json`,
-  through `siteLinks` in `scripts/site-links.ts` -- which computes every path
-  with `artefactStub` and `renderingPath`, the same functions the knowledge
-  graph exporter and the Pages workflow use. The tile therefore cannot
-  disagree with what is published.
-
-  This block previously wrote `../../../../kg/` by hand. Nothing
-  has ever been published at `<base>/kg/` -- the renderings sit at the base,
-  named after the stub -- so the only entry point to the viewer anywhere on
-  this site was a 404 from the day it was added. See bean `udx8`, and the
-  identical defect AGENTS.md records against the README's chapter PDFs. A
-  path built by convention is a claim; `bun run cat site:links --site _site`
-  checks it against the tree that actually ships, and the Pages workflow runs
-  that check after the export.
-
-  `path` is site-ROOT-relative and gets `relative_url`, which is what makes it
-  right under this site's `/folio-assistant/` baseurl. `url` is off-site and
-  is printed as-is. `source` is no longer taken from `aux_links`: those were
-  removed so the forge link stops appearing as text at the top of the main
-  panel (the owner asked for it as an icon, not a header), and the URL is
-  resolved from the git remote instead of written down twice.
--->
-<!--
-  THE NAVBAR ICON ROW — which icons this instance shows, and where each goes.
-
-  `null` when the instance has not decided, and that is NOT the same as an
-  empty list: `navbarIcons` absent means "inherit, and nothing up the chain has
-  said either", while `[]` means the instance chose to show none. docs-ui.js
-  reads the two apart, and `jsonify` emits `null` for the first exactly as the
-  translations block above relies on.
-
-  Resolved in `sync-docs-harness.ts`: the icon list walks `needs` with the site
-  owner as the floor, and the hrefs come from this instance's own declared
-  visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
-  or in JavaScript.
--->
-<!--
-  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
-  The row is the same on every page of a build, so it is written once into a
-  cached file instead of into each page. `data-fa-row-src` is the contract the
-  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
-  the name once it has filled the island, and a reader that finds it still
-  named and empty reports a failed load rather than "declared none".
--->
-<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
-     moving it, in assets/harness/site.json's front matter. -->
-<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
-
-<!--
-  The todo index — a PERSON's outstanding items, published by
-  `scripts/gen-docs-pages.ts` to `/assets/todos/index.json`.
-
-  `relative_url` for the same reason every other path here uses it: the site is
-  served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
-  404s on every deploy but one.
-
-  A URL rather than inline JSON, unlike `fa-site-links` above, because the
-  index grows with the todo corpus and inlining it would put the whole set into
-  every page's <head> whether the reader opens the board or not. A missing file
-  is reported by the fetch and the board is simply not mounted — a board that
-  opens empty is indistinguishable from a person with nothing outstanding, and
-  those are opposite facts.
-
-  `<meta>` and not a `<div>`: this is `<head>`, where flow content is not
-  permitted. A browser hoists a stray `<div>` into `<body>` and the code still
-  works, which is exactly what makes the mistake survive review.
--->
-<!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
-     page has one and falls back to this. Rationale and measurement are in that
-     file's front matter, which is not served. -->
-<meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
-<meta name="fa-todo-src" content="../../../../assets/todos/index.json">
-<!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
-     filters and groups by, and each todo's own page. -->
-<meta name="fa-todo-graph" content="../../../../todos.jsonld">
-
-<!--
-  THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
-  becomes its avatar.
-
-  R2 of issue #602: *"The threshold SHALL be declared data, not a literal in
-  the renderer."* `gen-docs-pages.ts` publishes the folio's own
-  `semantic-zoom.json`, and publishes NOTHING when the folio has not declared
-  one. So this `<meta>` may point at a 404, and that is a real state rather
-  than a defect: `docs-ui.js` reports it could not determine a threshold and
-  leaves every card's words in place. A default in either file would be the
-  literal R2 forbids, one layer further from where anybody looks for it.
-
-  The pointer is emitted UNCONDITIONALLY because Liquid cannot see whether the
-  generator wrote the file, and a conditional that guessed would make "this
-  folio declares no threshold" and "the build did not run" the same page.
--->
-<meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json">
-
-<!--
-  THE DECLARED VISUALISATIONS, as tiles.
-
-  Owner, 2026-09-20: *"if harness declares visaluzers, those should have tile"*
-  — so the tile set is the `coverage.visualiser` obligation made reachable, not
-  a second registry. `graph-tiles.ts` derives it into `_data/harness.json`;
-  this hands it to `docs-ui.js` for BOTH surfaces, because a tile is declared
-  once and says where it shows.
-
-  INLINE rather than a second fetch, unlike the todo index above, and the two
-  are different for a reason worth stating: that index grows with the todo
-  corpus, while this one is bounded by the number of directories an instance
-  DECLARES — twelve here — and every page needs it before first paint or the
-  navbar would visibly grow tiles a moment after the reader arrives.
-
-  `jsonify` and not a hand-built string: a title carrying a quote would
-  otherwise close the attribute, and the quoting rule is Liquid's rather than
-  something this comment has to be right about.
--->
-<!--
-  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
-  is the same on every page and was 12.5 KB of each one (measured on gh-pages
-  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
-  and deferred scripts run in document order, so the tiles are in place before
-  the first reader runs: no later paint than the inlined copy had.
--->
-<meta name="fa-tiles" content="" data-fa-src="harness-data">
-<!--
-  THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
-  finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
-  instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
-  nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
--->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
-
-<!--
-  THE SITE'S BASEURL, for the tiles above.
-
-  Every other site-root path on this page is composed by Liquid: `relative_url`
-  prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
-  it, because they reach the client as JSON and are composed in `docs-ui.js`
-  after Liquid has finished — so the base has to travel with them.
-
-  IT SHIPPED WITHOUT ONE AND EVERY TILE 404ed (issue #801). `graph-tiles.ts`
-  stores `/beans/`, which is correct as data and is what `harness.links[].path`
-  stores too; written into an `href` unprefixed, a browser resolves it against
-  the ORIGIN, so the beans tile pointed at `litlfred.github.io/beans/`. The
-  owner found it by going looking for the board and landing there.
-
-  A meta of its own rather than reading the site index, which also carries a
-  `baseurl`: that document reads as `null` when `_data/translations.json` was
-  not built, and since 2026-10-02 it is FETCHED, so it is also absent until a
-  request resolves and may never arrive. Composing links out of an optional
-  block means the day it goes missing every tile silently points at the origin
-  again — which is this defect, with a second way to reach it. Two reasons for
-  one answer now.
-
-  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
-  `../..` two levels down, never the deploy's path, so the page is the same
-  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
-  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
-  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
--->
-<meta name="fa-baseurl" content="../../../..">
-
-<!--
-  WHETHER THIS IS A PREVIEW, for the tiles above.
-
-  `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
-  `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a branches/<slug>/ preview", an empty one means the canonical deploy
-  or a local build.
-
-  It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
-  `publish: "staging-only"` page from the canonical tree; a tile still pointing
-  at it would be a link to a 404 — `pb04`, a dead link being worse than no
-  link, and worse than usual here because the tile ALSO advertises content the
-  declaration is deliberately not publishing.
-
-  The filtering is client-side rather than baked into `harness.json` because
-  that file is generated once and committed, so it cannot know which deploy
-  will serve it. The page can be withheld at compose time because compose runs
-  per deploy; the data file cannot.
-
-  EMPTY IS THE SAFE VALUE, and it is what an absent `_data/build.yml` yields:
-  a build that cannot say it is a preview is treated as canonical and hides
-  the tile. That matches `compose-docs.ts`, which withholds unless positively
-  told `--staging` — one direction in both places, so the page and its tile
-  cannot disagree about which deploy they are on.
-
-  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
-  reader asks only whether it is empty, and the slug made every page differ
-  between previews. The branch is in `staging.json`, which the banner reads.
--->
-<meta name="fa-staging" content="">
-
-<!--
-  WHICH SEARCH INDEX THIS PAGE IS SERVING.
-
-  `feature-staging.yml` fetches the PUBLISHED index before the build and
-  stamps what happened; `docs-site.yml` writes no such key, so the canonical
-  deploy leaves this empty and draws no warning. Bean `eof6`, on the owner's
-  ruling of 2026-09-22: *"staging uses last published index (w/ wanrnig)"*.
-
-  Three values, and the empty one is a real state rather than a fallback:
-
-    published    the preview serves the last published index. Results are
-                 about the MAIN SITE, not about this branch.
-    unavailable  the fetch failed; an empty index is served.
-    (empty)      not a staging build. No warning.
-
-  The bean this implements had first concluded that staging must disable
-  search outright, because a stale hit is "a wrong PASS, BELIEVED". The ruling
-  keeps search and attacks the belief instead — which is why the value is
-  emitted at all. An index swapped in with nothing on the page saying so would
-  be the unmarked staleness the bean was right to refuse.
--->
-<meta name="fa-search-index" content="">
-
-<!--
-  A page left out of the search index ON PURPOSE (`search_exclude: true`)
-  says so in what is built, so `publish:verify`'s search-index check can tell
-  a deliberate exclusion from a truncated index (#2233). Front matter is gone
-  once Jekyll has run; without this marker the ~2,800 IG artefact pages that
-  #2194 excluded read as "4,189 pages offer a search box, 1,003 indexed".
--->
-
-
-
-
-<!--
-  The bean index — the AGENT work plan, published by the same generator beside
-  the todo index above, for the same reason and read the same way. Separate
-  files rather than one combined document because the two stores are separate
-  graphs with separate declarations, and a consumer that wants only the human
-  half should not fetch 239 beans to get three todos.
--->
-<meta name="fa-beans-src" content="../../../../assets/beans/index.json">
-<!--
-  The process index's entry point — the REPOSITORY's named-subgraph index,
-  whose children are the harness roots this site frames (`bun run
-  subgraph:jsonld`; bean `ax6r`, owner 2026-10-03: "Move to JSON-LD").
-  Read by assets/js/process-index.js on the page carrying
-  `[data-fa-process-index]` (the publication-workflow page), which walks it
-  down to every `processes` subgraph's `index.hydrated.jsonld`.
--->
-<meta name="fa-processes-src" content="../../../../subgraph/index.jsonld">
-<!--
-  The deploy's stamp — when it was built and from which commit — which the
-  work-plan dashboard turns into "generated … · N commits behind main".
-  `build.json` on the main site, `staging.json` on a preview; written by the
-  deploy, never committed, because a committed timestamp is a merge conflict
-  on every pair of concurrent changes (bean `y7b3`).
--->
-<meta name="fa-build-src" content="../../../../build.json">
-
-<!--
-  The discarded-items document — `fsh-guts.jsonld`, published at the base by
-  `docs-site.yml`. A URL and not inline JSON, for the todo index's reason and
-  then some: it carries every node's BODY, which is 64 KB against a 5 KB
-  document without them. Inlining that into every page's <head> would be
-  absurd for content reached through one control inside Settings.
-
-  `.json` rather than `.jsonld`. Both are published and they are the same
-  bytes; Pages has no media type for `.jsonld` and serves it as
-  octet-stream. `fetch().json()` would parse it anyway, but every other
-  rendering here uses the alias and one that did not would be the odd case a
-  later reader has to work out.
-
-  The viewer fetches this WHEN SETTINGS OPENS, never on page load, and a
-  fetch that fails is reported rather than shown as an empty trashcan —
-  "nothing discarded" and "could not read the document" are opposite facts.
--->
-<!--
-  NOT on a folio's site that does not link its OWN fsh-guts (#2263 follow-up):
-  there this path is the folio's, where no document is published, and the
-  fetch's 404 painted "?" -- an error -- on the fish. With no meta the count is
-  ABSENT, and the row's fish is a link or an inert icon saying why
-  (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
--->
-<!--
-  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
-  failure, not a performance one.
-
-  These five are served from stable paths with no hash in the name, so a
-  browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a branches/
-  preview it is the whole point of the deployment: the reviewer opens the URL
-  they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
-  see changes" — which is indistinguishable from a deploy that never
-  happened, and sends the next hour after the wrong cause. Measured
-  2026-09-21 on this branch: every byte of the change was verified present in
-  the publish ref while the page rendered the previous build.
-
-  The query is a HASH OF THE ASSET (`fa_asset_version`,
-  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
-  do. It was `site.time` until 2026-10-23, and the build time is new on every
-  build: every page then differed on every rebuild, so each re-push of a
-  preview stored a whole new copy of its HTML (bean `g196`).
-
-  NOT a cache-busting strategy for third-party assets, and not applied to
-  them: those are versioned in their own URLs already.
--->
-<!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
-<!-- Narrow viewports: wide content scrolls in its own box, never the page
-     (bean `2r2n`). The standalone viewers inline the same file through
-     `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
-
-<!--
-  The work-plan dashboard's styles, split from docs-ui.css so that
-  `state-visualizer.ts` can inline exactly these bytes into the generated
-  `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
--->
-<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01">
-<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
-     `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
-     Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
-     roles that docs-ui.css consumes, and a custom property has to be set on a
-     matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
-<!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
-     that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
-<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
-     `avatars:css:check` fails the build when it is stale. One stylesheet
-     rather than 68 assets: the glyph is a mask and the colour is a property,
-     so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8">
-
-<!--
-  The kinds THIS INSTANCE DECLARES, for the avatar fan.
-
-  Owner: "shows the DECLared kinds for that instance, not inheritance." Written
-  by `sync-docs-harness.ts` from the instance's own `harness.json`, BEFORE
-  `resolveDirectories` overlays a dependency's. The effective set is strictly
-  larger, and showing it would name kinds this repository never claimed.
-
-  Inline rather than a fetched URL, unlike the todo index and the discarded
-  document: this is a dozen short strings, it is needed to render the fan at
-  all, and a fetch for that would put a spinner in front of a badge.
--->
-<!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
-<!--
-  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
-  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
-
-  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
-  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
-  A version query naming its content would write that change into every page: two
-  previews built 25 minutes apart differed on 1,351 pages for one count going
-  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
-  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
--->
-<script src="../../../../assets/js/harness-data.js" defer></script>
+<meta name="fa-beans-src" content="../../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../../build.json"><link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=3dc1393d297a"><link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../../assets/js/harness-data.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode.js" defer></script>
-<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
-<!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
-<script src="../../../../assets/js/kg-render.js" defer></script>
-<!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
-<!-- The edit, source and feedback links of every page, from the platform's one
-  recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
-  facts and this builds the hrefs. -->
-<script src="../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
-
-<!--
-  The work-plan dashboard. SELF-MOUNTING on any page carrying
-  `[data-fa-workplan]`, so docs-ui.js neither calls it nor knows it exists; a
-  page without that container pays one failed querySelector. The same file is
-  inlined verbatim into the generated state-visualiser pages.
--->
-<script src="../../../../assets/js/work-plan.js" defer></script>
-<!--
-  The process index, self-mounting on `[data-fa-process-index]` the same way.
-  Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
--->
-<script src="../../../../assets/js/process-index.js" defer></script>
-
-<!--
-  The landing panel — the instance's declared description drawn inside the
-  quiet part of its declared backdrop. Markup: `_includes/landing.html`.
-
-  The region comes in as custom properties (`--fl-x` …) set per instance from
-  `harness.json`, so this stylesheet knows nothing about where any
-  particular picture is quiet. That is the whole design: a downstream folio
-  swaps the art and the numbers and needs no CSS.
--->
-<style>
+<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../../assets/js/kg-render.js" defer></script><script src="../../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=4d45b88bbab8" defer></script><script src="../../../../assets/js/edit-links.js?v=9c6835feddf7" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -699,65 +125,7 @@
     position: static; width: auto; height: auto; color: inherit;
   }
   .folio-landing--plain p { font-size: inherit; font-weight: inherit; }
-</style>
-
-<!--
-  AN INSTANCE'S OWN WEBPAGE THEME, scoped to its pages.
-
-  Bean `7h3u`, on the owner's 2026-09-30 ruling to wire this at the PLATFORM
-  layer so every ingested IG gets it, rather than in one instance's page
-  generator.
-
-  WHY LIQUID AND NOT CSS. A webpage theme dresses one instance's pages, so it
-  has to be scoped by URL — and CSS cannot select on a URL. Jekyll is what
-  knows which page is rendering, so the scope is applied here and the VALUES
-  come from `_data/instance-themes.json`, written by `gen-themes-css.ts` from
-  each instance's declared `themes/`. That is the `site.data` pass-through bean
-  `kott` settled, and the owner's own instruction for this work: "reuse all
-  existing justthedocs infra".
-
-  WHY INLINE AND NOT A LINKED STYLESHEET. The same first-paint reasoning this
-  file already carries for the colour scheme: a sheet arriving after first
-  paint flashes the unthemed colours, which is the defect this file was
-  rewritten to remove.
-
-  WHAT IT RETHEMES, AND WHAT IT CANNOT. These three names are read by
-  `docs-ui.css` at 29 of its 33 `var(--x, #literal)` sites and DEFINED by
-  nothing — just-the-docs is Sass, so its own chrome compiles to literals and
-  no custom property can reach it. So this dresses the surfaces the site owns,
-  the left-hand nav among them, and leaves just-the-docs' compiled chrome
-  alone. Stated here because the alternative is a reader concluding the theme
-  is broken when it is doing exactly what it can.
---><!--
-  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
-
-  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
-  display background for their corresponding docs/ (ghpages) rendering".
-
-  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
-  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
-  that instance's, and its three crops. The FIRST tile whose scope the URL
-  contains wins; tiles come dependents first, so the content instance a page
-  is about beats the platform that renders it. The site owner is the fallback
-  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
-  no `art` gets no ground: a palette-only theme is a choice, not a gap.
-
-  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
-  words inside a measured quiet region of one crop, so the crop must be the
-  file. The page ground places nothing on the art, so a media query choosing
-  the crop is exact, and no markup is added to any page.
-
-  TWO SCRIMS, both the page's own background colour (not the theme's sticky
-  scrim, because the ink they protect is the page's ink). The page gets 85%,
-  so the art shows in the margins and under the header. The text column,
-  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
-  colour. The art runs the full range (measured: every crop of the three
-  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
-  pixel: text and links stay within 0.1:1 of the plain page in both schemes
-  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
-  A single 92% layer was measured first and dropped: it took dark-scheme
-  links from 4.14:1 to 3.35:1.
---><style id="fa-page-ground" data-instance="cat-harness">
+</style><style id="fa-page-ground" data-instance="cat-harness">
   /* Grumpy cyborg agents, the theme of cat-harness. */
   :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
   :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
@@ -796,7 +164,7 @@
 
 <link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/kg-export.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#it-is-json-ld-and-the-type-id-coercion-is-the-whole-point","label":"It is JSON-LD, and the @type: @id coercion is the whole point"},{"href":"#subject-iris--a-path-not-a-fragment","label":"Subject IRIs — a path, not a #fragment","children":[{"href":"#the-rule","label":"The rule","depth":1},{"href":"#why","label":"Why","depth":1},{"href":"#the-other-exception-vocabulary-terms-keep-","label":"The other exception: vocabulary terms keep #","depth":1},{"href":"#every-id-still-has-to-load","label":"Every @id still has to load","depth":1},{"href":"#today-and-what-is-still-a-fragment","label":"Today, and what is still a fragment","depth":1}],"fold":"5 sub-sections"},{"href":"#declaring-a-term-is-a-decision-not-a-line-of-context","label":"Declaring a term is a decision, not a line of context"},{"href":"#every-key-is-a-declared-term--in-content-documents-too","label":"Every key is a declared term — in content documents too"},{"href":"#a-prefix-is-the-stub--and-a-prefix-that-is-spoken-must-be-bound","label":"A prefix is the stub — and a prefix that is spoken must be bound","children":[{"href":"#naming-a-namespace-document--ns-and-why","label":"Naming a namespace document — ns, and why","depth":1},{"href":"#one-source-per-layer--and-no-all-layers-union","label":"One source per layer — and no all-layers union","depth":1}],"fold":"2 sub-sections"},{"href":"#fsh-guts-never-reaches-a-published-graph","label":"fsh-guts NEVER reaches a published graph","children":[{"href":"#this-is-not-a-contradiction-of-basefsh-gutsjsonld","label":"This is not a contradiction of \u003cbase>/fsh-guts.jsonld","depth":1},{"href":"#strip-where-the-document-is-built","label":"Strip where the document is built","depth":1}],"fold":"2 sub-sections"},{"href":"#staging-must-not-claim-to-be-canonical","label":"Staging must not claim to be canonical"},{"href":"#the-graph-carries-its-own-vocabulary","label":"The graph carries its own vocabulary"},{"href":"#a-preview-says-what-it-is-and-links-back--explicitly","label":"A preview says what it is, and links back — explicitly"},{"href":"#naming--artefacts-take-the-repositorys-name-the-config-does-not","label":"Naming — artefacts take the repository’s name, the config does not"},{"href":"#the-edges-are-the-reason-to-publish","label":"The edges are the reason to publish"},{"href":"#a-partial-graph-must-never-pass-for-a-whole-one","label":"A partial graph must never pass for a whole one"},{"href":"#whose-nodes--an-instance-publishes-its-own","label":"Whose nodes — an instance publishes its own"},{"href":"#named-subgraphs--one-iri-two-files-framed-from-one-graph","label":"Named subgraphs — one IRI, two files, framed from one graph","children":[{"href":"#identity","label":"Identity","depth":1},{"href":"#two-files-under-the-iri","label":"Two files under the IRI","depth":1},{"href":"#building-the-files","label":"Building the files","depth":1},{"href":"#published-per-pin-in-a-package","label":"Published per pin, in a package","depth":1},{"href":"#membership-is-declared-not-inferred","label":"Membership is declared, not inferred","depth":1},{"href":"#consumers","label":"Consumers","depth":1}],"fold":"6 sub-sections"},{"href":"#payloads--heavy-content-by-content-address","label":"Payloads — heavy content by content address","children":[{"href":"#addressing","label":"Addressing","depth":1},{"href":"#the-link","label":"The link","depth":1},{"href":"#the-media-type-is-in-a-sidecar","label":"The media type is in a sidecar","depth":1},{"href":"#what-is-heavy","label":"What is heavy","depth":1},{"href":"#building-and-checking","label":"Building and checking","depth":1}],"fold":"5 sub-sections"},{"href":"#per-slice-sqlite--a-named-subgraph-as-one-file-a-browser-mounts","label":"Per-slice SQLite — a named subgraph as one file a browser mounts","children":[{"href":"#the-four-slices","label":"The four slices","depth":1},{"href":"#what-a-slice-file-holds","label":"What a slice file holds","depth":1},{"href":"#the-manifest-beside-it","label":"The manifest beside it","depth":1},{"href":"#content-addressed-file-fixed-name-manifest","label":"Content-addressed file, fixed-name manifest","depth":1},{"href":"#deterministic-proved","label":"Deterministic, proved","depth":1},{"href":"#built-at-deploy-not-committed--when-the-source-moves-on-most-merges","label":"Built at deploy, not committed — when the source moves on most merges","depth":1},{"href":"#the-client--download-opfs-mount-with-a-fallback","label":"The client — download, OPFS, mount, with a fallback","depth":1},{"href":"#the-search-page--one-page-the-slice-is-a-parameter","label":"The search page — one page, the slice is a parameter","depth":1},{"href":"#adding-a-slice","label":"Adding a slice","depth":1}],"fold":"9 sub-sections"},{"href":"#adding-a-node-type","label":"Adding a node type"},{"href":"#running-it","label":"Running it"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/kg-export.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#it-is-json-ld-and-the-type-id-coercion-is-the-whole-point","label":"It is JSON-LD, and the @type: @id coercion is the whole point"},{"href":"#subject-iris--a-path-not-a-fragment","label":"Subject IRIs — a path, not a #fragment","children":[{"href":"#the-rule","label":"The rule","depth":1},{"href":"#why","label":"Why","depth":1},{"href":"#the-other-exception-vocabulary-terms-keep-","label":"The other exception: vocabulary terms keep #","depth":1},{"href":"#every-id-still-has-to-load","label":"Every @id still has to load","depth":1},{"href":"#today-and-what-is-still-a-fragment","label":"Today, and what is still a fragment","depth":1}],"fold":"5 sub-sections"},{"href":"#declaring-a-term-is-a-decision-not-a-line-of-context","label":"Declaring a term is a decision, not a line of context"},{"href":"#every-key-is-a-declared-term--in-content-documents-too","label":"Every key is a declared term — in content documents too"},{"href":"#a-prefix-is-the-stub--and-a-prefix-that-is-spoken-must-be-bound","label":"A prefix is the stub — and a prefix that is spoken must be bound","children":[{"href":"#naming-a-namespace-document--ns-and-why","label":"Naming a namespace document — ns, and why","depth":1},{"href":"#one-source-per-layer--and-no-all-layers-union","label":"One source per layer — and no all-layers union","depth":1}],"fold":"2 sub-sections"},{"href":"#fsh-guts-never-reaches-a-published-graph","label":"fsh-guts NEVER reaches a published graph","children":[{"href":"#this-is-not-a-contradiction-of-basefsh-gutsjsonld","label":"This is not a contradiction of \u003cbase>/fsh-guts.jsonld","depth":1},{"href":"#strip-where-the-document-is-built","label":"Strip where the document is built","depth":1}],"fold":"2 sub-sections"},{"href":"#staging-must-not-claim-to-be-canonical","label":"Staging must not claim to be canonical"},{"href":"#the-graph-carries-its-own-vocabulary","label":"The graph carries its own vocabulary"},{"href":"#a-preview-says-what-it-is-and-links-back--explicitly","label":"A preview says what it is, and links back — explicitly"},{"href":"#naming--artefacts-take-the-repositorys-name-the-config-does-not","label":"Naming — artefacts take the repository’s name, the config does not"},{"href":"#the-edges-are-the-reason-to-publish","label":"The edges are the reason to publish"},{"href":"#a-partial-graph-must-never-pass-for-a-whole-one","label":"A partial graph must never pass for a whole one"},{"href":"#whose-nodes--a-layer-publishes-its-own","label":"Whose nodes — a layer publishes its own"},{"href":"#named-subgraphs--one-iri-two-files-framed-from-one-graph","label":"Named subgraphs — one IRI, two files, framed from one graph","children":[{"href":"#identity","label":"Identity","depth":1},{"href":"#two-files-under-the-iri","label":"Two files under the IRI","depth":1},{"href":"#building-the-files","label":"Building the files","depth":1},{"href":"#published-per-pin-in-a-package","label":"Published per pin, in a package","depth":1},{"href":"#membership-is-declared-not-inferred","label":"Membership is declared, not inferred","depth":1},{"href":"#consumers","label":"Consumers","depth":1}],"fold":"6 sub-sections"},{"href":"#payloads--heavy-content-by-content-address","label":"Payloads — heavy content by content address","children":[{"href":"#addressing","label":"Addressing","depth":1},{"href":"#the-link","label":"The link","depth":1},{"href":"#the-media-type-is-in-a-sidecar","label":"The media type is in a sidecar","depth":1},{"href":"#what-is-heavy","label":"What is heavy","depth":1},{"href":"#building-and-checking","label":"Building and checking","depth":1}],"fold":"5 sub-sections"},{"href":"#per-slice-sqlite--a-named-subgraph-as-one-file-a-browser-mounts","label":"Per-slice SQLite — a named subgraph as one file a browser mounts","children":[{"href":"#the-four-slices","label":"The four slices","depth":1},{"href":"#what-a-slice-file-holds","label":"What a slice file holds","depth":1},{"href":"#the-manifest-beside-it","label":"The manifest beside it","depth":1},{"href":"#content-addressed-file-fixed-name-manifest","label":"Content-addressed file, fixed-name manifest","depth":1},{"href":"#deterministic-proved","label":"Deterministic, proved","depth":1},{"href":"#built-at-deploy-not-committed--when-the-source-moves-on-most-merges","label":"Built at deploy, not committed — when the source moves on most merges","depth":1},{"href":"#the-client--download-opfs-mount-with-a-fallback","label":"The client — download, OPFS, mount, with a fallback","depth":1},{"href":"#the-search-page--one-page-the-slice-is-a-parameter","label":"The search page — one page, the slice is a parameter","depth":1},{"href":"#adding-a-slice","label":"Adding a slice","depth":1}],"fold":"9 sub-sections"},{"href":"#adding-a-node-type","label":"Adding a node type"},{"href":"#running-it","label":"Running it"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -904,9 +272,9 @@
 </h1>
     
 
-<p><strong>Skill <code class="language-plaintext highlighter-rouge">kg-export</code>:</strong> Serialize an instance’s knowledge graph to one JSON document, for publication and inspection. Read when asked to visualize, audit or share the KG, before adding a node type to the export, and before minting or authoring any subject IRI — subjects are <code class="language-plaintext highlighter-rouge">&lt;doc dir&gt;/&lt;kind&gt;/&lt;id&gt;</code>, never <code class="language-plaintext highlighter-rouge">#fragments</code>.</p>
+<p><strong>Skill <code class="language-plaintext highlighter-rouge">kg-export</code>:</strong> Serialize a layer’s knowledge graph to one JSON document, for publication and inspection. Read when asked to visualize, audit or share the KG, before adding a node type to the export, and before minting or authoring any subject IRI — subjects are <code class="language-plaintext highlighter-rouge">&lt;doc dir&gt;/&lt;kind&gt;/&lt;id&gt;</code>, never <code class="language-plaintext highlighter-rouge">#fragments</code>.</p>
 
-<p><strong>Named by:</strong> <a href="../kg-separation.html">A knowledge graph leaves for its own repositories</a>, <a href="../kg-to-portal.html">KG to public portal</a>, <a href="../nquads-distribution.html">Package and distribute partitioned W3C N-Quads and named queries</a>, <a href="../slice-sqlite-publish.html">Build and publish a per-slice SQLite file</a>, <a href="../sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a></p>
+<p><strong>Named by:</strong> <a href="../kg-separation-move.html">Move the graph into its repositories</a>, <a href="../kg-separation-prepare.html">Prepare a graph to stand alone</a>, <a href="../kg-separation.html">A knowledge graph leaves for its own repositories</a>, <a href="../kg-to-portal.html">KG to public portal</a>, <a href="../slice-sqlite-publish.html">Build and publish a per-slice SQLite file</a>, <a href="../sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a></p>
 
 <p><strong>The export is data, not a page.</strong> One JSON document describes the graph;
 drawing it is somebody else’s job — a static viewer, an external tool, or
@@ -959,7 +327,7 @@ list of records and a traversable graph, and a test asserts it.</p>
 get the document. WHO SMART Base’s type-usage note is explicit about this and it is
 what makes the graph mergeable with anyone else’s.</p>
 
-<p><strong>3. A subject’s IRI is a path under its instance, never a <code class="language-plaintext highlighter-rouge">#fragment</code> of
+<p><strong>3. A subject’s IRI is a path under its layer, never a <code class="language-plaintext highlighter-rouge">#fragment</code> of
 the document</strong> — <code class="language-plaintext highlighter-rouge">&lt;doc dir&gt;/&lt;kind&gt;/&lt;id&gt;</code>, each served as its own file. This is the rule for every
 IRI an agent mints or authors; the reasons and the exceptions are in
 §”Subject IRIs — a path, not a <code class="language-plaintext highlighter-rouge">#fragment</code>” below.</p>
@@ -1000,17 +368,17 @@ actor, a decision, a directory, a package, a capability, an asset) is named</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;doc dir&gt;/&lt;kind&gt;/&lt;id&gt;
 </code></pre></div></div>
 
-<p>where <strong><code class="language-plaintext highlighter-rouge">&lt;doc dir&gt;</code></strong> is the directory the instance’s own document is served
+<p>where <strong><code class="language-plaintext highlighter-rouge">&lt;doc dir&gt;</code></strong> is the directory the layer’s own document is served
 from. That is the URL-space rule:
 <code class="language-plaintext highlighter-rouge">&lt;baseurl&gt;/&lt;instantiated harness&gt;/&lt;path to rendered content&gt;</code>.
 §”Which base an <code class="language-plaintext highlighter-rouge">@id</code> is minted against” in
 <a href="instance-publication.html"><code class="language-plaintext highlighter-rouge">instance-publication</code></a> says which base applies to
-an instance on this site and to an instance with its own <code class="language-plaintext highlighter-rouge">canonicalUrl</code>.
+a layer on this site and to a layer with its own <code class="language-plaintext highlighter-rouge">canonicalUrl</code>.
 It is the form Tools use, <code class="language-plaintext highlighter-rouge">&lt;doc dir&gt;/tools/&lt;id&gt;.jsonld</code>.</p>
 
 <p><strong>The host has no special case: one rule for every layer, with subjects
 beside their document.</strong> So <code class="language-plaintext highlighter-rouge">&lt;doc dir&gt;</code> is
-<code class="language-plaintext highlighter-rouge">&lt;site&gt;/&lt;instance&gt;/</code> for every instance this site publishes, the host
+<code class="language-plaintext highlighter-rouge">&lt;site&gt;/&lt;instance&gt;/</code> for every layer this site publishes, the host
 included:</p>
 
 <div class="table-wrapper"><table>
@@ -1112,7 +480,7 @@ takes a path.</p>
 
 <ul>
   <li><strong>A <code class="language-plaintext highlighter-rouge">#fragment</code> never reaches the server.</strong> Dereferencing the subject
-fetches the whole instance graph, and the subject cannot have a page or a
+fetches the whole layer graph, and the subject cannot have a page or a
 document of its own.</li>
   <li><strong>A subject is a real resource</strong>: its own page, its own JSON-LD, its own
 history and cache, linkable on its own.</li>
@@ -1152,7 +520,7 @@ carrying the node as JSON-LD, plus <code class="language-plaintext highlighter-r
 served. Whoever mints the path also publishes the file, in the same change.</p>
 
 <p><strong>Every rendered link to a subject uses its subject IRI</strong>, meaning its page,
-and never a fragment of the instance document. That covers the ⓘ panel and
+and never a fragment of the layer document. That covers the ⓘ panel and
 the icons on a rendered BPMN diagram, step tables and role links.</p>
 
 <p>bootstrap states the same rule for its own graph, in its own terms, in
@@ -1180,7 +548,7 @@ directory-container <code class="language-plaintext highlighter-rouge">@id</code
 publishes it, so <code class="language-plaintext highlighter-rouge">subjectIri</code> keeps <code class="language-plaintext highlighter-rouge">bootstrap.jsonld#&lt;kind&gt;/&lt;id&gt;</code> for a link
 into that document (<code class="language-plaintext highlighter-rouge">FRAGMENT_DOCUMENT_STUBS</code>). The entry goes in the PR that
 moves that publisher to paths.</li>
-  <li><strong>own-canonical instances</strong> (the SMART IGs and others), whose subject IRIs do
+  <li><strong>own-canonical layers</strong> (the SMART IGs and others), whose subject IRIs do
 not load yet.</li>
 </ul>
 
@@ -1274,7 +642,7 @@ failure as a fabricated link.</p>
 <p>Rule 5 above, applied to CONTENT: in every document on the published content
 context, a plain key must be a declared term, or a JSON-LD processor drops it
 without a word. <code class="language-plaintext highlighter-rouge">bun run cat check:content-keys</code> fails on one
-(it judges documents on the content context and on an instance’s own context).</p>
+(it judges documents on the content context and on a layer’s own context).</p>
 
 <p>It does <strong>not</strong> descend into a value typed <code class="language-plaintext highlighter-rouge">@json</code>. Such a value is a JSON
 literal by declaration: its inner keys are data, not properties. That is the
@@ -1290,7 +658,7 @@ link to nowhere). So <code class="language-plaintext highlighter-rouge">text</co
 <p><strong>The upgrade rule:</strong> a path
 term becomes a link — <code class="language-plaintext highlighter-rouge">@type: @id</code> with ABSOLUTE IRIs minted by the one
 function that mints block IRIs — when, and only when, the files it names are
-SERVED at a URL an instance declares. Until then a link is a promise nothing
+SERVED at a URL a layer declares. Until then a link is a promise nothing
 keeps, and a literal is the honest record: one reading, resolved by our tools
 against the file that carries it.</p>
 <h2 id="a-prefix-is-the-stub--and-a-prefix-that-is-spoken-must-be-bound">
@@ -1399,7 +767,7 @@ because the source is wrong the same way — <strong>a drift gate proves agreeme
 never correctness</strong>.</p>
 
 <p><strong>The two rules, and what enforces them.</strong> Every emitted document names its
-own instance’s generated context, <code class="language-plaintext highlighter-rouge">&lt;iriBase&gt;ns/context/v1.jsonld</code>.
+own layer’s generated context, <code class="language-plaintext highlighter-rouge">&lt;iriBase&gt;ns/context/v1.jsonld</code>.
 <code class="language-plaintext highlighter-rouge">jsonld:contexts --check</code> (cat-harness-tools <code class="language-plaintext highlighter-rouge">scripts/gen-instance-contexts.ts</code>)
 enforces rule 1 over every <code class="language-plaintext highlighter-rouge">.jsonld</code> in the checkout, failing on a prefix used
 in an IRI position that nothing binds; a context generated from use binds
@@ -1415,7 +783,7 @@ string VALUES are not read as CURIEs: <code class="language-plaintext highlighte
 label, which is exactly the hazard <code class="language-plaintext highlighter-rouge">schemas/kg/jsonld.ts</code> opens with.</li>
   <li><strong>Own namespace ⇒ stub spelling.</strong> A binding onto a <code class="language-plaintext highlighter-rouge">…/&lt;stub&gt;/ns#</code>
 namespace of ours must be spelt <code class="language-plaintext highlighter-rouge">&lt;stub&gt;</code>, and <code class="language-plaintext highlighter-rouge">&lt;stub&gt;</code> must be declared by
-an instance (<code class="language-plaintext highlighter-rouge">&lt;stub&gt;/&lt;stub&gt;.json</code>).</li>
+a layer (<code class="language-plaintext highlighter-rouge">&lt;stub&gt;/&lt;stub&gt;.json</code>).</li>
 </ol>
 
 <p>A context URL the check cannot resolve is <strong>“could not determine”</strong>, counted
@@ -1445,7 +813,7 @@ is making a claim</strong> — a processor will read every colon-key in it as an
 publication.</p>
 
 <p><strong>Keeping the CONTENT out of the render pipeline is a different property from
-keeping the REFERENCE out of the graph.</strong> An instance’s declared directories
+keeping the REFERENCE out of the graph.</strong> A layer’s declared directories
 become nodes in <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.jsonld</code>, and <code class="language-plaintext highlighter-rouge">fsh-guts/</code> must be declared (or no tool
 can find it and the never-delete rule has no destination), so its id, path and
 description must be stripped from the published document.</p>
@@ -1599,7 +967,7 @@ merges nothing.</p>
 downstream consumer must never have to string-manipulate or infer a rule to
 follow a link</strong>: a rule a consumer has to know is a rule a consumer can get
 wrong. See
-<a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/skills/crdm/crdm-requirements-workflow.md"><code class="language-plaintext highlighter-rouge">crdm-requirements-workflow</code></a> §”Consumer burden
+<code class="language-plaintext highlighter-rouge">crdm-requirements-workflow</code> (opt-in <code class="language-plaintext highlighter-rouge">cat-harness.sdlc</code>) §”Consumer burden
 is a requirement”.</p>
 
 <p><strong>Vocabulary nodes get no <code class="language-plaintext highlighter-rouge">alternateOf</code>.</strong> Graph typologies are minted under the
@@ -1616,15 +984,15 @@ it.</p>
     
 
 <p>The <strong>stub</strong> (<code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> → <code class="language-plaintext highlighter-rouge">stub</code>, defaulting to <code class="language-plaintext highlighter-rouge">name</code>) is the
-filename stem of everything this instance publishes: <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.jsonld</code>,
+filename stem of everything this layer publishes: <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.jsonld</code>,
 <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.schema.json</code>. One helper, <code class="language-plaintext highlighter-rouge">artefactStub()</code>, computes it, so the two
-exporters cannot disagree about what this instance is called.</p>
+exporters cannot disagree about what this layer is called.</p>
 
 <p>WHO SMART Base does the same and derives its stub by stripping a prefix
 (<code class="language-plaintext highlighter-rouge">smart-&lt;stub&gt;</code> → <code class="language-plaintext highlighter-rouge">&lt;stub&gt;</code> → <code class="language-plaintext highlighter-rouge">https://smart.who.int/&lt;stub&gt;</code>), so stub, directory and
 published path are one word.</p>
 
-<p><strong>The declaration file is named for the instance’s <code class="language-plaintext highlighter-rouge">name</code>, not its <code class="language-plaintext highlighter-rouge">stub</code>:</strong>
+<p><strong>The declaration file is named for the layer’s <code class="language-plaintext highlighter-rouge">name</code>, not its <code class="language-plaintext highlighter-rouge">stub</code>:</strong>
 <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code>. A consumer finds it without being told its filename:
 <code class="language-plaintext highlighter-rouge">findDeclarationFile()</code> scans a directory for a <code class="language-plaintext highlighter-rouge">*.json</code> carrying a <code class="language-plaintext highlighter-rouge">name</code>
 whose stem EQUALS that name — the file agrees with <strong>itself</strong> — and two such
@@ -1690,18 +1058,18 @@ refs resolve against the real skill locations. So if the exporter’s notion
 of where skills live narrows, the test fails. An invariant checked only
 against the exporter’s own collection would not catch it.</li>
 </ol>
-<h2 id="whose-nodes--an-instance-publishes-its-own">
+<h2 id="whose-nodes--a-layer-publishes-its-own">
   
   
-    <a href="#whose-nodes--an-instance-publishes-its-own" class="anchor-heading" aria-labelledby="whose-nodes--an-instance-publishes-its-own"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Whose nodes — an instance publishes its own
+    <a href="#whose-nodes--a-layer-publishes-its-own" class="anchor-heading" aria-labelledby="whose-nodes--a-layer-publishes-its-own"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Whose nodes — a layer publishes its own
   
   
 </h2>
     
 
 <p><strong>The policy is <a href="instance-publication.html"><code class="language-plaintext highlighter-rouge">instance-publication</code></a> §”What each
-instance publishes — graph, address, schema, and what is stripped”</strong>: which
-instance publishes which document where. This section is the exporter’s side
+layer publishes — graph, address, schema, and what is stripped”</strong>: which
+layer publishes which document where. This section is the exporter’s side
 of it.</p>
 
 <p><code class="language-plaintext highlighter-rouge">buildExport</code> takes <code class="language-plaintext highlighter-rouge">scope</code>, and the CLI <code class="language-plaintext highlighter-rouge">--scope &lt;instance|checkout&gt;</code>:</p>
@@ -1717,12 +1085,12 @@ of it.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">instance</code> (default)</td>
-      <td>this instance’s declaration alone</td>
+      <td>this layer’s declaration alone</td>
       <td>the published document, its locale variants, its QA sidecar</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkout</code></td>
-      <td>this instance plus every instance stacked on it</td>
+      <td>this layer plus every layer stacked on it</td>
       <td>a corpus-wide consumer that says so — the <code class="language-plaintext highlighter-rouge">kg</code> search slice</td>
     </tr>
   </tbody>
@@ -1806,7 +1174,7 @@ page starts there.</li>
   <li><strong>The hydrated file carries KG metadata, never heavy content.</strong> Markdown
 bodies, images and binaries are payloads, reached by a <code class="language-plaintext highlighter-rouge">payload</code> link
 (§”Payloads — heavy content by content address”, below).</li>
-  <li><strong>The root has <code class="language-plaintext highlighter-rouge">index.jsonld</code> only.</strong> A harness instance is itself a named
+  <li><strong>The root has <code class="language-plaintext highlighter-rouge">index.jsonld</code> only.</strong> A harness layer is itself a named
 subgraph of the repo KG, and the repo KG is the level above it. A <em>deep</em>
 hydrated file at the root would be the whole graph in one document — a
 monolith. Hydration is deep, but not at the root.</li>
@@ -1836,8 +1204,8 @@ context URL, the way content documents already use
 <code class="language-plaintext highlighter-rouge">ns/content/v1.jsonld</code>.</li>
   <li><strong>Where it is built.</strong> <code class="language-plaintext highlighter-rouge">bun run cat subgraph:jsonld</code>
 (<code class="language-plaintext highlighter-rouge">scripts/gen-subgraph-jsonld.ts</code>) frames kg-export’s in-memory graphs —
-one per framed instance, each from its OWN export, never a stacked
-instance’s node under this document’s name — and
+one per framed layer, each from its OWN export, never a stacked
+layer’s node under this document’s name — and
 writes <code class="language-plaintext highlighter-rouge">docs/subgraph/&lt;HARNESS&gt;/&lt;PATH&gt;/index[.hydrated].jsonld</code>, which Pages
 serves at the subgraph IRI, plus the context at <code class="language-plaintext highlighter-rouge">ns/subgraph/v1.jsonld</code>.
 <code class="language-plaintext highlighter-rouge">subgraph:jsonld:check</code> is the gate. The file shape is
@@ -1862,7 +1230,7 @@ pin, harness, each file’s sha256). It is attached, with its
 <code class="language-plaintext highlighter-rouge">folio-binary-release/v1</code> record, to the GitHub release <code class="language-plaintext highlighter-rouge">subgraph-index-&lt;sha&gt;</code>.</p>
 
 <ul>
-  <li><strong>Not committed:</strong> a committed copy of a build over other instances is
+  <li><strong>Not committed:</strong> a committed copy of a build over other layers is
 stale on the next re-pin.</li>
   <li><strong>Not generated at mount:</strong> reading one file of metadata must not need the
 build toolchain, and one pin must have one set of files.</li>
@@ -1890,14 +1258,14 @@ are published per pin, in a package” has the checks.</li>
   <li>For a directory of a declared graph, the rule is <em>containment</em>: a node is in
 the deepest subgraph directory that contains its source path, and in every
 ancestor of that one, transitively.</li>
-  <li><strong>An overlaid instance heads its own tree.</strong> kg-export reads the corpus of
-every instance stacked on this one, so the content core’s processes and
-skills are nodes of this graph. A directory belongs to the instance that
+  <li><strong>An overlaid layer heads its own tree.</strong> kg-export reads the corpus of
+every layer stacked on this one, so the content core’s processes and
+skills are nodes of this graph. A directory belongs to the layer that
 declares it, so those nodes sit under <code class="language-plaintext highlighter-rouge">&lt;BASE_URL&gt;/subgraph/&lt;that
-instance&gt;/…</code>, framed by this build because this graph publishes them. Their
+layer&gt;/…</code>, framed by this build because this graph publishes them. Their
 <code class="language-plaintext highlighter-rouge">@id</code>s do not change.</li>
   <li><strong>Bootstrap gets no tree here.</strong> <code class="language-plaintext highlighter-rouge">bootstrap</code> and <code class="language-plaintext highlighter-rouge">bootstrap-tools</code> sit
-<em>below</em> this instance, and their processes are kept out of its graph; they
+<em>below</em> this layer, and their processes are kept out of its graph; they
 publish their own subgraphs, and a tree framed for them here would re-carry
 what was excluded.</li>
   <li>A harness’s own rule, saying which directories are its graph, is its
@@ -1925,7 +1293,7 @@ a sparse checkout of the subgraph’s directory. The file is validated against
 it is held with a sha256 record. A request for the root is refused, with a
 pointer to <code class="language-plaintext highlighter-rouge">index.jsonld</code>. This is a metadata mode. The byte copy
 (<code class="language-plaintext highlighter-rouge">kg:materialize &lt;subscription&gt; &lt;subgraph&gt;</code>) keeps its five gates. See
-<a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/large-datasets/kg-subscription.md"><code class="language-plaintext highlighter-rouge">kg-subscription</code></a>
+<a href="https://github.com/litlfred/cat-harness/blob/main/library/skills/large-datasets/kg-subscription.md"><code class="language-plaintext highlighter-rouge">kg-subscription</code></a>
 §”metadata mode”.</li>
   <li>A subgraph manifest that lists a child IRI but whose child file is missing is
 a dangling link. It is reported, never skipped.</li>

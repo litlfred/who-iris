@@ -1,0 +1,848 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-349550",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Global guidance on criteria and processes for validation: elimination of mother-to-child transmission of HIV, syphilis and hepatitis B virus",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2021-11-25",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240039360 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/349550",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This guidance document provides updated World Health Organization criteria and processes for validating the elimination of mother-to-child transmission (EMTCT) of HIV, syphilis and hepatitis B virus (HBV) as public health priorities. Building on previous editions focused on HIV and syphilis, this third version incorporates validation guidance for HBV within the framework of the Triple Elimination Initiative. The document outlines standardized indicators, targets and assessment procedures for evaluating progress towards EMTCT across diverse epidemiological and programmatic settings. It addresses impact and process indicators, surveillance and laboratory quality standards, programme assessment, and requirements related to human rights, gender equality and community engagement.\n\nThe document emphasizes integrated maternal and child health approaches, universal access to quality antenatal and prevention services, and the importance of strong health systems and surveillance mechanisms. It also provides guidance for countries with high disease burdens through the Path to Elimination framework, as well as for countries with small numbers of affected pregnant women and special populations. Intended for national, regional and global validation bodies, the document supports harmonized validation processes while allowing countries to pursue single, dual or triple EMTCT validation according to national readiness and regional priorities.",
+      "dcterms:source": "catalogue/records/10665-349550.dc.json",
+      "dcterms:hasVersion": "library/10665-349550"
+    },
+    {
+      "@id": "references/10665-349550.page-071.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/342899",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/publications/i/item/978-92-4-155058-1",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240028395",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.who.int/reproductivehealth/publications/rtis/syphilis-ANC-screenandtreat-guidelines/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.who.int/reproductivehealth/publications/rtis/syphilis-treatment-guidelines/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://sustainabledevelopment.un.org/post2015/transformingourworld",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.2471/BLT.20.272559",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.paho.org/en/topics/elimination-mother-child-transmission-hiv-syphilis-perinatal-hepatitis-b-and-congenital",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/westernpacific/activities/eliminating-mother-to-child-transmission-of-hiv-hepatitis-syphilis",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240027077",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/246178",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.who.int/reproductivehealth/publications/rtis/ghss-stis/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.unaids.org/sites/default/files/media_asset/2021_political-declaration-on-hiv-and-aids_en.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/332488/9789240006614-eng.pdf?ua=1",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "http://www.unaids.org/sites/default/files/media_asset/Global_AIDS_update_2017_en.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.unaids.org/en/resources/documents/2021/2021-global-aids-update",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.unaids.org/en/resources/documents/2020/unaids-data",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.unaids.org/sites/default/files/media_asset/2020_global-aids-report_en.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/208825",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.unaids.org/sites/default/files/media_asset/09_ChildrenandpregnantwomenlivingwithHIV.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/273155/WHO-CDS-HIV-18.17-eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md",
+      "dcterms:hasVersion": "library/10665-273155"
+    },
+    {
+      "@id": "references/10665-349550.page-071.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2000",
+      "bibo:doi": "10.1001/jama.283.9.1175",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:identifier": "https://lk.one.un.org/wp-content/uploads/2016/05/UNAIDS-Terminology-Guidelines.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.2471/blt.12.107623",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/329965",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "bibo:doi": "10.1371/journal.pone.0211720",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "http://www.who.int/mediacentre/factsheets/fs101/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "http://www.who.int/mediacentre/factsheets/fs374/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/who-wer9543",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "http://www.who.int/mediacentre/factsheets/fs359/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/initiatives/maternal-and-neonatal-tetanus-elimination-(mnte",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/initiatives/triple-elimination-initiative-of-mother-to-child-transmission-of-hiv-syphilis-and-hepatitis-b/validation/process-and-tools",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.unaids.org/en/global-aids-monitoring",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/hepatitis/GRSH-Data_entry_manual.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/75341/1/9789241504270_eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://www.who.int/reproductivehealth/publications/rtis/9789241503020/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/70808/WHO_IVB_11.08_eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/246260/1/9789241549707-eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://www.unaids.org/sites/default/files/media_asset/20110609_JC2137_Global-Plan-Elimination-HIV-Children_en_1.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/tools/aids-free-toolkit",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/43782/9789241595858_eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/reproductivehealth/publications/rtis/syphilis-ANC-screenandtreat-guidelines/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "bibo:doi": "10.1016/S0140-6736(20)32431-4",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://iris.wpro.who.int/handle/10665.1/14180",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "bibo:doi": "10.15585/mmwr.mm6808a2",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1093/cid/ciaa134",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/208337",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://www.who.int/teams/immunization-vaccines-and-biologicals/strategies/global-vaccine-action-plan",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2030",
+      "dcterms:identifier": "https://www.who.int/publications/m/item/immunization-agenda-2030-a-global-strategy-to-leave-no-one-behind",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "http://apps.who.int/immunization_monitoring/globalsummary/timeseries/tswucoveragedtp3.html",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "http://apps.who.int/iris/handle/10665/310912",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://data.unicef.org/topic/child-health/immunization/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/333391/9789240002708-eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/handle/10665/75478/9789241504362_eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.who.int/reproductivehealth/congenital-syphilis/methods-for-congenital-syphilis-estimation-tool.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/204423/1/slipta-checkist0711.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/reproductivehealth/congenital-syphilis/spt-program/en/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://stacks.cdc.gov/view/cdc/21846/cdc_21846_DS1.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.64",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/154590/9789241549059_eng.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.65",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.who.int/hepatitis/publications/HEP17001_WEB11.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.66",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "https://www.ohchr.org/Documents/Publications/HIVAIDSGuidelinesen.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.67",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.who.int/news-room/fact-sheets/detail/human-rights-and-health",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.68",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://www.theglobalfund.org/media/6348/core_hivhumanrightsgenderequality_technicalbrief_en.pdf?u=637166001220000000",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.69",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.unaids.org/en/resources/documents/2012/20120628_JC2281_PromisingPracticesCommunityEngagements",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.70",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.unaids.org/sites/default/files/media_asset/GlobalPlan2016_en.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.71",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.gavi.org/our-alliance/strategy/vaccine-investment-strategy",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.72",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://data.unicef.org/topic/maternal-health/delivery-care/",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.73",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:identifier": "http://data.unaids.org/pub/briefingnote/2007/jc1299_policy_brief_gipa.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.74",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/259280",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.75",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240000735",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.76",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.childrenandaids.org/sites/default/files/2017-05/IATT-Framework-Monitoring-Evaluation-Framework-for-ART-Treat.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.77",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.cdc.gov/std/treatment-guidelines/congenital-syphilis.htm",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.78",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.profamilia.org.co/wp-content/uploads/2020/07/WHO-meeting-Developing-guidance-for-verifying-hepatitis-B-elimination.pdf",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.79",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/272820",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.80",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.1016/j.vaccine.2016.06.083",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.81",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "bibo:doi": "10.1016/j.vaccine.2020.05.029",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    },
+    {
+      "@id": "references/10665-349550.page-071.82",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://avenirhealth.org/software-spectrum.php",
+      "dcterms:source": "library/10665-349550/sections/page-071.md"
+    }
+  ]
+}

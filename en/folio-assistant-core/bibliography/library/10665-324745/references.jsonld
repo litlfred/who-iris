@@ -1,0 +1,120 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-324745",
+      "@type": [
+        "fabio:Work",
+        "bibo:Report"
+      ],
+      "dcterms:title": "Technical update: considerations for developing a monitoring and evaluation framework for viral load testing: collecting and using data for scale-up and outcomes",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2019-05-16",
+      "dcterms:publisher": "World Health Organization",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/324745",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-324745.dc.json",
+      "dcterms:hasVersion": "library/10665-324745"
+    },
+    {
+      "@id": "references/10665-324745.page-025.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/164716/1/9789241508759_eng.pdf?ua=1&ua=1",
+      "dcterms:source": "library/10665-324745/sections/page-025.md"
+    },
+    {
+      "@id": "references/10665-324745.page-025.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "http://www.who.int/hiv/pub/guidelines/person-centred-hiv-monitoring-guidelines/en",
+      "dcterms:source": "library/10665-324745/sections/page-025.md"
+    },
+    {
+      "@id": "references/10665-324745.page-025.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/128121/1/9789241507578_eng.pdf?ua=1&ua=1",
+      "dcterms:source": "library/10665-324745/sections/page-025.md"
+    },
+    {
+      "@id": "references/10665-324745.page-025.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.pepfar.gov/documents/organization/240108.pdf",
+      "dcterms:source": "library/10665-324745/sections/page-025.md"
+    },
+    {
+      "@id": "references/10665-324745.page-025.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-324745/sections/page-025.md"
+    },
+    {
+      "@id": "references/10665-324745.page-048.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/164716/1/9789241508759_eng.pdf?ua=1&ua=1",
+      "dcterms:source": "library/10665-324745/sections/page-048.md"
+    },
+    {
+      "@id": "references/10665-324745.page-048.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.pepfar.gov/documents/organization/240108.pdf",
+      "dcterms:source": "library/10665-324745/sections/page-048.md"
+    },
+    {
+      "@id": "references/10665-324745.page-048.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-324745/sections/page-048.md"
+    },
+    {
+      "@id": "references/10665-324745.page-048.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.pepfar.gov/reports/guidance/c61317.htm",
+      "dcterms:source": "library/10665-324745/sections/page-048.md"
+    }
+  ]
+}

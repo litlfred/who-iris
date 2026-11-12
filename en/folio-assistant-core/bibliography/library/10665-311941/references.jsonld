@@ -1,0 +1,918 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-311941",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "WHO guideline: recommendations on digital interventions for health system strengthening",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2019-04-16",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789241550505",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/311941",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This WHO guideline provides evidence-based recommendations on the use of digital interventions to strengthen health systems and support progress towards universal health coverage (UHC). Developed in response to the growing adoption of digital technologies and the 2018 World Health Assembly resolution on digital health, it addresses the need for rigorous evaluation of digital health interventions to ensure that investments are informed by evidence of their benefits, harms, acceptability, feasibility, resource implications and equity considerations. The guideline emphasizes that digital technologies should complement, rather than replace, the fundamental components of well-functioning health systems.\n\nThe recommendations focus on a prioritized set of digital health interventions accessible at a minimum through mobile devices, including birth and death notification, stock notification and commodity management, client-to-provider and provider-to-provider telemedicine, targeted client communication, digital tracking of clients’ health status and services, health worker decision support, and digital learning for health workers. The guideline also outlines implementation considerations, identifies research gaps, and supports ministries of health, public health practitioners, development partners and other stakeholders in making evidence-based decisions on the adoption, scale-up and institutionalization of effective digital health interventions.",
+      "dcterms:source": "catalogue/records/10665-311941.dc.json",
+      "dcterms:hasVersion": "library/10665-311941"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://le/10665/252529/9789241511780-eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://www.who.int/goe/publications/goe_mhealth_web.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://apps.who.int/gb/ebwha/pdf_files/WHA71/A71_20-en.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://apps.who.int/gb/ebwha/pdf_files/WHA71/A71_R7-en.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.gsma.com/mobilefordevelopment/m4d-tracker/mhealth-deployment-tracker",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://www.who.int/hrh/documents/roadmap4health-measurement_accountability.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1371/journal.pmed.1001382",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://www.ghdonline.org/tech/discussion/the-role-of-evaluation-in-global-ehealth",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "http://www.who.int/news-room/fact-sheets/detail/universal-health-coverage-(uhc",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1978",
+      "dcterms:identifier": "http://www.who.int/iris/handle/10665/261736",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1126/science.1258926",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.9745/GHSP-D-13-00031",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/handle/10665/260480/WHO-RHR-18.06-eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/handle/10665/208825/9789241549684_eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "http://le/10665/255052/9789241550000-eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://le/10665/275474/9789241550369-eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/75211",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md",
+      "dcterms:hasVersion": "library/10665-75211"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://digitalhealthatlas.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://www.itu.int/en/ITU-D/ICT-Applications/eHEALTH/Be_healthy/Documents/Be_Healthy_Be_Mobile_Annual_Report%202013-2014_Final.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://www.who.int/healthinfo/topics_standards_tools",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.measureevaluation.org/resources/tools/health-information-systems-interoperability-toolkit",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://www.who.int/pmnch/knowledge/publications/ict_mhealth.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.digitalhealthindex.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://digitalprinciples.org/principles",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://digitalinvestmentprinciples.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.ihe.net/resources",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.africanalliance.digital",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.aehin.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.globaldigitalhealthnetwork.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.healthdatacollaborative.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://ohie.org/#communities",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://www.who.int/publications/guidelines/guidelines_review_committee",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.who.int/publications/guidelines/handbook_2nd_ed.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.hifa.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://www.ibpinitiative.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "http://www.who.int/healthinfo/civil_registration",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://www.itu.int/en/ITU-D/Statistics/Documents/facts/ICTFactsFigures2015.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://epoc.cochrane.org/epoc-specificresources-review-authors",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://cccrg.cochrane.org/author-resources",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "bibo:doi": "10.1371/journal",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://handbook-5-1.cochrane.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://casp-uk.net/wp-content/uploads/2018/01/CASP-Qualitative-Checklist-2018.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.hifa.org/dgroups-rss/5th-global-symposium-hsr-invitation-discussion-weird-ways-evaluating-important-and-0",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.1371/journal.pmed.1001895",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://gradeworkinggroup.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "bibo:doi": "10.1186/1471-2288-12-181",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/handle/10665/77764/9789241504843_eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md",
+      "dcterms:hasVersion": "library/10665-77764"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://le/10665/250796/9789241549912-eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.le/10665/260178/9789241550215-eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://documents.worldbank.org/curated/en/457271468148160984/pdf/883510WP0CRVS000Box385194B00PUBLIC0.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:identifier": "https://www.unicef.org/protection/files/Birth_Registration_Working_Paper.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://www.who.int/healthinfo/civil_registration/crvs_report_2013.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://www.who.int/healthinfo/civil_registration/WHO_UNICEF_Statement_CRVS_2018.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "bibo:doi": "10.2471/BLT.18.213090",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.64",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.65",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.66",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:identifier": "http://pdf.usaid.gov/pdf_docs/Pnacn557.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.67",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://www.who.int/pmnch/topics/maternal/20100914_gswch_en.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.68",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.lifesavingcommodities.org/wp-content/uploads/2015/08/Toolkit-for-Health-Services-2.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.69",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.healthdatacollaborative.org/fileadmin/uploads/hdc/Documents/Working_Groups/LMIS_TORs_and_Workplan.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.70",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.who.int/workforcealliance/knowledge/resources/GHWA-a_universal_truth_report.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.71",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/handle/10665/44369/9789241564014_eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.72",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/handle/10665/44497/9789241564144_eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.73",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.74",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.75",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "bibo:doi": "10.1002/14651858",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.76",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://apps.le/10665/272465/9789241513906-eng.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.77",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.78",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.79",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.80",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.81",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.82",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.83",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.who.int/hrh/resources/global_strategy_workforce2030_14_print.pdf",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.84",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.hl7.org/implement/standards/index.cfm",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.85",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/classifications/icd",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.86",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.iso.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.87",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.re-aim.org/about",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.88",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.livessavedtool.org",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.89",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "bibo:doi": "10.1186/s12874-017-0349-x",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.90",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.healthdatacollaborative.org/how-we-work/digital-health-interoperability-working-group",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.91",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    },
+    {
+      "@id": "references/10665-311941.sec-044.92",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/topics/innovation",
+      "dcterms:source": "library/10665-311941/sections/sec-044-references.md"
+    }
+  ]
+}

@@ -1228,6 +1228,88 @@
       ]
     }
   ],
+  "images": [
+    {
+      "id": "img-p001-1",
+      "file": "images/img-p001-1.webp",
+      "page": 1,
+      "narratives": {
+        "en": "Photograph of a health worker's gloved hands holding a labelled blood sample tube, with a young woman seated in the background.",
+        "ar": "صورة فوتوغرافية ليدَي عامل صحي مرتديتين قفازين تمسكان بأنبوب عيّنة دم موسوم، وفي الخلفية شابة جالسة.",
+        "zh": "照片：一名卫生工作者戴手套的双手拿着一支贴有标签的血样管，背景中坐着一名年轻女子。",
+        "es": "Fotografía de las manos enguantadas de un trabajador sanitario que sostienen un tubo de muestra de sangre etiquetado, con una mujer joven sentada al fondo.",
+        "fr": "Photographie des mains gantées d’un agent de santé tenant un tube de prélèvement sanguin étiqueté, avec une jeune femme assise à l’arrière-plan.",
+        "ru": "Фотография рук медицинского работника в перчатках, держащих промаркированную пробирку с кровью; на заднем плане сидит молодая женщина."
+      },
+      "state": "draft"
+    }
+  ],
+  "tables": [
+    {
+      "label": "Table 1",
+      "caption": "TABLE 1. SUMMARY OF TESTING SERVICES FOR STARTING AND MONITORING PREP",
+      "pages": [
+        7
+      ],
+      "columns": [
+        {
+          "titles": "PATHOGEN / ANALYTE"
+        },
+        {
+          "titles": "TESTING LOCATION"
+        },
+        {
+          "titles": "TIMING AND FREQUENCY"
+        }
+      ],
+      "rows": [
+        [
+          "HIV (HIV antibodies (anti-HIV))",
+          "Community/outreach; Primary care; Laboratory (district/ provincial/ national)",
+          "Prior to starting or restarting PrEP and every three months during PrEP use. Programmes can also consider testing at 1 month after starting PrEP."
+        ],
+        [
+          "Creatinine",
+          "Primary care; Laboratory (district/ provincial/ national)",
+          "Consider testing prior to starting or restarting PrEP and consider every six months during PrEP use. Increasing testing frequency may be considered if there are comorbid conditions affecting renal function."
+        ],
+        [
+          "HBV (Hepatitis B surface antigen (HBsAg))",
+          "Community/outreach; Primary care; Laboratory (district/ provincial/ national)",
+          "If HBsAg test is reactive, evaluate for HBV treatment indications based on WHO hepatitis B treatment guidelines. PrEP can be started before the result is available. For those being treated for chronic HBV, it is important to undertake further laboratory testing before PrEP is stopped to help with deciding how to monitor for HBV flares or how to continue treatment. If HBsAg is not detected, with no history of immunization, vaccinating against HBV can be considered."
+        ],
+        [
+          "HCV (HCV antibodies (anti-HCV))",
+          "Community/outreach; Primary care; Laboratory (district, provincial, national)",
+          "Consider testing for HCV in certain populations, such as men who have sex with men and people who inject drugs, prior to PrEP initiation and annually thereafter."
+        ],
+        [
+          "Pregnancy",
+          "Community/outreach; Primary care; Laboratory (district, provincial)",
+          "When clinically indicated, for example women who report missed menses or symptoms of pregnancy."
+        ],
+        [
+          "Syphilis (treponemal antibodies) Syphilis (rapid plasma reagin titer)",
+          "Community/outreach; Primary care; Laboratory (district, provincial)",
+          "When starting PrEP, consider testing and every three to six months during PrEP use to check for active syphilis infection and to evaluate response to treatment. Pregnant women seeking or taking PrEP with a single reactive treponemal or nontreponemal test result should be started on treatment."
+        ],
+        [
+          "Neisseria gonorrhoeae (GC) Chlamydia trachomatis (CT)",
+          "Laboratory (district, provincial, national)",
+          "Consider testing when starting PrEP and every three to six months during PrEP use. Use of nucleic acid testing (NAT) technologies is preferred for testing for gonorrhoeae and chlamydia. If NAT technologies are not available, probe for symptoms and look for signs of STIs and treat syndromically."
+        ]
+      ],
+      "narratives": {
+        "en": "Laboratory and point-of-care tests for people starting and using HIV pre-exposure prophylaxis (PrEP): for each pathogen or analyte (HIV, creatinine, hepatitis B and C, pregnancy, syphilis, gonorrhoea and chlamydia) the table gives where testing can be done and its timing and frequency.",
+        "ar": "الاختبارات المختبرية واختبارات نقاط الرعاية للأشخاص الذين يبدؤون الوقاية قبل التعرض لفيروس العوز المناعي البشري أو يستخدمونها: يبيّن الجدول لكل عامل ممرض أو مادة مُحلَّلة (فيروس العوز المناعي البشري، والكرياتينين، والتهاب الكبد B وC، والحمل، والزهري، والسيلان والمتدثرة) مكان إجراء الاختبار وتوقيته وتواتره.",
+        "zh": "开始和使用艾滋病毒暴露前预防（PrEP）人群的检测服务：表中针对每种病原体或检测指标（艾滋病毒、肌酐、乙肝和丙肝、妊娠、梅毒、淋病和衣原体）给出检测地点以及检测时间和频率。",
+        "es": "Pruebas para las personas que inician y usan la profilaxis previa a la exposición (PrEP) al VIH: para cada patógeno o analito (VIH, creatinina, hepatitis B y C, embarazo, sífilis, gonorrea y clamidia) se indican el lugar donde puede realizarse la prueba y su momento y frecuencia.",
+        "fr": "Tests destinés aux personnes qui commencent ou utilisent la prophylaxie préexposition (PrEP) du VIH : pour chaque agent pathogène ou analyte (VIH, créatinine, hépatites B et C, grossesse, syphilis, gonorrhée et chlamydia), le tableau indique le lieu où le test peut être réalisé ainsi que son calendrier et sa fréquence.",
+        "ru": "Тестирование лиц, начинающих и применяющих доконтактную профилактику (ДКП) ВИЧ: для каждого возбудителя или аналита (ВИЧ, креатинин, гепатиты B и C, беременность, сифилис, гонорея и хламидиоз) указаны место проведения тестирования, его сроки и частота."
+      },
+      "csv": "tables/table-1.csv"
+    }
+  ],
   "links": {
     "repo": "litlfred/who-iris",
     "branch": "main",

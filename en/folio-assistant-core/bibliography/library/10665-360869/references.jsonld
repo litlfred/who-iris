@@ -1,0 +1,422 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-360869",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Guidelines on long-acting injectable cabotegravir for HIV prevention",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2022-07-27",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240054097 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/360869",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This guideline provides evidence-informed recommendations on the use of long-acting injectable cabotegravir (CAB-LA) as pre-exposure prophylaxis (PrEP) for HIV prevention in people at substantial risk of HIV infection. Developed according to WHO guideline development procedures, it is based on systematic reviews, GRADE assessments and additional evidence on effectiveness, safety, acceptability, feasibility, equity and cost–effectiveness. The document reviews the global HIV prevention context, the rationale for expanding HIV prevention choices, and the evidence supporting CAB-LA as an additional PrEP option. It also outlines the principles guiding implementation within a public health and human rights framework and identifies the intended audiences for the recommendations.\n\nThe guideline recommends that long-acting injectable cabotegravir may be offered as an additional HIV prevention choice as part of combination prevention approaches for people at substantial risk of HIV infection. It discusses key implementation considerations, including HIV testing, service delivery models, comprehensive prevention services, community engagement, provider training and adherence support. The publication also identifies priority research gaps related to safety, drug resistance, delivery strategies and population-level impact, and describes the guideline development process, dissemination strategy and supporting evidence underpinning the recommendation.",
+      "dcterms:source": "catalogue/records/10665-360869.dc.json",
+      "dcterms:hasVersion": "library/10665-360869"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/186275",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/340190",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md",
+      "dcterms:hasVersion": "library/10665-340190"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/342899",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.unaids.org/en/resources/documents/2021/2021-global-aids-update",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.unaids.org/sites/default/files/media_asset/2021_political-declaration-on-hiv-and-aids_en.pdf",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-injectable-treatment-hiv-pre-exposure-prevention",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/145714",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://hivdb.stanford.edu/",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.clinicaltrials.gov/ct2/show/NCT04692077",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-036.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.clinicaltrials.gov/ct2/show/NCT04824131",
+      "dcterms:source": "library/10665-360869/sections/sec-036-references.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-037.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/145714",
+      "dcterms:source": "library/10665-360869/sections/sec-037-annex-1-process-for-developing-the-guidelines.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-037.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-360869/sections/sec-037-annex-1-process-for-developing-the-guidelines.md"
+    },
+    {
+      "@id": "references/10665-360869.sec-037.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.who.int/hiv",
+      "dcterms:source": "library/10665-360869/sections/sec-037-annex-1-process-for-developing-the-guidelines.md"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-207050",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Developing health management information systems : a practical guide for developing countries",
+      "dcterms:creator": [
+        "World Health Organization. Regional Office for the Western Pacific"
+      ],
+      "dcterms:issued": "2004-12-31",
+      "dcterms:publisher": "WHO Regional Office for the Western Pacific",
+      "bibo:isbn": "9290611650",
+      "dcterms:identifier": "http://iris.wpro.who.int/handle/10665.1/5498",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-207050.dc.json",
+      "dcterms:hasVersion": "library/10665-207050"
+    },
+    {
+      "@id": "references/10665-207050.sec-014.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1984",
+      "dcterms:source": "library/10665-207050/sections/sec-014-references.md"
+    },
+    {
+      "@id": "references/10665-207050.sec-014.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-207050/sections/sec-014-references.md"
+    },
+    {
+      "@id": "references/10665-207050.sec-014.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1986",
+      "dcterms:source": "library/10665-207050/sections/sec-014-references.md"
+    },
+    {
+      "@id": "references/10665-207050.sec-014.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-207050/sections/sec-014-references.md"
+    },
+    {
+      "@id": "references/10665-207050.sec-014.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1993",
+      "dcterms:source": "library/10665-207050/sections/sec-014-references.md"
+    }
+  ]
+}

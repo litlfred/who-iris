@@ -1,0 +1,412 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/9789240099456-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Digital adaptation kit for immunizations: operational requirements for implementing WHO recommendations in digital systems",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2024-12-31",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240099456 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/380303",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This publication presents the World Health Organization’s digital adaptation kit (DAK) for immunizations, developed within the SMART Guidelines framework to support the implementation of WHO immunization recommendations in digital systems. The document provides operational and software-neutral specifications intended to facilitate the translation of immunization guidance into interoperable digital health applications, particularly person-centred point-of-service systems and electronic immunization registries. It outlines the role of digital adaptation kits in strengthening digital health systems by improving the consistency, transparency and standardization of health content, workflows, data structures and decision-support logic used in immunization programmes. The publication also situates the DAK within broader digital health strategies and interoperability standards.\n\nThe document describes eight core components of the immunization DAK, including health interventions and recommendations, generic personas, user scenarios, workflows, core data elements, decision-support logic, indicators and functional requirements. It incorporates WHO guidance related to routine immunization, electronic immunization registries and digital health interventions, while emphasizing adaptability to country-specific policies and implementation contexts. Additional sections address interoperability, data standards, workflow optimization and the use of digital systems to support longitudinal tracking, reporting, decision support and communication within immunization services. The publication is intended for immunization programme managers, digital health teams, software developers and implementers involved in designing and deploying digital immunization systems.",
+      "dcterms:source": "catalogue/records/9789240099456-eng.dc.json",
+      "dcterms:hasVersion": "library/9789240099456-eng"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/gb/ebwha/pdf_files/WHA71/A71_R7-en.pdf",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/344249",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md",
+      "dcterms:hasVersion": "library/10665-344249"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://www.healthdatacollaborative.org/fileadmin/uploads/hdc/Documents/the-roadmap-for-health-measurement-andaccountability.pdf",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://www.usaid.gov/sites/default/files/2022-05/USAID_Digital_Strategy.pdf",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.theglobalfund.org/media/8362/me_datauseforactionandimprovement_framework_en.pdf",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "bibo:doi": "10.1097/JMQ.0000000000000138",
+      "dcterms:identifier": "https://doi.org/10.1097/JMQ.0000000000000138",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2023",
+      "bibo:doi": "10.1101/2022.09.02.22279524",
+      "dcterms:identifier": "https://doi.org/10.1101/2022.09.02.22279524",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1136/amiajnl-2011-000334",
+      "dcterms:identifier": "https://doi.org/10.1136/amiajnl-2011-000334",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2023",
+      "bibo:doi": "10.9745/GHSP-D-22-00439",
+      "dcterms:identifier": "https://doi.org/10.9745/GHSP-D-22-00439",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://wiki.digitalsquare.io/index.php/Global_Goods_Maturity#Digital_Square_Maturity_Model_Details",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2023",
+      "bibo:doi": "10.1093/oodh/oqad018",
+      "dcterms:identifier": "https://doi.org/10.1093/oodh/oqad018",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.9745/GHSP-D-21-00320",
+      "dcterms:identifier": "https://doi.org/10.9745/GHSP-D-21-00320",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/334306",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/311941",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md",
+      "dcterms:hasVersion": "library/10665-311941"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://iris.paho.org/handle/10665.2/34865",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/373581",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1016/S2589-7500(21)00038-8",
+      "dcterms:identifier": "https://doi.org/10.1016/S2589-7500(21)00038-8",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1136/amiajnl-2011-000334",
+      "dcterms:identifier": "https://doi.org/10.1136/amiajnl-2011-000334",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://www.path.org/our-impact/resources/product-vision-for-the-better-immunization-data-bid-initiative",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/universal-health-coverage/compendium",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.phii.org/crdm",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://immunizationdata.who.int",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/379452",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.who.int/publications/m/item/analysis-and-use-of-health-facility-data-guidance-for-immunization-programme-managers",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/75211",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md",
+      "dcterms:hasVersion": "library/10665-75211"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/343361",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/who-recommendations-for-routine-immunization---summary-tables",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://data.unicef.org/wp-content/uploads/2015/12/WHO_UNICEF_JRF_EN_2016.xls",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/340749",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.who.int/publications/m/item/monitoring-metrics-related-to-the-global-covid-19-vaccination-strategy-in-a-changing-world--july-2022-update",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/publications/m/item/reporting-form-aefi",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://repository.immregistries.org/resource/iis-data-quality-practices-to-monitor-and-evaluate-data-at-rest",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.omg.org/spec/DMN",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/255705",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    },
+    {
+      "@id": "references/9789240099456-eng.sec-005.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.technet-21.org/en/resources/guidance/who-handbook-on-the-use-collection-and-improvement-of-immunization-data",
+      "dcterms:source": "library/9789240099456-eng/sections/sec-005-references.md"
+    }
+  ]
+}

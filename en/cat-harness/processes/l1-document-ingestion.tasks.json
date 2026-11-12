@@ -147,13 +147,37 @@
    }
   },
   {
+   "id": "CallActivity_PublishStatements",
+   "name": "Publish the extracted statements with source links",
+   "left": 75.57,
+   "top": 36.72,
+   "box": {
+    "left": 73.37,
+    "top": 51.56,
+    "width": 0.73,
+    "height": 3.75
+   }
+  },
+  {
    "id": "Task_SummaryQueue",
-   "name": "Queue prose blocks for summary",
+   "name": "Summarise prose blocks, in every language",
    "left": 82.25,
    "top": 5.47,
    "box": {
     "left": 80.05,
     "top": 20.31,
+    "width": 0.73,
+    "height": 3.75
+   }
+  },
+  {
+   "id": "Task_Errata",
+   "name": "Record errata in the source's own text",
+   "left": 82.25,
+   "top": 33.59,
+   "box": {
+    "left": 80.05,
+    "top": 48.44,
     "width": 0.73,
     "height": 3.75
    }
@@ -689,7 +713,17 @@
    "skills": [
     {
      "name": "l1-document-ingestion",
-     "href": "../../../en/cat-harness/processes/skills/l1-document-ingestion.html"
+     "href": "../../../en/cat-harness/processes/skills/l1-document-ingestion.html",
+     "methodologies": [
+      {
+       "name": "lsi",
+       "href": "../../../en/cat-harness/methodologies/cat-harness/lsi/"
+      },
+      {
+       "name": "correspondence-analysis",
+       "href": "../../../en/cat-harness/methodologies/cat-harness/correspondence-analysis/"
+      }
+     ]
     }
    ],
    "calls": {
@@ -842,9 +876,67 @@
     ]
    }
   },
+  "CallActivity_PublishStatements": {
+   "id": "CallActivity_PublishStatements",
+   "name": "Publish the extracted statements with source links",
+   "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_PublishStatements",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
+   "skills": [
+    {
+     "name": "publish-extracted-statements",
+     "href": "../../../en/cat-harness/processes/skills/publish-extracted-statements.html"
+    }
+   ],
+   "calls": {
+    "name": "Publish extracted statements with source links",
+    "href": "publish-extracted-statements.html",
+    "diagram": "publish-extracted-statements.html"
+   },
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": [
+     {
+      "name": "asset-extraction",
+      "href": "../../../en/cat-harness/processes/skills/asset-extraction.html"
+     },
+     {
+      "name": "kg-subscription",
+      "href": "../../../en/cat-harness/processes/skills/kg-subscription.html"
+     },
+     {
+      "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html"
+     },
+     {
+      "name": "materialize-on-demand",
+      "href": "../../../en/cat-harness/processes/skills/materialize-on-demand.html"
+     },
+     {
+      "name": "materialize-remote",
+      "href": "../../../en/cat-harness/processes/skills/materialize-remote.html"
+     },
+     {
+      "name": "theme-art-intake",
+      "href": "../../../en/cat-harness/processes/skills/theme-art-intake.html"
+     },
+     {
+      "name": "theme-ui-review",
+      "href": "../../../en/cat-harness/processes/skills/theme-ui-review.html"
+     },
+     {
+      "name": "upload-naming",
+      "href": "../../../en/cat-harness/processes/skills/upload-naming.html"
+     }
+    ]
+   }
+  },
   "Task_SummaryQueue": {
    "id": "Task_SummaryQueue",
-   "name": "Queue prose blocks for summary",
+   "name": "Summarise prose blocks, in every language",
    "type": "bpmn:ServiceTask",
    "stepHref": "l1-document-ingestion.html#step-Task_SummaryQueue",
    "lane": "Ingestion Engine (agent, runs unattended)",
@@ -852,7 +944,80 @@
    "skills": [
     {
      "name": "l1-document-ingestion",
-     "href": "../../../en/cat-harness/processes/skills/l1-document-ingestion.html"
+     "href": "../../../en/cat-harness/processes/skills/l1-document-ingestion.html",
+     "methodologies": [
+      {
+       "name": "lsi",
+       "href": "../../../en/cat-harness/methodologies/cat-harness/lsi/"
+      },
+      {
+       "name": "correspondence-analysis",
+       "href": "../../../en/cat-harness/methodologies/cat-harness/correspondence-analysis/"
+      }
+     ]
+    }
+   ],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": [
+     {
+      "name": "asset-extraction",
+      "href": "../../../en/cat-harness/processes/skills/asset-extraction.html"
+     },
+     {
+      "name": "kg-subscription",
+      "href": "../../../en/cat-harness/processes/skills/kg-subscription.html"
+     },
+     {
+      "name": "library-ingestion",
+      "href": "../../../en/cat-harness/processes/skills/library-ingestion.html"
+     },
+     {
+      "name": "materialize-on-demand",
+      "href": "../../../en/cat-harness/processes/skills/materialize-on-demand.html"
+     },
+     {
+      "name": "materialize-remote",
+      "href": "../../../en/cat-harness/processes/skills/materialize-remote.html"
+     },
+     {
+      "name": "theme-art-intake",
+      "href": "../../../en/cat-harness/processes/skills/theme-art-intake.html"
+     },
+     {
+      "name": "theme-ui-review",
+      "href": "../../../en/cat-harness/processes/skills/theme-ui-review.html"
+     },
+     {
+      "name": "upload-naming",
+      "href": "../../../en/cat-harness/processes/skills/upload-naming.html"
+     }
+    ]
+   }
+  },
+  "Task_Errata": {
+   "id": "Task_Errata",
+   "name": "Record errata in the source's own text",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "l1-document-ingestion.html#step-Task_Errata",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
+   "skills": [
+    {
+     "name": "l1-document-ingestion",
+     "href": "../../../en/cat-harness/processes/skills/l1-document-ingestion.html",
+     "methodologies": [
+      {
+       "name": "lsi",
+       "href": "../../../en/cat-harness/methodologies/cat-harness/lsi/"
+      },
+      {
+       "name": "correspondence-analysis",
+       "href": "../../../en/cat-harness/methodologies/cat-harness/correspondence-analysis/"
+      }
+     ]
     }
    ],
    "role": {

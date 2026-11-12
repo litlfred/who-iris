@@ -1,0 +1,581 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-266214",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Vaccins antivarioliques secs",
+      "dcterms:creator": [
+        "Collier, W. A."
+      ],
+      "dcterms:issued": "1952-12-31",
+      "dcterms:publisher": "Organisation mondiale de la santé",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/266214",
+      "dcterms:language": "fr",
+      "dcterms:source": "catalogue/records/10665-266214.dc.json",
+      "dcterms:hasVersion": "library/10665-266214"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1911",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1909",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1919",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1890",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1901",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1879",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1936",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1937",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1906",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1929",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1932",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1909",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1914",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1906",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1801",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1949",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1949",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1913",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1949",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1938",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1930",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1917",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1920",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1909",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1937",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1937",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1938",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1942",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1914",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1929",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1911",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1923",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1912",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1918",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1949",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1944",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1869",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1949",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1926",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1927",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1932",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1933",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1942",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1884",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1881",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1914",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1935",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1921",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1911",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1913",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1921",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1920",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1896",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1888",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1891",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1868",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1928",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1910",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1911",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    },
+    {
+      "@id": "references/10665-266214.sec-006.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1919",
+      "dcterms:source": "library/10665-266214/sections/sec-006-summary.md"
+    }
+  ]
+}

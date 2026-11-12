@@ -1,0 +1,202 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-369381",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Toolkit for analysis and use of routine health facility data: integrated health services analysis: district and facility level",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2023-06-16",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240060609 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/369381",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This guidance document, part of the WHO Toolkit for analysis and use of routine health facility data, provides practical guidance on the integrated analysis and use of routine health information system (RHIS) data at district and health facility levels. It is intended to support managers, analysts and other health system stakeholders in monitoring health service delivery and using routine data for operational decision-making. The document promotes an integrated, standards-based approach that uses a limited set of tracer indicators representing multiple programmes and service components, thereby supporting primary health care, universal health coverage and the health-related Sustainable Development Goals.\n\nThe publication presents principles for RHIS data analysis, including integration across programmes, focused use of key indicators, standardization of analyses and visualizations, routine assessment of data quality, and purpose-oriented use of information for management and planning. It organizes indicators into three groups: health status and epidemiological profile, health service performance, and health service resources. For each group, the publication provides indicator definitions, metadata, recommended disaggregations, analytical approaches, and examples of dashboards and visualizations. It emphasizes the interpretation of routine data within local contexts and illustrates how standardized dashboards can support supervision, performance review, resource allocation and continuous improvement of health services at subnational levels.",
+      "dcterms:source": "catalogue/records/10665-369381.dc.json",
+      "dcterms:hasVersion": "library/10665-369381"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/data/data-collection-tools/health-service-data/toolkit-for-routine-health-information-system-data/modules",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/367106",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/data/data-collection-tools/health-service-data/data-quality-assurance-dqa",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.measureevaluation.org/our-work/routine-health-information-systems/rhis-curriculum",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://cdn.who.int/media/docs/default-source/documents/health-systems-strengthening-glossary.pdf",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/43872",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/329492",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/259951",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/365745",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://icap.columbia.edu/news-events/in-sierra-leone-improved-tracking-and-outreach-leads-to-surge-in-measles-immunization-coverage/",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.who.int/standards/classifications/classification-of-diseases",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/who-application-of-icd-10-for-low-resource-settings-initial-cause-of-death-collection",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/144727",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://handbook.spherestandards.org/en/sphere/#ch001",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/161442",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.nice.org.uk/guidance/ng94",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    },
+    {
+      "@id": "references/10665-369381.sec-046.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44414",
+      "dcterms:source": "library/10665-369381/sections/sec-046-references.md"
+    }
+  ]
+}

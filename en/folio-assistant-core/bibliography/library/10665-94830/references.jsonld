@@ -1,0 +1,221 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-94830",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "WHO guidelines for screening and treatment of precancerous lesions for cervical cancer prevention",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2013-11-19",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789241548694",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/94830",
+      "dcterms:language": "en",
+      "dcterms:abstract": "These guidelines provide recommendations for screen-and-treat strategies to prevent cervical cancer by detecting and treating precancerous cervical lesions. The screen-and-treat approach bases treatment decisions on screening results, allowing treatment soon or ideally immediately after a positive test, rather than requiring histological confirmation. The guidelines compare strategies using human papillomavirus (HPV) testing, visual inspection with acetic acid (VIA), and cytology, linked to treatment with cryotherapy or loop electrosurgical excision procedure (LEEP). They are intended primarily to support policy-makers, programme managers and other health professionals in selecting appropriate cervical cancer prevention strategies according to available resources and existing programmes.\n\nNine recommendations are provided. HPV-based screening is generally preferred where feasible, while VIA is suggested where HPV testing is not feasible; cold knife conization is not recommended as part of a screen-and-treat strategy. Recommendations apply to all women, with specific guidance for women living with HIV. Decision-making and implementation flowcharts support adaptation of the recommended strategies to country and regional contexts.",
+      "dcterms:source": "catalogue/records/10665-94830.dc.json",
+      "dcterms:hasVersion": "library/10665-94830"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://www.who.int/reproductivehealth/publications/cancers/9789241502856/en/",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:identifier": "http://screening.iarc.fr/doc/Colposcopymanual.pdf",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "http://www.who.int/reproductivehealth/publications/cancers/9241547006/en/",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://www.who.int/hiv/topics/mtct/grc_handbook_mar2010_1.pdf",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/75146/1/9789241548441_eng.pdf",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://www.cochrane-handbook.org",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    },
+    {
+      "@id": "references/10665-94830.sec-024.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://www.who.int/nuvi/hpv/cervical_cancer_costing_tool/en/index.html",
+      "dcterms:source": "library/10665-94830/sections/sec-024-references.md"
+    }
+  ]
+}

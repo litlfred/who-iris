@@ -4,6 +4,14 @@
 .lib-page #document .seg button[aria-selected="true"] { font-weight: 600; }
 .lib-page #document .docbody { padding: 0 16px 8px; }
 .lib-page #document .dockw { padding: 4px 16px; }
+/* Kept figures and transcribed tables (who-iris#224). */
+.lib-page #document .doc-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin: .5rem 0 1rem; }
+.lib-page #document .doc-figure { margin: 0; border: 1px solid var(--border, #8884); border-radius: 6px; padding: 6px; background: var(--card, transparent); }
+.lib-page #document .doc-figure img { display: block; width: 100%; height: auto; max-height: 320px; object-fit: contain; background: #fff; border-radius: 4px; }
+.lib-page #document .doc-figure figcaption { font-size: .85em; margin-top: 6px; }
+.lib-page #document .doc-table { margin: .4rem 0; }
+.lib-page #document .doc-table-scroll { overflow-x: auto; max-width: 100%; }
+.lib-page #document .doc-table table { font-size: .85em; }
 .lib-page #document p.kw, .lib-page #document .dockw p.kw { display: inline; margin: 0; }
 .lib-page #document .docsec p.kw { display: block; margin: 2px 0 6px; }
 .lib-page #document p.kw .pill { margin: 0 2px 2px 0; }

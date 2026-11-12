@@ -1,0 +1,2180 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-352523",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "WHO operational handbook on tuberculosis: module 5: management of tuberculosis in children and adolescents",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2022-03-18",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240046832 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/352523",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This operational handbook provides practical guidance for implementing World Health Organization recommendations on the prevention, screening, diagnosis and management of tuberculosis (TB) in children and adolescents under programmatic conditions and across different levels of the health system. Developed alongside the WHO consolidated guidelines on tuberculosis, the publication addresses the specific epidemiological, clinical and psychosocial vulnerabilities of children and adolescents affected by TB, including challenges related to diagnosis, treatment adherence, prevention and continuity of care. The handbook aims to support the development and revision of national policies, operational guidance and service delivery approaches tailored to the needs of these populations.\n\nThe handbook covers the full continuum of TB care, including contact investigation, systematic screening, preventive treatment, diagnostic approaches for pulmonary and extrapulmonary TB, and treatment of drug-susceptible and drug-resistant disease. It also addresses decentralized and family-centred models of care, management of TB in children and adolescents living with HIV, TB during pregnancy, malnutrition, pneumonia, adolescent health needs and palliative care. Practical tools, implementation guidance and standard operating procedures are included to support programme managers and health-care providers in strengthening child and adolescent TB services.",
+      "dcterms:source": "catalogue/records/10665-352523.dc.json",
+      "dcterms:hasVersion": "library/10665-352523"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/346387",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/352522/9789240046764-eng.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md",
+      "dcterms:hasVersion": "library/10665-352522"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/275422",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/112360",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/162760",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.un.org/sustainabledevelopment/development-agenda/",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.who.int/docs/default-source/documents/tuberculosis/political-declaration-un-general-assembly-tb-tuberculosis.pdf?sfvrsn=4f4090dc_1&download=true",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/340256",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/340255",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md",
+      "dcterms:hasVersion": "library/10665-340255"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/331525",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md",
+      "dcterms:hasVersion": "library/10665-331525"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1093/cid/ciab652",
+      "dcterms:identifier": "https://doi.org/10.1093/cid/ciab652",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/77741",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1995",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/342331",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44759",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md",
+      "dcterms:hasVersion": "library/10665-44759"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/331170",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md",
+      "dcterms:hasVersion": "library/10665-331170"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1994",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/260307",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://www.who.int/immunization/programmes_systems/procurement/v3p/platform/module2/WHO_BCG_vaccine_global_market_update_Feb2019.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/331745",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44472",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1993",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.intechopen.com/books/tuberculosis/insights-into-recurrenttuberculosis-relapse-versus-reinfection-and-related-risk-factors",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/260233",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.cdc.gov/tb/publications/factsheets/testing/IGRA.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.64",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.65",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.66",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/340316",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.67",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.68",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.69",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/259832",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.70",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/311259",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.71",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/79199",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.72",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://theunion.org/sites/default/files/2020–08/2016_Desk-guide_Africa_Web.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.73",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.74",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.75",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.76",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/342369",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.77",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/332907",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md",
+      "dcterms:hasVersion": "library/10665-332907"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.78",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/342899",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.79",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.80",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/104772",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.81",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/204463",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.82",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/332398",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.83",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.84",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "http://sentinel-project.org/wp-content/uploads/2019/02/Updated_DRTB-Field-Guide-2019-V3.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.85",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.86",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.87",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240048126",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.88",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.89",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.90",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/43699",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md",
+      "dcterms:hasVersion": "library/10665-43699"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.91",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/95584",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.92",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.93",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.94",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.95",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.96",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.97",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44444",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.98",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.99",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://www.kznhealth.gov.za/family/National-Childhood-TB-Guidelines-2013-ZA.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.100",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://cdn.who.int/media/docs/default-source/documents/tuberculosis/statement-on-the-use-of-child-friendly-fixed-dose-combinations-for-the-treatment-of-tb-in-children8ce21e28-f351–4abe-92de-4b757cf2d0d8.pdf?sfvrsn=82f15c83_1&download=true",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.101",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.tballiance.org/sites/default/files/child-resources/New_Pathways_for_Childhood_TB_Treatment.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.102",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.103",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.104",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/326261",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.105",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/94836",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.106",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.107",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/255052",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.108",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/340284",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.109",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.110",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.111",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.112",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.113",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.114",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.115",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.116",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/332397",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.117",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.118",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.119",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.120",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.121",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.122",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "http://sentinel-project.org/2019/02/18/stoptbgdfs-paediatric-drug-resistant-tb-dr-tb-donation-initiative/",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.123",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.124",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.125",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.126",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.127",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.128",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.129",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.130",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "http://sentinel-project.org/wp-content/uploads/2021/12/Peds_Counseling_Outline_V3.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.131",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.132",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.133",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.134",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.135",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.136",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.137",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.138",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.139",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.140",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1993",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.141",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.142",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.143",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.144",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.145",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.146",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.147",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.148",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.149",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.150",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.151",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.152",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.153",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.154",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.155",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.156",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.157",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.158",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.159",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.160",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.161",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.162",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/331934",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.163",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.who.int/docs/default-source/documents/tuberculosis/multisectoral-accountability-framework-tb-tuberculosis-checklist.pdf?sfvrsn=6ba20074_1&download=true",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.164",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/343376",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.165",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.166",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.167",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44789",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.168",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/272346",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.169",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.170",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.171",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.172",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.173",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/274373",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.174",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/333885",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.175",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.176",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.177",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://cquin.icap.columbia.edu/wp-content/uploads/2020/01/CQUIN-TPT-Toolkit_Jan-2020_Final_Cover.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.178",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/332240",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.179",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/341126",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.180",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.theglobalfund.org/media/11438/covid19_tb-testing_briefingnote_en.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.181",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.182",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.183",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.184",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.185",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.186",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.187",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.188",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.189",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://www.who.int/tb/challenges/hiv/tb_women_factsheet.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.190",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.191",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.192",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.193",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.194",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.195",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.196",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.197",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/162863",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.198",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "http://www.thewhpca.org/resources/global-atlas-on-end-of-life-care",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.199",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.200",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.201",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.thewhpca.org/resources/item/south-african-palliative-care-guidelines-for-tb",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.202",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://www.thewhpca.org/resources?task=callelement&format=raw&item_id=625&element=f85c494b-2b32–4109-b8c1–083cca2b7db6&method=download&args[0]=0f2b19dd0c28b8279b243d317b90f7d4",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.203",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/274561",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.204",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://www.riatt-esa.org/s/Policy-Brief-on-Palliative-Care-for-Children-with-Durg-Resistant-TUberculosis-DR-TB.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.205",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://www.icpcn.org/wp-content/uploads/2013/07/ICPCN-Position-paper-on-Drug-Resistant-TB.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.206",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/345532",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.207",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.208",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.209",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.210",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.211",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.212",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.213",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.214",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.215",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.216",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.217",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.218",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.219",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.220",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.221",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/75217",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.222",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/255418",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.223",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.224",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.225",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.226",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.227",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.tb-speed.com/wp-content/uploads/2021/10/TB-Speed_Pneumonia_Study_Press_Release_20211021-.pdf",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.228",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.229",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    },
+    {
+      "@id": "references/10665-352523.sec-045.230",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-352523/sections/sec-045-8-references.md"
+    }
+  ]
+}

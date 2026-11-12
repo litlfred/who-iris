@@ -1,0 +1,507 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-332907",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Package of care for children and adolescents with advanced HIV disease: stop AIDS: technical brief",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2020-07-01",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240008045 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/332907",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-332907.dc.json",
+      "dcterms:hasVersion": "library/10665-332907"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.who.int/hiv/pub/guidelines/advanced-HIV-disease/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.who.int/hiv/pub/arv/hiv-differentiated-care-models-key-populations/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://www.who.int/tb/publications/childtb_guidelines/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.who.int/hiv/pub/arv/arv-2016/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://www.who.int/tb/publications/2019/LAMPolicyUpdate2019/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/329513",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.who.int/hiv/pub/guidelines/cryptococcal-disease/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.who.int/tb/publications/2017/XpertUltra/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.croiconference.org/abstract/adequate-dolutegravir-exposure-dosed-bid-with-rifampicin-in-children-6-to",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://www.who.int/maternal_child_adolescent/documents/child-pneumonia-treatment/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44010",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "bibo:doi": "10.1093/jpids/piaa054",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://www.who.int/tb/publications/global_report/en",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    },
+    {
+      "@id": "references/10665-332907.sec-028.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://www.who.int/hiv",
+      "dcterms:source": "library/10665-332907/sections/sec-028-references.md"
+    }
+  ]
+}

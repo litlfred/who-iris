@@ -1,0 +1,537 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-271946",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "The importance of assessing self-reported HIV status in bio-behavioural surveys",
+      "dcterms:creator": [
+        "Johnston, Lisa G",
+        "Sabin, Miriam Lewis",
+        "Prybylski, Dimitri",
+        "Sabin, Keith",
+        "McFarland, Willi",
+        "Baral, Stefan",
+        "Kim, Andrea A",
+        "Raymond, H Fisher"
+      ],
+      "dcterms:issued": "2016-08-01",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:doi": "10.2471/BLT.15.162933",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/271946",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-271946.dc.json",
+      "dcterms:hasVersion": "library/10665-271946"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/128048/1/9789241507431_eng.pdf?ua=1&ua=1",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1093/cid/ciq243",
+      "dcterms:identifier": "http://dx.doi.org/10.1093/cid/ciq243",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.unaids.org/sites/default/files/media_asset/90-90-90_en_0.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.unaids.org/sites/default/files/media_asset/GARPR_2014_guidelines_en_0.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.who.int/hiv/strategic/en/bss_fhi2000.pdf?ua=1",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.unaids.org/sites/default/files/en/media/unaids/contentassets/documents/epidemiology/2011/20110518_Surveillance_among_most_at_risk.pdf[cited",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.unaids.org/sites/default/files/media_asset/JC2763_PopulationBasedSurveys_en.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://dhsprogram.com/pubs/pdf/AISM1/AIS_Interviewer’s_Manual_28Dec2010.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1056/NEJMoa1105243",
+      "dcterms:identifier": "http://dx.doi.org/10.1056/NEJMoa1105243",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.1056/NEJMoa1507198",
+      "dcterms:identifier": "http://dx.doi.org/10.1056/NEJMoa1507198",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.hptn.org/web%20documents/PressReleases/HPTN%20052%20Press%20Release%20_07.15.2015_FINAL.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.1056/NEJMoa1506816",
+      "dcterms:identifier": "http://dx.doi.org/10.1056/NEJMoa1506816",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.nacc.or.ke/images/documents/KAIS-2012.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1097/QAI.0000000000000123",
+      "dcterms:identifier": "http://dx.doi.org/10.1097/QAI.0000000000000123",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2009",
+      "bibo:doi": "10.1215/03616878-2009-002",
+      "dcterms:identifier": "http://dx.doi.org/10.1215/03616878-2009-002",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1016/S1473-3099(13)70329-3",
+      "dcterms:identifier": "http://dx.doi.org/10.1016/S1473-3099(13)70329-3",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1016/S1473-3099(13)70692-3PMID:",
+      "dcterms:identifier": "http://dx.doi.org/10.1016/S1473-3099(13)70692-3PMID:",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.healthpolicyproject.com/pubs/66_WorkingPaperStigmaScaleUpMeasurementJuly.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.aidsalliance.org.ua/ru/library/our/2012/me/idu_en_2011.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1016/j.drugalcdep.2013.06.013PMID:",
+      "dcterms:identifier": "http://dx.doi.org/10.1016/j.drugalcdep.2013.06.013PMID:",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1093/ofid/ofu084",
+      "dcterms:identifier": "http://dx.doi.org/10.1093/ofid/ofu084",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://dhsprogram.com/pubs/pdf/FR247/FR247.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://health.go.ug/docs/UAIS_2011_KEY_FINDINGS.pdf[cited",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://dhsprogram.com/pubs/pdf/WP81/WP81.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.hhs.gov/ohrp/policy/ohrpregulations.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1016/S1473-3099(13)70272-X",
+      "dcterms:identifier": "http://dx.doi.org/10.1016/S1473-3099(13)70272-X",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "bibo:doi": "10.1016/S1473-3099(13)70272-X",
+      "dcterms:identifier": "http://dx.doi.org/10.1016/S1473-3099(13)70272-X",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "bibo:doi": "10.1371/journal.pone.0036797",
+      "dcterms:identifier": "http://dx.doi.org/10.1371/journal.pone.0036797",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1136/sextrans-2012-050675PMID:",
+      "dcterms:identifier": "http://dx.doi.org/10.1136/sextrans-2012-050675PMID:",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "bibo:doi": "10.1097/01.aids.0000233579.79714.8d",
+      "dcterms:identifier": "http://dx.doi.org/10.1097/01.aids.0000233579.79714.8d",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "bibo:doi": "10.1001/jama.300.5.520PMID:",
+      "dcterms:identifier": "http://dx.doi.org/10.1001/jama.300.5.520PMID:",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.1111/hiv.12172",
+      "dcterms:identifier": "http://dx.doi.org/10.1111/hiv.12172",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.1111/hiv.12059",
+      "dcterms:identifier": "http://dx.doi.org/10.1111/hiv.12059",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "bibo:doi": "10.1521/aeap.2008.20.5.408",
+      "dcterms:identifier": "http://dx.doi.org/10.1521/aeap.2008.20.5.408",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "bibo:doi": "10.1016/S0027-9684(15)30776-8",
+      "dcterms:identifier": "http://dx.doi.org/10.1016/S0027-9684(15)30776-8",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "bibo:doi": "10.1007/s10461-011-9936-8",
+      "dcterms:identifier": "http://dx.doi.org/10.1007/s10461-011-9936-8",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1136/sti.2010.042986",
+      "dcterms:identifier": "http://dx.doi.org/10.1136/sti.2010.042986",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/186275/1/9789241509565_eng.pdf",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "bibo:doi": "10.1007/s10461-009-9653-8",
+      "dcterms:identifier": "http://dx.doi.org/10.1007/s10461-009-9653-8",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    },
+    {
+      "@id": "references/10665-271946.sec-001.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "bibo:doi": "10.1521/aeap.2005.17.6.540",
+      "dcterms:identifier": "http://dx.doi.org/10.1521/aeap.2005.17.6.540",
+      "dcterms:source": "library/10665-271946/sections/sec-001-table-2.md"
+    }
+  ]
+}

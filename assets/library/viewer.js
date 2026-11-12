@@ -2,12 +2,16 @@
 var G = null, SORT = { key: "id", dir: 1 }, VIEW = "list";
 /* THE PAGE'S IDENTITY, and the only thing a page carries -- owner,
    2026-10-02 (#1881): every page is a thin shell that loads its content from
-   the published assets. A JSON data block rather than script, so a shell
+   the published assets. Attributes on the page's own element rather than script, so a shell
    holds no code of its own. DATA_HREF is made ABSOLUTE here, once, before
    anything can rewrite the address bar (see honourAddress). */
 var CONFIG = (function(){
-  var el = document.getElementById("fa-library-config");
-  try { return JSON.parse(el ? el.textContent : "{}") || {}; } catch (_e) { return {}; }
+  /* data-kg-* on the page's .lib-page element (issue #1830) -- no private block. */
+  var el = document.querySelector(".lib-page");
+  var d = el ? el.dataset : {};
+  var c = { data: d.kgData || "", scope: d.kgScope || "", libRoot: d.kgLibRoot };
+  if (d.kgEntry !== undefined) c.entry = d.kgEntry;
+  return c;
 })();
 var DATA_HREF = new URL(String(CONFIG.data || ""), location.href).href;
 /* ARRIVING AT #lib-view OPENS THE VIEW PANEL -- the folio glass's eye links
@@ -1840,11 +1844,73 @@ function docPages(d){
       return '<tr><td class="num">' + p.physical + '</td><td>' + lab + '</td><td>' + secs + '</td><td>' + figs + '</td></tr>';
     }).join("") + '</tbody></table>';
 }
+/* FIGURES AND TABLES SHOWN -- who-iris#224. Each kept figure as its picture
+   with its description in the page's language (else English, else the first),
+   and each transcribed table drawn from its cells. Every description is an
+   agent draft until a person confirms it, and the page says so. */
+function docLang(){
+  var l = (document.documentElement.getAttribute("lang") || "en").toLowerCase().split("-")[0];
+  return l || "en";
+}
+function pickNarrative(m){
+  if (!m) return "";
+  var l = docLang();
+  if (m[l]) return m[l];
+  if (m.en) return m.en;
+  for (var k in m) if (Object.prototype.hasOwnProperty.call(m, k)) return m[k];
+  return "";
+}
+function docFileHref(id, file){
+  var dir = DATA_HREF.slice(0, DATA_HREF.lastIndexOf("/") + 1);
+  return dir + "files/" + encodeURIComponent(id) + "/" + file.split("/").map(encodeURIComponent).join("/");
+}
+function docGallery(d){
+  if (!d.images || !d.images.length) return "";
+  var rtl = { ar: 1, fa: 1, he: 1, ur: 1 }[docLang()] ? ' dir="rtl"' : '';
+  return '<h3>Figures <span class="note">(' + d.images.length + ')</span></h3>' +
+    '<p class="note">Descriptions are drafts written by an agent and not yet reviewed.</p>' +
+    '<div class="doc-gallery">' + d.images.map(function(im){
+      var text = pickNarrative(im.narratives);
+      return '<figure class="doc-figure" id="fig-' + esc(im.id) + '">' +
+        '<a href="' + esc(docFileHref(DOC_ID, im.file)) + '" target="_blank" rel="noopener">' +
+        '<img loading="lazy" src="' + esc(docFileHref(DOC_ID, im.file)) + '" alt="' + esc(text) + '"></a>' +
+        '<figcaption' + rtl + '>' + (im.shows && im.shows.length ? '<strong>' + esc(im.shows.join(", ")) + '.</strong> ' : '') +
+        esc(text) + ' <span class="note">' + pageText(im.page, null) + '</span></figcaption></figure>';
+    }).join("") + '</div>';
+}
+function docTable(t){
+  var groups = t.columns.some(function(c){ return c.group; });
+  var head = "";
+  if (groups) {
+    var cells = [], i = 0;
+    while (i < t.columns.length) {
+      var g = t.columns[i].group || "", n = 1;
+      while (i + n < t.columns.length && (t.columns[i + n].group || "") === g && g) n++;
+      cells.push('<th' + (n > 1 ? ' colspan="' + n + '"' : '') + '>' + esc(g) + '</th>');
+      i += n;
+    }
+    head += '<tr>' + cells.join("") + '</tr>';
+  }
+  head += '<tr>' + t.columns.map(function(c){ return '<th>' + esc(c.titles) + '</th>'; }).join("") + '</tr>';
+  var body = t.rows.map(function(r){ return '<tr>' + r.map(function(c){ return '<td>' + esc(c) + '</td>'; }).join("") + '</tr>'; }).join("");
+  var text = pickNarrative(t.narratives);
+  return '<details class="doc-table"><summary><strong>' + esc(t.caption || t.label) + '</strong> <span class="note">' +
+    (t.pages.length ? 'p' + t.pages.join("\u2013") : '') + ', ' + t.rows.length + ' rows</span></summary>' +
+    (text ? '<p>' + esc(text) + '</p>' : '') +
+    '<div class="doc-table-scroll"><table>' + '<thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>' +
+    (t.notes ? '<p class="note">' + esc(t.notes) + '</p>' : '') +
+    '<p class="note"><a href="' + esc(docFileHref(DOC_ID, t.csv)) + '">CSV</a></p></details>';
+}
+function docTables(d){
+  if (!d.tables || !d.tables.length) return "";
+  return '<h3>Tables <span class="note">(' + d.tables.length + ', transcribed from the pages; drafts)</span></h3>' + d.tables.map(docTable).join("");
+}
 function docFigures(d){
-  if (!d.figures) return notRecorded("Figures and tables");
-  if (!d.figures.length) return '<p class="empty">No captions found. Nothing failed \u2014 none opens a line with a label and number.</p>';
+  var shown = docGallery(d) + docTables(d);
+  if (!d.figures) return shown + notRecorded("Figures and tables");
+  if (!d.figures.length) return shown + '<p class="empty">No captions found. Nothing failed \u2014 none opens a line with a label and number.</p>';
   var gaps = (d.checks.figureSequenceGaps || []);
-  return (gaps.length ? '<p class="note">Numbering gaps in the document: ' + esc(gaps.join(", ")) + '.</p>' : '') +
+  return shown + (shown ? '<h3>Captions in the text</h3>' : '') + (gaps.length ? '<p class="note">Numbering gaps in the document: ' + esc(gaps.join(", ")) + '.</p>' : '') +
     '<table><thead><tr><th>kind</th><th>no.</th><th>caption</th><th>page</th><th>confidence</th></tr></thead><tbody>' +
     d.figures.map(function(f){
       return '<tr><td>' + esc(f.kind) + '</td><td>' + esc(f.number) + '</td><td>' + (f.title ? esc(f.title) : '<span class="note">withheld</span>') +

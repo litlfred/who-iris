@@ -43,122 +43,11 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <!--
-  The configured colour scheme, published for site-chrome/assets/js/docs-ui.js.
-
-  just-the-docs' first stylesheet is `just-the-docs-default.css`, which is
-  whatever `color_scheme` in _config.yml compiled to -- so `jtd.getTheme()`
-  returns the string "default" on a fresh load, never "dark". The scheme
-  toggle needs to know what "default" MEANS here, and reading it from the
-  config is the one way that does not go stale when the config changes.
-
-  FIRST in this file since 2026-09-24, because the first-paint snippet below
-  reads it too, and a script can only read what the parser has already seen.
--->
-<script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script>
-<!--
-  THE FIRST PAINT IS DARK — owner, 2026-09-24: *"when any
-  page/foio-asst/cat-harness first loads if flashes white before goignt o
-  dark mode. instead it should deafult dark mode then turn to light mode to
-  prevent light flash in dark."*
-
-  WHY IT FLASHED. The site is configured dark, so the theme's first
-  stylesheet already paints dark. But `docs-ui.js` is deferred, and on load
-  it applied a STORED choice with `jtd.setTheme(name)`, which swaps that
-  stylesheet's href -- to the dark file, when the default file already was
-  dark. The swap unloads the sheet that was painting the ground, and until
-  the new one arrives the browser's WHITE canvas shows. Every reader who had
-  ever pressed the light/dark control got that on every page. And nothing
-  painted `html` at all, so any moment without the theme's sheet was white.
-
-  So, FIRST THING in this include, before every stylesheet it emits:
-
-  1. decide the scheme -- the reader's stored choice (`fa-color-scheme`, the
-     key `docs-ui.js` writes), else the OS, else LIGHT -- and put it on
-     `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
-     it ever paints the wrong way first;
-  2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. `jtd.setTheme` loads the new
-     file beside the old, render-blocking, and drops the old one once it
-     has loaded (cat-harness#820): never a frame with no theme sheet;
-  3. paint `html` itself, dark unless the scheme is light, so a sheet in
-     flight shows the page's ground rather than white.
-
-  The theme's own stylesheet link is ABOVE this include (just-the-docs emits
-  `head_custom.html` last in its head), which is why step 2 exists: there is
-  no hook before it, and none is needed -- nothing paints until the head is
-  parsed, and this runs while it is being parsed.
-
-  INLINE, which the rest of this file avoids so that no `script-src`
-  relaxation is ever needed. This is the one exception, and it is the only
-  way to run before first paint: a `src` script here is a network round-trip
-  on the critical path of every page. It interpolates nothing into markup,
-  and a CSP added later needs this block's hash.
-
-  ELSE LIGHT -- owner, 2026-10-15, "follow os else light". The declared
-  `color_scheme` only names the sheet shipped first. The ONE source: tools'
-  `scheme-css.ts` lifts this script; `docs-ui.js` reads its attribute.
-
-  NO LIQUID between the markers. `first-paint-scheme.e2e.ts` lifts these
-  exact bytes into a replica page, so the spec tests what ships.
-
-  The generated dashboards that write their OWN head (`state-visualizer.ts`,
-  `gen-translation-status.ts`) do not carry this. They switch nothing with
-  script, so they cannot flash: their first CSS paints dark, and the same spec
-  holds them to that. Giving them this snippet would switch ON their
-  `data-fa-scheme="light"` rules for the first time -- and those were never
-  finished (axe, 2026-09-24: 3 to 6 contrast failures per dashboard in light,
-  dark-scheme tag colours on a light ground). A light palette for them is its
-  own piece of work, not a side effect of this one.
--->
-<!-- fa-first-paint:begin -->
+  <script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script><!-- fa-first-paint:begin -->
 <script>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
 <style>html{background-color:#27262b}html[data-fa-scheme="light"]{background-color:#ffffff}</style>
-<!-- fa-first-paint:end -->
-<!-- PROSE HERE IS NOT FREE: these are HTML comments, so every byte ships on
-     every page (2356 of them). A comment in this file is a POINTER; the
-     reasoning goes in the artefact. Measured, with the cost this change paid
-     before measuring, in assets/harness/site.json's front matter. -->
-<!-- THE RENDER STATE. pending here; ready/failed from assets/js/kg-render.js,
-     which carries the contract. No attribute = no dynamic region on this page.
-     The number is a MINIMUM cross-checking registrations, not a count. -->
-<meta name="fa-render-regions" content="1">
-<script>document.documentElement.setAttribute("data-fa-render","pending");</script>
-<!--
-  The browser-tab icon, from the same declared mark the sidebar title
-  (`title.html`) renders — reused rather than looked up by its own
-  `browser-icon` role. There WAS a second role for exactly that, on
-  `mark-small` in `harness.json`, and it went unread: nothing in this
-  repo ever emitted a favicon at all, `rel="icon"` included. It also could
-  not have driven this lookup as declared — `imagesForRole()`
-  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
-  mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
-  the already-resolved `icon` (the same field `title.html` reads) sidesteps
-  that and, more importantly, is what was asked for: the sidebar mark and the
-  tab icon are meant to be the SAME glyph, so one declaration driving both is
-  correct, not just convenient — flip `icon` in `harness.json` and both
-  follow in one edit, no template change needed.
-
-  SVG-only. No PNG/ICO fallback exists in the repo and none is generated
-  here — every browser this matters for (evergreen Chrome/Firefox/Edge, and
-  Safari since 16) reads `type="image/svg+xml"` directly; a raster fallback
-  would need generating actual image files, which is out of scope for this
-  change.
-
-  `relative_url`, same as `title.html` and `landing.html` — a bare
-  `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
-  for.
---><!--
-  Site-wide styling for the BPMN workflow figures.
-
-  just-the-docs pulls this file into <head> on every page. The diagrams are wide
-  (a swimlane process does not shrink well), so the figure scrolls horizontally
-  inside its own container rather than forcing the page body to scroll.
-
-  The SVGs carry their own white backdrop — see scripts/render-bpmn.ts — so they
-  stay legible under the dark colour scheme even if this stylesheet is missing.
--->
-<style>
+<!-- fa-first-paint:end --><meta name="fa-render-regions" content="1">
+<script>document.documentElement.setAttribute("data-fa-render","pending");</script><style>
   .bpmn-figure {
     overflow-x: auto;
     background: #fff;
@@ -176,85 +65,7 @@
     margin-top: 0;
     font-size: 0.75rem;
   }
-</style>
-
-<!--
-  Site UI: a QR of the current page in the sidebar header, and zoom /
-  full-width controls on the figures.
-
-  Loaded as same-origin files with no inline script, so no script-src
-  relaxation is needed. The QR is generated in the browser from
-  window.location.href rather than baked per page at build time, so it is
-  right for anchors, query strings, and both the directory and .html forms of
-  the same page. The UTF-8 shim must come after the encoder: without it the
-  encoder's stringToBytes is single-byte and a non-ASCII character in a URL
-  silently encodes to mojibake.
--->
-<!--
-  The TRANSLATION INDEX — which source page has a translation in which locale.
-
-  `mountNavLocale` in docs-ui.js reads this to decide what the left-hand navbar
-  shows: with the source language selected it does nothing, and with `fr`
-  selected it swaps each nav item that HAS a French page for that page, IN
-  PLACE OF the English one. An item with no translation is left exactly as it
-  is — that is the fallback, and it is the absence of a rewrite rather than a
-  code path of its own.
-
-  Generated into `docs/_data/translations.json` by
-  `content/pipeline/translation-index.ts`, from what each page DECLARES about
-  itself: `lang`, and `translation_source` naming the page it expresses. NOT
-  from a scan for directories whose names look like language subtags — see
-  that module's header for why that inference is wrong in both directions.
-
-  THREE STATES, and the third is the reason this is a JSON island rather than
-  a conditional. (The tag name is written inside {% raw %}
-  below because LIQUID PARSES TAGS INSIDE AN HTML COMMENT — the comment
-  wrapper means nothing to it — so naming a tag in prose is a syntax error at
-  build time, and the message points at the THEME's head.html because Liquid
-  attributes an include's line to the includer. This comment cost one red
-  deploy.
-
-  AND THEN IT COST A SECOND ONE, differently, which is why this paragraph now
-  describes the wrapper rather than spelling it. It used to SPELL both halves
-  as an example — and the closing half ENDED THIS COMMENT eighteen lines
-  early, so every line below it rendered as visible body text at the top of
-  EVERY PAGE on the site. Reported by the owner from the staging URL,
-  2026-09-19.
-
-  The asymmetry is the lesson: a Liquid tag has an escape, and the closing
-  comment delimiter has NONE. There is no way to write those three characters
-  inside a comment and have the comment survive them, because the parser is
-  not looking for an escape — it stops at the first match. So the rule is not
-  "escape it carefully", it is DO NOT WRITE IT: describe it, or name it one
-  character at a time. Guarded by
-  scripts/tests/html-comment-delimiters.test.ts, which fails on an opening
-  delimiter appearing inside an open comment — the one machine-detectable
-  signature of somebody trying.)
-  A {% if %} would have to choose between the second and
-  third rows below, and there is no expression that can:
-
-    1. the data file is there      -> `index` is an object; filter the nav.
-    2. it is there and EMPTY       -> `pages` is `{}`; there is nothing to
-                                      swap, so every item correctly falls back
-                                      to the source language.
-    3. the data file is ABSENT     -> `jsonify` emits `null`, and docs-ui.js
-                                      leaves the navbar EXACTLY as built.
-
-  A build that could not determine the translation set must never render as a
-  folio that has no translations. `null` is how that is said.
-
-  `baseurl` travels with it because the client has no other way to strip the
-  site prefix off a nav `href` before matching it.
--->
-<!-- MOVED 2026-10-02 to assets/harness/site.json: fetched once instead of
-     inlined 2356x (9482 B/page, 22.34 MB, ONE payload). The three states above
-     are unchanged; a fourth — the file is unreachable — is data-fa-render. -->
-<!--
-  Translation metadata for this page, consumed by docs-ui.js to auto-render
-  language coverage and QA badges. The translation pipeline stamps front matter;
-  this block publishes it to the client. No manual editing needed.
--->
-<script type="application/json" id="fa-translation-meta">{
+</style><script type="application/json" id="fa-translation-meta">{
   "lang": "en",
   "translationStatus": "",
   "translationSource": "",
@@ -276,400 +87,15 @@
     "complete": false
   },
   "statusSrc":"../../../../assets/translation-status/index.json"
-}</script>
-<!--
-  Where the action tiles point.
+}</script><script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script><meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../../assets/todos/index.json"><meta name="fa-todo-graph" content="../../../../todos.jsonld"><meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json"><meta name="fa-tiles" content="" data-fa-src="harness-data">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
-  RESOLVED, not composed. `scripts/sync-docs-harness.ts` writes
-  `docs/_data/harness.json` from the instance's own `cat-harness.json`,
-  through `siteLinks` in `scripts/site-links.ts` -- which computes every path
-  with `artefactStub` and `renderingPath`, the same functions the knowledge
-  graph exporter and the Pages workflow use. The tile therefore cannot
-  disagree with what is published.
-
-  This block previously wrote `../../../../kg/` by hand. Nothing
-  has ever been published at `<base>/kg/` -- the renderings sit at the base,
-  named after the stub -- so the only entry point to the viewer anywhere on
-  this site was a 404 from the day it was added. See bean `udx8`, and the
-  identical defect AGENTS.md records against the README's chapter PDFs. A
-  path built by convention is a claim; `bun run cat site:links --site _site`
-  checks it against the tree that actually ships, and the Pages workflow runs
-  that check after the export.
-
-  `path` is site-ROOT-relative and gets `relative_url`, which is what makes it
-  right under this site's `/folio-assistant/` baseurl. `url` is off-site and
-  is printed as-is. `source` is no longer taken from `aux_links`: those were
-  removed so the forge link stops appearing as text at the top of the main
-  panel (the owner asked for it as an icon, not a header), and the URL is
-  resolved from the git remote instead of written down twice.
--->
-<!--
-  THE NAVBAR ICON ROW — which icons this instance shows, and where each goes.
-
-  `null` when the instance has not decided, and that is NOT the same as an
-  empty list: `navbarIcons` absent means "inherit, and nothing up the chain has
-  said either", while `[]` means the instance chose to show none. docs-ui.js
-  reads the two apart, and `jsonify` emits `null` for the first exactly as the
-  translations block above relies on.
-
-  Resolved in `sync-docs-harness.ts`: the icon list walks `needs` with the site
-  owner as the floor, and the hrefs come from this instance's own declared
-  visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
-  or in JavaScript.
--->
-<!--
-  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
-  The row is the same on every page of a build, so it is written once into a
-  cached file instead of into each page. `data-fa-row-src` is the contract the
-  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
-  the name once it has filled the island, and a reader that finds it still
-  named and empty reports a failed load rather than "declared none".
--->
-<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
-     moving it, in assets/harness/site.json's front matter. -->
-<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
-
-<!--
-  The todo index — a PERSON's outstanding items, published by
-  `scripts/gen-docs-pages.ts` to `/assets/todos/index.json`.
-
-  `relative_url` for the same reason every other path here uses it: the site is
-  served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
-  404s on every deploy but one.
-
-  A URL rather than inline JSON, unlike `fa-site-links` above, because the
-  index grows with the todo corpus and inlining it would put the whole set into
-  every page's <head> whether the reader opens the board or not. A missing file
-  is reported by the fetch and the board is simply not mounted — a board that
-  opens empty is indistinguishable from a person with nothing outstanding, and
-  those are opposite facts.
-
-  `<meta>` and not a `<div>`: this is `<head>`, where flow content is not
-  permitted. A browser hoists a stray `<div>` into `<body>` and the code still
-  works, which is exactly what makes the mistake survive review.
--->
-<!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
-     page has one and falls back to this. Rationale and measurement are in that
-     file's front matter, which is not served. -->
-<meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
-<meta name="fa-todo-src" content="../../../../assets/todos/index.json">
-<!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
-     filters and groups by, and each todo's own page. -->
-<meta name="fa-todo-graph" content="../../../../todos.jsonld">
-
-<!--
-  THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
-  becomes its avatar.
-
-  R2 of issue #602: *"The threshold SHALL be declared data, not a literal in
-  the renderer."* `gen-docs-pages.ts` publishes the folio's own
-  `semantic-zoom.json`, and publishes NOTHING when the folio has not declared
-  one. So this `<meta>` may point at a 404, and that is a real state rather
-  than a defect: `docs-ui.js` reports it could not determine a threshold and
-  leaves every card's words in place. A default in either file would be the
-  literal R2 forbids, one layer further from where anybody looks for it.
-
-  The pointer is emitted UNCONDITIONALLY because Liquid cannot see whether the
-  generator wrote the file, and a conditional that guessed would make "this
-  folio declares no threshold" and "the build did not run" the same page.
--->
-<meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json">
-
-<!--
-  THE DECLARED VISUALISATIONS, as tiles.
-
-  Owner, 2026-09-20: *"if harness declares visaluzers, those should have tile"*
-  — so the tile set is the `coverage.visualiser` obligation made reachable, not
-  a second registry. `graph-tiles.ts` derives it into `_data/harness.json`;
-  this hands it to `docs-ui.js` for BOTH surfaces, because a tile is declared
-  once and says where it shows.
-
-  INLINE rather than a second fetch, unlike the todo index above, and the two
-  are different for a reason worth stating: that index grows with the todo
-  corpus, while this one is bounded by the number of directories an instance
-  DECLARES — twelve here — and every page needs it before first paint or the
-  navbar would visibly grow tiles a moment after the reader arrives.
-
-  `jsonify` and not a hand-built string: a title carrying a quote would
-  otherwise close the attribute, and the quoting rule is Liquid's rather than
-  something this comment has to be right about.
--->
-<!--
-  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
-  is the same on every page and was 12.5 KB of each one (measured on gh-pages
-  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
-  and deferred scripts run in document order, so the tiles are in place before
-  the first reader runs: no later paint than the inlined copy had.
--->
-<meta name="fa-tiles" content="" data-fa-src="harness-data">
-<!--
-  THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
-  finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
-  instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
-  nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
--->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
-
-<!--
-  THE SITE'S BASEURL, for the tiles above.
-
-  Every other site-root path on this page is composed by Liquid: `relative_url`
-  prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
-  it, because they reach the client as JSON and are composed in `docs-ui.js`
-  after Liquid has finished — so the base has to travel with them.
-
-  IT SHIPPED WITHOUT ONE AND EVERY TILE 404ed (issue #801). `graph-tiles.ts`
-  stores `/beans/`, which is correct as data and is what `harness.links[].path`
-  stores too; written into an `href` unprefixed, a browser resolves it against
-  the ORIGIN, so the beans tile pointed at `litlfred.github.io/beans/`. The
-  owner found it by going looking for the board and landing there.
-
-  A meta of its own rather than reading the site index, which also carries a
-  `baseurl`: that document reads as `null` when `_data/translations.json` was
-  not built, and since 2026-10-02 it is FETCHED, so it is also absent until a
-  request resolves and may never arrive. Composing links out of an optional
-  block means the day it goes missing every tile silently points at the origin
-  again — which is this defect, with a second way to reach it. Two reasons for
-  one answer now.
-
-  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
-  `../..` two levels down, never the deploy's path, so the page is the same
-  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
-  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
-  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
--->
-<meta name="fa-baseurl" content="../../../..">
-
-<!--
-  WHETHER THIS IS A PREVIEW, for the tiles above.
-
-  `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
-  `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a branches/<slug>/ preview", an empty one means the canonical deploy
-  or a local build.
-
-  It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
-  `publish: "staging-only"` page from the canonical tree; a tile still pointing
-  at it would be a link to a 404 — `pb04`, a dead link being worse than no
-  link, and worse than usual here because the tile ALSO advertises content the
-  declaration is deliberately not publishing.
-
-  The filtering is client-side rather than baked into `harness.json` because
-  that file is generated once and committed, so it cannot know which deploy
-  will serve it. The page can be withheld at compose time because compose runs
-  per deploy; the data file cannot.
-
-  EMPTY IS THE SAFE VALUE, and it is what an absent `_data/build.yml` yields:
-  a build that cannot say it is a preview is treated as canonical and hides
-  the tile. That matches `compose-docs.ts`, which withholds unless positively
-  told `--staging` — one direction in both places, so the page and its tile
-  cannot disagree about which deploy they are on.
-
-  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
-  reader asks only whether it is empty, and the slug made every page differ
-  between previews. The branch is in `staging.json`, which the banner reads.
--->
-<meta name="fa-staging" content="">
-
-<!--
-  WHICH SEARCH INDEX THIS PAGE IS SERVING.
-
-  `feature-staging.yml` fetches the PUBLISHED index before the build and
-  stamps what happened; `docs-site.yml` writes no such key, so the canonical
-  deploy leaves this empty and draws no warning. Bean `eof6`, on the owner's
-  ruling of 2026-09-22: *"staging uses last published index (w/ wanrnig)"*.
-
-  Three values, and the empty one is a real state rather than a fallback:
-
-    published    the preview serves the last published index. Results are
-                 about the MAIN SITE, not about this branch.
-    unavailable  the fetch failed; an empty index is served.
-    (empty)      not a staging build. No warning.
-
-  The bean this implements had first concluded that staging must disable
-  search outright, because a stale hit is "a wrong PASS, BELIEVED". The ruling
-  keeps search and attacks the belief instead — which is why the value is
-  emitted at all. An index swapped in with nothing on the page saying so would
-  be the unmarked staleness the bean was right to refuse.
--->
-<meta name="fa-search-index" content="">
-
-<!--
-  A page left out of the search index ON PURPOSE (`search_exclude: true`)
-  says so in what is built, so `publish:verify`'s search-index check can tell
-  a deliberate exclusion from a truncated index (#2233). Front matter is gone
-  once Jekyll has run; without this marker the ~2,800 IG artefact pages that
-  #2194 excluded read as "4,189 pages offer a search box, 1,003 indexed".
--->
-
-
-
-
-<!--
-  The bean index — the AGENT work plan, published by the same generator beside
-  the todo index above, for the same reason and read the same way. Separate
-  files rather than one combined document because the two stores are separate
-  graphs with separate declarations, and a consumer that wants only the human
-  half should not fetch 239 beans to get three todos.
--->
-<meta name="fa-beans-src" content="../../../../assets/beans/index.json">
-<!--
-  The process index's entry point — the REPOSITORY's named-subgraph index,
-  whose children are the harness roots this site frames (`bun run
-  subgraph:jsonld`; bean `ax6r`, owner 2026-10-03: "Move to JSON-LD").
-  Read by assets/js/process-index.js on the page carrying
-  `[data-fa-process-index]` (the publication-workflow page), which walks it
-  down to every `processes` subgraph's `index.hydrated.jsonld`.
--->
-<meta name="fa-processes-src" content="../../../../subgraph/index.jsonld">
-<!--
-  The deploy's stamp — when it was built and from which commit — which the
-  work-plan dashboard turns into "generated … · N commits behind main".
-  `build.json` on the main site, `staging.json` on a preview; written by the
-  deploy, never committed, because a committed timestamp is a merge conflict
-  on every pair of concurrent changes (bean `y7b3`).
--->
-<meta name="fa-build-src" content="../../../../build.json">
-
-<!--
-  The discarded-items document — `fsh-guts.jsonld`, published at the base by
-  `docs-site.yml`. A URL and not inline JSON, for the todo index's reason and
-  then some: it carries every node's BODY, which is 64 KB against a 5 KB
-  document without them. Inlining that into every page's <head> would be
-  absurd for content reached through one control inside Settings.
-
-  `.json` rather than `.jsonld`. Both are published and they are the same
-  bytes; Pages has no media type for `.jsonld` and serves it as
-  octet-stream. `fetch().json()` would parse it anyway, but every other
-  rendering here uses the alias and one that did not would be the odd case a
-  later reader has to work out.
-
-  The viewer fetches this WHEN SETTINGS OPENS, never on page load, and a
-  fetch that fails is reported rather than shown as an empty trashcan —
-  "nothing discarded" and "could not read the document" are opposite facts.
--->
-<!--
-  NOT on a folio's site that does not link its OWN fsh-guts (#2263 follow-up):
-  there this path is the folio's, where no document is published, and the
-  fetch's 404 painted "?" -- an error -- on the fish. With no meta the count is
-  ABSENT, and the row's fish is a link or an inert icon saying why
-  (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
--->
-<!--
-  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
-  failure, not a performance one.
-
-  These five are served from stable paths with no hash in the name, so a
-  browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a branches/
-  preview it is the whole point of the deployment: the reviewer opens the URL
-  they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
-  see changes" — which is indistinguishable from a deploy that never
-  happened, and sends the next hour after the wrong cause. Measured
-  2026-09-21 on this branch: every byte of the change was verified present in
-  the publish ref while the page rendered the previous build.
-
-  The query is a HASH OF THE ASSET (`fa_asset_version`,
-  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
-  do. It was `site.time` until 2026-10-23, and the build time is new on every
-  build: every page then differed on every rebuild, so each re-push of a
-  preview stored a whole new copy of its HTML (bean `g196`).
-
-  NOT a cache-busting strategy for third-party assets, and not applied to
-  them: those are versioned in their own URLs already.
--->
-<!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
-<!-- Narrow viewports: wide content scrolls in its own box, never the page
-     (bean `2r2n`). The standalone viewers inline the same file through
-     `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
-
-<!--
-  The work-plan dashboard's styles, split from docs-ui.css so that
-  `state-visualizer.ts` can inline exactly these bytes into the generated
-  `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
--->
-<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01">
-<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
-     `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
-     Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
-     roles that docs-ui.css consumes, and a custom property has to be set on a
-     matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
-<!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
-     that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
-<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
-     `avatars:css:check` fails the build when it is stale. One stylesheet
-     rather than 68 assets: the glyph is a mask and the colour is a property,
-     so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8">
-
-<!--
-  The kinds THIS INSTANCE DECLARES, for the avatar fan.
-
-  Owner: "shows the DECLared kinds for that instance, not inheritance." Written
-  by `sync-docs-harness.ts` from the instance's own `harness.json`, BEFORE
-  `resolveDirectories` overlays a dependency's. The effective set is strictly
-  larger, and showing it would name kinds this repository never claimed.
-
-  Inline rather than a fetched URL, unlike the todo index and the discarded
-  document: this is a dozen short strings, it is needed to render the fan at
-  all, and a fetch for that would put a spinner in front of a badge.
--->
-<!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
-<!--
-  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
-  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
-
-  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
-  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
-  A version query naming its content would write that change into every page: two
-  previews built 25 minutes apart differed on 1,351 pages for one count going
-  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
-  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
--->
-<script src="../../../../assets/js/harness-data.js" defer></script>
+<meta name="fa-beans-src" content="../../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../../build.json"><link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=3dc1393d297a"><link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../../assets/js/harness-data.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode.js" defer></script>
-<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
-<!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
-<script src="../../../../assets/js/kg-render.js" defer></script>
-<!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
-<!-- The edit, source and feedback links of every page, from the platform's one
-  recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
-  facts and this builds the hrefs. -->
-<script src="../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
-
-<!--
-  The work-plan dashboard. SELF-MOUNTING on any page carrying
-  `[data-fa-workplan]`, so docs-ui.js neither calls it nor knows it exists; a
-  page without that container pays one failed querySelector. The same file is
-  inlined verbatim into the generated state-visualiser pages.
--->
-<script src="../../../../assets/js/work-plan.js" defer></script>
-<!--
-  The process index, self-mounting on `[data-fa-process-index]` the same way.
-  Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
--->
-<script src="../../../../assets/js/process-index.js" defer></script>
-
-<!--
-  The landing panel — the instance's declared description drawn inside the
-  quiet part of its declared backdrop. Markup: `_includes/landing.html`.
-
-  The region comes in as custom properties (`--fl-x` …) set per instance from
-  `harness.json`, so this stylesheet knows nothing about where any
-  particular picture is quiet. That is the whole design: a downstream folio
-  swaps the art and the numbers and needs no CSS.
--->
-<style>
+<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../../assets/js/kg-render.js" defer></script><script src="../../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=4d45b88bbab8" defer></script><script src="../../../../assets/js/edit-links.js?v=9c6835feddf7" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -699,65 +125,7 @@
     position: static; width: auto; height: auto; color: inherit;
   }
   .folio-landing--plain p { font-size: inherit; font-weight: inherit; }
-</style>
-
-<!--
-  AN INSTANCE'S OWN WEBPAGE THEME, scoped to its pages.
-
-  Bean `7h3u`, on the owner's 2026-09-30 ruling to wire this at the PLATFORM
-  layer so every ingested IG gets it, rather than in one instance's page
-  generator.
-
-  WHY LIQUID AND NOT CSS. A webpage theme dresses one instance's pages, so it
-  has to be scoped by URL — and CSS cannot select on a URL. Jekyll is what
-  knows which page is rendering, so the scope is applied here and the VALUES
-  come from `_data/instance-themes.json`, written by `gen-themes-css.ts` from
-  each instance's declared `themes/`. That is the `site.data` pass-through bean
-  `kott` settled, and the owner's own instruction for this work: "reuse all
-  existing justthedocs infra".
-
-  WHY INLINE AND NOT A LINKED STYLESHEET. The same first-paint reasoning this
-  file already carries for the colour scheme: a sheet arriving after first
-  paint flashes the unthemed colours, which is the defect this file was
-  rewritten to remove.
-
-  WHAT IT RETHEMES, AND WHAT IT CANNOT. These three names are read by
-  `docs-ui.css` at 29 of its 33 `var(--x, #literal)` sites and DEFINED by
-  nothing — just-the-docs is Sass, so its own chrome compiles to literals and
-  no custom property can reach it. So this dresses the surfaces the site owns,
-  the left-hand nav among them, and leaves just-the-docs' compiled chrome
-  alone. Stated here because the alternative is a reader concluding the theme
-  is broken when it is doing exactly what it can.
---><!--
-  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
-
-  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
-  display background for their corresponding docs/ (ghpages) rendering".
-
-  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
-  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
-  that instance's, and its three crops. The FIRST tile whose scope the URL
-  contains wins; tiles come dependents first, so the content instance a page
-  is about beats the platform that renders it. The site owner is the fallback
-  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
-  no `art` gets no ground: a palette-only theme is a choice, not a gap.
-
-  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
-  words inside a measured quiet region of one crop, so the crop must be the
-  file. The page ground places nothing on the art, so a media query choosing
-  the crop is exact, and no markup is added to any page.
-
-  TWO SCRIMS, both the page's own background colour (not the theme's sticky
-  scrim, because the ink they protect is the page's ink). The page gets 85%,
-  so the art shows in the margins and under the header. The text column,
-  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
-  colour. The art runs the full range (measured: every crop of the three
-  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
-  pixel: text and links stay within 0.1:1 of the plain page in both schemes
-  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
-  A single 92% layer was measured first and dropped: it took dark-scheme
-  links from 4.14:1 to 3.35:1.
---><style id="fa-page-ground" data-instance="cat-harness">
+</style><style id="fa-page-ground" data-instance="cat-harness">
   /* Grumpy cyborg agents, the theme of cat-harness. */
   :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
   :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
@@ -796,7 +164,7 @@
 
 <link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/directory-conventions.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#why-directories-rather-than-a-content-type","label":"Why directories rather than a content type"},{"href":"#node-kinds-are-declared-nodeschemas","label":"Node Kinds are declared: nodeSchemas"},{"href":"#the-graph-typologies","label":"The graph typologies","children":[{"href":"#an-old-kind-spelling-still-reads","label":"An old kind spelling still reads","depth":1},{"href":"#test-is-the-one-test-tree","label":"test/ is the one test tree","depth":1}],"fold":"2 sub-sections"},{"href":"#an-unavoidable-duplicate-is-fine-an-unchecked-one-is-not","label":"An unavoidable duplicate is fine; an unchecked one is not","children":[{"href":"#the-dot-prefix-guard-tests-every-segment-not-just-the-first","label":"The dot-prefix guard tests every segment, not just the first","depth":1}],"fold":"1 sub-section"},{"href":"#the-conventional-layout","label":"The conventional layout","children":[{"href":"#where-a-new-instance-puts-its-code-stubsrc","label":"Where a NEW instance puts its code: \u003cstub>/src","depth":1},{"href":"#a-sub-sub-graph--one-reserved-name-inside-a-declared-directory","label":"A sub-sub-graph — one RESERVED name inside a declared directory","depth":1}],"fold":"2 sub-sections"},{"href":"#assets-sit-at-stubasset--no-declaration-reaches-down-enforced","label":"Assets sit at \u003cstub>/\u003casset> — no declaration reaches down (ENFORCED)","children":[{"href":"#the-part-that-is-easy-to-get-wrong","label":"The part that is easy to get wrong","depth":1},{"href":"#how-it-is-enforced","label":"How it is enforced","depth":1}],"fold":"2 sub-sections"},{"href":"#inheritance","label":"Inheritance","children":[{"href":"#a-subgraph-is-declared-once-every-instance-that-has-it-is-a-member","label":"A subgraph is declared ONCE; every instance that has it is a MEMBER","depth":1},{"href":"#the-checkout-aggregates--no-instance-declares-anothers-directory-strict","label":"The checkout aggregates — no instance declares another’s directory (STRICT)","depth":1}],"fold":"2 sub-sections"},{"href":"#nesting-is-declared-from-within-by-a-node-in-the-first-subdirectory-strict","label":"Nesting is declared FROM WITHIN, by a node in the first subdirectory (STRICT)","children":[{"href":"#a-from-within-entry-can-be-an-instance-directory","label":"A from-within entry can be an INSTANCE directory","depth":1},{"href":"#concern-groups--a-sub-subgraph-in-every-grouping-kind","label":"Concern groups — a sub-subgraph in every grouping kind","depth":1},{"href":"#applied-docssource","label":"Applied: docs/source/","depth":1},{"href":"#what-is-ruled-and-what-is-open","label":"What is ruled, and what is open","depth":1}],"fold":"4 sub-sections"},{"href":"#making-a-field-required-is-a-change-other-branches-pay-for","label":"Making a field REQUIRED is a change other branches pay for"},{"href":"#where-a-subgraph-gets-its-content--source","label":"Where a subgraph gets its content — source","children":[{"href":"#where-a-new-instances-state-lives--on-its-own-branch-by-default","label":"Where a NEW instance’s state lives — on its own branch, by default","depth":1}],"fold":"1 sub-section"},{"href":"#what-a-derived-subgraph-is-computed-from--derivedfrom","label":"What a derived subgraph is computed FROM — derivedFrom","children":[{"href":"#the-storage-clock--a-derived-artefact-is-kept-no-closer-to-main-than-its-inputs-strict","label":"The storage clock — a derived artefact is kept no closer to main than its inputs (STRICT)","depth":1},{"href":"#publishing-a-subgraphs-contents--the-declared-subgraph-node-is-the-container-strict","label":"Publishing a subgraph’s contents — the declared Subgraph node is the container (STRICT)","depth":1},{"href":"#a-consumer-never-spells-a-declared-directorys-path-enforced","label":"A consumer never spells a declared directory’s path (ENFORCED)","depth":1}],"fold":"3 sub-sections"},{"href":"#three-states-as-everywhere-else-here","label":"Three states, as everywhere else here"},{"href":"#declare-what-exists","label":"Declare what exists"},{"href":"#storage--a-directory-kept-on-a-branch","label":"storage — a directory kept on a branch","children":[{"href":"#a-branchs-readme-is-rendered-not-written","label":"A branch’s README is rendered, not written","depth":1}],"fold":"1 sub-section"},{"href":"#authoring-an-entry--the-checklist","label":"Authoring an entry — the checklist"},{"href":"#naming--a-self-identifying-declaration-stub-named-artefacts-strict","label":"Naming — a self-identifying declaration, stub-named artefacts (STRICT)","children":[{"href":"#identity-repository-and-livesat","label":"Identity: repository and livesAt","depth":1},{"href":"#every-other-marker-the-type-declares-its-own-filename-strict","label":"Every other marker: THE TYPE DECLARES ITS OWN FILENAME (STRICT)","depth":1},{"href":"#docsstub--the-site-is-packaged-for-the-split-strict","label":"docs/\u003cstub>/ — the site is packaged for the split (STRICT)","depth":1}],"fold":"3 sub-sections"},{"href":"#the-declaration-is-itself-a-graph","label":"The declaration is itself a graph"},{"href":"#skills-are-kg-content","label":"Skills are KG content","children":[{"href":"#roles-processes-and-decisions-are-kg-content-too","label":"Roles, processes and decisions are KG content too","depth":1}],"fold":"1 sub-section"},{"href":"#layering--a-harness-module-must-not-import-the-content-vocabulary","label":"Layering — a harness module must not import the content vocabulary"},{"href":"#what-lives-in-the-schemas-graph--one-authored-form-many-renderings","label":"What lives in the schemas graph — one authored form, many renderings","children":[{"href":"#why-zod--the-grounds-and-what-kind-of-ground-each-is","label":"Why Zod — the grounds, and what kind of ground each is","depth":1},{"href":"#why-not-author-the-rendering-and-validate-backwards","label":"Why not author the rendering and validate backwards","depth":1}],"fold":"2 sub-sections"},{"href":"#adding-a-graph-typology","label":"Adding a graph typology","children":[{"href":"#node-schemas-one-per-schema-family","label":"Node schemas, one per $schema family","depth":1}],"fold":"1 sub-section"},{"href":"#pinning-a-reference--a-sha-may-stage-only-a-version-may-publish","label":"Pinning a reference — a SHA may stage, only a version may publish","children":[{"href":"#a-reference-is-not-provenance","label":"A REFERENCE is not PROVENANCE","depth":1}],"fold":"1 sub-section"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/directory-conventions.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#why-directories-rather-than-a-content-type","label":"Why directories rather than a content type"},{"href":"#node-kinds-are-declared-nodeschemas","label":"Node Kinds are declared: nodeSchemas"},{"href":"#the-graph-typologies","label":"The graph typologies","children":[{"href":"#an-old-kind-spelling-still-reads","label":"An old kind spelling still reads","depth":1},{"href":"#test-is-the-one-test-tree","label":"test/ is the one test tree","depth":1}],"fold":"2 sub-sections"},{"href":"#an-unavoidable-duplicate-is-fine-an-unchecked-one-is-not","label":"An unavoidable duplicate is fine; an unchecked one is not","children":[{"href":"#the-dot-prefix-guard-tests-every-segment-not-just-the-first","label":"The dot-prefix guard tests every segment, not just the first","depth":1}],"fold":"1 sub-section"},{"href":"#the-conventional-layout","label":"The conventional layout","children":[{"href":"#where-a-new-layer-puts-its-code-stubsrc","label":"Where a NEW layer puts its code: \u003cstub>/src","depth":1},{"href":"#a-sub-sub-graph--one-reserved-name-inside-a-declared-directory","label":"A sub-sub-graph — one RESERVED name inside a declared directory","depth":1}],"fold":"2 sub-sections"},{"href":"#assets-sit-at-stubasset--no-declaration-reaches-down-enforced","label":"Assets sit at \u003cstub>/\u003casset> — no declaration reaches down (ENFORCED)","children":[{"href":"#the-part-that-is-easy-to-get-wrong","label":"The part that is easy to get wrong","depth":1},{"href":"#how-it-is-enforced","label":"How it is enforced","depth":1}],"fold":"2 sub-sections"},{"href":"#inheritance","label":"Inheritance","children":[{"href":"#a-subgraph-is-declared-once-every-layer-that-has-it-is-a-member","label":"A subgraph is declared ONCE; every layer that has it is a MEMBER","depth":1},{"href":"#the-checkout-aggregates--no-layer-declares-anothers-directory-strict","label":"The checkout aggregates — no layer declares another’s directory (STRICT)","depth":1}],"fold":"2 sub-sections"},{"href":"#nesting-is-declared-from-within-by-a-node-in-the-first-subdirectory-strict","label":"Nesting is declared FROM WITHIN, by a node in the first subdirectory (STRICT)","children":[{"href":"#a-from-within-entry-can-be-a-layer-directory","label":"A from-within entry can be a LAYER directory","depth":1},{"href":"#concern-groups--a-sub-subgraph-in-every-grouping-kind","label":"Concern groups — a sub-subgraph in every grouping kind","depth":1},{"href":"#applied-docssource","label":"Applied: docs/source/","depth":1},{"href":"#what-is-ruled-and-what-is-open","label":"What is ruled, and what is open","depth":1}],"fold":"4 sub-sections"},{"href":"#making-a-field-required-is-a-change-other-branches-pay-for","label":"Making a field REQUIRED is a change other branches pay for"},{"href":"#where-a-subgraph-gets-its-content--source","label":"Where a subgraph gets its content — source","children":[{"href":"#where-a-new-layers-state-lives--on-its-own-branch-by-default","label":"Where a NEW layer’s state lives — on its own branch, by default","depth":1}],"fold":"1 sub-section"},{"href":"#what-a-derived-subgraph-is-computed-from--derivedfrom","label":"What a derived subgraph is computed FROM — derivedFrom","children":[{"href":"#the-storage-clock--a-derived-artefact-is-kept-no-closer-to-main-than-its-inputs-strict","label":"The storage clock — a derived artefact is kept no closer to main than its inputs (STRICT)","depth":1},{"href":"#publishing-a-subgraphs-contents--the-declared-subgraph-node-is-the-container-strict","label":"Publishing a subgraph’s contents — the declared Subgraph node is the container (STRICT)","depth":1},{"href":"#a-consumer-never-spells-a-declared-directorys-path-enforced","label":"A consumer never spells a declared directory’s path (ENFORCED)","depth":1}],"fold":"3 sub-sections"},{"href":"#three-states-as-everywhere-else-here","label":"Three states, as everywhere else here"},{"href":"#declare-what-exists","label":"Declare what exists"},{"href":"#storage--a-directory-kept-on-a-branch","label":"storage — a directory kept on a branch","children":[{"href":"#a-branchs-readme-is-rendered-not-written","label":"A branch’s README is rendered, not written","depth":1}],"fold":"1 sub-section"},{"href":"#authoring-an-entry--the-checklist","label":"Authoring an entry — the checklist"},{"href":"#naming--a-self-identifying-declaration-stub-named-artefacts-strict","label":"Naming — a self-identifying declaration, stub-named artefacts (STRICT)","children":[{"href":"#identity-repository-and-livesat","label":"Identity: repository and livesAt","depth":1},{"href":"#every-other-marker-the-type-declares-its-own-filename-strict","label":"Every other marker: THE TYPE DECLARES ITS OWN FILENAME (STRICT)","depth":1},{"href":"#docsstub--the-site-is-packaged-for-the-split-strict","label":"docs/\u003cstub>/ — the site is packaged for the split (STRICT)","depth":1}],"fold":"3 sub-sections"},{"href":"#the-declaration-is-itself-a-graph","label":"The declaration is itself a graph"},{"href":"#skills-are-kg-content","label":"Skills are KG content","children":[{"href":"#roles-processes-and-decisions-are-kg-content-too","label":"Roles, processes and decisions are KG content too","depth":1}],"fold":"1 sub-section"},{"href":"#layering--a-harness-module-must-not-import-the-content-vocabulary","label":"Layering — a harness module must not import the content vocabulary"},{"href":"#what-lives-in-the-schemas-graph--one-authored-form-many-renderings","label":"What lives in the schemas graph — one authored form, many renderings","children":[{"href":"#why-zod--the-grounds-and-what-kind-of-ground-each-is","label":"Why Zod — the grounds, and what kind of ground each is","depth":1},{"href":"#why-not-author-the-rendering-and-validate-backwards","label":"Why not author the rendering and validate backwards","depth":1}],"fold":"2 sub-sections"},{"href":"#adding-a-graph-typology","label":"Adding a graph typology","children":[{"href":"#node-schemas-one-per-schema-family","label":"Node schemas, one per $schema family","depth":1}],"fold":"1 sub-section"},{"href":"#pinning-a-reference--a-sha-may-stage-only-a-version-may-publish","label":"Pinning a reference — a SHA may stage, only a version may publish","children":[{"href":"#a-reference-is-not-provenance","label":"A REFERENCE is not PROVENANCE","depth":1}],"fold":"1 sub-section"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -895,25 +263,25 @@
             <blockquote class="note">
   <p>The skill <code class="language-plaintext highlighter-rouge">directory-conventions</code> as its source file <a href="https://github.com/litlfred/cat-harness/blob/main/skills/kg/kg-core/directory-conventions.md"><code class="language-plaintext highlighter-rouge">cat-harness/skills/kg/kg-core/directory-conventions.md</code></a> writes it, rendered by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> because it has no instruction page on this site — do not edit here. <a href="../index.html">All processes</a></p>
 </blockquote>
-<h1 id="directory-conventions--what-an-instance-declares-it-scans">
+<h1 id="directory-conventions--what-a-layer-declares-it-scans">
   
   
-    <a href="#directory-conventions--what-an-instance-declares-it-scans" class="anchor-heading" aria-labelledby="directory-conventions--what-an-instance-declares-it-scans"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Directory conventions — what an instance declares it scans
+    <a href="#directory-conventions--what-a-layer-declares-it-scans" class="anchor-heading" aria-labelledby="directory-conventions--what-a-layer-declares-it-scans"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Directory conventions — what a layer declares it scans
   
   
 </h1>
     
 
-<p><strong>Named by:</strong> <a href="../copy-into-folio.html">Copy a knowledge-graph asset into a folio</a>, <a href="../graph-detanglement.html">A sub-graph wants to leave</a>, <a href="../kg-separation.html">A knowledge graph leaves for its own repositories</a>, <a href="../named-query-execution.html">Execute audited named queries over partitioned W3C N-Quads distributions</a>, <a href="../nquads-distribution.html">Package and distribute partitioned W3C N-Quads and named queries</a>, <a href="../slice-sqlite-publish.html">Build and publish a per-slice SQLite file</a>, <a href="../sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a>, <a href="../methodology-from-source.html">Adopt a methodology from a source document</a>, <a href="../translation-workflow.html">Translation Workflow</a>, <a href="../ask-the-person.html">Ask the person</a>, <a href="../crdm-close.html">CRDM close-out</a>, <a href="../crdm-data-model.html">CRDM data model</a>, <a href="../crdm-deliver.html">CRDM Phase 6 — implement, MVP, acceptance</a>, <a href="../crdm-issue-linking.html">CRDM — link the work to an issue</a>, <a href="../crdm-needs.html">CRDM Phase 1 — needs</a>, <a href="../crdm-requirements-definition.html">CRDM Phases 2–4 — BPA and requirements</a>, <a href="../crdm-requirements.html">CRDM requirements</a>, <a href="../crdm-signoff.html">CRDM Phase 5 — beans and sign-off</a>, <a href="../hand-back-to-discussion.html">Hand back to the discussion</a>, <a href="../secure-agent-permissions.html">Secure agent permissions</a>, <a href="../session-state-machine.html">Session state machine</a>, <a href="../wireframe-design-review.html">Wireframe design review</a>, <a href="../getting-started.html">Getting started</a>, <a href="../authoring-a-document.html">Authoring a document</a>, <a href="../content-change-review-make.html">Make the content change</a>, <a href="../content-change-review.html">Content Change and Review</a>, <a href="../contributor-feedback.html">Contributor feedback on a working draft</a>, <a href="../editing-hci-validation.html">Editing and HCI validation</a>, <a href="../record-agent-step.html">Record agent step</a>, <a href="../review-log-watch.html">Review-log watch</a></p>
+<p><strong>Named by:</strong> <a href="../methodology-from-source.html">Adopt a methodology from a source document</a>, <a href="../translation-workflow.html">Translation Workflow</a>, <a href="../copy-into-folio.html">Copy a knowledge-graph asset into a folio</a>, <a href="../graph-detanglement.html">A sub-graph wants to leave</a>, <a href="../kg-separation-authorise.html">Authorise the extraction</a>, <a href="../kg-separation-move.html">Move the graph into its repositories</a>, <a href="../kg-separation-prepare.html">Prepare a graph to stand alone</a>, <a href="../kg-separation.html">A knowledge graph leaves for its own repositories</a>, <a href="../slice-sqlite-publish.html">Build and publish a per-slice SQLite file</a>, <a href="../sub-kg-lifecycle.html">A sub-KG is staged in place, then leaves for its own repository</a>, <a href="../ask-the-person.html">Ask the person</a>, <a href="../crdm-close.html">CRDM close-out</a>, <a href="../crdm-data-model.html">CRDM data model</a>, <a href="../crdm-deliver.html">CRDM Phase 6 — implement, MVP, acceptance</a>, <a href="../crdm-issue-linking.html">CRDM — link the work to an issue</a>, <a href="../crdm-needs.html">CRDM Phase 1 — needs</a>, <a href="../crdm-requirements-definition.html">CRDM Phases 2–4 — BPA and requirements</a>, <a href="../crdm-requirements.html">CRDM requirements</a>, <a href="../crdm-signoff.html">CRDM Phase 5 — beans and sign-off</a>, <a href="../hand-back-to-discussion.html">Hand back to the discussion</a>, <a href="../secure-agent-permissions.html">Secure agent permissions</a>, <a href="../session-state-machine.html">Session state machine</a>, <a href="../wireframe-design-review.html">Wireframe design review</a>, <a href="../getting-started.html">Getting started</a>, <a href="../authoring-a-document.html">Authoring a document</a>, <a href="../content-change-review-make.html">Make the content change</a>, <a href="../content-change-review.html">Content Change and Review</a>, <a href="../contributor-feedback.html">Contributor feedback on a working draft</a>, <a href="../editing-hci-validation.html">Editing and HCI validation</a>, <a href="../record-agent-step.html">Record agent step</a>, <a href="../review-log-watch.html">Review-log watch</a></p>
 
-<p>Every instance carries a <strong>declaration</strong> at its repository root — a <code class="language-plaintext highlighter-rouge">*.json</code> whose <code class="language-plaintext highlighter-rouge">name</code> field equals its own filename stem, found with <code class="language-plaintext highlighter-rouge">findDeclarationFile</code> and never composed from a path. It declares the directories the instance scans for content,
+<p>Every layer carries a <strong>declaration</strong> at its repository root — a <code class="language-plaintext highlighter-rouge">*.json</code> whose <code class="language-plaintext highlighter-rouge">name</code> field equals its own filename stem, found with <code class="language-plaintext highlighter-rouge">findDeclarationFile</code> and never composed from a path. It declares the directories the layer scans for content,
 and what <strong>kind of graph</strong> each one holds.</p>
 
 <p>Schema and resolution: <code class="language-plaintext highlighter-rouge">schemas/kg/cat-harness.ts</code>.</p>
 
 <p><strong>It is the <em>harness’s</em> schema, not folio-assistant’s.</strong> <code class="language-plaintext highlighter-rouge">agentic-harness</code> is
 the layer that defines Roles, Skills, Tools and these conventions, and every
-other instance inherits from it — so an instance need not be a folio-assistant
+other layer inherits from it — so a layer need not be a folio-assistant
 to carry one. A Tool repo or a Test repo carries the same declaration.</p>
 <h2 id="why-directories-rather-than-a-content-type">
   
@@ -931,10 +299,10 @@ multi-repository split:</p>
 <p><strong>The things <code class="language-plaintext highlighter-rouge">agentic-harness</code> holds are not folios.</strong> They are Tool
 definitions, a knowledge graph of skills and workflows, and a schema graph.
 None renders as a document and none has a <code class="language-plaintext highlighter-rouge">contentType</code> in the
-<code class="language-plaintext highlighter-rouge">document | paper</code> sense. A model that gives every instance a content type
+<code class="language-plaintext highlighter-rouge">document | paper</code> sense. A model that gives every layer a content type
 forces the harness to claim one it does not have.</p>
 
-<p>So the general object is <strong>an instance with directories, each holding a
+<p>So the general object is <strong>a layer with directories, each holding a
 graph</strong>. <code class="language-plaintext highlighter-rouge">folio</code> is one graph typology among several.</p>
 <h2 id="node-kinds-are-declared-nodeschemas">
   
@@ -945,7 +313,7 @@ graph</strong>. <code class="language-plaintext highlighter-rouge">folio</code> 
 </h2>
     
 
-<p>An instance lists every <code class="language-plaintext highlighter-rouge">$schema</code> value its files carry, and the published
+<p>A layer lists every <code class="language-plaintext highlighter-rouge">$schema</code> value its files carry, and the published
 schema that defines it, in its declaration’s <strong><code class="language-plaintext highlighter-rouge">nodeSchemas</code></strong> — a path
 relative to the declaration, or an IRI for a published standard. It is
 bootstrap’s field (<code class="language-plaintext highlighter-rouge">KnowledgeGraphDeclarationSchema</code> in <code class="language-plaintext highlighter-rouge">graph.ts</code>), so a
@@ -984,7 +352,7 @@ not decided does not compile.</p>
     
 
   <p>The <code class="language-plaintext highlighter-rouge">cat-harness</code> kind was once spelled <code class="language-plaintext highlighter-rouge">kg</code>. Renaming a kind is a
-CROSS-INSTANCE breaking change: a downstream instance declaring
+CROSS-INSTANCE breaking change: a downstream layer declaring
 <code class="language-plaintext highlighter-rouge">graphs: ["kg"]</code> would resolve nothing <strong>silently</strong> — scanning, finding
 nothing, reporting a clean run. So <code class="language-plaintext highlighter-rouge">GRAPH_TYPOLOGY_ALIASES</code> in
 <code class="language-plaintext highlighter-rouge">schemas/kg/cat-harness.ts</code> maps <code class="language-plaintext highlighter-rouge">kg</code> → <code class="language-plaintext highlighter-rouge">cat-harness</code>, resolved once at the
@@ -993,7 +361,7 @@ spelling was used, so a caller can warn — an alias that resolves silently is
 an alias nobody ever removes.</p>
 
   <p><strong>A directory <code class="language-plaintext highlighter-rouge">id</code> survives a rename of anything else.</strong> An id is the
-instance’s own handle. A Subgraph id is its name inside its Harness, and the
+layer’s own handle. A Subgraph id is its name inside its Harness, and the
 Harness name qualifies it (<code class="language-plaintext highlighter-rouge">cat-harness.skills</code>). <code class="language-plaintext highlighter-rouge">RENAMED_DIRECTORY_IDS</code>
 reads an old id as the new one, so an older declaration still overrides the
 entry it meant.</p>
@@ -1015,7 +383,7 @@ answer is <code class="language-plaintext highlighter-rouge">graphTypologiesOfLa
 hand-maintained copy would drift from the registry.</p>
 
 <p><strong>The table of every kind is a published page, not this skill.</strong> Each row is a
-kind’s <code class="language-plaintext highlighter-rouge">description</code>, and the rows span every instance in the checkout. The
+kind’s <code class="language-plaintext highlighter-rouge">description</code>, and the rows span every layer in the checkout. The
 table is built at publish, by <code class="language-plaintext highlighter-rouge">bun run cat kind:table</code>, at
 <code class="language-plaintext highlighter-rouge">&lt;base&gt;/cat-harness/kind-table/</code> (<code class="language-plaintext highlighter-rouge">docs/cat-harness/kind-table.md</code>, declared in
 cat-harness’s <code class="language-plaintext highlighter-rouge">builtAtPublish</code>), because a table kept in this skill goes stale
@@ -1032,7 +400,7 @@ kind.</p>
 </h3>
     
 
-  <p>This instance declares <code class="language-plaintext highlighter-rouge">qa</code> at <strong><code class="language-plaintext highlighter-rouge">test/results/</code></strong> and <code class="language-plaintext highlighter-rouge">health</code> at
+  <p>This layer declares <code class="language-plaintext highlighter-rouge">qa</code> at <strong><code class="language-plaintext highlighter-rouge">test/results/</code></strong> and <code class="language-plaintext highlighter-rouge">health</code> at
 <strong><code class="language-plaintext highlighter-rouge">test/health/results/</code></strong>, and everything a test runner reads is under
 <code class="language-plaintext highlighter-rouge">test/</code>: the Playwright <code class="language-plaintext highlighter-rouge">*.e2e.ts</code> specs, their <code class="language-plaintext highlighter-rouge">support/</code> fixtures, and the
 health sweep’s own <code class="language-plaintext highlighter-rouge">*.test.ts</code>.</p>
@@ -1040,7 +408,7 @@ health sweep’s own <code class="language-plaintext highlighter-rouge">*.test.t
   <p><strong>When two trees compete, move the cheap side.</strong> An id in a declaration is
 the expensive thing to move; a path reached by one line of one config file is
 cheap. Change a directory’s <code class="language-plaintext highlighter-rouge">path</code> and keep its <strong><code class="language-plaintext highlighter-rouge">id</code></strong>, so an inheriting
-instance’s override still matches: <code class="language-plaintext highlighter-rouge">resolveDirectories</code> matches on id, never
+layer’s override still matches: <code class="language-plaintext highlighter-rouge">resolveDirectories</code> matches on id, never
 on path. Move a declared directory in a change of its own: relocating one as
 a side effect of adding a graph typology is how a directory quietly goes
 missing.</p>
@@ -1065,7 +433,7 @@ silently hiding a <code class="language-plaintext highlighter-rouge">no/</code> 
 silently showing a <code class="language-plaintext highlighter-rouge">pt-BR/</code> or <code class="language-plaintext highlighter-rouge">translated-fr/</code> one.</p>
 
   <p>Translatability is a property of a <strong>format within a content type</strong>, which
-the owning instance declares under <code class="language-plaintext highlighter-rouge">contentTranslations</code> (collected by
+the owning layer declares under <code class="language-plaintext highlighter-rouge">contentTranslations</code> (collected by
 <code class="language-plaintext highlighter-rouge">schemas/library/translation-tools.ts</code>) and <code class="language-plaintext highlighter-rouge">isTranslatable</code> answers — not a
 property of a directory. A kind per locale subtree would restate what every
 file already says and grow as O(locales x subtrees).</p>
@@ -1088,7 +456,7 @@ distinction the pair exists to state.</p>
   <p><strong>They are also the reason <code class="language-plaintext highlighter-rouge">materialiseDirectories</code> exists.</strong> Declare only
 what exists: absent and empty are indistinguishable to a consumer, so
 declaring a directory without creating it converts a real gap into a false
-pass. <code class="language-plaintext highlighter-rouge">bun run cat harness:dirs</code> creates every directory an instance declares
+pass. <code class="language-plaintext highlighter-rouge">bun run cat harness:dirs</code> creates every directory a layer declares
 or inherits; the session-start sweep and <code class="language-plaintext highlighter-rouge">init-folio</code> both call it, so a
 declaration is never left without the directory it names.</p>
 </blockquote>
@@ -1143,7 +511,7 @@ plan must not be handed BPMN instance state.</p>
 </blockquote>
 
 <p><strong>Why the work plan is the harness’s and not core’s.</strong> The test is whether the
-harness <em>has</em> one, and it does: an instance has work whether or not it has
+harness <em>has</em> one, and it does: a layer has work whether or not it has
 content, and <code class="language-plaintext highlighter-rouge">agentic-harness</code> carries a <code class="language-plaintext highlighter-rouge">beans/</code> store for its own. A Tool repo
 and a Test repo have work plans too. That is a different test from the one that
 sent <code class="language-plaintext highlighter-rouge">folio</code> to core, which is about capability — only core can render.</p>
@@ -1184,7 +552,7 @@ directory would cost more than the duplication saves.</li>
 </ul>
 
 <p>The rule is not “never duplicate”. It is: <strong>an unavoidable duplicate is fine; an
-unchecked one is not.</strong> In this instance <code class="language-plaintext highlighter-rouge">bun run cat check:harness-dirs</code> is what
+unchecked one is not.</strong> In this layer <code class="language-plaintext highlighter-rouge">bun run cat check:harness-dirs</code> is what
 makes the difference.</p>
 <h3 id="the-dot-prefix-guard-tests-every-segment-not-just-the-first">
   
@@ -1223,21 +591,21 @@ hides the artefacts a person looks for first.</p>
 <p><code class="language-plaintext highlighter-rouge">cat-harness</code> declares <code class="language-plaintext highlighter-rouge">tools/</code>, <code class="language-plaintext highlighter-rouge">skills/</code> and <code class="language-plaintext highlighter-rouge">schemas/</code> among its
 directories. The content core declares <strong>only</strong> <code class="language-plaintext highlighter-rouge">folio/</code> and inherits the
 rest.</p>
-<h3 id="where-a-new-instance-puts-its-code-stubsrc">
+<h3 id="where-a-new-layer-puts-its-code-stubsrc">
   
   
-    <a href="#where-a-new-instance-puts-its-code-stubsrc" class="anchor-heading" aria-labelledby="where-a-new-instance-puts-its-code-stubsrc"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where a NEW instance puts its code: <code class="language-plaintext highlighter-rouge">&lt;stub&gt;/src</code>
+    <a href="#where-a-new-layer-puts-its-code-stubsrc" class="anchor-heading" aria-labelledby="where-a-new-layer-puts-its-code-stubsrc"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where a NEW layer puts its code: <code class="language-plaintext highlighter-rouge">&lt;stub&gt;/src</code>
   
   
 </h3>
     
 
-<p><strong>A new instance puts its source under <code class="language-plaintext highlighter-rouge">&lt;stub&gt;/src/</code> and declares it as
+<p><strong>A new layer puts its source under <code class="language-plaintext highlighter-rouge">&lt;stub&gt;/src/</code> and declares it as
 <code class="language-plaintext highlighter-rouge">code</code>.</strong> One directory, one declaration. (Stated here as well as in the <code class="language-plaintext highlighter-rouge">code</code>
-kind, because somebody starting an instance reads the layout, not the kind
+kind, because somebody starting a layer reads the layout, not the kind
 table.)</p>
 
-<p><strong>The existing instances are the exception.</strong> <code class="language-plaintext highlighter-rouge">schemas/</code> is already a declared
+<p><strong>The existing layers are the exception.</strong> <code class="language-plaintext highlighter-rouge">schemas/</code> is already a declared
 graph of its own kind, and adding <code class="language-plaintext highlighter-rouge">code</code> to it would give one directory two
 kinds; <code class="language-plaintext highlighter-rouge">pipeline/</code> is core’s subject, not the harness’s; and <code class="language-plaintext highlighter-rouge">scripts/</code> hold
 entry points named <strong>by path</strong> from <code class="language-plaintext highlighter-rouge">package.json</code> and the CI workflows, which
@@ -1300,7 +668,7 @@ under <code class="language-plaintext highlighter-rouge">vendors/</code> loads, 
     
 
 <p><strong>A declared directory never sits inside another declared directory.</strong> An
-instance’s assets hang directly off its stub — <code class="language-plaintext highlighter-rouge">cat-harness/skills/</code>,
+layer’s assets hang directly off its stub — <code class="language-plaintext highlighter-rouge">cat-harness/skills/</code>,
 the IRIS replica’s <code class="language-plaintext highlighter-rouge">library/</code>, the DAK layer’s <code class="language-plaintext highlighter-rouge">methodologies/</code> — and a package inside one of
 those is a package, not a second graph.</p>
 
@@ -1345,7 +713,7 @@ both the basename and the declaration id).</p>
 <p><code class="language-plaintext highlighter-rouge">bun run cat check:layout-norms</code>, a <strong>ratchet</strong> rather than a corpus-wide gate. The
 nestings that exist today are baselined in
 <code class="language-plaintext highlighter-rouge">scripts/layout-norms-baseline.json</code>; <strong>a pair not in the baseline fails.</strong>
-An instance with no baseline entry cannot regress, while the instances with
+A layer with no baseline entry cannot regress, while the layers with
 outstanding work do not turn CI red.</p>
 
 <p>Removing a nesting prints as <code class="language-plaintext highlighter-rouge">FIXED</code> and never fails: a guard must not punish
@@ -1361,12 +729,12 @@ page.</strong></p>
 </h2>
     
 
-<p>An instance inherits its dependencies’ directories, walked depth-first through
+<p>A layer inherits its dependencies’ directories, walked depth-first through
 <code class="language-plaintext highlighter-rouge">dependencies.folioAssistant</code> — the same order <code class="language-plaintext highlighter-rouge">schemas/kg/harness-config.ts</code> uses
 for skills and translations. Deepest dependency first, root last, so the root
 wins.</p>
 
-<p><strong>Overrides match on the directory’s <code class="language-plaintext highlighter-rouge">id</code>, never on its <code class="language-plaintext highlighter-rouge">path</code>.</strong> An instance
+<p><strong>Overrides match on the directory’s <code class="language-plaintext highlighter-rouge">id</code>, never on its <code class="language-plaintext highlighter-rouge">path</code>.</strong> A layer
 that wants a graph somewhere else redeclares its id with a different path:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kg"</span><span class="p">,</span><span class="w"> </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"graph/knowledge/"</span><span class="p">,</span><span class="w"> </span><span class="nl">"graphs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"kg"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
@@ -1376,21 +744,21 @@ that wants a graph somewhere else redeclares its id with a different path:</p>
 relocation, and every consumer would scan a directory that is not there. An
 override also <strong>keeps the inherited position</strong> in the scan order rather than
 moving to the end — a relocation should not reshuffle what is scanned first.</p>
-<h3 id="a-subgraph-is-declared-once-every-instance-that-has-it-is-a-member">
+<h3 id="a-subgraph-is-declared-once-every-layer-that-has-it-is-a-member">
   
   
-    <a href="#a-subgraph-is-declared-once-every-instance-that-has-it-is-a-member" class="anchor-heading" aria-labelledby="a-subgraph-is-declared-once-every-instance-that-has-it-is-a-member"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A subgraph is declared ONCE; every instance that has it is a MEMBER
+    <a href="#a-subgraph-is-declared-once-every-layer-that-has-it-is-a-member" class="anchor-heading" aria-labelledby="a-subgraph-is-declared-once-every-layer-that-has-it-is-a-member"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A subgraph is declared ONCE; every layer that has it is a MEMBER
   
   
 </h3>
     
 
-<p>If an instance depends on one where <code class="language-plaintext highlighter-rouge">docs/</code> is a declared subgraph and has a
-<code class="language-plaintext highlighter-rouge">docs/</code> of its own, the viewer detects it: that instance is a named member of
+<p>If a layer depends on one where <code class="language-plaintext highlighter-rouge">docs/</code> is a declared subgraph and has a
+<code class="language-plaintext highlighter-rouge">docs/</code> of its own, the viewer detects it: that layer is a named member of
 the <code class="language-plaintext highlighter-rouge">docs</code> graph, with no per-entry field to set.</p>
 
 <p>So inheritance is <strong>automatic</strong>. <code class="language-plaintext highlighter-rouge">resolveDirectories</code> returns, for every
-instance-scoped entry, one <strong>member</strong> per instance in the chain whose
+instance-scoped entry, one <strong>member</strong> per layer in the chain whose
 <code class="language-plaintext highlighter-rouge">&lt;root&gt;/&lt;path&gt;</code> exists — <code class="language-plaintext highlighter-rouge">ResolvedDirectory.member</code> names it. The declarer’s
 member comes first, so a consumer looking a subgraph up by id is handed the
 same directory as before; the rest follow in chain order. Existence-filtered
@@ -1405,21 +773,21 @@ definition and gets no members.</p>
 <code class="language-plaintext highlighter-rouge">library</code>, <code class="language-plaintext highlighter-rouge">docs</code>, <code class="language-plaintext highlighter-rouge">qa</code>, <code class="language-plaintext highlighter-rouge">beans</code>, <code class="language-plaintext highlighter-rouge">todos</code>, <code class="language-plaintext highlighter-rouge">voices</code>, <code class="language-plaintext highlighter-rouge">folio</code>, <code class="language-plaintext highlighter-rouge">glossary</code>,
 <code class="language-plaintext highlighter-rouge">translation-sources</code>, <code class="language-plaintext highlighter-rouge">external-schema</code>. <code class="language-plaintext highlighter-rouge">materialiseDirectories</code> creates
 the dependent’s own, empty, with a keep marker.</li>
-  <li><strong>absent</strong> — merely where an instance’s content lives: <code class="language-plaintext highlighter-rouge">schemas</code>, <code class="language-plaintext highlighter-rouge">tools</code>,
+  <li><strong>absent</strong> — merely where a layer’s content lives: <code class="language-plaintext highlighter-rouge">schemas</code>, <code class="language-plaintext highlighter-rouge">tools</code>,
 <code class="language-plaintext highlighter-rouge">code</code>, <code class="language-plaintext highlighter-rouge">processes</code>, <code class="language-plaintext highlighter-rouge">methodology</code>. A dependent that HAS one is a member of
 the subgraph; one that does not gets nothing created.</li>
 </ul>
 
 <p>Creation is a property of the kind, stated once, because a per-entry field
-disagrees with itself across entries. <strong>An instance always materialises what
+disagrees with itself across entries. <strong>A layer always materialises what
 it declared itself</strong>, whatever its kind. A legacy <code class="language-plaintext highlighter-rouge">dependents</code> key still parses and is dropped. A nested entry
-that is a subgraph of the INSTANCE (<code class="language-plaintext highlighter-rouge">skills.json</code>’s <code class="language-plaintext highlighter-rouge">voices</code>, as opposed to
+that is a subgraph of the LAYER (<code class="language-plaintext highlighter-rouge">skills.json</code>’s <code class="language-plaintext highlighter-rouge">voices</code>, as opposed to
 <code class="language-plaintext highlighter-rouge">beans.json</code>’s <code class="language-plaintext highlighter-rouge">defs</code>, which is part of its parent’s graph) says so with
 <code class="language-plaintext highlighter-rouge">"subgraph": true</code>.</p>
-<h3 id="the-checkout-aggregates--no-instance-declares-anothers-directory-strict">
+<h3 id="the-checkout-aggregates--no-layer-declares-anothers-directory-strict">
   
   
-    <a href="#the-checkout-aggregates--no-instance-declares-anothers-directory-strict" class="anchor-heading" aria-labelledby="the-checkout-aggregates--no-instance-declares-anothers-directory-strict"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The checkout aggregates — no instance declares another’s directory (STRICT)
+    <a href="#the-checkout-aggregates--no-layer-declares-anothers-directory-strict" class="anchor-heading" aria-labelledby="the-checkout-aggregates--no-layer-declares-anothers-directory-strict"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The checkout aggregates — no layer declares another’s directory (STRICT)
   
   
 </h3>
@@ -1432,25 +800,25 @@ from the owners’ own ids.</p>
 <p>The rule now:</p>
 
 <ul>
-  <li><strong>The checkout’s root instance aggregates.</strong> <code class="language-plaintext highlighter-rouge">folio-assistant.json</code> <code class="language-plaintext highlighter-rouge">needs</code>
-every instance the checkout stages, and declares the checkout-level state
+  <li><strong>The checkout’s root layer aggregates.</strong> <code class="language-plaintext highlighter-rouge">folio-assistant.json</code> <code class="language-plaintext highlighter-rouge">needs</code>
+every layer the checkout stages, and declares the checkout-level state
 it physically holds (<code class="language-plaintext highlighter-rouge">beans</code>, <code class="language-plaintext highlighter-rouge">todos</code>, <code class="language-plaintext highlighter-rouge">memory</code>, <code class="language-plaintext highlighter-rouge">interaction</code>,
 <code class="language-plaintext highlighter-rouge">issue-marks</code>, <code class="language-plaintext highlighter-rouge">fsh-guts</code>, <code class="language-plaintext highlighter-rouge">root-docs</code>).</li>
-  <li><strong>Only that instance declares at the checkout’s scope.</strong> A
+  <li><strong>Only that layer declares at the checkout’s scope.</strong> A
 <code class="language-plaintext highlighter-rouge">scope: "repository"</code> entry anywhere else is a MIRROR, and
 <code class="language-plaintext highlighter-rouge">check:instance-graph</code> refuses it (<code class="language-plaintext highlighter-rouge">repository-mirror</code>), as it refuses an
-instance the root does not reach (<code class="language-plaintext highlighter-rouge">unstaged</code>).</li>
+layer the root does not reach (<code class="language-plaintext highlighter-rouge">unstaged</code>).</li>
   <li><strong>A corpus-wide question is asked of the checkout, not the platform.</strong>
 <code class="language-plaintext highlighter-rouge">checkoutDirectories</code> / <code class="language-plaintext highlighter-rouge">checkoutDirectoriesForGraph</code> in
-<code class="language-plaintext highlighter-rouge">schemas/kg/harness-config.ts</code> resolve every staged instance through its OWN
-chain and union the members — per instance, because one long chain would
+<code class="language-plaintext highlighter-rouge">schemas/kg/harness-config.ts</code> resolve every staged layer through its OWN
+chain and union the members — per layer, because one long chain would
 override sibling ids (the DAK layer’s <code class="language-plaintext highlighter-rouge">processes</code> would replace the
-harness’s). A tool shipped BY an instance asks
-<code class="language-plaintext highlighter-rouge">corpusDirectoriesForGraph(instance, kind)</code>: that instance plus everything
+harness’s). A tool shipped BY a layer asks
+<code class="language-plaintext highlighter-rouge">corpusDirectoriesForGraph(instance, kind)</code>: that layer plus everything
 stacked on it, never its own dependencies (those are its overlay).
 Known-skills callers say which question they ask: <code class="language-plaintext highlighter-rouge">CorpusScope</code>
 (<code class="language-plaintext highlighter-rouge">"instance"</code> | <code class="language-plaintext highlighter-rouge">"checkout"</code>), and <code class="language-plaintext highlighter-rouge">corpusScopeFor(root)</code> gives the rule —
-the platform’s own run is corpus-wide, <code class="language-plaintext highlighter-rouge">--instance &lt;x&gt;</code> is that instance
+the platform’s own run is corpus-wide, <code class="language-plaintext highlighter-rouge">--instance &lt;x&gt;</code> is that layer
 alone.</li>
   <li><strong>Falsifier, kept as a test:</strong> the platform resolved ALONE sees nothing
 above it. A split checkout running against one folio sees that folio and
@@ -1469,7 +837,7 @@ been next to.</li>
 <p>Nesting is allowed only one way: a (Sub)KGraph node within the first
 subdirectory labels the other subdirectories within it, and that structure is
 inherited.
-<strong>A declaration never reaches down a path.</strong> An instance declares a directory;
+<strong>A declaration never reaches down a path.</strong> A layer declares a directory;
 that directory’s own contents are described by <strong>a node inside its first
 subdirectory</strong>, which names the sibling subdirectories present there. Depth is
 carried one level at a time, by the level that can see itself.</p>
@@ -1484,29 +852,29 @@ carried one level at a time, by the level that can see itself.</p>
 that lives there can be wrong in a way somebody notices, because it sits beside
 the thing it describes.</p>
 
-<p><strong>And the structure is INHERITED.</strong> A dependent instance gets the nesting the
+<p><strong>And the structure is INHERITED.</strong> A dependent layer gets the nesting the
 same way it gets the directory — through the overlay, resolved by id, in scan
 order. It does not re-describe a dependency’s interior, and it does not have to:
 the describing node came with the directory.</p>
-<h3 id="a-from-within-entry-can-be-an-instance-directory">
+<h3 id="a-from-within-entry-can-be-a-layer-directory">
   
   
-    <a href="#a-from-within-entry-can-be-an-instance-directory" class="anchor-heading" aria-labelledby="a-from-within-entry-can-be-an-instance-directory"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A from-within entry can be an INSTANCE directory
+    <a href="#a-from-within-entry-can-be-a-layer-directory" class="anchor-heading" aria-labelledby="a-from-within-entry-can-be-a-layer-directory"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A from-within entry can be a LAYER directory
   
   
 </h3>
     
 
 <p>A kind’s <code class="language-plaintext highlighter-rouge">declarationFile</code> names the node. What an entry in it IS depends on
-one field: <strong>an entry marked <code class="language-plaintext highlighter-rouge">"subgraph": true</code> is an instance directory</strong>, and
+one field: <strong>an entry marked <code class="language-plaintext highlighter-rouge">"subgraph": true</code> is a layer directory</strong>, and
 <code class="language-plaintext highlighter-rouge">resolveDirectories</code> lists it exactly as if <code class="language-plaintext highlighter-rouge">&lt;instance&gt;.json</code> had declared it.
 It carries <code class="language-plaintext highlighter-rouge">within</code> (the id of the directory that declared it), and
 <code class="language-plaintext highlighter-rouge">check:layout-norms</code> treats that pair as the sanctioned shape. An entry without
 the marker (<code class="language-plaintext highlighter-rouge">beans.json</code>’s <code class="language-plaintext highlighter-rouge">defs</code>, <code class="language-plaintext highlighter-rouge">docs.json</code>’s <code class="language-plaintext highlighter-rouge">proposals</code>, <code class="language-plaintext highlighter-rouge">voices.json</code>’s
-<code class="language-plaintext highlighter-rouge">vendors</code>) is a part of one graph and stays out of the instance list.</p>
+<code class="language-plaintext highlighter-rouge">vendors</code>) is a part of one graph and stays out of the layer list.</p>
 
 <p><code class="language-plaintext highlighter-rouge">skills/skills.json</code> is the worked case. It is one node with two lists:
-<code class="language-plaintext highlighter-rouge">topics</code> (subdirectories that hold skill packages) and <code class="language-plaintext highlighter-rouge">directories</code> (instance
+<code class="language-plaintext highlighter-rouge">topics</code> (subdirectories that hold skill packages) and <code class="language-plaintext highlighter-rouge">directories</code> (layer
 directories inside <code class="language-plaintext highlighter-rouge">skills/</code>, such as <code class="language-plaintext highlighter-rouge">voices/</code>, and <code class="language-plaintext highlighter-rouge">lean/</code> in the science
 layer).</p>
 
@@ -1514,8 +882,8 @@ layer).</p>
 
 <ul>
   <li><strong>Never through a mirror.</strong> A <code class="language-plaintext highlighter-rouge">scope: "repository"</code> entry points at ANOTHER
-instance’s directory; following its declaration file would resolve that
-instance’s subgraph as one’s own. The guard stays for a downstream folio
+layer’s directory; following its declaration file would resolve that
+layer’s subgraph as one’s own. The guard stays for a downstream folio
 that still carries a mirror.</li>
   <li><strong>A declaration beats a default.</strong> <code class="language-plaintext highlighter-rouge">skills/voices</code> is also a built-in
 default; a from-within declaration replaces that convention, while an
@@ -1541,15 +909,15 @@ processes, library and tests. The same from-within rule, one more use of it:</p>
   <li><strong>Which kinds group</strong> is a fact about the kind: <code class="language-plaintext highlighter-rouge">GraphTypologyDef.concernGroups</code>,
 with the kind’s <code class="language-plaintext highlighter-rouge">declarationFile</code> as where groups are named —
 <code class="language-plaintext highlighter-rouge">skills/skills.json</code> (<code class="language-plaintext highlighter-rouge">topics</code>), <code class="language-plaintext highlighter-rouge">processes/processes.json</code>,
-<code class="language-plaintext highlighter-rouge">schemas/schemas.json</code>, <code class="language-plaintext highlighter-rouge">library/library.json</code>, <code class="language-plaintext highlighter-rouge">uml/uml.json</code>, a test
+<code class="language-plaintext highlighter-rouge">schemas/schemas.json</code>, <code class="language-plaintext highlighter-rouge">library/corpus/library.json</code>, <code class="language-plaintext highlighter-rouge">uml/uml.json</code>, a test
 directory’s <code class="language-plaintext highlighter-rouge">code.json</code> (<code class="language-plaintext highlighter-rouge">groups</code>, <code class="language-plaintext highlighter-rouge">"$schema": "concern-groups/v1"</code>).</li>
   <li><strong>A group is a CODE</strong> of <code class="language-plaintext highlighter-rouge">code-lists/concern-group.json</code>, which carries its
 title and definition once; its directory is the code (<code class="language-plaintext highlighter-rouge">sdlc/processes/</code>).
 A ninth code is a ruling, not an edit.</li>
   <li><strong>Declared once, inherited as members</strong> — option A one level down. The
-harness declares a group; each higher instance’s same-named
+harness declares a group; each higher layer’s same-named
 <code class="language-plaintext highlighter-rouge">&lt;dir&gt;/&lt;group&gt;/</code> is a member (core’s <code class="language-plaintext highlighter-rouge">skills/library/</code> of the harness’s
-<code class="language-plaintext highlighter-rouge">library</code>). A higher instance adds no group of its own; content-type work
+<code class="language-plaintext highlighter-rouge">library</code>). A higher layer adds no group of its own; content-type work
 goes in as PACKAGES under <code class="language-plaintext highlighter-rouge">content/</code>.</li>
   <li><strong>Declare only what exists.</strong> A group is declared in the PR that first
 fills it; a declared-but-absent group throws.</li>
@@ -1649,7 +1017,7 @@ can still be unparseable. Verify the merged tree, never the merge.</li>
     
 
 <p>A subgraph declares where it gets its content: mounting a directory, mounting a
-branch, and later perhaps a graph database. The harness instance config can
+branch, and later perhaps a graph database. The harness layer config can
 override it. A “directory subgraph” and a “branch subgraph” are <strong>one thing
 with two sources</strong>, so there is one field and one resolver, never a branch
 concept beside a directory concept. Schema <code class="language-plaintext highlighter-rouge">schemas/kg/subgraph-source.ts</code>.</p>
@@ -1668,12 +1036,12 @@ resolves a family’s branch reads the folio’s declaration first and keeps its
 built-in names only as a fallback (<code class="language-plaintext highlighter-rouge">cache-family-fallbacks.test.ts</code> keeps
 those in step). A branch no declaration names is a finding
 (<code class="language-plaintext highlighter-rouge">subgraph-source.test.ts</code>), never a guess at what to fetch.</li>
-  <li><strong>The instance config overrides it, by id.</strong> <code class="language-plaintext highlighter-rouge">"subgraphSources":
+  <li><strong>The layer config overrides it, by id.</strong> <code class="language-plaintext highlighter-rouge">"subgraphSources":
 { "&lt;dir-id&gt;": &lt;source&gt; }</code> inline on the instance’s <code class="language-plaintext highlighter-rouge">index.config.json</code>
 entry (<a href="index-config.html"><code class="language-plaintext highlighter-rouge">index-config</code></a>; a legacy <code class="language-plaintext highlighter-rouge">&lt;instance&gt;.config.json</code>
 is still read).
 <code class="language-plaintext highlighter-rouge">subgraphSources</code> moves a declared directory’s content. Bringing in a whole
-instance from another repository is the entry’s <code class="language-plaintext highlighter-rouge">source.remote</code>, which is a
+layer from another repository is the entry’s <code class="language-plaintext highlighter-rouge">source.remote</code>, which is a
 different field. The declaration says what the
 subgraph IS; the config says how THIS instantiation is set up, and where
 content is mounted from is that kind of fact. Matched on <code class="language-plaintext highlighter-rouge">id</code>, never <code class="language-plaintext highlighter-rouge">path</code>
@@ -1711,10 +1079,10 @@ GitHub-hosted branch gets an <code class="language-plaintext highlighter-rouge">
 <code class="language-plaintext highlighter-rouge">state</code> on <code class="language-plaintext highlighter-rouge">main</code> and still <code class="language-plaintext highlighter-rouge">state</code> on <code class="language-plaintext highlighter-rouge">cat/cat-harness/todos</code>; a <code class="language-plaintext highlighter-rouge">context</code>
 graph could be mounted from a branch and stays read-only. See
 <a href="https://github.com/litlfred/cat-harness/blob/main/skills/kg/kg-core/content-context-and-state-graphs.md"><code class="language-plaintext highlighter-rouge">content-context-and-state-graphs</code></a>.</p>
-<h3 id="where-a-new-instances-state-lives--on-its-own-branch-by-default">
+<h3 id="where-a-new-layers-state-lives--on-its-own-branch-by-default">
   
   
-    <a href="#where-a-new-instances-state-lives--on-its-own-branch-by-default" class="anchor-heading" aria-labelledby="where-a-new-instances-state-lives--on-its-own-branch-by-default"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where a NEW instance’s state lives — on its own branch, by default
+    <a href="#where-a-new-layers-state-lives--on-its-own-branch-by-default" class="anchor-heading" aria-labelledby="where-a-new-layers-state-lives--on-its-own-branch-by-default"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Where a NEW layer’s state lives — on its own branch, by default
   
   
 </h3>
@@ -1730,18 +1098,18 @@ plan lives, so the scaffold asks the <code class="language-plaintext highlighter
   <li><strong>The default is a property of the KIND, read once at scaffold time.</strong> A
 graph typology may carry <code class="language-plaintext highlighter-rouge">newInstanceSource: { kind: "branch", keyedBy:
 "tip" }</code>, beside <code class="language-plaintext highlighter-rouge">perInstance</code>. <code class="language-plaintext highlighter-rouge">beans</code>, <code class="language-plaintext highlighter-rouge">todos</code> and <code class="language-plaintext highlighter-rouge">fsh-guts</code> carry it
-(<code class="language-plaintext highlighter-rouge">fsh-guts</code> so a new instance’s first cutover has somewhere to deposit —
+(<code class="language-plaintext highlighter-rouge">fsh-guts</code> so a new layer’s first cutover has somewhere to deposit —
 see the main half below). It is a storage fact and says nothing about
 <code class="language-plaintext highlighter-rouge">holds</code>: <code class="language-plaintext highlighter-rouge">fsh-guts</code> stays <code class="language-plaintext highlighter-rouge">context</code>. It has no <code class="language-plaintext highlighter-rouge">branch</code>, because a kind has
 no branch name to give. <code class="language-plaintext highlighter-rouge">folio_init</code> composes the name and writes a
-<strong>complete</strong> <code class="language-plaintext highlighter-rouge">source</code> into the new instance’s own <code class="language-plaintext highlighter-rouge">&lt;instance&gt;.json</code>. After
+<strong>complete</strong> <code class="language-plaintext highlighter-rouge">source</code> into the new layer’s own <code class="language-plaintext highlighter-rouge">&lt;instance&gt;.json</code>. After
 that the declaration is the one answer. The resolver never reads
 <code class="language-plaintext highlighter-rouge">newInstanceSource</code>, so it is not a second place answering where the content
-lives. It also cannot move an existing instance whose entry declares no
+lives. It also cannot move an existing layer whose entry declares no
 source.</li>
   <li><strong>The branch name is <code class="language-plaintext highlighter-rouge">cat/&lt;instance&gt;/&lt;directory-id&gt;</code></strong>, built by
 <code class="language-plaintext highlighter-rouge">instanceStateBranch</code> in <code class="language-plaintext highlighter-rouge">schemas/kg/subgraph-source.ts</code>. For example, the
-<code class="language-plaintext highlighter-rouge">dpi-h-ra</code> instance’s branches are <code class="language-plaintext highlighter-rouge">cat/dpi-h-ra/beans</code> and
+<code class="language-plaintext highlighter-rouge">dpi-h-ra</code> layer’s branches are <code class="language-plaintext highlighter-rouge">cat/dpi-h-ra/beans</code> and
 <code class="language-plaintext highlighter-rouge">cat/dpi-h-ra/todos</code> (the <code class="language-plaintext highlighter-rouge">cat/&lt;harness&gt;/&lt;name&gt;</code> convention applied to a
 folio). One name does three jobs:
     <ul>
@@ -1788,7 +1156,7 @@ state branch:
 new repository. It pushes an orphan tip branch holding:</p>
     <ul>
       <li>a <code class="language-plaintext highlighter-rouge">state-manifest/v1</code> manifest marked <code class="language-plaintext highlighter-rouge">authoritative: true</code>, because a
-new instance has no <code class="language-plaintext highlighter-rouge">main</code> copy;</li>
+new layer has no <code class="language-plaintext highlighter-rouge">main</code> copy;</li>
       <li>a README;</li>
       <li>the graph’s starting files. For <code class="language-plaintext highlighter-rouge">beans</code>, those are <code class="language-plaintext highlighter-rouge">beans/beans.json</code>
 and <code class="language-plaintext highlighter-rouge">beans/defs/</code>, and the seed must carry them: <code class="language-plaintext highlighter-rouge">beans:claim</code> reads
@@ -1798,8 +1166,8 @@ and <code class="language-plaintext highlighter-rouge">beans/defs/</code>, and t
     <p>Then <code class="language-plaintext highlighter-rouge">state:mount</code> puts each branch at its declared path.</p>
   </li>
   <li>
-    <p><strong>Cutting an EXISTING instance over is two halves, and both have a command.</strong>
-Run both from the instance’s own repository. Every default is the cwd’s git
+    <p><strong>Cutting an EXISTING layer over is two halves, and both have a command.</strong>
+Run both from the layer’s own repository. Every default is the cwd’s git
 toplevel, and <code class="language-plaintext highlighter-rouge">--repo-root &lt;dir&gt;</code> overrides it.</p>
 
     <ol>
@@ -1818,7 +1186,7 @@ these hold:
           <li>nothing under the path is uncommitted;</li>
           <li><code class="language-plaintext highlighter-rouge">HEAD:&lt;path&gt;</code> and the branch’s <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> are the same tree id, so the
 two copies are byte-identical;</li>
-          <li>the directory’s <strong>own</strong> instance declares a <code class="language-plaintext highlighter-rouge">fsh-guts</code> graph kept at a
+          <li>the directory’s <strong>own</strong> layer declares a <code class="language-plaintext highlighter-rouge">fsh-guts</code> graph kept at a
 branch tip, and the deposit into it lands and re-reads verified.</li>
         </ul>
       </li>
@@ -1833,7 +1201,7 @@ splices the existing <code class="language-plaintext highlighter-rouge">retired/
 overwrites): <code class="language-plaintext highlighter-rouge">retired/cutover-&lt;instance&gt;-&lt;dir&gt;-&lt;tree12&gt;.tar.gz</code> plus a
 same-basename <code class="language-plaintext highlighter-rouge">.md</code> declaring <code class="language-plaintext highlighter-rouge">folio-fsh-guts/v1</code>, <code class="language-plaintext highlighter-rouge">kind:
 cutover-snapshot</code>, <code class="language-plaintext highlighter-rouge">movedFrom</code>, <code class="language-plaintext highlighter-rouge">movedOn</code>, <code class="language-plaintext highlighter-rouge">reason: cutover</code>, the
-instance, <code class="language-plaintext highlighter-rouge">sourceCommit</code>, <code class="language-plaintext highlighter-rouge">tree</code> and <code class="language-plaintext highlighter-rouge">authoritativeBranch</code>. It re-reads
+layer, <code class="language-plaintext highlighter-rouge">sourceCommit</code>, <code class="language-plaintext highlighter-rouge">tree</code> and <code class="language-plaintext highlighter-rouge">authoritativeBranch</code>. It re-reads
 the tip, and only if both blobs are there does it make the removal
 commit. No trashcan declared, a trashcan not on a tip, a branch that is
 not there, or a push that did not land: <strong>refused, <code class="language-plaintext highlighter-rouge">main</code> untouched</strong>,
@@ -2000,15 +1368,15 @@ subgraph names its branch;</li>
 <p>The helpers are <code class="language-plaintext highlighter-rouge">subgraphContainer</code> and <code class="language-plaintext highlighter-rouge">memberOf</code> in <code class="language-plaintext highlighter-rouge">scripts/subgraph-node.ts</code>,
 and <code class="language-plaintext highlighter-rouge">subgraphPublicationFindings</code> is the check: <code class="language-plaintext highlighter-rouge">subgraph-node.test.ts</code> runs it
 over every adopting publisher. <strong>Converting a publisher adds its row there.</strong>
-The declaring instance’s document must be published for the <code class="language-plaintext highlighter-rouge">@id</code> to
+The declaring layer’s document must be published for the <code class="language-plaintext highlighter-rouge">@id</code> to
 dereference. Which documents are published, and where:
-<a href="instance-publication.html"><code class="language-plaintext highlighter-rouge">instance-publication</code></a> §”What each instance
+<a href="instance-publication.html"><code class="language-plaintext highlighter-rouge">instance-publication</code></a> §”What each layer
 publishes”.</p>
 
 <p>Do not restate the subgraph’s <code class="language-plaintext highlighter-rouge">name</code> on a container written to
 <code class="language-plaintext highlighter-rouge">&lt;dir&gt;/&lt;id&gt;.json</code>. A file whose <code class="language-plaintext highlighter-rouge">name</code> equals its stem is what
-<code class="language-plaintext highlighter-rouge">findDeclarationFile</code> reads as an INSTANCE declaration, and the site directory
-becomes an instance root that hides the checkout from every resolver.</p>
+<code class="language-plaintext highlighter-rouge">findDeclarationFile</code> reads as a LAYER declaration, and the site directory
+becomes a layer root that hides the checkout from every resolver.</p>
 <h3 id="a-consumer-never-spells-a-declared-directorys-path-enforced">
   
   
@@ -2019,7 +1387,7 @@ becomes an instance root that hides the checkout from every resolver.</p>
     
 
 <p>Because a subgraph’s source can move — from a directory to a branch, and then
-somewhere else, overridable per instance — a literal <code class="language-plaintext highlighter-rouge">"fsh-guts/…"</code> or
+somewhere else, overridable per layer — a literal <code class="language-plaintext highlighter-rouge">"fsh-guts/…"</code> or
 <code class="language-plaintext highlighter-rouge">join(root, "beans", "defs")</code> breaks on the move, or goes vacuous and reads
 nothing. So read the location through its resolver (<code class="language-plaintext highlighter-rouge">directoryForGraph</code>,
 <code class="language-plaintext highlighter-rouge">fshGutsDirectory</code>, <code class="language-plaintext highlighter-rouge">beanDefsDir</code>, <code class="language-plaintext highlighter-rouge">declaredSubgraph</code>, …). Two ratchets
@@ -2036,12 +1404,12 @@ enforce this, and neither fails just because a count goes down:</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">check:declared-paths</code></td>
-      <td>an instance’s literals into its OWN declared directories</td>
+      <td>a layer’s literals into its OWN declared directories</td>
       <td><code class="language-plaintext highlighter-rouge">cat-harness-tools/scripts/declared-path-baseline.json</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">check:foreign-paths</code></td>
-      <td>an instance’s literals into ANOTHER instance’s directories, across the whole checkout</td>
+      <td>a layer’s literals into ANOTHER layer’s directories, across the whole checkout</td>
       <td><code class="language-plaintext highlighter-rouge">cat-harness-tools/scripts/foreign-path-baseline.json</code> — <strong>empty</strong></td>
     </tr>
   </tbody>
@@ -2049,15 +1417,15 @@ enforce this, and neither fails just because a count goes down:</p>
 
 <ul>
   <li><strong>Classify a hit by what it READS, not by how it is spelled.</strong> A name counts
-as foreign only if the scanning instance does not declare the same name. A
-<code class="language-plaintext highlighter-rouge">docs/</code> joined onto a STAGED instance’s root, or matched inside that
-instance’s own declaration, belongs to that instance even though the name
+as foreign only if the scanning layer does not declare the same name. A
+<code class="language-plaintext highlighter-rouge">docs/</code> joined onto a STAGED layer’s root, or matched inside that
+layer’s own declaration, belongs to that layer even though the name
 coincides.</li>
   <li><strong>A site that cannot read a declaration says why</strong>, on the line above:
 <code class="language-plaintext highlighter-rouge">// declared-path-literal: &lt;reason&gt;</code>. The reason is required. A marked site
 is still reported, just not counted. Legitimate cases: the convention
-fallback for an instance that declares nothing, an ignore file, and a path
-inside another instance’s declaration.</li>
+fallback for a layer that declares nothing, an ignore file, and a path
+inside another layer’s declaration.</li>
   <li><strong>A file that exists today is not a stable path.</strong> The move is the expected
 case, so literals naming an existing file are a one-way baseline: a NEW
 literal naming an existing file fails the gate, and <code class="language-plaintext highlighter-rouge">--update</code> may drop a
@@ -2078,7 +1446,7 @@ by hand.</li>
 
 <ul>
   <li><strong>No declaration</strong> → <code class="language-plaintext highlighter-rouge">readDeclaration</code> returns <code class="language-plaintext highlighter-rouge">undefined</code>. An
-instance not yet migrated is ordinary, and callers fall back to today’s
+layer not yet migrated is ordinary, and callers fall back to today’s
 conventions. Not an error.</li>
   <li><strong>Present but unreadable</strong> → <strong>throws.</strong> A declaration nobody can parse
 leaves every consumer scanning the wrong directories, which is strictly worse
@@ -2126,7 +1494,7 @@ its modern <code class="language-plaintext highlighter-rouge">source: { kind: "b
 
 <p><strong>A graph on another ref is still a declared directory, mounted at the declared path.</strong>
 Declaring <code class="language-plaintext highlighter-rouge">storage</code> or a branch <code class="language-plaintext highlighter-rouge">source</code> does not make it a separate concept
-from a directory. The instance still accesses the graph at its declared path
+from a directory. The layer still accesses the graph at its declared path
 (<code class="language-plaintext highlighter-rouge">beans/</code>, <code class="language-plaintext highlighter-rouge">todos/</code>, <code class="language-plaintext highlighter-rouge">test/results/</code>), whether via a working mount (e.g. worktree
 mounted by <code class="language-plaintext highlighter-rouge">state:mount</code> at session start) or an in-memory branch store.</p>
 
@@ -2177,8 +1545,8 @@ it is <strong>written</strong>. A branch without them cannot be told from an aba
 
 <ul>
   <li>the <strong>declarations</strong> — every <code class="language-plaintext highlighter-rouge">directories[]</code> entry whose <code class="language-plaintext highlighter-rouge">storage</code> or branch
-<code class="language-plaintext highlighter-rouge">source</code> names the branch, read where each instance declares it. Never a
-central table of branches: each harness (and each instance) declares its
+<code class="language-plaintext highlighter-rouge">source</code> names the branch, read where each layer declares it. Never a
+central table of branches: each harness (and each layer) declares its
 own;</li>
   <li>the branch’s root <strong><code class="language-plaintext highlighter-rouge">manifest.json</code></strong>, <code class="language-plaintext highlighter-rouge">state-manifest/v1</code>, whose field set
 is <code class="language-plaintext highlighter-rouge">schemas/kg/state-manifest.ts</code>: one shape for a tip-keyed branch (seed
@@ -2275,7 +1643,7 @@ README from this entry (<a href="https://github.com/litlfred/cat-harness/blob/ma
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">stub</code></td>
-      <td>filename stem of every artefact this instance publishes. Defaults to <code class="language-plaintext highlighter-rouge">name</code>.</td>
+      <td>filename stem of every artefact this layer publishes. Defaults to <code class="language-plaintext highlighter-rouge">name</code>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">canonicalUrl</code></td>
@@ -2300,13 +1668,13 @@ so stub, directory and published path are one word.</p>
   <li><strong>Every published artefact is named <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.*</code></strong> — <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.jsonld</code>,
 <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.schema.json</code>. Never a generic <code class="language-plaintext highlighter-rouge">kg.json</code>. Compute it with
 <code class="language-plaintext highlighter-rouge">artefactStub()</code>, never by re-deriving it, so two exporters cannot disagree
-about what this instance is called.</li>
-  <li><strong>The declaration file is <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> — named for the instance’s <code class="language-plaintext highlighter-rouge">name</code>,
+about what this layer is called.</li>
+  <li><strong>The declaration file is <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> — named for the layer’s <code class="language-plaintext highlighter-rouge">name</code>,
 NOT its stub.</strong> It is the one file here not computed with <code class="language-plaintext highlighter-rouge">artefactStub()</code>:
 <code class="language-plaintext highlighter-rouge">instanceDeclarationFilename()</code> spells it, and <code class="language-plaintext highlighter-rouge">instanceConfigFilename()</code>
 spells the <code class="language-plaintext highlighter-rouge">&lt;name&gt;.config.json</code> beside it. <code class="language-plaintext highlighter-rouge">artefactStub()</code> is
-<code class="language-plaintext highlighter-rouge">stub ?? name</code>, so the two coincide for every instance declaring no
-<code class="language-plaintext highlighter-rouge">stub</code>. <strong>A coincidence in the data is not the rule</strong>: an instance declaring
+<code class="language-plaintext highlighter-rouge">stub ?? name</code>, so the two coincide for every layer declaring no
+<code class="language-plaintext highlighter-rouge">stub</code>. <strong>A coincidence in the data is not the rule</strong>: a layer declaring
 a differing <code class="language-plaintext highlighter-rouge">stub</code> publishes <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.jsonld</code> beside a <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code>, and
 composing either from the other resolves to nothing.</li>
   <li><strong>The renderable site lives at <code class="language-plaintext highlighter-rouge">docs/&lt;stub&gt;/</code>.</strong> Compute it with
@@ -2315,7 +1683,7 @@ composing either from the other resolves to nothing.</li>
 
 <p>Where each <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.jsonld</code> is served, which base its <code class="language-plaintext highlighter-rouge">@id</code>s are minted
 against, and what is stripped from it are not naming rules:
-<a href="instance-publication.html"><code class="language-plaintext highlighter-rouge">instance-publication</code></a> §”What each instance
+<a href="instance-publication.html"><code class="language-plaintext highlighter-rouge">instance-publication</code></a> §”What each layer
 publishes — graph, address, schema, and what is stripped”.</p>
 <h3 id="identity-repository-and-livesat">
   
@@ -2327,9 +1695,9 @@ publishes — graph, address, schema, and what is stripped”.</p>
     
 
 <p><code class="language-plaintext highlighter-rouge">name</code> is what <code class="language-plaintext highlighter-rouge">needs</code> edges and filenames resolve against, but it is not an
-identity outside the instance: it names no forge or owner, and two owners may
-each publish an instance of the same name. So the declaration also says which repository the
-instance <strong>is</strong>:</p>
+identity outside the layer: it names no forge or owner, and two owners may
+each publish a layer of the same name. So the declaration also says which repository the
+layer <strong>is</strong>:</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -2351,23 +1719,23 @@ instance <strong>is</strong>:</p>
 </table></div>
 
 <p>It is <strong>planned</strong> rather than current because IRIs are keyed by it and must
-survive a split. Where the instance sits before the split lives in <code class="language-plaintext highlighter-rouge">livesAt</code>
+survive a split. Where the layer sits before the split lives in <code class="language-plaintext highlighter-rouge">livesAt</code>
 (for example, a directory of a monorepo). Leaving <code class="language-plaintext highlighter-rouge">livesAt</code> out asserts that
-the instance already sits at its own repository’s root.</p>
+the layer already sits at its own repository’s root.</p>
 
 <p><strong>Never keep an <code class="language-plaintext highlighter-rouge">owner/repo</code> table by hand.</strong>
 <code class="language-plaintext highlighter-rouge">instanceRepositories(checkoutRoot, folioRoot?)</code> in
 <code class="language-plaintext highlighter-rouge">schemas/kg/instance-repositories.ts</code> derives the <code class="language-plaintext highlighter-rouge">owner/repo ↔ name ↔ root</code>
 map. It reads the declarations in the checkout and in the folio’s dependency
-overlay, and it throws when two instances claim one repository.
+overlay, and it throws when two layers claim one repository.
 <code class="language-plaintext highlighter-rouge">instance-repositories.test.ts</code> is the gate. It checks three things:</p>
 <ul>
-  <li>every instance declares <code class="language-plaintext highlighter-rouge">repository</code>;</li>
-  <li>every <code class="language-plaintext highlighter-rouge">livesAt.path</code> is where the instance actually sits;</li>
+  <li>every layer declares <code class="language-plaintext highlighter-rouge">repository</code>;</li>
+  <li>every <code class="language-plaintext highlighter-rouge">livesAt.path</code> is where the layer actually sits;</li>
   <li>every <code class="language-plaintext highlighter-rouge">livesAt</code> names one host.</li>
 </ul>
 
-<p><strong>A reference to another instance names its <code class="language-plaintext highlighter-rouge">repository</code>, never its
+<p><strong>A reference to another layer names its <code class="language-plaintext highlighter-rouge">repository</code>, never its
 <code class="language-plaintext highlighter-rouge">name</code>.</strong> The <code class="language-plaintext highlighter-rouge">instance</code> field of a voice rule’s source, a voice’s
 <code class="language-plaintext highlighter-rouge">sources[]</code>, a <code class="language-plaintext highlighter-rouge">RoleRef</code>, a <code class="language-plaintext highlighter-rouge">ThemeRef</code> and an <code class="language-plaintext highlighter-rouge">AssetSource</code> is typed
 <code class="language-plaintext highlighter-rouge">RepoFullName</code>, so a bare name does not parse. Every resolver matches the
@@ -2380,14 +1748,14 @@ resolves.</p>
 each repository’s vocabulary namespace. One rule, <code class="language-plaintext highlighter-rouge">instanceNamespace</code>,
 produces it, and the glossary uses the same rule:</p>
 <ul>
-  <li>an instance that declares <code class="language-plaintext highlighter-rouge">iriBase</code> mints under its own release’s major,
+  <li>a layer that declares <code class="language-plaintext highlighter-rouge">iriBase</code> mints under its own release’s major,
 <code class="language-plaintext highlighter-rouge">&lt;iriBase&gt;v&lt;major&gt;/ns#</code>;</li>
   <li>one that declares none mints under the platform site, <code class="language-plaintext highlighter-rouge">&lt;stem&gt;&lt;stub&gt;/ns#</code>.</li>
 </ul>
 
 <p><code class="language-plaintext highlighter-rouge">code-lists/own-namespaces.json</code> still lists these namespaces, because code
 reads them by code. The gate fails when the list spells one differently from
-what the declaration derives. So moving an instance’s IRIs is one edit, to
+what the declaration derives. So moving a layer’s IRIs is one edit, to
 its declaration’s <code class="language-plaintext highlighter-rouge">iriBase</code>, and the list follows.</p>
 
 <p><code class="language-plaintext highlighter-rouge">cat-harness</code> and the content core declare an <code class="language-plaintext highlighter-rouge">iriBase</code> on their planned
@@ -2453,7 +1821,7 @@ owns.</p>
 <code class="language-plaintext highlighter-rouge">*.json</code> only when its <code class="language-plaintext highlighter-rouge">name</code> field EQUALS its own filename stem, and
 <code class="language-plaintext highlighter-rouge">findInstanceRoot</code> calls it rather than testing a word agreed in advance. So
 <code class="language-plaintext highlighter-rouge">beans/beans.json</code>, which shares the <code class="language-plaintext highlighter-rouge">{name, directories}</code> shape but declares
-<code class="language-plaintext highlighter-rouge">"name": "folio-assistant"</code> against the stem <code class="language-plaintext highlighter-rouge">beans</code>, is not an instance root
+<code class="language-plaintext highlighter-rouge">"name": "folio-assistant"</code> against the stem <code class="language-plaintext highlighter-rouge">beans</code>, is not a layer root
 — refused by what the file says it is, not by a path exception. Discovery
 still works, because a consumer matches on the file agreeing with itself.</p>
 
@@ -2510,7 +1878,7 @@ it reads beside the marker, and read nothing else.</p>
     
 
 <p>The stub that names <code class="language-plaintext highlighter-rouge">&lt;stub&gt;.jsonld</code> also names the directory holding this
-instance’s renderable site: <code class="language-plaintext highlighter-rouge">docs/&lt;stub&gt;/</code>, not <code class="language-plaintext highlighter-rouge">docs/</code>. Each layer is its own
+layer’s renderable site: <code class="language-plaintext highlighter-rouge">docs/&lt;stub&gt;/</code>, not <code class="language-plaintext highlighter-rouge">docs/</code>. Each layer is its own
 repository, so under its own stub a split is a directory move rather than a
 file-by-file sift, and two layers can be checked out side by side.</p>
 
@@ -2523,7 +1891,7 @@ the <code class="language-plaintext highlighter-rouge">folio</code> kind in the 
 registration throw <code class="language-plaintext highlighter-rouge">unknown graph typology "folio"</code>, because <code class="language-plaintext highlighter-rouge">folio</code> is
 contributed by <strong>core</strong>.</p>
 
-<p><strong><code class="language-plaintext highlighter-rouge">siteDirFor</code> throws rather than defaulting</strong> when an instance declares
+<p><strong><code class="language-plaintext highlighter-rouge">siteDirFor</code> throws rather than defaulting</strong> when a layer declares
 neither <code class="language-plaintext highlighter-rouge">stub</code> nor <code class="language-plaintext highlighter-rouge">name</code> — a guessed site root writes the whole site where
 nothing serves it, and “could not determine” is not an answer.</p>
 
@@ -2540,7 +1908,7 @@ clean merge from a branch cut before a move.</p>
     
 
 <p><code class="language-plaintext highlighter-rouge">toJsonLd()</code> projects a declaration into the folio namespace: each directory is
-a node with an <code class="language-plaintext highlighter-rouge">@id</code> and an <code class="language-plaintext highlighter-rouge">@type</code>. The set of directories an instance scans
+a node with an <code class="language-plaintext highlighter-rouge">@id</code> and an <code class="language-plaintext highlighter-rouge">@type</code>. The set of directories a layer scans
 is then queryable by the same machinery as anything else in the knowledge
 graph, rather than being configuration only one module understands.</p>
 
@@ -2561,8 +1929,8 @@ what a directory holds.</p>
 <p>The <code class="language-plaintext highlighter-rouge">skills</code> graph is where skills live, and that is why they are addressed
 through the declaration rather than by path. An agent asks <code class="language-plaintext highlighter-rouge">skill_list</code> /
 <code class="language-plaintext highlighter-rouge">skill_fetch</code> for a skill; it does not open <code class="language-plaintext highlighter-rouge">skills/&lt;something&gt;.md</code> from
-memory. An instance may site its skills anywhere — this repo’s <code class="language-plaintext highlighter-rouge">skills</code> id
-points at <code class="language-plaintext highlighter-rouge">skills/</code> — and a downstream instance inherits its dependencies’
+memory. A layer may site its skills anywhere — this repo’s <code class="language-plaintext highlighter-rouge">skills</code> id
+points at <code class="language-plaintext highlighter-rouge">skills/</code> — and a downstream layer inherits its dependencies’
 skills through the same inheritance rules above. A hardcoded path breaks on
 the first relocation, which is the whole reason overrides match on <code class="language-plaintext highlighter-rouge">id</code>.</p>
 <h3 id="roles-processes-and-decisions-are-kg-content-too">
@@ -2803,7 +2171,7 @@ This is named rather than restated, and it is not a gap.</li>
 
 <p><strong>A reference may name the harness that owns the module</strong>:
 <code class="language-plaintext highlighter-rouge">folio-assistant-core:schemas/catalogue.ts#CatalogueSchema</code>. It resolves through
-the instance that declares that name, never through <code class="language-plaintext highlighter-rouge">../</code>. An escaping path is
+the layer that declares that name, never through <code class="language-plaintext highlighter-rouge">../</code>. An escaping path is
 still refused, because it resolves into whatever checkout sits next door. This
 is how a harness kind whose node shapes live in core (<code class="language-plaintext highlighter-rouge">catalogue</code>, <code class="language-plaintext highlighter-rouge">uploads</code>,
 <code class="language-plaintext highlighter-rouge">external-schema</code>) says so honestly.</p>
@@ -2926,8 +2294,8 @@ It reports each carrier’s count <strong>even when that count is nought</strong
 gate that silently covers nothing and exits 0 is the most expensive recurring
 defect.</p>
 
-<p>Full scheme, including what an instance’s version means and what makes it go
-up: <a href="https://github.com/litlfred/cat-harness/blob/main/docs/proposals/instance-versioning.md"><code class="language-plaintext highlighter-rouge">docs/proposals/instance-versioning.md</code></a>.</p>
+<p>Full scheme, including what a layer’s version means and what makes it go
+up: <code class="language-plaintext highlighter-rouge">docs/proposals/instance-versioning.md</code> (opt-in <code class="language-plaintext highlighter-rouge">cat-harness.proposals</code>).</p>
 
           
 

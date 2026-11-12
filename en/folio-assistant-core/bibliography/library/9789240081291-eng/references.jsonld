@@ -1,0 +1,1381 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/9789240081291-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "National health workforce accounts: a handbook",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2023-11-23",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240081291 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/374320",
+      "dcterms:language": "en",
+      "dcterms:abstract": "The National Health Workforce Accounts (NHWA) Handbook, second edition, provides the conceptual framework, standards, methods and indicators that support the systematic collection, analysis and use of health workforce data for evidence-informed policy-making and planning. Developed by the World Health Organization, the handbook supports implementation of the National Health Workforce Accounts as a country-led system to strengthen human resources for health information systems, improve data quality and availability, and monitor progress towards universal health coverage, the Sustainable Development Goals and other global health objectives. It describes the rationale, principles and applications of NHWA at national, regional and global levels and outlines a modular approach to health workforce monitoring.\n\nThe handbook presents guidance on implementation and reporting methods and defines a set of standardized indicators organized into four modules covering workforce stock and flows, education, finance and expenditures, and working conditions, governance and leadership. It explains indicator metadata, calculation methods, disaggregation requirements and reporting standards, and illustrates how NHWA data can be used to support workforce planning, policy development, retention strategies, equity analyses and monitoring of health workforce trends. The revised edition incorporates updated indicators, occupational classifications, tools and guidance to address evolving health workforce priorities and emerging global health challenges.",
+      "dcterms:source": "catalogue/records/9789240081291-eng.dc.json",
+      "dcterms:hasVersion": "library/9789240081291-eng"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.2471/BLT.22.287849",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.4060/cc2289en",
+      "dcterms:identifier": "https://doi.org/10.4060/cc2289en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.1136/bmjgh-2022-009316",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/gb/ebwha/pdf_files/WHA74/A74_R14-en.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240063389",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/344562/9789240033863-eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://cdn.who.int/media/docs/default-source/health-workforce/global-health-care-worker-compact.pdf?sfvrsn=5547f5c7_3&download=true",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/health-topics/universal-health-coverage#tab=tab_1",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/250368/9789241511131-eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/250040/9789241511285-eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/gb/ebwha/pdf_files/WHA69-REC1/A69_2016_REC1-en.pdf#page=1",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/250047",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/275640",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/rest/bitstreams/1341901/retrieve",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/334048",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/WHO-2019-nCoV-EHS-continuity-survey-2021.1",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/rest/bitstreams/1408436/retrieve",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/367352",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/354384",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/nhwaportal/",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/311314",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/331677",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.unfpa.org/publications/sowmy-2021",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1097/AUD.0000000000001007",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.1186/s12960-022-00720-5",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240061484",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240058712",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://unstats.un.org/sdgs/report/2022/",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.who.int/publications/i/item/9789240040618",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/324775",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/3090",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/352205",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/357686",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/345300",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.1136/bmjopen-2022-063059",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.1186/s12939-022-01750-0",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/366534",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://iris.paho.org/handle/10665.2/53838",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/274310",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/362379",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "bibo:doi": "10.2471/blt.13.118927",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/275473",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.oecd.org/statistics/data-collection/Guidelines_JQNMHC_2022.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://population.un.org/wpp/publications/files/wpp2019_highlights.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/334006",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.ilo.org/public/english/bureau/stat/isco/docs/publication08.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/173589/1/WHO_HIS_HSI_2015.3_eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.1787/9789264239517-en",
+      "dcterms:identifier": "http://dx.doi.org/10.1787/9789264239517-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/44097/1/9789241547703_eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://www.capacityplus.org/files/resources/HRH_Indicator_Compendium.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/330091",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "http://www.paho.org/hq/index.php?option=com_docman&task=doc_view&gid=10910&Itemid=270",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/207534",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/43780",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2018",
+      "bibo:doi": "10.1016/S2214-109X(17)30472-2",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://ilo.org/wcmsp5/groups/public/---dgreports/---stat/documents/normativeinstrument/wcms_230304.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:identifier": "https://unstats.un.org/unsd/nationalaccount/sna2008.asp",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44775",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/170421",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1787/ae3016b9-en",
+      "dcterms:identifier": "https://doi.org/10.1787/ae3016b9-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.oecd-ilibrary.org/fr/social-issues-migration-health/international-migration-outlook-2022_30fe16d2-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://ja-archive.healthworkforce.eu/work-package-5/",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.64",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://ec.europa.eu/eurostat/documents/3888793/5847769/KS-RA-10-027-EN.PDF/87d9c80c-f774-4659-87b4-ca76fcd5884d",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.65",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://data.oecd.org/emp/part-time-employment-rate.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.66",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:identifier": "https://www.ilo.org/wcmsp5/groups/public/---ed_protect/---protrav/---travail/documents/publication/wcms_170717.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.67",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1787/62c85872-en",
+      "dcterms:identifier": "https://doi.org/10.1787/62c85872-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.68",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/348069",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.69",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/93635",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.70",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "http://uis.unesco.org/sites/default/files/documents/metadata-global-thematic-indicators-sdg4-education2030-2017-en_1.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.71",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://applications.emro.who.int/docs/IC_Meet_Rep_2011_EN_14538.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.72",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/43128",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.73",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://fip.org/files/fip/PharmacyEducation/Quality_Assurance/QA_Framework_2nd_Edition_online_version.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.74",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:identifier": "http://uis.unesco.org/sites/default/files/documents/education-indicators-technical-guidelines-en_0.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.75",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://unesdoc.unesco.org/images/0024/002457/245781e.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.76",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.1787/3197152b-en",
+      "dcterms:identifier": "https://doi.org/10.1787/3197152b-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.77",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://documents.worldbank.org/curated/en/570681468190783192/pdf/99535-PUB-Box393201B-PUBLIC-PUBDATE-9-16-15-DOI-10-1596-978-1-4648-0616-2-EPI-210616-SERIES-World-Bank-Studies.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.78",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:identifier": "http://www.ilo.org/wcmsp5/groups/public/---dgreports/---integration/documents/meetingdocument/wcms_115402.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.79",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "http://www.oecd.org/els/family/database.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.80",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.2471/blt.14.151894",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.81",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2010",
+      "bibo:doi": "10.2471/blt.09.071605",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.82",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/42617",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.83",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.icn.ch/system/files/documents/2020-04/ICN_APN%20Report_EN_WEB.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.84",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://www.oecd-ilibrary.org/social-issues-migration-health/nurses-in-advanced-roles_5kmbrcfms5g7-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.85",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:identifier": "https://www.oecd.org/els/health-systems/33857785.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.86",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/44263/1/9789241599016_eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.87",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/44480/1/9789241500821_eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.88",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/250221/41/9789241549745-eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.89",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://cdn.who.int/media/docs/default-source/documents/social-determinants-of-health/consultation-paper-sdh-action-monitoring.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.90",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.91",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://www.oecd.org/officialdocuments/publicdisplaydocumentpdf/?cote=DELSA/HEA/WD/HWP(2013)3&docLanguage=En",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.92",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://apps.who.int/gb/ebwha/pdf_files/WHA66/A66_R23-en.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.93",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.ilo.org/wcmsp5/groups/public/---dgreports/---stat/documents/publication/wcms_498929.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.94",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/44414",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.95",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.1136/bmjgh-2022-009312",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.96",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/341636",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.97",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/357087",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.98",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/350218",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.99",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/258734",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.100",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://data.oecd.org/earnwage/gender-wage-gap.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.101",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/gb/ebwha/pdf_files/WHA75/A75_14-en.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.102",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/366398",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.103",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/358057",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.104",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/69256",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.105",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.rcpe.ac.uk/sites/default/files/files/federation_cpd_diary_guidelines_0_2.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.106",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "bibo:doi": "10.1186/1478-4491-2-14",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.107",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/health-topics/gender",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.108",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "http://uis.unesco.org/sites/default/files/documents/international-standard-classification-of-education-isced-2011-en.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.109",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/246107",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.110",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/70185",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.111",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://ec.europa.eu/eurostat/web/labour-market/information-data/job-vacancies",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.112",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "http://eur-lex.europa.eu/legal-content/EN/ALL/",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.113",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1995",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/59441/1/WHO_HRH_95.7.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.114",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/69832",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059.115",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.ilo.org/global/statistics-and-databases/publications/WCMS_590092/lang--en/index.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-2.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2030",
+      "dcterms:identifier": "https://apps.who.int/iris/bitstream/handle/10665/250040/9789241511285-eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-2.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.1787/9789264239517-en",
+      "dcterms:identifier": "http://dx.doi.org/10.1787/9789264239517-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-2.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.capacityplus.org/files/resources/HRH_Indicator_Compendium.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-2.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/42617",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-2.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.ilo.org/global/statistics-and-databases/publications/WCMS_590092/lang--en/index.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-3.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://unstats.un.org/sdgs/report/2022/",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-3.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.1787/9789264239517-en",
+      "dcterms:identifier": "http://dx.doi.org/10.1787/9789264239517-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-3.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.capacityplus.org/files/resources/HRH_Indicator_Compendium.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-3.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/42617",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-3.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.ilo.org/global/statistics-and-databases/publications/WCMS_590092/lang--en/index.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-4.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/173589/1/WHO_HIS_HSI_2015.3_eng.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-4.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "bibo:doi": "10.1787/9789264239517-en",
+      "dcterms:identifier": "http://dx.doi.org/10.1787/9789264239517-en",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-4.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.capacityplus.org/files/resources/HRH_Indicator_Compendium.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-4.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/42617",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-4.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.ilo.org/global/statistics-and-databases/publications/WCMS_590092/lang--en/index.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-5.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/42617",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-5.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.ilo.org/global/statistics-and-databases/publications/WCMS_590092/lang--en/index.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-6.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2010",
+      "dcterms:identifier": "https://www.icn.ch/system/files/documents/2020-04/ICN_APN%20Report_EN_WEB.pdf",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    },
+    {
+      "@id": "references/9789240081291-eng.sec-059-6.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://www.ilo.org/global/statistics-and-databases/publications/WCMS_590092/lang--en/index.htm",
+      "dcterms:source": "library/9789240081291-eng/sections/sec-059-gender.md"
+    }
+  ]
+}

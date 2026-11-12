@@ -28,7 +28,7 @@
   },
   {
    "id": "Task_MountInstances",
-   "name": "Mount each instance at its declared path",
+   "name": "Mount each layer at its declared path",
    "left": 33.36,
    "top": 54.26,
    "box": {
@@ -104,14 +104,6 @@
       "href": "../../../en/cat-harness/processes/skills/bpmn-authoring.html"
      },
      {
-      "name": "content-author",
-      "href": "../../../en/cat-harness/processes/skills/content-author.html"
-     },
-     {
-      "name": "content-plan",
-      "href": "../../../en/cat-harness/processes/skills/content-plan.html"
-     },
-     {
       "name": "content-review",
       "href": "../../../en/cat-harness/processes/skills/content-review.html"
      },
@@ -137,8 +129,7 @@
       "name": "todo-manager"
      },
      {
-      "name": "voice-authoring-guidance",
-      "href": "../../../en/cat-harness/processes/skills/voice-authoring-guidance.html"
+      "name": "voice-authoring-guidance"
      }
     ]
    }
@@ -167,10 +158,6 @@
      {
       "name": "compiled-artefact-cache",
       "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
-     },
-     {
-      "name": "content-publish",
-      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
      },
      {
       "name": "content-test",
@@ -233,7 +220,7 @@
   },
   "Task_MountInstances": {
    "id": "Task_MountInstances",
-   "name": "Mount each instance at its declared path",
+   "name": "Mount each layer at its declared path",
    "type": "bpmn:Task",
    "stepHref": "mount-dependency.html#step-Task_MountInstances",
    "lane": "Build pipeline",
@@ -255,10 +242,6 @@
      {
       "name": "compiled-artefact-cache",
       "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
-     },
-     {
-      "name": "content-publish",
-      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
      },
      {
       "name": "content-test",
@@ -343,10 +326,6 @@
      {
       "name": "compiled-artefact-cache",
       "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
-     },
-     {
-      "name": "content-publish",
-      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
      },
      {
       "name": "content-test",
@@ -437,10 +416,6 @@
       "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
      },
      {
-      "name": "content-publish",
-      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
-     },
-     {
       "name": "content-test",
       "href": "../../../en/cat-harness/processes/skills/content-test.html"
      },
@@ -526,10 +501,6 @@
      {
       "name": "compiled-artefact-cache",
       "href": "../../../en/cat-harness/processes/skills/compiled-artefact-cache.html"
-     },
-     {
-      "name": "content-publish",
-      "href": "../../../en/cat-harness/processes/skills/content-publish.html"
      },
      {
       "name": "content-test",

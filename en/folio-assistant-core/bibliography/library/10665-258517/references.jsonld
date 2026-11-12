@@ -1,0 +1,338 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-258517",
+      "@type": [
+        "fabio:Work",
+        "bibo:Report"
+      ],
+      "dcterms:title": "WHO implementation tool for pre-exposure prophylaxis (PrEP) of HIV infection: module 3: counsellors",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2017-07-20",
+      "dcterms:publisher": "World Health Organization",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/258517",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-258517.dc.json",
+      "dcterms:hasVersion": "library/10665-258517"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-011.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.1016/j.cbpra.2016.02.004",
+      "dcterms:identifier": "http://dx.doi.org/10.1016/j.cbpra.2016.02.004",
+      "dcterms:source": "library/10665-258517/sections/sec-011-further-reading.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/208825/1/9789241549684_eng.pdf?ua=1",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "http://www.who.int/hiv/pub/guidelines/hiv-testing-services/en/",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://www.who.int/hiv/pub/guidelines/keypopulations-2016/en/",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "http://apps.who.int/iris/bitstream/10665/77764/1/9789241504843",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md",
+      "dcterms:hasVersion": "library/10665-77764"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    },
+    {
+      "@id": "references/10665-258517.sec-012.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.who.int/hiv",
+      "dcterms:source": "library/10665-258517/sections/sec-012-references.md"
+    }
+  ]
+}

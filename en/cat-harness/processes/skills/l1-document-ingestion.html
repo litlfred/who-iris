@@ -43,122 +43,11 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <!--
-  The configured colour scheme, published for site-chrome/assets/js/docs-ui.js.
-
-  just-the-docs' first stylesheet is `just-the-docs-default.css`, which is
-  whatever `color_scheme` in _config.yml compiled to -- so `jtd.getTheme()`
-  returns the string "default" on a fresh load, never "dark". The scheme
-  toggle needs to know what "default" MEANS here, and reading it from the
-  config is the one way that does not go stale when the config changes.
-
-  FIRST in this file since 2026-09-24, because the first-paint snippet below
-  reads it too, and a script can only read what the parser has already seen.
--->
-<script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script>
-<!--
-  THE FIRST PAINT IS DARK — owner, 2026-09-24: *"when any
-  page/foio-asst/cat-harness first loads if flashes white before goignt o
-  dark mode. instead it should deafult dark mode then turn to light mode to
-  prevent light flash in dark."*
-
-  WHY IT FLASHED. The site is configured dark, so the theme's first
-  stylesheet already paints dark. But `docs-ui.js` is deferred, and on load
-  it applied a STORED choice with `jtd.setTheme(name)`, which swaps that
-  stylesheet's href -- to the dark file, when the default file already was
-  dark. The swap unloads the sheet that was painting the ground, and until
-  the new one arrives the browser's WHITE canvas shows. Every reader who had
-  ever pressed the light/dark control got that on every page. And nothing
-  painted `html` at all, so any moment without the theme's sheet was white.
-
-  So, FIRST THING in this include, before every stylesheet it emits:
-
-  1. decide the scheme -- the reader's stored choice (`fa-color-scheme`, the
-     key `docs-ui.js` writes), else the OS, else LIGHT -- and put it on
-     `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
-     it ever paints the wrong way first;
-  2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. `jtd.setTheme` loads the new
-     file beside the old, render-blocking, and drops the old one once it
-     has loaded (cat-harness#820): never a frame with no theme sheet;
-  3. paint `html` itself, dark unless the scheme is light, so a sheet in
-     flight shows the page's ground rather than white.
-
-  The theme's own stylesheet link is ABOVE this include (just-the-docs emits
-  `head_custom.html` last in its head), which is why step 2 exists: there is
-  no hook before it, and none is needed -- nothing paints until the head is
-  parsed, and this runs while it is being parsed.
-
-  INLINE, which the rest of this file avoids so that no `script-src`
-  relaxation is ever needed. This is the one exception, and it is the only
-  way to run before first paint: a `src` script here is a network round-trip
-  on the critical path of every page. It interpolates nothing into markup,
-  and a CSP added later needs this block's hash.
-
-  ELSE LIGHT -- owner, 2026-10-15, "follow os else light". The declared
-  `color_scheme` only names the sheet shipped first. The ONE source: tools'
-  `scheme-css.ts` lifts this script; `docs-ui.js` reads its attribute.
-
-  NO LIQUID between the markers. `first-paint-scheme.e2e.ts` lifts these
-  exact bytes into a replica page, so the spec tests what ships.
-
-  The generated dashboards that write their OWN head (`state-visualizer.ts`,
-  `gen-translation-status.ts`) do not carry this. They switch nothing with
-  script, so they cannot flash: their first CSS paints dark, and the same spec
-  holds them to that. Giving them this snippet would switch ON their
-  `data-fa-scheme="light"` rules for the first time -- and those were never
-  finished (axe, 2026-09-24: 3 to 6 contrast failures per dashboard in light,
-  dark-scheme tag colours on a light ground). A light palette for them is its
-  own piece of work, not a side effect of this one.
--->
-<!-- fa-first-paint:begin -->
+  <script type="application/json" id="fa-site-scheme">{"scheme": "dark"}</script><!-- fa-first-paint:begin -->
 <script>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
 <style>html{background-color:#27262b}html[data-fa-scheme="light"]{background-color:#ffffff}</style>
-<!-- fa-first-paint:end -->
-<!-- PROSE HERE IS NOT FREE: these are HTML comments, so every byte ships on
-     every page (2356 of them). A comment in this file is a POINTER; the
-     reasoning goes in the artefact. Measured, with the cost this change paid
-     before measuring, in assets/harness/site.json's front matter. -->
-<!-- THE RENDER STATE. pending here; ready/failed from assets/js/kg-render.js,
-     which carries the contract. No attribute = no dynamic region on this page.
-     The number is a MINIMUM cross-checking registrations, not a count. -->
-<meta name="fa-render-regions" content="1">
-<script>document.documentElement.setAttribute("data-fa-render","pending");</script>
-<!--
-  The browser-tab icon, from the same declared mark the sidebar title
-  (`title.html`) renders — reused rather than looked up by its own
-  `browser-icon` role. There WAS a second role for exactly that, on
-  `mark-small` in `harness.json`, and it went unread: nothing in this
-  repo ever emitted a favicon at all, `rel="icon"` included. It also could
-  not have driven this lookup as declared — `imagesForRole()`
-  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
-  mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
-  the already-resolved `icon` (the same field `title.html` reads) sidesteps
-  that and, more importantly, is what was asked for: the sidebar mark and the
-  tab icon are meant to be the SAME glyph, so one declaration driving both is
-  correct, not just convenient — flip `icon` in `harness.json` and both
-  follow in one edit, no template change needed.
-
-  SVG-only. No PNG/ICO fallback exists in the repo and none is generated
-  here — every browser this matters for (evergreen Chrome/Firefox/Edge, and
-  Safari since 16) reads `type="image/svg+xml"` directly; a raster fallback
-  would need generating actual image files, which is out of scope for this
-  change.
-
-  `relative_url`, same as `title.html` and `landing.html` — a bare
-  `/assets/...` 404s on the same baseurl this file's landing-panel fix exists
-  for.
---><!--
-  Site-wide styling for the BPMN workflow figures.
-
-  just-the-docs pulls this file into <head> on every page. The diagrams are wide
-  (a swimlane process does not shrink well), so the figure scrolls horizontally
-  inside its own container rather than forcing the page body to scroll.
-
-  The SVGs carry their own white backdrop — see scripts/render-bpmn.ts — so they
-  stay legible under the dark colour scheme even if this stylesheet is missing.
--->
-<style>
+<!-- fa-first-paint:end --><meta name="fa-render-regions" content="1">
+<script>document.documentElement.setAttribute("data-fa-render","pending");</script><style>
   .bpmn-figure {
     overflow-x: auto;
     background: #fff;
@@ -176,85 +65,7 @@
     margin-top: 0;
     font-size: 0.75rem;
   }
-</style>
-
-<!--
-  Site UI: a QR of the current page in the sidebar header, and zoom /
-  full-width controls on the figures.
-
-  Loaded as same-origin files with no inline script, so no script-src
-  relaxation is needed. The QR is generated in the browser from
-  window.location.href rather than baked per page at build time, so it is
-  right for anchors, query strings, and both the directory and .html forms of
-  the same page. The UTF-8 shim must come after the encoder: without it the
-  encoder's stringToBytes is single-byte and a non-ASCII character in a URL
-  silently encodes to mojibake.
--->
-<!--
-  The TRANSLATION INDEX — which source page has a translation in which locale.
-
-  `mountNavLocale` in docs-ui.js reads this to decide what the left-hand navbar
-  shows: with the source language selected it does nothing, and with `fr`
-  selected it swaps each nav item that HAS a French page for that page, IN
-  PLACE OF the English one. An item with no translation is left exactly as it
-  is — that is the fallback, and it is the absence of a rewrite rather than a
-  code path of its own.
-
-  Generated into `docs/_data/translations.json` by
-  `content/pipeline/translation-index.ts`, from what each page DECLARES about
-  itself: `lang`, and `translation_source` naming the page it expresses. NOT
-  from a scan for directories whose names look like language subtags — see
-  that module's header for why that inference is wrong in both directions.
-
-  THREE STATES, and the third is the reason this is a JSON island rather than
-  a conditional. (The tag name is written inside {% raw %}
-  below because LIQUID PARSES TAGS INSIDE AN HTML COMMENT — the comment
-  wrapper means nothing to it — so naming a tag in prose is a syntax error at
-  build time, and the message points at the THEME's head.html because Liquid
-  attributes an include's line to the includer. This comment cost one red
-  deploy.
-
-  AND THEN IT COST A SECOND ONE, differently, which is why this paragraph now
-  describes the wrapper rather than spelling it. It used to SPELL both halves
-  as an example — and the closing half ENDED THIS COMMENT eighteen lines
-  early, so every line below it rendered as visible body text at the top of
-  EVERY PAGE on the site. Reported by the owner from the staging URL,
-  2026-09-19.
-
-  The asymmetry is the lesson: a Liquid tag has an escape, and the closing
-  comment delimiter has NONE. There is no way to write those three characters
-  inside a comment and have the comment survive them, because the parser is
-  not looking for an escape — it stops at the first match. So the rule is not
-  "escape it carefully", it is DO NOT WRITE IT: describe it, or name it one
-  character at a time. Guarded by
-  scripts/tests/html-comment-delimiters.test.ts, which fails on an opening
-  delimiter appearing inside an open comment — the one machine-detectable
-  signature of somebody trying.)
-  A {% if %} would have to choose between the second and
-  third rows below, and there is no expression that can:
-
-    1. the data file is there      -> `index` is an object; filter the nav.
-    2. it is there and EMPTY       -> `pages` is `{}`; there is nothing to
-                                      swap, so every item correctly falls back
-                                      to the source language.
-    3. the data file is ABSENT     -> `jsonify` emits `null`, and docs-ui.js
-                                      leaves the navbar EXACTLY as built.
-
-  A build that could not determine the translation set must never render as a
-  folio that has no translations. `null` is how that is said.
-
-  `baseurl` travels with it because the client has no other way to strip the
-  site prefix off a nav `href` before matching it.
--->
-<!-- MOVED 2026-10-02 to assets/harness/site.json: fetched once instead of
-     inlined 2356x (9482 B/page, 22.34 MB, ONE payload). The three states above
-     are unchanged; a fourth — the file is unreachable — is data-fa-render. -->
-<!--
-  Translation metadata for this page, consumed by docs-ui.js to auto-render
-  language coverage and QA badges. The translation pipeline stamps front matter;
-  this block publishes it to the client. No manual editing needed.
--->
-<script type="application/json" id="fa-translation-meta">{
+</style><script type="application/json" id="fa-translation-meta">{
   "lang": "en",
   "translationStatus": "",
   "translationSource": "",
@@ -276,400 +87,15 @@
     "complete": false
   },
   "statusSrc":"../../../../assets/translation-status/index.json"
-}</script>
-<!--
-  Where the action tiles point.
+}</script><script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script><meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../../assets/todos/index.json"><meta name="fa-todo-graph" content="../../../../todos.jsonld"><meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json"><meta name="fa-tiles" content="" data-fa-src="harness-data">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
-  RESOLVED, not composed. `scripts/sync-docs-harness.ts` writes
-  `docs/_data/harness.json` from the instance's own `cat-harness.json`,
-  through `siteLinks` in `scripts/site-links.ts` -- which computes every path
-  with `artefactStub` and `renderingPath`, the same functions the knowledge
-  graph exporter and the Pages workflow use. The tile therefore cannot
-  disagree with what is published.
-
-  This block previously wrote `../../../../kg/` by hand. Nothing
-  has ever been published at `<base>/kg/` -- the renderings sit at the base,
-  named after the stub -- so the only entry point to the viewer anywhere on
-  this site was a 404 from the day it was added. See bean `udx8`, and the
-  identical defect AGENTS.md records against the README's chapter PDFs. A
-  path built by convention is a claim; `bun run cat site:links --site _site`
-  checks it against the tree that actually ships, and the Pages workflow runs
-  that check after the export.
-
-  `path` is site-ROOT-relative and gets `relative_url`, which is what makes it
-  right under this site's `/folio-assistant/` baseurl. `url` is off-site and
-  is printed as-is. `source` is no longer taken from `aux_links`: those were
-  removed so the forge link stops appearing as text at the top of the main
-  panel (the owner asked for it as an icon, not a header), and the URL is
-  resolved from the git remote instead of written down twice.
--->
-<!--
-  THE NAVBAR ICON ROW — which icons this instance shows, and where each goes.
-
-  `null` when the instance has not decided, and that is NOT the same as an
-  empty list: `navbarIcons` absent means "inherit, and nothing up the chain has
-  said either", while `[]` means the instance chose to show none. docs-ui.js
-  reads the two apart, and `jsonify` emits `null` for the first exactly as the
-  translations block above relies on.
-
-  Resolved in `sync-docs-harness.ts`: the icon list walks `needs` with the site
-  owner as the floor, and the hrefs come from this instance's own declared
-  visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
-  or in JavaScript.
--->
-<!--
-  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
-  The row is the same on every page of a build, so it is written once into a
-  cached file instead of into each page. `data-fa-row-src` is the contract the
-  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
-  the name once it has filled the island, and a reader that finds it still
-  named and empty reports a failed load rather than "declared none".
--->
-<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
-     moving it, in assets/harness/site.json's front matter. -->
-<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/who-iris/","jsonld":"https://litlfred.github.io/folio-assistant/who-iris/who-iris.jsonld","source":"https://github.com/litlfred/who-iris"}</script>
-
-<!--
-  The todo index — a PERSON's outstanding items, published by
-  `scripts/gen-docs-pages.ts` to `/assets/todos/index.json`.
-
-  `relative_url` for the same reason every other path here uses it: the site is
-  served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
-  404s on every deploy but one.
-
-  A URL rather than inline JSON, unlike `fa-site-links` above, because the
-  index grows with the todo corpus and inlining it would put the whole set into
-  every page's <head> whether the reader opens the board or not. A missing file
-  is reported by the fetch and the board is simply not mounted — a board that
-  opens empty is indistinguishable from a person with nothing outstanding, and
-  those are opposite facts.
-
-  `<meta>` and not a `<div>`: this is `<head>`, where flow content is not
-  permitted. A browser hoists a stray `<div>` into `<body>` and the code still
-  works, which is exactly what makes the mistake survive review.
--->
-<!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
-     page has one and falls back to this. Rationale and measurement are in that
-     file's front matter, which is not served. -->
-<meta name="fa-site-index-src" content="../../../../assets/harness/site.json">
-<meta name="fa-todo-src" content="../../../../assets/todos/index.json">
-<!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
-     filters and groups by, and each todo's own page. -->
-<meta name="fa-todo-graph" content="../../../../todos.jsonld">
-
-<!--
-  THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
-  becomes its avatar.
-
-  R2 of issue #602: *"The threshold SHALL be declared data, not a literal in
-  the renderer."* `gen-docs-pages.ts` publishes the folio's own
-  `semantic-zoom.json`, and publishes NOTHING when the folio has not declared
-  one. So this `<meta>` may point at a 404, and that is a real state rather
-  than a defect: `docs-ui.js` reports it could not determine a threshold and
-  leaves every card's words in place. A default in either file would be the
-  literal R2 forbids, one layer further from where anybody looks for it.
-
-  The pointer is emitted UNCONDITIONALLY because Liquid cannot see whether the
-  generator wrote the file, and a conditional that guessed would make "this
-  folio declares no threshold" and "the build did not run" the same page.
--->
-<meta name="fa-zoom-src" content="../../../../assets/semantic-zoom.json">
-
-<!--
-  THE DECLARED VISUALISATIONS, as tiles.
-
-  Owner, 2026-09-20: *"if harness declares visaluzers, those should have tile"*
-  — so the tile set is the `coverage.visualiser` obligation made reachable, not
-  a second registry. `graph-tiles.ts` derives it into `_data/harness.json`;
-  this hands it to `docs-ui.js` for BOTH surfaces, because a tile is declared
-  once and says where it shows.
-
-  INLINE rather than a second fetch, unlike the todo index above, and the two
-  are different for a reason worth stating: that index grows with the todo
-  corpus, while this one is bounded by the number of directories an instance
-  DECLARES — twelve here — and every page needs it before first paint or the
-  navbar would visibly grow tiles a moment after the reader arrives.
-
-  `jsonify` and not a hand-built string: a title carrying a quote would
-  otherwise close the attribute, and the quoting rule is Liquid's rather than
-  something this comment has to be right about.
--->
-<!--
-  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
-  is the same on every page and was 12.5 KB of each one (measured on gh-pages
-  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
-  and deferred scripts run in document order, so the tiles are in place before
-  the first reader runs: no later paint than the inlined copy had.
--->
-<meta name="fa-tiles" content="" data-fa-src="harness-data">
-<!--
-  THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
-  finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
-  instance's `glassStrip` declaration by `sync-docs-harness.ts`; absent when
-  nothing declared one. Replica pages read `assets/harness/glass-strip.json`.
--->
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]">
-
-<!--
-  THE SITE'S BASEURL, for the tiles above.
-
-  Every other site-root path on this page is composed by Liquid: `relative_url`
-  prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
-  it, because they reach the client as JSON and are composed in `docs-ui.js`
-  after Liquid has finished — so the base has to travel with them.
-
-  IT SHIPPED WITHOUT ONE AND EVERY TILE 404ed (issue #801). `graph-tiles.ts`
-  stores `/beans/`, which is correct as data and is what `harness.links[].path`
-  stores too; written into an `href` unprefixed, a browser resolves it against
-  the ORIGIN, so the beans tile pointed at `litlfred.github.io/beans/`. The
-  owner found it by going looking for the board and landing there.
-
-  A meta of its own rather than reading the site index, which also carries a
-  `baseurl`: that document reads as `null` when `_data/translations.json` was
-  not built, and since 2026-10-02 it is FETCHED, so it is also absent until a
-  request resolves and may never arrive. Composing links out of an optional
-  block means the day it goes missing every tile silently points at the origin
-  again — which is this defect, with a second way to reach it. Two reasons for
-  one answer now.
-
-  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
-  `../..` two levels down, never the deploy's path, so the page is the same
-  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
-  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
-  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
--->
-<meta name="fa-baseurl" content="../../../..">
-
-<!--
-  WHETHER THIS IS A PREVIEW, for the tiles above.
-
-  `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
-  `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a branches/<slug>/ preview", an empty one means the canonical deploy
-  or a local build.
-
-  It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
-  `publish: "staging-only"` page from the canonical tree; a tile still pointing
-  at it would be a link to a 404 — `pb04`, a dead link being worse than no
-  link, and worse than usual here because the tile ALSO advertises content the
-  declaration is deliberately not publishing.
-
-  The filtering is client-side rather than baked into `harness.json` because
-  that file is generated once and committed, so it cannot know which deploy
-  will serve it. The page can be withheld at compose time because compose runs
-  per deploy; the data file cannot.
-
-  EMPTY IS THE SAFE VALUE, and it is what an absent `_data/build.yml` yields:
-  a build that cannot say it is a preview is treated as canonical and hides
-  the tile. That matches `compose-docs.ts`, which withholds unless positively
-  told `--staging` — one direction in both places, so the page and its tile
-  cannot disagree about which deploy they are on.
-
-  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
-  reader asks only whether it is empty, and the slug made every page differ
-  between previews. The branch is in `staging.json`, which the banner reads.
--->
-<meta name="fa-staging" content="">
-
-<!--
-  WHICH SEARCH INDEX THIS PAGE IS SERVING.
-
-  `feature-staging.yml` fetches the PUBLISHED index before the build and
-  stamps what happened; `docs-site.yml` writes no such key, so the canonical
-  deploy leaves this empty and draws no warning. Bean `eof6`, on the owner's
-  ruling of 2026-09-22: *"staging uses last published index (w/ wanrnig)"*.
-
-  Three values, and the empty one is a real state rather than a fallback:
-
-    published    the preview serves the last published index. Results are
-                 about the MAIN SITE, not about this branch.
-    unavailable  the fetch failed; an empty index is served.
-    (empty)      not a staging build. No warning.
-
-  The bean this implements had first concluded that staging must disable
-  search outright, because a stale hit is "a wrong PASS, BELIEVED". The ruling
-  keeps search and attacks the belief instead — which is why the value is
-  emitted at all. An index swapped in with nothing on the page saying so would
-  be the unmarked staleness the bean was right to refuse.
--->
-<meta name="fa-search-index" content="">
-
-<!--
-  A page left out of the search index ON PURPOSE (`search_exclude: true`)
-  says so in what is built, so `publish:verify`'s search-index check can tell
-  a deliberate exclusion from a truncated index (#2233). Front matter is gone
-  once Jekyll has run; without this marker the ~2,800 IG artefact pages that
-  #2194 excluded read as "4,189 pages offer a search box, 1,003 indexed".
--->
-
-
-
-
-<!--
-  The bean index — the AGENT work plan, published by the same generator beside
-  the todo index above, for the same reason and read the same way. Separate
-  files rather than one combined document because the two stores are separate
-  graphs with separate declarations, and a consumer that wants only the human
-  half should not fetch 239 beans to get three todos.
--->
-<meta name="fa-beans-src" content="../../../../assets/beans/index.json">
-<!--
-  The process index's entry point — the REPOSITORY's named-subgraph index,
-  whose children are the harness roots this site frames (`bun run
-  subgraph:jsonld`; bean `ax6r`, owner 2026-10-03: "Move to JSON-LD").
-  Read by assets/js/process-index.js on the page carrying
-  `[data-fa-process-index]` (the publication-workflow page), which walks it
-  down to every `processes` subgraph's `index.hydrated.jsonld`.
--->
-<meta name="fa-processes-src" content="../../../../subgraph/index.jsonld">
-<!--
-  The deploy's stamp — when it was built and from which commit — which the
-  work-plan dashboard turns into "generated … · N commits behind main".
-  `build.json` on the main site, `staging.json` on a preview; written by the
-  deploy, never committed, because a committed timestamp is a merge conflict
-  on every pair of concurrent changes (bean `y7b3`).
--->
-<meta name="fa-build-src" content="../../../../build.json">
-
-<!--
-  The discarded-items document — `fsh-guts.jsonld`, published at the base by
-  `docs-site.yml`. A URL and not inline JSON, for the todo index's reason and
-  then some: it carries every node's BODY, which is 64 KB against a 5 KB
-  document without them. Inlining that into every page's <head> would be
-  absurd for content reached through one control inside Settings.
-
-  `.json` rather than `.jsonld`. Both are published and they are the same
-  bytes; Pages has no media type for `.jsonld` and serves it as
-  octet-stream. `fetch().json()` would parse it anyway, but every other
-  rendering here uses the alias and one that did not would be the odd case a
-  later reader has to work out.
-
-  The viewer fetches this WHEN SETTINGS OPENS, never on page load, and a
-  fetch that fails is reported rather than shown as an empty trashcan —
-  "nothing discarded" and "could not read the document" are opposite facts.
--->
-<!--
-  NOT on a folio's site that does not link its OWN fsh-guts (#2263 follow-up):
-  there this path is the folio's, where no document is published, and the
-  fetch's 404 painted "?" -- an error -- on the fish. With no meta the count is
-  ABSENT, and the row's fish is a link or an inert icon saying why
-  (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
--->
-<!--
-  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
-  failure, not a performance one.
-
-  These five are served from stable paths with no hash in the name, so a
-  browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a branches/
-  preview it is the whole point of the deployment: the reviewer opens the URL
-  they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
-  see changes" — which is indistinguishable from a deploy that never
-  happened, and sends the next hour after the wrong cause. Measured
-  2026-09-21 on this branch: every byte of the change was verified present in
-  the publish ref while the page rendered the previous build.
-
-  The query is a HASH OF THE ASSET (`fa_asset_version`,
-  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
-  do. It was `site.time` until 2026-10-23, and the build time is new on every
-  build: every page then differed on every rebuild, so each re-push of a
-  preview stored a whole new copy of its HTML (bean `g196`).
-
-  NOT a cache-busting strategy for third-party assets, and not applied to
-  them: those are versioned in their own URLs already.
--->
-<!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
-<!-- Narrow viewports: wide content scrolls in its own box, never the page
-     (bean `2r2n`). The standalone viewers inline the same file through
-     `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
-
-<!--
-  The work-plan dashboard's styles, split from docs-ui.css so that
-  `state-visualizer.ts` can inline exactly these bytes into the generated
-  `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
--->
-<link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01">
-<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
-     `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
-     Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
-     roles that docs-ui.css consumes, and a custom property has to be set on a
-     matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
-<!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
-     that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
-<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
-     `avatars:css:check` fails the build when it is stale. One stylesheet
-     rather than 68 assets: the glyph is a mask and the colour is a property,
-     so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8">
-
-<!--
-  The kinds THIS INSTANCE DECLARES, for the avatar fan.
-
-  Owner: "shows the DECLared kinds for that instance, not inheritance." Written
-  by `sync-docs-harness.ts` from the instance's own `harness.json`, BEFORE
-  `resolveDirectories` overlays a dependency's. The effective set is strictly
-  larger, and showing it would name kinds this repository never claimed.
-
-  Inline rather than a fetched URL, unlike the todo index and the discarded
-  document: this is a dozen short strings, it is needed to render the fan at
-  all, and a fetch for that would put a spinner in front of a badge.
--->
-<!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script>
-<!--
-  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
-  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
-
-  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
-  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
-  A version query naming its content would write that change into every page: two
-  previews built 25 minutes apart differed on 1,351 pages for one count going
-  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
-  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
--->
-<script src="../../../../assets/js/harness-data.js" defer></script>
+<meta name="fa-beans-src" content="../../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../../build.json"><link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=3dc1393d297a"><link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../../assets/css/avatars.css?v=4f2f087d41d8"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../../assets/js/harness-data.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode.js" defer></script>
-<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
-<!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
-<script src="../../../../assets/js/kg-render.js" defer></script>
-<!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
-<!-- The edit, source and feedback links of every page, from the platform's one
-  recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
-  facts and this builds the hrefs. -->
-<script src="../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
-
-<!--
-  The work-plan dashboard. SELF-MOUNTING on any page carrying
-  `[data-fa-workplan]`, so docs-ui.js neither calls it nor knows it exists; a
-  page without that container pays one failed querySelector. The same file is
-  inlined verbatim into the generated state-visualiser pages.
--->
-<script src="../../../../assets/js/work-plan.js" defer></script>
-<!--
-  The process index, self-mounting on `[data-fa-process-index]` the same way.
-  Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
--->
-<script src="../../../../assets/js/process-index.js" defer></script>
-
-<!--
-  The landing panel — the instance's declared description drawn inside the
-  quiet part of its declared backdrop. Markup: `_includes/landing.html`.
-
-  The region comes in as custom properties (`--fl-x` …) set per instance from
-  `harness.json`, so this stylesheet knows nothing about where any
-  particular picture is quiet. That is the whole design: a downstream folio
-  swaps the art and the numbers and needs no CSS.
--->
-<style>
+<script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../../assets/js/kg-render.js" defer></script><script src="../../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=4d45b88bbab8" defer></script><script src="../../../../assets/js/edit-links.js?v=9c6835feddf7" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -699,65 +125,7 @@
     position: static; width: auto; height: auto; color: inherit;
   }
   .folio-landing--plain p { font-size: inherit; font-weight: inherit; }
-</style>
-
-<!--
-  AN INSTANCE'S OWN WEBPAGE THEME, scoped to its pages.
-
-  Bean `7h3u`, on the owner's 2026-09-30 ruling to wire this at the PLATFORM
-  layer so every ingested IG gets it, rather than in one instance's page
-  generator.
-
-  WHY LIQUID AND NOT CSS. A webpage theme dresses one instance's pages, so it
-  has to be scoped by URL — and CSS cannot select on a URL. Jekyll is what
-  knows which page is rendering, so the scope is applied here and the VALUES
-  come from `_data/instance-themes.json`, written by `gen-themes-css.ts` from
-  each instance's declared `themes/`. That is the `site.data` pass-through bean
-  `kott` settled, and the owner's own instruction for this work: "reuse all
-  existing justthedocs infra".
-
-  WHY INLINE AND NOT A LINKED STYLESHEET. The same first-paint reasoning this
-  file already carries for the colour scheme: a sheet arriving after first
-  paint flashes the unthemed colours, which is the defect this file was
-  rewritten to remove.
-
-  WHAT IT RETHEMES, AND WHAT IT CANNOT. These three names are read by
-  `docs-ui.css` at 29 of its 33 `var(--x, #literal)` sites and DEFINED by
-  nothing — just-the-docs is Sass, so its own chrome compiles to literals and
-  no custom property can reach it. So this dresses the surfaces the site owns,
-  the left-hand nav among them, and leaves just-the-docs' compiled chrome
-  alone. Stated here because the alternative is a reader concluding the theme
-  is broken when it is doing exactly what it can.
---><!--
-  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
-
-  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
-  display background for their corresponding docs/ (ghpages) rendering".
-
-  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
-  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
-  that instance's, and its three crops. The FIRST tile whose scope the URL
-  contains wins; tiles come dependents first, so the content instance a page
-  is about beats the platform that renders it. The site owner is the fallback
-  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
-  no `art` gets no ground: a palette-only theme is a choice, not a gap.
-
-  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
-  words inside a measured quiet region of one crop, so the crop must be the
-  file. The page ground places nothing on the art, so a media query choosing
-  the crop is exact, and no markup is added to any page.
-
-  TWO SCRIMS, both the page's own background colour (not the theme's sticky
-  scrim, because the ink they protect is the page's ink). The page gets 85%,
-  so the art shows in the margins and under the header. The text column,
-  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
-  colour. The art runs the full range (measured: every crop of the three
-  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
-  pixel: text and links stay within 0.1:1 of the plain page in both schemes
-  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
-  A single 92% layer was measured first and dropped: it took dark-scheme
-  links from 4.14:1 to 3.35:1.
---><style id="fa-page-ground" data-instance="cat-harness">
+</style><style id="fa-page-ground" data-instance="cat-harness">
   /* Grumpy cyborg agents, the theme of cat-harness. */
   :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
   :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
@@ -796,7 +164,7 @@
 
 <link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-hucqb7hmk3.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/l1-document-ingestion.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#the-whole-path-is-two-commands","label":"The whole path is two commands"},{"href":"#which-rung-and-why-there-is-more-than-one","label":"Which rung, and why there is more than one"},{"href":"#slide-decks--pptx-and-odp","label":"Slide decks — PPTX and ODP"},{"href":"#a-source-whose-licence-forbids-a-copy--record-it-do-not-ingest-it","label":"A source whose licence forbids a copy — record it, do not ingest it"},{"href":"#a-source-published-as-text-in-a-repository--read-it-at-a-commit","label":"A source published as text in a repository — read it at a commit"},{"href":"#from-a-library-entry-to-a-folio-document--seed-it-and-its-graph-comes-with-it","label":"From a library entry to a folio document — seed it, and its graph comes with it"},{"href":"#a-sources-glossary-and-abbreviations--candidates-read-by-one-tool","label":"A source’s glossary and abbreviations — candidates, read by one tool"},{"href":"#requirements-and-normative-statements--every-dak-and-dth-source","label":"Requirements and normative statements — every DAK and DTH source"},{"href":"#an-inferred-chapter-tree-is-refused-not-guessed","label":"An inferred chapter tree is refused, not guessed","children":[{"href":"#the-route-pdf-structurepy-takes-itself","label":"The route pdf-structure.py takes itself","depth":1}],"fold":"1 sub-section"},{"href":"#what-a-complete-l1-entry-holds","label":"What a complete L1 entry holds"},{"href":"#a-manifests-title--the-authority-order-and-never-the-page-1-parse","label":"A manifest’s title — the authority order, and never the page-1 parse"},{"href":"#source--the-technical-facts-written-by-whichever-rung-ran","label":"source{} — the technical facts, written by whichever rung ran"},{"href":"#provenance--who-wrote-it-and-the-closed-union-that-makes-omission-impossible","label":"provenance — who wrote it, and the closed union that makes omission impossible","children":[{"href":"#what-the-gate-can-and-cannot-enforce","label":"What the gate can and cannot enforce","depth":1}],"fold":"1 sub-section"},{"href":"#archives--the-entry-list-is-data-and-the-rung-is-chosen-by-content","label":"Archives — the entry list is data, and the rung is chosen by CONTENT","children":[{"href":"#the-rung-is-chosen-before-anything-opens-the-file-as-a-pdf","label":"The rung is chosen before anything opens the file as a PDF","depth":1},{"href":"#what-the-gate-checks-and-the-determined-zero","label":"What the gate checks, and the determined zero","depth":1}],"fold":"2 sub-sections"},{"href":"#datasets--findable-by-their-headers-and-the-narrative-nobody-wrote","label":"Datasets — findable by their headers, and the narrative nobody wrote","children":[{"href":"#the-narrative-is-a-state-machine--drafted-by-an-agent-confirmed-by-a-person","label":"The narrative is a state machine — drafted by an agent, confirmed by a person","depth":1},{"href":"#reviewing-bun-run-cat-narratives","label":"Reviewing: bun run cat narratives","depth":1},{"href":"#summarising-prose-blocks--a-qa-sidecar-drained-slowly","label":"Summarising prose blocks — a QA sidecar, drained slowly","depth":1},{"href":"#the-document-panel--what-a-reader-browses","label":"The Document panel — what a reader browses","depth":1},{"href":"#keywords--from-the-lsi-weights-per-section-and-per-document","label":"Keywords — from the LSI weights, per section and per document","depth":1},{"href":"#a-withheld-entry-in-the-viewer--its-summary-else-the-gate-never-no-content","label":"A WITHHELD entry in the viewer — its summary, else the gate, never “no content”","depth":1},{"href":"#describing-a-documents-images--and-why-it-is-an-arm-not-a-step-you-run","label":"Describing a document’s images — and why it is an ARM, not a step you run","depth":1},{"href":"#the-figure-that-is-drawn--pdf-vector-labelspy-the-other-arm","label":"The figure that is DRAWN — pdf-vector-labels.py, the other arm","depth":1},{"href":"#an-xlsx-is-a-zip--ask-the-container","label":"An .xlsx IS a zip — ask the container","depth":1}],"fold":"9 sub-sections"},{"href":"#related","label":"Related"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-hucqb7hmk3","here":"/en/cat-harness/processes/skills/l1-document-ingestion.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#the-whole-path-is-two-commands","label":"The whole path is two commands"},{"href":"#which-rung-and-why-there-is-more-than-one","label":"Which rung, and why there is more than one"},{"href":"#slide-decks--pptx-and-odp","label":"Slide decks — PPTX and ODP"},{"href":"#a-source-whose-licence-forbids-a-copy--record-it-do-not-ingest-it","label":"A source whose licence forbids a copy — record it, do not ingest it"},{"href":"#a-source-published-as-text-in-a-repository--read-it-at-a-commit","label":"A source published as text in a repository — read it at a commit"},{"href":"#from-a-library-entry-to-a-folio-document--seed-it-and-its-graph-comes-with-it","label":"From a library entry to a folio document — seed it, and its graph comes with it"},{"href":"#a-sources-glossary-and-abbreviations--candidates-read-by-one-tool","label":"A source’s glossary and abbreviations — candidates, read by one tool"},{"href":"#a-sources-reference-list--its-own-bibliography-read-by-one-tool","label":"A source’s reference list — its own bibliography, read by one tool"},{"href":"#requirements-and-normative-statements--every-dak-and-dth-source","label":"Requirements and normative statements — every DAK and DTH source"},{"href":"#an-inferred-chapter-tree-is-refused-not-guessed","label":"An inferred chapter tree is refused, not guessed","children":[{"href":"#the-route-pdf-structurepy-takes-itself","label":"The route pdf-structure.py takes itself","depth":1}],"fold":"1 sub-section"},{"href":"#a-text-layer-that-is-not-text","label":"A text layer that is not text"},{"href":"#an-outline-that-is-not-contents-and-a-section-too-long-to-be-a-block","label":"An outline that is not contents, and a section too long to be a block","children":[{"href":"#titles-that-do-not-match-their-text","label":"Titles that do not match their text","depth":1},{"href":"#the-documents-language-is-recorded-not-read-from-the-slug","label":"The document’s language is recorded, not read from the slug","depth":1}],"fold":"2 sub-sections"},{"href":"#footnotes-and-their-marks","label":"Footnotes and their marks"},{"href":"#errata-errors-in-the-sources-own-text","label":"Errata: errors in the source’s own text"},{"href":"#what-a-complete-l1-entry-holds","label":"What a complete L1 entry holds"},{"href":"#a-manifests-title--the-authority-order-and-never-the-page-1-parse","label":"A manifest’s title — the authority order, and never the page-1 parse"},{"href":"#source--the-technical-facts-written-by-whichever-rung-ran","label":"source{} — the technical facts, written by whichever rung ran"},{"href":"#provenance--who-wrote-it-and-the-closed-union-that-makes-omission-impossible","label":"provenance — who wrote it, and the closed union that makes omission impossible","children":[{"href":"#what-the-gate-can-and-cannot-enforce","label":"What the gate can and cannot enforce","depth":1}],"fold":"1 sub-section"},{"href":"#archives--the-entry-list-is-data-and-the-rung-is-chosen-by-content","label":"Archives — the entry list is data, and the rung is chosen by CONTENT","children":[{"href":"#the-rung-is-chosen-before-anything-opens-the-file-as-a-pdf","label":"The rung is chosen before anything opens the file as a PDF","depth":1},{"href":"#what-the-gate-checks-and-the-determined-zero","label":"What the gate checks, and the determined zero","depth":1}],"fold":"2 sub-sections"},{"href":"#datasets--findable-by-their-headers-and-the-narrative-nobody-wrote","label":"Datasets — findable by their headers, and the narrative nobody wrote","children":[{"href":"#the-narrative-is-a-state-machine--drafted-by-an-agent-confirmed-by-a-person","label":"The narrative is a state machine — drafted by an agent, confirmed by a person","depth":1},{"href":"#reviewing-bun-run-cat-narratives","label":"Reviewing: bun run cat narratives","depth":1},{"href":"#summarising-prose-blocks--a-qa-sidecar-drained-slowly","label":"Summarising prose blocks — a QA sidecar, drained slowly","depth":1},{"href":"#summaries-in-every-language","label":"Summaries in every language","depth":1},{"href":"#translating-a-summary","label":"Translating a summary","depth":1},{"href":"#the-document-panel--what-a-reader-browses","label":"The Document panel — what a reader browses","depth":1},{"href":"#keywords--from-the-lsi-weights-per-section-and-per-document","label":"Keywords — from the LSI weights, per section and per document","depth":1},{"href":"#a-withheld-entry-in-the-viewer--its-summary-else-the-gate-never-no-content","label":"A WITHHELD entry in the viewer — its summary, else the gate, never “no content”","depth":1},{"href":"#describing-a-documents-images--and-why-it-is-an-arm-not-a-step-you-run","label":"Describing a document’s images — and why it is an ARM, not a step you run","depth":1},{"href":"#the-figure-that-is-drawn--pdf-vector-labelspy-the-other-arm","label":"The figure that is DRAWN — pdf-vector-labels.py, the other arm","depth":1},{"href":"#an-xlsx-is-a-zip--ask-the-container","label":"An .xlsx IS a zip — ask the container","depth":1}],"fold":"11 sub-sections"},{"href":"#related","label":"Related"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">WHO IRIS</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -906,10 +274,10 @@
 
 <p><strong>Skill <code class="language-plaintext highlighter-rouge">l1-document-ingestion</code>:</strong> The detailed method for turning a DOCUMENT in <code class="language-plaintext highlighter-rouge">uploads/</code> into a complete L1 entry in <code class="language-plaintext highlighter-rouge">library/&lt;bib-slug&gt;/</code> — which rung reads it and why, what a complete L1 entry holds, why an inferred structure is refused rather than guessed, and the archive, dataset, narrative, image and vector-label arms. Refines the harness’s basic <code class="language-plaintext highlighter-rouge">library-ingestion</code> flow; one entry point: <code class="language-plaintext highlighter-rouge">bun run cat ingest</code>.</p>
 
-<p><strong>Named by:</strong> <a href="../l1-document-ingestion.html">L1 document ingestion — a document to the L1 source knowledge graph</a></p>
+<p><strong>Named by:</strong> <a href="../ingest-build-l1-kg.html">Ingestion subprocess — build the L1 knowledge graph</a>, <a href="../ingest-derive-content.html">Ingestion subprocess — derive content from the assets</a>, <a href="../ingest-extract-structure.html">Ingestion subprocess — extract structure</a>, <a href="../l1-document-ingestion.html">L1 document ingestion — a document to the L1 source knowledge graph</a></p>
 
 <p><strong>This is a refinement, not the entry point.</strong> The harness’s
-<a href="https://github.com/litlfred/folio-assistant-core/blob/cat-harness/skills/library/library-core/library-ingestion.md"><code class="language-plaintext highlighter-rouge">library-ingestion</code></a>
+<a href="https://github.com/litlfred/folio-assistant-core/blob/cat-harness/library/skills/library-core/library-ingestion.md"><code class="language-plaintext highlighter-rouge">library-ingestion</code></a>
 skill carries the basic flow every asset takes — an upload is accepted, its
 metadata goes into the knowledge graph, and the asset lands in <code class="language-plaintext highlighter-rouge">library/</code> if it
 is materialized — together with the two entry points, the upload’s retirement
@@ -941,8 +309,8 @@ bun run <span class="nb">cat </span>ingest uploads/FILE.pdf <span class="nt">--l
 
 <p><strong><code class="language-plaintext highlighter-rouge">--promote</code> writes the entry’s JSON-LD nodes</strong>, for that entry only, with the
 same <code class="language-plaintext highlighter-rouge">buildEntryNodes</code> the corpus generator uses. They are minted for the
-<strong>destination</strong>, not for staging: an entry’s instance is read off where it sits,
-and <code class="language-plaintext highlighter-rouge">ingest-staging/</code> belongs to whichever instance holds it. You do <strong>not</strong>
+<strong>destination</strong>, not for staging: an entry’s layer is read off where it sits,
+and <code class="language-plaintext highlighter-rouge">ingest-staging/</code> belongs to whichever layer holds it. You do <strong>not</strong>
 need <code class="language-plaintext highlighter-rouge">gen-library-jsonld</code> or <code class="language-plaintext highlighter-rouge">check:l1-complete --write</code> after promoting — the
 first is done, and the second’s verdicts live on the <code class="language-plaintext highlighter-rouge">qa-reports</code> branch rather
 than on <code class="language-plaintext highlighter-rouge">main</code>.</p>
@@ -1113,7 +481,7 @@ no bytes to hash. Its <code class="language-plaintext highlighter-rouge">referen
 <code class="language-plaintext highlighter-rouge">canonical</code>, <code class="language-plaintext highlighter-rouge">package_id</code>, <code class="language-plaintext highlighter-rouge">version</code>, and <code class="language-plaintext highlighter-rouge">read_from</code> / <code class="language-plaintext highlighter-rouge">read_at</code> naming the
 local record the identity was read off — no <code class="language-plaintext highlighter-rouge">sha256</code>, rather than a made-up
 one. <code class="language-plaintext highlighter-rouge">links</code> names where a reader goes instead (the publisher’s page, and a
-<code class="language-plaintext highlighter-rouge">site_path</code> on this site such as the instance’s artefact index), and the
+<code class="language-plaintext highlighter-rouge">site_path</code> on this site such as the layer’s artefact index), and the
 library viewer shows them on the entry’s row. Write it by hand — there is no
 file to run <code class="language-plaintext highlighter-rouge">referenced-source.py</code> on — then <code class="language-plaintext highlighter-rouge">gen-library-jsonld.ts --entry</code>
 for the manifest. The licence follows the usual rule: <code class="language-plaintext highlighter-rouge">stated</code> only with a
@@ -1224,6 +592,47 @@ term, verbatim, with <code class="language-plaintext highlighter-rouge">source: 
 <code class="language-plaintext highlighter-rouge">notation</code> of the term it expands. The scheme is merged: a term a person has
 adopted or edited is never changed. Only a person moves a term to <code class="language-plaintext highlighter-rouge">authored</code>
 (<code class="language-plaintext highlighter-rouge">glossary-terms</code>). <code class="language-plaintext highlighter-rouge">--check</code> keeps the candidates in step with the L1 entry.</p>
+<h2 id="a-sources-reference-list--its-own-bibliography-read-by-one-tool">
+  
+  
+    <a href="#a-sources-reference-list--its-own-bibliography-read-by-one-tool" class="anchor-heading" aria-labelledby="a-sources-reference-list--its-own-bibliography-read-by-one-tool"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A source’s reference list — its own bibliography, read by one tool
+  
+  
+</h2>
+    
+
+<p>Every source that prints a reference list gets its own bibliography, read the
+same way with the Tool <code class="language-plaintext highlighter-rouge">references-extract</code> (step <code class="language-plaintext highlighter-rouge">Task_References</code> of
+<code class="language-plaintext highlighter-rouge">ingest-build-l1-kg.bpmn</code>), never with a script of its own:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bun run <span class="nb">cat </span>references:extract <span class="nt">--instance</span> <span class="nb">.</span> <span class="o">[</span><span class="nt">--entry</span> &lt;doc-id&gt;] <span class="o">[</span><span class="nt">--check</span><span class="o">]</span>
+</code></pre></div></div>
+
+<p>It reads the L1 sections of each library entry. A list is a whole section
+whose title is a reference-list heading, or the lines after such a heading
+inside a section (chapter-end lists), in the six UN languages and Portuguese
+(References, Bibliography, Further reading, Références bibliographiques,
+Referencias, Литература, المراجع, 参考文献, …). Numbered lists are split on
+their own numbers; unnumbered ones where an entry closes and the next opens.
+Page numbers, running heads and section tabs between entries are skipped; a
+list ends at an annex, chapter or glossary heading, a table or figure, or a
+contents leader.</p>
+
+<p>Each entry becomes a <code class="language-plaintext highlighter-rouge">folio-reference/v1</code> node in the instance’s declared
+<code class="language-plaintext highlighter-rouge">references</code> directory, keyed <code class="language-plaintext highlighter-rouge">&lt;doc-id&gt;.&lt;section&gt;.&lt;n&gt;</code>: <code class="language-plaintext highlighter-rouge">provenance:
+extracted</code>, <code class="language-plaintext highlighter-rouge">derivedFrom</code> the section file, and <code class="language-plaintext highlighter-rouge">printed</code> the entry exactly as
+the source prints it. Only fields read without guessing are set: <code class="language-plaintext highlighter-rouge">URL</code>, <code class="language-plaintext highlighter-rouge">DOI</code>,
+<code class="language-plaintext highlighter-rouge">ISBN</code>, <code class="language-plaintext highlighter-rouge">issued</code> (the work’s year, not the access date), <code class="language-plaintext highlighter-rouge">accessed</code>, and
+<code class="language-plaintext highlighter-rouge">type: article-journal</code> for a journal’s year;volume:pages. No title or author
+is parsed, because WHO, Vancouver and author-year styles disagree on where a
+title ends; the bibliography shows <code class="language-plaintext highlighter-rouge">printed</code> instead. A cited IRIS handle the
+library holds gets <code class="language-plaintext highlighter-rouge">heldAt</code>. An entry longer than any citation (the list ran
+into the text after it) is left out rather than kept wrong.</p>
+
+<p>The bibliography page lists the nodes under the document they came from
+(<code class="language-plaintext highlighter-rouge">bibliography/library/&lt;doc-id&gt;/</code>). Re-run the tool after a section is
+re-derived; <code class="language-plaintext highlighter-rouge">--check</code> fails when a node is stale or has no list left to come
+from. Nodes with any other <code class="language-plaintext highlighter-rouge">provenance</code> are never touched.</p>
 <h2 id="requirements-and-normative-statements--every-dak-and-dth-source">
   
   
@@ -1380,6 +789,249 @@ before citing it. The floor’s real work is on the <code class="language-plaint
 entries carry no confidence and count as 0. The third test is the one that
 catches a poor <code class="language-plaintext highlighter-rouge">font</code> tree; a poor tree with an empty share just under 25% is
 too close to good ones to separate by this measure.</p>
+<h2 id="a-text-layer-that-is-not-text">
+  
+  
+    <a href="#a-text-layer-that-is-not-text" class="anchor-heading" aria-labelledby="a-text-layer-that-is-not-text"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A text layer that is not text
+  
+  
+</h2>
+    
+
+<p>Owner, 2026-11-11 (who-iris, card Q-ODD-1 = A): “force OCR when a page’s text
+layer fails a quality check”. A text layer can carry plenty of letters and
+still not be the page’s words, and the character count the router used to
+look at cannot see it. <code class="language-plaintext highlighter-rouge">cat-harness-tools/scripts/_text_quality.py</code> checks
+EVERY page against the document’s languages (<code class="language-plaintext highlighter-rouge">--lang-hint</code>, else the
+catalogue’s <code class="language-plaintext highlighter-rouge">dc.language.iso</code>). Each check was measured on an IRIS PDF:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>The text layer</th>
+      <th>Seen on</th>
+      <th>What the check counts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accents through the wrong code page (“dΘclaration”)</td>
+      <td>10665/231031, French</td>
+      <td>words mixing Greek and Latin letters, in a Latin-script document</td>
+    </tr>
+    <tr>
+      <td>Persian in the wrong Arabic code points</td>
+      <td>10665/94830-per</td>
+      <td>Arabic-script letters outside the language’s alphabet</td>
+    </tr>
+    <tr>
+      <td>words split by kerning (“au g m ente”)</td>
+      <td>10665/83270, French</td>
+      <td>a lone lower-case letter between two lower-case words</td>
+    </tr>
+    <tr>
+      <td>fake bold, each word printed twice</td>
+      <td>10665/66977-chi</td>
+      <td>words equal to the word before</td>
+    </tr>
+    <tr>
+      <td>a font with no Unicode mapping</td>
+      <td>10665/232378, Arabic</td>
+      <td>letters among characters that are not digits or table punctuation</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The router runs the check in its probe. When any page fails, the document goes
+to <code class="language-plaintext highlighter-rouge">pdf-ocr+pdf-structure</code>: <code class="language-plaintext highlighter-rouge">pdf-ocr.py</code> reads every page and
+<code class="language-plaintext highlighter-rouge">pdf-structure.py --ocr</code> takes the OCR text <strong>for the failing pages only</strong>,
+keeping the outline and the text layer of the rest. They are listed in
+<code class="language-plaintext highlighter-rouge">structure.json</code> <code class="language-plaintext highlighter-rouge">source.ocr_pages</code>, each with its reason; <code class="language-plaintext highlighter-rouge">text_source</code> stays
+<code class="language-plaintext highlighter-rouge">embedded</code>. When most pages fail and there is no outline, the whole document
+is read from OCR (<code class="language-plaintext highlighter-rouge">pdf-ocr+pdf-pages</code>), as for a scan.</p>
+
+<p><strong>A page that holds two scripts.</strong> OCR reads a page in the script its detector
+names, so a French article’s Arabic abstract (10665/117378) came out as
+“er ie obus AU ball”, and the Latin URLs in an Arabic toolkit’s references
+(10665/75211-ara) as Arabic letters. A page whose mean word confidence is under
+70 is read again with each other installed script added (<code class="language-plaintext highlighter-rouge">ara+eng</code>,
+<code class="language-plaintext highlighter-rouge">fra+ara</code>), and the most confident read is kept when it gains 10 points. On
+the Arabic references page the confidence went from 54 to 86 and the URLs
+read correctly; a page of plain Arabic keeps its first read.</p>
+<h2 id="an-outline-that-is-not-contents-and-a-section-too-long-to-be-a-block">
+  
+  
+    <a href="#an-outline-that-is-not-contents-and-a-section-too-long-to-be-a-block" class="anchor-heading" aria-labelledby="an-outline-that-is-not-contents-and-a-section-too-long-to-be-a-block"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> An outline that is not contents, and a section too long to be a block
+  
+  
+</h2>
+    
+
+<p>Owner, 2026-11-11: “split single blocks that hold a whole book”. Eight IRIS
+PDFs came out as one section of 10,000 to 101,000 words, every one because an
+outline was present, was taken as the document’s answer, and located no
+heading on any page:</p>
+
+<ul>
+  <li>Word bookmark names: <code class="language-plaintext highlighter-rouge">_tyjcwt</code>, <code class="language-plaintext highlighter-rouge">_Hlk62546849</code>, <code class="language-plaintext highlighter-rouge">_GoBack</code>, <code class="language-plaintext highlighter-rouge">_TOC_250000</code>
+(10665/353150, 353151, 259268, 341997);</li>
+  <li>“Blank Page” (10665/385385), or the names of the files merged into the PDF
+(10665/44118: <code class="language-plaintext highlighter-rouge">9789241547727_eng_Chapter1-4</code>);</li>
+  <li>a Russian edition carrying its English outline (10665/331525-rus).</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">pdf-structure.py</code> drops machine bookmark names from the outline, and sets the
+outline aside when nothing is left or when under half of what is left names a
+line the pages print (<code class="language-plaintext highlighter-rouge">diagnostics.outline_rejected</code> says which). The contents
+are then inferred, and must pass the three tests above, else the document is
+split by page.</p>
+
+<p>A section that still holds more than half of a document of 20 pages or more
+(and over 8,000 words), or over 20,000 words anywhere, is cut at the headings
+inferred inside it, else one section per page
+(<code class="language-plaintext highlighter-rouge">diagnostics.oversized_split</code>). A re-ingest renumbers the section ids of an
+entry cut this way, so its block summaries go stale and are redrafted.</p>
+<h3 id="titles-that-do-not-match-their-text">
+  
+  
+    <a href="#titles-that-do-not-match-their-text" class="anchor-heading" aria-labelledby="titles-that-do-not-match-their-text"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Titles that do not match their text
+  
+  
+</h3>
+    
+
+<p>Four IRIS entries had section titles that did not match the words under them.
+<code class="language-plaintext highlighter-rouge">pdf-structure.py</code> now tidies an INFERRED table of contents before it splits
+(<code class="language-plaintext highlighter-rouge">diagnostics.headings_tidied</code>; an outline entry is never touched):</p>
+
+<ul>
+  <li><strong>A title cut to its last line</strong> (“sanitaria universal”, 10665/354399): a
+title that opens in lower case is rejoined with the lines above it, up to the
+bare number that opens it (“1.2 Función de la salud digital … cobertura
+sanitaria universal”). With no number above it, it is dropped.</li>
+  <li><strong>A body word set apart by a font</strong> (“un”, “comme”, “On”, 10665/264857), and
+a reference’s first author in capitals (“YOUNG,”): dropped.</li>
+  <li><strong>A diagram’s labels</strong> (an annex flowchart, 10665/329296): two or more
+sections on one page, each with fewer than 30 words, are dropped as headings
+and their words stay with the section before them.</li>
+</ul>
+
+<p>A page whose PDF draws its side panel and body before its headings
+(10665/342236) put every section one heading late. When the outline’s first
+heading on a page sits in the later half of the page’s text, and the page read
+in print order (top to bottom, a band of columns left column first) puts it
+near the top, that page is read in print order
+(<code class="language-plaintext highlighter-rouge">diagnostics.pages_read_in_print_order</code>).</p>
+<h3 id="the-documents-language-is-recorded-not-read-from-the-slug">
+  
+  
+    <a href="#the-documents-language-is-recorded-not-read-from-the-slug" class="anchor-heading" aria-labelledby="the-documents-language-is-recorded-not-read-from-the-slug"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The document’s language is recorded, not read from the slug
+  
+  
+</h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">structure.json</code> <code class="language-plaintext highlighter-rouge">source.languages</code> holds the languages the ingest was given
+(<code class="language-plaintext highlighter-rouge">--lang-hint</code>). A reader asks it, not the slug: an item’s first edition keeps
+the bare slug whatever its language, so 10665/202203, which is Russian, has
+no <code class="language-plaintext highlighter-rouge">-rus</code>.</p>
+<h2 id="footnotes-and-their-marks">
+  
+  
+    <a href="#footnotes-and-their-marks" class="anchor-heading" aria-labelledby="footnotes-and-their-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Footnotes and their marks
+  
+  
+</h2>
+    
+
+<p>Owner, 2026-11-11: “also foot notes/marks”. The <code class="language-plaintext highlighter-rouge">pdf-footnotes.py</code> arm reads
+the page layout after <code class="language-plaintext highlighter-rouge">l1-blocks.ts</code> and writes <code class="language-plaintext highlighter-rouge">footnotes.json</code>
+(<code class="language-plaintext highlighter-rouge">folio-document-footnotes/v1</code>, <code class="language-plaintext highlighter-rouge">schemas/content/document-footnotes.ts</code>):</p>
+
+<ul>
+  <li>a <strong>mark</strong> is a superscript span (or one small and raised) whose text is 1-3
+digits, a letter, or <code class="language-plaintext highlighter-rouge">* † ‡ §</code>;</li>
+  <li>a <strong>note</strong> is a line in the lower 40% of the page, smaller than the body
+text, that opens with a mark; the small lines after it continue it;</li>
+  <li>a mark calls the note with the same mark on its page, else on the next.</li>
+</ul>
+
+<p>Only a note that a mark calls is a footnote, with every <code class="language-plaintext highlighter-rouge">marks[]</code> place that
+calls it (page and the words before the mark) and the <code class="language-plaintext highlighter-rouge">block</code> that holds its
+page. A small line opening with a number is as often a table row or a running
+footer (10665/311941: 159 such lines, none called), so those are kept as
+<code class="language-plaintext highlighter-rouge">uncalled_notes</code>, and marks with no note as <code class="language-plaintext highlighter-rouge">unlinked_marks</code>; nothing is
+dropped. The section text is not changed. OCR’d pages have no fonts and are
+listed in <code class="language-plaintext highlighter-rouge">pages_unread</code>. <code class="language-plaintext highlighter-rouge">check:l1-complete</code> reports the counts (<code class="language-plaintext highlighter-rouge">footnotes</code>)
+and fails only on a file that will not parse or names another entry.</p>
+
+<p>Numbered citations (<code class="language-plaintext highlighter-rouge">[12]</code>, or a superscript 12 whose reference is in a list
+at the end) are not footnotes; a superscript one shows up in <code class="language-plaintext highlighter-rouge">unlinked_marks</code>,
+where a reference-list extractor can pick it up.</p>
+<h2 id="errata-errors-in-the-sources-own-text">
+  
+  
+    <a href="#errata-errors-in-the-sources-own-text" class="anchor-heading" aria-labelledby="errata-errors-in-the-sources-own-text"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Errata: errors in the source’s own text
+  
+  
+</h2>
+    
+
+<p>Owner, 2026-11-11 (card Q-ODD-1 = A, and “add to L1 doc schema errata”).
+Reading the blocks to summarise them finds errors that are in the publication,
+not the extraction: a workshop report titled June 2006 whose introduction says
+June 2005 (10665/205022), a Spanish edition announcing “nueve
+recomendaciones” where the English lists ten (10665/354399).</p>
+
+<p><strong>The block is never changed.</strong> The agent records each one in
+<code class="language-plaintext highlighter-rouge">library/&lt;bib-slug&gt;/errata.json</code> (<code class="language-plaintext highlighter-rouge">folio-document-errata/v1</code>,
+<code class="language-plaintext highlighter-rouge">schemas/content/document-errata.ts</code>):</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>What it holds</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">e1</code>, <code class="language-plaintext highlighter-rouge">e2</code>, … never reused</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">kind</code></td>
+      <td><code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">inconsistency</code> (two places or two official editions disagree), <code class="language-plaintext highlighter-rouge">residue</code> (a placeholder, an editor’s comment, contents page numbers “xx”), <code class="language-plaintext highlighter-rouge">translation</code> (an official translation says what its original does not)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">block</code> / <code class="language-plaintext highlighter-rouge">page</code></td>
+      <td>where it is printed; at least one</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">quote</code></td>
+      <td>the words as printed, verbatim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">reading</code></td>
+      <td>the reading the evidence supports, when there is one</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">evidence</code></td>
+      <td>what shows it, in a form a person can check</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">narrative</code></td>
+      <td>the note a reader sees, a draft naming its model until a person confirms it in <code class="language-plaintext highlighter-rouge">bun run cat narratives</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The file is authored, so a re-ingest keeps it. An extraction defect (garbled
+OCR, a block cut in the wrong place) is not an erratum: re-derive the entry.
+Decisions about a document (personal data in a participant list, a “do not
+distribute” notice) are not errata either; ask the owner. <code class="language-plaintext highlighter-rouge">check:l1-complete</code>
+reports errata (<code class="language-plaintext highlighter-rouge">errata</code>) and fails only on a file that does not parse, names
+another entry, or points at a block the entry does not have.</p>
 <h2 id="what-a-complete-l1-entry-holds">
   
   
@@ -1397,6 +1049,8 @@ too close to good ones to separate by this measure.</p>
   blocks/            the block projection consumers read
   manifest.jsonld    @id, @type folio:SourceDocument, contains[], provenance
   summaries.json     agent summaries of prose blocks, a QA sidecar (see below)
+  footnotes.json     footnotes and the marks that call them (pdf-footnotes.py arm)
+  errata.json        errors in the source's own text, authored (never a rung's)
   ocr/               page-NNN.txt, only where the source was scanned
 </code></pre></div></div>
 
@@ -1404,6 +1058,12 @@ too close to good ones to separate by this measure.</p>
 requirement <strong>met</strong>, <strong>unmet</strong>, or <strong>not yet derivable</strong> — the last because the
 per-format arms (images, audio, tables, archives) are tracked separately and a
 check that cannot run must not read as a pass.</p>
+
+<p><strong>Then publish its statements.</strong> Once the entry is complete and promoted, every
+statement extracted from it is published in the folio’s working artifact and in
+the shared extraction viewer, each linked to the entry and its section, and CI
+keeps those pages current. That is a standard step, the same for every content
+type: <a href="publish-extracted-statements.html"><code class="language-plaintext highlighter-rouge">publish-extracted-statements</code></a>.</p>
 <h2 id="a-manifests-title--the-authority-order-and-never-the-page-1-parse">
   
   
@@ -1748,9 +1408,11 @@ bun run <span class="nb">cat </span>summaries:record <span class="nt">--</span> 
 </code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">drafts.json</code> is <code class="language-plaintext highlighter-rouge">{drafted_by: {kind: "agent", id, model, session}, drafted_at,
-drafts: [{block, source_hash, text}]}</code>, with <code class="language-plaintext highlighter-rouge">source_hash</code> echoed from
-<code class="language-plaintext highlighter-rouge">summaries:next</code>. <code class="language-plaintext highlighter-rouge">record</code> refuses a state other than <code class="language-plaintext highlighter-rouge">draft</code>, a hash that no
-longer matches, and a block that already has a current summary.</p>
+lang?, drafts: [{block, source_hash, text, lang?}]}</code>, with <code class="language-plaintext highlighter-rouge">source_hash</code> echoed
+from <code class="language-plaintext highlighter-rouge">summaries:next</code>. <code class="language-plaintext highlighter-rouge">lang</code> is a BCP 47 tag and defaults to <code class="language-plaintext highlighter-rouge">en</code>. <code class="language-plaintext highlighter-rouge">record</code>
+refuses a state other than <code class="language-plaintext highlighter-rouge">draft</code>, a hash that no longer matches, and a block
+that already has a current summary IN THAT LANGUAGE. A draft in a language the
+block does not have yet is added beside the others, which are kept unchanged.</p>
 
 <p><strong>Drain K at a time during ingestion work</strong>, not all at once: a thousand
 unreviewed drafts at once is a buried reviewer. Write in your own words, from
@@ -1790,6 +1452,78 @@ and say so. The backlog is reported by <code class="language-plaintext highlight
 and on the library page. It is advisory, never a gate. What the gate does fail
 is a sidecar that does not parse, names another entry, or holds a record for a
 block or source that is not there.</p>
+
+<p><strong>Special pages get one sentence saying what the page is</strong>: a cover, title
+page, copyright or cataloguing page, a blank or near-blank page, a table of
+contents, an index, a reference list. Garbled OCR, text in the wrong script, or
+text that does not match the block’s title is summarised as far as it can be,
+and the summary says so (“the extracted text of this page is garbled OCR; it
+appears to be a table of …”), so a reviewer sees an extraction defect instead
+of a confident account of noise.</p>
+
+<p><strong>A block too long to read whole</strong> (a whole book extracted as one block) is
+summarised from its start, its headings and its end, at the 4-sentence length,
+and the scope is taken from the headings. Report the block as an extraction
+defect: it should have been split.</p>
+<h3 id="summaries-in-every-language">
+  
+  
+    <a href="#summaries-in-every-language" class="anchor-heading" aria-labelledby="summaries-in-every-language"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summaries in every language
+  
+  
+</h3>
+    
+
+<p><strong>A block’s summary is owed in every configured language</strong>: the layer’s
+<code class="language-plaintext highlighter-rouge">translation.supportedLocales</code>, which defaults to the six UN languages (ar,
+zh, en, fr, ru, es) (owner, 2026-11-11). The slot holds one narrative per
+language, each reviewed separately in <code class="language-plaintext highlighter-rouge">bun run cat narratives</code>. The order is:</p>
+
+<ol>
+  <li><strong>English</strong> first, from the block’s text, as above.</li>
+  <li><strong>The document’s own language</strong>, when it is not English, also written FROM
+THE SOURCE TEXT, not from the English. It uses the document’s own
+terminology and checks the English against the source; when the two
+disagree, the source wins and the English draft is reported for redrafting.
+An edition in a language outside the configured set (Portuguese, Persian…)
+still gets one in its own language.</li>
+  <li><strong>Every other configured language</strong>, translated from the current summary,
+as below.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bun run <span class="nb">cat </span>summaries                                    <span class="c"># also prints the translations owed, per language</span>
+bun run <span class="nb">cat </span>summaries:next <span class="nt">--</span> <span class="nt">--lang</span> fr <span class="nt">--n</span> 50 <span class="o">[</span><span class="nt">--entry</span> &lt;slug&gt;]   <span class="c"># summarised blocks with no fr summary, WITH their current summaries</span>
+bun run <span class="nb">cat </span>summaries:record <span class="nt">--</span> drafts-fr.json           <span class="c"># drafts carry lang: "fr"</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">check:l1-complete</code> reports the missing languages in its <code class="language-plaintext highlighter-rouge">block-summaries</code>
+detail. Like the summary backlog, it is advisory.</p>
+<h3 id="translating-a-summary">
+  
+  
+    <a href="#translating-a-summary" class="anchor-heading" aria-labelledby="translating-a-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Translating a summary
+  
+  
+</h3>
+    
+
+<p><strong>Say the same thing, in the same length.</strong> Translate the current summary
+faithfully and naturally: nothing added, nothing dropped, and its notes kept
+(garbled text, blank pages, a figure that does not match). It is a translation
+of the summary, never a new summary of the block.</p>
+
+<p><strong>Use WHO’s established terms in the target language</strong> (ВОЗ, منظمة الصحة
+العالمية, 世界卫生组织, OMS; World Health Assembly as each language’s official
+name). Proper names, test and drug names (Xpert MTB/RIF, PrEP) and document
+codes (A42/10, EB95/8) stay as written. A title with no official translation
+stays in its original language. Use the target’s own conventions: decimal
+commas in fr, es and ru, logical-order Unicode for Arabic and Persian (Persian
+letters ی and ک), Simplified Chinese with full-width punctuation.</p>
+
+<p><strong>Check before recording</strong>: every block and <code class="language-plaintext highlighter-rouge">source_hash</code> copied exactly, the
+text is in the target script, and it is not the source summary unchanged.
+Record one language per file: <code class="language-plaintext highlighter-rouge">record</code> refuses the same block twice in one
+file.</p>
 <h3 id="the-document-panel--what-a-reader-browses">
   
   
@@ -1824,17 +1558,80 @@ and omits only section body extracts.</p>
 </h3>
     
 
-<p><code class="language-plaintext highlighter-rouge">bun run cat library:keywords</code> writes <code class="language-plaintext highlighter-rouge">library/&lt;slug&gt;/keywords.json</code>
-(<code class="language-plaintext highlighter-rouge">folio-keywords/v1</code>) for every entry of every declared library: up to 12 for
-the document and up to 8 per section, fewer for a short section (one per ~20
-content tokens, at least 3). They are read from the <strong>same</strong> log-entropy matrix
-the LSI index is built from (<code class="language-plaintext highlighter-rouge">keywordsOf</code> in <code class="language-plaintext highlighter-rouge">pipeline/lsi.ts</code>), so a
-keyword means “frequent here, rare across this library” exactly as the index
-does — no second vocabulary. <code class="language-plaintext highlighter-rouge">library:keywords:check</code> fails on a stale file;
-re-run it after ingesting or re-splitting an entry. The Document panel shows
-them as chips, green where a heading also names the term (<code class="language-plaintext highlighter-rouge">evidence:
-["heading"]</code>) — the document saying it of itself. Withheld entries show them:
-they are derived terms, like captions, not the text.</p>
+<p>Keywords are <strong>extracted content</strong>, so they never live in the ingest record
+(cat-harness#1144). <code class="language-plaintext highlighter-rouge">bun run cat library:keywords</code> builds them at publish into
+the derived keywords graph: one <code class="language-plaintext highlighter-rouge">folio-keywords/v2</code> JSON-LD node per entry
+under the site’s <code class="language-plaintext highlighter-rouge">assets/keywords/&lt;instance&gt;/&lt;slug&gt;.jsonld</code>, with an
+<code class="language-plaintext highlighter-rouge">index.json</code> beside them. Nothing is written inside <code class="language-plaintext highlighter-rouge">library/&lt;slug&gt;/</code>; the
+route is declared <code class="language-plaintext highlighter-rouge">builtAtPublish</code>, and <code class="language-plaintext highlighter-rouge">derive:publish</code> runs the writer. Up
+to 12 for the document and up to 8 per section, fewer for a short section (one
+per ~20 content tokens, at least 3).</p>
+
+<p>Each node holds six <strong>variants</strong> side by side, so they can be compared:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Variant</th>
+      <th>Method</th>
+      <th>Weighting</th>
+      <th>Terms scored</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lsi-log-entropy-surface</code> (default)</td>
+      <td><code class="language-plaintext highlighter-rouge">lsi</code></td>
+      <td>log-entropy</td>
+      <td>the words the text uses</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lsi-tfidf-surface</code></td>
+      <td><code class="language-plaintext highlighter-rouge">lsi</code></td>
+      <td>tf-idf</td>
+      <td>the words the text uses</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lsi-log-entropy-latent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">lsi</code></td>
+      <td>log-entropy</td>
+      <td>latent scores, any term of the library</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lsi-tfidf-latent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">lsi</code></td>
+      <td>tf-idf</td>
+      <td>latent scores, any term of the library</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">lsi-log-entropy-latent-rerank</code></td>
+      <td><code class="language-plaintext highlighter-rouge">lsi</code></td>
+      <td>log-entropy</td>
+      <td>latent scores, only the words the text or its headings use</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ca-latent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">correspondence-analysis</code></td>
+      <td>raw counts</td>
+      <td>latent scores, any term of the library</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>The default is read from the <strong>same</strong> log-entropy matrix the LSI index is
+built from (<code class="language-plaintext highlighter-rouge">keywordsOf</code> in <code class="language-plaintext highlighter-rouge">pipeline/lsi.ts</code>), so a keyword means “frequent
+here, rare across this library” exactly as the index does. A latent variant
+scores terms by the rank-k reconstruction (k = 100), so it can propose a term
+the text never uses (synonymy, Deerwester et al. 1990); it scores the top 300
+candidates. Correspondence analysis tends to favour rare proper names
+(authors, publishers), which the comparison shows.</p>
+
+<p>The Document panel computes the default variant in memory and shows it as
+chips, green where a heading also names the term (<code class="language-plaintext highlighter-rouge">evidence: ["heading"]</code>):
+the document saying it of itself. Withheld entries show them: they are
+derived terms, like captions, not the text. The <code class="language-plaintext highlighter-rouge">library-keywords</code> check in
+<code class="language-plaintext highlighter-rouge">bun run cat health</code> reports entries without keywords and any legacy
+<code class="language-plaintext highlighter-rouge">keywords.json</code> still committed.</p>
 
 <p>What the scoring does:</p>
 
@@ -1882,7 +1679,7 @@ sections summarised”</em>). No banner on any other entry.</li>
 <p><strong>Withheld is READ, never inferred from emptiness.</strong> The flag, the gates and the
 record come from <code class="language-plaintext highlighter-rouge">withheld.json</code> — <code class="language-plaintext highlighter-rouge">folio-withheld/v1</code> carries an optional
 structured <code class="language-plaintext highlighter-rouge">gates[]</code> and <code class="language-plaintext highlighter-rouge">record{id, page, uri}</code> beside the <code class="language-plaintext highlighter-rouge">reason</code> sentence,
-which the instance’s generator writes from its own data (the IRIS catalogue:
+which the layer’s generator writes from its own data (the IRIS catalogue:
 <code class="language-plaintext highlighter-rouge">gen-iris-pages.ts</code>, from the catalogue’s publication gates). A list that
 carries only the sentence still works: the row then says the sentence.</p>
 
@@ -2070,7 +1867,8 @@ one? Prose, a single column and anything ragged all answer no — a one-column
     
 
 <ul>
-  <li><a href="https://github.com/litlfred/folio-assistant-core/blob/cat-harness/skills/library/library-core/library-ingestion.md"><code class="language-plaintext highlighter-rouge">library-ingestion</code></a> — the basic flow this refines: the two entry points, the upload’s retirement, the remote half</li>
+  <li><a href="publish-extracted-statements.html"><code class="language-plaintext highlighter-rouge">publish-extracted-statements</code></a>: the step after promotion — every extracted statement published, with its source links.</li>
+  <li><a href="https://github.com/litlfred/folio-assistant-core/blob/cat-harness/library/skills/library-core/library-ingestion.md"><code class="language-plaintext highlighter-rouge">library-ingestion</code></a> — the basic flow this refines: the two entry points, the upload’s retirement, the remote half</li>
   <li><a href="https://github.com/litlfred/folio-assistant-core/blob/cat-harness/skills/kg/kg-core/directory-conventions.md"><code class="language-plaintext highlighter-rouge">directory-conventions</code></a> — the graph typologies and who declares them</li>
   <li><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/library/cataloguing/bib-qa.md"><code class="language-plaintext highlighter-rouge">bib-qa</code></a> — auditing what is already in <code class="language-plaintext highlighter-rouge">library/</code></li>
   <li><a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/library/ingestion/tabular-metadata.md"><code class="language-plaintext highlighter-rouge">tabular-metadata</code></a> — the CSVW model behind the dataset arm</li>

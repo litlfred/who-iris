@@ -1,0 +1,1098 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/9789240093362-eng",
+      "@type": [
+        "fabio:Work",
+        "bibo:Book"
+      ],
+      "dcterms:title": "Digital transformation handbook for primary health care: optimizing person-centred point of service systems",
+      "dcterms:creator": [
+        "World Health Organization"
+      ],
+      "dcterms:issued": "2024-11-04",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:isbn": "9789240093362 (electronic version)",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/379452",
+      "dcterms:language": "en",
+      "dcterms:abstract": "This handbook provides practical guidance for countries seeking to digitally transform primary health care through the development and implementation of person-centred point of service systems (PCPOSS). It addresses the transition from paper-based and fragmented digital systems towards integrated, interoperable digital solutions that support service delivery, continuity of care, data use and health system strengthening. Grounded in WHO recommendations on digital interventions for health system strengthening and aligned with the SMART Guidelines framework, the publication outlines approaches for translating clinical and public health guidance into digital systems while maintaining fidelity to normative standards.\n\nThe publication presents a stepwise methodology covering assessment of digital readiness, identification of user requirements, workflow and business process mapping, system design and adaptation, software selection, testing, deployment and scale-up. It emphasizes person-centred care, interoperability, longitudinal health records, decision support and the use of standards-based digital architectures. Through practical tools, worksheets and implementation guidance, the publication supports policy-makers, programme managers, digital health practitioners and software developers in designing and optimizing digital systems that improve service quality, strengthen accountability and enable more effective, integrated and responsive primary health care services.",
+      "dcterms:source": "catalogue/records/9789240093362-eng.dc.json",
+      "dcterms:hasVersion": "library/9789240093362-eng"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/360948",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-360948"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://apps.who.int/iris/handle/10665/311941",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-311941"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/373581",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/326573",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/376777",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "bibo:doi": "10.1007/978-3-319-51259-4",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.techtarget.com/searchcio/definition/business-process",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/274628",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/health-topics/health-workforce",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.2471/BLT.22.287816",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/206971",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://pubmed.ncbi.nlm.nih.gov/22195060/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/331697",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "bibo:doi": "10.1093/oodh/oqad018",
+      "dcterms:identifier": "https://doi.org/10.1093/oodh/oqad018",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.ejbi.org/scholarly-articles/how-to-design-an-integration-platform-for-interoperableehr.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1016/S2589-7500(21)00038-8",
+      "dcterms:identifier": "https://doi.org/10.1016/S2589-7500(21)00038-8",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://phii.org/crdm/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://digitalprinciples.org/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/334306",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/363577",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/75211",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-75211"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/344249",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-344249"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://www.itu.int/pub/D-STR-DIGITAL.02-2019",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2017",
+      "dcterms:identifier": "https://iris.paho.org/handle/10665.2/34865",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2016",
+      "bibo:doi": "10.3402/gha.v9.29836",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/339745",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-339745"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/341997",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-341997"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/375230",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.9745/GHSP-D-21-00320",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/data/data-collection-tools/score",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2014",
+      "bibo:doi": "10.1016/j.jclinepi.2013.08.015",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://dschool.stanford.edu/resources/design-thinking-playbook-from-design-tech-high-school",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "dcterms:identifier": "https://dschool.stanford.edu/resources/design-thinking-bootleg",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://careerfoundry.com/en/blog/ux-design/how-to-define-a-user-persona",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.interaction-design.org/literature/topics/personas",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.usability.gov/how-to-and-tools/methods/personas.html",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/329947",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://uxmag.com/articles/using-proto-personas-for-executive-alignment",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.uml-diagrams.org/use-case-diagrams.html",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.agilemodeling.com/artifacts/useCaseDiagram.htm",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.agilemodeling.com/artifacts/systemUseCase.htm",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.techtarget.com/searchcio/definition/workflow",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.technet-21.org/en/resources/report/defining-functional-requirements-for-immunization-information-systems",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.47",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2011",
+      "dcterms:identifier": "https://www.omg.org/spec/BPMN/2.0",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.48",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.omg.org/spec/BPMN/2.0",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.49",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://camunda.com/bpmn",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.50",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://www.path.org/resources/common-requirements-for-maternal-health-information-systems-produced-with-the-collaborative-requirements-development-methodology",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.51",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2014",
+      "dcterms:identifier": "https://path.org/resources/product-vision-for-the-better-immunization-data-bid-initiative",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.52",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://path.org/resources/planning-an-information-systems-project-a-toolkit-for-public-health-managers",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.53",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2021",
+      "bibo:doi": "10.1016/j.jbi.2021.103891",
+      "dcterms:identifier": "https://doi.org/10.1016/j.jbi.2021.103891",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.54",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.hl7.org/fhir/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.55",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://icd.who.int/en",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.56",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:identifier": "http://www.cse.msu.edu/~cse870/IEEEXplore-SRS-template.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.57",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/343361",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.58",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "bibo:doi": "10.1007/978-3-540-24659-6_24",
+      "dcterms:identifier": "https://doi.org/10.1007/978-3-540-24659-6_24",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.59",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://github.com/opensrp/opensrp-client-anc",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.60",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.srhr.org/antenatalcare/#Tools",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.61",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.62",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2019",
+      "dcterms:identifier": "https://github.com/WorldHealthOrganization/smart-anc",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.63",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2007",
+      "dcterms:identifier": "http://www0.unsl.edu.ar/~asanchez/papers/SBJO07.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.64",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "bibo:doi": "10.1016/B978-0-12-823413-6.00005-7",
+      "dcterms:identifier": "https://doi.org/10.1016/B978-0-12-823413-6.00005-7",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.65",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.opengroup.org/togaf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.66",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://apps.who.int/iris/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.67",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://pubs.opengroup.org/togaf-standard/introduction/chap03.html",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.68",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1997",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.69",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2013",
+      "dcterms:identifier": "https://obamawhitehouse.archives.gov/sites/default/files/omb/assets/egov_docs/fea_v2.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.70",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:identifier": "https://www.gartner.com/resources/133100/133132/gartners_enterprise_architec_133132.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.71",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://rm-odp-new.lcc.uma.es/#Standards",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.72",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://ohie.org/framework/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.73",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://id4d.worldbank.org/guide/interoperability-frameworks",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.74",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2009",
+      "dcterms:identifier": "https://ssrn.com/abstract=1482752",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.75",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://www.himss.org/resources/interoperability-healthcare",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.76",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/standards/classifications",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.77",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/standards/classifications/classification-of-diseases",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.78",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://loinc.org/get-started/what-loinc-is/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.79",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.nlm.nih.gov/healthit/snomedct/snomed_overview.html",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.80",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/360948",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-360948"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.81",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.who.int/emergencies/outbreak-toolkit",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.82",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2020",
+      "dcterms:identifier": "https://www.niti.gov.in/sites/default/files/2021-09/ndhm_strategy_overview.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.83",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://africacdc.org/download/african-union-health-information-exchange-guidelines-and-standards/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.84",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/344249",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md",
+      "dcterms:hasVersion": "library/10665-344249"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.85",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "http://www.hl7.org/about/index.cfm",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.86",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.hl7.org/fhir/summary.html",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.87",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.hl7.org/fhir/overview.html",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.88",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://www.ihe.net/resources/profiles/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.89",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.dicomstandard.org/about-home",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.90",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.gs1.org/standards",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.91",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1996",
+      "dcterms:identifier": "https://www.cdc.gov/phlp/php/resources/health-insurance-portability-and-accountability-act-of-1996-hipaa.html?CDC_AAref_Val=https://www.cdc.gov/phlp/publications/topic/hipaa.html",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.92",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.trade.gov/market-intelligence/thailand-personal-data-protection-act",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.93",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.minict.gov.rw/fileadmin/user_upload/minict_user_upload/Documents/Press_Release/211021_PRESS_RELEASE_Rwanda_s_New_Data_Protection_Law_ENGLISH.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.94",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "http://data.europa.eu/eli/reg/2016/679/2016-05-04",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.95",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2023",
+      "dcterms:identifier": "https://www.w3.org/WAI/standards-guidelines/wcag/#intro",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.96",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2021",
+      "dcterms:identifier": "https://www.un.org/sites/un2.un.org/files/2021/10/un_disability_inclusion_strategy_communication_guidelines_etr.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.97",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2022",
+      "dcterms:identifier": "https://www.un.org/sites/un2.un.org/files/un_disability-inclusive_communication_guidelines.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.98",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2024",
+      "dcterms:identifier": "https://www.suse.com/suse-defines/definition/production-environment/",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.99",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/252183",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.100",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2015",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/185238",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.101",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://digitalhealthatlas.org",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.102",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2018",
+      "bibo:doi": "10.22617/WPS189214-2",
+      "dcterms:identifier": "https://www.adb.org/sites/default/files/publication/465611/sdwp-057-digital-health-impact-framework-manual.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.103",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1988",
+      "bibo:doi": "10.1177/109019818801500401",
+      "dcterms:identifier": "https://doi.org/10.1177/109019818801500401",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.104",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.bcg.com/en-ch/capabilities/change-management/solutions.aspx",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.105",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2012",
+      "dcterms:identifier": "https://slideplayer.com/slide/6396682",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.106",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2016",
+      "dcterms:identifier": "https://www.mckinsey.com/business-functions/organization/our-insights/the-four-building-blocks--of-change",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    },
+    {
+      "@id": "references/9789240093362-eng.sec-034.107",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:identifier": "https://www.mcsprogram.org/wp-content/uploads/dlm_uploads/2019/05/DHIRT-Tool-HANDOUT-May2019-Printable.pdf",
+      "dcterms:source": "library/9789240093362-eng/sections/sec-034-references.md"
+    }
+  ]
+}

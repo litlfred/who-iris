@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-67518",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Caracteristiques d' activité et de stabilité des vaccines antivarioliques utilisés dans les programmes d' éradication de la variole en Afrique de l' ouest et du centre-ouest / par A. Bernstein et M.Z. Bierly",
+      "dcterms:creator": [
+        "Bernstein, A",
+        "Bierly, M. Z"
+      ],
+      "dcterms:issued": "1972-12-31",
+      "dcterms:publisher": "Organisation mondiale de la santé",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/67518",
+      "dcterms:language": "Français",
+      "dcterms:source": "catalogue/records/10665-67518.dc.json",
+      "dcterms:hasVersion": "library/10665-67518"
+    },
+    {
+      "@id": "references/10665-67518.page-006.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1965",
+      "dcterms:source": "library/10665-67518/sections/page-006.md"
+    },
+    {
+      "@id": "references/10665-67518.page-006.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "1967",
+      "dcterms:source": "library/10665-67518/sections/page-006.md"
+    }
+  ]
+}

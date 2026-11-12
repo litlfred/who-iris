@@ -1,0 +1,479 @@
+{
+  "@context": {
+    "@base": "https://litlfred.github.io/folio/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "dcterms:source": {
+      "@type": "@id"
+    },
+    "dcterms:hasVersion": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "references/10665-270347",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:title": "Survival, plasma HIV-1 RNA concentrations and drug resistance in HIV-1-infected Haitian adolescents and young adults on antiretrovirals",
+      "dcterms:creator": [
+        "Charles, Macarthur",
+        "Noel, Francine",
+        "Leger, Paul",
+        "Severe, Patrice",
+        "Riviere, Cynthia",
+        "Beauharnais, Carole Anne",
+        "Miller, Erica",
+        "Rutledge, John",
+        "Bang, Heejung",
+        "Shealey, Wesley",
+        "D’Aquila, Richard T",
+        "Gulick, Roy M",
+        "Johnson, Warren D",
+        "Wright, Peter F",
+        "Pape, Jean William",
+        "Fitzgerald, Daniel W"
+      ],
+      "dcterms:issued": "2008-12-01",
+      "dcterms:publisher": "World Health Organization",
+      "bibo:doi": "10.2471/BLT.07.050120",
+      "dcterms:identifier": "https://iris.who.int/handle/10665/270347",
+      "dcterms:language": "en",
+      "dcterms:source": "catalogue/records/10665-270347.dc.json",
+      "dcterms:hasVersion": "library/10665-270347"
+    },
+    {
+      "@id": "references/10665-270347.page-007.1",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2002",
+      "dcterms:identifier": "http://www.paho.org/English/DD/AIS/cp_332.htm",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.2",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.3",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:identifier": "http://data.unaids.org/pub/EpiReport/2006/02-Global_Summary_2006_EpiUpdate_eng",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.4",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.5",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1997",
+      "bibo:doi": "10.1056/NEJM199709113371101",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.6",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1997",
+      "bibo:doi": "10.1056/NEJM1997091",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.7",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "bibo:doi": "10.1056/NEJM199803263381301",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.8",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "bibo:doi": "10.1086/421521",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.9",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.10",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "bibo:doi": "10.1001/archpedi.159.8.764",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.11",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2001",
+      "bibo:doi": "10.1097/00002030-200107270-00006",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.12",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "bibo:doi": "10.1016/S01",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.13",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.14",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "bibo:doi": "10.1016/S0140-6736(06)68337-2",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.15",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "bibo:doi": "10.1016/S0140-6736(06)69118-6",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.16",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.17",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.18",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2005",
+      "bibo:doi": "10.1056/NEJMoa051908",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.19",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2007",
+      "bibo:doi": "10.1086/514823",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.20",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.21",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "bibo:doi": "10.1016/S0140-6736(00)02870-1",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.22",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "bibo:doi": "10.1016/j",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.23",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.24",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "bibo:doi": "10.1258/0956462042563666",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.25",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.26",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2003",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.27",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2006",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.28",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2001",
+      "bibo:doi": "10.1016/S0140-6736(01)05550-7",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.29",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1987",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.30",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.31",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1996",
+      "bibo:doi": "10.1079/PNS19960032",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.32",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1985",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.33",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2002",
+      "bibo:doi": "10.1159/000067879",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.34",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1998",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.35",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1999",
+      "bibo:doi": "10.1086/520178",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.36",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2000",
+      "bibo:doi": "10.1097/00002030-20001",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.37",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2001",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.38",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2000",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.39",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "bibo:doi": "10.1097/00002030-200006160-00020",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.40",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.41",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "bibo:doi": "10.1086/424851",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.42",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "2004",
+      "bibo:doi": "10.1179/02724930422501",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.43",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1963",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.44",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1996",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.45",
+      "@type": [
+        "fabio:Work",
+        "bibo:AcademicArticle"
+      ],
+      "dcterms:issued": "1967",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    },
+    {
+      "@id": "references/10665-270347.page-007.46",
+      "@type": [
+        "fabio:Work",
+        "bibo:Document"
+      ],
+      "dcterms:issued": "2008",
+      "dcterms:source": "library/10665-270347/sections/page-007.md"
+    }
+  ]
+}
