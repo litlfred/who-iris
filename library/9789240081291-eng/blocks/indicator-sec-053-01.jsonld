@@ -2,12 +2,13 @@
   "@context": [
     "https://litlfred.github.io/who-iris/ns/context/v1.jsonld",
     {
-      "@base": "https://litlfred.github.io/folio/"
+      "@base": "https://litlfred.github.io/folio/",
+      "smart-base": "https://litlfred.github.io/smart-base/v0/ns/"
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-053-01",
   "@type": [
-    "cat-harness:Block"
+    "smart-base:Indicator"
   ],
   "kind": "indicator",
   "title": "Capacity of national human resources for health information systems to monitor key metrics relevant for national health workforce planning and policy-making and for global monitoring frameworks",
