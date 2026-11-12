@@ -10,6 +10,7 @@ source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
 Issues in Study Design
+© WHO/Christopher Black
 48
 CASEBOOK ON ETHICAL ISSUES IN INTERNATIONAL HEALTH RESEARCH
 One of the most contentious issues in research ethics is 

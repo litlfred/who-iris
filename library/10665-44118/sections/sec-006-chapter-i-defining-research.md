@@ -10,6 +10,7 @@ source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
 Defining “Research”
+© WHO/Pierre Virot
 38
 CASEBOOK ON ETHICAL ISSUES IN INTERNATIONAL HEALTH RESEARCH
 The need for a definition of ‘research,’ for the purposes of ethi-

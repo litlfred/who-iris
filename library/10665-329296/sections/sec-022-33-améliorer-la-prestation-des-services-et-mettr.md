@@ -42,4 +42,41 @@ Promouvoir l’intégration pour réduire la fragmentation des
 soins de la mère et du nourrisson et assurer que le nourrisson 
 suive la procédure de dépistage jusqu’à l’établissement du 
 diagnostic final doit être une priorité. Des systèmes bien 
+développés de soins prénatals et de soins aux nourrissons 
+offrent des occasions de renforcer la prestation de services 
+à ceux qui sont exposés au VIH. L’intégration au sein d’une 
+plateforme bien établie de soins de la mère, du nouveau-né 
+et de l’enfant qui traditionnellement assure les services avec 
+la meilleure proximité facilite le suivi du couple mère-enfant 
+et réduit les charges financières pour le client ainsi que les 
+contraintes temporelles. Les systèmes d’information intégrée 
+qui réunissent les données concernant la mère et le nourrisson 
+améliorent le suivi du client et facilitent la continuité des soins. 
+On peut mentionner par exemple les registres longitudinaux 
+de suivi et l’analyse de cohorte ainsi que le lien avec les 
+informations sur les services à base communautaire. Les 
+programmes devraient toutefois tenir compte de la charge 
+accrue pour la plateforme de santé de la mère et de l’enfant 
+dans le contexte des ressources humaines disponibles et les 
+problèmes que posent le changement des services.
+L’engagement communautaire et les services basés dans la 
+communauté jouent un rôle important en matière d’appui aux 
+soins aux nourrissons exposés au VIH. Ces services bien définis 
+et étroitement liés à un contexte précis renforcent l’appui 
+à des services ciblant les établissements et comprennent le 
+dépistage du VIH dans la communauté. La participation de 
+réseaux de femmes vivant avec le VIH a joué un rôle efficace 
+dans plusieurs pays et a permis d’améliorer les connaissances 
+concernant le VIH pour créer une demande, former des 
+groupes de soutien au niveau des établissements et de la 
+communauté, renforcer les liens avec les soins en escortant 
+des sujets fraîchement diagnostiqués vers les centres de 
+traitement, assurer le suivi des abandons de traitement et 
+assurer le suivi actif des couples mère-enfant. Dans plusieurs 
+situations, ces interventions ont conduit à une réduction des 
+couples mère-enfant perdus de vue.
+En assurant un module postnatal intégré complet de services 
+contre le VIH, on favorisera l’introduction d’un ensemble 
+d’interventions qui contribuent à améliorer non seulement les 
+résultats mais un meilleur développement global de l’enfant.
 Encadré 7. Principales pistes pour la recherche

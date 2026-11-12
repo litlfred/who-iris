@@ -10,6 +10,7 @@ source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
 Chapter V
+© WHO/Pierre Virot
 106
 CASEBOOK ON ETHICAL ISSUES IN INTERNATIONAL HEALTH RESEARCH
 ❚ THE CASE STUDIES ❚ Standard of Care

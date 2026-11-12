@@ -9,6 +9,7 @@ source_pdf: 10665-44118.pdf
 source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
+© who/ Photolibrary
 12
 CASEBOOK ON ETHICAL ISSUES IN INTERNATIONAL HEALTH RESEARCH
 This casebook collects 64 case studies, each of which raises an 
@@ -139,4 +140,3 @@ that may colour lecture-based sessions. Although people are
 sometimes reticent to question a lecturer, they are more likely 
 to be willing to share their views about practical situations 
 Introduction ❚
-© WHO/TDR/Crump

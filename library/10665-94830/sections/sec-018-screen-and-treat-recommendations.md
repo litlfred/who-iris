@@ -14,6 +14,38 @@ recommends against the use of CKC as
 treatment in a screen-and-treat strategy 
 (strong recommendation, 
  evidence)
+b.	 In the ‘HPV test followed by VIA’ strategy, 
+women who are HPV-negative are not 
+treated. Women who are HPV-positive all 
+undergo VIA, which is used in this case 
+as a second screening test to determine 
+treatment. Women who are HPV-positive 
+and VIA-positive will all be treated, 
+while women who are HPV-positive and 
+VIA-negative will not be treated.
+Screening intervals and follow-up
+Ideal screening intervals are provided below 
+and for all screen-and-treat strategies in 
+Annexes 3 and 4.
+In women who test negative on VIA or cytology 
+(Pap smear), the screening interval for repeat 
+screening should be every three to five years. 
+In women who test negative on an HPV test, 
+rescreening should be done after a minimum 
+interval of five years. Women who have received 
+treatment should receive post-treatment 
+follow-up screening at one year to ensure 
+effectiveness of treatment. Refer to Annex 3 for 
+flowcharts for all strategies for women who are 
+of negative or unknown HIV status.
+In women who are of HIV-positive status or 
+of unknown HIV status in areas with high 
+endemic HIV infection, if the screening test 
+is negative, the screening interval for repeat 
+screening should be within three years. Women 
+who have received treatment should receive 
+post-treatment follow-up screening at one year 
+to ensure effectiveness of treatment. Refer 
 Remarks: The screen-and-treat strategies 
 considered by the panel with CKC as treatment 
 included an HPV test, VIA, or an HPV test 

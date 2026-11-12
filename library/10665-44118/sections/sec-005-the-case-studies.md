@@ -9,4 +9,4 @@ source_pdf: 10665-44118.pdf
 source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
-© WHO/Pierre Virot
+

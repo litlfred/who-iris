@@ -97,4 +97,3 @@ the population-research institute to be a type of
 “misconduct”? What role does the scientific community 
 have in regulation of misconduct of its members?
 ❚ THE CASE STUDIES ❚ Harm and Beneﬁt
-© WHO

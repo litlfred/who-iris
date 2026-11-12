@@ -10,6 +10,7 @@ source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
 Chapter VIII
+© WHO
 160
 CASEBOOK ON ETHICAL ISSUES IN INTERNATIONAL HEALTH RESEARCH
 ❚ THE CASE STUDIES ❚ Professional Ethics

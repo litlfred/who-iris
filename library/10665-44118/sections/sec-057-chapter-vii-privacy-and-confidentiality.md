@@ -10,6 +10,7 @@ source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
 Privacy and Confidentiality
+© WHO
 142
 CASEBOOK ON ETHICAL ISSUES IN INTERNATIONAL HEALTH RESEARCH
 ❚ THE CASE STUDIES ❚ Privacy and Conﬁdentiality

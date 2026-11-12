@@ -20,7 +20,7 @@ granularity: page
 
 ‎VIA‏ در مقایسه با آزمون‌های دیگر:
 
-‏جستجو در ‎OVID MEDLINE‏ (تا نویه ۲۰۱۲)
+‏جستجو در ‎OVID MEDLINE‏ (تا نویه 2012)
 
 ‎((precancer* or pre-cancer* or neoplas* or dysplasia or lesion* or premalignan* or
 

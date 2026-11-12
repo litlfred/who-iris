@@ -11,6 +11,11 @@ toc_source: inferred
 ---
 al personal sanitario 
 telemedicina entre prestadores 
+Disponibilidad de personal sanitario 
+Garantizar la disponibilidad de personal sanitario 
+Accesibilidad de los centros de salud 
+Garantizar el acceso a los centros de salud 
+Desafíos ilustrativos del sistema sanitario 
 Inaccesibilidad 
 geográfica
 Suministro/Cobertura 
@@ -19,7 +24,28 @@ sanitarios calificados
 Competencia 
 insuficiente de los 
 trabajadores sanitarios
-Desafíos ilustrativos del sistema sanitario 
+Antecedentes  
+El acceso a trabajadores sanitarios calificados, con las competencias, las habilidades y los 
+comportamientos adecuados, es un obstáculo aún mayor para mejorar los resultados de salud que 
+la disponibilidad de trabajadores sanitarios (70,71). La falta de acceso geográfico y la distribución 
+desigual de los trabajadores sanitarios también son una limitación para la cobertura eficaz de 
+personal sanitario (62). La aparición de los enfoques digitales, sobre todo de la telemedicina entre 
+diferentes tipos de trabajadores sanitarios, es una forma posible de superar las barreras de las 
+largas distancias para los trabajadores sanitarios calificados y la escasez de dichos profesionales.
+La telemedicina entre prestadores, al igual que la telemedicina entre el paciente y el prestador, 
+simplifica la prestación de servicios de salud a distancia y se utiliza principalmente para conectar 
+trabajadores sanitarios menos especializados con aquellos que tienen mayor especialización (72). 
+La comunicación entre los trabajadores sanitarios puede entablarse por diversos motivos, que 
+incluyen solicitar ayuda para los diagnósticos, controlar de forma remota el estado de salud de 
+los pacientes a través de los signos vitales y realizar consultas de coordinación asistencial. Esta 
+comunicación entre los trabajadores sanitarios puede ser asincrónica, a través del intercambio 
+de videos y archivos de imágenes para consultar posteriormente (lo que también se conoce 
+como intercambio de “almacenamiento y reenvío”), o sincrónica, con intercambios en tiempo 
+real (13,18,72–75).
+Aunque la telemedicina es una de las formas más establecidas de prestación de servicios de 
+salud mediante las TIC (72), esta pregunta de la directriz amplía la base de evidencia existente, 
+particularmente a la luz de los avances en facilitar los intercambios de los trabajadores sanitarios a 
+través de dispositivos móviles. 
 Análisis general de la evidencia
 A continuación, se presenta un resumen de la evidencia sobre la telemedicina entre prestadores. En 
 el Suplemento web 1, se incluye el marco de trabajo completo a partir de la evidencia hasta la toma 
@@ -119,31 +145,4 @@ centros de otras instituciones, por ejemplo, a través de programas de cooperaci
 	Ⱥ Se deben crear protocolos para instruir a los trabajadores sanitarios acerca del uso de la 
 tecnología.  (Se presentan más detalles en el Capítulo 4.3  “Consideraciones globales sobre la 
 implementación” ).
-Antecedentes  
-La comunicación dirigida a los pacientes5  —definida como la transmisión de contenido 
-o información sobre la salud a un público específico según su estado de salud o su perfil
-demográfico (13)— representa un enfoque para interactuar con los pacientes y aumentar sus
-conocimientos sobre la salud y las conductas generadoras de salud, sobre dónde encontrar o cómo
-acceder a los servicios, o para ayudar a retenerlos en los servicios de salud cuando se necesita
-realizar un seguimiento. El enfoque incluye la transmisión de información para que las personas
-estén al tanto de los servicios y las conductas saludables, con el fin de promover la salud; la
-transmisión de recordatorios sobre servicios o tratamientos, para fomentar el cumplimiento de la
-práctica recomendada; y la transmisión de notificaciones sobre los resultados de las pruebas de
-diagnóstico (13). El envío de contenido sobre la salud a números de teléfono registrados o a otra
-información de contacto puede realizarse a través de una gama de canales digitales, que incluyen
-mensajes de texto, mensajes de voz, respuesta de voz interactiva, juegos y aplicaciones multimedia
-(aplicaciones de los dispositivos móviles), y medios sociales.
-Diversas directrices de la OMS han investigado el uso de la comunicación dirigida a los pacientes 
-a través de dispositivos móviles como una posible herramienta para mejorar la adherencia del 
-tratamiento farmacológico. En particular, las Consolidated guidelines on the use of antiretroviral 
-drugs de 2016 incluyen una recomendación sobre el uso de mensajes de texto como parte de un 
-paquete de intervenciones destinadas a apoyar el cumplimiento del tratamiento antirretroviral (15). 
-De modo similar, las Guidelines for treatment of drug-susceptible tuberculosis and patient care de 
-2017 también recomiendan el uso de mensajes de texto y llamadas de voz para apoyar la educación 
-sobre la salud y el cumplimiento del tratamiento (16). En base a esta obra, esta pregunta de la 
-directriz examina el uso de la comunicación dirigida a los pacientes a través de los dispositivos 
-Cobertura continua 
-El grado en el que los pacientes reciben el ciclo completo de intervenciones necesarias para que sea eficaz
-Cobertura del contacto   La proporción de pacientes que tienen contacto con centros, 
-prestadores y servicios pertinentes entre la población destinataria
 3.6

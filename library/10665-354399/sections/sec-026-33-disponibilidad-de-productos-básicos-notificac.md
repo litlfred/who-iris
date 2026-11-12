@@ -161,26 +161,4 @@ datos y gráficos simples e ilustraciones tabulares.
 	Ⱥ Se debe garantizar que los sistemas digitales y las rutinas de pedido sean lo suficientemente 
 flexibles para responder a las necesidades locales. Por ejemplo, si se trata de sistemas cuyos 
 pedidos de stock son trimestrales, es necesario asegurarse de que también respondan a las 
-necesidades imprevistas  o estacionales. 
-Antecedentes 
-A pesar del progreso logrado en la reducción de la escasez del personal sanitario, los desafíos en 
-el acceso equitativo a los trabajadores sanitarios son uno de los obstáculos principales para lograr 
-todos los requisitos de una cobertura eficaz de recursos humanos para la salud (70). La falta de 
-acceso geográfico y la preferencia de que los trabajadores sanitarios trabajen en entornos urbanos 
-son algunas de las razones comprobadas del desequilibrio en la distribución de los trabajadores 
-sanitarios (71). Si bien hay una gran variedad de iniciativas en curso destinadas a reducir la falta 
-de equidad en el acceso a los trabajadores sanitarios, incluso incentivos y propuestas alternativas 
-para la capacitación, los enfoques digitales como la telemedicina también se investigaron como un 
-mecanismo para brindar servicios de salud a las comunidades marginadas (71). 
-En el National eHealth strategy toolkit de la OMS/UIT, la telemedicina se define como una 
-práctica en apoyo de “la prestación de servicios de atención médica a distancia” (18). Aunque 
-hay otras definiciones que amplían el concepto de telemedicina como el uso de las TIC con fines 
-de diagnóstico, monitoreo y tratamiento a distancia (72–75), el principio impulsor se centra en 
-la prestación de apoyo clínico remoto como forma de superar las barreras geográficas (72). La 
-telemedicina puede practicarse entre pacientes y trabajadores sanitarios que están separados por 
-la distancia, así como entre trabajadores sanitarios que se encuentran en diferentes ubicaciones. 
-El tipo de intercambio entre los protagonistas varía y puede incluir consultas remotas, el control 
-Disponibilidad de personal sanitario
-Garantizar la disponibilidad de personal sanitario
-Accesibilidad de los centros de salud
-Garantizar el acceso a los centros de salud
+necesidades imprevistas  o estacionales.
