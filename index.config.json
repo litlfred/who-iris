@@ -26,7 +26,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "1035ced2fd526cfc3ddcc78c1bd2b58ebed206f0",
+          "ref": "9ce98986f02b834271d61782ab19d41ba03e3ec6",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -42,8 +42,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "1035ced2fd526cfc3ddcc78c1bd2b58ebed206f0",
-              "evidence": "litlfred, 2026-11-11 16:05:30Z, thread 'Merge manager' (cmsg_017WNUkNK8kdDziPK58Pv6G9A4gqquu7bha27LfmNqarmL): \"+12ht repin+merge window\"; re-pin every harness to its main HEAD under the owner's freshness rule (cat-harness-tools#1881)"
+              "ref": "9ce98986f02b834271d61782ab19d41ba03e3ec6",
+              "evidence": "folio-assistant-core#746 merged (nav_exclude on bibliography reference pages, fixes Jekyll OOM) and #744 (control chars); re-pin for IRIS figures publish"
             }
           }
         }
@@ -54,7 +54,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness",
-          "ref": "d6a05fc485e78d6787195e4c40e8406dcb5ba5e2",
+          "ref": "8eefb1f2ced5777f80c30891280fcfd8158ec372",
           "overrides": {
             "cat-harness": {
               "whole": true
@@ -70,8 +70,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "d6a05fc485e78d6787195e4c40e8406dcb5ba5e2",
-              "evidence": "litlfred, 2026-11-11 16:05:30Z, thread 'Merge manager' (cmsg_017WNUkNK8kdDziPK58Pv6G9A4gqquu7bha27LfmNqarmL): \"+12ht repin+merge window\"; re-pin every harness to its main HEAD under the owner's freshness rule (cat-harness-tools#1881)"
+              "ref": "8eefb1f2ced5777f80c30891280fcfd8158ec372",
+              "evidence": "litlfred, 2026-11-11 08:55Z in thread cmsg_017WNUkNK8kdDziPK58Pv6G9MgLzYE4CC933YWuugjFYV2: 'They are listed but no visualizations' (figures not shown on the site); tools#1866 adds them; re-pin all to current mains as the merge manager asked."
             }
           }
         }
@@ -82,7 +82,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "ca2dac8cc75d777041d75bb16af6b15b525cb0c3",
+          "ref": "0860bc2dd815e18fb7c9f2ebb9c2bdee23924747",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -95,8 +95,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "ca2dac8cc75d777041d75bb16af6b15b525cb0c3",
-              "evidence": "litlfred, 2026-11-11 16:05:30Z, thread 'Merge manager' (cmsg_017WNUkNK8kdDziPK58Pv6G9A4gqquu7bha27LfmNqarmL): \"+12ht repin+merge window\"; re-pin every harness to its main HEAD under the owner's freshness rule (cat-harness-tools#1881)"
+              "ref": "0860bc2dd815e18fb7c9f2ebb9c2bdee23924747",
+              "evidence": "litlfred, 2026-11-11 08:55Z in thread cmsg_017WNUkNK8kdDziPK58Pv6G9MgLzYE4CC933YWuugjFYV2: 'They are listed but no visualizations' (figures not shown on the site); tools#1866 adds them; re-pin all to current mains as the merge manager asked."
             }
           }
         }
@@ -107,7 +107,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/bootstrap",
-          "ref": "fdc84b22c30ace4b9476e56fa1cac2117e5aaf0a",
+          "ref": "1c36aef5ab70d7e95ee6026124cd004cab0c0990",
           "overrides": {
             "bootstrap": {
               "whole": true
@@ -117,8 +117,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "fdc84b22c30ace4b9476e56fa1cac2117e5aaf0a",
-              "evidence": "litlfred, 2026-11-11 16:05:30Z, thread 'Merge manager' (cmsg_017WNUkNK8kdDziPK58Pv6G9A4gqquu7bha27LfmNqarmL): \"+12ht repin+merge window\"; re-pin every harness to its main HEAD under the owner's freshness rule (cat-harness-tools#1881)"
+              "ref": "1c36aef5ab70d7e95ee6026124cd004cab0c0990",
+              "evidence": "litlfred, 2026-11-11 02:58Z, card Q-FIG-3 'A: Merge after #1850 + re-pin' (who-iris#229, thread cmsg_017WNUkNK8kdDziPK58Pv6G9MgLzYE4CC933YWuugjFYV2); merge manager asked to move all pins to current mains."
             }
           }
         }
@@ -129,7 +129,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/bootstrap-tools",
-          "ref": "0dea4fa94b6a66706c537d4586fefdaf5e768eef",
+          "ref": "30c4585d5dfbf6960e3ecca86b18d131d6cd3921",
           "overrides": {
             "bootstrap-tools": {
               "whole": true
@@ -142,8 +142,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "0dea4fa94b6a66706c537d4586fefdaf5e768eef",
-              "evidence": "litlfred, 2026-11-11 16:05:30Z, thread 'Merge manager' (cmsg_017WNUkNK8kdDziPK58Pv6G9A4gqquu7bha27LfmNqarmL): \"+12ht repin+merge window\"; re-pin every harness to its main HEAD under the owner's freshness rule (cat-harness-tools#1881)"
+              "ref": "30c4585d5dfbf6960e3ecca86b18d131d6cd3921",
+              "evidence": "litlfred, 2026-11-11 02:58Z, card Q-FIG-3 'A: Merge after #1850 + re-pin' (who-iris#229, thread cmsg_017WNUkNK8kdDziPK58Pv6G9MgLzYE4CC933YWuugjFYV2); merge manager asked to move all pins to current mains."
             }
           }
         }
