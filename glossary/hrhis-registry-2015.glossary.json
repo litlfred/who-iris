@@ -2,9 +2,9 @@
   "$schema": "folio-glossary/v1",
   "id": "hrhis-registry-2015",
   "title": "Human resources for health information system: minimum data set for health workforce registry (2015) — system functional requirements",
-  "description": "System types and functional requirements from the WHO guide 'Human resources for health information system: minimum data set for health workforce registry' (2015, ISBN 9789241549226), held in this library as 9789241549226-eng. Owner, 2026-11-01: an inspirational, non-definitional reference for the DTH-HRH handbook's Chapter 7 (Functional Requirements); these concepts contribute to a definition and are not definitional, so no term carries skos:definition. Three kinds of concept: system types (Figure 3: the health information system, its sub-systems, the HRH information system and its functional components, among them the health workforce registry); the four functional domains (Figure 4, Table 1) and Table 2's information categories; and one concept per functional-requirement block of library/9789241549226-eng, broader-linked to the system type it is stated for and related to its domain or category. Labels are the source's own words; a requirement the source gives no name is labelled with its full statement. The minimum data set itself (Table 3, the data-element sheets, Tables 6-7) is deliberately not represented. Every term is a candidate until a person confirms it.",
-  "hasVersion": "2026-11-01",
-  "modified": "2026-11-01",
+  "description": "System types and functional requirements from the WHO guide 'Human resources for health information system: minimum data set for health workforce registry' (2015, ISBN 9789241549226), held in this library as 9789241549226-eng. Owner, 2026-11-01: an inspirational, non-definitional reference for the DTH-HRH handbook's Chapter 7 (Functional Requirements); these concepts contribute to a definition and are not definitional, so no term carries skos:definition. Three kinds of concept: system types (Figure 3: the health information system, its sub-systems, the HRH information system and its functional components, among them the health workforce registry); the four functional domains (Figure 4, Table 1) and Table 2's information categories; and one concept per functional-requirement block of library/9789241549226-eng, broader-linked to the system type it is stated for and related to its domain or category. Labels are the source's own words; a requirement the source gives no name is labelled with its full statement. Owner, 2026-11-12: the minimum data set is cross-referenced from DTH-HRH, though it is not the basis of the handbook's core data elements, so Table 3's ten data sets and the nineteen data-element sheets are added as non-definitional concepts under 'minimum-data-set' (Tables 6-7 are not represented). Every term is a candidate until a person confirms it.",
+  "hasVersion": "2026-11-12",
+  "modified": "2026-11-12",
   "source": "library/9789241549226-eng/",
   "license": "LicenseRef-WHO-All-Rights-Reserved",
   "terms": [
@@ -1055,6 +1055,379 @@
       ],
       "scopeNote": "An inspirational, non-definitional functional requirement (system-requirement-statement), word for word from pages 62-64.",
       "source": "library/9789241549226-eng/blocks/functional-requirement-sec-040-05",
+      "status": "candidate"
+    },
+    {
+      "id": "minimum-data-set",
+      "prefLabel": "Minimum data set for health workforce registry",
+      "scopeNote": "Table 3 (pages 24-25): ten data sets, each a group of data elements, with one data-element sheet per element on the pages that follow. Represented here for cross-reference only (owner, 2026-11-12: the 2015 MDS is cross-referenced from DTH-HRH, not the basis of its core data elements). Non-definitional.",
+      "related": [
+        "health-workforce-registry"
+      ],
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-01",
+      "prefLabel": "Identification Number",
+      "notation": "1",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 1, a data set. Its data elements, in the source's words: Unique identification number or other form of ID, date of issue, date of expiration, place of issue. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-02",
+      "prefLabel": "Full Name",
+      "notation": "2",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 2, a data set. Its data elements, in the source's words: First name, last name, middle name, maiden name, other name 1, other name 2, other name 3. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-03",
+      "prefLabel": "Birth History",
+      "notation": "3",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 3, a data set. Its data elements, in the source's words: Date of Birth, Sex at Birth, Place of Birth (country, town), father's name and mother's name, photograph. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-04",
+      "prefLabel": "Citizenship, Country of Residence, and Language",
+      "notation": "4",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 4, a data set. Its data elements, in the source's words: Citizenship at birth, citizenship at present, country of residence, ability in spoken and written languages. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-05",
+      "prefLabel": "Address",
+      "notation": "5",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 5, a data set. Its data elements, in the source's words: Physical address (country, town, street address). Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-06",
+      "prefLabel": "Contact Information",
+      "notation": "6",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 6, a data set. Its data elements, in the source's words: Telephone number, email address, emergency contact name. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-07",
+      "prefLabel": "Professional License and Certification",
+      "notation": "7",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 7, a data set. Its data elements, in the source's words: Education, license and certification name, issuing institution, date of issue and date of expiration, photograph. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-08",
+      "prefLabel": "Employment Status",
+      "notation": "8",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 8, a data set. Its data elements, in the source's words: Employment status, employment title and occupational category. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-09",
+      "prefLabel": "Employment Address",
+      "notation": "9",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 9, a data set. Its data elements, in the source's words: Full address of current employer. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "mds-10",
+      "prefLabel": "Data Submission Institution",
+      "notation": "10",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "scopeNote": "Table 3, row 10, a data set. Its data elements, in the source's words: Name of the institution submitting data; date and time of submission. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-012-table-3-minimum-data-set-for-health-workforce-re",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-address-physical",
+      "prefLabel": "Address (physical)",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-05",
+        "mds-09"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 25-26). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-013-address-physical",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-address-electronic-mail",
+      "prefLabel": "Address (electronic mail)",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-06"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 26-27). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-014-address-electronic-mail",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-country",
+      "prefLabel": "Country",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-03",
+        "mds-04",
+        "mds-05"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 27-28). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-015-country",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-date",
+      "prefLabel": "Date",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-01",
+        "mds-03",
+        "mds-07"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 28-29). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-016-date",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-disciplinary-action",
+      "prefLabel": "Disciplinary action",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-07"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 29-30). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-017-disciplinary-action",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-education",
+      "prefLabel": "Education",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-07"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 30-31). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-018-education",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-employment-occupational-category",
+      "prefLabel": "Employment occupational category",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-08"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 31-32). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-019-employment-occupational-category",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-employment-status",
+      "prefLabel": "Employment status",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-08"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 32-33). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-020-employment-status",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-employment-title",
+      "prefLabel": "Employment title",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-08"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 33-34). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-021-employment-title",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-facility-type-and-ownership",
+      "prefLabel": "Facility type and ownership",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-09"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 34-35). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-022-facility-type-and-ownership",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-full-name",
+      "prefLabel": "Full name",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-02"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 35-36). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-023-full-name",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-gps-coordinates",
+      "prefLabel": "GPS coordinates",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "data-element-facility-type-and-ownership"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 36-37). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-024-gps-coordinates",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-identification-number",
+      "prefLabel": "Identification number",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-01"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 37-38). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-025-identification-number",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-language",
+      "prefLabel": "Language",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-04"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 38-39). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-026-language",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-license-registration-and-certification",
+      "prefLabel": "License, registration, and certification",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-07"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 39-40). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-027-license-registration-and-certification",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-photograph",
+      "prefLabel": "Photograph",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-03",
+        "mds-07"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 40-41). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-028-photograph",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-postal-code",
+      "prefLabel": "Postal code",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-05"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 41-42). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-029-postal-code",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-sex-at-birth",
+      "prefLabel": "Sex at birth",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-03"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 42-43). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-030-sex-at-birth",
+      "status": "candidate"
+    },
+    {
+      "id": "data-element-telephone-number",
+      "prefLabel": "Telephone number",
+      "broader": [
+        "minimum-data-set"
+      ],
+      "related": [
+        "mds-06"
+      ],
+      "scopeNote": "A data-element sheet (PDF pages 43-48). The sheet's contextual definition, representation and suggested values are in the source and are not carried as skos:definition: these concepts are for cross-reference only. Non-definitional.",
+      "source": "library/9789241549226-eng/sections/sec-031-telephone-number",
       "status": "candidate"
     }
   ]
