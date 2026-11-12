@@ -95,7 +95,7 @@
 <link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=5386a6134c28"><link rel="stylesheet" href="../../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../../assets/css/avatars.css?v=f9b7f1805f0f"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../../assets/js/harness-data.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode.js" defer></script>
 <script src="../../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../../assets/js/kg-render.js" defer></script><script src="../../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=0f40f53123fe" defer></script><script src="../../../../assets/js/edit-links.js?v=b4f948dbab24" defer></script><script src="../../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
+<script src="../../../../assets/js/docs-ui.js?v=829c614a8b9d" defer></script><script src="../../../../assets/js/edit-links.js?v=b4f948dbab24" defer></script><script src="../../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../../assets/js/work-plan.js" defer></script><script src="../../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -243,6 +243,11 @@
 .tg-mcp{color:#b9a8ec}     /* 7.06:1 */
 .tg-inproc{color:#86b8f2}  /* 7.26:1 */
 .tg-manual{color:#f5a070}  /* 7.25:1 */
+.tg-action{color:#e6c07b}
+:root[data-fa-scheme="light"] .tg-action{color:#7a5a00}
+.tg-filter{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.5rem 0}
+.tg-filter button{font:inherit;font-size:.8rem;padding:.15rem .6rem;border-radius:3px;border:1px solid rgba(128,128,128,.5);background:transparent;color:inherit;cursor:pointer}
+.tg-filter button[aria-pressed="true"]{border-color:currentColor;font-weight:600}
 :root[data-fa-scheme="light"] .tg-shell{color:#0d6e5e}
 :root[data-fa-scheme="light"] .tg-mcp{color:#6b5b95}
 :root[data-fa-scheme="light"] .tg-inproc{color:#1d5fa8}
@@ -282,6 +287,8 @@
 
 <p>The Tool nodes <strong>who-iris</strong> declares in its <code class="language-plaintext highlighter-rouge">tools</code> graph — one instance’s slice of <a href="../">every instance’s tools</a>.</p>
 
+<p><strong>As an API:</strong> <a href="openapi.json">OpenAPI document</a> · <a href="mcp-tools.json">MCP tool list</a> · <a href="api/">API reference</a>.</p>
+
 <p>A <strong>skill</strong> states a capability generically: what an actor needs to know to
 perform a task. A <strong>Tool</strong> is one concrete way to exercise it, with an
 installation, an invocation and typed inputs and outputs. One skill may be
@@ -318,7 +325,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   </thead>
   <tbody>
     <tr>
-      <td><span class="tg-tag tg-shell">shell</span></td>
+      <td><span class="tg-tag tg-shell" data-surface="shell">cli</span></td>
       <td>1</td>
     </tr>
   </tbody>
@@ -359,6 +366,8 @@ tool advertising a capability the graph cannot locate.</p>
 </h2>
     
 
+<div class="tg-filter" id="tg-filter" role="group" aria-label="Filter by how a tool is reached"><span>Reached as:</span><button type="button" aria-pressed="true" data-surface="">all</button><button type="button" aria-pressed="false" data-surface="shell">cli (1)</button><span><span id="tg-shown">1</span> of 1 shown</span></div>
+
 <div class="table-wrapper"><table>
   <thead>
     <tr>
@@ -372,15 +381,28 @@ tool advertising a capability the graph cannot locate.</p>
   </thead>
   <tbody>
     <tr>
-      <td><a id="iris-pages"></a><a href="#iris-pages"><code class="language-plaintext highlighter-rouge">iris-pages</code></a><br />who-iris catalogue and docs pages</td>
+      <td><a id="iris-pages"></a><a href="iris-pages/"><code class="language-plaintext highlighter-rouge">iris-pages</code></a><br />who-iris catalogue and docs pages</td>
       <td>Render who-iris’s docs pages, the catalogue visualiser at its declared route (what the catalogue knows, and what it records that it does not know), the library’s withheld list, and the IRIS replica’s home page.</td>
-      <td><span class="tg-tag tg-shell">shell</span></td>
+      <td><span class="tg-tag tg-shell" data-surface="shell">cli</span></td>
       <td><code class="language-plaintext highlighter-rouge">graph-rendering</code></td>
       <td>2 in / 1 out</td>
       <td><a href="https://github.com/litlfred/who-iris/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
   </tbody>
 </table></div>
+<script>
+(function(){
+  var bar=document.getElementById('tg-filter'); if(!bar) return;
+  var t=bar.nextElementSibling; while(t && !t.querySelector('table')) t=t.nextElementSibling; if(!t) return;
+  var rows=t.querySelectorAll('tbody tr'), out=document.getElementById('tg-shown');
+  bar.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return;
+    bar.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    var s=b.getAttribute('data-surface'), n=0;
+    rows.forEach(function(r){ var ok=!s || !!r.querySelector('[data-surface="'+s+'"]'); r.hidden=!ok; if(ok) n++; });
+    if(out) out.textContent=String(n); });
+})();
+</script>
+
 
           
 

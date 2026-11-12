@@ -95,7 +95,7 @@
 <link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=5386a6134c28"><link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../assets/css/avatars.css?v=f9b7f1805f0f"><script type="application/json" id="fa-declared-kinds">["attestations","catalogue","code","docs","folio","glossary","health","library","processes","qa","references","scenarios","schemas","skills","software-library","themes","tools","translation-sources"]</script><script src="../../../assets/js/harness-data.js" defer></script>
 <script src="../../../assets/js/vendor/qrcode.js" defer></script>
 <script src="../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../assets/js/kg-render.js" defer></script><script src="../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=0f40f53123fe" defer></script><script src="../../../assets/js/edit-links.js?v=b4f948dbab24" defer></script><script src="../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../assets/js/work-plan.js" defer></script><script src="../../../assets/js/process-index.js" defer></script><style>
+<script src="../../../assets/js/docs-ui.js?v=829c614a8b9d" defer></script><script src="../../../assets/js/edit-links.js?v=b4f948dbab24" defer></script><script src="../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../assets/js/work-plan.js" defer></script><script src="../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -281,16 +281,16 @@
 <div class="pt-diagram" data-panel="iris-cdn-nightly.tasks.json">
 <img src="../../../assets/img/workflows/iris-cdn-nightly.svg" alt="BPMN diagram: IRIS CDN nightly change ingest" />
 <div class="pt-layer">
-<button type="button" class="pt-mark" data-task="Task_ReadCursor" style="left:17.03%;top:2.58%" aria-expanded="false" aria-label="About step: Read the cursor of the last published run" title="About: Read the cursor of the last published run">i</button>
-<button type="button" class="pt-mark" data-task="Task_ListChanged" style="left:24.91%;top:2.58%" aria-expanded="false" aria-label="About step: List items changed since the cursor" title="About: List items changed since the cursor">i</button>
-<button type="button" class="pt-mark" data-task="Task_FetchChanged" style="left:40.67%;top:2.58%" aria-expanded="false" aria-label="About step: Fetch the changed records and bitstream lists" title="About: Fetch the changed records and bitstream lists">i</button>
-<button type="button" class="pt-mark" data-task="Task_FetchNewBytes" style="left:48.56%;top:2.58%" aria-expanded="false" aria-label="About step: Fetch only bitstreams whose checksum changed" title="About: Fetch only bitstreams whose checksum changed">i</button>
-<button type="button" class="pt-mark" data-task="Task_WriteRecords" style="left:56.44%;top:2.58%" aria-expanded="false" aria-label="About step: Write canonical records into the library" title="About: Write canonical records into the library">i</button>
-<button type="button" class="pt-mark" data-task="Call_Rebuild" style="left:64.32%;top:2.58%" aria-expanded="false" aria-label="About step: Rebuild the whole graph (sorted output)" title="About: Rebuild the whole graph (sorted output)">i</button>
-<a class="pt-go" href="iris-cdn-sign-publish.html" style="left:69.2%;top:16.97%;width:1%;height:3.64%" aria-label="Open subprocess: Sign and publish the release" title="Open subprocess: Sign and publish the release"></a>
-<button type="button" class="pt-mark" data-task="Call_SignPublish" style="left:72.2%;top:2.58%" aria-expanded="false" aria-label="About step: Sign and publish the release" title="About: Sign and publish the release">i</button>
-<button type="button" class="pt-mark" data-task="Task_AdvanceCursor" style="left:80.71%;top:47.73%" aria-expanded="false" aria-label="About step: Commit the advanced cursor" title="About: Commit the advanced cursor">i</button>
-<button type="button" class="pt-mark" data-task="Task_Review" style="left:87.97%;top:66.21%" aria-expanded="false" aria-label="About step: Review the run report; open beans for anomalies" title="About: Review the run report; open beans for anomalies">i</button>
+<button type="button" class="pt-mark" data-task="Task_ReadCursor" style="left:17.03%;top:2.49%" aria-expanded="false" aria-label="About step: Read the cursor of the last published run" title="About: Read the cursor of the last published run">i</button>
+<button type="button" class="pt-mark" data-task="Task_ListChanged" style="left:24.91%;top:2.49%" aria-expanded="false" aria-label="About step: List items changed since the cursor" title="About: List items changed since the cursor">i</button>
+<button type="button" class="pt-mark" data-task="Task_FetchChanged" style="left:40.67%;top:2.49%" aria-expanded="false" aria-label="About step: Fetch the changed records and bitstream lists" title="About: Fetch the changed records and bitstream lists">i</button>
+<button type="button" class="pt-mark" data-task="Task_FetchNewBytes" style="left:48.56%;top:2.49%" aria-expanded="false" aria-label="About step: Fetch only bitstreams whose checksum changed" title="About: Fetch only bitstreams whose checksum changed">i</button>
+<button type="button" class="pt-mark" data-task="Task_WriteRecords" style="left:56.44%;top:2.49%" aria-expanded="false" aria-label="About step: Write canonical records into the library" title="About: Write canonical records into the library">i</button>
+<button type="button" class="pt-mark" data-task="Call_Rebuild" style="left:64.32%;top:2.49%" aria-expanded="false" aria-label="About step: Rebuild the whole graph (sorted output)" title="About: Rebuild the whole graph (sorted output)">i</button>
+<a class="pt-go" href="iris-cdn-sign-publish.html" style="left:69.2%;top:16.42%;width:1%;height:3.52%" aria-label="Open subprocess: Sign and publish the release" title="Open subprocess: Sign and publish the release"></a>
+<button type="button" class="pt-mark" data-task="Call_SignPublish" style="left:72.2%;top:2.49%" aria-expanded="false" aria-label="About step: Sign and publish the release" title="About: Sign and publish the release">i</button>
+<button type="button" class="pt-mark" data-task="Task_AdvanceCursor" style="left:80.71%;top:46.19%" aria-expanded="false" aria-label="About step: Commit the advanced cursor" title="About: Commit the advanced cursor">i</button>
+<button type="button" class="pt-mark" data-task="Task_Review" style="left:87.97%;top:64.08%" aria-expanded="false" aria-label="About step: Review the run report; open beans for anomalies" title="About: Review the run report; open beans for anomalies">i</button>
 </div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
