@@ -36,7 +36,6 @@ a pandemic, was designed to provide market visibility,
 technical guidance, country, and global demand scenarios 
 to governments, United Nations partners, and private 
 sector partners. 
-©WHO / Blink Media – Natalie Naccache
 Through WHO leadership as part of other global supply 
 chain governance structures, a dedicated COVID-19 
 Supply Chain System (CSCS) was also established with 
@@ -51,6 +50,7 @@ WHO released CFE funds in early February to facilitate
 rapid implementation of priorities determined 
 by the PSCN and CSCS. 
 CFE funds facilitated distribution of critical health supplies. 
+©WHO / Blink Media – Natalie Naccache
 CFE funding in the early days of the pandemic provided 
 a solid foundation that allowed WHO and partners to more 
 effectively respond to critical response priorities over the 

@@ -1,39 +1,39 @@
 {
   "$schema": "folio-run-context/v1",
   "platform": {
-    "commit": "1d98c905b43fa37776d87a02f5a7856c925ce2bc"
+    "commit": "2120f3d46dc915be1e4f5d065e8479cb2d467b2b"
   },
   "mounts": {
     "state": "locked",
     "lock": {
       "file": "index.lock.json",
-      "sha256": "36021c92363bb091785d276bfd4531fddd413661ea1bbaee419c6dca48348cf3"
+      "sha256": "e5746931ff2404860cdc2ca5eecdc5053b602eb5a7aa21a430b2f2db574ba596"
     },
     "instances": [
       {
         "instance": "bootstrap",
         "repository": "litlfred/bootstrap",
-        "sha": "1c36aef5ab70d7e95ee6026124cd004cab0c0990"
+        "sha": "fdc84b22c30ace4b9476e56fa1cac2117e5aaf0a"
       },
       {
         "instance": "bootstrap-tools",
         "repository": "litlfred/bootstrap-tools",
-        "sha": "30c4585d5dfbf6960e3ecca86b18d131d6cd3921"
+        "sha": "b31c5346b0b2803354423511b6d18b599b7bdc41"
       },
       {
         "instance": "cat-harness",
         "repository": "litlfred/cat-harness",
-        "sha": "4041cf5620e287a98d7ddeb465dd5841185114d0"
+        "sha": "65a51c0d1285fb6d3aa0c78bfb1bda0a0e716d8b"
       },
       {
         "instance": "cat-harness-tools",
         "repository": "litlfred/cat-harness-tools",
-        "sha": "02897c223c9710d42a7a4d949131a4a5faf23c41"
+        "sha": "5fd3192292698c30f065c2ae70e96d6a748f614e"
       },
       {
         "instance": "folio-assistant-core",
         "repository": "litlfred/folio-assistant-core",
-        "sha": "1874fd5fd7a1f57ea13faf619af66d25aef31e97"
+        "sha": "fe82de48efa3a636e11fccbdf4eecf72816c79c2"
       }
     ]
   },
@@ -82,7 +82,7 @@
   "invoker": {
     "kind": "system",
     "id": "cat-harness-tools/scripts/pdf-ocr.py",
-    "script_hash": "ff1bebb840b44905431ce00179f6efade6a8129fa52e096108a4ccaab659ff78"
+    "script_hash": "8377bfbd0eeec174cac9ca82575fc0a8fbecc45a4b56e8d673b0daccdf4321bd"
   },
   "inputs": [
     {

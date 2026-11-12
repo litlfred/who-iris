@@ -71,4 +71,3 @@ Medical Sciences (CIOMS). He has published widely on ethi-
 cal, legal and social issues in biomedical research, health care 
 and public health.
 The editors
-© who/ Photolibrary

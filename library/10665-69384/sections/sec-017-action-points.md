@@ -48,20 +48,4 @@ introducing HPV, as well as different sce-
 narios of ﬁ nancial sustainability.
 • Countries not eligible for GAVI support can ask 
 for technical assistance from WHO and UNFPA, 
-for fund-raising and programme planning. 
-Ultimately, the decision on whether and when to
-introduce an HPV vaccine will depend on national
-policy in each country. An overarching consid-
-eration is the importance of positioning the HPV 
-vaccine within a comprehensive, integrated service
-delivery structure. Because this vaccine “ﬁ ts” in 
-several different programmes, effective partner-
-ships will be key to any successful introduction
-programme. Moreover, before implementing large-
-scale HPV vaccines programmes, especially in
-developing countries, several knowledge gaps will
-need to be bridged. Also, comprehensive guidelines
-and protocols for the delivery of HPV vaccines will
-need to be developed and disseminated to serve
-the implementation of the recommended action
-points included in this document.
+for fund-raising and programme planning.

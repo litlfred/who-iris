@@ -13,14 +13,41 @@ comunicación dirigida a los pacientes
 para el cambio de conducta  
 en relación con la salud sexual, reproductiva, materna, 
 de recién nacidos e infantil, y adolescentes
+Desafíos ilustrativos del sistema sanitario
 Baja demanda 
 de servicios
+Cobertura continua 
+El grado en el que los pacientes reciben el ciclo completo de intervenciones necesarias para que sea eficaz
+Cobertura del contacto   La proporción de pacientes que tienen contacto con centros, 
+prestadores y servicios pertinentes entre la población destinataria
 Seguimiento deficiente de 
 los tratamientos
-Pérdida de seguimiento
 Falta de acceso a la 
 información
-Desafíos ilustrativos del sistema sanitario
+Pérdida de seguimiento
+Antecedentes  
+La comunicación dirigida a los pacientes5  —definida como la transmisión de contenido 
+o información sobre la salud a un público específico según su estado de salud o su perfil
+demográfico (13)— representa un enfoque para interactuar con los pacientes y aumentar sus
+conocimientos sobre la salud y las conductas generadoras de salud, sobre dónde encontrar o cómo
+acceder a los servicios, o para ayudar a retenerlos en los servicios de salud cuando se necesita
+realizar un seguimiento. El enfoque incluye la transmisión de información para que las personas
+estén al tanto de los servicios y las conductas saludables, con el fin de promover la salud; la
+transmisión de recordatorios sobre servicios o tratamientos, para fomentar el cumplimiento de la
+práctica recomendada; y la transmisión de notificaciones sobre los resultados de las pruebas de
+diagnóstico (13). El envío de contenido sobre la salud a números de teléfono registrados o a otra
+información de contacto puede realizarse a través de una gama de canales digitales, que incluyen
+mensajes de texto, mensajes de voz, respuesta de voz interactiva, juegos y aplicaciones multimedia
+(aplicaciones de los dispositivos móviles), y medios sociales.
+Diversas directrices de la OMS han investigado el uso de la comunicación dirigida a los pacientes 
+a través de dispositivos móviles como una posible herramienta para mejorar la adherencia del 
+tratamiento farmacológico. En particular, las Consolidated guidelines on the use of antiretroviral 
+drugs de 2016 incluyen una recomendación sobre el uso de mensajes de texto como parte de un 
+paquete de intervenciones destinadas a apoyar el cumplimiento del tratamiento antirretroviral (15). 
+De modo similar, las Guidelines for treatment of drug-susceptible tuberculosis and patient care de 
+2017 también recomiendan el uso de mensajes de texto y llamadas de voz para apoyar la educación 
+sobre la salud y el cumplimiento del tratamiento (16). En base a esta obra, esta pregunta de la 
+directriz examina el uso de la comunicación dirigida a los pacientes a través de los dispositivos 
 5	
 Si bien en la Clasificación de intervenciones de salud digital v1.0 de la OMS se utiliza el término “cliente”(13), este puede intercambiarse por “individuo”  
 y “paciente”, cuando sea adecuado.
@@ -243,33 +270,4 @@ tener acceso a ella.
 ejemplo, en lo que respecta a la descarga de aplicaciones o el envío y la recepción del contenido. 
 Es posible que los implementadores deban negociar con los operadores de redes móviles y otros 
 socios para determinar opciones de subsidio de los costos de comunicación o sistemas de vales.
-Antecedentes  
-La calidad de la atención, definida como “el grado en el que los servicios de salud para las personas 
-y las poblaciones aumentan la probabilidad de obtener los resultados de salud deseados y son 
-coherentes con el conocimiento profesional actual”, es un componente fundamental de la CSU(76). 
-La calidad de la atención ha sido constantemente documentada como subóptima, especialmente 
-en los países de ingresos bajos y medianos. Entre las razones de la calidad baja que se citan 
-con frecuencia, se incluyen el diagnóstico erróneo de los trabajadores sanitarios, tratamientos 
-inapropiados o innecesarios y prácticas clínicas inadecuadas o poco seguras, además de una 
-variedad de problemas sistémicos, por ejemplo, la falta de productos básicos y limitaciones 
-infraestructurales (76). 
-Si bien la calidad baja de la atención es consecuencia de diversas dificultades muy arraigadas en 
-el sistema sanitario, se ha sacado provecho de las herramientas de apoyo a las decisiones que 
-ofrecen orientación a los trabajadores sanitarios como mecanismo para aumentar el cumplimiento 
-de las prácticas clínicas recomendadas (77–80). En su forma digital, los sistemas de apoyo a las 
-decisiones para los trabajadores sanitarios se definen como sistemas electrónicos cuyo fin es 
-colaborar directamente en la toma de decisiones, en los que se utilizan las características de los 
-pacientes individuales para generar recomendaciones o evaluaciones específicas de los pacientes 
-que luego se envían a los médicos para que las consideren (13,18). El apoyo digital a las decisiones 
-de los trabajadores sanitarios (13), también conocido como “sistemas de apoyo de decisiones 
-clínicas (CDSS, del inglés clinical decision support systems)”, puede utilizarse para una amplia gama 
-de interacciones clínicas, entre ellas el diagnóstico y el tratamiento, así como para facilitar las 
-derivaciones, reducir al mínimo los errores al recetar medicamentos y garantizar la prestación de 
-servicios exhaustivos y precisos (79). A nivel funcional, las herramientas de apoyo a las decisiones 
-pueden diseñarse para guiar a los trabajadores sanitarios a través de reglas y algoritmos basados 
-en protocolos clínicos, proporcionarles listas de verificación para la coordinación asistencial y las 
-derivaciones, seleccionar a pacientes según el riesgo u otras características del estado de salud y 
-ayudar en la programación y la planificación de las actividades del trabajador sanitario (13). 
-Cobertura eficaz 
-La proporción de personas que reciben servicios de salud satisfactorios entre la población destinataria
 3.7

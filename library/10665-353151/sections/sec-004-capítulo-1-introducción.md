@@ -26,6 +26,27 @@ experiencias de implementación de salud digital de la última década y se los 
 a través de un enfoque sistemático al diseño, el cálculo de costos y la implementación 
 de intervenciones de salud digital significativas que formen parte del emprendimiento 
 de salud digital.
+Un emprendimiento de salud digital abarca los procesos operativos, los datos, los sistemas y las tecnologías 
+que se usan para respaldar las operaciones del sistema sanitario, entre ellas las aplicaciones de software, los 
+dispositivos y el soporte físico del punto de servicio, así como la infraestructura subyacente de la información 
+(como la plataforma de salud digital) que presta los servicios de salud y que se acelera y se amplía con las 
+tecnologías digitales y de datos. Las arquitecturas del emprendimiento de salud digital tienen diversos grados 
+de desarrollo y de institucionalización dentro del ecosistema más amplio. Este documento distingue entre las 
+estructuras aisladas de sistemas de salud digital y las arquitecturas de intercambio de los sistemas de salud 
+digital que contribuyen a la arquitectura nacional del emprendimiento de salud digital. Las arquitecturas 
+aisladas de los sistemas de salud digital son aplicaciones desconectadas que tienen como fin cumplir un 
+objetivo del proyecto. Estas estructuras aisladas se implementan en el contexto de un proyecto de salud digital 
+independiente con plazos concretos, por lo general para probar un concepto, y es posible que sus hallazgos  
+en última instancia contribuyan a la implementación de una salud digital patrocinada por el gobierno. 
+Por otra parte, las arquitecturas de intercambio de los sistemas de salud digital consisten en aplicaciones 
+múltiples que aprovechan los estándares y están conectadas a través de un intercambio de información de 
+salud con el fin de abordar las necesidades de varios programas de salud que operan de forma coordinada 
+dentro de una arquitectura nacional de emprendimiento de salud digital. Esta guía también reconoce la 
+existencia de arquitecturas aisladas, integradas y caóticas, y dirige al usuario hacia la planificación y la inversión 
+en implementaciones de un emprendimiento de salud digital acumulativo y modular que genere beneficios 
+conjuntos por todo el sistema sanitario. Esta guía se centra en la implementación de arquitecturas de 
+intercambio de sistemas de salud digital que son de índole modular y respaldan uno o más programas en todo  
+el sector de salud y, posiblemente, aun más allá de este sector. 
 Esta guía sirve como complemento de WHO guideline: 
 recommendations on digital interventions for health system 
 strengthening (1) y ofrece un proceso pragmático para 

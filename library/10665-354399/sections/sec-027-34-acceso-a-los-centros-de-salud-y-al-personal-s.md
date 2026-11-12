@@ -12,13 +12,35 @@ toc_source: inferred
 Acceso a los centros de salud y al personal sanitario:
 telemedicina entre el paciente y 
 el prestador
+Disponibilidad de personal sanitario
+Garantizar la disponibilidad de personal sanitario
+Accesibilidad de los centros de salud
+Garantizar el acceso a los centros de salud
+Desafíos ilustrativos del sistema sanitario
 Inaccesibilidad geográfica
 Suministro insuficiente 
 de trabajadores sanitarios 
 calificados
 Demoras en la 
 prestación de la atención
-Desafíos ilustrativos del sistema sanitario
+Antecedentes 
+A pesar del progreso logrado en la reducción de la escasez del personal sanitario, los desafíos en 
+el acceso equitativo a los trabajadores sanitarios son uno de los obstáculos principales para lograr 
+todos los requisitos de una cobertura eficaz de recursos humanos para la salud (70). La falta de 
+acceso geográfico y la preferencia de que los trabajadores sanitarios trabajen en entornos urbanos 
+son algunas de las razones comprobadas del desequilibrio en la distribución de los trabajadores 
+sanitarios (71). Si bien hay una gran variedad de iniciativas en curso destinadas a reducir la falta 
+de equidad en el acceso a los trabajadores sanitarios, incluso incentivos y propuestas alternativas 
+para la capacitación, los enfoques digitales como la telemedicina también se investigaron como un 
+mecanismo para brindar servicios de salud a las comunidades marginadas (71). 
+En el National eHealth strategy toolkit de la OMS/UIT, la telemedicina se define como una 
+práctica en apoyo de “la prestación de servicios de atención médica a distancia” (18). Aunque 
+hay otras definiciones que amplían el concepto de telemedicina como el uso de las TIC con fines 
+de diagnóstico, monitoreo y tratamiento a distancia (72–75), el principio impulsor se centra en 
+la prestación de apoyo clínico remoto como forma de superar las barreras geográficas (72). La 
+telemedicina puede practicarse entre pacientes y trabajadores sanitarios que están separados por 
+la distancia, así como entre trabajadores sanitarios que se encuentran en diferentes ubicaciones. 
+El tipo de intercambio entre los protagonistas varía y puede incluir consultas remotas, el control 
 remoto de signos vitales o datos de diagnóstico y la transmisión de registros médicos, por ejemplo, 
 imágenes para estudiar, lo que suele conocerse como “almacenamiento y reenvío” (72–75).
 En 2010, la OMS hizo un informe exhaustivo del estado global de la telemedicina, en el que 
@@ -161,30 +183,4 @@ divulgación a través de agentes de salud comunitarios.
 	Ⱥ Se debe considerar el uso de la telemedicina para vincular a los pacientes que hablan lenguas 
 minoritarias con los trabajadores sanitarios que hablan el mismo idioma.
 	Ⱥ
-Antecedentes  
-El acceso a trabajadores sanitarios calificados, con las competencias, las habilidades y los 
-comportamientos adecuados, es un obstáculo aún mayor para mejorar los resultados de salud que 
-la disponibilidad de trabajadores sanitarios (70,71). La falta de acceso geográfico y la distribución 
-desigual de los trabajadores sanitarios también son una limitación para la cobertura eficaz de 
-personal sanitario (62). La aparición de los enfoques digitales, sobre todo de la telemedicina entre 
-diferentes tipos de trabajadores sanitarios, es una forma posible de superar las barreras de las 
-largas distancias para los trabajadores sanitarios calificados y la escasez de dichos profesionales.
-La telemedicina entre prestadores, al igual que la telemedicina entre el paciente y el prestador, 
-simplifica la prestación de servicios de salud a distancia y se utiliza principalmente para conectar 
-trabajadores sanitarios menos especializados con aquellos que tienen mayor especialización (72). 
-La comunicación entre los trabajadores sanitarios puede entablarse por diversos motivos, que 
-incluyen solicitar ayuda para los diagnósticos, controlar de forma remota el estado de salud de 
-los pacientes a través de los signos vitales y realizar consultas de coordinación asistencial. Esta 
-comunicación entre los trabajadores sanitarios puede ser asincrónica, a través del intercambio 
-de videos y archivos de imágenes para consultar posteriormente (lo que también se conoce 
-como intercambio de “almacenamiento y reenvío”), o sincrónica, con intercambios en tiempo 
-real (13,18,72–75).
-Aunque la telemedicina es una de las formas más establecidas de prestación de servicios de 
-salud mediante las TIC (72), esta pregunta de la directriz amplía la base de evidencia existente, 
-particularmente a la luz de los avances en facilitar los intercambios de los trabajadores sanitarios a 
-través de dispositivos móviles. 
-Disponibilidad de personal sanitario 
-Garantizar la disponibilidad de personal sanitario 
-Accesibilidad de los centros de salud 
-Garantizar el acceso a los centros de salud 
 3.5

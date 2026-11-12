@@ -1,6 +1,6 @@
 {
   "$schema": "folio-index-config/v1",
-  "instances": [
+  "layers": [
     {
       "name": "who-iris",
       "source": {
@@ -26,7 +26,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "5fdee9f3f5c16568c3ecc72675bc9e191f72ac6a",
+          "ref": "fe82de48efa3a636e11fccbdf4eecf72816c79c2",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -42,8 +42,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "5fdee9f3f5c16568c3ecc72675bc9e191f72ac6a",
-              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1890 (IRIS extraction round 2), for the round-2 re-derive."
+              "ref": "fe82de48efa3a636e11fccbdf4eecf72816c79c2",
+              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1909 and #1914 (IRIS extraction round 3), for the round-3 re-derive."
             }
           }
         }
@@ -54,7 +54,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness",
-          "ref": "4b31dcf7a0153bb10b8c6ac82fa511b7796965a7",
+          "ref": "65a51c0d1285fb6d3aa0c78bfb1bda0a0e716d8b",
           "overrides": {
             "cat-harness": {
               "whole": true
@@ -70,8 +70,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "4b31dcf7a0153bb10b8c6ac82fa511b7796965a7",
-              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1890 (IRIS extraction round 2), for the round-2 re-derive."
+              "ref": "65a51c0d1285fb6d3aa0c78bfb1bda0a0e716d8b",
+              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1909 and #1914 (IRIS extraction round 3), for the round-3 re-derive."
             }
           }
         }
@@ -82,7 +82,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "aae098132de22421f5dbbeb3e6271f98408b05ab",
+          "ref": "5fd3192292698c30f065c2ae70e96d6a748f614e",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -95,8 +95,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "aae098132de22421f5dbbeb3e6271f98408b05ab",
-              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1890 (IRIS extraction round 2), for the round-2 re-derive."
+              "ref": "5fd3192292698c30f065c2ae70e96d6a748f614e",
+              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1909 and #1914 (IRIS extraction round 3), for the round-3 re-derive."
             }
           }
         }
@@ -118,7 +118,7 @@
               "by": "litlfred",
               "on": "2026-11-11",
               "ref": "fdc84b22c30ace4b9476e56fa1cac2117e5aaf0a",
-              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1890 (IRIS extraction round 2), for the round-2 re-derive."
+              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1909 and #1914 (IRIS extraction round 3), for the round-3 re-derive."
             }
           }
         }
@@ -129,7 +129,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/bootstrap-tools",
-          "ref": "17280a38da1f2f392fb668937210b5fe05584456",
+          "ref": "b31c5346b0b2803354423511b6d18b599b7bdc41",
           "overrides": {
             "bootstrap-tools": {
               "whole": true
@@ -142,12 +142,17 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-11",
-              "ref": "17280a38da1f2f392fb668937210b5fe05584456",
-              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1890 (IRIS extraction round 2), for the round-2 re-derive."
+              "ref": "b31c5346b0b2803354423511b6d18b599b7bdc41",
+              "evidence": "litlfred, 2026-11-11 03:03Z, card 'How should the errata PR who-iris#230 land?' option 'A. Merge after #1848 + re-pin' (thread cmsg_017WNUkNK8kdDziPK58Pv6G93WQmGmifCFfexR63a3h4wh); owner's rule relayed by the merge manager 2026-11-11 11:43Z: a re-pin moves every harness to its current main. Mains after cat-harness-tools#1909 and #1914 (IRIS extraction round 3), for the round-3 re-derive."
             }
           }
         }
       }
+    }
+  ],
+  "harnesses": [
+    {
+      "name": "who-iris"
     }
   ],
   "site": {

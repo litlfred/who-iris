@@ -10,6 +10,7 @@ source_sha256: 467ea6f7fc47323a
 toc_source: inferred
 ---
 Obligations to Participants and Communities
+© WHO
 118
 CASEBOOK ON ETHICAL ISSUES IN INTERNATIONAL HEALTH RESEARCH
 ❚ THE CASE STUDIES ❚ Obligations to Participants and Communities

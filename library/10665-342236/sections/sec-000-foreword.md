@@ -13,8 +13,6 @@ The CFE has proved that a small investment at
 the right time can pay life-saving dividends and 
 dramatically reduce the direct costs of controlling 
 outbreaks and responding to emergencies. 
-Dr Tedros Adhanom Ghebreyesus 
-WHO Director-General
 In 2020, COVID-19 taught the world a hard lesson about the importance of 
 pandemic preparedness. One of the key elements of preparedness is putting 
 the capacity in place to respond immediately when a health emergency strikes. 
@@ -56,4 +54,6 @@ The CFE has proved that a small investment at the right time can pay
 life‑saving dividends and dramatically reduce the direct costs of controlling 
 outbreaks and responding to emergencies. I count on your continued 
 support to ensure WHO has the flexible resources it needs to respond 
-quickly and effectively to health emergencies.
+quickly and effectively to health emergencies. 
+Dr Tedros Adhanom Ghebreyesus 
+WHO Director-General

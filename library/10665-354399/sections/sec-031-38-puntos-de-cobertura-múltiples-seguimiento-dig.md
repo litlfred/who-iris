@@ -13,21 +13,44 @@ seguimiento digital de los servicios y
 del estado de salud de los pacientes  
 combinado con el apoyo a las decisiones y la comunicación 
 dirigida  a los pacientes
+Desafíos ilustrativos del sistema sanitario
+Continuidad insuficiente 
+de la atención
 Cobertura eficaz 
 La proporción de personas que reciben servicios de salud satisfactorios entre la población destinataria
 Cobertura continua 
 El grado en el que los pacientes reciben el ciclo completo de intervenciones necesarias para que sea eficaz
 Cobertura de recuentos
 La proporción de personas de la población destinataria que están registradas en el sistema sanitario
-Continuidad insuficiente 
-de la atención
-Falta de datos confiables 
-y de calidad
 Demoras en la prestación de 
 la atención
+Falta de datos confiables 
+y de calidad
 Cumplimiento deficiente de 
 las directrices
-Desafíos ilustrativos del sistema sanitario
+Antecedentes  
+El uso de sistemas de registro en papel en la prestación de servicios de salud introduce una carga 
+administrativa para los trabajadores sanitarios. Por otro lado, para la continuidad de la atención, 
+es esencial que los trabajadores sanitarios puedan rastrear a los pacientes con eficacia y hacer un 
+seguimiento de los servicios, ya sea dentro del centro de salud o en la comunidad (12).
+El seguimiento digital es el uso de un registro digitalizado para capturar y almacenar la información 
+médica de los pacientes con el fin de realizar un seguimiento de su estado de salud y de los 
+servicios recibidos (13,40,81). Este puede incluir formas digitales de registros en papel y registros 
+de coordinación asistencial dentro de poblaciones destinatarias específicas, así como registros 
+electrónicos de pacientes vinculados a individuos identificados de forma única. El seguimiento 
+digital posibilita el registro y el seguimiento de los servicios, y puede realizarse a través de una 
+historia clínica electrónica u otra forma digital de los registros de salud. Su objetivo es reducir los 
+lapsos en la continuidad de la atención promoviendo las consultas de seguimiento oportunas y, 
+además, puede incorporar herramientas de apoyo a las decisiones para orientar a los trabajadores 
+sanitarios en el lugar de atención sobre la ejecución de los protocolos clínicos, la prestación de los 
+servicios adecuados, la programación de los servicios posteriores y el cumplimiento de listas de 
+verificación para la coordinación asistencial apropiada.
+Para atraer a los pacientes/clientes, el seguimiento digital y los sistemas de apoyo a las decisiones 
+también pueden conectarse con intervenciones del lado de la demanda, por ejemplo, mediante 
+la comunicación dirigida a los pacientes a través de los dispositivos móviles. En este contexto, la 
+comunicación dirigida a los pacientes se define como la transmisión de recordatorios o contenido 
+de salud seleccionado para una población específica o para personas que están dentro de un grupo 
+demográfico o de salud predefinido (13).
 Con esta directriz, se intentó comprender el beneficio de un paquete integrado compuesto por 
 tres intervenciones diferentes de salud digital, con el fin de apoyar la práctica de los trabajadores 
 sanitarios, además de fomentar la demanda de servicios de salud del lado de los pacientes y 
@@ -211,32 +234,4 @@ dependerá de quién haga el seguimiento y de cómo se utilice la información. 
 programa, es importante tener en cuenta estos temas, además de las políticas locales sobre las 
 identificaciones digitales, para garantizar que no cause ningún daño.
 	Ⱥ
-Antecedentes 
-Definido en términos generales como la administración y prestación de contenidos educativos 
-y de capacitación en formato digital para los profesionales sanitarios, el aprendizaje electrónico 
-surgió como un enfoque que puede aumentar el acceso de los trabajadores sanitarios a los recursos 
-educativos y de capacitación (18). Más recientemente, el amplio alcance de los dispositivos móviles 
-ha impulsado el uso de estas tecnologías para brindar contenido de capacitación a los trabajadores 
-sanitarios, lo que también se conoce como “aprendizaje móvil”. Este contenido de capacitación 
-puede intercambiarse mediante el uso de canales como mensajes de texto SMS, el servicio de 
-mensajes multimedia, aplicaciones, juegos y otras formas de modalidad digital (82). En particular, 
-los países de ingresos bajos y medianos y las áreas remotas con infraestructura de TIC limitada, 
-además de barreras geográficas, pueden sacar provecho de los dispositivos móviles para aumentar 
-al máximo el acceso al contenido educativo y la educación médica continua (82). 
-Si bien diversos recursos de la OMS hacen referencia al uso de las herramientas digitales para 
-fortalecer al personal sanitario (15,70,71,83), no se examinan las consideraciones específicas sobre 
-la capacitación en salud digital para los trabajadores a través de dispositivos móviles. Con esta 
-pregunta de la directriz, se evalúan las posibles contribuciones y repercusiones de la transmisión 
-de capacitación digital y contenidos educativos a través de dispositivos móviles/aprendizaje móvil, 
-como parte de las iniciativas complementarias que responden a las necesidades del personal de 
-capacitación en el servicio y formación continua.
-Análisis general de la evidencia
-A continuación, se presenta un resumen de la evidencia sobre la transmisión de capacitación 
-digital y contenidos educativos para los trabajadores sanitarios a través de dispositivos móviles/
-aprendizaje móvil. En el Suplemento web 1, se incluye el marco de trabajo completo a partir de 
-la evidencia hasta la toma de decisiones correspondiente a esta intervención y se describe la 
-evidencia disponible sobre la eficacia, la aceptabilidad, la factibilidad, el uso de recursos y las 
-repercusiones para la equidad y los derechos de género y humanos.
-Cobertura eficaz 
-La proporción de personas que reciben servicios de salud satisfactorios entre la población destinataria
 3.9

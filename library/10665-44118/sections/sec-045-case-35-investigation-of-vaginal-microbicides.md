@@ -82,4 +82,3 @@ women-controlled method. Condoms, though very effective against the transmission
 HIV remain under the control of the male partner.
 Investigation of vaginal microbicides
 Case 35
-© WHO
