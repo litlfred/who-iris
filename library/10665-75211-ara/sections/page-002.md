@@ -12,5 +12,5 @@ granularity: page
 ---
 دليل الإستراتيجية الوطنية للصحة الإلكترونية
 
-فاجع لامالا (©)
-001 ب
+@) World Health
+WSs Organization

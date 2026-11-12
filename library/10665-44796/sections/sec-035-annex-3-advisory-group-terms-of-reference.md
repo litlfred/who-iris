@@ -117,7 +117,3 @@ Director-General.
 The Director-General will make available the necessary human and financial 
 resources to support the work of the Advisory Group.
 40
-Annex 4
-Guiding Principles for the development of 
-Terms of Reference for current and potential future 
-WHO global influenza surveillance and response

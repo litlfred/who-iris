@@ -9,10 +9,66 @@ source_pdf: 10665-342236.pdf
 source_sha256: 5248503e605d865a
 toc_source: outline
 ---
-2  https://embracelebanon.org/impact/
+On 4 August, amidst a rapidly growing COVID-19 
+outbreak in the Lebanese capital Beirut, a large amount 
+of ammonium nitrate stored in a warehouse at the 
+city’s port exploded, causing widespread casualties and 
+material damage. Several hospitals in the area around 
+the port were either partially or completely destroyed. 
+In all, almost 200 people were killed and 6500 wounded 
+by the blast. Intensive care units throughout the city 
+of more than 2 million people were already at capacity 
+managing COVID-19 patients, as a large influx of injured 
+and disabled patients flooded in. The National Hotline 
+for Emotional Support and Suicide Prevention was 
+overwhelmed, and the Ministry of Public Health (MOPH) 
+central drug warehouse, located near the Beirut port, 
+was severely damaged. 
 ©WHO / Hala Habib
 WHO provided essential supplies, incuding PCR test kits, to strengthen 
 COVID-19 testing capacity in Beirut. 
+2  https://embracelebanon.org/impact/
+More than US$ 2 million was released within 24 hours 
+through the CFE to respond to the urgent humanitarian 
+health needs following the explosions. For the next 
+three months these CFE funds enabled WHO Lebanon 
+to support the MOPH and partners to undertake 
+numerous response measures. These included: 
+•	 Rapid assessments of damage and critical needs, 
+including Post Disaster Rapid Hospital Assessments 
+in nine affected hospitals, followed by needs assessments 
+in four other less damaged hospitals and centres 
+including one specializing in the treatment of childhood 
+cancer. The Karantina Governmental Hospital, which 
+serves vulnerable communities near the port, was 
+severely affected. WHO developed an action plan for 
+Karantina, which was used as a road map for partners 
+and donors to contribute additional funds for its 
+rehabilitation. Additional assessments in two hospitals 
+were used to determine the extent of injuries, disabilities 
+and impairments caused by the explosion; inform donors 
+and partners on the support required and interventions 
+needed; rapidly document the damage; identify 
+necessary repairs, equipment and supplies; and establish 
+medium‑term plans for the resumption of services.
+•	 WHO helped ensure continuity of essential services 
+for HIV, oncology, dialysis, access to essential 
+medications, as well as access to timely phone-based 
+mental health and psychosocial support. CFE funds 
+supported the relocation of the National AIDS Program, 
+including furniture, equipment, medicines, and 
+supplies, from the location that was damaged after the 
+Beirut port explosions to a temporary location. WHO 
+also supported the relocation of the MOPH central 
+drug warehouse. WHO shipping, customs clearance, 
+and logistics support expedited the transportation of 
+essential medications to end users. WHO supported 
+the procurement of medication to cover the treatment 
+of 850 paediatric cancer patients, and dialysis supplies 
+sufficient for 9000 sessions. In addition, WHO 
+supported the National Hotline for Emotional Support 
+and Suicide Prevention, “the 1564 lifeline,” which 
+is operated by the NGO Embrace.2 
 At time of writing, the health sector coordination 
 mechanism that was established in the aftermath of 
 the Beirut port explosions was still functional. The action 
@@ -58,40 +114,3 @@ reference lab for COVID-19 RT-PCR testing.
 ©WHO 
 The CFE released more than US$ 2 million within 24 hours to respond to the urgent humanitarian health needs following the Beirut explosion. For the next 
 three months, these CFE funds enabled WHO Lebanon to support the Ministry of Public Health and partners to undertake numerous response measures.
-Severe Tropical Cyclone (TC) Harold made landfall in 
-Vanuatu on the morning of 6 April 2020. By midday, 
-it was a category five storm lasting for two days, with 
-winds up to 215 kilometres per hour. Causing widespread 
-and severe damage, including collapsed and damaged 
-buildings and wind-strewn debris, TC Harold resulted in 
-multiple deaths and injuries, water- and vector-borne 
-illness, and complicated the national COVID-19 response. 
-The cyclone left interrupted public services, contamination 
-of water sources, water and food shortages, and 
-infrastructural damage to many buildings, including 
-health facilities.
-By 10 April, the CFE released US$ 185 680 to support the 
-Vanuatu Ministry of Health for three months to conduct 
-an emergency response assessment, finalize the Tropical 
-Cyclone Harold Health Sector Response Plan, support 
-national emergency medical team (EMT) deployment, 
-health sector coordination, health information 
-management, surveillance, and rapid facility repairs.
-The National Health Emergency Operations Center 
-(NHEOC) was already activated due to the COVID-19 global 
-pandemic. To guide the TC Harold response, on 7 April, 
-the National Health Incident Management Team met to 
-refine the NHEOC structure and developed the Tropical 
-Cyclone Harold Health Sector Response Plan. This plan 
-included two objectives: to initiate (1) health facility and 
-community impact and needs assessment, and (2) priority 
-response activities which aimed to:
-•	 provide life-saving services and essential medical support;
-•	 maintain minimum standards for provision and access 
-to health services;
-•	 minimize the risk of communicable disease outbreaks 
-and ensure access to treatment for chronic infectious 
-diseases, including tuberculosis and HIV;
-•	 minimize the risk of non-communicable diseases, 
-including continued access to medicines, nutrition 
-and psycho-social support.

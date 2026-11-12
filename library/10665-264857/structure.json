@@ -8,9 +8,12 @@
   "pages": 8,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T21:01:49Z",
+  "mtime": "2026-11-11T08:38:18Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "languages": [
+   "fr"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -93,66 +96,6 @@
   },
   {
    "level": 2,
-   "title": "un",
-   "page": 3,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "591"
-  },
-  {
-   "level": 2,
-   "title": "comme",
-   "page": 6,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "594"
-  },
-  {
-   "level": 2,
-   "title": "bonne",
-   "page": 6,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "594"
-  },
-  {
-   "level": 2,
-   "title": "methode",
-   "page": 6,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "594"
-  },
-  {
-   "level": 2,
-   "title": "On",
-   "page": 6,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "594"
-  },
-  {
-   "level": 2,
    "title": "REMERCIEMENTS",
    "page": 7,
    "source": "inferred",
@@ -208,48 +151,6 @@
    "page": 8,
    "source": "inferred",
    "number": "S",
-   "confidence": 0.9,
-   "evidence": [
-    "style",
-    "number",
-    "numbered-style"
-   ],
-   "page_label": "596"
-  },
-  {
-   "level": 1,
-   "title": "YOUNG,",
-   "page": 8,
-   "source": "inferred",
-   "number": "10",
-   "confidence": 0.9,
-   "evidence": [
-    "style",
-    "number",
-    "numbered-style"
-   ],
-   "page_label": "596"
-  },
-  {
-   "level": 1,
-   "title": "MCGREGOR,",
-   "page": 8,
-   "source": "inferred",
-   "number": "16",
-   "confidence": 0.9,
-   "evidence": [
-    "style",
-    "number",
-    "numbered-style"
-   ],
-   "page_label": "596"
-  },
-  {
-   "level": 1,
-   "title": "GREENWOOD,",
-   "page": 8,
-   "source": "inferred",
-   "number": "18",
    "confidence": 0.9,
    "evidence": [
     "style",
@@ -406,74 +307,14 @@
    "title": "Programme",
    "level": 2,
    "page_start": 2,
-   "page_end": 3,
-   "n_chars": 2584,
-   "n_words": 421,
-   "label_start": "590",
-   "label_end": "591"
-  },
-  {
-   "id": "sec-003-un",
-   "number": null,
-   "title": "un",
-   "level": 2,
-   "page_start": 3,
-   "page_end": 6,
-   "n_chars": 8964,
-   "n_words": 1436,
-   "label_start": "591",
-   "label_end": "594"
-  },
-  {
-   "id": "sec-004-comme",
-   "number": null,
-   "title": "comme",
-   "level": 2,
-   "page_start": 6,
-   "page_end": 6,
-   "n_chars": 10,
-   "n_words": 2,
-   "label_start": "594",
-   "label_end": "594"
-  },
-  {
-   "id": "sec-005-on",
-   "number": null,
-   "title": "On",
-   "level": 2,
-   "page_start": 6,
-   "page_end": 6,
-   "n_chars": 508,
-   "n_words": 78,
-   "label_start": "594",
-   "label_end": "594"
-  },
-  {
-   "id": "sec-006-methode",
-   "number": null,
-   "title": "methode",
-   "level": 2,
-   "page_start": 6,
-   "page_end": 6,
-   "n_chars": 0,
-   "n_words": 0,
-   "label_start": "594",
-   "label_end": "594"
-  },
-  {
-   "id": "sec-007-bonne",
-   "number": null,
-   "title": "bonne",
-   "level": 2,
-   "page_start": 6,
    "page_end": 7,
-   "n_chars": 7209,
-   "n_words": 1085,
-   "label_start": "594",
+   "n_chars": 19396,
+   "n_words": 3036,
+   "label_start": "590",
    "label_end": "595"
   },
   {
-   "id": "sec-008-remerciements",
+   "id": "sec-003-remerciements",
    "number": null,
    "title": "REMERCIEMENTS",
    "level": 2,
@@ -485,7 +326,7 @@
    "label_end": "595"
   },
   {
-   "id": "sec-009-summary",
+   "id": "sec-004-summary",
    "number": null,
    "title": "SUMMARY",
    "level": 2,
@@ -497,7 +338,7 @@
    "label_end": "595"
   },
   {
-   "id": "sec-010-1-antitetanus-antibody-responses",
+   "id": "sec-005-1-antitetanus-antibody-responses",
    "number": "1",
    "title": "ANTITETANUS ANTIBODY RESPONSES",
    "level": 1,
@@ -509,7 +350,7 @@
    "label_end": "595"
   },
   {
-   "id": "sec-011-bibliographie",
+   "id": "sec-006-bibliographie",
    "number": null,
    "title": "BIBLIOGRAPHIE",
    "level": 2,
@@ -521,50 +362,14 @@
    "label_end": "596"
   },
   {
-   "id": "sec-012-s-williamson-n-a",
+   "id": "sec-007-s-williamson-n-a",
    "number": "S",
    "title": "WILLIAMSON, N. A.",
    "level": 3,
    "page_start": 8,
    "page_end": 8,
-   "n_chars": 484,
-   "n_words": 81,
-   "label_start": "596",
-   "label_end": "596"
-  },
-  {
-   "id": "sec-013-10-young",
-   "number": "10",
-   "title": "YOUNG,",
-   "level": 1,
-   "page_start": 8,
-   "page_end": 8,
-   "n_chars": 677,
-   "n_words": 113,
-   "label_start": "596",
-   "label_end": "596"
-  },
-  {
-   "id": "sec-014-16-mcgregor",
-   "number": "16",
-   "title": "MCGREGOR,",
-   "level": 1,
-   "page_start": 8,
-   "page_end": 8,
-   "n_chars": 105,
-   "n_words": 19,
-   "label_start": "596",
-   "label_end": "596"
-  },
-  {
-   "id": "sec-015-18-greenwood",
-   "number": "18",
-   "title": "GREENWOOD,",
-   "level": 1,
-   "page_start": 8,
-   "page_end": 8,
-   "n_chars": 250,
-   "n_words": 43,
+   "n_chars": 1598,
+   "n_words": 269,
    "label_start": "596",
    "label_end": "596"
   }
@@ -572,7 +377,7 @@
  "diagnostics": {
   "pages_without_text": 0,
   "likely_scanned": false,
-  "toc_entries": 17,
+  "toc_entries": 9,
   "toc_inferred_entries": 17,
   "toc_inferred_mean_confidence": 0.729,
   "toc_inferred_empty_share": 0.188,
@@ -583,8 +388,58 @@
    "count": 0,
    "items": []
   },
-  "sections": 17,
-  "chars_total": 29314,
-  "furniture_lines_stripped": 12
+  "sections": 9,
+  "chars_total": 29517,
+  "furniture_lines_stripped": 12,
+  "headings_tidied": [
+   {
+    "title": "un",
+    "page": 3,
+    "action": "dropped",
+    "why": "opens in lower case"
+   },
+   {
+    "title": "comme",
+    "page": 6,
+    "action": "dropped",
+    "why": "opens in lower case"
+   },
+   {
+    "title": "bonne",
+    "page": 6,
+    "action": "dropped",
+    "why": "opens in lower case"
+   },
+   {
+    "title": "methode",
+    "page": 6,
+    "action": "dropped",
+    "why": "opens in lower case"
+   },
+   {
+    "title": "On",
+    "page": 6,
+    "action": "dropped",
+    "why": "a single short word"
+   },
+   {
+    "title": "YOUNG,",
+    "page": 8,
+    "action": "dropped",
+    "why": "ends with a comma"
+   },
+   {
+    "title": "MCGREGOR,",
+    "page": 8,
+    "action": "dropped",
+    "why": "ends with a comma"
+   },
+   {
+    "title": "GREENWOOD,",
+    "page": 8,
+    "action": "dropped",
+    "why": "ends with a comma"
+   }
+  ]
  }
 }

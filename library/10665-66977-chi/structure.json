@@ -8,9 +8,18 @@
   "pages": 4,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T21:37:47Z",
+  "mtime": "2026-11-11T09:07:20Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "ocr_pages": [
+   {
+    "page": 3,
+    "reason": "58 of 209 words repeat the word before: overprinted (fake bold) text"
+   }
+  ],
+  "languages": [
+   "zh"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -99,20 +108,18 @@
    "physical": 3,
    "label": "3",
    "source": "printed",
-   "confidence": 0.85,
+   "confidence": 0.7,
    "evidence": [
-    "printed",
-    "pdf-labels"
+    "printed"
    ]
   },
   {
    "physical": 4,
    "label": "4",
    "source": "printed",
-   "confidence": 0.85,
+   "confidence": 0.7,
    "evidence": [
-    "printed",
-    "pdf-labels"
+    "printed"
    ]
   }
  ],
@@ -136,8 +143,8 @@
    "level": 1,
    "page_start": 1,
    "page_end": 4,
-   "n_chars": 5495,
-   "n_words": 637,
+   "n_chars": 5474,
+   "n_words": 598,
    "label_start": null,
    "label_end": "4"
   },
@@ -169,7 +176,7 @@
    "items": []
   },
   "sections": 3,
-  "chars_total": 5652,
-  "furniture_lines_stripped": 3
+  "chars_total": 5631,
+  "furniture_lines_stripped": 2
  }
 }

@@ -146,8 +146,4 @@ Cobertura continua
 El grado en el que los pacientes reciben el ciclo completo de intervenciones necesarias para que sea eficaz
 Cobertura del contacto   La proporción de pacientes que tienen contacto con centros, 
 prestadores y servicios pertinentes entre la población destinataria
-3.6	
-Cobertura continua y del contacto:
-comunicación dirigida a los pacientes 
-para el cambio de conducta  
-en relación con la salud sexual, reproductiva, materna,
+3.6

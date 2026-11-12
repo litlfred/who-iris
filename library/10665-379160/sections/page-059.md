@@ -10,75 +10,87 @@ source_sha256: 4a6b26a0e704cfd0
 text_source: ocr
 granularity: page
 ---
-,7618 2 ا نع نل. طذا//:وصاخط) .2022 بطالدء1]411 نعم ستالد8 .[عمدطهنهل عصنتاده] عمدطهغه2آ تسسخلصء مم0 طتلوع1[دم .54
-[تم الاطلاع في 13 كانون الأول/ديسمبر 2022] .(2022 لأ طاترءءء1 13 لعووعءعة
-,77638 2 مااع نل. طذا//:وصاخط) .2022 بطخلدء1]411 نع تمستالةد8 .[عمدطهنهل عصنتاده] عمدطهغه2آ تسسخلصء مم0 طتلدع1 1م .55
-[تم الاطلاع في 13 كانون الأول/ديسمبر 2022] .(2022 اه تتاءءء1 13 0عووعععة
-6. منظمة الصحة العالمية. تسجيل الأحوال المدنيّة والإحصاءات الحيويّة [موقع إلكتروني]. منظّمة الصحة العالميّة. (-م0خاء0116ع-02]8/08]8/غصذ. مط وو //:وماغط
-ولك )-وع ]1111-5215 -لصه-صه هأ دزعء-11011ه/0015])) [بالإنكليزية فقط]
-7. منظمة الصحة العالمية. المُضي قُدُمًا: تقرير حول رصد وقائع الأحوال المدنية باستخدام تكنولوجيا المعلومات. جنيف؛ سويسرا: منظّمة الصحّة العالميّة. 2013 (//:وم)1!4
-ازع 10م صطءع]- هه مصاع سنمن- دأمع زع -8-01-1121 0110 0121 01-0122 رع :1-1 1ع 01 لط /طع ]1 /ش/كده ادع 1 1طنام/أدذ. مطنى .روه تم الاطلاع في 27 كانون
+54. mHealth Compendium Database [online database]. Baltimore: K4Health; 2022. (https://lib.digitalsquare.io/handle/123456789/77618,
+
+[تم الاطلاع في 13 كانون الأول/ديسمبر 2022[ .)2022 ‎accessed 13 December‏
+
+55. mHealth Compendium Database [online database]. Baltimore: K4Health; 2022. (https://lib.digitalsquare.io/handle/123456789/77638,
+
+[تم الاطلاع في 13 كانون الأول/ديسمبر 2022[ .)2022 ‎accessed 13 December‏
+
+56 منظمة الصحة العالمية. تسجيل الأحوال المدنيّة والإحصاءات الحيويّة [موقع إلكتروني]. منظّمة الصحة العالميّة. ‎https://www.who int/data/data-collection-)‏
+‎((tools/civil-registration-and-vital-statistics-(crvs‏ [بالإنكليزية فقط]
+
+7. منظمة الصحة العالمية. المُضي ‎A‏ تقرير حول رصد وقائع الأحوال المدنية باستخدام تكنولوجيا المعلومات. ‎sls‏ سويسرا: منظّمة ‎Sel)‏ العالميّة. 2013 (//:وم)1!4
+‎«www.who.int/publications/i/item/move-it-report-on-monitoring-of-vital-events-using-information-technology‏ تم الاطلاع في 27 كانون
 الثاني/يناير 2023) [بالإنكليزية فقط]
-طغلوع 1 لهصمنغول! و مصقط0 تعل0هن عستووءعء20م قتصتهاء عتدمناععاء 027 15أولإ[هصة أومء-]أعمعء8 .لخ 560001 ,11 عسصه1ا ,1 4000 ,ل سممعتكمملط .58
-:11.501ن. 12/5/6054757 /طعمره زحتدما ,اس عغدمء /تمء. زحتنما. صعمزه زط //:ومغطا) .054757ع1:12)5(:6 نجهل8ا 2022 .دعمره 8311 .عتمعطءة ععمدسسكم1]
-[تم الاطلاع في 3 آذار/مارس 2023] (2023 «اععة]3 3 ل0أووءء30
-:.ع2] وعنواعووقة أطخ :(0آ111) دلدعطاء8 .تستتلصء محطمء '03ننة عققء نطألهعط ه10 تإعصمحم ع1تماه]8 .اءء زه ععصفسح :001 لمنهة ععصقصاط طخلوع8 .59
-0 لعووعععة ,01م.2015-ع اماع 0_حصب لسعم حصه 0 - تزع صه]/8-ع 1 زط 0-110 15/10/1117 10205/20جز نا اطع ممع -م نت /ع01شاعء زمنرعقط.//:وماغط) .2015
-[تم الاطلاع في 30 كانون الثاني/يناير 2023] (2023 13211313
-‎ -58‏ ا نع نل. طذا//:وصاغط) .2022 بطخلدء1]411 نع تمستالةد8 .[عمدطهنهل عسنتاده] عمدطهغه2آ تسسخلصء ممه طتلوع 11م .60
-[تم الاطلاع في 3 كانون الأول/ديسمبر 2 .(2022 تتعطدروءع7آ1 13 اعووعععة
--ماء111 لع101محتط عط 02 15ةن هصخ تإعمعنء 0051-8115 .1ج أء بخ 121010 ,510 أوناطتكا 1ل وأعمع]ا ,لل تدموعاوع21 خلا عناع010م2ع] ,0134 معقطسظ .61
-//نوماغط) .18:1:15 صول 2022 .وعع ع5 طالدع]ط صا وتع لمم .فتسممعمةظ]' ص زمع خلصهاط) .تسعاوتزك عسمتأرممع1 لصه ,عسصتاعع 810 ,عمصتممواط لعموظ
-[تم الاطلاع في 7 آذار/مارس 2023] (2023 تاعئنة]3 7 لعدوءءعة ,1.018/10.3389/5135.2021.787894هل
+
+58. Nonvignon J, Addo R, Wang H, Seddoh A. Benefit—cost analysis of electronic claims processing under Ghana’s National Health
+Insurance Scheme. BMJ open. 2022 May 1;12(5):e054757. (https://bmjopen.bmj.com/content/bmjopen/12/5/e054757.full.pdf,
+accessed 3 March 2023) [2023 ‏[تم الاطلاع في 3 آذار/مارس‎
+
+59. Health Finance and Governance Project. Mobile money for health: case study compendium. Bethesda (MD): Abt Associates Inc.;
+2015. (https://www.hfgproject.org/wp-content/uploads/2015/10/HFG-Mobile-Money-Compendium_October-2015.pdf, accessed 30
+January 2023) [2023 ‏[تم الاطلاع في 30 كانون الثاني/يناير‎
+
+60. mHealth Compendium Database [online database]. Baltimore: K4Health; 2022. (https://lib.digitalsquare.io/handle/123456789/77582,
+
+[تم الاطلاع في 13 كانون الأول/ديسمبر 2022[ .)2022 ‎accessed 13 December‏
+
+61. Ruhago GM, Kapologwe NA, Ngalesoni FN, Kengia JT, Kibusi SM, Kalolo A, et al. Cost-Efficiency Analysis of the Improved Web-
+Based Planning, Budgeting, and Reporting System. (PlanRep) in Tanzania. Frontiers in Health Services. 2022 Jan 18;1:15. (https://
+doi.org/10.3389/frhs.202 1.787894, accessed 7 March 2023) [2023 ‏[تم الاطلاع في 7 آذار/مارس‎
+
 2. منظمة الصحة العالمية. استخدام التكنولوجيات الرقمية في دعم عملية تحديد الفئات السكانية الفقيرة والضعيفة لإدراجها ضمن خطط التغطية الصحية: رؤى مستمدة من
 كمبوديا والهند ورواندا. جنيف: منظمة الصحّة العالميّة؛ 2022. الرخصة: ترخيص إسناد المشاع الإبداعي - غير التجاري - المشاركة بالمثل 3.0» المنظمات الحكومية
-الدولية (201/10665/365368هط/15ة/أه1.مط/ى.ؤومم5://9م)]ط) (160 3.0 2810-54: تم الاطلاع في 3 آذار/مارس 2023) [بالإنكليزية فقط]
-//:صاغط) .(22:7)1 غع0 2020 .كمه عه امصمآ 8111 .ععمع عم ممتلم] ع تحلغهامصصا :أونا لانائعهط طتلدعط معأفقط م عسنل11ها8 .5 /تمطود بخ وعط81115 .63
-[تم الاطلاع في 7 آذار/مارس 2023] (2023 ذاءة]/1 7 لءووعءء2 ,7-2018-000327ممصتزسطط/10.1136/م:1.5أمل.جل
+الدولية ‎NC-SA 3.0 IGO) (https://apps. who. int/iris/handle/10665/365368)‏ تم الاطلاع في 3 آذار/مارس 2023) [بالإنكليزية فقط]
 
-,2-7626 2 م انع نل. طذنا//:وصاغط) .2022 بطخلدء1]411 نعم ستالد8 .[عمدطهنهل عصنتاده] عمدطمغه2آ تسسخلصء مم0 طتلدع 11م .64
-[تم الاطلاع في 3 كانون الأول/ديسمبر 2 .(2022 تتعطدروءع7آ1 13 اعووعععة
+63. Mishra A, Sahay 5. Building a master health facility list: innovative Indian experience. BMJ Innovations. 2020 Oct 22;7(1). (http://
+dx.doi.org/10.1136/bmjinnov-2018-000327, accessed 7 March 2023) [2023 ‏[تم الاطلاع في 7 آذار/مارس‎
 
-.قاععمكث ووعء2:0 220 ادوماع 10م تتاعع]” نقتدع :5101 صا مأو 1 نامعن «آ00171 لوأزع 1[ ن]8 عط 1ه مهنع هلمخاص] ..آ عاعمل زعمع]' ,مآ عالامعتستصةاك .65
-2022:118-22 .طألوهع عناطسنظ لصة عنه0 لوعتستان صا برع ه[امصاعع]” ممه دعأ هتصسمكم]
+64. mHealth Compendium Database [online database]. Baltimore: K4Health; 2022. (https://lib.digitalsquare.io/handle/123456789/77626,
+accessed 13 December 2022). [2022 ‏[تم الاطلاع في 13 كانون الأول/ديسمبر‎
 
--67 ,39:1 :2020 الإاتعاتمة 0 وععاتكتع5 ععمعرعقع 18 اوعتلع11 ,نكتمألدممع ]1 0218[ تكتمنه ترعوط0 طألوعط 1دطه01 .ااعلنتهك؟ برانسظ .66
-‎٠31‏ :01 74
+65. Stanimirovic D, Tepej Jocic L. Introduction of the EU Digital COVID Certificate in Slovenia: Technological and Process Aspects.
+Informatics and Technology in Clinical Care and Public Health. 2022:118-22.
 
-:1ن12501 رع كتأععل؟ء ,لع 1امطزة 2 0 اع حم ماع تلع عط" .1ه أء ,سآ أع1تتمع1]05 ,8 عامنتتوط يكل وتتتداعع 111 خالا مععتطادظ ,01 0م0120 ,هل 28ناه5 .67
-27 2015 .طألوعط عتحلاعنلمرمعخ] .1أمء060م تإلدطة :(0آ8011) الداع 116ل تنامطج1 دا دعطتامعانه عناعط م1 001 (خ لآ 518) ممناع0-2]-ع مده نمم
-.9 ه22
+66. Emily Vardell. Global Health Observatory Data Repository, Medical Reference Services Quarterly. 2020; 39:1, 67-
+74, DOI: 10.1080/02763869.2019.1693231
 
-00117 0 عستلمه 1010-10 01 لإعشتتناععة عطا 101108م 123 .لث طناوهج0 ,عل نكاهزل8 ,0 12متصفنتهجآ بك[ دعنده8 صول ,0 عنزإملصيعة01 .68
-معم0 81311 .قتتعع8]1 ,ومع 2آ صا كل أمدمط لوتتعمعع عط غه 001) نزعه1مصتصصسع) عتأوممعدتل عتدمتاععاء مج 04 دمناع نبلم صا عط حاعنمغتط) ونهل
-تم الاطلاع في 3 آذار/مارس] (2023 أعنة]3 3 اأ5وعءعة ,2020-000938-وه زحطط/1.01:8/10.1136هل. جل //نمقط ) .1:10)1(:6000938 م31 2021 .تلقنو
-[2023
+67. Souza JP, Oladapo OT, Bohren MA, Mugerwa K, Fawole B, Moscovici L, et al. The development of a simplified, effective, labour
+monitoring-to-action (SELMA) tool for better outcomes in labour difficulty (BOLD): study protocol. Reproductive health. 2015 May
+26;12(1):49.
 
-,377696 م مااع نل. طذا//:وصاخط) .2022 بطخلدء1]411 نع تمستالةد8 .[عمدطهنهل عصنتاده] عمدطمغهجآ تمسخلصء مم0 طخلوع11دم .69
-[تم الاطلاع في 3 كانون الأول/ديسمبر 2 .(2022 تتعطدروءع7آ1 13 اعووعععة
+68. Olagundoye O, van Boven K, Daramola O, Njoku K, Omosun A. Improving the accuracy of ICD-10 coding of morbidity/mortality
+data through the introduction of an electronic diagnostic terminology tool at the general hospitals in Lagos, Nigeria. BMJ Open
+Quality. 2021 Mar 1;10(1):e000938. ( http://dx.doi.org/10.1136/bmjoq-2020-000938, accessed 3 March 2023) ‏تم الاطلاع في 3 آذار/مارس]‎
+2023]
 
-,377608 م انع نل. طذا//:وصاغط) .2022 بطخلدء1]411 نعم ستالةد8 .[عمدطهنهل عصنتاده] عمدطهغه2آ تلدع مم0 طتلوع 11م .70
-[تم الاطلاع في 3 كانون الأول/ديسمبر 2 .(2022 تتعطدروءع7آ1 13 اعووعععة
+69. mHealth Compendium Database [online database]. Baltimore: K4Health; 2022. (https://lib.digitalsquare.io/handle/123456789/77696,
+accessed 13 December 2022). [2022 ‏[تم الاطلاع في 13 كانون الأول/ديسمبر‎
 
-,5775ماع نل. طذا//:وصاغط) .2022 بطخلدء 1411 :عتم ستالد8 .[عمدطهنهل عصنتاده] عمدطهغه2آ تسسخلصء مم0 طخلوع 11م .71
-[تم الاطلاع في 13 كانون الأول/ديسمبر 2022] .(2022 نزءطاترءءء2 13 0نووعع30
+70. mHealth Compendium Database [online database]. Baltimore: K4Health; 2022. (https://lib.digitalsquare.io/handle/123456789/77608,
+accessed 13 December 2022). [2022 ‏[تم الاطلاع في 13 كانون الأول/ديسمبر‎
 
-عأع 32 10 1235ع]5[/5 1210117381012 عتطاموئمعمعع عطاونآا .21 أء ,آنآ مصتعم ناد ,11 حداملا ,1 اعصصدل8 ,2 طاعظاهمعطن ,ةق تتطنل8 ,80/آ ممنستسصة0 .72
--1_1(:598اممنا1:210)5 نهل« 2014 .وعقوء015 ذنامناعء 101 01 أقتتناه1 عط .أتممع؟ أعء زمثام 1104م تععطه طم لمعم سوعا رمه أمساععة؟؟ متام
-[تم الاطلاع في 7 آذار/مارس 2023] (2023 اععة]/ة 7 اء5ووءعة ,11285 ز/كتلكصة/10.1093/عنه.أمل//:وماخط)
+71. mHealth Compendium Database [online database]. Baltimore: K4Health; 2022. (https://lib.digitalsquare.io/handle/123456789/77544,
+accessed 13 December 2022). [2022 ‏[تم الاطلاع في 13 كانون الأول/ديسمبر‎
 
-2101 01 تلع 0111 :1 قوط - جرهددل02 عتتاعع] تطعتتة طالدعطء لعدهط- ازعو م0 - 5غ 21 ملسا طخلهع 1 (مع)14639-1:2012 150/11 .73
-حلع:1-:14639 :ا:ه0:5]0:15كت#تس/محاه/عه.150.كه110نا1ه15.معصة//:وماغط) .ممنخهعتصدع0 كلعملصها5 أهدصم له معام[ بوتتعمع0 .وع كتأم تائم طالمعلاء
-[تم الاطلاع في 21 تشرين الثاني/نوفمبر 2017] (2017 ءطاصاء:2101 21 0عووععءة ,رمع: 1:11
+72. Gammino VM, Nuhu A, Chenoweth P, Manneh F, Young RR, Sugerman DE, et al. Using geographic information systems to track
+polio vaccination team performance: pilot project report. The Journal of infectious diseases. 2014 Nov 1;210(suppl_1):S98-101.
+(https://doi.org/10.1093/infdis/jit285, accessed 7 March 2023) [2023 ‏[تم الاطلاع في 7 آذار/مارس‎
 
-م مقط عنتةء ععامعاة ععنتقطء015-]05ئ7 :101 مقطا االوعط عستتقطة لتته عستووعءعة .11 لصباعع 118 ,.1 ,تتمعلهت!ا ,.5 باءمكا ,. آلا ,تإل 2200[ .74
-.5://001مغط) .190)1(:1-6زعع12 2019 علهلا قاعءجآ ستمكم] لع/8 83/10 .لزلناد عقوء ه - جصمم1غهام ععسمقطععء مم أحمسمخكصا طتلوعط أمممتاهم 6
-[تم الاطلاع في 7 آذار/مارس 2023] (2023 داعنة]/! 7 0أووععءة ,16-2 10.1186/512911-019-08/ئه
+73. ISO/TR 14639-1:2012(en) Health informatics — Capacity-based eHealth architecture roadmap — Part 1: Overview of national
+eHealth initiatives. Geneva: International Standards Organization. (https://inen.isolutions.iso.org/obp/ui#iso:std:iso:tr: 14639:-1:ed-
+1:vl:en, accessed 21 November 2017) [2017 ‏[تم الاطلاع في 21 تشرين الثاني/نوفمبر‎
 
-لاععا - 5131203105 26101ء1اتاتتحطامء 00 ع تناع 12553 ص1 117 نط نأ مصمء سه :لط مضعم ممعم[ - و16 مسرمكصا طغلهع 11 .(صع)18307:2001 150/11 .75
-[تم الاطلاع في 7 آذار/مارس 2023] .(2023 تاعقه]/! 7 لعووعععة بدع: 1:71 حلء :18307 تعانهكا:0غة:ه كت #تن /مطه/عه.ه5.15//:وماخط) دعتاكمعاع م قطء
+74. Davoody, N., Koch, S., Krakau, I., Hagglund M. Accessing and sharing health information for post-discharge stroke care through
+a national health information exchange platform - a case study. BMC Med Inform Decis Mak 2019 Dec;19(1):1-6. (https://doi.
+org/10.1186/s12911-019-0816-x, accessed 7 March 2023) [2023 ‏[تم الاطلاع في 7 آذار/مارس‎
 
-“0ن ع1538 0242 15002[1عءم 101 تاعاق 5 123112512321 أتاء 015 علتسطتقط03 لع5هطا-اعة نادمه تتقحد ث ,118 م[ ,58 عطمط بكالا عع.آ ,1/31 ععامرعءلا .76
-4 2021 .5625015 :املع
+75. ISO/TR 18307:2001(en). Health informatics — Interoperability and compatibility in messaging and communication standards — Key
+characteristics (https://www.iso.org/obp/ui#iso:std:iso:tr:18307:ed-1:vl:en, accessed 7 March 2023). [2023 ‏[تم الاطلاع في 7 آذار/مارس‎
+
+76. Merlec MM, Lee YK, Hong SP, In HP. A smart contract-based dynamic consent management system for personal data usage under
+gdpr. Sensors. 2021 Jan;21(23):7994.
 
 صفحة 51

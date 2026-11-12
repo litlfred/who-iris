@@ -50,5 +50,4 @@ and use of technologies” (8). While recognizing the innovative role that digi
 play in strengthening the health system, there is an equally important need to evaluate their 
 contributing effect to ensure that such investments do not inappropriately divert resources from 
 alternative, non-digital approaches.
-1.2	
-Role of digital health in health system
+1.2

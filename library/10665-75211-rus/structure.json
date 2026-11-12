@@ -8,9 +8,34 @@
   "pages": 226,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T21:57:46Z",
+  "mtime": "2026-11-11T10:11:49Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "ocr_pages": [
+   {
+    "page": 40,
+    "reason": "15 of 429 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 41,
+    "reason": "46 of 554 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 54,
+    "reason": "10 of 396 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 85,
+    "reason": "12 of 257 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 128,
+    "reason": "58 of 454 words are a stray single letter: the text layer splits words"
+   }
+  ],
+  "languages": [
+   "ru"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -2104,7 +2129,7 @@
    "level": 1,
    "page_start": 40,
    "page_end": 40,
-   "n_chars": 3248,
+   "n_chars": 3373,
    "n_words": 406,
    "label_start": null,
    "label_end": null
@@ -2116,8 +2141,8 @@
    "level": 1,
    "page_start": 41,
    "page_end": 41,
-   "n_chars": 3887,
-   "n_words": 531,
+   "n_chars": 3759,
+   "n_words": 444,
    "label_start": null,
    "label_end": null
   },
@@ -2272,8 +2297,8 @@
    "level": 1,
    "page_start": 54,
    "page_end": 54,
-   "n_chars": 2980,
-   "n_words": 370,
+   "n_chars": 3142,
+   "n_words": 385,
    "label_start": null,
    "label_end": null
   },
@@ -2644,8 +2669,8 @@
    "level": 1,
    "page_start": 85,
    "page_end": 85,
-   "n_chars": 1974,
-   "n_words": 233,
+   "n_chars": 2110,
+   "n_words": 244,
    "label_start": null,
    "label_end": null
   },
@@ -3160,8 +3185,8 @@
    "level": 1,
    "page_start": 128,
    "page_end": 128,
-   "n_chars": 2895,
-   "n_words": 427,
+   "n_chars": 2798,
+   "n_words": 334,
    "label_start": null,
    "label_end": null
   },
@@ -4422,7 +4447,7 @@
    }
   },
   "sections": 226,
-  "chars_total": 643605,
-  "furniture_lines_stripped": 534
+  "chars_total": 643803,
+  "furniture_lines_stripped": 525
  }
 }

@@ -10,6 +10,51 @@ source_sha256: 5248503e605d865a
 toc_source: outline
 ---
 fighting the COVID-19 pandemic
+Just as another Ebola outbreak in the eastern part 
+of DRC was winding down (and finally declared over 
+on 25 June 2020), a new outbreak was declared on 
+1 June in the northwestern part of DRC in Equateur 
+Province. This eleventh Ebola outbreak in DRC ended on 
+18 November, nearly six months after the first cases were 
+reported, with 119 confirmed cases, 11 probable cases, 
+55 deaths, and 75 people who had recovered.
+Equateur Province was also the site of the country’s 
+9th Ebola outbreak, which was overcome in a little over 
+three months in 2018 and had half as many reported 
+cases. However, the response to the 11th Ebola outbreak 
+coincided with the COVID-19 pandemic – further straining 
+resources and creating difficulties around the movement 
+of experts and supplies. Challenges around the large 
+number of cases in remote communities – often only 
+accessible by boat or helicopter – and community 
+resistance, at times, further hampered response efforts. 
+With affected communities spread across 13 of Equateur’s 
+18 health zones spanning a wide geographic area, access 
+to many localities was difficult. 
+Under the strategic response plan, CFE funds contributed 
+approximately 34 percent of planned costs, complemented 
+by funding from African Public Health Emergency Fund 
+(APHEF), GAVI, Germany, People’s Republic of China, 
+United States of America, and the United Nations 
+Development Programme Multi-Partner Trust Fund.
+Swift action by laboratory technicians trained during 
+the previous 2018 response helped detect the first cases 
+in the 2020 outbreak and enabled the government 
+to respond quickly. Through the coordinated strategic 
+response, teams with significant experience fighting 
+Ebola were quickly mobilized. At the height of the 
+outbreak, there were more than 100 WHO experts 
+on the ground, supporting the government’s response. 
+The logistical challenges of mounting a rapid and robust 
+response in remote rural and crowded urban communities 
+were surmounted due to the leadership of the 
+government and local communities, supported by WHO 
+and partners. Overcoming the logistical challenges also 
+meant decentralizing the response by working closely with 
+community health workers to set up response systems 
+and make them effective at the local level.
+©WHO
+Youth leaders worked to sensitize the community on Ebola.
 Working with communities to defeat Ebola
 Jeudi Mputu felt unwell. He went for a check-up at 
 an Ebola treatment centre where he tested positive 
@@ -47,8 +92,6 @@ that did not believe that the disease is real,” says
 Bolanda, referring to his hotspot neighbourhood 
 in Mbandaka. “We monitored cases, but importantly 
 referred people with symptoms to health facilities.”
-©WHO
-Youth leaders worked to sensitize the community on Ebola.
 Vaccinators used an innovative cold chain storage to keep 
 the Ebola vaccine at temperatures as low as -80 degrees 
 Celsius. The ARKTEK freezers can keep vaccines at very low 
@@ -104,42 +147,3 @@ health workers vaccinated against Ebola, no cases were
 reported among health workers during the outbreak.
 ©WHO
 During this Ebola outbreak, more than 40 000 high risk people were vaccinated.
-Supply chain challenges confronted nearly every sector 
-in 2020 as the COVID-19 pandemic spread globally. 
-In healthcare, rapid and unprecedented increases 
-in demand for clinical supplies, diagnostic tests, and 
-personal protective equipment (PPE) led to significant 
-shortages and market uncertainty. Aggressive buying 
-by governments and health providers led to significant 
-competition to procure supplies, leaving many low-income 
-and middle-income countries (LMICs) without access to 
-essential commodities, and further increasing vulnerability 
-to COVID-19.
-To mitigate the risks of unchecked competition for 
-life‑saving health supplies and equipment, WHO stepped 
-forward to provide technical guidance and facilitate 
-the connection to, and equitable allocation of, available 
-supplies and demand. On 29 January 2020, as news 
-of COVID-19 spread and shortly after the first reported 
-case of COVID-19 was reported outside of China, WHO 
-established the Pandemic Supply Chain Network (PSCN), 
-in collaboration with the World Economic Forum, and 
-held the first PSCN meeting. This market network, led 
-by WHO to facilitate a functioning supply chain during 
-a pandemic, was designed to provide market visibility, 
-technical guidance, country, and global demand scenarios 
-to governments, United Nations partners, and private 
-sector partners. 
-Through WHO leadership as part of other global supply 
-chain governance structures, a dedicated COVID-19 
-Supply Chain System (CSCS) was also established with 
-the objective of sourcing materials for infection prevention 
-and control (including PPE), diagnostic tests, and clinical 
-support supplies and allocating these resources based on 
-need, with priority given to health workers and vulnerable 
-populations. The CSCS was also established to lead global 
-physical and virtual supply chains for delivery of supplies 
-where they are most needed.
-WHO released CFE funds in early February to facilitate 
-rapid implementation of priorities determined 
-by the PSCN and CSCS.

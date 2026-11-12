@@ -1,0 +1,54 @@
+---
+doc_id: 10665-75211
+doc_title: "National eHealth Strategy Toolkit"
+section_id: sec-106-definitions-of-terms-used-in-the-toolkit-page-14
+section_title: "Definitions of terms used in the Toolkit (page 144)"
+section_number: null
+pages: 144-144
+source_pdf: 10665-75211.pdf
+source_sha256: 87120f0b3c3bb638
+toc_source: inferred
+---
+6.3	 Identify delivery risks 
+Objective
+This step focuses on identifying delivery risks at level of the the action plan. This differs from 
+the risks for individual eHealth action lines because this step is focused on risks that exist at the 
+programme level. 
+The sample questions below can be used to explore potential delivery risks.
+▶
+▶What is the scale of activity required?
+▶
+▶Is this scale too ambitious to be achieved within the required timeframe?
+▶
+▶Do the health sector and other supporting partners and sectors have the capacity to accept 
+and support this activity and the associated level of change it will require?
+▶
+▶Does the country have the financial, human and other resources to support the delivery of 
+the plan?
+▶
+▶Does the plan account for the time it will probably take to develop support and momentum 
+for eHealth in the health sector and broader public?
+▶
+▶Have all the key dependencies between activities been identified and reflected in the 
+sequencing?
+▶
+▶ Do health and non-health stakeholders think that the action plan is achievable? 
+▶
+▶Are there any particular activities that would be completely stop implementation of the 
+action plan should they be delayed, or could not be delivered? 
+Recommended outputs
+This step should identify delivery risks for the action plan, and options that may exist for 
+mitigating or reducing their likelihood or impact.
+Approach
+This step should be approached as an internal activity and supported with input from relevant 
+health and non-health stakeholders that have been involved in the development of the action 
+plan.
+Internal analysis
+Initially internal working sessions should be undertaken to identify potential risks associated 
+with the action plan. Sessions should explore the action plan from different perspectives (such 
+as those in the sample questions above in the Objectives section). 
+Multisectoral input 
+Health and non-health stakeholders should be consulted to gain their input regarding the 
+achievability and risks of the action plan. Stakeholders may have specific knowledge or 
+experience with previous programmes and projects that allows them to provide constructive 
+feedback.

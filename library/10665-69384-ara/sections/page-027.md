@@ -14,21 +14,21 @@ granularity: page
 
 صندوق الأب المتحدة للسكان
 
-منظمة الصحة العالمية
+منظمة الصحة ‎AN‏
 
 الرؤية والاستراتيجية العالميتان للتمنيع
 
 التحالف العالمي من أجل اللقاحات والتمنيع
 
-/©1 .3ه آحانا. لان الطالال// :راطا
-جاع أحاذ. هحانق. نظا لطالالا// حرطا
-حا الهعحا-ع عن 00 جرع /أحا. هحانةا. نالا لطالالا// راتحا
+http://www.unfpa.org/
+htto://www.who.int/en/
+http://www.who.int/reproductive-health
 
-جاع عطق0 لأحا. هحانة. للا لطالالا// حرطا
+http://www.who.int/cancer/en/
 
-/األوعحا-ع/ عن 0 ممع /أحاذ. هحانقا. نا لطالالا// نمطا
-امأحا. صعمع60906_وصلاةا/5ع10ل50ع)_00065
+http://www.who.int/reproductive-health/
+pages_resources/listing_cancer.en.html
 
-مكحا »اع ع مراع //د/ /01 1 2 حجان ماما ا حا. هحانق. نا لطالالا// حرطا
+htto:/Awww.who.int/immunization/givs/en/index.html
 
-/ .عطق | اله كك و. لالطالا // :حمطا
+http://www.gavialliance.org/

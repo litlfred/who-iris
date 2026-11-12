@@ -184,5 +184,3 @@ Disponibilidad de personal sanitario
 Garantizar la disponibilidad de personal sanitario
 Accesibilidad de los centros de salud
 Garantizar el acceso a los centros de salud
-3.4	
-Acceso a los centros de salud y al personal sanitario:

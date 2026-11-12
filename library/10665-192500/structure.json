@@ -8,9 +8,12 @@
   "pages": 40,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T19:54:55Z",
+  "mtime": "2026-11-11T07:28:04Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "languages": [
+   "ar"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -121,30 +124,6 @@
    "page_label": "13"
   },
   {
-   "level": 2,
-   "title": "\u064a\u0646\u0628",
-   "page": 15,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "15"
-  },
-  {
-   "level": 2,
-   "title": "\u0646\u0644",
-   "page": 19,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "19"
-  },
-  {
    "level": 3,
    "title": "\u0627\u0644\u0630 \u064a",
    "page": 24,
@@ -157,18 +136,6 @@
    "page_label": "24"
   },
   {
-   "level": 2,
-   "title": "\u062a\u0646",
-   "page": 26,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "26"
-  },
-  {
    "level": 3,
    "title": "\u0623\u062b \u0644",
    "page": 28,
@@ -179,30 +146,6 @@
     "style"
    ],
    "page_label": "28"
-  },
-  {
-   "level": 3,
-   "title": "\u064a\u0646\u0628",
-   "page": 31,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "31"
-  },
-  {
-   "level": 3,
-   "title": "\u0637\u064a\u0642",
-   "page": 38,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": "38"
   }
  ],
  "toc_source": "inferred",
@@ -649,101 +592,41 @@
    "title": "(\u0623\u0646 \u0638 \u0631",
    "level": 1,
    "page_start": 13,
-   "page_end": 15,
-   "n_chars": 1912,
-   "n_words": 653,
-   "label_start": "13",
-   "label_end": "15"
-  },
-  {
-   "id": "sec-006-\u064a\u0646\u0628",
-   "number": null,
-   "title": "\u064a\u0646\u0628",
-   "level": 2,
-   "page_start": 15,
-   "page_end": 19,
-   "n_chars": 21706,
-   "n_words": 7078,
-   "label_start": "15",
-   "label_end": "19"
-  },
-  {
-   "id": "sec-007-\u0646\u0644",
-   "number": null,
-   "title": "\u0646\u0644",
-   "level": 2,
-   "page_start": 19,
    "page_end": 24,
-   "n_chars": 22216,
-   "n_words": 7232,
-   "label_start": "19",
+   "n_chars": 45843,
+   "n_words": 14970,
+   "label_start": "13",
    "label_end": "24"
   },
   {
-   "id": "sec-008-\u0627\u0644\u0630-\u064a",
+   "id": "sec-006-\u0627\u0644\u0630-\u064a",
    "number": null,
    "title": "\u0627\u0644\u0630 \u064a",
    "level": 3,
    "page_start": 24,
-   "page_end": 26,
-   "n_chars": 6215,
-   "n_words": 1973,
-   "label_start": "24",
-   "label_end": "26"
-  },
-  {
-   "id": "sec-009-\u062a\u0646",
-   "number": null,
-   "title": "\u062a\u0646",
-   "level": 2,
-   "page_start": 26,
    "page_end": 28,
-   "n_chars": 9358,
-   "n_words": 3063,
-   "label_start": "26",
+   "n_chars": 15579,
+   "n_words": 5037,
+   "label_start": "24",
    "label_end": "28"
   },
   {
-   "id": "sec-010-\u0623\u062b-\u0644",
+   "id": "sec-007-\u0623\u062b-\u0644",
    "number": null,
    "title": "\u0623\u062b \u0644",
    "level": 3,
    "page_start": 28,
-   "page_end": 31,
-   "n_chars": 11291,
-   "n_words": 3715,
-   "label_start": "28",
-   "label_end": "31"
-  },
-  {
-   "id": "sec-011-\u064a\u0646\u0628",
-   "number": null,
-   "title": "\u064a\u0646\u0628",
-   "level": 3,
-   "page_start": 31,
-   "page_end": 38,
-   "n_chars": 27733,
-   "n_words": 9148,
-   "label_start": "31",
-   "label_end": "38"
-  },
-  {
-   "id": "sec-012-\u0637\u064a\u0642",
-   "number": null,
-   "title": "\u0637\u064a\u0642",
-   "level": 3,
-   "page_start": 38,
    "page_end": 40,
-   "n_chars": 8395,
-   "n_words": 2659,
-   "label_start": "38",
+   "n_chars": 47447,
+   "n_words": 15532,
+   "label_start": "28",
    "label_end": "40"
   }
  ],
  "diagnostics": {
   "pages_without_text": 0,
   "likely_scanned": false,
-  "toc_entries": 13,
+  "toc_entries": 8,
   "toc_inferred_entries": 13,
   "toc_inferred_mean_confidence": 0.631,
   "toc_inferred_empty_share": 0.0,
@@ -754,8 +637,40 @@
    "count": 0,
    "items": []
   },
-  "sections": 14,
-  "chars_total": 169924,
-  "furniture_lines_stripped": 74
+  "sections": 9,
+  "chars_total": 169967,
+  "furniture_lines_stripped": 73,
+  "headings_tidied": [
+   {
+    "title": "\u064a\u0646\u0628",
+    "page": 15,
+    "action": "dropped",
+    "why": "a single short word"
+   },
+   {
+    "title": "\u0646\u0644",
+    "page": 19,
+    "action": "dropped",
+    "why": "a single short word"
+   },
+   {
+    "title": "\u062a\u0646",
+    "page": 26,
+    "action": "dropped",
+    "why": "a single short word"
+   },
+   {
+    "title": "\u064a\u0646\u0628",
+    "page": 31,
+    "action": "dropped",
+    "why": "a single short word"
+   },
+   {
+    "title": "\u0637\u064a\u0642",
+    "page": 38,
+    "action": "dropped",
+    "why": "a single short word"
+   }
+  ]
  }
 }

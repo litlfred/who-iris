@@ -309,48 +309,56 @@ geral, para avaliar quais as competências e experiência que estão disponívei
 Alguns países podem envolver uma organização externa que se especialize na estratégia de 
 suprimento para realizar esta etapa, particularmente se for provável que um país precise de 
 aceder a competências e experiência do mercado internacional.
-7.4	 Estimativa da magnitude do financiamento necessário 
+Pacote de Ferramentas da Estratégia Nacional de eSaúde - Parte 2: Desenvolver um Plano de Ação Nacional de eSaúde
+
+74 Estimativa da magnitude do financiamento necessário
 à implementação do plano de ação
+
 Objetivo
-Esta etapa estima a magnitude do financiamento necessário à implementação do plano de ação 
+Esta etapa estima a magnitude do financiamento necessário à implementação do plano de ação
 para a eSaúde. O financiamento será influenciado por vários fatores, incluindo:
-f
-f a escala e o tipo dos recursos necessários
-f
-f a abordagem à asseguração das competências e experiência
-f
-f a despesa operacional e de capital relacionada com as infraestruturas de tecnologias de 
+
+» a escala e o tipo dos recursos necessários
+
+» a abordagem à asseguração das competências e experiência
+
+» a despesa operacional e de capital relacionada com as infraestruturas de tecnologias de
 informação e comunicação (TIC);
-f
-f o financiamento necessário para mecanismos de mudança e adoção, como os programas de 
-incentivos financeiros para prestadores de cuidados de saúde e os fundos de investimento em 
+
+» o financiamento necessário para mecanismos de mudança e adoção, como os programas de
+incentivos financeiros para prestadores de cuidados de saúde e os fundos de investimento em
 soluções.
-Esta etapa não deve centrar-se na execução de um exercício de custeio financeiro pormenorizado, 
-mas antes na estimativa da magnitude do financiamento. Requer um entendimento dos fatores 
-acima e de outros programas nacionais e internacionais de eSaúde, bem como dos níveis de 
+
+Esta etapa não deve centrar-se na execução de um exercício de custeio financeiro pormenorizado,
+mas antes na estimativa da magnitude do financiamento. Requer um entendimento dos fatores
+acima e de outros programas nacionais e internacionais de eSaúde, bem como dos níveis de
 financiamento a eles associados.
+
 Resultados recomendados
-Esta etapa deve gerar uma estimativa da amplitude do financiamento necessário para 
+
+Esta etapa deve gerar uma estimativa da amplitude do financiamento necessário para
 implementar:
-f
-f cada atividade do plano de ação
-f
-f todas as atividades de uma linha de ação da eSaúde em particular
-f
-f todo o plano de ação de eSaúde.
-Alguns países poderão ter requisitos adicionais sobre a informação que deve ser produzida 
-como parte desta etapa. A experiência dos países sugere que outros requisitos comuns incluem a 
+
+» cada atividade do plano de ação
+» todas as atividades de uma linha de ação da eSaúde em particular
+» todo o plano de ação de eSaúde.
+
+Alguns países poderão ter requisitos adicionais sobre a informação que deve ser produzida
+como parte desta etapa. A experiência dos países sugere que outros requisitos comuns incluem a
 capacidade de:
-f
-f distinguir entre o financiamento incremental e o financiamento total, o que pode ser 
-necessário quando o plano de ação incorporar programas e projetos que já tenham 
-financiamento; 
-f
-f descrever o fluxo de caixa para o plano de ação, já que tal proporciona visibilidade do modo 
+
+» distinguir entre o financiamento incremental e o financiamento total, o que pode ser
+necessário quando o plano de ação incorporar programas e projetos que já tenham
+financiamento;
+
+» descrever o fluxo de caixa para o plano de ação, já que tal proporciona visibilidade do modo
 como o financiamento necessário varia ao longo do tempo.
 Abordagem
-Há várias abordagens possíveis à estimativa das necessidades de financiamento. Esta pode ser feita 
+
+Há várias abordagens possíveis à estimativa das necessidades de financiamento. Esta pode ser feita
 através de uma combinação de técnicas de estimação “ascendentes” e “descendentes” (Figura 10).
+
+Capítulo 7 Determinação dos requisitos de recursos de alto nível » página 38
 Figura 10. Abordagem sugerida para estimar as necessidades de fi nanciamento
 Níveis de recursos 
 Duração das atividades  
