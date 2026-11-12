@@ -2,12 +2,13 @@
   "@context": [
     "https://litlfred.github.io/who-iris/ns/context/v1.jsonld",
     {
-      "@base": "https://litlfred.github.io/folio/"
+      "@base": "https://litlfred.github.io/folio/",
+      "smart-base": "https://litlfred.github.io/smart-base/v0/ns/"
     }
   ],
   "@id": "library/9789241549226-eng/blocks/functional-requirement-sec-009-03",
   "@type": [
-    "cat-harness:Block"
+    "smart-base:FunctionalRequirement"
   ],
   "kind": "functional-requirement",
   "title": "Education - Graduation",
