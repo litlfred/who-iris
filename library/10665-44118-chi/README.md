@@ -16,6 +16,6 @@ Held in the library [`who-iris/library/`](../README.md) as `10665-44118-chi`.
 |---|---|
 | [sections](sections/) | 414 |
 | [blocks](blocks/) | 217 |
-| images | 34 |
+| images | 10 |
 
 <!-- kg:subgraph:end -->

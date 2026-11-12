@@ -16,6 +16,6 @@ Held in the library [`who-iris/library/`](../README.md) as `10665-75211-ara`.
 |---|---|
 | [sections](sections/) | 446 |
 | [blocks](blocks/) | 224 |
-| images | 12 |
+| images | 1 |
 
 <!-- kg:subgraph:end -->
