@@ -4,51 +4,336 @@
   "title": "Global hepatitis report 2026",
   "variant": "pdf",
   "pages": 96,
-  "tocSource": "outline",
-  "tocMethod": null,
+  "tocSource": "inferred",
+  "tocMethod": "contents",
   "toc": [
     {
       "level": 1,
-      "title": "Blank Page",
+      "title": "Acknowledgements",
       "number": null,
-      "page": 8,
-      "pageLabel": "vi",
-      "confidence": null,
-      "evidence": null,
-      "source": "outline",
-      "section": null
+      "page": 9,
+      "pageLabel": "vii",
+      "confidence": 0.9,
+      "evidence": [
+        "contents",
+        "body",
+        "style"
+      ],
+      "source": "inferred",
+      "section": "sec-000-acknowledgements"
+    },
+    {
+      "level": 1,
+      "title": "Abbreviations",
+      "number": null,
+      "page": 12,
+      "pageLabel": "x",
+      "confidence": 0.9,
+      "evidence": [
+        "contents",
+        "body",
+        "style"
+      ],
+      "source": "inferred",
+      "section": "sec-001-abbreviations"
+    },
+    {
+      "level": 1,
+      "title": "Introduction",
+      "number": "1",
+      "page": 13,
+      "pageLabel": "1",
+      "confidence": 0.95,
+      "evidence": [
+        "contents",
+        "body",
+        "style",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-002-1-introduction"
+    },
+    {
+      "level": 1,
+      "title": "Global commitments, strategies and targets",
+      "number": "2",
+      "page": 19,
+      "pageLabel": "7",
+      "confidence": 0.8,
+      "evidence": [
+        "contents",
+        "body",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-003-2-global-commitments-strategies-and-targets"
+    },
+    {
+      "level": 1,
+      "title": "Epidemic status and trends",
+      "number": "3",
+      "page": 23,
+      "pageLabel": "11",
+      "confidence": 0.95,
+      "evidence": [
+        "contents",
+        "body",
+        "style",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-004-3-epidemic-status-and-trends"
+    },
+    {
+      "level": 1,
+      "title": "Prevention, diagnosis and treatment",
+      "number": "4",
+      "page": 49,
+      "pageLabel": "37",
+      "confidence": 0.95,
+      "evidence": [
+        "contents",
+        "body",
+        "style",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-005-4-prevention-diagnosis-and-treatment"
+    },
+    {
+      "level": 1,
+      "title": "The road to elimination",
+      "number": "5",
+      "page": 73,
+      "pageLabel": "61",
+      "confidence": 0.95,
+      "evidence": [
+        "contents",
+        "body",
+        "style",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-006-5-the-road-to-elimination"
+    },
+    {
+      "level": 1,
+      "title": "References",
+      "number": null,
+      "page": 83,
+      "pageLabel": "71",
+      "confidence": 0.9,
+      "evidence": [
+        "contents",
+        "body",
+        "style"
+      ],
+      "source": "inferred",
+      "section": "sec-007-references"
+    },
+    {
+      "level": 1,
+      "title": "Methodological notes",
+      "number": "Annex 1",
+      "page": 89,
+      "pageLabel": "77",
+      "confidence": 0.95,
+      "evidence": [
+        "contents",
+        "body",
+        "style",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-008-annex-1-methodological-notes"
+    },
+    {
+      "level": 1,
+      "title": "The global hepatitis reporting process",
+      "number": "Annex 2",
+      "page": 91,
+      "pageLabel": "79",
+      "confidence": 0.95,
+      "evidence": [
+        "contents",
+        "body",
+        "style",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-009-annex-2-the-global-hepatitis-reporting-process"
+    },
+    {
+      "level": 1,
+      "title": "World Health Assembly resolutions on viral hepatitis",
+      "number": "Annex 3",
+      "page": 93,
+      "pageLabel": "81",
+      "confidence": 0.8,
+      "evidence": [
+        "contents",
+        "body",
+        "number"
+      ],
+      "source": "inferred",
+      "section": "sec-010-annex-3-world-health-assembly-resolutions-on-vir"
     }
   ],
   "sections": [
     {
-      "id": "sec-000-document",
+      "id": "sec-front-matter",
       "number": null,
-      "title": "Document",
+      "title": "Front matter",
       "level": 1,
       "pageStart": 1,
-      "pageEnd": 96,
+      "pageEnd": 9,
       "labelStart": "A",
-      "labelEnd": "84",
-      "words": 41576,
-      "summary": {
-        "text": "The full text of WHO's Global hepatitis report 2026, opening with copyright information, contents and forewords by the Director-General and the HIV, TB, hepatitis and STI department director. The forewords note progress such as high hepatitis B vaccine coverage and hepatitis C cure rates above 95%, but say progress is too slow and uneven to meet the 2030 elimination targets. Chapters cover global commitments and targets, epidemic status and trends, prevention, diagnosis and treatment, and the road to elimination, with annexes on methods, reporting and World Health Assembly resolutions. The text ends with lists of recommended country actions and requests to WHO, such as technical support, guidelines, monitoring, blood safety guidance and support for TRIPS flexibilities.",
-        "status": "draft"
-      },
+      "labelEnd": "vii",
+      "words": 893,
+      "summary": null,
       "keywords": [
         {
-          "term": "hcv elimination",
+          "term": "global hepatitis",
           "heading": false
         },
         {
-          "term": "birth-dose hepatitis",
+          "term": "viral hepatitis",
           "heading": false
         },
+        {
+          "term": "hepatitis report",
+          "heading": false
+        },
+        {
+          "term": "creative commons",
+          "heading": false
+        },
+        {
+          "term": "health organization",
+          "heading": false
+        },
+        {
+          "term": "world health",
+          "heading": false
+        },
+        {
+          "term": "global response",
+          "heading": false
+        },
+        {
+          "term": "health threat",
+          "heading": false
+        }
+      ],
+      "extract": "Global hepatitis report 2026 Global hepatitis report 2026 Global hepatitis report 2026 ISBN 978-92-4-012238-3 (electronic version) ISBN 978-92-4-012239-0 (print version) © World Health Organization 2026 Some rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). Under the",
+      "extractCut": true
+    },
+    {
+      "id": "sec-000-acknowledgements",
+      "number": null,
+      "title": "Acknowledgements",
+      "level": 1,
+      "pageStart": 9,
+      "pageEnd": 12,
+      "labelStart": "vii",
+      "labelEnd": "x",
+      "words": 1760,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "diana faini",
+          "heading": false
+        },
+        {
+          "term": "olufunmilayo lesi",
+          "heading": false
+        },
+        {
+          "term": "katherine floyd",
+          "heading": false
+        },
+        {
+          "term": "irwin law",
+          "heading": false
+        },
+        {
+          "term": "muhammad shahid",
+          "heading": false
+        },
+        {
+          "term": "mathieu bastard",
+          "heading": false
+        },
+        {
+          "term": "daniel low-beer",
+          "heading": false
+        },
+        {
+          "term": "hepatitis report",
+          "heading": false
+        }
+      ],
+      "extract": "from Katherine Floyd. Irwin Law coordinated the preparation of all graphics and tables. Within WHO, the report team is grateful to various people for their inputs to and advice on report content. Particular thanks are due to Carolina Danovaro, Laure Dumolard, Marta Gacic-Dobo and Stephanie Shendale from the Department of Immunization, Vaccines and Biologicals for their review of content related to hepatitis B",
+      "extractCut": true
+    },
+    {
+      "id": "sec-001-abbreviations",
+      "number": null,
+      "title": "Abbreviations",
+      "level": 1,
+      "pageStart": 12,
+      "pageEnd": 13,
+      "labelStart": "x",
+      "labelEnd": "1",
+      "words": 166,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "hepatitis virus",
+          "heading": false
+        },
+        {
+          "term": "hepatitis core",
+          "heading": false
+        },
+        {
+          "term": "core antigen",
+          "heading": false
+        },
+        {
+          "term": "mother-to-child transmission",
+          "heading": false
+        },
+        {
+          "term": "world health",
+          "heading": false
+        },
+        {
+          "term": "global health",
+          "heading": false
+        },
+        {
+          "term": "prevention",
+          "heading": false
+        }
+      ],
+      "extract": "ALT alanine aminotransferase BCG bacille Calmette-Guérin CDAF Center for Disease Analysis Foundation COVID-19 coronavirus disease DAA direct-acting antiviral ECDC European Centre for Disease Prevention and Control EMTCT elimination of mother-to-child transmission GDP gross domestic product GHO Global Health Observatory GHSS Global health sector strategy HAV hepatitis A virus HBIG hepatitis B immunoglobulin HBsAg",
+      "extractCut": true
+    },
+    {
+      "id": "sec-002-1-introduction",
+      "number": "1",
+      "title": "Introduction",
+      "level": 1,
+      "pageStart": 13,
+      "pageEnd": 19,
+      "labelStart": "1",
+      "labelEnd": "7",
+      "words": 2688,
+      "summary": null,
+      "keywords": [
         {
           "term": "chronic hbv",
-          "heading": false
-        },
-        {
-          "term": "viremic hcv",
           "heading": false
         },
         {
@@ -56,7 +341,195 @@
           "heading": false
         },
         {
+          "term": "hdv infection",
+          "heading": false
+        },
+        {
+          "term": "hcv transmission",
+          "heading": false
+        },
+        {
+          "term": "hepatitis virus",
+          "heading": false
+        },
+        {
+          "term": "liver infection",
+          "heading": false
+        },
+        {
+          "term": "viral hepatitis",
+          "heading": false
+        },
+        {
+          "term": "hepatitis vaccine",
+          "heading": false
+        }
+      ],
+      "extract": "Viral hepatitis is one of the world’s most important public health challenges. Hepatitis B virus (HBV) and hepatitis C virus (HCV) continue to cause chronic infection in hundreds of millions of people, leading to cirrhosis, liver cancer and over 1 million premature deaths each year, even though both infections are preventable and treatable. Together, HBV and HCV account for over 95% of global mortality caused by",
+      "extractCut": true
+    },
+    {
+      "id": "sec-003-2-global-commitments-strategies-and-targets",
+      "number": "2",
+      "title": "Global commitments, strategies and targets",
+      "level": 1,
+      "pageStart": 19,
+      "pageEnd": 23,
+      "labelStart": "7",
+      "labelEnd": "11",
+      "words": 1896,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "global targets",
+          "heading": true
+        },
+        {
+          "term": "global commitments",
+          "heading": true
+        },
+        {
+          "term": "chronic hepatitis",
+          "heading": false
+        },
+        {
+          "term": "viral hepatitis",
+          "heading": false
+        },
+        {
+          "term": "hepatitis infections",
+          "heading": false
+        },
+        {
+          "term": "hepatitis elimination",
+          "heading": false
+        },
+        {
+          "term": "hepatitis vaccine",
+          "heading": false
+        },
+        {
+          "term": "eliminating hepatitis",
+          "heading": false
+        }
+      ],
+      "extract": "and targets for countries to develop national strategies, expand vaccination coverage (including a timely birth dose), strengthen infection control, provide comprehensive services for people who inject drugs (e.g. needle and syringe programmes and opioid agonist therapy) and ensure equitable access to affordable diagnostics and medicines. Political commitment to combating viral hepatitis entered a new phase in 2015,",
+      "extractCut": true
+    },
+    {
+      "id": "sec-004-3-epidemic-status-and-trends",
+      "number": "3",
+      "title": "Epidemic status and trends",
+      "level": 1,
+      "pageStart": 23,
+      "pageEnd": 49,
+      "labelStart": "11",
+      "labelEnd": "37",
+      "words": 9315,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "region shaded",
+          "heading": false
+        },
+        {
+          "term": "mediterranean region",
+          "heading": false
+        },
+        {
+          "term": "paciﬁc region",
+          "heading": false
+        },
+        {
+          "term": "hcv-related deaths",
+          "heading": false
+        },
+        {
+          "term": "chronic hbv",
+          "heading": false
+        },
+        {
+          "term": "pacific region",
+          "heading": false
+        },
+        {
+          "term": "hbv-related deaths",
+          "heading": false
+        },
+        {
+          "term": "asia region",
+          "heading": false
+        }
+      ],
+      "extract": "There are five hepatitis viruses: A, B, C, D and E (HAV, HBV, HCV, HDV and HEV). This chapter focuses on HBV and HCV, because they account for more than 95% of viral hepatitis-related deaths (Chapter 1) and are the forms of hepatitis for which global targets have been set in the World Health Organization (WHO) Global health sector strategy on viral hepatitis, 2022–2030 (GHSS 2022–2030) (Chapter 2). People can be",
+      "extractCut": true
+    },
+    {
+      "id": "sec-005-4-prevention-diagnosis-and-treatment",
+      "number": "4",
+      "title": "Prevention, diagnosis and treatment",
+      "level": 1,
+      "pageStart": 49,
+      "pageEnd": 73,
+      "labelStart": "37",
+      "labelEnd": "61",
+      "words": 12540,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "birth-dose hepatitis",
+          "heading": false
+        },
+        {
+          "term": "paciﬁc region",
+          "heading": false
+        },
+        {
+          "term": "chronic hbv",
+          "heading": false
+        },
+        {
           "term": "hcv diagnosed",
+          "heading": false
+        },
+        {
+          "term": "hcv infection",
+          "heading": false
+        },
+        {
+          "term": "viremic hcv",
+          "heading": false
+        },
+        {
+          "term": "mediterranean region",
+          "heading": false
+        },
+        {
+          "term": "hcv treatment",
+          "heading": false
+        }
+      ],
+      "extract": "Viral hepatitis remains a leading global health problem (Chapter 3). Globally in 2024, the sequelae of chronic hepatitis B virus (HBV) and hepatitis C virus (HCV) infections – liver cirrhosis and hepatocellular cancer (HCC) – caused a combined total of 1.3 million deaths (95% uncertainty interval [UI]: 1.1–1.7 million). This included 1.1 million (95% UI: 0.9–1.3 million) HBV-related deaths and 240 000 (95% UI: 160",
+      "extractCut": true
+    },
+    {
+      "id": "sec-006-5-the-road-to-elimination",
+      "number": "5",
+      "title": "The road to elimination",
+      "level": 1,
+      "pageStart": 73,
+      "pageEnd": 83,
+      "labelStart": "61",
+      "labelEnd": "71",
+      "words": 6470,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "hcv elimination",
+          "heading": false
+        },
+        {
+          "term": "hcv infection",
           "heading": false
         },
         {
@@ -64,11 +537,219 @@
           "heading": false
         },
         {
-          "term": "hcv prevalence",
+          "term": "hcv screening",
+          "heading": false
+        },
+        {
+          "term": "eliminate hcv",
+          "heading": false
+        },
+        {
+          "term": "chronic hbv",
+          "heading": false
+        },
+        {
+          "term": "eliminating hcv",
+          "heading": false
+        },
+        {
+          "term": "hepatitis elimination",
           "heading": false
         }
       ],
-      "extract": "Global hepatitis report 2026 Global hepatitis report 2026 Global hepatitis report 2026 ISBN 978-92-4-012238-3 (electronic version) ISBN 978-92-4-012239-0 (print version) © World Health Organization 2026 Some rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). Under the",
+      "extract": "The possibility that viral hepatitis could be eliminated as a public health threat worldwide was first recognized by all Member States of the World Health Organization (WHO) in 2014 (Chapter 2). Subsequently, the goal of the first WHO global health sector strategy on viral hepatitis (GHSS 2016–2021) (4), adopted by all Member States in 2016, was defined as elimination of viral hepatitis as a public health threat by",
+      "extractCut": true
+    },
+    {
+      "id": "sec-007-references",
+      "number": null,
+      "title": "References",
+      "level": 1,
+      "pageStart": 83,
+      "pageEnd": 89,
+      "labelStart": "71",
+      "labelEnd": "77",
+      "words": 2875,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "hepatitis elimination",
+          "heading": false
+        },
+        {
+          "term": "viral hepatitis",
+          "heading": false
+        },
+        {
+          "term": "chronic hepatitis",
+          "heading": false
+        },
+        {
+          "term": "hepatitis virus",
+          "heading": false
+        },
+        {
+          "term": "hepatitis infection",
+          "heading": false
+        },
+        {
+          "term": "global hepatitis",
+          "heading": false
+        },
+        {
+          "term": "hepatitis report",
+          "heading": false
+        },
+        {
+          "term": "saúde secretaria",
+          "heading": false
+        }
+      ],
+      "extract": "1. Resolution WHA63.18. Viral hepatitis. In: Sixty-third World Health Assembly, Geneva, 17–21 May 2010. Resolutions and decisions, annexes. Geneva: World Health Organization; 2010 (http://apps.who.int/gb/ebwha/pdf_files/WHA63-REC1/WHA63_REC1-en.pdf). Licence: CC BY-NC-SA 3.0 IGO. 2. Resolution WHA67.6. Hepatitis. In: Sixty-seventh World Health Assembly, Geneva, 19–24 May 2014. Resolutions and decisions, annexes.",
+      "extractCut": true
+    },
+    {
+      "id": "sec-008-annex-1-methodological-notes",
+      "number": "Annex 1",
+      "title": "Methodological notes",
+      "level": 1,
+      "pageStart": 89,
+      "pageEnd": 91,
+      "labelStart": "77",
+      "labelEnd": "79",
+      "words": 1281,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "modelled estimates",
+          "heading": false
+        },
+        {
+          "term": "viral hepatitis",
+          "heading": false
+        },
+        {
+          "term": "hbv prevalence",
+          "heading": false
+        },
+        {
+          "term": "global hepatitis",
+          "heading": false
+        },
+        {
+          "term": "hcv cascade",
+          "heading": false
+        },
+        {
+          "term": "hepatitis report",
+          "heading": false
+        },
+        {
+          "term": "historical estimates",
+          "heading": false
+        },
+        {
+          "term": "model-based estimates",
+          "heading": false
+        }
+      ],
+      "extract": "This annex summarizes the main updates to methods used to produce epidemiological estimates (incidence, prevalence and mortality) and associated estimates of diagnostic and treatment coverage, compared with those used in previous World Health Organization (WHO) global reports on hepatitis, published in 2017 and 2024 (1, 2). The updates reflect the availability of new data, refinements in modelling methods and",
+      "extractCut": true
+    },
+    {
+      "id": "sec-009-annex-2-the-global-hepatitis-reporting-process",
+      "number": "Annex 2",
+      "title": "The global hepatitis reporting process",
+      "level": 1,
+      "pageStart": 91,
+      "pageEnd": 93,
+      "labelStart": "79",
+      "labelEnd": "81",
+      "words": 676,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "hepatitis reporting",
+          "heading": true
+        },
+        {
+          "term": "global hepatitis",
+          "heading": true
+        },
+        {
+          "term": "reporting process",
+          "heading": true
+        },
+        {
+          "term": "european region",
+          "heading": false
+        },
+        {
+          "term": "viral hepatitis",
+          "heading": false
+        },
+        {
+          "term": "hepatitis virus",
+          "heading": false
+        },
+        {
+          "term": "focal points",
+          "heading": false
+        },
+        {
+          "term": "data reporting",
+          "heading": false
+        }
+      ],
+      "extract": "f Regionally validated data. If WHO regional offices had already conducted validation exercises, countries were advised to use those datasets. f WHO estimates. Where there were data gaps, countries were encouraged to use WHO estimates from 2024, provided they endorsed the figures. If discrepancies existed between national data and WHO estimates, countries were asked to provide explanatory comments. Following",
+      "extractCut": true
+    },
+    {
+      "id": "sec-010-annex-3-world-health-assembly-resolutions-on-vir",
+      "number": "Annex 3",
+      "title": "World Health Assembly resolutions on viral hepatitis",
+      "level": 1,
+      "pageStart": 93,
+      "pageEnd": 96,
+      "labelStart": "81",
+      "labelEnd": "84",
+      "words": 986,
+      "summary": null,
+      "keywords": [
+        {
+          "term": "world hepatitis",
+          "heading": true
+        },
+        {
+          "term": "viral hepatitis",
+          "heading": true
+        },
+        {
+          "term": "world health",
+          "heading": true
+        },
+        {
+          "term": "patented product",
+          "heading": false
+        },
+        {
+          "term": "hepatitis day",
+          "heading": false
+        },
+        {
+          "term": "trips agreement",
+          "heading": false
+        },
+        {
+          "term": "pharmaceutical product",
+          "heading": false
+        },
+        {
+          "term": "resolutions",
+          "heading": true
+        }
+      ],
+      "extract": "on viral hepatitis There have been two World Health Assembly resolutions on viral hepatitis. The first was adopted in 2010 (WHA63.18) (1). The second was adopted in 2014 (WHA67.6) (2). The Box A3.1. The first World Health Assembly resolution on viral hepatitis in 2010 (WHA63.18): summary of Member State commitments and requests to WHO (1) Member State commitments f World Hepatitis Day. Designate 28 July as World",
       "extractCut": true
     }
   ],
@@ -99,7 +780,23 @@
   "withheld": false,
   "keywords": [
     {
-      "term": "hcv elimination",
+      "term": "chronic hepatitis",
+      "heading": false
+    },
+    {
+      "term": "viral hepatitis",
+      "heading": true
+    },
+    {
+      "term": "hepatitis elimination",
+      "heading": true
+    },
+    {
+      "term": "global hepatitis",
+      "heading": true
+    },
+    {
+      "term": "hepatitis infections",
       "heading": false
     },
     {
@@ -107,43 +804,27 @@
       "heading": true
     },
     {
-      "term": "chronic hbv",
-      "heading": true
-    },
-    {
-      "term": "viremic hcv",
+      "term": "hepatitis treatment",
       "heading": false
     },
     {
-      "term": "hcv infection",
+      "term": "world hepatitis",
       "heading": true
     },
     {
-      "term": "hcv diagnosed",
+      "term": "hepatitis report",
       "heading": false
     },
     {
-      "term": "hcv treatment",
-      "heading": true
-    },
-    {
-      "term": "hcv prevalence",
-      "heading": true
-    },
-    {
-      "term": "hcv incidence",
-      "heading": true
-    },
-    {
-      "term": "eliminating hcv",
+      "term": "hepatitis virus",
       "heading": false
     },
     {
-      "term": "hcv treated",
+      "term": "hcv elimination",
       "heading": false
     },
     {
-      "term": "hcv screening",
+      "term": "hepatitis prevention",
       "heading": false
     }
   ],

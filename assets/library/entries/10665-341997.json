@@ -319,14 +319,14 @@
       "kind": "prose",
       "title": "Linkages to the broader digital health ecosystem",
       "pageStart": 21,
-      "pageEnd": 144,
+      "pageEnd": 24,
       "target": "../sections/sec-006-linkages-to-the-broader-digital-health-ecosystem.md",
       "narrative": null,
-      "content": "Digital adaptation kits within the broader digital \nhealth ecosystem\nFIG. 3\nWHO core \nindicator \nsets\nGlobal \ndigital \nhealth \nindex\nWHO  \ndigital \nhealth atlas\nDigital \nhealth \ninvestment \nreview tool\nHIS stages of  \ncontinuous \nimprovement\n+\t Conduct an inventory of existing or previously used \nsoftware applications, ICT systems and other tools to better \nunderstand the requirements for reuse and interoperability\n+\t Develop a national digital health strategy outlining \noverarching needs, desired activities and outcomes\n+\t Define a vision for how the health system will be \nstrengthened throug",
+      "content": "overview\nLinkages to the broader digital health ecosystem\nDigital adaptation kits within the broader digital \nhealth ecosystem\nFIG. 3\nWHO core \nindicator \nsets\nGlobal \ndigital \nhealth \nindex\nWHO  \ndigital \nhealth atlas\nDigital \nhealth \ninvestment \nreview tool\nHIS stages of  \ncontinuous \nimprovement\n+\t Conduct an inventory of existing or previously used \nsoftware applications, ICT systems and other tools to better \nunderstand the requirements for reuse and interoperability\n+\t Develop a national digital health strategy outlining \noverarching needs, desired activities and outcomes\n+\t Define a vis",
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "draft",
+        "status": "stale",
         "text": "Covers the bulk of the family planning digital adaptation kit, starting with a figure placing the kit within the wider digital health ecosystem and the phases of national digital health planning. The headings in the table of contents show it then sets out the eight components for family planning: health interventions and recommendations, generic personas, user scenarios, business processes and workflows, core data elements, decision-support logic, indicators and performance metrics, and functional and non-functional requirements. It also includes a glossary and annexes with detailed personas, guidance on amending the data dictionary and method-specific guidance. The block ends with the reference list, citing family planning guidance, indicator sources and data standards such as ICD and HL7 FHIR.",
         "state": "draft",
         "draftedBy": {
@@ -335,6 +335,25 @@
           "model": "not-disclosed"
         },
         "draftedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-007",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Health interventions and recommendations",
+      "pageStart": 24,
+      "pageEnd": 26,
+      "target": "../sections/sec-007-1-health-interventions-and-recommendations.md",
+      "narrative": null,
+      "content": "personas\nindicators\nworkflows\ndata\ndecisions\nscenarios\nrequirements\nThis DAK focuses on the following health interventions and recommendations related to contraception and family planning.\n1.1 \tInterventions referenced in this DAK are based on the WHO universal health coverage (UHC) list \nof essential interventions\nThe key interventions for contraception and family planning are the following, as defined in the WHO UHC compendium of interventions (15).\n\t»\nScreening, testing and counselling for choosing contraceptive methods\n\t–\nHIV testing services\n\t–\nScreening for pregnancy and medical eligibil",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
       }
     },
     {
@@ -353,6 +372,158 @@
       "truncated": false,
       "provenance": "ingested",
       "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-008",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Generic personas",
+      "pageStart": 26,
+      "pageEnd": 31,
+      "target": "../sections/sec-008-2-generic-personas.md",
+      "narrative": null,
+      "content": "In the case of family planning, auxiliary nurse midwives and midwives are the primary personas for the digital tracking and decision-support system. In \nthe health systems surveyed for this DAK, the common combination of service providers was a lay health worker along with a nurse who was also trained \nas a midwife. The key competences of nurse midwives compared with those of lay health workers are defined by WHO (Table 2 ) (20).\nGeneric  \npersonas\nComponent\nrecommendations\nindicators\nworkflows\ndata\ndecisions\nscenarios\nrequirements\npersonas\nTable 2. Descriptions of key generic personas\nOccupat",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-009",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "User scenarios",
+      "pageStart": 31,
+      "pageEnd": 34,
+      "target": "../sections/sec-009-3-user-scenarios.md",
+      "narrative": null,
+      "content": "3.1 \tUser scenario for nurse\nKey personas\nNurse: Aisha\nClient: Hope\nHope is a 26-year-old woman who has brought her 6-week-old baby, Mosi, into a primary health care facility for routine immunizations.\nWhile nurse Aisha is providing the immunizations for the child, they begin discussing Hope’s future and desire for more children. As she is looking to space out the next birth by more \nthan a year, Aisha suggests they talk more about family planning.\nHope has not yet been registered in the electronic system. So, Aisha sets her up as a new client, gathers her contact and address information, and",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-010",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Business processes and workflows",
+      "pageStart": 34,
+      "pageEnd": 59,
+      "target": "../sections/sec-010-4-business-processes-and-workflows.md",
+      "narrative": null,
+      "content": "personas\nindicators\ndata\ndecisions\nscenarios\nrequirements\nworkflows\nA business process, or process, is a set of related activities or tasks performed together to achieve the objectives of the health programme area, such \nas registration, counselling and referrals (1,16). Workflows are a visual representation of the progression of activities (tasks, events and interactions) \nthat are performed within the business process (16). The workflow provides a story for the business process being diagrammed and is used to enhance \ncommunication and collaboration among users, stakeholders and engineers.\nT",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-011",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Core data elements",
+      "pageStart": 59,
+      "pageEnd": 66,
+      "target": "../sections/sec-011-5-core-data-elements.md",
+      "narrative": null,
+      "content": "Table 7 provides a simplified list of core data elements and is merely a snapshot of the comprehensive data dictionary found in Web Annex A. As with \nthe workflows, we view this data dictionary as 80% generic, with the expectation that the other 20% will be supplemented and modified through country \nadaptation.\nCore data \nelements\nComponent\nrecommendations\npersonas\nindicators\nworkflows\ndecisions\nscenarios\nrequirements\ndata\nTable 7. Workflow core data elements for identified business processes\nActivity ID.  \nActivity name\nData element \nID\nData element name\nDescription and definition\nBusiness pr",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-012",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Decision-support logic",
+      "pageStart": 66,
+      "pageEnd": 73,
+      "target": "../sections/sec-012-6-decision-support-logic.md",
+      "narrative": null,
+      "content": "Table 10 provides an overview of the decision-support tables and algorithms for the different family planning module business processes. The structure \nof the decision-support tables is based on an adaptation of the Decision Model and Notation (DMN), an industry standard for modelling and executing \ndecision logic (27). These decision-support tables detail the business rules, data inputs and outputs to support family planning module business \nprocesses. \nDecision-\nsupport logic\nComponent\nrecommendations\npersonas\nindicators\nworkflows\ndata\nscenarios\nrequirements\ndecisions\nTable 10. Overview of d",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-013",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Indicators and performance metrics",
+      "pageStart": 73,
+      "pageEnd": 75,
+      "target": "../sections/sec-013-7-indicators-and-performance-metrics.md",
+      "narrative": null,
+      "content": "This section details indicators and performance metrics that would be aggregated from core data elements identified in Component 5. The list in  \nTable 14 is a minimum set of indicators that can be aggregated for decision-making, performance metrics, and subnational and national reporting \nbased on data collected from individual-level routine health systems. These indicators may be aggregated automatically from the digital tracking tool to \npopulate a digital HMIS, such as DHIS2. This table is detailed in Web Annex C. \nTable 14. Indicators and performance metrics\nIndicator ID\nIndicator name\nDe",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-014",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "High-level functional and non-functional requirements",
+      "pageStart": 75,
+      "pageEnd": 81,
+      "target": "../sections/sec-014-8-high-level-functional-and-non-functional-requi.md",
+      "narrative": null,
+      "content": "personas\nworkflows\ndata\ndecisions\nscenarios\nindicators\nrequirements\nThis section provides an overview of illustrative functional and non-functional requirements that may be considered to kick-start the process of \ndesigning or adapting the digital tracking and decision-support system. Functional requirements describe the capabilities the system must have in order \nto meet the end-users’ needs and achieve tasks within the business process. Non-functional requirements provide the general attributes and features of \nthe digital system to ensure usability and overcome technical and physical constr",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-015",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Glossary",
+      "pageStart": 81,
+      "pageEnd": 84,
+      "target": "../sections/sec-015-glossary.md",
+      "narrative": null,
+      "content": "Note: Terms in definitions also defined in this glossary are shown in italics.\nBusiness process\nA set of related activities or tasks performed together to achieve the objectives of the health programme area, such as \nregistration, counselling, referrals (1,16).\nData dictionary\nA centralized repository of information about the data elements that contains their definition, relationships, origin, usage, \nand type of data. For this digital adaptation kit, the data dictionary is provided as a spreadsheet in Web Annex A.\nData element\nA unit of data that has specific and precise meaning.\nDecision-sup",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
     },
     {
       "id": "library/10665-341997/blocks/figure-img-p084-1",
@@ -387,6 +558,82 @@
       "truncated": false,
       "provenance": "ingested",
       "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-016",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Examples of detailed personas",
+      "pageStart": 84,
+      "pageEnd": 86,
+      "target": "../sections/sec-016-annex-1-examples-of-detailed-personas.md",
+      "narrative": null,
+      "content": "“It’s essential to  \nbe informed to \nkeep trust from  \nmy community.”\nJamilla\nGrace\nannexes\nAnnex 2. Additional user scenario\nUser scenario for community health worker\nKey personas\nCommunity health worker: Jane\nClient: Safia\nSafia is a 20-year-old woman who has recently given birth and has a 3-week-old baby, Said. Her community health worker, Jane, comes to her household (one of 25 or so that Jane \nmonitors) every other day to check up on her and the newborn baby.\nAfter Jane has completed her questions and counselling regarding postnatal care, they began discussing Safia’s future and desire fo",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-017",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Guidance for adding data elements to or amending existing data elements in the data",
+      "pageStart": 86,
+      "pageEnd": 89,
+      "target": "../sections/sec-017-annex-3-guidance-for-adding-data-elements-to-or.md",
+      "narrative": null,
+      "content": "dictionary\nWhen adapting the data dictionary, data elements may need to be modified or added as a result of the structure of existing paper registers or local \nreporting requirements. If starting from paper-based registers and forms, you can find additional guidance in the Handbook for digitizing primary health \ncare (17), and below is an overview of the data mapping to provide a template for standardizing the data dictionary. When amending the wording of \ndata elements, it is important to ensure that the standard terminology codes still reflect the data element as originally intended.\nWhat to",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-018",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Guidance for each method",
+      "pageStart": 89,
+      "pageEnd": 141,
+      "target": "../sections/sec-018-annex-4-guidance-for-each-method.md",
+      "narrative": null,
+      "content": "This annex is intended to provide additional information that can be used for developing further decision-support logic and counselling aids. This \ninformation is extracted from the Family planning global handbook for providers (2018) (14).\nCopper-bearing intrauterine device (Cu-IUD)\nWhat is it?\n\t» The Cu-IUD is a small, flexible plastic frame with copper sleeves or wire around it. A specifically trained health-care provider inserts it into a woman’s uterus \nthrough her vagina and cervix.\n\t» Almost all types of IUDs have one or two strings, or threads, tied to them. The strings hang through th",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-341997/blocks/prose-sec-019",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "References",
+      "pageStart": 141,
+      "pageEnd": 144,
+      "target": "../sections/sec-019-references.md",
+      "narrative": null,
+      "content": "1.\t\nDigital implementation investment guide (DIIG): integrating digital interventions into \nhealth programmes. Geneva: World Health Organization; 2020 (https://www.who.\nint/publications/i/item/who-digital-implementation-investment-guide, accessed 18 \nSeptember 2020).\n2.\t\nResolution WHA71.7: Digital health. In: Seventy-first World Health Assembly, 26 May \n2018 (https://apps.who.int/gb/ebwha/pdf_files/WHA71/A71_R7-en.pdf, accessed \n16 December 2020).\n3.\t\nDraft global strategy on digital health 2020–2025. Geneva: World Health \nOrganization; undated (https://www.who.int/docs/default-source/documen",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
     },
     {
       "id": "library/10665-341997/blocks/figure-img-p144-1",

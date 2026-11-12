@@ -3,30 +3,22 @@
   "id": "10665-385385",
   "blocks": [
     {
-      "id": "library/10665-385385/blocks/prose-sec-000",
+      "id": "library/10665-385385/blocks/prose-sec-front-matter",
       "types": [
         "folio-assistant-core:Prose",
         "doco:Section"
       ],
       "kind": "prose",
-      "title": "Document",
+      "title": "Front matter",
       "pageStart": 1,
-      "pageEnd": 96,
-      "target": "../sections/sec-000-document.md",
+      "pageEnd": 9,
+      "target": "../sections/sec-front-matter.md",
       "narrative": null,
-      "content": "Global\nhepatitis\nreport\n2026\n\n\nGlobal\nhepatitis\nreport\n2026\n\nGlobal hepatitis report 2026\nISBN 978-92-4-012238-3 (electronic version)\nISBN 978-92-4-012239-0 (print version)\n© World Health Organization 2026\nSome rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO \nlicence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). \nUnder the terms of this licence, you may copy, redistribute and adapt the work for non-commercial purposes, provided the \nwork is appropriately cited, as indicated below. In any use of this",
+      "content": "Global\nhepatitis\nreport\n2026\nGlobal\nhepatitis\nreport\n2026\nGlobal hepatitis report 2026\nISBN 978-92-4-012238-3 (electronic version)\nISBN 978-92-4-012239-0 (print version)\n© World Health Organization 2026\nSome rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO \nlicence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). \nUnder the terms of this licence, you may copy, redistribute and adapt the work for non-commercial purposes, provided the \nwork is appropriately cited, as indicated below. In any use of this wo",
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "draft",
-        "text": "The full text of WHO's Global hepatitis report 2026, opening with copyright information, contents and forewords by the Director-General and the HIV, TB, hepatitis and STI department director. The forewords note progress such as high hepatitis B vaccine coverage and hepatitis C cure rates above 95%, but say progress is too slow and uneven to meet the 2030 elimination targets. Chapters cover global commitments and targets, epidemic status and trends, prevention, diagnosis and treatment, and the road to elimination, with annexes on methods, reporting and World Health Assembly resolutions. The text ends with lists of recommended country actions and requests to WHO, such as technical support, guidelines, monitoring, blood safety guidance and support for TRIPS flexibilities.",
-        "state": "draft",
-        "draftedBy": {
-          "kind": "agent",
-          "id": "claude-code",
-          "model": "not-disclosed"
-        },
-        "draftedAt": "2026-11-11"
+        "status": "not-summarised"
       }
     },
     {
@@ -62,6 +54,101 @@
       "truncated": false,
       "provenance": "ingested",
       "summary": null
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-000",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Acknowledgements",
+      "pageStart": 9,
+      "pageEnd": 12,
+      "target": "../sections/sec-000-acknowledgements.md",
+      "narrative": null,
+      "content": "from Katherine Floyd. Irwin Law coordinated the preparation of all graphics and tables. \nWithin WHO, the report team is grateful to various \npeople for their inputs to and advice on report content. \nParticular thanks are due to Carolina Danovaro, Laure \nDumolard, Marta Gacic-Dobo and Stephanie Shendale \nfrom the Department of Immunization, Vaccines and \nBiologicals for their review of content related to hepatitis B vaccination; and to Wahyu Retno (Annet) Mahanani \nand Bochen Cao (Department for Data, Analytics, Digital \nHealth and Artificial Intelligence) for their review of Chapter 3 and asso",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-001",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Abbreviations",
+      "pageStart": 12,
+      "pageEnd": 13,
+      "target": "../sections/sec-001-abbreviations.md",
+      "narrative": null,
+      "content": "ALT\t\nalanine aminotransferase\nBCG\t\nbacille Calmette-Guérin \nCDAF\t\nCenter for Disease Analysis Foundation \nCOVID-19\t coronavirus disease\nDAA\t\ndirect-acting antiviral\nECDC \nEuropean Centre for Disease Prevention and \nControl\nEMTCT\t\nelimination of mother-to-child transmission \nGDP\t\ngross domestic product\nGHO\t\nGlobal Health Observatory\nGHSS\t\nGlobal health sector strategy\nHAV\t\nhepatitis A virus\nHBIG\t\nhepatitis B immunoglobulin\nHBsAg\t\nhepatitis B surface antigen\nHBcAg\t\nhepatitis B core antigen\nHBeAg \t\nhepatitis B e antigen\nHBV\t\nhepatitis B virus\nHCC\t\nhepatocellular carcinoma \nHCV\t\nhepatitis C virus",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-002",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Introduction",
+      "pageStart": 13,
+      "pageEnd": 19,
+      "target": "../sections/sec-002-1-introduction.md",
+      "narrative": null,
+      "content": "Viral hepatitis is one of the world’s most important public \nhealth challenges. Hepatitis B virus (HBV) and hepatitis \nC virus (HCV) continue to cause chronic infection in hundreds of millions of people, leading to cirrhosis, liver cancer and over 1 million premature deaths each year, even \nthough both infections are preventable and treatable. \nTogether, HBV and HCV account for over 95% of global \nmortality caused by viral hepatitis, with hepatitis A virus \n(HAV), hepatitis D virus (HDV) and hepatitis E virus (HEV) \naccounting for the remainder.\nPeople can be infected with viral hepatitis thro",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-003",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Global commitments, strategies and targets",
+      "pageStart": 19,
+      "pageEnd": 23,
+      "target": "../sections/sec-003-2-global-commitments-strategies-and-targets.md",
+      "narrative": null,
+      "content": "and targets \nfor countries to develop national strategies, expand \nvaccination coverage (including a timely birth dose), \nstrengthen infection control, provide comprehensive services for people who inject drugs (e.g. needle and syringe \nprogrammes and opioid agonist therapy) and ensure \nequitable access to affordable diagnostics and medicines. \nPolitical commitment to combating viral hepatitis entered a new phase in 2015, when the UN General \nAssembly adopted the 2030 Agenda for Sustainable \nDevelopment. The Sustainable Development Goals \n(SDGs) included hepatitis within SDG target 3.3, which",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-004",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Epidemic status and trends",
+      "pageStart": 23,
+      "pageEnd": 49,
+      "target": "../sections/sec-004-3-epidemic-status-and-trends.md",
+      "narrative": null,
+      "content": "There are five hepatitis viruses: A, B, C, D and E (HAV, \nHBV, HCV, HDV and HEV). This chapter focuses on HBV \nand HCV, because they account for more than 95% of viral \nhepatitis-related deaths (Chapter  1) and are the forms \nof hepatitis for which global targets have been set in the \nWorld Health Organization (WHO) Global health sector \nstrategy on viral hepatitis, 2022–2030 (GHSS 2022–2030) \n(Chapter 2). \nPeople can be infected with HBV and HCV through \nexposure to infected blood (HBV and HCV) or other bodily \nfluids (HBV). In highly endemic areas, most chronic HBV \ninfections occur in child",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
     },
     {
       "id": "library/10665-385385/blocks/figure-img-p029-1",
@@ -198,6 +285,25 @@
       "truncated": false,
       "provenance": "ingested",
       "summary": null
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-005",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Prevention, diagnosis and treatment",
+      "pageStart": 49,
+      "pageEnd": 73,
+      "target": "../sections/sec-005-4-prevention-diagnosis-and-treatment.md",
+      "narrative": null,
+      "content": "Viral hepatitis remains a leading global health problem \n(Chapter 3). \nGlobally in 2024, the sequelae of chronic hepatitis B \nvirus (HBV) and hepatitis C virus (HCV) infections – liver \ncirrhosis and hepatocellular cancer (HCC) – caused a combined total of 1.3 million deaths (95% uncertainty interval [UI]: 1.1–1.7 million). This included 1.1 million (95% UI: \n0.9–1.3 million) HBV-related deaths and 240 000 (95% UI: \n160 000–370 000) HCV-related deaths. \nGlobally in 2024, there were an estimated 240 million \npeople living with a chronic HBV infection (95% UI: 202–\n296 million), equivalent to 2.",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
     },
     {
       "id": "library/10665-385385/blocks/figure-img-p052-1",
@@ -351,6 +457,101 @@
       "truncated": false,
       "provenance": "ingested",
       "summary": null
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-006",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "The road to elimination",
+      "pageStart": 73,
+      "pageEnd": 83,
+      "target": "../sections/sec-006-5-the-road-to-elimination.md",
+      "narrative": null,
+      "content": "The possibility that viral hepatitis could be eliminated \nas a public health threat worldwide was first recognized \nby all Member States of the World Health Organization \n(WHO) in 2014 (Chapter 2). Subsequently, the goal of the \nfirst WHO global health sector strategy on viral hepatitis (GHSS 2016–2021) (4), adopted by all Member States \nin 2016, was defined as elimination of viral hepatitis as a \npublic health threat by 2030. This goal was retained in the \nsecond GHSS, for 2022–2030 (3).\nThe 2030 elimination targets are: \n\t\nf a 95% reduction in the annual number of new hepatitis \nB virus (HBV",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-007",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "References",
+      "pageStart": 83,
+      "pageEnd": 89,
+      "target": "../sections/sec-007-references.md",
+      "narrative": null,
+      "content": "1.\t\nResolution WHA63.18. Viral hepatitis. In: Sixty-third World Health Assembly, Geneva, 17–21 May 2010. \nResolutions and decisions, annexes. Geneva: World Health Organization; 2010 \n(http://apps.who.int/gb/ebwha/pdf_files/WHA63-REC1/WHA63_REC1-en.pdf). Licence: CC BY-NC-SA 3.0 IGO.\n2.\t\nResolution WHA67.6. Hepatitis. In: Sixty-seventh World Health Assembly, Geneva, 19–24 May 2014. Resolutions \nand decisions, annexes. Geneva: World Health Organization; 2014 \n(http://apps.who.int/gb/ebwha/pdf_files/WHA67/A67_R6-en.pdf). Licence: CC BY-NC-SA 3.0 IGO.\n3.\t\nGlobal health sector strategies on, respec",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-008",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "Methodological notes",
+      "pageStart": 89,
+      "pageEnd": 91,
+      "target": "../sections/sec-008-annex-1-methodological-notes.md",
+      "narrative": null,
+      "content": "This annex summarizes the main updates to methods \nused to produce epidemiological estimates (incidence, \nprevalence and mortality) and associated estimates of \ndiagnostic and treatment coverage, compared with those \nused in previous World Health Organization (WHO) global \nreports on hepatitis, published in 2017 and 2024 (1, 2). The \nupdates reflect the availability of new data, refinements \nin modelling methods and enhanced calibration procedures that, overall, improve the accuracy, comparability \nand interpretability of global and regional trends. \nThe annex also highlights specific methodol",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-009",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "The global hepatitis reporting process",
+      "pageStart": 91,
+      "pageEnd": 93,
+      "target": "../sections/sec-009-annex-2-the-global-hepatitis-reporting-process.md",
+      "narrative": null,
+      "content": "f Regionally validated data. If WHO regional offices had \nalready conducted validation exercises, countries were \nadvised to use those datasets.\n\t\nf WHO estimates. Where there were data gaps, countries were encouraged to use WHO estimates from \n2024, provided they endorsed the figures. If discrepancies existed between national data and WHO estimates, countries were asked to provide explanatory \ncomments.\nFollowing reporting of data, WHO regional and country \noffices supported data validation efforts in collaboration \nwith ministries of health. Upon request, WHO facilitated country-level triang",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
+    },
+    {
+      "id": "library/10665-385385/blocks/prose-sec-010",
+      "types": [
+        "folio-assistant-core:Prose",
+        "doco:Section"
+      ],
+      "kind": "prose",
+      "title": "World Health Assembly resolutions on viral hepatitis",
+      "pageStart": 93,
+      "pageEnd": 96,
+      "target": "../sections/sec-010-annex-3-world-health-assembly-resolutions-on-vir.md",
+      "narrative": null,
+      "content": "on viral hepatitis\nThere have been two World Health Assembly resolutions \non viral hepatitis. The first was adopted in 2010 (WHA63.18) \n(1). The second was adopted in 2014 (WHA67.6) (2). The \nBox A3.1.\t The first World Health Assembly resolution on viral hepatitis in 2010 \n\t\n(WHA63.18): summary of Member State commitments and requests \n\t\nto WHO (1) \nMember State commitments\n\t\nf World Hepatitis Day. Designate 28 July as World \nHepatitis Day, to raise awareness and strengthen \nprevention and control measures.\n\t\nf Surveillance. Implement or improve \nepidemiological surveillance systems, to genera",
+      "truncated": true,
+      "provenance": "ingested",
+      "summary": {
+        "status": "not-summarised"
+      }
     }
   ]
 }
