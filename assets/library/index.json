@@ -12069,6 +12069,56 @@
       "viewable": "pdf"
     },
     {
+      "id": "9789241549226-eng",
+      "instance": "who-iris",
+      "dir": "library/9789241549226-eng",
+      "title": "Human Resources for Health Information System Minimum Data Set for Health Workforce Registry",
+      "provenance": "ingested",
+      "rung": "paged",
+      "docId": "9789241549226-eng",
+      "sourceFile": "9789241549226-eng.pdf",
+      "sourceSha256": "8dfb8f3903317bf68e41b5cb617b7f7ee2580d959b2c6b22caee90e34d353597",
+      "arxiv": "",
+      "doi": "",
+      "documentClass": "",
+      "sections": 45,
+      "blocks": 107,
+      "images": 6,
+      "ocrPages": 0,
+      "hasOcr": false,
+      "hasManifest": true,
+      "hasStructure": true,
+      "hasImagesJson": true,
+      "pageStart": 1,
+      "pageEnd": 78,
+      "words": 14228,
+      "chars": 105678,
+      "bytes": 2168849,
+      "upload": "match",
+      "uploadInstance": "who-iris",
+      "readme": "https://github.com/litlfred/who-iris/blob/main/library/9789241549226-eng/README.md",
+      "avatar": {
+        "href": "/assets/library/avatars/who-iris/9789241549226-eng.png",
+        "src": "library/9789241549226-eng/cover.png",
+        "source": "cover"
+      },
+      "referencedBy": [],
+      "summaries": {
+        "prose": 44,
+        "summarised": 0,
+        "backlog": 44,
+        "draft": 0,
+        "confirmed": 0,
+        "stale": 0,
+        "rejected": 0,
+        "notSummarised": 44,
+        "unreadable": 0,
+        "empty": 1
+      },
+      "view": "/en/cat-harness/library/who-iris/9789241549226-eng/",
+      "viewable": "pdf"
+    },
+    {
       "id": "9789241549912-eng",
       "instance": "who-iris",
       "dir": "library/9789241549912-eng",
@@ -15061,6 +15111,18 @@
       "declaredFiles": 2
     },
     {
+      "file": "9789241549226-eng",
+      "kind": "intake",
+      "instance": "who-iris",
+      "path": "uploads/9789241549226-eng",
+      "bytes": 2218426,
+      "ext": "",
+      "ingestedBy": "9789241549226-eng",
+      "docId": "9789241549226-eng",
+      "title": "Human resources for health information system: minimum data set for health workforce registry",
+      "declaredFiles": 1
+    },
+    {
       "file": "9789241549684_eng",
       "kind": "intake",
       "instance": "who-iris",
@@ -15504,8 +15566,8 @@
     {
       "instance": "who-iris",
       "dir": "uploads",
-      "total": 55,
-      "ingested": 21,
+      "total": 56,
+      "ingested": 22,
       "uningested": 34
     }
   ],
