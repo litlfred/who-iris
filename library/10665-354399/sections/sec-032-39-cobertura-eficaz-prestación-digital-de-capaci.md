@@ -12,14 +12,42 @@ toc_source: inferred
 prestación digital de capacitación 
 y contenidos educativos para los 
 trabajadores sanitarios 
+Desafíos ilustrativos del sistema sanitario
+Competencia insuficiente 
+de los trabajadores 
+sanitarios
+Cobertura eficaz 
+La proporción de personas que reciben servicios de salud satisfactorios entre la población destinataria
 Cumplimiento deficiente 
 de las directrices
 Falta de acceso a la 
 información
-Competencia insuficiente 
-de los trabajadores 
-sanitarios
-Desafíos ilustrativos del sistema sanitario
+Antecedentes 
+Definido en términos generales como la administración y prestación de contenidos educativos 
+y de capacitación en formato digital para los profesionales sanitarios, el aprendizaje electrónico 
+surgió como un enfoque que puede aumentar el acceso de los trabajadores sanitarios a los recursos 
+educativos y de capacitación (18). Más recientemente, el amplio alcance de los dispositivos móviles 
+ha impulsado el uso de estas tecnologías para brindar contenido de capacitación a los trabajadores 
+sanitarios, lo que también se conoce como “aprendizaje móvil”. Este contenido de capacitación 
+puede intercambiarse mediante el uso de canales como mensajes de texto SMS, el servicio de 
+mensajes multimedia, aplicaciones, juegos y otras formas de modalidad digital (82). En particular, 
+los países de ingresos bajos y medianos y las áreas remotas con infraestructura de TIC limitada, 
+además de barreras geográficas, pueden sacar provecho de los dispositivos móviles para aumentar 
+al máximo el acceso al contenido educativo y la educación médica continua (82). 
+Si bien diversos recursos de la OMS hacen referencia al uso de las herramientas digitales para 
+fortalecer al personal sanitario (15,70,71,83), no se examinan las consideraciones específicas sobre 
+la capacitación en salud digital para los trabajadores a través de dispositivos móviles. Con esta 
+pregunta de la directriz, se evalúan las posibles contribuciones y repercusiones de la transmisión 
+de capacitación digital y contenidos educativos a través de dispositivos móviles/aprendizaje móvil, 
+como parte de las iniciativas complementarias que responden a las necesidades del personal de 
+capacitación en el servicio y formación continua.
+Análisis general de la evidencia
+A continuación, se presenta un resumen de la evidencia sobre la transmisión de capacitación 
+digital y contenidos educativos para los trabajadores sanitarios a través de dispositivos móviles/
+aprendizaje móvil. En el Suplemento web 1, se incluye el marco de trabajo completo a partir de 
+la evidencia hasta la toma de decisiones correspondiente a esta intervención y se describe la 
+evidencia disponible sobre la eficacia, la aceptabilidad, la factibilidad, el uso de recursos y las 
+repercusiones para la equidad y los derechos de género y humanos.
 Eficacia
 The evidence suggests that this intervention may increase health workers’ knowledge. However, 
 the effects of this intervention on other outcomes, including health workers’ performance, skills 

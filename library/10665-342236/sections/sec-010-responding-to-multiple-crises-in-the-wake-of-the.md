@@ -24,10 +24,6 @@ for Emotional Support and Suicide Prevention was
 overwhelmed, and the Ministry of Public Health (MOPH) 
 central drug warehouse, located near the Beirut port, 
 was severely damaged. 
-©WHO / Hala Habib
-WHO provided essential supplies, incuding PCR test kits, to strengthen 
-COVID-19 testing capacity in Beirut. 
-2  https://embracelebanon.org/impact/
 More than US$ 2 million was released within 24 hours 
 through the CFE to respond to the urgent humanitarian 
 health needs following the explosions. For the next 
@@ -69,6 +65,10 @@ sufficient for 9000 sessions. In addition, WHO
 supported the National Hotline for Emotional Support 
 and Suicide Prevention, “the 1564 lifeline,” which 
 is operated by the NGO Embrace.2 
+©WHO / Hala Habib
+WHO provided essential supplies, incuding PCR test kits, to strengthen 
+COVID-19 testing capacity in Beirut. 
+2  https://embracelebanon.org/impact/
 At time of writing, the health sector coordination 
 mechanism that was established in the aftermath of 
 the Beirut port explosions was still functional. The action 

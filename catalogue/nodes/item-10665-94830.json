@@ -111,12 +111,12 @@
     "provenance": {
       "upstream": "https://iris.who.int/items/d6a6bd7e-b367-43d2-a82b-f5bd874d47fe"
     },
-    "localPath": "library/10665-94830-per",
+    "localPath": "library/10665-94830",
     "purpose": "working",
     "gates": {
       "size": {
         "verdict": "permitted",
-        "basis": "1,485,130 bytes of derived sections over 1 entry"
+        "basis": "1,965,419 bytes of derived sections over 2 entries"
       },
       "restrictions": {
         "verdict": "permitted",
@@ -139,7 +139,7 @@
         "decidedBy": "owner (litlfred), 2026-11-10"
       }
     },
-    "note": "Derived on 2026-11-10 without holding the PDFs: owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\". Each ORIGINAL bitstream was fetched to a scratch folder, ingested and discarded (scripts/iris-cdn/derive-referenced.py); the item's entry is library/10665-94830-per. The bitstreams stay referenced. First catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207)."
+    "note": "Derived on 2026-11-10 without holding the PDFs: owner, 2026-11-10 (who-iris#207): \"retrieve PDF/source document locally, run KG ingestion routines/derivative KGs. store those but do not materialize original asset on the KG\", and \"do all 144\". Each ORIGINAL bitstream was fetched to a scratch folder, ingested and discarded (scripts/iris-cdn/derive-referenced.py); the item's entry is library/10665-94830, and its other language versions are library/10665-94830-per. The bitstreams stay referenced. First catalogued by reference by scripts/iris-cdn/run.ts subset (who-iris#207)."
   },
-  "libraryId": "10665-94830-per"
+  "libraryId": "10665-94830"
 }

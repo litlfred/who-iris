@@ -54,11 +54,6 @@ military clashes in NES. Interruption
 of health services and surveillance 
 systems might have further led 
 to catastrophic outbreaks. 
-CFE funds enabled WHO to provide logistical 
-support to NES partners to expedite transport 
-of supplies to meet the urgent health needs of 
-©WHO
-vulnerable populations.
 CFE funds allowed WHO to undertake life-saving activities 
 in the response, including:
 •	 procurement and airlifting of three shipments 
@@ -93,4 +88,9 @@ CFE funds were critical in WHO’s response in NES. The CFE
 allowed WHO to provide life-saving emergency supplies and 
 support local health authorities in ensuring the availability 
 and continuity of health services to meet growing health 
-needs, alongside increasing COVID-19 cases.
+needs, alongside increasing COVID-19 cases. 
+CFE funds enabled WHO to provide logistical 
+support to NES partners to expedite transport 
+of supplies to meet the urgent health needs of 
+©WHO
+vulnerable populations.

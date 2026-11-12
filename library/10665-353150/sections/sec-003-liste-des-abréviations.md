@@ -96,24 +96,3 @@ advisory group)
 UIT	
 Union internationale  
 des télécommunications
-Une initiative de santé numérique comprend les processus commerciaux, les données, les systèmes et les 
-technologies utilisés pour soutenir les opérations du système de santé, y compris les applications logicielles, les 
-dispositifs et le matériel des points de service et l'infrastructure d'information sous-jacente (telle que la plateforme 
-de santé numérique) qui fournissent des services de santé accélérés et amplifiés par les technologies numériques 
-et de données. Les architectures d'entreprise de santé numérique ont des degrés variables de maturité et 
-d'institutionnalisation au sein de l'écosystème plus vaste. Ce document fait la distinction entre les architectures de 
-systèmes de santé numérique en silo et les structures de systèmes de santé numérique échangées qui contribuent 
-à une structure d'initiative de santé numérique nationale. Les architectures de systèmes de santé numérique en 
-silo sont des applications déconnectées qui visent à atteindre l'objectif d'un projet. Ces mises en œuvre en silo de la 
-santé numérique sont effectuées dans le cadre d'un projet de santé numérique autonome et limité dans le temps, 
-généralement pour démontrer la validité du concept, dont les résultats peuvent éventuellement contribuer à une 
-mise en œuvre de la santé numérique parrainée par le gouvernement. 
-Les architectures de systèmes de santé numérique échangées, quant à elles, consistent en de multiples 
-applications tirant parti de normes et connectées par le biais d'un échange d'informations sur la santé pour 
-répondre aux besoins de divers programmes de santé, fonctionnant de manière coordonnée au sein d'une 
-architecture d'entreprise de santé numérique nationale. De plus, ce guide reconnaît l'existence de structure 
-en silo, intégrées et sans architecture évidente, et oriente l'utilisateur vers la planification et l'investissement 
-dans des mises en œuvre de santé numérique d'initiatives cumulatives et modulaires qui se traduisent par un 
-bénéfice collectif dans l'ensemble du système de santé. Le présent guide se concentre sur la mise en œuvre 
-d'initiatives de systèmes numériques de santé échangés, de nature modulaire, qui prennent en charge un ou 
-plusieurs programmes dans l'ensemble du secteur de la santé et, éventuellement, au-delà de ce secteur.

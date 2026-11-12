@@ -83,4 +83,3 @@ Dr Dirce Guilhem and Dr Fabio Zicker.
 THE CASE STUDIES ❚ Deﬁning “Research” ❚
 Case 4
 Documenting the health conditions of an indigenous community
-© WHO/Christopher Black

@@ -67,4 +67,3 @@ the community?
 ❚ THE CASE STUDIES ❚ Issues in study design
 Case 17
 Compassionate intervention during an observational study
-© WHO

@@ -102,4 +102,3 @@ country best serve the interests of the population?
 implications if the genetic research project was carried 
 out by a non-profit entity, as opposed to a for-profit 
 commercial entity?
-© WHO

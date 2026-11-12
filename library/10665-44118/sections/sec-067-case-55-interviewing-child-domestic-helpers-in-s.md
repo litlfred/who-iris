@@ -77,4 +77,3 @@ order to ensure that the “employer” does not guess the true
 objective of the study, and to minimize risk to the children 
 Interviewing child domestic helpers in sub-Saharan Africa
 Case 55
-© WHO

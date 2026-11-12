@@ -28,8 +28,6 @@ Cyclone Harold Health Sector Response Plan, support
 national emergency medical team (EMT) deployment, 
 health sector coordination, health information 
 management, surveillance, and rapid facility repairs.
-CFE funds supported Vanuatu Ministry of Health activities in response to Tropical Cyclone Harold.
-©WHO / Philippe Metois
 The National Health Emergency Operations Center 
 (NHEOC) was already activated due to the COVID-19 global 
 pandemic. To guide the TC Harold response, on 7 April, 
@@ -48,6 +46,8 @@ diseases, including tuberculosis and HIV;
 •	 minimize the risk of non-communicable diseases, 
 including continued access to medicines, nutrition 
 and psycho-social support.
+CFE funds supported Vanuatu Ministry of Health activities in response to Tropical Cyclone Harold.
+©WHO / Philippe Metois
 WHO Vanuatu provided critical rapid response support, 
 despite COVID-19 restrictions which led to delays in the 
 arrival of key resources and a lack of military logistical 

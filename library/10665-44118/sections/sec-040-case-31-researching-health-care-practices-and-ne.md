@@ -70,4 +70,3 @@ Health at the Faculty of Medicine, University of Geneva,
 Switzerland.
 Case 31
 Researching health care practices and needs in an elderly population
-© WHO/Pierre Virot
