@@ -14,7 +14,7 @@ granularity: page
 
 إعداد خطة عمل وطنية للصحة الإلكترونية
 
-كي حص
+——
 
-طغاجءل ل0اءملالا ©
-0 ل
+@) World Health
+QSss7 Organization

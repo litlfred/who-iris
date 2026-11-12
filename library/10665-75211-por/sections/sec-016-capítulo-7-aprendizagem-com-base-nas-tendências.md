@@ -49,55 +49,69 @@ f
 f os tipos de objetivos e desafios dos sistemas de saúde a que a eSaúde pode dar resposta
 f
 f as provas dos benefícios específicos que a eSaúde proporcionou em contextos semelhantes.
-7.1	
-Investigação sobre visões, estratégias e programas 
+Pacote de Ferramentas da Estratégia Nacional de eSaúde - Parte 1: Visão de eSaúde
+
+71 Investigação sobre visões, estratégias e programas
 nacionais de eSaúde
+
 Objetivo
-Esta etapa identifica conhecimento e lições de outros programas, estratégias e visões nacionais de 
-eSaúde que podem ser utilizados como contributo para o desenvolvimento de uma visão nacional 
-de eSaúde. 
+Esta etapa identifica conhecimento e lições de outros programas, estratégias e visões nacionais de
+
+eSaúde que podem ser utilizados como contributo para o desenvolvimento de uma visão nacional
+de eSaúde.
+
 Entre os exemplos do tipo de informação que esta etapa deve procurar identificar incluem-se:
-f
-f objetivos e desafios dos sistemas de saúde a que os países estão a tentar dar resposta através 
+
+» objetivos e desafios dos sistemas de saúde a que os países estão a tentar dar resposta através
 da eSaúde
-f
-f recomendações estratégicas sobre o modo como a eSaúde deve ser utilizada
-f
-f objetivos e desafios de outros setores que não a saúde aos quais a eSaúde foi aplicada
-f
-f alterações dos fluxos de informação dos sistemas e serviços de saúde
-f
-f programas, projetos e iniciativas-piloto de eSaúde atuais e planeados
-f
-f ambiente de eSaúde existente (e suas limitações) no qual será implementada a eSaúde
-f
-f lições extraídas dos sucessos e dos fracassos.
-Esta etapa deve centrar-se nos países que possam ser semelhantes em termos de: 
-f
-f estrutura e funcionamento do sistema de saúde
-f
-f objetivos e desafios do sistema de saúde
-f
-f eSaúde e contexto nacional de desenvolvimento.
+
+recomendações estratégicas sobre o modo como a eSaúde deve ser utilizada
+
+v
+
+v
+
+objetivos e desafios de outros setores que não a saúde aos quais a eSaúde foi aplicada
+
+v
+
+alterações dos fluxos de informação dos sistemas e serviços de saúde
+» programas, projetos e iniciativas-piloto de eSaúde atuais e planeados
+» ambiente de eSaúde existente (e suas limitações) no qual será implementada a eSaúde
+» lições extraídas dos sucessos e dos fracassos.
+Esta etapa deve centrar-se nos países que possam ser semelhantes em termos de:
+» estrutura e funcionamento do sistema de saúde
+» objetivos e desafios do sistema de saúde
+
+» eSaúde e contexto nacional de desenvolvimento.
+
 Resultados recomendados
-Esta etapa deve gerar uma noção geral das visões, das estratégias e dos programas de 
+
+Esta etapa deve gerar uma noção geral das visões, das estratégias e dos programas de
 implementação nacionais de eSaúde de países semelhantes.
-Abordagem 
-Investigação e análise internas, complementadas com entrevistas exploratórias a representantes 
+
+Abordagem
+
+Investigação e análise internas, complementadas com entrevistas exploratórias a representantes
 de outros países.
+
 Investigação e análise internas
-Esta etapa requer a seleção de países apropriados e a determinação das perguntas a colocar. 
-Numa fase inicial, deve ser definido um pequeno conjunto de países no sentido de concentrar os 
-esforços de investigação e assegurar que esta etapa se mantenha devidamente limitada no tempo. 
-Esta pode ser uma tarefa complexa, devido à falta de familiaridade com outros países, à falta de 
-comparabilidade de muitos aspetos e ao tempo necessário para empreender o trabalho. 
-A informação deve ser obtida junto dos organismos e agências relevantes da área da saúde. Alguns 
-países poderão ter um organismo dedicado à eSaúde, ou esta pode ser delegada a um organismo 
-ou uma agência não relacionados com a saúde. A existência de tais entidades deve ser confirmada 
-numa fase inicial do processo. 
-Quando não houver informação diretamente disponível por parte dos países, poderão ser úteis os 
-relatórios de agências internacionais, como a OMS. Devem ser analisados os relatórios relevantes 
+
+Esta etapa requer a seleção de países apropriados e a determinação das perguntas a colocar.
+Numa fase inicial, deve ser definido um pequeno conjunto de países no sentido de concentrar os
+esforços de investigação e assegurar que esta etapa se mantenha devidamente limitada no tempo.
+Esta pode ser uma tarefa complexa, devido à falta de familiaridade com outros países, à falta de
+comparabilidade de muitos aspetos e ao tempo necessário para empreender o trabalho.
+
+A informação deve ser obtida junto dos organismos e agências relevantes da área da saúde. Alguns
+países poderão ter um organismo dedicado à eSaúde, ou esta pode ser delegada a um organismo
+ou uma agência não relacionados com a saúde. A existência de tais entidades deve ser confirmada
+numa fase inicial do processo.
+
+Quando não houver informação diretamente disponível por parte dos países, poderão ser úteis os
+relatórios de agências internacionais, como a OMS. Devem ser analisados os relatórios relevantes
 como contributo para esta etapa.
+
 Entrevistas exploratórias
 A dependência exclusiva da investigação para um pleno entendimento do programa de eSaúde 
 de outro país e das lições associadas à sua implementação pode constituir um desafio. Para 

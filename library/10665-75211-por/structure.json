@@ -8,9 +8,42 @@
   "pages": 220,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T21:55:05Z",
+  "mtime": "2026-11-11T09:52:49Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "ocr_pages": [
+   {
+    "page": 37,
+    "reason": "24 of 472 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 38,
+    "reason": "41 of 563 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 51,
+    "reason": "18 of 424 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 62,
+    "reason": "16 of 230 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 122,
+    "reason": "13 of 525 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 123,
+    "reason": "51 of 477 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 149,
+    "reason": "13 of 347 words are a stray single letter: the text layer splits words"
+   }
+  ],
+  "languages": [
+   "pt"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -2545,8 +2578,8 @@
    "level": 1,
    "page_start": 35,
    "page_end": 42,
-   "n_chars": 22385,
-   "n_words": 3447,
+   "n_chars": 22182,
+   "n_words": 3348,
    "label_start": "20",
    "label_end": "27"
   },
@@ -2569,8 +2602,8 @@
    "level": 1,
    "page_start": 50,
    "page_end": 53,
-   "n_chars": 6437,
-   "n_words": 996,
+   "n_chars": 6498,
+   "n_words": 1000,
    "label_start": "35",
    "label_end": "38"
   },
@@ -2581,8 +2614,8 @@
    "level": 1,
    "page_start": 53,
    "page_end": 62,
-   "n_chars": 25793,
-   "n_words": 4125,
+   "n_chars": 25875,
+   "n_words": 4139,
    "label_start": "38",
    "label_end": "47"
   },
@@ -2593,8 +2626,8 @@
    "level": 1,
    "page_start": 62,
    "page_end": 75,
-   "n_chars": 37818,
-   "n_words": 5604,
+   "n_chars": 37743,
+   "n_words": 5584,
    "label_start": "47",
    "label_end": "60"
   },
@@ -2833,8 +2866,8 @@
    "level": 1,
    "page_start": 121,
    "page_end": 127,
-   "n_chars": 15751,
-   "n_words": 2434,
+   "n_chars": 15765,
+   "n_words": 2363,
    "label_start": null,
    "label_end": null
   },
@@ -2869,8 +2902,8 @@
    "level": 1,
    "page_start": 144,
    "page_end": 152,
-   "n_chars": 18086,
-   "n_words": 2670,
+   "n_chars": 18256,
+   "n_words": 2693,
    "label_start": null,
    "label_end": null
   },
@@ -3186,7 +3219,10 @@
    }
   },
   "sections": 65,
-  "chars_total": 557520,
-  "furniture_lines_stripped": 385
+  "chars_total": 557569,
+  "furniture_lines_stripped": 376,
+  "pages_read_in_print_order": [
+   1
+  ]
  }
 }

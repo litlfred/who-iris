@@ -8,9 +8,12 @@
   "pages": 8,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T19:55:24Z",
+  "mtime": "2026-11-11T07:28:04Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "languages": [
+   "ru"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -37,21 +40,8 @@
    "browser_print": false
   }
  },
- "toc": [
-  {
-   "level": 1,
-   "title": "-ter",
-   "page": 6,
-   "source": "inferred",
-   "number": null,
-   "confidence": 0.6,
-   "evidence": [
-    "style"
-   ],
-   "page_label": null
-  }
- ],
- "toc_source": "inferred",
+ "toc": [],
+ "toc_source": "none",
  "toc_undetermined_reason": null,
  "figures": [],
  "pages": [
@@ -114,26 +104,14 @@
  ],
  "sections": [
   {
-   "id": "sec-front-matter",
+   "id": "sec-000-document",
    "number": null,
-   "title": "Front matter",
+   "title": "Document",
    "level": 1,
    "page_start": 1,
-   "page_end": 6,
-   "n_chars": 12671,
-   "n_words": 1580,
-   "label_start": null,
-   "label_end": null
-  },
-  {
-   "id": "sec-000--ter",
-   "number": null,
-   "title": "-ter",
-   "level": 1,
-   "page_start": 6,
    "page_end": 8,
-   "n_chars": 6933,
-   "n_words": 873,
+   "n_chars": 19619,
+   "n_words": 2454,
    "label_start": null,
    "label_end": null
   }
@@ -141,7 +119,7 @@
  "diagnostics": {
   "pages_without_text": 0,
   "likely_scanned": false,
-  "toc_entries": 1,
+  "toc_entries": 0,
   "toc_inferred_entries": 1,
   "toc_inferred_mean_confidence": 0.6,
   "toc_inferred_empty_share": 0.0,
@@ -152,8 +130,16 @@
    "count": 0,
    "items": []
   },
-  "sections": 2,
-  "chars_total": 19604,
-  "furniture_lines_stripped": 0
+  "sections": 1,
+  "chars_total": 19619,
+  "furniture_lines_stripped": 0,
+  "headings_tidied": [
+   {
+    "title": "-ter",
+    "page": 6,
+    "action": "dropped",
+    "why": "opens in lower case"
+   }
+  ]
  }
 }

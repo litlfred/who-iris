@@ -8,9 +8,22 @@
   "pages": 223,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T21:43:02Z",
+  "mtime": "2026-11-11T12:48:40Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "ocr_pages": [
+   {
+    "page": 39,
+    "reason": "30 of 476 words are a stray single letter: the text layer splits words"
+   },
+   {
+    "page": 125,
+    "reason": "27 of 369 words are a stray single letter: the text layer splits words"
+   }
+  ],
+  "languages": [
+   "en"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -96,21 +109,6 @@
     "number"
    ],
    "page_label": "7"
-  },
-  {
-   "level": 1,
-   "title": "eHealth components",
-   "page": 24,
-   "source": "inferred",
-   "number": "2",
-   "confidence": 0.95,
-   "evidence": [
-    "contents",
-    "body",
-    "style",
-    "number"
-   ],
-   "page_label": "8"
   },
   {
    "level": 1,
@@ -3476,26 +3474,14 @@
    "title": "Context and focus of eHealth strategy",
    "level": 1,
    "page_start": 24,
-   "page_end": 24,
-   "n_chars": 2249,
-   "n_words": 298,
-   "label_start": "8",
-   "label_end": "8"
-  },
-  {
-   "id": "sec-005-2-ehealth-components",
-   "number": "2",
-   "title": "eHealth components",
-   "level": 1,
-   "page_start": 24,
    "page_end": 25,
-   "n_chars": 459,
-   "n_words": 61,
+   "n_chars": 2729,
+   "n_words": 361,
    "label_start": "8",
    "label_end": "9"
   },
   {
-   "id": "sec-006-4-role-of-ehealth-components",
+   "id": "sec-005-4-role-of-ehealth-components",
    "number": "4",
    "title": "Role of eHealth components",
    "level": 1,
@@ -3507,7 +3493,7 @@
    "label_end": "10"
   },
   {
-   "id": "sec-007-2-framework-for-a-national-ehealth-vision",
+   "id": "sec-006-2-framework-for-a-national-ehealth-vision",
    "number": "2",
    "title": "Framework for a national eHealth vision",
    "level": 1,
@@ -3519,7 +3505,7 @@
    "label_end": "10"
   },
   {
-   "id": "sec-008-3-a-framework-for-a-national-ehealth-vision",
+   "id": "sec-007-3-a-framework-for-a-national-ehealth-vision",
    "number": "3",
    "title": "A framework for a national eHealth vision",
    "level": 1,
@@ -3531,7 +3517,7 @@
    "label_end": "12"
   },
   {
-   "id": "sec-009-3-national-ehealth-vision-overview-of-the-method",
+   "id": "sec-008-3-national-ehealth-vision-overview-of-the-method",
    "number": "3",
    "title": "National eHealth vision: overview of the method",
    "level": 1,
@@ -3543,7 +3529,7 @@
    "label_end": "12"
   },
   {
-   "id": "sec-010-4-method-for-developing-a-national-ehealth-visio",
+   "id": "sec-009-4-method-for-developing-a-national-ehealth-visio",
    "number": "4",
    "title": "Method for developing a national eHealth vision",
    "level": 1,
@@ -3555,7 +3541,7 @@
    "label_end": "15"
   },
   {
-   "id": "sec-011-4-manage-the-process",
+   "id": "sec-010-4-manage-the-process",
    "number": "4",
    "title": "Manage the process",
    "level": 1,
@@ -3567,7 +3553,7 @@
    "label_end": "16"
   },
   {
-   "id": "sec-012-5-sample-governance-model-for-the-development-of",
+   "id": "sec-011-5-sample-governance-model-for-the-development-of",
    "number": "5",
    "title": "Sample governance model for the development of a national eHealth vision",
    "level": 1,
@@ -3579,7 +3565,7 @@
    "label_end": "17"
   },
   {
-   "id": "sec-013-5-examples-of-governance-functions-responsibilit",
+   "id": "sec-012-5-examples-of-governance-functions-responsibilit",
    "number": "5",
    "title": "Examples of governance functions, responsibilities and composition",
    "level": 1,
@@ -3591,7 +3577,7 @@
    "label_end": "19"
   },
   {
-   "id": "sec-014-6-two-sample-timelines-for-developing-a-national",
+   "id": "sec-013-6-two-sample-timelines-for-developing-a-national",
    "number": "6",
    "title": "Two sample timelines for developing a national eHealth vision",
    "level": 1,
@@ -3603,7 +3589,7 @@
    "label_end": "20"
   },
   {
-   "id": "sec-015-5-engage-with-stakeholders",
+   "id": "sec-014-5-engage-with-stakeholders",
    "number": "5",
    "title": "Engage with stakeholders",
    "level": 1,
@@ -3615,43 +3601,43 @@
    "label_end": "21"
   },
   {
-   "id": "sec-016-6-governments-role-and-implications-for-strategy",
+   "id": "sec-015-6-governments-role-and-implications-for-strategy",
    "number": "6",
    "title": "Government\u2019s role and implications for strategy and planning",
    "level": 1,
    "page_start": 37,
    "page_end": 39,
-   "n_chars": 5472,
-   "n_words": 781,
+   "n_chars": 5529,
+   "n_words": 790,
    "label_start": "21",
    "label_end": "23"
   },
   {
-   "id": "sec-017-7-four-common-stakeholder-roles-in-the-developme",
+   "id": "sec-016-7-four-common-stakeholder-roles-in-the-developme",
    "number": "7",
    "title": "Four common stakeholder roles in the development of a national eHealth vision",
    "level": 1,
    "page_start": 39,
    "page_end": 39,
-   "n_chars": 511,
-   "n_words": 105,
+   "n_chars": 206,
+   "n_words": 22,
    "label_start": "23",
    "label_end": "23"
   },
   {
-   "id": "sec-018-7-stakeholder-roles-in-a-national-vision",
+   "id": "sec-017-7-stakeholder-roles-in-a-national-vision",
    "number": "7",
    "title": "Stakeholder roles in a national vision",
    "level": 1,
    "page_start": 39,
    "page_end": 40,
-   "n_chars": 2985,
-   "n_words": 451,
+   "n_chars": 3094,
+   "n_words": 461,
    "label_start": "23",
    "label_end": "24"
   },
   {
-   "id": "sec-019-8-sample-stakeholder-engagement-approach",
+   "id": "sec-018-8-sample-stakeholder-engagement-approach",
    "number": "8",
    "title": "Sample stakeholder engagement approach",
    "level": 1,
@@ -3663,7 +3649,7 @@
    "label_end": null
   },
   {
-   "id": "sec-020-9-sample-stakeholder-consultation-plan",
+   "id": "sec-019-9-sample-stakeholder-consultation-plan",
    "number": "9",
    "title": "Sample stakeholder consultation plan",
    "level": 1,
@@ -3675,7 +3661,7 @@
    "label_end": "26"
   },
   {
-   "id": "sec-021-10-sample-approach-to-stakeholder-consultations",
+   "id": "sec-020-10-sample-approach-to-stakeholder-consultations",
    "number": "10",
    "title": "Sample approach to stakeholder consultations",
    "level": 1,
@@ -3687,7 +3673,7 @@
    "label_end": "27"
   },
   {
-   "id": "sec-022-6-establish-the-strategic-context",
+   "id": "sec-021-6-establish-the-strategic-context",
    "number": "6",
    "title": "Establish the strategic context",
    "level": 1,
@@ -3699,7 +3685,7 @@
    "label_end": "28"
   },
   {
-   "id": "sec-023-11-population-health-and-demographics",
+   "id": "sec-022-11-population-health-and-demographics",
    "number": "11",
    "title": "Population health and demographics",
    "level": 1,
@@ -3711,7 +3697,7 @@
    "label_end": "29"
   },
   {
-   "id": "sec-024-12-examples-of-health-system-dimensions-to-be-ex",
+   "id": "sec-023-12-examples-of-health-system-dimensions-to-be-ex",
    "number": "12",
    "title": "Examples of health system dimensions to be explored",
    "level": 1,
@@ -3723,7 +3709,7 @@
    "label_end": "30"
   },
   {
-   "id": "sec-025-13-examples-of-health-strategy-goals-and-priorit",
+   "id": "sec-024-13-examples-of-health-strategy-goals-and-priorit",
    "number": "13",
    "title": "Examples of health strategy, goals and priorities",
    "level": 1,
@@ -3735,7 +3721,7 @@
    "label_end": "33"
   },
   {
-   "id": "sec-026-14-strategic-goals-and-challenges-common-areas",
+   "id": "sec-025-14-strategic-goals-and-challenges-common-areas",
    "number": "14",
    "title": "Strategic goals and challenges: common areas",
    "level": 1,
@@ -3747,7 +3733,7 @@
    "label_end": "35"
   },
   {
-   "id": "sec-027-7-learn-from-ehealth-trends-and-experience",
+   "id": "sec-026-7-learn-from-ehealth-trends-and-experience",
    "number": "7",
    "title": "Learn from eHealth trends and experience",
    "level": 1,
@@ -3759,7 +3745,7 @@
    "label_end": "38"
   },
   {
-   "id": "sec-028-8-draft-an-initial-vision",
+   "id": "sec-027-8-draft-an-initial-vision",
    "number": "8",
    "title": "Draft an initial vision",
    "level": 1,
@@ -3771,7 +3757,7 @@
    "label_end": "40"
   },
   {
-   "id": "sec-029-15-sample-questions-for-defining-ehealth-outcome",
+   "id": "sec-028-15-sample-questions-for-defining-ehealth-outcome",
    "number": "15",
    "title": "Sample questions for defining eHealth outcomes",
    "level": 1,
@@ -3783,7 +3769,7 @@
    "label_end": "40"
   },
   {
-   "id": "sec-030-1-examples-of-ehealth-outcomes",
+   "id": "sec-029-1-examples-of-ehealth-outcomes",
    "number": "1",
    "title": "Examples of eHealth outcomes",
    "level": 1,
@@ -3795,7 +3781,7 @@
    "label_end": "41"
   },
   {
-   "id": "sec-031-2-sample-links-between-ehealth-outcomes-and-heal",
+   "id": "sec-030-2-sample-links-between-ehealth-outcomes-and-heal",
    "number": "2",
    "title": "Sample links between eHealth outcomes and health system goals",
    "level": 1,
@@ -3807,7 +3793,7 @@
    "label_end": "42"
   },
   {
-   "id": "sec-032-3-sample-structure-for-an-initial-vision-stateme",
+   "id": "sec-031-3-sample-structure-for-an-initial-vision-stateme",
    "number": "3",
    "title": "Sample structure for an initial vision statement",
    "level": 1,
@@ -3819,7 +3805,7 @@
    "label_end": "42"
   },
   {
-   "id": "sec-033-4-sample-country-vision-statement-for-ehealth",
+   "id": "sec-032-4-sample-country-vision-statement-for-ehealth",
    "number": "4",
    "title": "Sample country vision statement for eHealth",
    "level": 1,
@@ -3831,7 +3817,7 @@
    "label_end": "42"
   },
   {
-   "id": "sec-034-8-sample-visual-model-for-an-ehealth-vision-stat",
+   "id": "sec-033-8-sample-visual-model-for-an-ehealth-vision-stat",
    "number": "8",
    "title": "Sample visual model for an eHealth vision statement",
    "level": 1,
@@ -3843,7 +3829,7 @@
    "label_end": "43"
   },
   {
-   "id": "sec-035-16-sample-questions-for-describing-the-vision-fo",
+   "id": "sec-034-16-sample-questions-for-describing-the-vision-fo",
    "number": "16",
    "title": "Sample questions for describing the vision for important stakeholders",
    "level": 1,
@@ -3855,7 +3841,7 @@
    "label_end": "44"
   },
   {
-   "id": "sec-036-5-sample-national-ehealth-vision-for-health-care",
+   "id": "sec-035-5-sample-national-ehealth-vision-for-health-care",
    "number": "5",
    "title": "Sample national eHealth vision for health-care providers",
    "level": 1,
@@ -3867,7 +3853,7 @@
    "label_end": null
   },
   {
-   "id": "sec-037-6-sample-scenario",
+   "id": "sec-036-6-sample-scenario",
    "number": "6",
    "title": "Sample scenario",
    "level": 1,
@@ -3879,7 +3865,7 @@
    "label_end": "47"
   },
   {
-   "id": "sec-038-9-identify-the-required-ehealth-components",
+   "id": "sec-037-9-identify-the-required-ehealth-components",
    "number": "9",
    "title": "Identify the required eHealth components",
    "level": 1,
@@ -3891,7 +3877,7 @@
    "label_end": "48"
   },
   {
-   "id": "sec-039-17-examples-of-common-ehealth-leadership-and-gov",
+   "id": "sec-038-17-examples-of-common-ehealth-leadership-and-gov",
    "number": "17",
    "title": "Examples of common eHealth leadership and governance components",
    "level": 1,
@@ -3903,7 +3889,7 @@
    "label_end": "49"
   },
   {
-   "id": "sec-040-18-examples-of-common-ehealth-strategy-and-inves",
+   "id": "sec-039-18-examples-of-common-ehealth-strategy-and-inves",
    "number": "18",
    "title": "Examples of common eHealth strategy and investment components",
    "level": 1,
@@ -3915,7 +3901,7 @@
    "label_end": "50"
   },
   {
-   "id": "sec-041-19-examples-of-common-ehealth-service-and-applic",
+   "id": "sec-040-19-examples-of-common-ehealth-service-and-applic",
    "number": "19",
    "title": "Examples of common eHealth service and application components",
    "level": 1,
@@ -3927,7 +3913,7 @@
    "label_end": "51"
   },
   {
-   "id": "sec-042-7-linking-an-ehealth-service-and-application-com",
+   "id": "sec-041-7-linking-an-ehealth-service-and-application-com",
    "number": "7",
    "title": "Linking an eHealth service and application component to an eHealth outcome",
    "level": 1,
@@ -3939,7 +3925,7 @@
    "label_end": "52"
   },
   {
-   "id": "sec-043-20-examples-of-common-ehealth-infrastructure-com",
+   "id": "sec-042-20-examples-of-common-ehealth-infrastructure-com",
    "number": "20",
    "title": "Examples of common eHealth infrastructure components",
    "level": 1,
@@ -3951,7 +3937,7 @@
    "label_end": "53"
   },
   {
-   "id": "sec-044-8-linking-an-infrastructure-component-to-an-ehea",
+   "id": "sec-043-8-linking-an-infrastructure-component-to-an-ehea",
    "number": "8",
    "title": "Linking an infrastructure component to an eHealth outcome",
    "level": 1,
@@ -3963,7 +3949,7 @@
    "label_end": "53"
   },
   {
-   "id": "sec-045-21-examples-of-common-ehealth-standards-and-inte",
+   "id": "sec-044-21-examples-of-common-ehealth-standards-and-inte",
    "number": "21",
    "title": "Examples of common eHealth standards and interoperability components",
    "level": 1,
@@ -3975,7 +3961,7 @@
    "label_end": "54"
   },
   {
-   "id": "sec-046-9-linking-ehealth-standards-and-interoperability",
+   "id": "sec-045-9-linking-ehealth-standards-and-interoperability",
    "number": "9",
    "title": "Linking eHealth standards and interoperability to eHealth outcome",
    "level": 1,
@@ -3987,7 +3973,7 @@
    "label_end": "55"
   },
   {
-   "id": "sec-047-22-examples-of-common-ehealth-legislation-policy",
+   "id": "sec-046-22-examples-of-common-ehealth-legislation-policy",
    "number": "22",
    "title": "Examples of common eHealth legislation, policy and compliance components",
    "level": 1,
@@ -3999,7 +3985,7 @@
    "label_end": "56"
   },
   {
-   "id": "sec-048-23-examples-of-common-ehealth-workforce-componen",
+   "id": "sec-047-23-examples-of-common-ehealth-workforce-componen",
    "number": "23",
    "title": "Examples of common eHealth workforce components",
    "level": 1,
@@ -4011,7 +3997,7 @@
    "label_end": "58"
   },
   {
-   "id": "sec-049-9-sample-national-ehealth-component-map",
+   "id": "sec-048-9-sample-national-ehealth-component-map",
    "number": "9",
    "title": "Sample national eHealth component map",
    "level": 1,
@@ -4023,7 +4009,7 @@
    "label_end": "59"
   },
   {
-   "id": "sec-050-10-stakeholder-perspective-model-for-a-consumer",
+   "id": "sec-049-10-stakeholder-perspective-model-for-a-consumer",
    "number": "10",
    "title": "Stakeholder perspective model for a consumer stakeholder group",
    "level": 1,
@@ -4035,7 +4021,7 @@
    "label_end": "60"
   },
   {
-   "id": "sec-051-10-gather-information-on-the-ehealth-environment",
+   "id": "sec-050-10-gather-information-on-the-ehealth-environment",
    "number": "10",
    "title": "Gather information on the eHealth environment",
    "level": 1,
@@ -4047,7 +4033,7 @@
    "label_end": "67"
   },
   {
-   "id": "sec-052-11-assess-opportunities-gaps-risks-and-barriers",
+   "id": "sec-051-11-assess-opportunities-gaps-risks-and-barriers",
    "number": "11",
    "title": "Assess opportunities, gaps, risks and barriers",
    "level": 1,
@@ -4059,7 +4045,7 @@
    "label_end": "68"
   },
   {
-   "id": "sec-053-11-identifying-leverage-opportunities-gaps-risks",
+   "id": "sec-052-11-identifying-leverage-opportunities-gaps-risks",
    "number": "11",
    "title": "Identifying leverage opportunities, gaps, risks and barriers",
    "level": 1,
@@ -4071,7 +4057,7 @@
    "label_end": "71"
   },
   {
-   "id": "sec-054-12-refine-vision-and-develop-strategic-recommend",
+   "id": "sec-053-12-refine-vision-and-develop-strategic-recommend",
    "number": "12",
    "title": "Refine vision and develop strategic recommendations",
    "level": 1,
@@ -4083,7 +4069,7 @@
    "label_end": "72"
   },
   {
-   "id": "sec-055-24-internal-and-external-factors-in-ehealth-prio",
+   "id": "sec-054-24-internal-and-external-factors-in-ehealth-prio",
    "number": "24",
    "title": "Internal and external factors in eHealth prioritization",
    "level": 1,
@@ -4095,7 +4081,7 @@
    "label_end": "73"
   },
   {
-   "id": "sec-056-12-steps-for-refining-the-ehealth-vision",
+   "id": "sec-055-12-steps-for-refining-the-ehealth-vision",
    "number": "12",
    "title": "Steps for refining the eHealth vision",
    "level": 1,
@@ -4107,7 +4093,7 @@
    "label_end": "75"
   },
   {
-   "id": "sec-057-10-example-of-a-strategic-recommendation-for-a-n",
+   "id": "sec-056-10-example-of-a-strategic-recommendation-for-a-n",
    "number": "10",
    "title": "Example of a strategic recommendation for a national eHealth vision",
    "level": 1,
@@ -4119,7 +4105,7 @@
    "label_end": "78"
   },
   {
-   "id": "sec-058-a-examples-of-ehealth",
+   "id": "sec-057-a-examples-of-ehealth",
    "number": "A",
    "title": "Examples of eHealth",
    "level": 1,
@@ -4131,7 +4117,7 @@
    "label_end": "81"
   },
   {
-   "id": "sec-059-b-ehealth-benefits",
+   "id": "sec-058-b-ehealth-benefits",
    "number": null,
    "title": "B. eHealth benefits",
    "level": 1,
@@ -4143,7 +4129,7 @@
    "label_end": "81"
   },
   {
-   "id": "sec-060-26-examples-of-ehealth-benefits",
+   "id": "sec-059-26-examples-of-ehealth-benefits",
    "number": "26",
    "title": "Examples of eHealth benefits",
    "level": 1,
@@ -4155,7 +4141,7 @@
    "label_end": "82"
   },
   {
-   "id": "sec-061-c-structure-for-a-national-ehealth-vision",
+   "id": "sec-060-c-structure-for-a-national-ehealth-vision",
    "number": "C",
    "title": "Structure for a national eHealth vision",
    "level": 1,
@@ -4167,7 +4153,7 @@
    "label_end": "82"
   },
   {
-   "id": "sec-062-11-suggested-structure-for-a-national-ehealth-vi",
+   "id": "sec-061-11-suggested-structure-for-a-national-ehealth-vi",
    "number": "11",
    "title": "Suggested structure for a national eHealth vision",
    "level": 1,
@@ -4179,7 +4165,7 @@
    "label_end": "83"
   },
   {
-   "id": "sec-063-d-method-summary",
+   "id": "sec-062-d-method-summary",
    "number": "D",
    "title": "Method summary",
    "level": 1,
@@ -4191,7 +4177,7 @@
    "label_end": "85"
   },
   {
-   "id": "sec-064-e-national-ehealth-component-map",
+   "id": "sec-063-e-national-ehealth-component-map",
    "number": "E",
    "title": "National eHealth component map",
    "level": 1,
@@ -4203,7 +4189,7 @@
    "label_end": "85"
   },
   {
-   "id": "sec-065-13-national-ehealth-component-map-example",
+   "id": "sec-064-13-national-ehealth-component-map-example",
    "number": "13",
    "title": "National eHealth component map: example",
    "level": 1,
@@ -4215,7 +4201,7 @@
    "label_end": "87"
   },
   {
-   "id": "sec-066-f-governance-continuum",
+   "id": "sec-065-f-governance-continuum",
    "number": "F",
    "title": "Governance continuum",
    "level": 1,
@@ -4227,22 +4213,370 @@
    "label_end": "88"
   },
   {
-   "id": "sec-067-g-definitions-of-terms-used-in-the-toolkit",
-   "number": "G",
-   "title": "Definitions of terms used in the Toolkit",
-   "level": 1,
+   "id": "sec-066-annex-g-definition-of-terms-used-in-the-toolkit",
+   "number": null,
+   "title": "Annex G. Definition of terms used in the Toolkit",
+   "level": 2,
    "page_start": 104,
-   "page_end": 223,
-   "n_chars": 257561,
-   "n_words": 36813,
+   "page_end": 105,
+   "n_chars": 3739,
+   "n_words": 543,
    "label_start": "88",
+   "label_end": null
+  },
+  {
+   "id": "sec-067-national-ehealth-toolkit-part-2-developing-a-nat",
+   "number": null,
+   "title": "National eHealth Toolkit \u2022 Part 2: Developing a national eHealth action plan",
+   "level": 2,
+   "page_start": 106,
+   "page_end": 113,
+   "n_chars": 10865,
+   "n_words": 1627,
+   "label_start": null,
+   "label_end": "v"
+  },
+  {
+   "id": "sec-068-introduction-from-vision-to-action-plan",
+   "number": null,
+   "title": "Introduction. From vision to action plan",
+   "level": 2,
+   "page_start": 114,
+   "page_end": 114,
+   "n_chars": 1547,
+   "n_words": 240,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-069-chapter-1-framework-for-an-action-plan",
+   "number": null,
+   "title": "Chapter 1. Framework for an action plan",
+   "level": 2,
+   "page_start": 115,
+   "page_end": 116,
+   "n_chars": 2416,
+   "n_words": 367,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-070-chapter-2-developing-the-national-ehealth-action",
+   "number": null,
+   "title": "Chapter 2. Developing the national eHealth action plan: overview",
+   "level": 2,
+   "page_start": 117,
+   "page_end": 118,
+   "n_chars": 4100,
+   "n_words": 617,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-071-chapter-3-manage-the-process",
+   "number": null,
+   "title": "Chapter 3. Manage the process",
+   "level": 2,
+   "page_start": 119,
+   "page_end": 122,
+   "n_chars": 7010,
+   "n_words": 1029,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-072-chapter-4-engage-with-stakeholders",
+   "number": null,
+   "title": "Chapter 4. Engage with stakeholders",
+   "level": 2,
+   "page_start": 123,
+   "page_end": 128,
+   "n_chars": 13459,
+   "n_words": 1931,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-073-chapter-5-develop-ehealth-action-lines",
+   "number": null,
+   "title": "Chapter 5. Develop eHealth action lines",
+   "level": 2,
+   "page_start": 129,
+   "page_end": 139,
+   "n_chars": 26520,
+   "n_words": 3882,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-074-chapter-6-develop-an-integrated-action-plan",
+   "number": null,
+   "title": "Chapter 6. Develop an integrated action plan",
+   "level": 2,
+   "page_start": 140,
+   "page_end": 145,
+   "n_chars": 13388,
+   "n_words": 1930,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-075-chapter-7-determine-high-level-resource-requirem",
+   "number": null,
+   "title": "Chapter 7. Determine high-level resource requirements",
+   "level": 2,
+   "page_start": 146,
+   "page_end": 153,
+   "n_chars": 15954,
+   "n_words": 2332,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-076-chapter-8-apply-funding-constraints-to-refine-pl",
+   "number": null,
+   "title": "Chapter 8. Apply funding constraints to refine plan",
+   "level": 2,
+   "page_start": 154,
+   "page_end": 158,
+   "n_chars": 12208,
+   "n_words": 1835,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-077-chapter-9-define-implementation-phases",
+   "number": null,
+   "title": "Chapter 9. Define implementation phases",
+   "level": 2,
+   "page_start": 159,
+   "page_end": 163,
+   "n_chars": 10826,
+   "n_words": 1583,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-078-annex-a-structure-of-an-ehealth-action-plan",
+   "number": null,
+   "title": "Annex A. Structure of an eHealth action plan",
+   "level": 2,
+   "page_start": 164,
+   "page_end": 164,
+   "n_chars": 1999,
+   "n_words": 296,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-079-annex-b-methodology-summary",
+   "number": null,
+   "title": "Annex B. Methodology summary",
+   "level": 2,
+   "page_start": 165,
+   "page_end": 165,
+   "n_chars": 3327,
+   "n_words": 496,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-080-annex-c-mapping-ehealth-components-to-action-lin",
+   "number": null,
+   "title": "Annex C. Mapping eHealth components to action lines",
+   "level": 2,
+   "page_start": 166,
+   "page_end": 167,
+   "n_chars": 4073,
+   "n_words": 481,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-081-annex-d-examples-of-ehealth-activities",
+   "number": null,
+   "title": "Annex D. Examples of eHealth activities",
+   "level": 2,
+   "page_start": 168,
+   "page_end": 172,
+   "n_chars": 20205,
+   "n_words": 2672,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-082-annex-e-examples-of-ehealth-activity-risks",
+   "number": null,
+   "title": "Annex E. Examples of eHealth activity risks",
+   "level": 2,
+   "page_start": 173,
+   "page_end": 174,
+   "n_chars": 6648,
+   "n_words": 971,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-083-annex-f-public-private-partnerships-ppps",
+   "number": null,
+   "title": "Annex F. Public Private Partnerships (PPPs)",
+   "level": 2,
+   "page_start": 175,
+   "page_end": 176,
+   "n_chars": 5818,
+   "n_words": 858,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-084-annex-g-definition-of-terms-used-in-the-toolkit",
+   "number": null,
+   "title": "Annex G. Definition of terms used in the Toolkit",
+   "level": 2,
+   "page_start": 177,
+   "page_end": 178,
+   "n_chars": 3751,
+   "n_words": 543,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-085-national-ehealth-strategy-toolkit-part-3-monitor",
+   "number": null,
+   "title": "National eHealth Strategy Toolkit \u2022 Part 3: Monitoring and Evaluation",
+   "level": 2,
+   "page_start": 179,
+   "page_end": 185,
+   "n_chars": 7665,
+   "n_words": 1093,
+   "label_start": null,
+   "label_end": "iv"
+  },
+  {
+   "id": "sec-086-introduction",
+   "number": null,
+   "title": "Introduction",
+   "level": 2,
+   "page_start": 186,
+   "page_end": 188,
+   "n_chars": 5633,
+   "n_words": 801,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-087-chapter-1-ehealth-monitoring-and-evaluation-fram",
+   "number": null,
+   "title": "Chapter 1. eHealth monitoring and evaluation framework",
+   "level": 2,
+   "page_start": 189,
+   "page_end": 190,
+   "n_chars": 2329,
+   "n_words": 328,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-088-chapter-2-developing-an-ehealth-monitoring-and-e",
+   "number": null,
+   "title": "Chapter 2. Developing an eHealth monitoring and evaluation framework: overview",
+   "level": 2,
+   "page_start": 191,
+   "page_end": 192,
+   "n_chars": 3269,
+   "n_words": 478,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-089-chapter-3-define-indicators-for-ehealth",
+   "number": null,
+   "title": "Chapter 3. Define indicators for eHealth",
+   "level": 2,
+   "page_start": 193,
+   "page_end": 202,
+   "n_chars": 25535,
+   "n_words": 3570,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-090-chapter-4-define-baseline-and-target-measures-fo",
+   "number": null,
+   "title": "Chapter 4. Define baseline and target measures for indicators",
+   "level": 2,
+   "page_start": 203,
+   "page_end": 208,
+   "n_chars": 12361,
+   "n_words": 1812,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-091-chapter-5-define-supporting-governance-and-proce",
+   "number": null,
+   "title": "Chapter 5. Define supporting governance and processes",
+   "level": 2,
+   "page_start": 209,
+   "page_end": 215,
+   "n_chars": 17955,
+   "n_words": 2414,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-092-chapter-6-conclusion",
+   "number": null,
+   "title": "Chapter 6. Conclusion",
+   "level": 2,
+   "page_start": 216,
+   "page_end": 216,
+   "n_chars": 1715,
+   "n_words": 263,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-093-annex-a-results-based-management",
+   "number": null,
+   "title": "Annex A. Results-based management",
+   "level": 2,
+   "page_start": 217,
+   "page_end": 219,
+   "n_chars": 6073,
+   "n_words": 881,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-094-annex-b-examples-of-ehealth-strategies",
+   "number": null,
+   "title": "Annex B. Examples of eHealth strategies",
+   "level": 2,
+   "page_start": 220,
+   "page_end": 221,
+   "n_chars": 3304,
+   "n_words": 329,
+   "label_start": null,
+   "label_end": null
+  },
+  {
+   "id": "sec-095-annex-c-definition-of-terms-used-in-the-toolkit",
+   "number": null,
+   "title": "Annex C. Definition of terms used in the Toolkit",
+   "level": 2,
+   "page_start": 222,
+   "page_end": 223,
+   "n_chars": 3931,
+   "n_words": 580,
+   "label_start": null,
    "label_end": null
   }
  ],
  "diagnostics": {
   "pages_without_text": 0,
   "likely_scanned": false,
-  "toc_entries": 71,
+  "toc_entries": 70,
   "toc_inferred_entries": 71,
   "toc_inferred_mean_confidence": 0.848,
   "toc_inferred_empty_share": 0.029,
@@ -4272,8 +4606,26 @@
     ]
    }
   },
-  "sections": 69,
-  "chars_total": 490240,
-  "furniture_lines_stripped": 391
+  "sections": 97,
+  "chars_total": 490184,
+  "furniture_lines_stripped": 389,
+  "oversized_split": [
+   {
+    "title": "Definitions of terms used in the Toolkit",
+    "page_start": 104,
+    "page_end": 223,
+    "words": 36773,
+    "by": "running heads",
+    "into": 30
+   }
+  ],
+  "headings_tidied": [
+   {
+    "title": "eHealth components",
+    "page": 24,
+    "action": "dropped",
+    "why": "opens in lower case"
+   }
+  ]
  }
 }

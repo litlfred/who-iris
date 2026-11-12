@@ -35,7 +35,7 @@ For each referenced item whose ORIGINAL PDFs were fetched to a scratch folder
 5. `licence.json` records the licence the publication states (a Creative
    Commons line found in its text), or `unknown` with where it was searched.
 
-usage: derive-referenced.py <who-iris root> <fetch dir> [--only id,id] [--skip-done] [--report <file>] [--dry-run]
+usage: derive-referenced.py <who-iris root> <fetch dir> [--only id,id] [--slugs slug,slug] [--skip-done] [--report <file>] [--dry-run]
 
 `--skip-done` leaves an item whose node already names its derived entry.
 Shards may run side by side (one `--only` list each): every item writes only
@@ -222,6 +222,10 @@ def licence_for(entry_dir, pdf_name):
 def main():
     root, fetch = os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2])
     only = set(sys.argv[sys.argv.index("--only") + 1].split(",")) if "--only" in sys.argv else None
+    # --slugs re-derives single language editions (10665-75211 but not -ara).
+    slugs = set(sys.argv[sys.argv.index("--slugs") + 1].split(",")) if "--slugs" in sys.argv else None
+    if slugs:
+        only = (only or set()) | {"-".join(x.split("-")[:2]) for x in slugs}
     dry = "--dry-run" in sys.argv
     skip_done = "--skip-done" in sys.argv
     report_path = sys.argv[sys.argv.index("--report") + 1] if "--report" in sys.argv else None
@@ -254,6 +258,8 @@ def main():
             if slug in used:
                 slug = f"{stem}-{i + 1}"
             used.add(slug)
+            if slugs and slug not in slugs:
+                continue
             hints = [iso] if iso else record_langs
             src = os.path.realpath(os.path.join(fetch, stem, b["name"]))
             row = {"slug": slug, "item": stem, "file": b["name"], "hints": hints}

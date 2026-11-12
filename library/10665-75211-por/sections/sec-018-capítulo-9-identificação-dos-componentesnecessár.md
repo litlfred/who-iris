@@ -9,57 +9,63 @@ source_pdf: 10665-75211-por.pdf
 source_sha256: 793ea6ff30f18157
 toc_source: outline
 ---
-Identificação dos componentes 
+Identificação dos componentes
 necessários à eSaúde
-Esta etapa centra-se na identificação dos componentes da eSaúde necessários para implementar a 
+
+Esta etapa centra-se na identificação dos componentes da eSaúde necessários para implementar a
 visão de eSaúde, que ainda está numa fase de esboço.
-Identiﬁcar os
-componentes
-necessários    
-Aperfeiçoar a visão
-e desenvolver
-recomendações
-estratégicas   
+
 Envolver as partes interessadas
-Gerir o processo
-Recolher informação sobre o ambiente de eSaúde
-Esboçar uma
-visão inicial
-Avaliar
-oportunidades
-e lacunas 
-Aprender com as
+Estabelecer o Esboçar uma Identificar os Avaliar Aperfeiçoar a visão
+contexto estratégico isá componentes oportunidades e desenvolver
+
+necessários e lacunas recomendações
+Aprender comas estratégicas
 tendências e a experiência
-Estabelecer o
-contexto estratégico
+
+Recolher
+
 Objetivo
-Uma vez esboçada a visão inicial “irrestrita” do ambiente nacional de eSaúde, é possível definir os 
-componentes, ou blocos básicos, da eSaúde necessários a um ambiente nacional de eSaúde. 
+
+Uma vez esboçada a visão inicial “irrestrita” do ambiente nacional de eSaúde, é possível definir os
+componentes, ou blocos básicos, da eSaúde necessários a um ambiente nacional de eSaúde.
+
 Atividades
+
 Identificar os componentes da eSaúde necessários nas sete áreas de componentes:
-f
-f liderança e administração
-f
-f estratégia e investimento
-f
-f serviços e aplicações
-f
-f infraestruturas
-f
-f normas e interoperabilidade
-f
-f legislação, políticas e conformidade
-f
-f recursos humanos.
-Também pode ser criado nesta fase um modelo de arquitetura da estratégia de eSaúde para 
-apresentar de uma forma visual os componentes da eSaúde necessários (opcional). 
+
+v
+
+liderança e administração
+
+» estratégia e investimento
+
+v
+
+serviços e aplicações
+
+infraestruturas
+
+v
+
+» normas e interoperabilidade
+
+v
+
+legislação, políticas e conformidade
+» recursos humanos.
+
+Também pode ser criado nesta fase um modelo de arquitetura da estratégia de eSaúde para
+apresentar de uma forma visual os componentes da eSaúde necessários (opcional).
+
 Resultados
 Uma descrição de:
-f
-f o conjunto de componentes da eSaúde necessários à implementação da visão nacional de 
+
+» o conjunto de componentes da eSaúde necessários à implementação da visão nacional de
 eSaúde
-f
-f as relações e interdependências entre os componentes.
+
+» as relações e interdependências entre os componentes.
+
 9.1	 Liderança e administração 
 Objetivo
 Esta etapa identifica os componentes de liderança e administração da eSaúde necessários para 

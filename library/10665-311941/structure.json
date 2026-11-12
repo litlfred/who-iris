@@ -8,9 +8,12 @@
   "pages": 150,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T21:05:34Z",
+  "mtime": "2026-11-11T08:42:02Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "languages": [
+   "en"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -132,10 +135,10 @@
   },
   {
    "level": 2,
-   "title": "and universal health coverage",
+   "title": "Role of digital health in health system strengthening and universal health coverage",
    "page": 26,
    "source": "inferred",
-   "number": null,
+   "number": "1.2",
    "confidence": 0.5,
    "evidence": [
     "contents"
@@ -470,10 +473,10 @@
   },
   {
    "level": 2,
-   "title": "child and adolescent health",
+   "title": "Contact and continuous coverage: targeted client communication for behaviour change related to sexual, reproductive, maternal, newborn, child and adolescent health",
    "page": 80,
    "source": "inferred",
-   "number": null,
+   "number": "3.6",
    "confidence": 0.75,
    "evidence": [
     "contents",
@@ -511,10 +514,10 @@
   },
   {
    "level": 2,
-   "title": "to health workers",
+   "title": "Effective coverage: digital provision of training and educational content to health workers",
    "page": 97,
    "source": "inferred",
-   "number": null,
+   "number": "3.9",
    "confidence": 0.75,
    "evidence": [
     "contents",
@@ -2404,20 +2407,20 @@
    "level": 2,
    "page_start": 25,
    "page_end": 26,
-   "n_chars": 3703,
-   "n_words": 534,
+   "n_chars": 3662,
+   "n_words": 527,
    "label_start": "1",
    "label_end": "2"
   },
   {
-   "id": "sec-006-and-universal-health-coverage",
-   "number": null,
-   "title": "and universal health coverage",
+   "id": "sec-006-12-role-of-digital-health-in-health-system-stren",
+   "number": "1.2",
+   "title": "Role of digital health in health system strengthening and universal health coverage",
    "level": 2,
    "page_start": 26,
    "page_end": 31,
-   "n_chars": 8170,
-   "n_words": 1126,
+   "n_chars": 8214,
+   "n_words": 1131,
    "label_start": "2",
    "label_end": "7"
   },
@@ -2680,20 +2683,20 @@
    "level": 2,
    "page_start": 76,
    "page_end": 80,
-   "n_chars": 8178,
-   "n_words": 1101,
+   "n_chars": 8039,
+   "n_words": 1085,
    "label_start": "52",
    "label_end": "56"
   },
   {
-   "id": "sec-029-child-and-adolescent-health",
-   "number": null,
-   "title": "child and adolescent health",
+   "id": "sec-029-36-contact-and-continuous-coverage-targeted-clie",
+   "number": "3.6",
+   "title": "Contact and continuous coverage: targeted client communication for behaviour change related to sexual, reproductive, maternal, newborn, child and adolescent health",
    "level": 2,
    "page_start": 80,
    "page_end": 87,
-   "n_chars": 16315,
-   "n_words": 2274,
+   "n_chars": 16449,
+   "n_words": 2290,
    "label_start": "56",
    "label_end": "63"
   },
@@ -2716,20 +2719,20 @@
    "level": 2,
    "page_start": 91,
    "page_end": 97,
-   "n_chars": 14172,
-   "n_words": 2008,
+   "n_chars": 14096,
+   "n_words": 1999,
    "label_start": "67",
    "label_end": "73"
   },
   {
-   "id": "sec-032-to-health-workers",
-   "number": null,
-   "title": "to health workers",
+   "id": "sec-032-39-effective-coverage-digital-provision-of-train",
+   "number": "3.9",
+   "title": "Effective coverage: digital provision of training and educational content to health workers",
    "level": 2,
    "page_start": 97,
    "page_end": 101,
-   "n_chars": 8333,
-   "n_words": 1176,
+   "n_chars": 8407,
+   "n_words": 1186,
    "label_start": "73",
    "label_end": "77"
   },
@@ -3018,7 +3021,30 @@
    }
   },
   "sections": 52,
-  "chars_total": 345099,
-  "furniture_lines_stripped": 196
+  "chars_total": 345095,
+  "furniture_lines_stripped": 196,
+  "headings_tidied": [
+   {
+    "title": "and universal health coverage",
+    "page": 26,
+    "action": "rejoined",
+    "as": "Role of digital health in health system strengthening and universal health coverage",
+    "why": "opens in lower case"
+   },
+   {
+    "title": "child and adolescent health",
+    "page": 80,
+    "action": "rejoined",
+    "as": "Contact and continuous coverage: targeted client communication for behaviour change related to sexual, reproductive, maternal, newborn, child and adolescent health",
+    "why": "opens in lower case"
+   },
+   {
+    "title": "to health workers",
+    "page": 97,
+    "action": "rejoined",
+    "as": "Effective coverage: digital provision of training and educational content to health workers",
+    "why": "opens in lower case"
+   }
+  ]
  }
 }

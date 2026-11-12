@@ -55,6 +55,4 @@ promover la integración y el uso adecuado de las tecnologías” (8). Sin dejar
 función innovadora que las tecnologías digitales pueden desempeñar en el fortalecimiento del 
 sistema sanitario, es igualmente importante y necesario evaluar su efecto y garantizar que dichas 
 inversiones no desvíen los recursos de enfoques alternativos, no digitales, cuando no sea apropiado.
-1.2	
-Función de la salud digital en el 
-fortalecimiento del sistema sanitario y la
+1.2

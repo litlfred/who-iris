@@ -15,5 +15,5 @@ granularity: page
 الجزء 2
 إعداد خطة عمل وطنية للصحة الإلكترونية
 
-طكادء نا ارملا ©
-اكع 1ت اف ل
+@) World Health
+y Organization

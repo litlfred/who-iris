@@ -8,9 +8,12 @@
   "pages": 27,
   "text_source": "embedded",
   "extractor": "pymupdf",
-  "mtime": "2026-11-10T22:11:17Z",
+  "mtime": "2026-11-12T00:56:20Z",
   "mimetype_sniffed": "application/pdf",
-  "mimetype_source": "magic-bytes"
+  "mimetype_source": "magic-bytes",
+  "languages": [
+   "en"
+  ]
  },
  "metadata": {
   "arxiv": null,
@@ -723,8 +726,8 @@
    "level": 1,
    "page_start": 15,
    "page_end": 16,
-   "n_chars": 2189,
-   "n_words": 324,
+   "n_chars": 572,
+   "n_words": 87,
    "label_start": "9",
    "label_end": "10"
   },
@@ -735,8 +738,8 @@
    "level": 1,
    "page_start": 16,
    "page_end": 17,
-   "n_chars": 2916,
-   "n_words": 475,
+   "n_chars": 4533,
+   "n_words": 712,
    "label_start": "10",
    "label_end": "11"
   },
@@ -753,26 +756,26 @@
    "label_end": "13"
   },
   {
-   "id": "sec-011-reaching-target-populations",
-   "number": null,
-   "title": "Reaching target populations",
-   "level": 1,
-   "page_start": 19,
-   "page_end": 19,
-   "n_chars": 1658,
-   "n_words": 252,
-   "label_start": "13",
-   "label_end": "13"
-  },
-  {
-   "id": "sec-012-service-delivery",
+   "id": "sec-011-service-delivery",
    "number": null,
    "title": "Service delivery",
    "level": 1,
    "page_start": 19,
+   "page_end": 19,
+   "n_chars": 0,
+   "n_words": 0,
+   "label_start": "13",
+   "label_end": "13"
+  },
+  {
+   "id": "sec-012-reaching-target-populations",
+   "number": null,
+   "title": "Reaching target populations",
+   "level": 1,
+   "page_start": 19,
    "page_end": 20,
-   "n_chars": 4338,
-   "n_words": 648,
+   "n_chars": 6029,
+   "n_words": 903,
    "label_start": "13",
    "label_end": "14"
   },
@@ -831,8 +834,8 @@
    "level": 1,
    "page_start": 24,
    "page_end": 26,
-   "n_chars": 2513,
-   "n_words": 384,
+   "n_chars": 1745,
+   "n_words": 274,
    "label_start": "18",
    "label_end": "20"
   },
@@ -843,8 +846,8 @@
    "level": 1,
    "page_start": 26,
    "page_end": 27,
-   "n_chars": 1532,
-   "n_words": 235,
+   "n_chars": 2299,
+   "n_words": 345,
    "label_start": "20",
    "label_end": "21"
   },
@@ -915,7 +918,12 @@
    }
   },
   "sections": 21,
-  "chars_total": 53910,
-  "furniture_lines_stripped": 45
+  "chars_total": 53942,
+  "furniture_lines_stripped": 45,
+  "pages_read_in_print_order": [
+   16,
+   19,
+   26
+  ]
  }
 }

@@ -129,7 +129,3 @@ The extent to which clients receive the full course of intervention required to 
 Contact coverage   Proportion of clients who have contact with relevant facilities, 
 providers and services among the target population
 3.6
-Contact and continuous coverage: 
-targeted client communication 
-for behaviour change 
-related to sexual, reproductive, maternal, newborn,

@@ -11,13 +11,42 @@ toc_source: inferred
 ---
 Apoyo a las decisiones de los 
 trabajadores sanitarios
+Desafíos ilustrativos del sistema sanitario
 Cumplimiento deficiente 
 de las directrices	
+Cobertura eficaz 
+La proporción de personas que reciben servicios de salud satisfactorios entre la población destinataria
 Falta de derivaciones o 
 derivaciones inadecuadas
 Competencia insuficiente 
 de los trabajadores sanitarios
-Desafíos ilustrativos del sistema sanitario
+Antecedentes  
+La calidad de la atención, definida como “el grado en el que los servicios de salud para las personas 
+y las poblaciones aumentan la probabilidad de obtener los resultados de salud deseados y son 
+coherentes con el conocimiento profesional actual”, es un componente fundamental de la CSU(76). 
+La calidad de la atención ha sido constantemente documentada como subóptima, especialmente 
+en los países de ingresos bajos y medianos. Entre las razones de la calidad baja que se citan 
+con frecuencia, se incluyen el diagnóstico erróneo de los trabajadores sanitarios, tratamientos 
+inapropiados o innecesarios y prácticas clínicas inadecuadas o poco seguras, además de una 
+variedad de problemas sistémicos, por ejemplo, la falta de productos básicos y limitaciones 
+infraestructurales (76). 
+Si bien la calidad baja de la atención es consecuencia de diversas dificultades muy arraigadas en 
+el sistema sanitario, se ha sacado provecho de las herramientas de apoyo a las decisiones que 
+ofrecen orientación a los trabajadores sanitarios como mecanismo para aumentar el cumplimiento 
+de las prácticas clínicas recomendadas (77–80). En su forma digital, los sistemas de apoyo a las 
+decisiones para los trabajadores sanitarios se definen como sistemas electrónicos cuyo fin es 
+colaborar directamente en la toma de decisiones, en los que se utilizan las características de los 
+pacientes individuales para generar recomendaciones o evaluaciones específicas de los pacientes 
+que luego se envían a los médicos para que las consideren (13,18). El apoyo digital a las decisiones 
+de los trabajadores sanitarios (13), también conocido como “sistemas de apoyo de decisiones 
+clínicas (CDSS, del inglés clinical decision support systems)”, puede utilizarse para una amplia gama 
+de interacciones clínicas, entre ellas el diagnóstico y el tratamiento, así como para facilitar las 
+derivaciones, reducir al mínimo los errores al recetar medicamentos y garantizar la prestación de 
+servicios exhaustivos y precisos (79). A nivel funcional, las herramientas de apoyo a las decisiones 
+pueden diseñarse para guiar a los trabajadores sanitarios a través de reglas y algoritmos basados 
+en protocolos clínicos, proporcionarles listas de verificación para la coordinación asistencial y las 
+derivaciones, seleccionar a pacientes según el riesgo u otras características del estado de salud y 
+ayudar en la programación y la planificación de las actividades del trabajador sanitario (13). 
 El uso de herramientas de apoyo a las decisiones está bien establecido y cuenta con el respaldo 
 de algunas evidencias de reciente aparición (80). Sin embargo, en la última década, el apoyo a las 
 decisiones de los trabajadores sanitarios se ha trasladado de los sistemas informáticos fijos a los 
@@ -146,29 +175,4 @@ Estándares e interoperabilidad
 las decisiones suelen estar integradas con los registros de salud digital. En la sección 3.7, se 
 puede consultar la evidencia y un análisis sobre la combinación del apoyo a las decisiones con el 
 seguimiento digital del estado de salud y los servicios brindados a los pacientes. 
-Antecedentes  
-El uso de sistemas de registro en papel en la prestación de servicios de salud introduce una carga 
-administrativa para los trabajadores sanitarios. Por otro lado, para la continuidad de la atención, 
-es esencial que los trabajadores sanitarios puedan rastrear a los pacientes con eficacia y hacer un 
-seguimiento de los servicios, ya sea dentro del centro de salud o en la comunidad (12).
-El seguimiento digital es el uso de un registro digitalizado para capturar y almacenar la información 
-médica de los pacientes con el fin de realizar un seguimiento de su estado de salud y de los 
-servicios recibidos (13,40,81). Este puede incluir formas digitales de registros en papel y registros 
-de coordinación asistencial dentro de poblaciones destinatarias específicas, así como registros 
-electrónicos de pacientes vinculados a individuos identificados de forma única. El seguimiento 
-digital posibilita el registro y el seguimiento de los servicios, y puede realizarse a través de una 
-historia clínica electrónica u otra forma digital de los registros de salud. Su objetivo es reducir los 
-lapsos en la continuidad de la atención promoviendo las consultas de seguimiento oportunas y, 
-además, puede incorporar herramientas de apoyo a las decisiones para orientar a los trabajadores 
-sanitarios en el lugar de atención sobre la ejecución de los protocolos clínicos, la prestación de los 
-servicios adecuados, la programación de los servicios posteriores y el cumplimiento de listas de 
-verificación para la coordinación asistencial apropiada.
-Para atraer a los pacientes/clientes, el seguimiento digital y los sistemas de apoyo a las decisiones 
-también pueden conectarse con intervenciones del lado de la demanda, por ejemplo, mediante 
-la comunicación dirigida a los pacientes a través de los dispositivos móviles. En este contexto, la 
-comunicación dirigida a los pacientes se define como la transmisión de recordatorios o contenido 
-de salud seleccionado para una población específica o para personas que están dentro de un grupo 
-demográfico o de salud predefinido (13).
-3.8	
-Puntos de cobertura múltiples:
-seguimiento digital de los servicios y
+3.8

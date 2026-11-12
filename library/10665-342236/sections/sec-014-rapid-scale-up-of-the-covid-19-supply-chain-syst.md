@@ -10,8 +10,47 @@ source_sha256: 5248503e605d865a
 toc_source: outline
 ---
 and equitable access to critical health supplies
-©WHO / Blink Media – Natalie Naccache
+Supply chain challenges confronted nearly every sector 
+in 2020 as the COVID-19 pandemic spread globally. 
+In healthcare, rapid and unprecedented increases 
+in demand for clinical supplies, diagnostic tests, and 
+personal protective equipment (PPE) led to significant 
+shortages and market uncertainty. Aggressive buying 
+by governments and health providers led to significant 
+competition to procure supplies, leaving many low-income 
+and middle-income countries (LMICs) without access to 
+essential commodities, and further increasing vulnerability 
+to COVID-19.
+To mitigate the risks of unchecked competition for 
+life‑saving health supplies and equipment, WHO stepped 
+forward to provide technical guidance and facilitate 
+the connection to, and equitable allocation of, available 
+supplies and demand. On 29 January 2020, as news 
+of COVID-19 spread and shortly after the first reported 
+case of COVID-19 was reported outside of China, WHO 
+established the Pandemic Supply Chain Network (PSCN), 
+in collaboration with the World Economic Forum, and 
+held the first PSCN meeting. This market network, led 
+by WHO to facilitate a functioning supply chain during 
+a pandemic, was designed to provide market visibility, 
+technical guidance, country, and global demand scenarios 
+to governments, United Nations partners, and private 
+sector partners. 
+Through WHO leadership as part of other global supply 
+chain governance structures, a dedicated COVID-19 
+Supply Chain System (CSCS) was also established with 
+the objective of sourcing materials for infection prevention 
+and control (including PPE), diagnostic tests, and clinical 
+support supplies and allocating these resources based on 
+need, with priority given to health workers and vulnerable 
+populations. The CSCS was also established to lead global 
+physical and virtual supply chains for delivery of supplies 
+where they are most needed.
+WHO released CFE funds in early February to facilitate 
+rapid implementation of priorities determined 
+by the PSCN and CSCS. 
 CFE funds facilitated distribution of critical health supplies. 
+©WHO / Blink Media – Natalie Naccache
 CFE funding in the early days of the pandemic provided 
 a solid foundation that allowed WHO and partners to more 
 effectively respond to critical response priorities over the 
@@ -50,62 +89,4 @@ approaches will be used to manage essential health
 commodities to respond to future events. 
 ©WHO / Blink Media – Natalie Naccache
 WHO released CFE funds in early February 2020 to facilitate rapid scale-up 
-of the COVID-19 supply chain. 
-The CFE is a key component of the reforms undertaken 
-by WHO to strengthen its role in emergencies. The CFE has 
-been a game-changer and remains an important enabling 
-pillar of the WHO Health Emergencies Programme. 
-Despite the relatively modest level of contributions to the 
-CFE, the flexible nature of the funding – and especially its 
-early release – has shown the disproportionately beneficial 
-impact of these investments. Donors contribute to the CFE 
-because they know that rapid, flexible funding in response 
-to health emergencies saves lives and reduces costs.
-The main challenge has been the 
-sustainable replenishment of the 
-CFE. The CFE remains dependent 
-on a few traditional donors for most 
-of its funding. Furthermore, the CFE 
-was envisaged by Member States 
-to be a revolving fund whereby 
-contributions to WHO emergency 
-operations at country level would 
-be used to pay back CFE allocations. 
-In practice, it has proven difficult to 
-raise the level of resources required 
-at the country level to sustainably 
-replenish the CFE in this manner. This 
-fact further underscores the challenge 
-faced by the Organization in terms 
-of sustainably funding its work.
-The WHO global resource 
-mobilization strategy, launched 
-in February 2020, places an 
-emphasis on attracting more donors, 
-deepening existing relationships, 
-and seeking multi-year agreements 
-to ensure predictability. The CFE 
-fits squarely within this strategy. 
-Furthermore, resource mobilization 
-for the CFE must be part of 
-the ongoing discussions around 
-sustainable financing for WHO 
-and strengthening WHO’s global 
-health emergency preparedness 
-and response capacity. 
-Member States will bring forward 
-a resolution on the latter, which 
-has also been addressed by several 
-independent reviews. A formal 
-intergovernmental process is now 
-underway to consider sustainable 
-financing and, as part of its mandate, 
-the Member State Working Group 
-will consider what WHO functions it 
-considers essential. The Organization 
-needs the resources to perform the 
-role expected of it by Member States, 
-including strengthening WHO’s 
-capacity to respond quickly to acute 
-events, with the CFE playing a critical 
-role in this regard.
+of the COVID-19 supply chain.

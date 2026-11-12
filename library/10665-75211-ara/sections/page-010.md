@@ -14,5 +14,5 @@ granularity: page
 
 إعداد رؤية وطنية للصحة الإلكترونية
 
-طغاجءن رمالا ©
-0 ل
+@) World Health
+Y&S37 Organization

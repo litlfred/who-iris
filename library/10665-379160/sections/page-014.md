@@ -10,4 +10,4 @@ source_sha256: 4a6b26a0e704cfd0
 text_source: ocr
 granularity: page
 ---
-ضصحم ليج © رخصحم) وم ضري كم
+‎pore?‏ ليج © ‎(Reig orety‏ ضري كم
