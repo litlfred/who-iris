@@ -13,6 +13,8 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `glossary`, holding `glossar
 
 | file | what it is | used by |
 |---|---|---|
+| [`hrhis-registry-2015.glossary.json`](hrhis-registry-2015.glossary.json) | Human resources for health information system: minimum data set for health workforce registry (2015) — system functional requirements |  |
+| [`nhwa-2023.glossary.json`](nhwa-2023.glossary.json) | National health workforce accounts: a handbook, second edition (2023) |  |
 | [`who-iris.glossary.json`](who-iris.glossary.json) | WHO house terms |  |
 | [`generated/`](generated/) | _nothing declares what this holds_ | |
 

@@ -42,6 +42,7 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `library`, holding `library`
 | [`9789241513111-eng/`](9789241513111-eng/README.md) | described in its own README | |
 | [`9789241514446-eng/`](9789241514446-eng/README.md) | described in its own README | |
 | [`9789241548960-eng/`](9789241548960-eng/README.md) | described in its own README | |
+| [`9789241549226-eng/`](9789241549226-eng/README.md) | described in its own README | |
 | [`9789241549912-eng/`](9789241549912-eng/README.md) | described in its own README | |
 | [`9789241549912-webannexes-eng/`](9789241549912-webannexes-eng/README.md) | described in its own README | |
 | [`9789241549912-websupplement-eng/`](9789241549912-websupplement-eng/README.md) | described in its own README | |
