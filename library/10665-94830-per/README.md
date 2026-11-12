@@ -1,5 +1,5 @@
 <!-- kg:subgraph:begin -->
-# WHO guidelines for screening and treatment of precancerous lesions for cervical cancer prevention
+# 10665-94830-per
 
 ingested source material — attributed to its document, not folio content
 
@@ -16,6 +16,6 @@ Held in the library [`who-iris/library/`](../README.md) as `10665-94830-per`.
 |---|---|
 | [sections](sections/) | 136 |
 | [blocks](blocks/) | 70 |
-| images | 77 |
+| images | 2 |
 
 <!-- kg:subgraph:end -->

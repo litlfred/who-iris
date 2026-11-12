@@ -16,6 +16,6 @@ Held in the library [`who-iris/library/`](../README.md) as `10665-75211-rus`.
 |---|---|
 | [sections](sections/) | 452 |
 | [blocks](blocks/) | 228 |
-| images | 14 |
+| images | 2 |
 
 <!-- kg:subgraph:end -->
