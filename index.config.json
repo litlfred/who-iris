@@ -17,7 +17,8 @@
           ],
           "keep": [
             "ns"
-          ]
+          ],
+          "rootIndex": true
         }
       }
     },
@@ -82,7 +83,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "49b2eb15b14b52ae19422876bcc825607ebe22f4",
+          "ref": "d5b0550b29fdecdd5907eb15cba3cc4e48c782f9",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -94,9 +95,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-11-12",
-              "ref": "49b2eb15b14b52ae19422876bcc825607ebe22f4",
-              "evidence": "owner litlfred, 2026-11-12: decision 'a, b, then c' on litlfred/smart-ra#242 (step c: full bottom-up re-pin to mains); Q-CONSENT-1 A; Q-WIN-1 C (window to ~21:05Z 2026-11-12)"
+              "on": "2026-11-13",
+              "ref": "d5b0550b29fdecdd5907eb15cba3cc4e48c782f9",
+              "evidence": "owner litlfred, 2026-11-13, in Claude Code session https://claude.ai/code/session_01EucfRoW4LYuBAKA8T4qbMV: \"1 y 2 y\" approving the merge of litlfred/cat-harness-tools#2012 and the re-pin of who-iris's cat-harness-tools to its merge d5b0550 to publish index.jsonld; then \"Merge when ready\""
             }
           }
         }
