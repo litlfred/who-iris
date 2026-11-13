@@ -1,9 +1,1530 @@
 {
  "$schema": "site-link-report/v1",
- "pages": 17388,
+ "pages": 4208,
  "unresolved": [],
- "selfAddress": [],
+ "selfAddress": [
+  {
+   "page": "bootstrap-tools/process/Process_RenderKgToGitHubPages.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/render-kg-to-github-pages.svg"
+  },
+  {
+   "page": "bootstrap-tools/process/Process_RenderKgToGitHubPages/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/render-kg-to-github-pages.svg"
+  },
+  {
+   "page": "bootstrap/asset/agent-instructions.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/AGENTS.md"
+  },
+  {
+   "page": "bootstrap/asset/readme.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/README.md"
+  },
+  {
+   "page": "bootstrap/asset/vocabulary.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/ns.jsonld"
+  },
+  {
+   "page": "bootstrap/directory/models.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/models/"
+  },
+  {
+   "page": "bootstrap/directory/processes.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/"
+  },
+  {
+   "page": "bootstrap/directory/scenarios.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/scenarios/"
+  },
+  {
+   "page": "bootstrap/directory/schemas.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/schemas/"
+  },
+  {
+   "page": "bootstrap/directory/skills.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/"
+  },
+  {
+   "page": "bootstrap/process/Process_CompleteInitialization.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/complete-initialization.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_CompleteInitialization.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/complete-initialization.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_CompleteInitialization/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/complete-initialization.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_CompleteInitialization/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/complete-initialization.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_Discussion.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/discussion.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_Discussion.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/discussion.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_Discussion/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/discussion.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_Discussion/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/discussion.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_HumanAgentDiscussion.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/human-agent-discussion.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_HumanAgentDiscussion.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/human-agent-discussion.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_HumanAgentDiscussion/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/human-agent-discussion.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_HumanAgentDiscussion/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/human-agent-discussion.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_InitializeHarness.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/initialize-harness.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_InitializeHarness.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/initialize-harness.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_InitializeHarness/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/initialize-harness.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_InitializeHarness/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/initialize-harness.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_LogMessage.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/log-message.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_LogMessage.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/log-message.svg"
+  },
+  {
+   "page": "bootstrap/process/Process_LogMessage/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/log-message.bpmn"
+  },
+  {
+   "page": "bootstrap/process/Process_LogMessage/index.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/processes/log-message.svg"
+  },
+  {
+   "page": "bootstrap/role/bootstrapping-agent.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/scenarios/roles.json"
+  },
+  {
+   "page": "bootstrap/role/knowledge-graph-data-store.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/scenarios/roles.json"
+  },
+  {
+   "page": "bootstrap/role/logger.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/scenarios/roles.json"
+  },
+  {
+   "page": "bootstrap/role/requestor.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/scenarios/roles.json"
+  },
+  {
+   "page": "bootstrap/skill/bootstrap-graph-emission.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/bootstrap-graph-emission.md"
+  },
+  {
+   "page": "bootstrap/skill/bootstrap-graph-publication.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/bootstrap-graph-publication.md"
+  },
+  {
+   "page": "bootstrap/skill/bootstrap-kg-navigation.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/bootstrap-kg-navigation.md"
+  },
+  {
+   "page": "bootstrap/skill/confirm-harness.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/confirm-harness.md"
+  },
+  {
+   "page": "bootstrap/skill/discussion.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/discussion.md"
+  },
+  {
+   "page": "bootstrap/skill/human-agent-discussion.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/human-agent-discussion.md"
+  },
+  {
+   "page": "bootstrap/skill/initialization-steps.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/initialization-steps.md"
+  },
+  {
+   "page": "bootstrap/skill/knowledge-graph-data-store.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/knowledge-graph-data-store.md"
+  },
+  {
+   "page": "bootstrap/skill/log-message.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/log-message.md"
+  },
+  {
+   "page": "bootstrap/skill/logger.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/logger.md"
+  },
+  {
+   "page": "bootstrap/skill/publish-documents.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/publish-documents.md"
+  },
+  {
+   "page": "bootstrap/skill/publish-site.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/publish-site.md"
+  },
+  {
+   "page": "bootstrap/skill/root-readme.html",
+   "href": "https://litlfred.github.io/who-iris/bootstrap/skills/root-readme.md"
+  },
+  {
+   "page": "cat-harness/process/Process_ActorRoleAdministration.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/actor-role-administration.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_ActorRoleAdministration/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/actor-role-administration.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Adjudication.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/adjudication.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Adjudication/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/adjudication.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_ArchimatePublish.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/archimate-publish.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_ArchimatePublish/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/archimate-publish.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_AskThePerson.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ask-the-person.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_AskThePerson/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ask-the-person.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-requirements.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-requirements.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Close.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-close.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Close/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-close.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_DataModel.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-data-model.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_DataModel/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-data-model.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Deliver.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-deliver.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Deliver/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-deliver.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Issue.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-issue-linking.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Issue/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-issue-linking.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Needs.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-needs.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Needs/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-needs.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Requirements.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-requirements-definition.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Requirements/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-requirements-definition.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Signoff.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-signoff.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CRDM_Signoff/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/crdm-signoff.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CodeReview.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-code.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CodeReview/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-code.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_ContentAcquisition.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-acquisition.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_ContentAcquisition/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-acquisition.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CopyIntoFolio.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/copy-into-folio.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CopyIntoFolio/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/copy-into-folio.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CopyOutMaterialized.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/copy-out-materialized.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CopyOutMaterialized/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/copy-out-materialized.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CriterionAdjudication.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/criterion-adjudication.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_CriterionAdjudication/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/criterion-adjudication.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_GraphDetanglement.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/graph-detanglement.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_GraphDetanglement/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/graph-detanglement.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_HandBackToDiscussion.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/hand-back-to-discussion.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_HandBackToDiscussion/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/hand-back-to-discussion.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_HarnessRendering.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/harness-default-rendering.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_HarnessRendering/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/harness-default-rendering.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_HumanTranslation.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/human-translation-workflow.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_HumanTranslation/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/human-translation-workflow.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_IngestTheme.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-theme.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_IngestTheme/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-theme.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Ingestion.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/document-ingestion.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Ingestion/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/document-ingestion.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparation.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparation/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationAuthorise.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-authorise.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationAuthorise/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-authorise.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationCutover.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-cutover.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationCutover/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-cutover.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationMove.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-move.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationMove/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-move.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationPrepare.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-prepare.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgSeparationPrepare/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-separation-prepare.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgToPortal.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-to-portal.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_KgToPortal/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/kg-to-portal.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MaterializeRemote.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/materialize-remote.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MaterializeRemote/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/materialize-remote.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MethodologyFromSource.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/methodology-from-source.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MethodologyFromSource/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/methodology-from-source.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MountDependency.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/mount-dependency.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MountDependency/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/mount-dependency.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MountSubgraph.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/mount-subgraph.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MountSubgraph/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/mount-subgraph.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MultiLocaleTranslation.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/multi-locale-translation.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_MultiLocaleTranslation/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/multi-locale-translation.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_NarrativeReview.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-narrative.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_NarrativeReview/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-narrative.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_OptionsAnalysis.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/options-analysis.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_OptionsAnalysis/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/options-analysis.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RefreshMaterialized.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/refresh-materialized.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RefreshMaterialized/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/refresh-materialized.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RelatedWork.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/related-work.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RelatedWork/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/related-work.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RenderKgToCdn.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/render-kg-to-cdn.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RenderKgToCdn/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/render-kg-to-cdn.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RenderLog.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/staging-render-log.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_RenderLog/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/staging-render-log.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Review.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-task.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Review/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-task.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SampleImport.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/sample-import.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SampleImport/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/sample-import.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SecureAgentPermissions.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/secure-agent-permissions.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SecureAgentPermissions/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/secure-agent-permissions.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SessionStateMachine.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/session-state-machine.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SessionStateMachine/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/session-state-machine.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SliceSqlitePublish.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/slice-sqlite-publish.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SliceSqlitePublish/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/slice-sqlite-publish.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SubKgLifecycle.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/sub-kg-lifecycle.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SubKgLifecycle/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/sub-kg-lifecycle.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SubscribeKg.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/subscribe-kg.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SubscribeKg/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/subscribe-kg.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SwotAnalysis.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/swot-analysis.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_SwotAnalysis/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/swot-analysis.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_ThemeUIReview.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/theme-ui-review.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_ThemeUIReview/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/theme-ui-review.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Translation.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/translation-workflow.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_Translation/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/translation-workflow.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_TranslationRefresh.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/translation-refresh.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_TranslationRefresh/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/translation-refresh.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_TranslationRoundTrip.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/translation-round-trip.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_TranslationRoundTrip/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/translation-round-trip.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_VoiceReview.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/voice-review.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_VoiceReview/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/voice-review.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_WebAppPublish.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/web-app-publish.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_WebAppPublish/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/web-app-publish.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_WireframeDesignReview.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/wireframe-design-review.svg"
+  },
+  {
+   "page": "cat-harness/process/Process_WireframeDesignReview/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/wireframe-design-review.svg"
+  },
+  {
+   "page": "cat-harness/role/attestation-service.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/qa-report-signing"
+  },
+  {
+   "page": "cat-harness/role/attestation-service.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-plan-execution"
+  },
+  {
+   "page": "cat-harness/role/author.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/todo-manager"
+  },
+  {
+   "page": "cat-harness/role/author.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/voice-authoring-guidance"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/bean-coordination"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/before-after-preview"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/blocked-build-dependencies"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/branch-archaeology"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/coordinate"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/delivery-summary"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/gate-tree-mutation"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/generalise-the-fix"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/github-state-inspection"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/issue-working"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/merge-to-main"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/pr-description"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/prepare-merge"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/prepare-merge-auto"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/related-work-coordination"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-data-sets"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/todo-manager"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/voice-authoring-guidance"
+  },
+  {
+   "page": "cat-harness/role/authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/watch"
+  },
+  {
+   "page": "cat-harness/role/board-renderer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/incremental-render"
+  },
+  {
+   "page": "cat-harness/role/board-renderer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/pdf-inline-viewer"
+  },
+  {
+   "page": "cat-harness/role/board-renderer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/visualizer-loading"
+  },
+  {
+   "page": "cat-harness/role/build-pipeline.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/prepare-merge"
+  },
+  {
+   "page": "cat-harness/role/build-pipeline.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/publish-verification"
+  },
+  {
+   "page": "cat-harness/role/build-pipeline.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/qa-reports"
+  },
+  {
+   "page": "cat-harness/role/build-pipeline.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/todo-manager"
+  },
+  {
+   "page": "cat-harness/role/build-pipeline.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/watch"
+  },
+  {
+   "page": "cat-harness/role/certifier.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-plan-execution"
+  },
+  {
+   "page": "cat-harness/role/code-reviewer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/adversarial-code-review"
+  },
+  {
+   "page": "cat-harness/role/code-reviewer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/code-review-process"
+  },
+  {
+   "page": "cat-harness/role/code-reviewer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-engineer"
+  },
+  {
+   "page": "cat-harness/role/docs-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/create-sticky-note"
+  },
+  {
+   "page": "cat-harness/role/docs-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/theme-artefacts"
+  },
+  {
+   "page": "cat-harness/role/docs-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/theme-contrast"
+  },
+  {
+   "page": "cat-harness/role/docs-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/theme-declaration"
+  },
+  {
+   "page": "cat-harness/role/docs-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/theme-generation"
+  },
+  {
+   "page": "cat-harness/role/editor.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/voice-authoring-guidance"
+  },
+  {
+   "page": "cat-harness/role/editorial-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/block-density"
+  },
+  {
+   "page": "cat-harness/role/editorial-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/chapter-complexity-review"
+  },
+  {
+   "page": "cat-harness/role/editorial-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/exposition-swarm-drain"
+  },
+  {
+   "page": "cat-harness/role/editorial-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/html-rendering-qc"
+  },
+  {
+   "page": "cat-harness/role/editorial-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/one-voice-audit"
+  },
+  {
+   "page": "cat-harness/role/editorial-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/readability-editing"
+  },
+  {
+   "page": "cat-harness/role/integration-watcher.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/devils-advocate-watcher"
+  },
+  {
+   "page": "cat-harness/role/integration-watcher.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/integration-audit"
+  },
+  {
+   "page": "cat-harness/role/integration-watcher.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/integration-backlog"
+  },
+  {
+   "page": "cat-harness/role/integration-watcher.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/integration-watch"
+  },
+  {
+   "page": "cat-harness/role/integration-watcher.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/one-voice-integration-watcher"
+  },
+  {
+   "page": "cat-harness/role/log.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/activity-log"
+  },
+  {
+   "page": "cat-harness/role/merge-steward.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/merge-conflict-patterns"
+  },
+  {
+   "page": "cat-harness/role/merge-steward.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/merge-manager-watcher"
+  },
+  {
+   "page": "cat-harness/role/merge-steward.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/merge-queue"
+  },
+  {
+   "page": "cat-harness/role/merge-steward.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/merge-to-main"
+  },
+  {
+   "page": "cat-harness/role/merge-steward.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/prepare-merge"
+  },
+  {
+   "page": "cat-harness/role/merge-steward.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/ref-stewardship"
+  },
+  {
+   "page": "cat-harness/role/merge-steward.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/saturation-meta-merge"
+  },
+  {
+   "page": "cat-harness/role/platform-authoring-agent.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/domain-fencing"
+  },
+  {
+   "page": "cat-harness/role/programme-manager.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/release-epic-planning"
+  },
+  {
+   "page": "cat-harness/role/programme-manager.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/release-lifecycle"
+  },
+  {
+   "page": "cat-harness/role/publication-manager.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/package-release"
+  },
+  {
+   "page": "cat-harness/role/publication-manager.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/publish-verification"
+  },
+  {
+   "page": "cat-harness/role/publication-manager.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/qa-report-signing"
+  },
+  {
+   "page": "cat-harness/role/review-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/rendered-impact"
+  },
+  {
+   "page": "cat-harness/role/review-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/visual-diff"
+  },
+  {
+   "page": "cat-harness/role/reviewer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/narrative-asserts-code"
+  },
+  {
+   "page": "cat-harness/role/reviewer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/rendered-impact"
+  },
+  {
+   "page": "cat-harness/role/reviewer.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/visual-diff"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/agent-handoff"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/branch-freshness"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/coordinate"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/goal-review"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/idle-backlog"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/pending-show"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/pickup"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/prepare-for-handover"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/session-intent"
+  },
+  {
+   "page": "cat-harness/role/session-coordinator.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/work-plan-restructure"
+  },
+  {
+   "page": "cat-harness/role/sibling-session.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/bean-coordination"
+  },
+  {
+   "page": "cat-harness/role/test-requester.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-plan-execution"
+  },
+  {
+   "page": "cat-harness/role/tester.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-data-sets"
+  },
+  {
+   "page": "cat-harness/role/tester.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-engineer"
+  },
+  {
+   "page": "cat-harness/role/tester.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-plan-execution"
+  },
+  {
+   "page": "cat-harness/role/untainted-checker.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/test-plan-execution"
+  },
+  {
+   "page": "cat-harness/role/user.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/dispatch-agent"
+  },
+  {
+   "page": "cat-harness/role/user.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/merge-to-main"
+  },
+  {
+   "page": "cat-harness/role/validation-pipeline.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/qa-reports"
+  },
+  {
+   "page": "cat-harness/role/work-plan.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/todo-manager"
+  },
+  {
+   "page": "cat-harness/role/work-plan.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skill/work-plan-store"
+  },
+  {
+   "page": "cat-harness/skill/ask-the-person.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/ask-the-person/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/ask-the-person.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/ask-the-person/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/bpmn-authoring.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/bpmn-authoring/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/bpmn-authoring.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/bpmn-authoring/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-feedback.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-feedback/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-feedback.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-feedback/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-review.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-review/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-review.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-review/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-test.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-test/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-test.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-test/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-validate.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-validate/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/content-validate.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/content-validate/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/crdm-detect.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/crdm-detect/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/crdm-detect.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/crdm-detect/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/dmn-authoring.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/dmn-authoring/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/dmn-authoring.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/dmn-authoring/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/hand-back-to-discussion.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/hand-back-to-discussion/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/hand-back-to-discussion.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/hand-back-to-discussion/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/staging-review.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/staging-review/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/staging-review.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/staging-review/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/wireframe-design-review.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/wireframe-design-review/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/wireframe-design-review.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/wireframe-design-review/output.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/wireframe-viewport-check.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/wireframe-viewport-check/input.schema.json"
+  },
+  {
+   "page": "cat-harness/skill/wireframe-viewport-check.html",
+   "href": "https://litlfred.github.io/who-iris/cat-harness/skills/wireframe-viewport-check/output.schema.json"
+  },
+  {
+   "page": "folio-assistant-core/globalTask/GT_SeedWorkPlan.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BoardOpenClose.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/board-open-close.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BoardOpenClose/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/board-open-close.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BoardPlaceNote.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/board-place-note.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BoardPlaceNote/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/board-place-note.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BoardRelocate.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/board-relocate.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BoardRelocate/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/board-relocate.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BuildL1Kg.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-build-l1-kg.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_BuildL1Kg/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-build-l1-kg.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReview.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReview/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReview/node/Call_BeanClose.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReview/node/Call_BeanOpen.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/bean-coordination"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReview/node/Call_Publish.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/prepare-merge"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReview/node/Task_Iterate.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/before-after-preview"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewCommittee.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-committee.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewCommittee/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-committee.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewCommittee/node/Task_CompareBeforeAfter.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/rendered-impact"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewCommittee/node/Task_CompareBeforeAfter.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/visual-diff"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewCommittee/node/Task_SliceAndAssign.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/rendered-impact"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewMake.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-make.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewMake/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-make.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewMake/node/Task_CommitPush.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/before-after-preview"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewMake/node/Task_CommitPush.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/prepare-merge-auto"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewPublish.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-publish.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewPublish/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-publish.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewPublish/node/Task_Merge.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/prepare-merge"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewPublish/node/Task_WatchMainCI.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewPublish/node/Task_WatchMainCI.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/watch"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewStage.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-stage.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewStage/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-change-review-stage.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewStage/node/Task_CommentPR.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/rendered-impact"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewStage/node/Task_WatchBranchCI.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContentChangeReviewStage/node/Task_WatchBranchCI.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/watch"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContributorFeedback.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/contributor-feedback.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ContributorFeedback/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/contributor-feedback.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DeepDocumentResearch.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/deep-document-research.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DeepDocumentResearch/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/deep-document-research.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DeriveContent.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-derive-content.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DeriveContent/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-derive-content.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DocumentAuthoring.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/authoring-a-document.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DocumentAuthoring/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/authoring-a-document.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DocumentAuthoring/node/Call_BeanClose.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DocumentAuthoring/node/Call_BeanOpen.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/bean-coordination"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_DocumentAuthoring/node/Task_SeedPlan.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Editing.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/editing-hci-validation.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Editing/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/editing-hci-validation.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Editing/node/Task_ClaimBean.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/bean-coordination"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Editing/node/Task_DraftEdit.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/before-after-preview"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Editing/node/Task_LogFindings.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Editing/node/Task_ResolveBean.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Editing/node/Task_ReviseEdit.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/before-after-preview"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_EvidenceRetrieval.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/evidence-retrieval.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_EvidenceRetrieval/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/evidence-retrieval.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_EvidenceRetrieval/node/Task_RecordGap.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_EvidenceRetrieval/node/Task_RecordUnverified.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ExtractStructure.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-extract-structure.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ExtractStructure/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-extract-structure.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_FolioReviewPublish.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/folio-review-publish.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_FolioReviewPublish/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/folio-review-publish.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GettingStarted.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/getting-started.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GettingStarted/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/getting-started.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GettingStarted/node/Call_BeanClose.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GettingStarted/node/Call_BeanOpen.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/bean-coordination"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GettingStarted/node/Task_ConfirmImport.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/dispatch-agent"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GettingStarted/node/Task_SeedPlan.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GuidelineUpdates.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/guideline-updates.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GuidelineUpdates/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/guideline-updates.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GuidelineUpdates/node/Task_Impact.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/rendered-impact"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_GuidelineUpdates/node/Task_Merge.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/prepare-merge"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_L1DocumentIngestion.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/l1-document-ingestion.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_L1DocumentIngestion/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/l1-document-ingestion.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_L1DocumentIngestion/node/Call_BeanClose.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_L1DocumentIngestion/node/Call_BeanOpen.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/bean-coordination"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_L1DocumentIngestion/node/Task_OpenBean.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_L1Gate.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-l1-completeness-gate.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_L1Gate/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/ingest-l1-completeness-gate.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Lifecycle.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-lifecycle.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Lifecycle/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/content-lifecycle.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Lifecycle/node/Call_BeanClose.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Lifecycle/node/Call_BeanOpen.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/bean-coordination"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Lifecycle/node/Task_FeedbackBeans.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Lifecycle/node/Task_SeedBeans.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublicComment.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/public-comment.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublicComment/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/public-comment.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublicCommentChange.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/public-comment-change.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublicCommentChange/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/public-comment-change.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublicCommentRelease.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/public-comment-release.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublicCommentRelease/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/public-comment-release.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Publication.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/draft-to-publication.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Publication/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/draft-to-publication.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Publication/node/Task_ArchiveReleaseBean.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Publication/node/Task_CloseReleaseBeans.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Publication/node/Task_OpenChangeBeans.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/todo-manager"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_Publication/node/Task_OpenReleaseBean.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/bean-coordination"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublishExtractedStatements.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/publish-extracted-statements.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_PublishExtractedStatements/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/publish-extracted-statements.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_RecordAgentStep.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/record-agent-step.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_RecordAgentStep/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/record-agent-step.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ReviewLogWatch.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-log-watch.svg"
+  },
+  {
+   "page": "folio-assistant-core/process/Process_ReviewLogWatch/index.html",
+   "href": "https://litlfred.github.io/who-iris/assets/img/workflows/review-log-watch.svg"
+  },
+  {
+   "page": "folio-assistant-core/role/onboarding-agent.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/getting-started"
+  },
+  {
+   "page": "folio-assistant-core/role/onboarding-agent.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/interaction-modality"
+  },
+  {
+   "page": "folio-assistant-core/role/onboarding-agent.html",
+   "href": "https://litlfred.github.io/who-iris/folio-assistant-core/skill/repo-conversion"
+  },
+  {
+   "page": "who-iris/process/Process_IrisCdnInitialLoad/node/Call_BuildGraph.html",
+   "href": "https://litlfred.github.io/who-iris/who-iris/skill/nquads-distribution"
+  },
+  {
+   "page": "who-iris/process/Process_IrisCdnNightly/node/Call_Rebuild.html",
+   "href": "https://litlfred.github.io/who-iris/who-iris/skill/nquads-distribution"
+  },
+  {
+   "page": "who-iris/process/Process_IrisCdnReconcile/node/Call_Rebuild.html",
+   "href": "https://litlfred.github.io/who-iris/who-iris/skill/nquads-distribution"
+  }
+ ],
  "content": [],
- "diagrams": 117,
+ "diagrams": 14,
  "inDiagrams": []
 }

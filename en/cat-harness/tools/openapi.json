@@ -134,6 +134,9 @@
       "name": "kg-subgraph-layout"
     },
     {
+      "name": "kg-to-portal"
+    },
+    {
       "name": "l1-coverage"
     },
     {
@@ -174,9 +177,6 @@
     },
     {
       "name": "render-kg-to-cdn"
-    },
-    {
-      "name": "render-kg-to-github-pages"
     },
     {
       "name": "render-logging"
@@ -1990,7 +1990,7 @@
         "summary": "Publish bootstrap-tools' site",
         "description": "Dispatch bootstrap-tools' `pages.yml`: stage the README site and graph with `scripts/site.ts` and commit them onto `gh-pages`. Started with the standard GitHub CLI; the run is watched with `gh run watch`.",
         "tags": [
-          "render-kg-to-github-pages"
+          "kg-to-portal"
         ],
         "externalDocs": {
           "description": "The Tool's page",
@@ -2049,7 +2049,7 @@
           "network": true
         },
         "x-satisfies": [
-          "render-kg-to-github-pages"
+          "kg-to-portal"
         ],
         "x-selection": {
           "when": "Running the `pages.yml` workflow on demand instead of waiting for its trigger, or finding which workflow a CI step belongs to.",
@@ -2064,8 +2064,7 @@
         "summary": "Build and publish the platform docs site",
         "description": "Dispatch the index's `docs-site.yml`: security gate, regenerate, compose each layer's site, build, export the graph, verify, restore previews, publish to gh-pages, judge the built site. Started with the standard GitHub CLI; the run is watched with `gh run watch`.",
         "tags": [
-          "render-kg-to-cdn",
-          "docs-generation"
+          "render-kg-to-cdn"
         ],
         "externalDocs": {
           "description": "The Tool's page",
@@ -2124,8 +2123,7 @@
           "network": true
         },
         "x-satisfies": [
-          "render-kg-to-cdn",
-          "docs-generation"
+          "render-kg-to-cdn"
         ],
         "x-selection": {
           "when": "Running the `docs-site.yml` workflow on demand instead of waiting for its trigger, or finding which workflow a CI step belongs to.",
@@ -6224,7 +6222,7 @@
       "post": {
         "operationId": "l1-coverage",
         "summary": "L1 extraction coverage",
-        "description": "Of the normative sentences in a publication (the closed marker list of smart-kg's `docs/COVERAGE.md` §1), count how many an L1 extraction CAPTURED, how many are EXCLUDED for a fixed-list reason a person signed off, and how many are UNACCOUNTED — per page and in total. Writes the contract's §4 report and exits non-zero below 100% accounted-for.",
+        "description": "Of the normative sentences in a publication (the closed marker list of the methodology `l1-coverage` §1), count how many an L1 extraction CAPTURED, how many are EXCLUDED for a fixed-list reason a person signed off, and how many are UNACCOUNTED — per page and in total. Writes the contract's §4 report and exits non-zero below 100% accounted-for.",
         "tags": [
           "l1-coverage"
         ],
@@ -12777,6 +12775,76 @@
           "none": true
         },
         "x-requires": {
+          "network": false
+        },
+        "x-satisfies": [
+          "translation-manager"
+        ]
+      }
+    },
+    "/tools/translation-qa-prune": {
+      "post": {
+        "operationId": "translation-qa-prune",
+        "summary": "Prune round-trip rulings of removed strings",
+        "description": "Drop the translation-semantic-roundtrip rulings of strings the catalogues no longer hold, and renumber the rest to catalogue order. Rulings are paired with strings by the hash of their msgid, so removing strings invalidates none and needs no agent re-run; this is the upkeep that follows. It only drops or renumbers: a verdict is never changed or invented, and a ruling for a string the ref's history never held (one recorded ahead of its PR) is kept.",
+        "tags": [
+          "translation-manager"
+        ],
+        "externalDocs": {
+          "description": "The Tool's page",
+          "url": "who-iris/translation-qa-prune/"
+        },
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "write": {
+                    "$ref": "#/components/schemas/Flag",
+                    "description": "Apply the change to test/attestations/translation-qa/. Absent, it is a dry run that prints each dropped ruling and the renumbered spans."
+                  },
+                  "ref": {
+                    "$ref": "#/components/schemas/Branch",
+                    "description": "Whose catalogues decide what was removed. Default origin/main: the state branch serves main and every branch, so a ruling goes only once main no longer holds its string."
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Tool's declared outputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "attestations": {
+                      "$ref": "#/components/schemas/RepoPath",
+                      "description": "With --write, the rewritten `test/attestations/translation-qa/<catalogue>.<locale>.attestations.json`, to be pushed to `cat/who-iris/attestations`."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-tool-iri": "https://litlfred.github.io/folio-assistant/who-iris/tools/translation-qa-prune.jsonld",
+        "x-invoke": {
+          "shell": "bun run cat translation-qa:prune"
+        },
+        "x-install": {
+          "none": true
+        },
+        "x-requires": {
+          "runtime": [
+            "bun",
+            "git"
+          ],
           "network": false
         },
         "x-satisfies": [

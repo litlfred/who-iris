@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="fa-search-exclude" content="true">
+<title>Reviewer / SME · Role</title>
+<link rel="alternate" type="application/ld+json" href="reviewer.jsonld">
+<script type="application/ld+json">
+{"@context":"https://litlfred.github.io/who-iris/cat-harness/cat-harness.context.jsonld","@id":"https://litlfred.github.io/who-iris/cat-harness/role/reviewer.jsonld","partOf":"https://litlfred.github.io/who-iris/cat-harness/cat-harness.jsonld","@graph":[{"@id":"https://litlfred.github.io/who-iris/cat-harness/role/reviewer","@type":"https://litlfred.github.io/bootstrap/v0/ns/Role","prefLabel":"Reviewer / SME","title":"Reviewer / SME","notation":"reviewer","description":"Reads a change and judges it. Cannot accept it — that is the editor's lane — and the separation is why review findings are advice rather than commits. The GENERIC review position: what kind of thing changed decides which subprocess it descends into (review-task.bpmn), and the actor takes on that inner lane's role for the call path only.","sourceKind":"role-registry","actorKinds":["person","agent"],"hasSkill":["https://litlfred.github.io/who-iris/cat-harness/skill/adjudication","https://litlfred.github.io/who-iris/cat-harness/skill/content-feedback","https://litlfred.github.io/who-iris/cat-harness/skill/content-review","https://litlfred.github.io/who-iris/cat-harness/skill/decision-audit","https://litlfred.github.io/who-iris/cat-harness/skill/narrative-asserts-code","https://litlfred.github.io/who-iris/cat-harness/skill/rendered-impact","https://litlfred.github.io/who-iris/cat-harness/skill/staging-review","https://litlfred.github.io/who-iris/cat-harness/skill/translation-manager","https://litlfred.github.io/who-iris/cat-harness/skill/visual-diff","https://litlfred.github.io/who-iris/cat-harness/skill/voice-overlay-review"],"alternateOf":"https://litlfred.github.io/folio-assistant/cat-harness/role/reviewer"}]}
+</script>
+<style>
+:root { color-scheme: light dark; --fg: #1d1d1f; --bg: #fff; --muted: #6e6e73; --line: #d2d2d7; }
+@media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg: #f5f5f7; --bg: #1c1c1e; --muted: #a1a1a6; --line: #3a3a3c; } }
+  :root[data-fa-scheme="dark"] { --fg: #f5f5f7; --bg: #1c1c1e; --muted: #a1a1a6; --line: #3a3a3c; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+body { margin: 0; font: 15px/1.5 system-ui, sans-serif; color: var(--fa-pl-fg, var(--fg)); background: var(--fa-pl-bg, var(--bg)); }
+.fa-page-main { box-sizing: border-box; padding: 1rem 1.5rem 3rem; max-width: 72rem; overflow-wrap: anywhere; }
+code, .iri { font-family: var(--fa-font-mono,Menlo,Consolas,monospace); font-size: 0.9em; overflow-wrap: anywhere; word-break: break-word; }
+.muted { color: var(--fa-pl-muted, var(--muted)); }
+.fa-page-main .subject-kind { margin: 0; }
+.fa-page-main h1 { margin-top: 0.25rem; }
+.subject-pin { margin-left: 0.35rem; padding: 0.1rem 0.5rem; font: inherit; font-size: 0.85em; border: 1px solid var(--fa-pl-line, var(--line)); border-radius: 999px; background: transparent; color: inherit; cursor: pointer; }
+.subject-pin[aria-pressed="true"] { border-color: #2e7d32; background: #2e7d32; color: #fff; }
+table { border-collapse: collapse; width: 100%; margin: 0.5rem 0 1.5rem; table-layout: fixed; }
+th, td { text-align: left; vertical-align: top; padding: 0.3rem 0.5rem; border-top: 1px solid var(--fa-pl-line, var(--line)); overflow-wrap: anywhere; }
+th { width: 10rem; font-weight: 600; }
+.schema-fields th, .schema-fields td { width: auto; }
+.schema-prose pre { overflow-x: auto; padding: 0.5rem; border: 1px solid var(--fa-pl-line, var(--line)); }
+td .iri { font-size: 0.8em; }
+@media (max-width: 40rem) { th { width: 6.5rem; } }
+</style>
+</head>
+<body>
+<main class="fa-page-main">
+<p class="muted subject-kind">Role</p>
+<h1>Reviewer / SME</h1>
+<p class="iri muted">https://litlfred.github.io/who-iris/cat-harness/role/reviewer</p>
+<p data-fa-pin="https://litlfred.github.io/who-iris/cat-harness/role/reviewer" data-fa-pin-kind="pin" data-fa-pin-node-kind="scenarios" data-fa-pin-title="Reviewer / SME" data-fa-pin-href="reviewer.html" data-fa-pin-source="cat-harness"><a href="reviewer.jsonld">JSON-LD</a> · in graph <a class="iri" href="https://litlfred.github.io/who-iris/cat-harness/cat-harness.jsonld">cat-harness.jsonld</a> · <button type="button" class="subject-pin" data-fa-pin-control aria-pressed="false" aria-label="Pin Reviewer / SME to your folio glass" title="Pin to your folio">&#x1f4cc; Pin to folio</button></p>
+<table class="fa-page-wide">
+<tr><th>prefLabel</th><td>Reviewer / SME</td></tr>
+<tr><th>title</th><td>Reviewer / SME</td></tr>
+<tr><th>notation</th><td>reviewer</td></tr>
+<tr><th>description</th><td>Reads a change and judges it. Cannot accept it — that is the editor&#39;s lane — and the separation is why review findings are advice rather than commits. The GENERIC review position: what kind of thing changed decides which subprocess it descends into (review-task.bpmn), and the actor takes on that inner lane&#39;s role for the call path only.</td></tr>
+<tr><th>sourceKind</th><td>role-registry</td></tr>
+<tr><th>actorKinds</th><td>person<br>agent</td></tr>
+<tr><th>hasSkill</th><td><a href="https://litlfred.github.io/who-iris/cat-harness/skill/adjudication">Adjudication — judgement, when the mechanism ran out of facts</a><br><span class="iri muted">https://litlfred.github.io/who-iris/cat-harness/skill/adjudication</span><br><a href="https://litlfred.github.io/who-iris/cat-harness/skill/content-feedback">Content Feedback Collection</a><br><span class="iri muted">https://litlfred.github.io/who-iris/cat-harness/skill/content-feedback</span><br><a href="https://litlfred.github.io/who-iris/cat-harness/skill/content-review">Content Review</a><br><span class="iri muted">https://litlfred.github.io/who-iris/cat-harness/skill/content-review</span><br><a href="https://litlfred.github.io/who-iris/cat-harness/skill/decision-audit">A decision is not a finding, and neither is a substitute for the other</a><br><span class="iri muted">https://litlfred.github.io/who-iris/cat-harness/skill/decision-audit</span><br><a class="iri" href="https://litlfred.github.io/who-iris/cat-harness/skill/narrative-asserts-code">https://litlfred.github.io/who-iris/cat-harness/skill/narrative-asserts-code</a><br><a class="iri" href="https://litlfred.github.io/who-iris/cat-harness/skill/rendered-impact">https://litlfred.github.io/who-iris/cat-harness/skill/rendered-impact</a><br><a href="https://litlfred.github.io/who-iris/cat-harness/skill/staging-review">Staging review — before/after comparison</a><br><span class="iri muted">https://litlfred.github.io/who-iris/cat-harness/skill/staging-review</span><br><a href="https://litlfred.github.io/who-iris/cat-harness/skill/translation-manager">Translation manager</a><br><span class="iri muted">https://litlfred.github.io/who-iris/cat-harness/skill/translation-manager</span><br><a class="iri" href="https://litlfred.github.io/who-iris/cat-harness/skill/visual-diff">https://litlfred.github.io/who-iris/cat-harness/skill/visual-diff</a><br><a href="https://litlfred.github.io/who-iris/cat-harness/skill/voice-overlay-review">Voice overlay review</a><br><span class="iri muted">https://litlfred.github.io/who-iris/cat-harness/skill/voice-overlay-review</span></td></tr>
+<tr><th>alternateOf</th><td><a class="iri" href="https://litlfred.github.io/folio-assistant/cat-harness/role/reviewer">https://litlfred.github.io/folio-assistant/cat-harness/role/reviewer</a></td></tr>
+</table>
+
+</main>
+</body>
+</html>

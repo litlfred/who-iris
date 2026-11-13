@@ -1,0 +1,37 @@
+{
+  "$ref": "#/definitions/VoiceTarget",
+  "definitions": {
+    "VoiceTarget": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "algorithm",
+            "diagram",
+            "equation",
+            "example",
+            "figure",
+            "prose",
+            "recommendation",
+            "remark",
+            "simulator",
+            "table"
+          ]
+        },
+        {
+          "type": "string",
+          "enum": [
+            "docs",
+            "skill",
+            "readme",
+            "specification",
+            "code"
+          ]
+        }
+      ]
+    }
+  },
+  "$id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/schema/zod/voices/VoiceTargetSchema.schema.json",
+  "title": "VoiceTargetSchema",
+  "description": "Generated from `VoiceTargetSchema` in schemas/content/voices.ts, which is authoritative. Published because it is an exported Zod `*Schema` (owner ruling 2026-10-05) — which says it is reachable, not that it is stable."
+}

@@ -1,0 +1,20 @@
+{
+  "@context": "https://litlfred.github.io/who-iris/cat-harness/cat-harness.context.jsonld",
+  "@id": "https://litlfred.github.io/who-iris/cat-harness/schema/avatars.jsonld",
+  "partOf": "https://litlfred.github.io/who-iris/cat-harness/cat-harness.jsonld",
+  "@graph": [
+    {
+      "@id": "https://litlfred.github.io/who-iris/cat-harness/schema/avatars",
+      "@type": "https://litlfred.github.io/cat-harness/v0/ns/Schema",
+      "name": "avatars",
+      "title": "avatars",
+      "summary": "An avatar for every declared kind — in and out of the trash, in both",
+      "module": "schemas/content/avatars.ts",
+      "maintainedBy": [
+        "https://litlfred.github.io/who-iris/cat-harness/tools/avatars-css.jsonld"
+      ],
+      "inSubgraph": "https://litlfred.github.io/who-iris/cat-harness/directory/schemas",
+      "alternateOf": "https://litlfred.github.io/folio-assistant/cat-harness/schema/avatars"
+    }
+  ]
+}
