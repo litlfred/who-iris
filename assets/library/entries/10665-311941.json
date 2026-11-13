@@ -206,8 +206,8 @@
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "stale",
-        "text": "The background defines digital health, eHealth and mHealth and notes over a thousand recorded digital health deployments since 2008. It recalls the 2018 Assembly resolution and warns that many tools are rolled out without evidence of benefit, so their effects must be evaluated.",
+        "status": "draft",
+        "text": "Provides background on digital health, tracing the term from eHealth and mHealth and noting rapid growth of deployments, especially in low- and middle-income countries, and the 2018 World Health Assembly resolution asking WHO for normative guidance. It also warns that many digital tools have been rolled out without careful evaluation of benefits and harms, stressing the need for rigorous evidence so that investments do not divert resources from non-digital approaches.",
         "state": "draft",
         "draftedBy": {
           "kind": "agent",
@@ -233,7 +233,15 @@
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "not-summarised"
+        "status": "draft",
+        "text": "Describes how health system performance gaps limit universal health coverage, using an adapted version of WHO's 1978 Tanahashi framework with layers for accountability, supply, demand, quality and affordability. Defines a digital health intervention as a discrete functionality of digital technology applied to health objectives and illustrates, with WHO's Classification of digital health interventions v1.0, how such interventions delivered through ICT systems can address challenges like stock shortages or loss to follow-up. Lists the factors that make implementation possible: health content, the intervention, digital applications and a foundational ICT and enabling environment.",
+        "state": "draft",
+        "draftedBy": {
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed"
+        },
+        "draftedAt": "2026-11-11"
       }
     },
     {
@@ -819,8 +827,8 @@
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "stale",
-        "text": "Covers provider-to-provider telemedicine, which links less skilled health workers with specialists for diagnosis, remote monitoring and case management, either in real time or by store-and-forward exchange. It summarises the evidence on effects, acceptability and feasibility. WHO recommends it where safety, privacy, traceability, accountability and security for patients can be monitored, including procedures for consent, data protection and checking health worker credentials, followed by implementation considerations.",
+        "status": "draft",
+        "text": "Covers provider-to-provider telemedicine, which links less specialised health workers with specialists at a distance, either in real time or through store-and-forward exchanges. Summarises evidence that it may improve health worker performance and shorten time to care and emergency stays, with mixed views on acceptability and common feasibility barriers such as connectivity and electricity. Sets out Recommendation 5, endorsing it only where patient safety, privacy, traceability, accountability and security can be monitored, followed by implementation considerations on legislation, interoperability and the workforce.",
         "state": "draft",
         "draftedBy": {
           "kind": "agent",
@@ -846,7 +854,15 @@
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "not-summarised"
+        "status": "draft",
+        "text": "Addresses targeted client communication via mobile devices, meaning health information, reminders and notifications sent to people according to their health status or demographic profile, for sexual, reproductive, maternal, newborn, child and adolescent health. Builds on earlier WHO guidance on text messaging for antiretroviral and tuberculosis treatment adherence and notes that noncommunicable diseases will be covered in a later version. Summarises evidence of benefits for outcomes such as contraceptive use, antenatal attendance and childhood vaccination, alongside confidentiality worries, risks of violence for some women, and feasibility barriers. Ends with implementation considerations, including offering several message formats and protecting people with limited access to phones, electricity or literacy.",
+        "state": "draft",
+        "draftedBy": {
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed"
+        },
+        "draftedAt": "2026-11-11"
       }
     },
     {
@@ -892,8 +908,8 @@
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "stale",
-        "text": "Covers the guideline section on digital tracking of clients' health status and services combined with decision support and targeted client communication. It explains how digital registers and electronic records reduce the clerical burden of paper systems and support follow-up and continuity of care. It sets out the evidence and conditions for the recommendation, including concerns about privacy and data security. It closes by urging that local policies on digital identity be considered so that programmes do no harm.",
+        "status": "draft",
+        "text": "Examines digital tracking of clients' health status and services, using digitised registers or electronic records, alone or combined with health worker decision support and targeted client communication to improve continuity of care. Reports that tracking with decision support may improve outcomes such as antenatal attendance, iron intake in pregnancy, polio vaccination and postpartum contraception, while no or very low-certainty evidence exists for the other combinations, and health workers dislike keeping parallel paper systems. Presents Recommendation 8 and related conditional recommendations for settings that can support integrated implementation, then implementation considerations on phased roll-out, training, and equity risks for people outside the system or lacking secure legal status.",
         "state": "draft",
         "draftedBy": {
           "kind": "agent",
@@ -919,7 +935,15 @@
       "truncated": true,
       "provenance": "ingested",
       "summary": {
-        "status": "not-summarised"
+        "status": "draft",
+        "text": "Covers digital provision of training and educational content to health workers, including mobile learning delivered by text messages, apps or games, especially where infrastructure and distance limit access. Reports that it may increase health worker knowledge, while effects on performance, skills and attitudes remain uncertain, and that students value its portability but question accuracy and use during patient contact. Sets out Recommendation 10, supporting it only as a complement to traditional in-service and continuing education, with implementation considerations on network capacity, accreditation, codes of conduct, trustworthy content and user testing.",
+        "state": "draft",
+        "draftedBy": {
+          "kind": "agent",
+          "id": "claude-code",
+          "model": "not-disclosed"
+        },
+        "draftedAt": "2026-11-11"
       }
     },
     {
