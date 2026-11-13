@@ -891,8 +891,6 @@ export const SITE_STRINGS: readonly UiString[] = [
   { en: "Browse", comment: "Heading on the home page." },
   { en: "{link} — the replica of {url}, with every node’s materialisation state ({communities} communities, {collections} collections)", comment: "A list entry under Browse. {link} is the 'List of Communities' link, {url} an address in code type, {communities} and {collections} numbers." },
   { en: "{link} — collection", comment: "A list entry under Browse. {link} is a collection's name from the catalogue, which is not translated." },
-  { en: "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question.", comment: "Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). Keep everything in <code> as written." },
-  { en: "Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on.", comment: "Continues the note above. Keep everything in <code> as written." },
   { en: "no author recorded", comment: "In a recent submission's byline when the record names no author." },
   { en: "Publication Date: {date}", comment: "In a recent submission's byline, as IRIS labels it. {date} is a date such as 2020-05-14." },
   { en: "A cover is rendered and held here. It is not published: {gates}.", comment: "Tooltip on a withheld cover. {gates} names the publication gates that refused it, which are not translated." },
@@ -2677,11 +2675,6 @@ ${collections
   .map((c) => `  <li>${t("{link} — collection", { link: `<a href="${esc(cataloguePageHref())}">${data(c.title)}</a>` })}</li>`)
   .join("\n")}
 </ul>
-
-<div class="caveat">
-  <p>${t("<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question.")}</p>
-  <p>${t("Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on.")}</p>
-</div>
 
 <script>
 (function() {

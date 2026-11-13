@@ -90,11 +90,6 @@ msgstr "<strong>摄取副本。</strong>由 {generator} 根据 {catalogue} 生�
 msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than synthesising metadata from the PDF — the <code>iris-dspace</code> skill's R8, <em>never infer metadata from the PDF when a record exists</em>, whose converse is that an absent record stays absent."
 msgstr "<strong>无都柏林核心记录。</strong>目录如实说明这一点，而不是从 PDF 合成元数据——这是 <code>iris-dspace</code> 技能的 R8 规则：<em>存在记录时，绝不从 PDF 推断元数据</em>；其反面是，缺失的记录仍保持缺失。"
 
-#: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). Keep everything in <code> as written.
-msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>这里是入口页，不是图书馆可视化工具。</strong>完整的 <code>library/</code> 可视化工具是豆 <code>jbx2</code>，正在另行构建。本页面模仿 IRIS 首页并链接到其他页面，而不是成为同一问题的第二个答案。"
-
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
 msgid "<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it."
@@ -124,11 +119,6 @@ msgstr "世卫组织 IRIS 页面的副本，根据本存储库摄取的目录生
 #. Navbar item (shown, not a link, in the replica).
 msgid "About"
 msgstr "关于"
-
-#: who-iris/scripts/gen-iris-pages.ts:835
-#. Continues the note above. Keep everything in <code> as written.
-msgid "Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on."
-msgstr "寻址遵循所有者的规则——<code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code>——因此，实例化某个文件目录（directory）的实例会获得一个挂载在该文件目录的种类（kind）之下的可视化工具：<code>/library/who-iris/</code>、<code>/docs/who-iris/</code> 等。"
 
 #: who-iris/scripts/gen-iris-pages.ts:849
 #. Before a link that repeats the search in the identifier lookup.
