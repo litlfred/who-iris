@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-13T13:50:26.266Z",
+  "updated_at": "2026-11-13T15:04:19.887Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 329300,
+          "value": 329875,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -392,25 +392,25 @@
         },
         {
           "metric": "git-dir-bytes",
-          "value": 476842080,
+          "value": 287068614,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 470786048,
+          "value": 281374720,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
         {
           "metric": "pack-count",
-          "value": 1,
+          "value": 2,
           "unit": "count",
           "command": "git count-objects -v"
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 1.32,
+          "value": 0.79,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
