@@ -7,7 +7,7 @@ generated: "scripts/subgraph-readmes.ts of the bootstrap toolset (https://github
 
 # who-iris-tools
 
-who-iris's Tool nodes: `iris-pages`, the generator that renders the catalogue visualiser (its `renderedBy`). Discovered by graph typology, never imported by name.
+who-iris's Tool nodes: `iris-pages`, the generator that renders the catalogue visualiser (its `renderedBy`), and `translation-qa-prune`, which drops the round-trip rulings of removed strings. Discovered by graph typology, never imported by name.
 
 Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-tools`, holding `tools`.
 
@@ -15,5 +15,6 @@ Part of [WHO IRIS](../README.md) 0.1.0, declared as `who-iris-tools`, holding `t
 |---|---|---|
 | [`index.ts`](index.ts) | a file |  |
 | [`iris-pages/`](iris-pages/) | _nothing declares what this holds_ | |
+| [`translation-qa-prune/`](translation-qa-prune/) | _nothing declares what this holds_ | |
 
 <!-- kg:subgraph:end -->

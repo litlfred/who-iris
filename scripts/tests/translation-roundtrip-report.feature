@@ -16,10 +16,32 @@ Feature: The translation round-trip report and the attestations it is built from
 
   @test:scripts/tests/translation-roundtrip-report.test.ts::translation_round-trip_report::rulingsMayRunAheadButNotBehind
   Scenario: rulings may be recorded ahead of the strings, never behind them
-    Given rulings indexed 0, 1 and 2 for a catalogue of 2 strings
-    Then the rulings used are those indexed 0 and 1
-    And 2 rulings for 3 strings is an error that says to re-run the agents
-    And rulings indexed 0 and 2 for 2 strings is an error that says they are not in catalogue order
+    Given rulings for the msgids a, b and c and a catalogue holding a and b
+    Then a and b are paired with their rulings, and c's ruling is unused
+    And rulings for a and b against a catalogue holding a, b and c is an error that says to re-run the agents
+
+  @test:scripts/tests/translation-roundtrip-report.test.ts::translation_round-trip_report::removingOrReorderingStringsKeepsEveryRuling
+  Scenario: rulings are paired by content, so removing or reordering strings invalidates none
+    Given rulings for the msgids a, b (warn) and c
+    When b is removed from the catalogue
+    Then a and c keep their own rulings and b's ruling is unused
+    When the catalogue holds c, b and a in that order
+    Then each string is paired with its own ruling, b's still a warn
+
+  @test:scripts/tests/translation-roundtrip-report.test.ts::translation_round-trip_report::changedTranslationIsStaleNotPassed
+  Scenario: a ruling on an earlier translation is stale, not a pass
+    Given a ruling for msgid a that judged the msgstr "old"
+    When the catalogue's msgstr for a is "new"
+    Then the pairing is marked stale
+
+  @test:scripts/tests/translation-roundtrip-report.test.ts::translation_round-trip_report::pruneDropsRemovedKeepsAheadNeverChangesAVerdict
+  Scenario: prune drops the rulings of removed strings, keeps rulings that run ahead, and changes no verdict
+    Given a run entry and rulings for a, gone (warn), c (fail) and ahead
+    And the catalogue's history once held a, gone and c, and now holds a and c
+    When the rulings are pruned
+    Then gone's ruling is dropped and ahead's is kept
+    And the run entry stays first, and the kept rulings are indexed 0, 1 and 2 with verdicts pass, fail and pass
+    And a catalogue string with no ruling is an error that says to re-run the agents
 
   @test:scripts/tests/translation-roundtrip-report.test.ts::translation_round-trip_report::parsePoJoinsLinesSkipsHeader
   Scenario: parsePo joins continuation lines and skips the header
@@ -33,7 +55,7 @@ Feature: The translation round-trip report and the attestations it is built from
     Then a translation-qa attestations file exists for that catalogue and locale
     And its schema is "qa-attestations/v1", its family "translation-qa" and its locale that locale
     And its subject is the translation catalogue at translations/<locale>/<catalogue>
-    And its first entries are indexed one per string of that translated catalogue, in order (rulings for strings not on this branch yet may follow)
+    And every string of that translated catalogue has a ruling found by the hash of its msgid (rulings for strings not on this branch yet, or removed from it, may remain)
     And the run and every entry have a reviewer of kind "agent"
     And the run's back-translation trailer says tools used were "Read,Write"
 

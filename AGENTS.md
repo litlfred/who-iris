@@ -50,6 +50,18 @@ A voice is derived from a publication and never copies it; the rules for
 working on one are in [`docs/style-guide-agents.md`](docs/style-guide-agents.md),
 and what the style guide is, in [`docs/style-guide.md`](docs/style-guide.md).
 
+## Translations: round-trip rulings are keyed by content
+
+The round-trip rulings of the site and glossary catalogues live on
+`cat/who-iris/attestations`, each pinned by the hashes of the msgid and
+msgstr it judged; `scripts/translation-roundtrip-report.ts` pairs them with
+strings by those hashes, not by position. A PR that removes or reorders
+strings needs no agent re-run. Once it is on main, run
+`bun run cat translation-qa:prune` (a dry run), then `--write` and
+`bun run cat state:push` if the diff is only dropped and renumbered rulings.
+Never prune from the removing branch before it merges: main would be left
+with strings that have no ruling.
+
 ---
 
 *A declared asset of this instance ([`who-iris.json`](who-iris.json), role
