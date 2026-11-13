@@ -90,11 +90,6 @@ msgstr "<strong>نسخة مستنسخة مُستوعَبة.</strong> أُنشئ�
 msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than synthesising metadata from the PDF — the <code>iris-dspace</code> skill's R8, <em>never infer metadata from the PDF when a record exists</em>, whose converse is that an absent record stays absent."
 msgstr "<strong>لا يوجد سجل دبلن كور.</strong> يذكر الفهرس ذلك بدلًا من توليد بيانات وصفية من ملف PDF — وهي القاعدة R8 من مهارة <code>iris-dspace</code>: <em>لا تستنتج البيانات الوصفية من ملف PDF أبدًا حين يوجد سجل</em>، وعكسها أن السجل الغائب يبقى غائبًا."
 
-#: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). Keep everything in <code> as written.
-msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>هذه هي البوابة الأمامية، لا أداة عرض المكتبة.</strong> أداة العرض الكاملة لـ <code>library/</code> هي الحبة <code>jbx2</code>، ويجري بناؤها على نحو منفصل. تحاكي هذه الصفحة الصفحة الرئيسية لـ IRIS وتحيل إلى ما بعدها، بدلًا من أن تصبح إجابة ثانية عن السؤال نفسه."
-
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
 msgid "<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it."
@@ -124,11 +119,6 @@ msgstr "نسخة مستنسخة من صفحة من مستودع IRIS التاب�
 #. Navbar item (shown, not a link, in the replica).
 msgid "About"
 msgstr "نبذة"
-
-#: who-iris/scripts/gen-iris-pages.ts:835
-#. Continues the note above. Keep everything in <code> as written.
-msgid "Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on."
-msgstr "يتبع العنونة قاعدة المالك — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — بحيث يحصل المثيل الذي يُنشئ مثيلًا لدليلٍ على أداة عرض مركّبة تحت نوع ذلك الدليل: <code>/library/who-iris/</code>، و<code>/docs/who-iris/</code>، وهكذا."
 
 #: who-iris/scripts/gen-iris-pages.ts:849
 #. Before a link that repeats the search in the identifier lookup.

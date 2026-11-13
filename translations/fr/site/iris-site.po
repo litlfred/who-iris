@@ -90,11 +90,6 @@ msgstr "<strong>Réplique ingérée.</strong> Générée à partir de {catalogue
 msgid "<strong>No Dublin Core record.</strong> The catalogue says so rather than synthesising metadata from the PDF — the <code>iris-dspace</code> skill's R8, <em>never infer metadata from the PDF when a record exists</em>, whose converse is that an absent record stays absent."
 msgstr "<strong>Aucune notice Dublin Core.</strong> Le catalogue l’indique plutôt que de synthétiser des métadonnées à partir du PDF — la règle R8 de la compétence <code>iris-dspace</code>, <em>ne jamais déduire les métadonnées du PDF lorsqu’une notice existe</em>, dont la réciproque est qu’une notice absente reste absente."
 
-#: who-iris/scripts/gen-iris-pages.ts:834
-#. Note at the foot of the home page. A 'bean' is an agent's note on the work still needed (its state) for a Task, in one instance of a Process flow. It is NOT a task: Task is its own term here. Translate 'bean' with your language's ordinary word for a bean or kernel (as in a coffee bean), used the same way every time (owner ruling 2026-10-11). Keep everything in <code> as written.
-msgid "<strong>This is the front door, not the library visualiser.</strong> The full <code>library/</code> visualiser is bean <code>jbx2</code> and is being built separately. This page mocks the IRIS home page and links onward rather than becoming a second answer to the same question."
-msgstr "<strong>Ceci est la porte d’entrée, pas le visualiseur de la bibliothèque.</strong> Le visualiseur complet de <code>library/</code> correspond au grain <code>jbx2</code> et est développé séparément. Cette page imite la page d’accueil d’IRIS et renvoie plus loin, plutôt que de devenir une seconde réponse à la même question."
-
 #: who-iris/scripts/gen-iris-pages.ts:787
 #. Note under the held-items table. KG is 'knowledge graph'; jsDelivr is a product name.
 msgid "<strong>Three routes to one item, which is the point.</strong> The catalogue knows this item once; the bytes are reachable <em>upstream at WHO</em>, <em>here as a replica page</em>, and <em>from a CDN edge</em> — jsDelivr serves any public repository, so the last one costs this project no hosting at all. The KG says what exists and where; the CDN says nothing and just serves it."
@@ -124,11 +119,6 @@ msgstr "Réplique d’une page de l’IRIS de l’OMS, générée à partir du c
 #. Navbar item (shown, not a link, in the replica).
 msgid "About"
 msgstr "À propos"
-
-#: who-iris/scripts/gen-iris-pages.ts:835
-#. Continues the note above. Keep everything in <code> as written.
-msgid "Addressing follows the owner’s rule — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — so an instance that instantiates a directory gets a visualiser mounted under that directory’s kind: <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, and so on."
-msgstr "L’adressage suit la règle du propriétaire — <code>&lt;base-url&gt;/&lt;path-to-kind-or-node&gt;</code> — de sorte qu’une instance qui instancie un répertoire obtient un visualiseur monté sous le genre (kind) de ce répertoire : <code>/library/who-iris/</code>, <code>/docs/who-iris/</code>, etc."
 
 #: who-iris/scripts/gen-iris-pages.ts:849
 #. Before a link that repeats the search in the identifier lookup.
