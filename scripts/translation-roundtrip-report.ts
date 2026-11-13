@@ -45,7 +45,10 @@
  * ## What this script does, and does not do
  *
  * It does not call a model. It joins the committed agent outputs to the
- * catalogues as they are NOW, by index in file order. It records each
+ * catalogues as they are NOW, by content: each string to the ruling pinned by
+ * the hash of its msgid (`pairRulings`), so removing or reordering strings
+ * invalidates nothing. A ruling whose msgstr hash no longer matches is
+ * reported `stale`, not counted as a verdict. It records each
  * catalogue's SHA-256, so the report reads as stale the moment a catalogue
  * changes. A flagged string is not corrected here: which reading is right is
  * a reviewer's call (`ingest-l1-completeness-gate.bpmn`, `Task_FlagDrift`).
@@ -94,7 +97,7 @@ export function parsePo(text: string, catalogue: string): PoString[] {
 type Verdict = "pass" | "warn" | "fail";
 
 /** One string's ruling, as the attestation entry records it. */
-interface RoundtripEntry {
+export interface RoundtripEntry {
   index: number;
   field_hash: { msgid: string; msgstr: string };
   result: Verdict;
@@ -104,14 +107,14 @@ interface RoundtripEntry {
 }
 
 /** The `scope: "run"` entry: the agents' trailer lines, verbatim. */
-interface RoundtripRun {
+export interface RoundtripRun {
   scope: "run";
   back_translation_trailer: Record<string, string>;
   adjudication_trailer: Record<string, string>;
 }
 
 const ATTESTATIONS = join(INSTANCE, "test", "attestations", "translation-qa");
-const h12 = (s: string) => createHash("sha256").update(s).digest("hex").slice(0, 12);
+export const h12 = (s: string) => createHash("sha256").update(s).digest("hex").slice(0, 12);
 
 /** A catalogue's attestation for a locale: its run entry and its per-string rulings, in order. */
 export function readRoundtrip(catalogue: string, locale: string, root = ATTESTATIONS): { run: RoundtripRun; entries: RoundtripEntry[] } {
@@ -132,63 +135,95 @@ export function readRoundtrip(catalogue: string, locale: string, root = ATTESTAT
 }
 
 
+/** One string and the ruling that judged it. `stale`: the translation changed since. */
+export interface Pairing {
+  string: PoString;
+  ruling: RoundtripEntry;
+  stale: boolean;
+}
+
 /**
- * The rulings for a catalogue of `n` strings: the first `n`, indexed 0 to n-1.
+ * Pair each string of a catalogue with its ruling BY CONTENT, never by position.
  *
- * RULINGS MAY RUN AHEAD OF THE CATALOGUE (owner, 2026-11-08, issue #196). The
- * rulings live on the attestations state branch and the catalogue on main, so
- * a PR that adds strings cannot land both at once. Rulings for strings not on
- * this branch yet are ignored here, so they can be recorded before the PR that
- * adds the strings merges and main stays green. Fewer rulings than strings is
- * still an error: every string on the branch must have been judged, and the
- * msgid hash check below still catches a ruling for a different string.
+ * A ruling is pinned by `field_hash.msgid`, the hash of the English it judged,
+ * and `field_hash.msgstr`, the hash of the translation it judged. So a string
+ * is paired with the ruling whose msgid hash is its own, preferring one whose
+ * msgstr hash matches too (two strings with one msgid are paired in catalogue
+ * order). Removing or reordering strings therefore invalidates no ruling
+ * (owner, 2026-11-13: "this will happen a lot. we need a mechanical process").
+ * Until 2026-11-13 the join was by index, so removing two strings
+ * (who-iris#260) shifted every later string onto its neighbour's ruling.
+ *
+ * - A string with NO ruling fails loudly: it was added without a run, and only
+ *   the agents can judge it.
+ * - A ruling whose msgstr hash no longer matches is paired but `stale`: it
+ *   judged an earlier translation. The report lists it as stale; it is never
+ *   counted as a current verdict.
+ * - A ruling no string claims is `unused`. RULINGS MAY RUN AHEAD OF THE
+ *   CATALOGUE (owner, 2026-11-08, issue #196): they live on the attestations
+ *   state branch and the catalogue on main, so a PR that adds strings cannot
+ *   land both at once, and its rulings are recorded first. The rulings of a
+ *   removed string are unused in the same way, until `translation-qa:prune`
+ *   drops them (`scripts/translation-qa-prune.ts`).
  */
-export function rulingsFor(n: number, entries: RoundtripEntry[], what: string): RoundtripEntry[] {
-  if (entries.length < n) {
-    throw new Error(`${what}: ${n} strings, ${entries.length} rulings — strings were added without a run; re-run the agents`);
+export function pairRulings(strings: PoString[], entries: RoundtripEntry[], what: string): { pairs: Pairing[]; unused: RoundtripEntry[] } {
+  const byMsgid = new Map<string, RoundtripEntry[]>();
+  for (const e of [...entries].sort((a, b) => a.index - b.index)) {
+    const q = byMsgid.get(e.field_hash.msgid) ?? [];
+    q.push(e);
+    byMsgid.set(e.field_hash.msgid, q);
   }
-  const head = entries.slice(0, n);
-  head.forEach((e, i) => {
-    if (e.index !== i) throw new Error(`${what}: ruling ${i} has index ${e.index}; the rulings are not in catalogue order`);
-  });
-  return head;
+  const pairs: Pairing[] = [];
+  const missing: PoString[] = [];
+  for (const s of strings) {
+    const q = byMsgid.get(h12(s.msgid));
+    if (!q || q.length === 0) { missing.push(s); continue; }
+    const want = h12(s.msgstr);
+    const at = Math.max(0, q.findIndex((e) => e.field_hash.msgstr === want));
+    const [ruling] = q.splice(at, 1);
+    pairs.push({ string: s, ruling: ruling!, stale: ruling!.field_hash.msgstr !== want });
+  }
+  if (missing.length > 0) {
+    const first = missing[0]!.msgid.slice(0, 60);
+    throw new Error(
+      `${what}: ${missing.length} of ${strings.length} strings have no ruling (first: "${first}") — strings were added without a run; re-run the agents`,
+    );
+  }
+  const unused = [...byMsgid.values()].flat().sort((a, b) => a.index - b.index);
+  return { pairs, unused };
 }
 
 export function buildReport(instance = INSTANCE): Record<string, unknown> {
   const script = readFileSync(join(import.meta.dir, "translation-roundtrip-report.ts"), "utf-8");
   const families: Record<string, { summary: string; count: number; entries: unknown[] }> = {};
-  const totals: Record<string, Record<Verdict, number>> = {};
+  const totals: Record<string, Record<Verdict | "stale", number>> = {};
   const catalogues: Record<string, string> = {};
   for (const locale of LOCALES) {
-    const strings: PoString[] = [];
-    const rulings: RoundtripEntry[] = [];
+    const pairs: Pairing[] = [];
     let tools: string | undefined;
     for (const cat of CATALOGUES) {
       const path = join(instance, "translations", locale, cat);
       const text = readFileSync(path, "utf-8");
       catalogues[relative(instance, path)] = createHash("sha256").update(text).digest("hex");
-      const here = parsePo(text, cat);
-      strings.push(...here);
       const { run, entries } = readRoundtrip(cat, locale, join(instance, "test", "attestations", "translation-qa"));
       tools ??= run.back_translation_trailer.TOOLS_USED;
-      rulings.push(...rulingsFor(here.length, entries, `${locale} ${cat}`));
+      pairs.push(...pairRulings(parsePo(text, cat), entries, `${locale} ${cat}`).pairs);
     }
-    const count: Record<Verdict, number> = { pass: 0, warn: 0, fail: 0 };
+    const count: Record<Verdict | "stale", number> = { pass: 0, warn: 0, fail: 0, stale: 0 };
     const flagged: unknown[] = [];
-    strings.forEach((s, i) => {
-      const r = rulings[i]!;
-      if (r.field_hash.msgid !== h12(s.msgid)) {
-        throw new Error(`${locale} ${s.catalogue}: string ${r.index} is not the msgid the agents judged — re-run the agents`);
-      }
-      count[r.result]++;
-      if (r.result !== "pass") {
+    pairs.forEach(({ string: s, ruling: r, stale }, i) => {
+      // A stale ruling judged an earlier msgstr: it is not a verdict on this one.
+      if (stale) count.stale++;
+      else count[r.result]++;
+      if (stale || r.result !== "pass") {
         flagged.push({
           index: i,
           catalogue: s.catalogue,
           msgid: s.msgid,
           msgstr: s.msgstr,
           back_translation: r.back_translation,
-          verdict: r.result,
+          verdict: stale ? "stale" : r.result,
+          ...(stale ? { stale_ruling: { result: r.result, msgstr_hash: r.field_hash.msgstr } } : {}),
           severity: r.severity,
           drift: r.findings.some((x) => x.startsWith("[term]")) ? "terminology" : "semantic",
           findings: r.findings,
@@ -198,7 +233,7 @@ export function buildReport(instance = INSTANCE): Record<string, unknown> {
     totals[locale] = count;
     families[`roundtrip-${locale}`] = {
       summary:
-        `${locale}: ${count.pass} pass, ${count.warn} warn, ${count.fail} fail of ${strings.length}. ` +
+        `${locale}: ${count.pass} pass, ${count.warn} warn, ${count.fail} fail, ${count.stale} stale of ${pairs.length}. ` +
         `Back-translator tools: ${tools ?? "not recorded"}. Each entry awaits a reviewer's ruling; nothing was auto-corrected.`,
       count: flagged.length,
       entries: flagged,
