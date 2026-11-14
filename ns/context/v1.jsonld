@@ -19,11 +19,16 @@
     "file": {
       "@id": "cat-harness:file"
     },
+    "headers": {
+      "@id": "cat-harness:headers",
+      "@container": "@list"
+    },
     "inSubgraph": {
       "@id": "cat-harness:inSubgraph",
       "@type": "@id"
     },
     "kind": "cat-harness:kind",
+    "label": "cat-harness:label",
     "licenceRecord": {
       "@id": "cat-harness:licenceRecord",
       "@type": "@json"
