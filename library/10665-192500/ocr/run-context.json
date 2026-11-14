@@ -1,39 +1,39 @@
 {
   "$schema": "folio-run-context/v1",
   "platform": {
-    "commit": "2120f3d46dc915be1e4f5d065e8479cb2d467b2b"
+    "commit": "95068f86dc1eb54191eddac970b7be5e00426c2d"
   },
   "mounts": {
     "state": "locked",
     "lock": {
       "file": "index.lock.json",
-      "sha256": "e5746931ff2404860cdc2ca5eecdc5053b602eb5a7aa21a430b2f2db574ba596"
+      "sha256": "3c3deb70cb5156cf54796c23536795591584fd93bf3242915a2c1a5ede7f2c40"
     },
     "instances": [
       {
         "instance": "bootstrap",
         "repository": "litlfred/bootstrap",
-        "sha": "fdc84b22c30ace4b9476e56fa1cac2117e5aaf0a"
+        "sha": "a3176a0dc77f935465cfaf121c6152b12d03472d"
       },
       {
         "instance": "bootstrap-tools",
         "repository": "litlfred/bootstrap-tools",
-        "sha": "b31c5346b0b2803354423511b6d18b599b7bdc41"
+        "sha": "db808314c98a9b931d08e923d80a8f8dbcdb7d89"
       },
       {
         "instance": "cat-harness",
         "repository": "litlfred/cat-harness",
-        "sha": "65a51c0d1285fb6d3aa0c78bfb1bda0a0e716d8b"
+        "sha": "ae2b21e2486ae6a70d2097280dc494ad719b4804"
       },
       {
         "instance": "cat-harness-tools",
         "repository": "litlfred/cat-harness-tools",
-        "sha": "5fd3192292698c30f065c2ae70e96d6a748f614e"
+        "sha": "0e83963cc2b175742016cd5c1c34dfcf74a31923"
       },
       {
         "instance": "folio-assistant-core",
         "repository": "litlfred/folio-assistant-core",
-        "sha": "fe82de48efa3a636e11fccbdf4eecf72816c79c2"
+        "sha": "b1a209e0bfe5287877a4757f6c777d2480c0d729"
       }
     ]
   },
@@ -64,14 +64,6 @@
     },
     {
       "state": "provisioned",
-      "release": "tessdata-rus@1:4.1.0-2",
-      "digest": {
-        "algorithm": "sha256",
-        "digest": "e16e5e036cce1d9ec2b00063cf8b54472625b9e14d893a169e2b0dedeb4df225"
-      }
-    },
-    {
-      "state": "provisioned",
       "release": "tessdata-osd@1:4.1.0-2",
       "digest": {
         "algorithm": "sha256",
@@ -82,7 +74,7 @@
   "invoker": {
     "kind": "system",
     "id": "cat-harness-tools/scripts/pdf-ocr.py",
-    "script_hash": "8377bfbd0eeec174cac9ca82575fc0a8fbecc45a4b56e8d673b0daccdf4321bd"
+    "script_hash": "f0a1fe422aac3ac4299b5bc4977a2019841ff2b3f8a7a362e9bc7a5ea7e0b70c"
   },
   "inputs": [
     {

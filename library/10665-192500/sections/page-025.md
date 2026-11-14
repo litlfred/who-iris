@@ -10,7 +10,7 @@ source_sha256: 1b2fb0717c9277f5
 text_source: ocr
 granularity: page
 ---
-A42/10 ١/1
+0 ١/1
 ‏صفحة 0؟ 5 3286م‎
 
 الملحق ؟ 2 عاعصصمه
