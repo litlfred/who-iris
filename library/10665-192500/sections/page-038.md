@@ -11,7 +11,7 @@ text_source: ocr
 granularity: page
 ---
 ج ‎١٠/5‏ A42/10
-صفحة YA 8 عع28م
+صفحة /1 8 عع28م
 
 الملحق ؟ 2 ععصصمة
 

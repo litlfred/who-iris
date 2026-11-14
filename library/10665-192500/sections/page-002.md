@@ -10,7 +10,7 @@ source_sha256: 1b2fb0717c9277f5
 text_source: ocr
 granularity: page
 ---
-A42/10 ١/5 ‏ج1‎
+0 ١/5 ‏ج1‎
 
 صفحة ؟ 2 28م
 

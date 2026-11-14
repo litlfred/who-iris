@@ -10,7 +10,7 @@ source_sha256: 1b2fb0717c9277f5
 text_source: ocr
 granularity: page
 ---
-A42/10 1 ٠١/52ج‎
+0 1 ٠١/52ج‎
 
 صفحة ‎١٤‏ 14 28م
 
