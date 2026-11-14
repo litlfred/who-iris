@@ -127,6 +127,18 @@
             "image"
           ]
         },
+        "lang": {
+          "type": "string"
+        },
+        "titles": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "pageStart": {
           "anyOf": [
             {

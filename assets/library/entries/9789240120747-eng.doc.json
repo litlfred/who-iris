@@ -719,7 +719,10 @@
         }
       ],
       "extract": "# Digital transformation handbook for reporting substandard and falsified medical products ISBN 978-92-4-012074-7 (electronic version) ISBN 978-92-4-012075-4 (print version) © World Health Organization 2026 Some rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). Under the",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/9789240120747-eng/blocks/prose-sec-front-matter"
+      ]
     },
     {
       "id": "sec-000-acknowledgements",
@@ -3493,6 +3496,51 @@
         "referenced",
         "in-sequence"
       ]
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 42,
+      "note": "inferred"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 43,
+      "note": "2 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "partial",
+      "count": 0,
+      "note": "6 captioned in the text, none kept"
+    },
+    {
+      "kind": "tables",
+      "state": "not-extracted",
+      "note": "18 captioned in the text"
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p60); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p8); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "summaries",
+      "state": "found",
+      "count": 43,
+      "note": "43 of 43 sections"
     }
   ],
   "links": {

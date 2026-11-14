@@ -827,7 +827,11 @@
         }
       ],
       "extract": "Directriz de la OMS Recomendaciones sobre intervenciones digitales para fortalecer los systemas de salud Directriz de la OMS ​Recomendaciones sobre intervenciones digitales para fortalecer los systemas de salud página ii Directriz de la OMS: recomendaciones sobre intervenciones digitales para fortalecer los sistemas de salud [WHO guideline: recommendations on digital interventions for health system strengthening]",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-354399/blocks/prose-sec-front-matter",
+        "library/10665-354399/blocks/figure-img-p007-2"
+      ]
     },
     {
       "id": "sec-000-prólogo",
@@ -4389,6 +4393,49 @@
         "ru": "Штрихкод ISBN с номером 9789240046993."
       },
       "state": "draft"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 50,
+      "note": "inferred"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 51,
+      "note": "2 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 4
+    },
+    {
+      "kind": "tables",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p127); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p10); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "none"
+    },
+    {
+      "kind": "summaries",
+      "state": "partial",
+      "count": 50,
+      "note": "50 of 51 sections"
     }
   ],
   "links": {

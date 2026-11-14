@@ -205,6 +205,7 @@ td .iri { font-size: 0.8em; }
 <tr><td><code>sections[].edit</code></td><td><code>object</code></td><td>no</td><td></td></tr>
 <tr><td><code>sections[].edit.path</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>sections[].edit.label</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
+<tr><td><code>sections[].blocks</code></td><td><code>array of string</code></td><td>no</td><td></td></tr>
 <tr><td><code>keywords</code></td><td><code>array of object</code></td><td>no</td><td></td></tr>
 <tr><td><code>keywords[].term</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>keywords[].heading</code></td><td><code>boolean</code></td><td>yes</td><td></td></tr>
@@ -246,6 +247,11 @@ td .iri { font-size: 0.8em; }
 <tr><td><code>tables[].narratives</code></td><td><code>object</code></td><td>yes</td><td></td></tr>
 <tr><td><code>tables[].csv</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>withheld</code></td><td><code>boolean</code></td><td>yes</td><td></td></tr>
+<tr><td><code>coverage</code></td><td><code>array of object</code></td><td>no</td><td></td></tr>
+<tr><td><code>coverage[].kind</code></td><td><code>&quot;contents&quot; | &quot;sections&quot; | &quot;figures&quot; | &quot;tables&quot; | &quot;references&quot; | &quot;glossary&quot; | &quot;footnotes&quot; | &quot;summaries&quot;</code></td><td>yes</td><td></td></tr>
+<tr><td><code>coverage[].state</code></td><td><code>&quot;found&quot; | &quot;partial&quot; | &quot;none&quot; | &quot;not-extracted&quot;</code></td><td>yes</td><td></td></tr>
+<tr><td><code>coverage[].count</code></td><td><code>integer</code></td><td>no</td><td></td></tr>
+<tr><td><code>coverage[].note</code></td><td><code>string</code></td><td>no</td><td></td></tr>
 <tr><td><code>links</code></td><td><code>object</code></td><td>no</td><td></td></tr>
 <tr><td><code>links.repo</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>links.branch</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
@@ -300,6 +306,8 @@ td .iri { font-size: 0.8em; }
 <tr><td><code>links[].href</code></td><td><code>string (uri) | string (pattern)</code></td><td>yes</td><td></td></tr>
 <tr><td><code>view</code></td><td><code>string (pattern)</code></td><td>no</td><td></td></tr>
 <tr><td><code>viewable</code></td><td><code>&quot;pdf&quot; | &quot;image&quot;</code></td><td>no</td><td></td></tr>
+<tr><td><code>lang</code></td><td><code>string</code></td><td>no</td><td></td></tr>
+<tr><td><code>titles</code></td><td><code>object</code></td><td>no</td><td></td></tr>
 <tr><td><code>pageStart</code></td><td><code>integer | null</code></td><td>yes</td><td></td></tr>
 <tr><td><code>pageEnd</code></td><td><code>integer | null</code></td><td>yes</td><td></td></tr>
 <tr><td><code>words</code></td><td><code>integer</code></td><td>yes</td><td></td></tr>
@@ -378,6 +386,8 @@ td .iri { font-size: 0.8em; }
 <tr><td><code>entries[].links[].href</code></td><td><code>string (uri) | string (pattern)</code></td><td>yes</td><td></td></tr>
 <tr><td><code>entries[].view</code></td><td><code>string (pattern)</code></td><td>no</td><td></td></tr>
 <tr><td><code>entries[].viewable</code></td><td><code>&quot;pdf&quot; | &quot;image&quot;</code></td><td>no</td><td></td></tr>
+<tr><td><code>entries[].lang</code></td><td><code>string</code></td><td>no</td><td></td></tr>
+<tr><td><code>entries[].titles</code></td><td><code>object</code></td><td>no</td><td></td></tr>
 <tr><td><code>entries[].pageStart</code></td><td><code>integer | null</code></td><td>yes</td><td></td></tr>
 <tr><td><code>entries[].pageEnd</code></td><td><code>integer | null</code></td><td>yes</td><td></td></tr>
 <tr><td><code>entries[].words</code></td><td><code>integer</code></td><td>yes</td><td></td></tr>

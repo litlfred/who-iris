@@ -179,7 +179,10 @@
         }
       ],
       "extract": "recommendations A indicators workflows data decisions scenarios requirements personas Digital Adaptation Kit for Family Planning Operational requirements for implementing WHO recommendations in digital systems SMART GUIDELINES Digital Adaptation Kit for Family Planning Operational requirements for implementing WHO recommendations in digital systems SMART GUIDELINES Digital adaptation kit for family planning:",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-341997/blocks/prose-sec-front-matter"
+      ]
     },
     {
       "id": "sec-000-acknowledgements",
@@ -5024,6 +5027,51 @@
         "ru": "В таблице перечислены нефункциональные требования к цифровой системе, сгруппированные по категориям, таким как безопасность (конфиденциальность, аутентификация, журнал аудита и журналы, управление пользователями) и системные требования (общие, масштабируемость, удобство использования, конфигурация, совместимость, оборудование и подключение). В каждой строке указаны идентификатор требования, его категория и само требование."
       },
       "csv": "tables/table-16.csv"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 11,
+      "note": "outline"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 21,
+      "note": "one level"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 15
+    },
+    {
+      "kind": "tables",
+      "state": "found",
+      "count": 16
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p141); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p7); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "found",
+      "count": 6
+    },
+    {
+      "kind": "summaries",
+      "state": "found",
+      "count": 21,
+      "note": "21 of 21 sections"
     }
   ],
   "links": {

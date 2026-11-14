@@ -284,6 +284,23 @@
       }
     },
     {
+      "id": "library/10665-341997/blocks/table-001",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 1. Components of a digital adaptation kit",
+      "pageStart": 15,
+      "pageEnd": 17,
+      "target": "../tables/table-1.csv",
+      "narrative": "draft",
+      "content": "The table lists the eight components of the digital adaptation kit (DAK), from health interventions and recommendations to functional and non-functional requirements. For each component it gives a description, its purpose, the outputs it provides and the adaptation needed for a specific context.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
       "id": "library/10665-341997/blocks/prose-sec-005",
       "types": [
         "folio-assistant-core:Prose",
@@ -409,6 +426,40 @@
       }
     },
     {
+      "id": "library/10665-341997/blocks/table-002",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 2. Descriptions of key generic personas",
+      "pageStart": 27,
+      "pageEnd": 27,
+      "target": "../tables/table-2.csv",
+      "narrative": "draft",
+      "content": "The table describes the three key generic personas targeted by the family planning digital adaptation kit (auxiliary nurse midwife, midwife and nurse). For each occupational title it gives a description, other names used for the role and the corresponding ISCO occupation code.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-003",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 3. Descriptions of related personas",
+      "pageStart": 29,
+      "pageEnd": 29,
+      "target": "../tables/table-3.csv",
+      "narrative": "draft",
+      "content": "The table describes personas related to the targeted auxiliary nurse midwife: the client, lay health worker, community health worker, pharmacist and physician. For each it gives a description, other names where relevant and the ISCO occupation code where relevant.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
       "id": "library/10665-341997/blocks/prose-sec-009",
       "types": [
         "folio-assistant-core:Prose",
@@ -434,6 +485,23 @@
         },
         "draftedAt": "2026-11-11"
       }
+    },
+    {
+      "id": "library/10665-341997/blocks/table-004",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 4. Interpretation of the adolescent user scenario",
+      "pageStart": 33,
+      "pageEnd": 33,
+      "target": "../tables/table-4.csv",
+      "narrative": "draft",
+      "content": "The table interprets the adolescent user scenario for system design. Its columns list the data elements to be collected, the decision logic to be embedded, the functional and non-functional requirements, and the adolescent-specific considerations to be triggered when the client’s age is 19 years or younger.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
     },
     {
       "id": "library/10665-341997/blocks/prose-sec-010",
@@ -463,6 +531,40 @@
       }
     },
     {
+      "id": "library/10665-341997/blocks/table-005",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 5. Overview of key family planning module business processes",
+      "pageStart": 35,
+      "pageEnd": 36,
+      "target": "../tables/table-5.csv",
+      "narrative": "draft",
+      "content": "The table gives an overview of the five key business processes of the family planning module (A–E: registration, family planning counselling, service provision, referral, and aggregate reporting and data use). For each process it lists the process ID, the personas involved, the objectives and the task set, starting from a defined starting point.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-006",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 6. Business process symbols used in workflows",
+      "pageStart": 36,
+      "pageEnd": 37,
+      "target": "../tables/table-6.csv",
+      "narrative": "draft",
+      "content": "The table explains the standard business process notation symbols used in the workflow diagrams, from pools and swim lanes to events, activities, flows, gateways, links and ad hoc subprocesses. For each symbol it gives its name and a description of how it is used.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
       "id": "library/10665-341997/blocks/prose-sec-011",
       "types": [
         "folio-assistant-core:Prose",
@@ -488,6 +590,57 @@
         },
         "draftedAt": "2026-11-11"
       }
+    },
+    {
+      "id": "library/10665-341997/blocks/table-007",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 7. Workflow core data elements for identified business processes",
+      "pageStart": 60,
+      "pageEnd": 64,
+      "target": "../tables/table-7.csv",
+      "narrative": "draft",
+      "content": "The table lists the core data elements for each activity in the family planning business processes (registration, counselling, service provision and referral). For each activity it gives the data element IDs, names and descriptions, or notes that no data are recorded during that activity.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-008",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 8. Calculated data elements",
+      "pageStart": 64,
+      "pageEnd": 64,
+      "target": "../tables/table-8.csv",
+      "narrative": "draft",
+      "content": "The table lists derived data elements that are calculated from core data elements: body mass index, postpartum status and recent miscarriage or abortion. For each it names the core data elements used as variables and gives the calculation formula.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-009",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 9. Characteristics for local customization and configuration",
+      "pageStart": 65,
+      "pageEnd": 65,
+      "target": "../tables/table-9.csv",
+      "narrative": "draft",
+      "content": "The table lists points of customization and configuration that each implementation should review against national guidelines and local context, such as unique IDs, services and methods provided, facility details, administrative areas, available lab tests and pregnancy test sensitivity. Each point is paired with a description of what to consider.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
     },
     {
       "id": "library/10665-341997/blocks/prose-sec-012",
@@ -517,6 +670,74 @@
       }
     },
     {
+      "id": "library/10665-341997/blocks/table-010",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 10. Overview of decision-support tables for family planning module",
+      "pageStart": 67,
+      "pageEnd": 69,
+      "target": "../tables/table-10.csv",
+      "narrative": "draft",
+      "content": "The table gives an overview of the decision-support tables for the family planning module. For each workflow activity it lists the decision-support table ID, a description of the table (such as reason for visit, risk assessments and medical eligibility criteria for each method) and the WHO reference or source it is based on.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-011",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 11. Components of the decision-support tables",
+      "pageStart": 70,
+      "pageEnd": 70,
+      "target": "../tables/table-11.csv",
+      "narrative": "draft",
+      "content": "The table explains the components of the decision-support tables: the decision ID, business rule and trigger, and the inputs, output, action and annotations columns. It defines each component and how multiple inputs on the same row (AND) or on different rows (OR) are read.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-012",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 12. Example decision-support logic table for medical eligibility for copper-bearing intrauterine devices (Cu-IUDs)",
+      "pageStart": 71,
+      "pageEnd": 71,
+      "target": "../tables/table-12.csv",
+      "narrative": "draft",
+      "content": "The table is an example decision-support logic table for medical eligibility for copper-bearing intrauterine devices, giving its decision ID, business rule and trigger. Each row combines input conditions (method requested, health condition, method at intake) with the resulting medical eligibility category and eligibility output, the action for the health worker, an annotation and the references.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-013",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 13. Overview of scheduling logic",
+      "pageStart": 72,
+      "pageEnd": 72,
+      "target": "../tables/table-13.csv",
+      "narrative": "draft",
+      "content": "The table gives an overview of the scheduling logic for follow-up of family planning clients. For each scheduling logic ID it describes the follow-up or removal visit for a given contraceptive method and the WHO reference or source.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
       "id": "library/10665-341997/blocks/prose-sec-013",
       "types": [
         "folio-assistant-core:Prose",
@@ -544,6 +765,23 @@
       }
     },
     {
+      "id": "library/10665-341997/blocks/table-014",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 14. Indicators and performance metrics",
+      "pageStart": 73,
+      "pageEnd": 74,
+      "target": "../tables/table-14.csv",
+      "narrative": "draft",
+      "content": "The table lists the minimum set of family planning indicators and performance metrics that can be aggregated from routine digital data, such as new and continuing users, method switching and discontinuation, and post-abortion and postpartum contraception. For each indicator it gives the ID, name, definition, numerator and denominator descriptions, disaggregations and references.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
       "id": "library/10665-341997/blocks/prose-sec-014",
       "types": [
         "folio-assistant-core:Prose",
@@ -569,6 +807,40 @@
         },
         "draftedAt": "2026-11-11"
       }
+    },
+    {
+      "id": "library/10665-341997/blocks/table-015",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 15. Functional requirementsᵃ",
+      "pageStart": 75,
+      "pageEnd": 78,
+      "target": "../tables/table-15.csv",
+      "narrative": "draft",
+      "content": "The table lists key functional requirements for the registration, counselling and service provision business processes, written as user stories. For each requirement ID it gives the activity, the user (“As a…”), what they want the system to do (“I want…”) and why (“So that…”).",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
+    },
+    {
+      "id": "library/10665-341997/blocks/table-016",
+      "types": [
+        "folio-assistant-core:Table",
+        "doco:Table"
+      ],
+      "kind": "table",
+      "title": "Table 16. Non-functional requirements",
+      "pageStart": 78,
+      "pageEnd": 80,
+      "target": "../tables/table-16.csv",
+      "narrative": "draft",
+      "content": "The table lists the non-functional requirements of the digital system, grouped by category such as security (confidentiality, authentication, audit trail and logs, user management) and system requirements (general, scalability, usability, configuration, interoperability, hardware and connectivity). Each row gives a requirement ID, its category and the requirement.",
+      "truncated": false,
+      "provenance": "ingested",
+      "summary": null
     },
     {
       "id": "library/10665-341997/blocks/prose-sec-015",

@@ -894,7 +894,10 @@
         }
       ],
       "extract": "Consolidated guidelines on HIV, viral hepatitis and STI prevention, diagnosis, treatment and care for key populations Photo credits Chapter 1: © Getty Images/Jonathan Torgovnik Chapter 2: © Flickr/Pippa Ranger Chapter 3: © Getty Images/Jonathan Torgovnik Chapter 4: © Women’s Network South Africa NPUD Chapter 5: © GATE community photos 2022 Chapter 6: © GATE community photos 2022 Chapter 7: © WHO/Blink Media -",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-360601/blocks/prose-sec-front-matter"
+      ]
     },
     {
       "id": "sec-000-acknowledgements",
@@ -5449,6 +5452,50 @@
         "ru": "Четыре уровня достоверности доказательств по GRADE (высокий, умеренный, низкий, очень низкий) с пояснением, что каждый из них означает для уверенности в близости истинного эффекта к расчетному."
       },
       "csv": "tables/table-3.csv"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 76,
+      "note": "outline"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 77,
+      "note": "3 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 16
+    },
+    {
+      "kind": "tables",
+      "state": "found",
+      "count": 3
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p123); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p10); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "summaries",
+      "state": "partial",
+      "count": 71,
+      "note": "71 of 77 sections"
     }
   ],
   "links": {

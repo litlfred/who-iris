@@ -10,8 +10,8 @@
       "summary": "A frozen, line-numbered draft went out for public review.",
       "description": "A frozen, line-numbered draft went out for public review. This is what\nhappens to ONE comment that comes back: placed on the block it cites,\ntriaged, weighed by the review committee, decided by the editor and, if\nthe decision changes the document, made on a feature branch whose\nstaging preview shows the text before and after. The change set is\nreviewed by the same process as any content change\n(Process_ContentChangeReview); only the intake is new. Skill:\npublic-comment.",
       "enforcement": "strict",
-      "sourcePath": "processes/content/public-comment.bpmn",
-      "sourceUrl": "https://github.com/litlfred/folio-assistant-core/blob/main/processes/content/public-comment.bpmn",
+      "sourcePath": "collab/processes/content/public-comment.bpmn",
+      "sourceUrl": "https://github.com/litlfred/folio-assistant-core/blob/main/collab/processes/content/public-comment.bpmn",
       "depiction": "https://litlfred.github.io/who-iris/assets/img/workflows/public-comment.svg",
       "startNode": [
         "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/StartEvent_CommentsReturned",
@@ -20,7 +20,7 @@
       ],
       "nodeCount": 19,
       "flowCount": 18,
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment"
     },
     {
@@ -29,7 +29,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/StartEvent_WithdrawRequested",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Withdraw",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToWithdraw"
     },
     {
@@ -38,7 +38,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Withdraw",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/EndEvent_Withdrawn",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToWithdrawn"
     },
     {
@@ -47,7 +47,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/StartEvent_CommentsReturned",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Ingest",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToIngest"
     },
     {
@@ -56,7 +56,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/StartEvent_BlockFeedback",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Ingest",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_BlockFeedbackToIngest"
     },
     {
@@ -65,7 +65,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Ingest",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Triage",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToTriage"
     },
     {
@@ -74,7 +74,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Triage",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Gateway_Triage",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToTriageGateway"
     },
     {
@@ -84,7 +84,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Gateway_Triage",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/EndEvent_Duplicate",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_Duplicate"
     },
     {
@@ -94,7 +94,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Gateway_Triage",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_ProposeChangeSets",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToAssign"
     },
     {
@@ -103,7 +103,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_ProposeChangeSets",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_GroupChangeSets",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToGroup"
     },
     {
@@ -112,7 +112,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_GroupChangeSets",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_RerouteChangeSet",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToReroute"
     },
     {
@@ -121,7 +121,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_RerouteChangeSet",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Assign",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_GroupedToAssign"
     },
     {
@@ -131,7 +131,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Gateway_Triage",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_EditorDecides",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_EditorialDirect"
     },
     {
@@ -140,7 +140,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_Assign",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_CommitteeRecommends",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToRecommend"
     },
     {
@@ -149,7 +149,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_CommitteeRecommends",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_EditorDecides",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToDecide"
     },
     {
@@ -158,7 +158,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Task_EditorDecides",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Gateway_ChangesDocument",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToChangesGateway"
     },
     {
@@ -168,7 +168,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Gateway_ChangesDocument",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/EndEvent_Decided",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_NoChange"
     },
     {
@@ -178,7 +178,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/Gateway_ChangesDocument",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/CallActivity_MakeChange",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToMakeChange"
     },
     {
@@ -187,7 +187,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/CallActivity_MakeChange",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_PublicComment/node/EndEvent_Incorporated",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_PublicComment#flow/Flow_ToIncorporated"
     }
   ]

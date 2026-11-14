@@ -10,15 +10,15 @@
       "summary": "How the corpus becomes an officially published folio: a draft publication, its review, and the release authority's decision.",
       "description": "How the corpus becomes an officially published folio: a draft publication, its review, and the release authority's decision.",
       "enforcement": "strict",
-      "sourcePath": "processes/content/draft-to-publication.bpmn",
-      "sourceUrl": "https://github.com/litlfred/folio-assistant-core/blob/main/processes/content/draft-to-publication.bpmn",
+      "sourcePath": "collab/processes/content/draft-to-publication.bpmn",
+      "sourceUrl": "https://github.com/litlfred/folio-assistant-core/blob/main/collab/processes/content/draft-to-publication.bpmn",
       "depiction": "https://litlfred.github.io/who-iris/assets/img/workflows/draft-to-publication.svg",
       "startNode": [
         "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/StartEvent_CorpusUpdated"
       ],
       "nodeCount": 22,
       "flowCount": 25,
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication"
     },
     {
@@ -27,7 +27,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/StartEvent_CorpusUpdated",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_OpenReleaseBean",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G01"
     },
     {
@@ -37,7 +37,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/GW_BeanYours",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_BuildMerge",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G02"
     },
     {
@@ -46,7 +46,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_BuildMerge",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_BuildDraft",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G03"
     },
     {
@@ -55,7 +55,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_BuildDraft",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_PublicationQa",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G04"
     },
     {
@@ -64,7 +64,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_PublicationQa",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_QaGreen",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G05"
     },
     {
@@ -74,7 +74,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_QaGreen",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/CallActivity_Editing",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G06"
     },
     {
@@ -83,7 +83,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/CallActivity_Editing",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_BuildMerge",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G07"
     },
     {
@@ -93,7 +93,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_QaGreen",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_CirculateDraft",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G08"
     },
     {
@@ -102,7 +102,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_CirculateDraft",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewFork",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G09"
     },
     {
@@ -111,7 +111,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewFork",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_ReviewDraft",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G10"
     },
     {
@@ -120,7 +120,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewFork",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_SmeSignoff",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G11"
     },
     {
@@ -129,7 +129,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_ReviewDraft",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewJoin",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G12"
     },
     {
@@ -138,7 +138,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_SmeSignoff",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewJoin",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G13"
     },
     {
@@ -147,7 +147,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewFork",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/CallActivity_PublicComment",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G21"
     },
     {
@@ -156,7 +156,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/CallActivity_PublicComment",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewJoin",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G22"
     },
     {
@@ -165,7 +165,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewJoin",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewOutcome",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G14"
     },
     {
@@ -175,7 +175,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewOutcome",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_OpenChangeBeans",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G15"
     },
     {
@@ -185,7 +185,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Gateway_ReviewOutcome",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_AuthorizeRelease",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G16"
     },
     {
@@ -194,7 +194,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_OpenChangeBeans",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/CallActivity_Editing",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G17"
     },
     {
@@ -203,7 +203,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_AuthorizeRelease",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_PublishRelease",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G18"
     },
     {
@@ -212,7 +212,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_PublishRelease",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_CloseReleaseBeans",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G19"
     },
     {
@@ -221,7 +221,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_CloseReleaseBeans",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_ArchiveReleaseBean",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G20"
     },
     {
@@ -230,7 +230,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_ArchiveReleaseBean",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/EndEvent_Published",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/G_Archive"
     },
     {
@@ -239,7 +239,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/Task_OpenReleaseBean",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/GW_BeanYours",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/SF_Bean_1"
     },
     {
@@ -249,7 +249,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/GW_BeanYours",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_Publication/node/End_BeanNotYours",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_Publication#flow/SF_Bean_2"
     }
   ]

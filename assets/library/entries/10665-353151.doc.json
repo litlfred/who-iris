@@ -1305,7 +1305,10 @@
         }
       ],
       "extract": "Guía para la inversión en la implementación digital (DIIG): incorporación de intervenciones digitales en los programas de salud b Guía para la inversión en la implementación digital (DIIG): incorporación de intervenciones digitales en los programas de salud Guía para la inversión en la implementación digital (DIIG): incorporación de intervenciones digitales en los programas de salud [Digital implementation",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-353151/blocks/prose-sec-front-matter"
+      ]
     },
     {
       "id": "sec-000-lista-de-figuras-tablas-y-recuadros",
@@ -6618,6 +6621,51 @@
         "ru": "Штрихкод ISBN 9789240047570."
       },
       "state": "draft"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 83,
+      "note": "inferred"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 81,
+      "note": "2 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "partial",
+      "count": 4,
+      "note": "6 captioned in the text"
+    },
+    {
+      "kind": "tables",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p134); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "none",
+      "note": "no such heading in the text"
+    },
+    {
+      "kind": "footnotes",
+      "state": "found",
+      "count": 22
+    },
+    {
+      "kind": "summaries",
+      "state": "found",
+      "count": 81,
+      "note": "81 of 81 sections"
     }
   ],
   "links": {

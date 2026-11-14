@@ -386,6 +386,10 @@
             }
           }
         },
+        "catalogues": {
+          "type": "string",
+          "minLength": 1
+        },
         "optIn": {
           "type": "boolean",
           "const": true

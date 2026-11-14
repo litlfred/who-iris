@@ -498,7 +498,11 @@
         }
       ],
       "extract": "WHO recommendations OPTIMIZEMNH Optimizing health worker roles to improve access to key maternal and newborn health interventions through task shifting WHO recommendations Optimizing health worker roles to improve access to key maternal and newborn health interventions through task shifting OPTIMIZEMNH WHO Library Cataloguing-in-Publication Data WHO recommendations: optimizing health worker roles to improve access",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-77764/blocks/prose-sec-front-matter",
+        "library/10665-77764/blocks/figure-img-p001-1"
+      ]
     },
     {
       "id": "sec-000-acknowledgements",
@@ -3179,6 +3183,49 @@
         "ru": "Штрихкод ISBN с номером 9789241504843."
       },
       "state": "draft"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 40,
+      "note": "outline"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 41,
+      "note": "2 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 5
+    },
+    {
+      "kind": "tables",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p96); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p8); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "summaries",
+      "state": "found",
+      "count": 41,
+      "note": "41 of 41 sections"
     }
   ],
   "links": {

@@ -51,7 +51,11 @@
       },
       "keywords": [],
       "extract": "WHO/V&B/01.28 原文：英文 散发：普遍 乙型肝炎免疫接种 乙型肝炎免疫接种 乙型肝炎免疫接种 乙型肝炎免疫接种",
-      "extractCut": false
+      "extractCut": false,
+      "blocks": [
+        "library/10665-66977-chi/blocks/prose-sec-front-matter",
+        "library/10665-66977-chi/blocks/figure-img-p001-1"
+      ]
     },
     {
       "id": "sec-000-将乙型肝炎疫苗纳入国家免疫规划",
@@ -210,6 +214,49 @@
         "ru": "Белая пиктограмма на чёрном фоне: стилизованная фигура взрослого, держащего перед собой ребёнка."
       },
       "state": "draft"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 2,
+      "note": "inferred"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 3,
+      "note": "2 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 1
+    },
+    {
+      "kind": "tables",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "references",
+      "state": "none",
+      "note": "no such heading in the text"
+    },
+    {
+      "kind": "glossary",
+      "state": "none",
+      "note": "no such heading in the text"
+    },
+    {
+      "kind": "footnotes",
+      "state": "none"
+    },
+    {
+      "kind": "summaries",
+      "state": "found",
+      "count": 3,
+      "note": "3 of 3 sections"
     }
   ],
   "links": {

@@ -229,7 +229,12 @@
         }
       ],
       "extract": "Global hepatitis report 2026 Global hepatitis report 2026 Global hepatitis report 2026 ISBN 978-92-4-012238-3 (electronic version) ISBN 978-92-4-012239-0 (print version) © World Health Organization 2026 Some rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). Under the",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-385385/blocks/prose-sec-front-matter",
+        "library/10665-385385/blocks/figure-img-p006-1",
+        "library/10665-385385/blocks/figure-img-p007-1"
+      ]
     },
     {
       "id": "sec-000-acknowledgements",
@@ -4130,6 +4135,52 @@
         "ru": "По каждому региону ВОЗ и всем регионам вместе: число государств-членов и число представивших данные в рамках раунда глобальной отчетности по гепатиту 2025 г."
       },
       "csv": "tables/table-a2-1.csv"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 11,
+      "note": "inferred"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 12,
+      "note": "one level"
+    },
+    {
+      "kind": "figures",
+      "state": "partial",
+      "count": 50,
+      "note": "56 captioned in the text"
+    },
+    {
+      "kind": "tables",
+      "state": "found",
+      "count": 11
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p83); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p12); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "found",
+      "count": 63
+    },
+    {
+      "kind": "summaries",
+      "state": "found",
+      "count": 12,
+      "note": "12 of 12 sections"
     }
   ],
   "links": {

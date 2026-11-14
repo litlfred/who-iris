@@ -57,7 +57,10 @@
         }
       ],
       "extract": "Sero-epidemiological data in the age group of children aged <4 years in 1999 showed a prevalence rate of 0.16% compared to 5.4% in the same age group in 1983, indicating the interruption of vectorial transmission in this country. Transmission through blood transfusion is under control due to the 100% coverage of compulsory blood screening in the endemic areas. (Reported by Programa Nacional de Control de la Enferme-",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-231031/blocks/prose-page-001"
+      ]
     },
     {
       "id": "page-002",
@@ -108,7 +111,10 @@
         }
       ],
       "extract": "supports the continued use of current vaccines that protect the lives of millions of children each year. The US report mentioned above made recommendations to avoid thiomersal-containing hepatitis B vaccine for certain newborns, including the screening of pregnant mothers for the blood marker of the liver infection. WHO stresses that this is not an option for developing countries, owing to practical constraints and",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-231031/blocks/prose-page-002"
+      ]
     },
     {
       "id": "page-003",
@@ -159,7 +165,10 @@
         }
       ],
       "extract": "limits for safe total methylmercury exposure are between 34 wg (according to EPA standards) and 159 yg (according to WHO standards). Table 1 shows the exposure that would take place during a typical national immunization schedule. During the first 14 weeks of life, an infant gener- ally receives 3 doses of DTP vaccine or a total of 75 yg of ethylmercury. If hepatitis B vaccine is added to the immunization schedule,",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-231031/blocks/prose-page-003"
+      ]
     },
     {
       "id": "page-004",
@@ -210,7 +219,10 @@
         }
       ],
       "extract": "rently exclude the possibility of subtle neurodevelopmental abnormalities from a cumulative exposure of infants to thiomersal in vaccines. Despite a lack of direct evidence of harmful effects of the preservative in vaccines, change seems inevitable. However, the goal of reducing mercury exposure from thiomersal in vaccines creates several problems for national immunization programmes. If the condemnation of",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-231031/blocks/prose-page-004"
+      ]
     },
     {
       "id": "page-005",
@@ -261,7 +273,10 @@
         }
       ],
       "extract": "relicensing, and even with a “fast track” procedure, could take over a year to process. Combination vaccines have been proposed as a means of reducing cold-chain requirements and improving coverage by delivering multiple antigens in fewer injections. Also, the amount of preservative needed per vial is the same whether it contains one or many antigens. Thus as more antigens are included in a combination vaccine,",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-231031/blocks/prose-page-005"
+      ]
     }
   ],
   "checks": {},
@@ -314,6 +329,47 @@
     {
       "term": "methylmercury exposure",
       "heading": false
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "not-extracted",
+      "note": "split one section per page; no contents was trusted"
+    },
+    {
+      "kind": "sections",
+      "state": "partial",
+      "count": 5,
+      "note": "one per page, not by heading"
+    },
+    {
+      "kind": "figures",
+      "state": "none"
+    },
+    {
+      "kind": "tables",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "references",
+      "state": "none",
+      "note": "no such heading in the text"
+    },
+    {
+      "kind": "glossary",
+      "state": "none",
+      "note": "no such heading in the text"
+    },
+    {
+      "kind": "footnotes",
+      "state": "none"
+    },
+    {
+      "kind": "summaries",
+      "state": "found",
+      "count": 5,
+      "note": "5 of 5 sections"
     }
   ],
   "links": {

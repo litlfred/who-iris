@@ -371,11 +371,11 @@
     "registry",
     "packages"
   ],
-  "sourceCommit": "https://github.com/litlfred/who-iris/commit/5a6a9c0da27b7619b8720468ecd0e3bb9978224d",
-  "sourceCommitSha": "5a6a9c0da27b7619b8720468ecd0e3bb9978224d",
-  "sourceTree": "035e8632a5f04431af697a22a6230fa0876739a5",
-  "sourceCommitAt": "2026-11-13T23:23:38+01:00",
-  "sourceTreeDirty": false,
+  "sourceCommit": "https://github.com/litlfred/who-iris/commit/4d70813d88b08d5d233d6a765e9d725fe255a5d4",
+  "sourceCommitSha": "4d70813d88b08d5d233d6a765e9d725fe255a5d4",
+  "sourceTree": "f8d30e9fa07e8076c5d07cacbe321a51d5f16b5f",
+  "sourceCommitAt": "2026-11-14T08:59:29+01:00",
+  "sourceTreeDirty": true,
   "dependsOnUnavailable": "this instance declares no `canonicalUrl`, and §3.4's record is `{packageId, version, uri}` — `canonicalUrl` is what plays `uri`, so the record cannot be expressed rather than being withheld on purpose",
   "counts": {
     "Skill": 5,
@@ -793,7 +793,7 @@
       "inLane": "https://litlfred.github.io/who-iris/who-iris/process/Process_IrisCdnNightly/lane/Lane_Pipeline",
       "requires": [
         "https://litlfred.github.io/who-iris/who-iris/skill/iris-oxigraph",
-        "https://litlfred.github.io/who-iris/who-iris/skill/nquads-distribution"
+        "https://litlfred.github.io/folio-assistant/cat-harness/skill/nquads-distribution"
       ],
       "touchesWorkPlan": false,
       "relaxable": true,
@@ -1209,7 +1209,7 @@
       "inLane": "https://litlfred.github.io/who-iris/who-iris/process/Process_IrisCdnReconcile/lane/Lane_Pipeline",
       "requires": [
         "https://litlfred.github.io/who-iris/who-iris/skill/iris-oxigraph",
-        "https://litlfred.github.io/who-iris/who-iris/skill/nquads-distribution"
+        "https://litlfred.github.io/folio-assistant/cat-harness/skill/nquads-distribution"
       ],
       "touchesWorkPlan": false,
       "relaxable": true,
@@ -1718,7 +1718,7 @@
       "inLane": "https://litlfred.github.io/who-iris/who-iris/process/Process_IrisCdnInitialLoad/lane/Lane_Pipeline",
       "requires": [
         "https://litlfred.github.io/who-iris/who-iris/skill/iris-oxigraph",
-        "https://litlfred.github.io/who-iris/who-iris/skill/nquads-distribution"
+        "https://litlfred.github.io/folio-assistant/cat-harness/skill/nquads-distribution"
       ],
       "touchesWorkPlan": false,
       "relaxable": true,
@@ -2533,7 +2533,7 @@
       ],
       "description": "The IRIS items this instance holds rather than merely names. The three worked examples are `wpr-rdo-2020-003-eng` (the WPRO publication style guide, and the worked example whose full DSpace item record drives the `iris-dspace` skill), `who-pub-tps-931` and `9789241548960-eng`. On 2026-10-30 (who-iris#107, the owner's \"pre-CDN preview\") every IRIS library the harness layers had ingested moved in beside them: twelve from the DAK layer (https://github.com/litlfred/smart-base; digital health guidance such as DIIG, the two classifications of digital interventions and the digital transformation handbooks) and three from the immunizations IG (the IMMZ DAK, 9789240016514 and DDCC:VS). Those layers now cite them as `{instance: \"who-iris\"}`. They are the `materialized` end of the catalogue -- every other node under `catalogue/nodes/` is `referenced`, and the entries here are what a materialization actually looks like. `milnorlink` is NOT here and never was an IRIS item; it went to folio-assistant-sci (bean r1lz). The id is `library`, the CONVENTIONAL one, so this entry OVERRIDES the default rather than joining it: overrides match on id and never on path, so a distinct id at the same path yields two entries for one directory and every fan-out consumer scans it twice. Measured while doing exactly that.",
       "readmePath": "library/README.md",
-      "fileCount": 34857,
+      "fileCount": 35101,
       "inSubgraph": "https://litlfred.github.io/who-iris/who-iris/directory/library",
       "alternateOf": "https://litlfred.github.io/folio-assistant/who-iris/directory/library"
     },
@@ -2551,7 +2551,7 @@
       ],
       "description": "THE IRIS REPLICA'S HOME PAGE AND SEARCH PAGE, and nothing else of the replica. The search page (search.html, issue #196, owner 2026-11-08) mimics iris.who.int/search: its facet categories are IRIS's, and their values and counts are computed in the browser from the items the query matches. Owner, 2026-10-30: the replica's item pages duplicated the library entry pages without a locale in the URL (\"i want consitent bevarioior for things nuders librayr/\"), so the item, collection and community-list pages are gone and their addresses 404. The IRIS-style home stays (follow-up, option A), in every language it is built in: its held items link to their library entry pages and its communities and collections to the catalogue page. `scripts/gen-iris-pages.ts` writes it (gated by `bun run cat iris:pages:check`). On the platform's site it is what `/who-iris/` serves; on who-iris's own site the `site:home` build step also writes it at the site root, and the docs home moved to `/docs/`. History: Moved out of `library/` on 2026-09-30 (bean 2b5s) so that the corpus and its rendering are separate directories: before, the mount copied the corpus along with the pages. A page shows an item's cover by referencing `../library/<slug>-cover.png`; the build publishes exactly the files a page embeds, beside the replica, and not the directory they sit in.",
       "readmePath": "site/README.md",
-      "fileCount": 457,
+      "fileCount": 463,
       "inSubgraph": "https://litlfred.github.io/who-iris/who-iris/directory/who-iris-site",
       "alternateOf": "https://litlfred.github.io/folio-assistant/who-iris/directory/who-iris-site"
     },

@@ -139,6 +139,27 @@ function uploadState(e){
     unknown: { label: "no source named", cls: "" }
   }[e.upload] || { label: e.upload, cls: "" };
 }
+/* THE PAGE'S LANGUAGE: ?lang=, else the locale segment of its path
+   (/en/.../library/), else the page's own lang, else English. */
+var LOCALE = (function(){
+  var l = "";
+  try { l = new URL(location.href).searchParams.get("lang") || ""; } catch (_e) {}
+  if (!l) { var m = /[/]([a-z]{2})(?:-[A-Za-z]{2})?[/]/.exec(location.pathname); l = m ? m[1] : ""; }
+  if (!l && document.documentElement) l = document.documentElement.getAttribute("lang") || "";
+  return (l || "en").toLowerCase().split("-")[0];
+})();
+/* A TITLE NOT IN THE PAGE'S LANGUAGE SHOWS THE READER'S UNDER IT -- owner,
+   2026-11-13: "when display title not in locale, then display locale if
+   present under original". Only an official edition's title (e.titles, from
+   the projection); nothing when there is none, and nothing is translated.
+   A long title is capped to three lines by CSS; the whole of it is in the
+   DOM for a screen reader and in a title attribute for a pointer. */
+function titleHtml(e, href){
+  var t = String(e.title == null ? "" : e.title);
+  var h = '<a class="lib-title" href="'+esc(href)+'" title="'+esc(t)+'"'+(e.lang ? ' lang="'+esc(e.lang)+'"' : "")+">"+esc(t)+"</a>";
+  var mine = e.lang && e.lang !== LOCALE && e.titles && typeof e.titles[LOCALE] === "string" ? e.titles[LOCALE] : "";
+  return mine ? h + '<span class="lib-title-locale" lang="'+esc(LOCALE)+'" title="'+esc(mine)+'">'+esc(mine)+"</span>" : h;
+}
 
 var COLS = [
   /* THE SLUG OPENS THE ENTRY'S VISUALISER -- e.view, generated per entry by
@@ -158,7 +179,7 @@ var COLS = [
          used to open the item's README on GitHub, which a referenced entry
          may not have (owner, 2026-10-02: a DAK IG's title went to a
          404). The README stays as a secondary link, only when one exists. */
-      var t = '<a class="lib-title" href="'+esc(entryHref(e))+'">'+esc(e.title)+"</a>";
+      var t = titleHtml(e, entryHref(e));
       var src = e.arxiv ? "https://arxiv.org/abs/"+encodeURIComponent(e.arxiv) : e.doi ? "https://doi.org/"+e.doi : "";
       return t + (src ? ' <a class="src" href="'+esc(src)+'">source</a>' : "") +
         (e.readme ? ' <a class="src" href="'+esc(e.readme)+'">README</a>' : "") + linksHtml(e);
@@ -190,6 +211,9 @@ var COLS = [
   { k:"upload",   t:"source",   n:false, c:"t-source", f:function(e){ var s=uploadState(e);
       var name = '<span class="slug" style="font-size:.72rem;color:var(--muted)">'+esc(e.sourceFile)+"</span>";
       if (e.sourceFile && e.viewable) name = '<a class="src lib-src" href="'+esc(entryHref(e))+'#lib-view" target="_blank" rel="noopener">'+esc(e.sourceFile)+"</a>";
+      /* Owner, 2026-11-13: every source file name is a link. One not viewable
+         here opens its entry page, which says where the file is held. */
+      else if (e.sourceFile) name = '<a class="src lib-src" href="'+esc(entryHref(e))+'">'+esc(e.sourceFile)+"</a>";
       return '<span class="pill '+s.cls+'">'+esc(s.label)+"</span>"+(e.sourceFile?"<br>"+name:""); } }
 ];
 
@@ -215,7 +239,25 @@ function renderList(){
     return "<th" + (sorted ? ' aria-sort="'+(SORT.dir>0?"ascending":"descending")+'"' : "") +
       '><button type="button" data-k="'+c.k+'">'+esc(c.t)+"</button></th>";
   }).join("") + "</tr></thead><tbody>";
-  h += r.map(function(e){
+  h += r.map(rowHtml).join("") || '<tr><td colspan="'+COLS.length+'"><p class="empty">Nothing matches.</p></td></tr>';
+  $("listing").innerHTML = h + "</tbody></table>";
+}
+
+/* THE ENTRY'S OWN ROW, AT THE TOP OF ITS PAGE -- owner, 2026-11-14: "i
+   wanted this at the top of the page". The row the whole-library listing
+   draws for this entry was the only place its counts were said, and on an
+   entry page that listing is folded away at the bottom. The same COLS and
+   the same rowHtml, so the two rows cannot disagree; a plain header, since
+   one row has nothing to sort. */
+function renderEntryRow(e){
+  var el = $("entry-row");
+  if (!el) return;
+  el.hidden = false;
+  el.innerHTML = '<table class="entry-row"><thead><tr>' + COLS.map(function(c){ return "<th>" + esc(c.t) + "</th>"; }).join("") +
+    "</tr></thead><tbody>" + rowHtml(e) + "</tbody></table>";
+}
+
+function rowHtml(e){
     /* THE ROW DECLARES ITSELF, and the folio reads nothing else.
        A selector guessing at cell positions would bind to this generator's
        markup and break silently the next time a column moves; an attribute
@@ -257,8 +299,6 @@ function renderList(){
       return "<td" + (cls ? ' class="'+cls+'"' : "") + (i === 0 ? " data-fa-pullout-host" : "") +
         ' data-label="'+esc(c.t)+'">' + (c.f ? c.f(e) : esc(e[c.k])) + "</td>";
     }).join("") + "</tr>";
-  }).join("") || '<tr><td colspan="'+COLS.length+'"><p class="empty">Nothing matches.</p></td></tr>';
-  $("listing").innerHTML = h + "</tbody></table>";
 }
 
 function renderDesk(){
@@ -292,26 +332,22 @@ function renderDesk(){
   }).join("") || '<p class="empty">Nothing matches.</p>';
 }
 
-function renderQueue(){
-  var h = "<table><thead><tr><th>unit</th><th>queue</th><th>kind</th><th>size</th><th>state</th></tr></thead><tbody>";
-  h += G.uploads.filter(inScope).map(function(u){
-    /* An intake is ONE queued document however many files it declares, and
-       the row says so — otherwise a four-file capture reads as four things
-       waiting. The count comes from the intake's own declared file list. */
-    var kind = u.kind === "intake"
-      ? '<span class="pill info">intake · ' + u.declaredFiles + " file" + (u.declaredFiles === 1 ? "" : "s") + "</span>"
-      : esc(u.ext || "—");
-    var label = esc(u.file) + (u.kind === "intake" && u.title
-      ? '<br><span style="font-family:inherit;color:var(--muted);font-size:.78rem">' + esc(u.title) + "</span>" : "");
-    return '<tr><td class="slug" data-label="unit">' + label + '</td><td data-label="queue"><span class="pill">' + esc(u.instance) +
-      '</span></td><td data-label="kind">' + kind + '</td><td class="num" data-label="size">' + kb(u.bytes) + '</td><td data-label="state">' +
-      (u.ingestedBy ? '<span class="pill ok">ingested → ' + esc(u.ingestedBy) + "</span>"
-                    : '<span class="pill warn">uningested</span>') + "</td></tr>";
-  }).join("") || '<tr><td colspan="5"><p class="empty">No uploads queue for this subject.</p></td></tr>';
-  $("queue").innerHTML = h + "</tbody></table>";
-}
 
-function render(){ if (VIEW === "list") renderList(); else renderDesk(); }
+/* LAZY on an entry page (owner, 2026-11-14: "do lazy load content"): the
+   whole library's listing sits in a closed <details> under the entry, and
+   drawing every row there is work for a reader who never opens it. It is
+   drawn on the first open; until then nothing is. */
+function render(){
+  var fold = $("listing").closest("details.lib-all");
+  if (fold && !fold.open) {
+    if (!fold.getAttribute("data-lazy")) {
+      fold.setAttribute("data-lazy", "1");
+      fold.addEventListener("toggle", function(){ if (fold.open) render(); });
+    }
+    return;
+  }
+  if (VIEW === "list") renderList(); else renderDesk();
+}
 
 /* WHICH ENTRY THIS PAGE IS ABOUT -- read off its own PATH (#1881).
 
@@ -333,13 +369,14 @@ function byKey(key){
 function selectEntry(known){
   if (VIEW !== "list") setView("list");
   $("q").value = known.id;
-  renderList();
+  render();
   var key = known.instance + "/" + known.id;
   var row = document.querySelector('[data-fa-library-item="' + key.replace(/"/g, '\"') + '"]');
   if (row) {
     row.setAttribute("data-fa-anchored", "1");
     row.scrollIntoView({ block: "center" });
   }
+  renderEntryRow(known);
   document.title = (known.title || known.id) + " — " + known.instance + " library";
   /* The graph of the thing the reader just opened -- bean 7nvr. */
   loadDocument(known.id);
@@ -395,6 +432,9 @@ function renderBlocks(id, data, err, entry){
     return;
   }
   var bs = (data && data.blocks) || [];
+  /* The Contents tree's leaves (library-document.ts) come from these. */
+  DOC_BLOCKS = bs;
+  if (DOC && DOC_ID === id && DOC_TAB === "contents") renderDocument(id, DOC, null);
   if (!bs.length) {
     el.innerHTML = '<h2>Blocks</h2><p class="empty">' + esc(id) +
       ' has no blocks. Nothing failed — the entry carries none.</p>';
@@ -421,7 +461,7 @@ function renderBlocks(id, data, err, entry){
       /* A narrative state is three-valued and none of them is an error:
          not-authored means nobody has written one, which is a fact rather
          than a gap. Rendered as plain text for that reason. */
-      var nar = b.summary ? summaryBadge(b.summary)
+      var nar = b.summary ? summaryDisclosure(b.summary)
         : b.narrative == null ? '—' : esc(b.narrative);
       /* THE CONTENT IS BEHIND A NATIVE <details> — bean lrmo.
          The owner opened this view and said "i expected to be able to see
@@ -440,7 +480,7 @@ function renderBlocks(id, data, err, entry){
          text lives in scripts/lib/library-withheld-view.ts so a test runs
          exactly what this page runs. */
       var body = blockBody(b, entry);
-      return '<tr><td class="num">' + esc(pages) + '</td><td>' + esc(b.kind) +
+      return '<tr id="' + esc(blockAnchor(b.id)) + '"><td class="num">' + esc(pages) + '</td><td>' + esc(b.kind) +
         '</td><td>' + esc((b.types || []).join(' + ')) + '</td><td class="bt">' + body +
         '</td><td>' + nar + '</td></tr>';
     }).join("") + '</tbody></table>';
@@ -1327,6 +1367,11 @@ function withheldBanner(e, bs){
     // A standalone page (an IG's thin layout) has no .main-content-wrap to
     // pad, so its column leaves the same gutter itself.
     "html.fa-bp .fa-page-main.main-content:has(>.fa-sec-actions){margin-right:2.5rem}}" +
+    // Below 50rem there is no gutter, so a section's box sits in the text
+    // column under its heading. Owner, 2026-11-13 ("phone first"): there it is
+    // ONE row, right-aligned, not the gutter's column, which left two icon
+    // heights of empty space under every heading on a phone.
+    "@media (max-width:49.99rem){html.fa-bp .main-content .fa-sec-actions{flex-direction:row;justify-content:flex-end;align-items:center;gap:8px}}" +
     // A section's QA / TR chips, under its 📣 and 🔖 in the gutter; pressed,
     // they open the section's panel, where each badge says what it found.
     "html.fa-bp .main-content .fa-sec-actions>.fa-sec-qa{order:9;margin:0;display:flex;flex-direction:column;align-items:center;gap:2px}" +
@@ -1594,11 +1639,21 @@ function withheldBanner(e, bs){
     if (!d) return null;
     try { const m = JSON.parse(d.textContent); return m && m.blob ? m : null; } catch { return null; }
   };
+  // A docs page says the same of ITSELF in <script id="fa-page-source">,
+  // written by head_custom.html from compose-docs' _data/page_sources.json
+  // (owner, 2026-11-13). Only the headings its own Markdown writes are listed,
+  // so a section an include draws keeps its 📣 alone: "own-text sections only".
+  const pageLines = () => {
+    const d = document.getElementById("fa-page-source");
+    if (!d) return null;
+    try { const m = JSON.parse(d.textContent); return m && m.blob ? m : null; } catch { return null; }
+  };
   const norm = (s) => String(s).toLowerCase().replace(/&[a-z]+;/g, " ").replace(/[^a-z0-9]+/g, " ").trim();
   const sectionBoxes = () => {
     const main = document.querySelector(".main-content");
     if (!main || main.querySelector(".fa-doc, .block-actions")) return;
     const ig = igLines();
+    const own = ig ? null : pageLines();
     const ghRepo = ig ? (/^https:\/\/github\.com\/([^/]+\/[^/]+)/.exec(ig.blob) || [])[1] || "" : "";
     const site = ig ? (ig.repo || ghRepo) : siteRepo();
     const used = {};
@@ -1632,18 +1687,20 @@ function withheldBanner(e, bs){
         if (qa) box.append(el("p", { className: "fa-sec-qa" }, [qa]));
         nx.remove();
       }
-      if (ig) {
+      const lm = ig || (from ? null : own);
+      if (lm) {
         const k = norm(sec);
-        const lines = Array.isArray(ig.lines) ? ig.lines : [];
+        const lines = Array.isArray(lm.lines) ? lm.lines : [];
         for (let i = 0; i < lines.length; i++) if (!used[i] && norm(lines[i].t) === k) {
           used[i] = 1;
-          src = (lines[i].b || ig.blob) + "#L" + lines[i].l;
+          src = (lines[i].b || lm.blob) + "#L" + lines[i].l;
           break;
         }
         if (src) {
           const e = el("a", { className: "ba-edit", href: src, textContent: "\u270e edit", title: "Edit this section's source on GitHub" });
           e.dataset.faLink = "edit";
           box.append(e);
+          if (!ig) addSuggest(box);
         }
       }
       const repo = (from && from.dataset.repo) || site;
@@ -1780,58 +1837,107 @@ function confPill(c, ev){
 function notRecorded(what){
   return '<p class="empty">' + esc(what) + ' not recorded for this entry \u2014 it was ingested before this field existed. Re-ingest to add it.</p>';
 }
-function docContents(d){
-  if (!d.toc.length && d.variant && d.variant !== "pdf") {
-    /* A text or notebook source has no separate outline: its headings ARE its
-       sections, so they are its contents. */
-    if (!d.sections.length) return '<p class="empty">No sections: the source has no headings.</p>';
-    return '<p class="note">Contents: the source\u2019s own headings.</p><ul class="toc">' + d.sections.map(function(s){
-      return '<li style="margin-left:' + (Math.max(0, (s.level || 1) - 1)) + 'em"><a href="#sec-' + esc(s.id) + '" data-sec="' + esc(s.id) + '">' +
-        (s.number ? esc(s.number) + ' ' : '') + esc(s.title) + '</a></li>';
-    }).join("") + '</ul>';
-  }
-  if (!d.toc.length) return '<p class="empty">No table of contents: the PDF carries no outline and none could be inferred.</p>';
-  var how = d.tocSource === "outline" ? "the PDF\u2019s own outline"
-    : "inferred (" + esc(d.tocMethod || "unknown") + "); each entry\u2019s confidence and the evidence behind it are shown";
-  /* A TREE OF <details>, collapsed to the top level so the document's shape
-     is visible at a glance (owner, 2026-10-06: "TOC collapsible and start
-     collapsed - hard to see overview"). Native <details>: keyboard and
-     screen-reader behaviour with no script. */
-  var bySec = {};
-  d.sections.forEach(function(s){ bySec[s.id] = s; });
-  function line(e){
-    var t = (e.number ? esc(e.number) + ' ' : '') + esc(e.title);
-    var link = e.section ? '<a href="#sec-' + esc(e.section) + '" data-sec="' + esc(e.section) + '">' + t + '</a>' : t;
-    var s = e.section && bySec[e.section];
-    return link + ' <span class="note">' + pageText(e.page, e.pageLabel) + '</span> ' + confPill(e.confidence, e.evidence) +
-      (s && s.edit && d.links ? ' ' + editHost(s) : '');
-  }
-  /* Build a node list first, so a level can see how many siblings it has.
-     A node that is the ONLY one at its level starts open: an outline whose
-     single root is the book's title would otherwise collapse to one line
-     (9789241548960-eng). The tree opens down to the first level that
-     branches \u2014 the chapters \u2014 and no further. */
-  var i = 0;
-  function nodes(level){
+/* THE CONTENTS TREE. Owner, 2026-11-13: "a hierarchy tree expandable
+   browser of sections on library items ... that shows blocks within". From
+   the outline when there is one, else from the sections, nested by level; a
+   section's blocks are its leaves. A node's children are built when it is
+   first opened, so a document of a thousand sections stays fast. */
+var DOC_BLOCKS = null, DOC_TREE = [];
+/* Section id -> its blocks: the ids its own node contains, then any block
+   whose target is that section's file. A block placed by neither is left to
+   the Blocks panel rather than guessed into a section. */
+function docBlocksBySection(d){
+  var out = {}, byId = {}, placed = {};
+  (DOC_BLOCKS || []).forEach(function(b){ byId[b.id] = b; });
+  d.sections.forEach(function(s){
+    (s.blocks || []).forEach(function(id){
+      if (placed[id]) return;
+      placed[id] = 1; (out[s.id] = out[s.id] || []).push(byId[id] || { id: id });
+    });
+  });
+  var known = {};
+  d.sections.forEach(function(s){ known[s.id] = 1; });
+  (DOC_BLOCKS || []).forEach(function(b){
+    var m = !placed[b.id] && /(?:^|\/)sections\/([^\/]+)\.md$/.exec(b.target || "");
+    if (m && known[m[1]]) { placed[b.id] = 1; (out[m[1]] = out[m[1]] || []).push(b); }
+  });
+  return out;
+}
+function blockAnchor(id){ return "blk-" + String(id).split("/").pop(); }
+function blockLeaf(b, secTitle){
+  var words = String(b.content || (b.summary && b.summary.text) || "").replace(/\s+/g, " ").trim().split(" ").slice(0, 10).join(" ");
+  var t = b.title && b.title !== secTitle ? b.title : words ? words + "\u2026" : b.title || String(b.id).split("/").pop();
+  return '<li class="leaf blk"><span class="pill">' + esc(b.kind || "block") + '</span> <a href="#' + esc(blockAnchor(b.id)) +
+    '" data-blk="' + esc(blockAnchor(b.id)) + '">' + esc(t) + '</a></li>';
+}
+/* Nest a flat list by its levels: node = { item, kids: [node index] }. */
+function docNest(items){
+  var nodes = [], i = 0;
+  function level(lv){
     var out = [];
-    while (i < d.toc.length && d.toc[i].level >= level) {
-      var e = d.toc[i++];
-      out.push({ e: e, kids: (i < d.toc.length && d.toc[i].level > e.level) ? nodes(e.level + 1) : [] });
+    while (i < items.length && (items[i].level || 1) >= lv) {
+      var n = nodes.push({ item: items[i++], kids: [] }) - 1;
+      if (i < items.length && (items[i].level || 1) > (nodes[n].item.level || 1)) nodes[n].kids = level((nodes[n].item.level || 1) + 1);
+      out.push(n);
     }
     return out;
   }
-  function render(ns){
-    var only = ns.length === 1;
-    return ns.map(function(n){
-      return n.kids.length
-        ? '<li><details' + (only ? ' open' : '') + '><summary>' + line(n.e) + '</summary><ul>' + render(n.kids) + '</ul></details></li>'
-        : '<li class="leaf">' + line(n.e) + '</li>';
-    }).join("");
+  /* From the shallowest level, so an item above the first one's is not dropped. */
+  var top = items.length ? level(Math.min.apply(null, items.map(function(x){ return x.level || 1; }))) : [];
+  return { nodes: nodes, top: top };
+}
+/* The <li> of each node in ns. A node that is the ONLY one at its level
+   starts open (an outline whose single root is the book's title would
+   otherwise collapse to one line, 9789241548960-eng), so its children are
+   built now; every other node's are built on its first toggle. */
+function docTreeItems(ns){
+  var only = ns.length === 1;
+  return ns.map(function(k){
+    var n = DOC_TREE[k];
+    if (!n.kids.length && !n.blocks.length) return '<li class="leaf">' + n.line + '</li>';
+    return '<li><details data-node="' + k + '"' + (only ? ' open' : '') + '><summary>' + n.line + '</summary><ul data-kids="' + k + '"' +
+      (only ? ' data-built="1">' + docTreeKids(k) : '>') + '</ul></details></li>';
+  }).join("");
+}
+function docTreeKids(k){
+  var n = DOC_TREE[k];
+  return docTreeItems(n.kids) + n.blocks.map(function(b){ return blockLeaf(b, n.title); }).join("");
+}
+function docTreeBuild(details){
+  var ul = details.querySelector("ul[data-kids]");
+  if (!ul || ul.getAttribute("data-built")) return;
+  ul.setAttribute("data-built", "1");
+  ul.innerHTML = docTreeKids(Number(ul.getAttribute("data-kids")));
+}
+function docContents(d){
+  var bySec = {};
+  d.sections.forEach(function(s){ bySec[s.id] = s; });
+  var blocksOf = docBlocksBySection(d);
+  var useToc = d.toc.length > 0, items = useToc ? d.toc : d.sections;
+  if (!items.length) return d.variant && d.variant !== "pdf"
+    ? '<p class="empty">No sections: the source has no headings.</p>'
+    : '<p class="empty">No table of contents: the PDF carries no outline and none could be inferred.</p>';
+  function line(e){
+    var sid = useToc ? e.section : e.id, s = sid && bySec[sid];
+    var t = (e.number ? esc(e.number) + ' ' : '') + esc(e.title);
+    var link = sid ? '<a href="#sec-' + esc(sid) + '" data-sec="' + esc(sid) + '">' + t + '</a>' : t;
+    var where = useToc ? ' <span class="note">' + pageText(e.page, e.pageLabel) + '</span> ' + confPill(e.confidence, e.evidence)
+      : e.pageStart != null ? ' <span class="note">' + pageText(e.pageStart, e.labelStart) + '</span>' : '';
+    return link + where + (s && s.edit && d.links ? ' ' + editHost(s) : '');
   }
-  var tree = render(nodes(d.toc[0].level));
-  return '<p class="note">Source: ' + how + '. ' + d.toc.length + ' entries.</p>' +
+  var t = docNest(items);
+  DOC_TREE = t.nodes.map(function(n){
+    var sid = useToc ? n.item.section : n.item.id;
+    return { line: line(n.item), title: n.item.title, kids: n.kids, blocks: (sid && blocksOf[sid]) || [] };
+  });
+  var how = !useToc
+    ? (d.variant && d.variant !== "pdf" ? "Contents: the source\u2019s own headings."
+      : "No outline: the PDF carries none and none could be inferred, so its sections are listed.") + ' ' + d.sections.length + ' sections.'
+    : 'Source: ' + (d.tocSource === "outline" ? "the PDF\u2019s own outline"
+      : "inferred (" + esc(d.tocMethod || "unknown") + "); each entry\u2019s confidence and the evidence behind it are shown") + '. ' + d.toc.length + ' entries.';
+  return '<p class="note">' + how + (DOC_BLOCKS ? '' : ' Blocks are listed once the block graph has loaded.') + '</p>' +
     '<p><button type="button" data-toc="open">Expand all</button> <button type="button" data-toc="close">Collapse all</button></p>' +
-    '<ul class="toc">' + tree + '</ul>';
+    '<ul class="toc">' + docTreeItems(t.top) + '</ul>';
 }
 function docPages(d){
   if (!d.pageLabels) return notRecorded("Page labels");
@@ -1867,19 +1973,65 @@ function docFileHref(id, file){
   var dir = DATA_HREF.slice(0, DATA_HREF.lastIndexOf("/") + 1);
   return dir + "files/" + encodeURIComponent(id) + "/" + file.split("/").map(encodeURIComponent).join("/");
 }
+/* A FIGURE'S SHORT NAME -- owner, 2026-11-14: "very duplicative and long
+   text. blue figure titles should be shortened". The description opens with
+   the figure's own label as the caption gives it ("Fig. 10, 'Product
+   packaging hierarchy' (source: ...)"), so that label is the name. Failing
+   it, the caption the text carries on the same page; failing that, the
+   description's first words. Never the whole description. */
+var FIG_LABEL = /^\s*((?:Fig(?:ure)?|Graph|Chart|Map|Box)\.?\s*[A-Z]?\d+[a-z]?)\s*[,:.\u2013-]?\s*['\u2018"\u201C]([^'\u2019"\u201D]{1,120})['\u2019"\u201D]\s*[.,;:]?\s*/i;
+function figName(im, d){
+  var text = pickNarrative(im.narratives);
+  var m = FIG_LABEL.exec(text);
+  if (m) return m[1] + " \u00B7 " + m[2];
+  var c = (d.figures || []).filter(function(f){ return f.page === im.page && /fig/i.test(f.kind) && f.title; })[0];
+  if (c) return (c.number ? c.kind + " " + c.number + " \u00B7 " : "") + c.title;
+  var w = text.split(/\s+/).slice(0, 8).join(" ");
+  return w ? w + (text.length > w.length ? "\u2026" : "") : im.id;
+}
+/* THE GALLERY: a THUMBNAIL that pops out -- owner, 2026-11-14: "i wanted to
+   actually see the figure thumbnail as a popout", "figures should be
+   vertically stacked". One figure per row: its thumbnail, its short name on
+   one line and its page; the description is in the
+   popout only, so it is said once. Thumbnails load as they scroll near
+   (loading="lazy"); the popout is one <dialog>, built on first use. */
 function docGallery(d){
   if (!d.images || !d.images.length) return "";
-  var rtl = { ar: 1, fa: 1, he: 1, ur: 1 }[docLang()] ? ' dir="rtl"' : '';
+  DOC_GALLERY = d;
   return '<h3>Figures <span class="note">(' + d.images.length + ')</span></h3>' +
-    '<p class="note">Descriptions are drafts written by an agent and not yet reviewed.</p>' +
-    '<div class="doc-gallery">' + d.images.map(function(im){
-      var text = pickNarrative(im.narratives);
+    '<p class="note">Select a figure to see it large with its description. Descriptions are drafts written by an agent and not yet reviewed.</p>' +
+    '<div class="doc-gallery">' + d.images.map(function(im, i){
+      var name = figName(im, d);
       return '<figure class="doc-figure" id="fig-' + esc(im.id) + '">' +
-        '<a href="' + esc(docFileHref(DOC_ID, im.file)) + '" target="_blank" rel="noopener">' +
-        '<img loading="lazy" src="' + esc(docFileHref(DOC_ID, im.file)) + '" alt="' + esc(text) + '"></a>' +
-        '<figcaption' + rtl + '>' + (im.shows && im.shows.length ? '<strong>' + esc(im.shows.join(", ")) + '.</strong> ' : '') +
-        esc(text) + ' <span class="note">' + pageText(im.page, null) + '</span></figcaption></figure>';
+        '<button type="button" class="fig-thumb" data-fig="' + i + '" title="' + esc(name) + '">' +
+        '<img loading="lazy" decoding="async" src="' + esc(docFileHref(DOC_ID, im.file)) + '" alt="' + esc(name) + '"></button>' +
+        '<figcaption><span class="fig-name" title="' + esc(name) + '">' + esc(name) + '</span> <span class="note">' +
+        pageText(im.page, null) + '</span></figcaption></figure>';
     }).join("") + '</div>';
+}
+var DOC_GALLERY = null;
+function figPopout(i){
+  var d = DOC_GALLERY, im = d && d.images[i];
+  if (!im) return;
+  var dlg = document.getElementById("fig-pop");
+  if (!dlg) {
+    dlg = document.createElement("dialog");
+    dlg.id = "fig-pop"; dlg.className = "fig-pop";
+    (document.querySelector(".lib-page") || document.body).appendChild(dlg);
+    /* A click on the backdrop (the dialog itself, outside its box) closes it. */
+    dlg.addEventListener("click", function(ev){ if (ev.target === dlg || (ev.target.closest && ev.target.closest("[data-fig-close]"))) dlg.close(); });
+  }
+  var rtl = { ar: 1, fa: 1, he: 1, ur: 1 }[docLang()] ? ' dir="rtl"' : '';
+  var href = docFileHref(DOC_ID, im.file), name = figName(im, d), full = pickNarrative(im.narratives);
+  /* The heading already names the figure: the description goes on from there. */
+  var named = FIG_LABEL.test(full), text = named ? full.replace(FIG_LABEL, "") : full;
+  var shows = named ? [] : (im.shows || []);
+  dlg.innerHTML = '<div class="fig-pop-box"><button type="button" class="fig-pop-x" data-fig-close aria-label="Close">\u00D7</button>' +
+    '<h3>' + esc(name) + ' <span class="note">' + pageText(im.page, null) + '</span></h3>' +
+    '<img decoding="async" src="' + esc(href) + '" alt="' + esc(name) + '">' +
+    '<p' + rtl + '>' + (shows.length ? '<strong>' + esc(shows.join(", ")) + '.</strong> ' : '') + esc(text) + '</p>' +
+    '<p class="note">Agent draft, not yet reviewed. <a href="' + esc(href) + '" target="_blank" rel="noopener">Open the image on its own</a></p></div>';
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
 }
 function docTable(t){
   var groups = t.columns.some(function(c){ return c.group; });
@@ -1977,6 +2129,69 @@ function docChecks(d){
   return '<p class="note">Findings about the DOCUMENT, reported and never corrected \u2014 drafts drift.</p>' +
     '<table><thead><tr><th>check</th><th>count</th><th>items</th></tr></thead><tbody>' + rows.join("") + '</tbody></table>';
 }
+/* WHAT WAS EXTRACTED -- one line of pills, kind by kind (owner,
+   2026-11-14: "why no biblio, glossary, etc here"). Words, never colour
+   alone: "none in the text" is a finding, "not extracted" is a gap. */
+/* PRINTING LOADS EVERYTHING FIRST -- owner, 2026-11-14: "Make sure printing
+   loads all of the content before it renders the PDF on the browser". What
+   this panel defers for the screen -- lazy thumbnails, figure descriptions
+   kept for the popout, the contents tree built on toggle, summaries behind a
+   disclosure -- is all made present before a print:
+   - the "Print / PDF" button prepares, WAITS for every image, then prints;
+   - the browser's own print (Ctrl+P) gets the same preparation on
+     beforeprint; the images are switched to eager there too, and afterprint
+     closes again what the preparation opened. */
+var PRINT_OPENED = [];
+function docPrintPrep(){
+  var root = document.querySelector(".lib-page") || document;
+  /* The contents tree and every disclosure in the panels, built and open. */
+  for (var ds; (ds = root.querySelectorAll("ul.toc details:not([open])")).length;)
+    Array.prototype.forEach.call(ds, function(x){ docTreeBuild(x); x.open = true; PRINT_OPENED.push(x); });
+  Array.prototype.forEach.call(root.querySelectorAll("#document details:not([open]), #blocks details:not([open])"), function(x){ x.open = true; PRINT_OPENED.push(x); });
+  /* Each figure's description, said in print as the popout says it on screen. */
+  if (DOC_GALLERY) Array.prototype.forEach.call(root.querySelectorAll(".doc-figure button.fig-thumb[data-fig]"), function(b){
+    var fig = b.closest(".doc-figure");
+    if (!fig || fig.querySelector(".fig-print-desc")) return;
+    var im = DOC_GALLERY.images[+b.getAttribute("data-fig")];
+    var p = document.createElement("p");
+    p.className = "fig-print-desc";
+    p.textContent = im ? pickNarrative(im.narratives) : "";
+    fig.appendChild(p);
+  });
+  /* Every image fetched now, not when it would have scrolled into view. */
+  var imgs = Array.prototype.slice.call(root.querySelectorAll("img"));
+  imgs.forEach(function(i){ if (i.loading === "lazy" || i.getAttribute("loading") === "lazy") i.loading = "eager"; });
+  return Promise.all(imgs.map(function(i){
+    if (i.complete && i.naturalWidth) return null;
+    return new Promise(function(ok){
+      var done = function(){ ok(null); };
+      i.addEventListener("load", done, { once: true });
+      i.addEventListener("error", done, { once: true });
+      setTimeout(done, 15000);
+    });
+  }));
+}
+function docPrintDone(){
+  PRINT_OPENED.forEach(function(x){ x.open = false; });
+  PRINT_OPENED = [];
+}
+if (typeof window !== "undefined" && window.addEventListener) {
+  window.addEventListener("beforeprint", function(){ docPrintPrep(); });
+  window.addEventListener("afterprint", docPrintDone);
+}
+var COVER_NAMES = { contents: "Contents", sections: "Sections", figures: "Figures", tables: "Tables",
+  references: "References", glossary: "Glossary", footnotes: "Footnotes", summaries: "Summaries" };
+function docCoverage(d){
+  if (!d.coverage || !d.coverage.length) return "";
+  return '<p class="doc-cover"><span class="note">What was extracted:</span> ' + d.coverage.map(function(c){
+    var word = c.state === "found" ? (c.count != null ? String(c.count) : "found")
+      : c.state === "partial" ? (c.count != null ? c.count + ", partial" : "partial")
+      : c.state === "none" ? "none in the text" : "not extracted";
+    var cls = c.state === "found" ? "ok" : c.state === "none" ? "" : "warn";
+    return '<span class="pill ' + cls + '"' + (c.note ? ' title="' + esc(c.note) + '"' : '') + '>' +
+      esc(COVER_NAMES[c.kind] || c.kind) + ': ' + esc(word) + '</span>';
+  }).join(" ") + '</p>';
+}
 var DOC_TABS = [["contents","Contents",docContents],["pages","Pages",docPages],["figures","Figures & tables",docFigures],["sections","Sections",docSections],["checks","Checks",docChecks]];
 function renderDocument(id, d, err){
   var el = $("document");
@@ -1995,7 +2210,9 @@ function renderDocument(id, d, err){
     : d.pages ? d.pages + ' pages'
     : d.pagesCovered ? 'page count not recorded; sections reach page ' + d.pagesCovered
     : 'page count not recorded';
-  el.innerHTML = '<h2>Document \u2014 ' + esc(d.title || id) + ' <span class="note">(' + size + ')</span>' + whole + '</h2>' +
+  el.innerHTML = '<h2>Document \u2014 ' + esc(d.title || id) + ' <span class="note">(' + size + ')</span>' + whole +
+    ' <button type="button" class="doc-print" title="Load every figure and section, then print or save as PDF">Print / PDF</button></h2>' +
+    docCoverage(d) +
     '<div class="seg" role="tablist" aria-label="Document view">' + DOC_TABS.map(function(t){
       return '<button type="button" role="tab" aria-selected="' + (t[0] === tab[0]) + '" data-tab="' + t[0] + '">' + esc(t[1]) + '</button>';
     }).join("") + '</div>' + (d.keywords && d.keywords.length ? '<div class="dockw"><span class="note">Keywords (LSI):</span> ' + chips(d.keywords) + '</div>' : '') +
@@ -2005,10 +2222,40 @@ function renderDocument(id, d, err){
   });
   Array.prototype.forEach.call(el.querySelectorAll("[data-toc]"), function(b){
     b.addEventListener("click", function(){
-      var open = b.getAttribute("data-toc") === "open";
-      Array.prototype.forEach.call(el.querySelectorAll("ul.toc details"), function(x){ x.open = open; });
+      if (b.getAttribute("data-toc") !== "open") {
+        Array.prototype.forEach.call(el.querySelectorAll("ul.toc details"), function(x){ x.open = false; });
+        return;
+      }
+      /* Opening builds children, which may be nodes of their own: repeat
+         until every node is open. */
+      for (var ds; (ds = el.querySelectorAll("ul.toc details:not([open])")).length;)
+        Array.prototype.forEach.call(ds, function(x){ docTreeBuild(x); x.open = true; });
     });
   });
+  /* toggle does not bubble, so it is caught on the way down; once per panel. */
+  if (!el.getAttribute("data-tree")) {
+    el.setAttribute("data-tree", "1");
+    el.addEventListener("toggle", function(ev){
+      var t = ev.target;
+      if (t && t.matches && t.matches("ul.toc details[data-node]") && t.open) docTreeBuild(t);
+    }, true);
+    /* A block leaf scrolls to its row in the Blocks panel; the address is
+       left alone, since a changed hash re-reads the whole entry. */
+    el.addEventListener("click", function(ev){
+      /* Print: prepare, wait for every image, then print. */
+      if (ev.target && ev.target.closest && ev.target.closest("button.doc-print")) {
+        docPrintPrep().then(function(){ window.print(); });
+        return;
+      }
+      /* A figure's thumbnail opens its popout. */
+      var fb = ev.target && ev.target.closest && ev.target.closest("button.fig-thumb[data-fig]");
+      if (fb) { figPopout(+fb.getAttribute("data-fig")); return; }
+      var a = ev.target && ev.target.closest && ev.target.closest("a[data-blk]");
+      if (!a) return;
+      ev.preventDefault();
+      var r = document.getElementById(a.getAttribute("data-blk")); if (r) r.scrollIntoView({ block: "center" });
+    });
+  }
   /* Hrefs now, not on first hover: a keyboard reader tabs to these links. */
   if (d.links && window.faEditLinks) window.faEditLinks.fill(el);
   /* A section link from any tab opens the Sections tab at that section. Only
@@ -2041,6 +2288,16 @@ function summaryBadge(s){
   var l = summaryLabel(s);
   return '<span class="pill ' + l.cls + '">' + esc(l.t) + '</span>';
 }
+/* THE SUMMARY TEXT, BEHIND A DISCLOSURE -- owner, 2026-11-14: "disclosure
+   agent summary even if not verified. just indicate". The cell used to carry
+   the state alone, so 62 drafted summaries read as 62 identical pills. The
+   pill stays as the disclosure's label, so an unconfirmed draft still says it
+   is one before anyone opens it; summaryPanel inside says who drafted it and
+   that no person has confirmed it. A state with no text keeps the bare pill. */
+function summaryDisclosure(s){
+  if (!s.text) return summaryBadge(s);
+  return '<details class="sumd"><summary>' + summaryBadge(s) + '</summary>' + summaryPanel(s).replace(summaryBadge(s), '') + '</details>';
+}
 function summaryPanel(s){
   var why = {
     "not-summarised": "No agent has summarised this block yet. The queue is drained a few blocks at a time.",
@@ -2060,6 +2317,7 @@ function summaryPanel(s){
     (who ? '<p class="note">' + esc(who) + '</p>' : '') + '</div>';
 }
 function loadBlocks(id, entry){
+  DOC_BLOCKS = null;
   fetch(blocksHref(id), {cache: "no-store"})
     .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function(d){ renderBlocks(id, d, null, entry); })
@@ -2124,7 +2382,7 @@ fetch(DATA_HREF).then(function(r){
     renderList();
   });
   render();
-  renderQueue();
+  // The uploads queue has its own page (gen-uploads-viz.ts); the library page shows the corpus only (owner, 2026-11-13).
   honourAddress();
   window.addEventListener("hashchange", honourAddress);
 }).catch(function(e){

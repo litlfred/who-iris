@@ -854,7 +854,11 @@
         }
       ],
       "extract": "WHO guideline ​recommendations on digital interventions for health system strengthening WHO guideline ​recommendations on digital interventions for health system strengthening page ii WHO guideline: recommendations on digital interventions for health system strengthening ISBN 978-92-4-155050-5 © World Health Organization 2019 Some rights reserved. This work is available under the Creative Commons",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-311941/blocks/prose-sec-front-matter",
+        "library/10665-311941/blocks/figure-img-p007-2"
+      ]
     },
     {
       "id": "sec-000-foreword",
@@ -4749,6 +4753,50 @@
         "ru": "Для каждого цифрового вмешательства в области здравоохранения, рассматриваемого в руководстве (от уведомления о рождениях и смертях до мобильного обучения), в таблице перечислены пробелы в исследованиях и примерные исследовательские вопросы по каждой области перехода от фактических данных к решениям: эффективность, приемлемость, осуществимость, использование ресурсов, гендерные аспекты, равенство и права, а также прочее."
       },
       "csv": "tables/table-a5-4.csv"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 51,
+      "note": "inferred"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 52,
+      "note": "2 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 14
+    },
+    {
+      "kind": "tables",
+      "state": "found",
+      "count": 1
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p116); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p10); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "none"
+    },
+    {
+      "kind": "summaries",
+      "state": "partial",
+      "count": 51,
+      "note": "51 of 52 sections"
     }
   ],
   "links": {

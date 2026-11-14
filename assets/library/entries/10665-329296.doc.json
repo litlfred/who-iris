@@ -638,7 +638,10 @@
       },
       "keywords": [],
       "extract": "LE DIAGNOSTIC DU VIH ET L’UTILISATION DES ARV CHEZ LE NOURRISSON EXPOSÉ AU VIRUS: MISE A JOUR PROGRAMMATIQUE JUILLET 2018 RAPPORT TECHNIQUE",
-      "extractCut": false
+      "extractCut": false,
+      "blocks": [
+        "library/10665-329296/blocks/prose-sec-front-matter"
+      ]
     },
     {
       "id": "sec-000-whocdshiv1817",
@@ -2576,6 +2579,50 @@
         "ru": "Фотография младенца в красной кофточке, прислонившегося к плечу женщины в оранжевом покрывале."
       },
       "state": "draft"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 43,
+      "note": "inferred"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 44,
+      "note": "4 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 6
+    },
+    {
+      "kind": "tables",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "references",
+      "state": "none",
+      "note": "no such heading in the text"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p3); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "found",
+      "count": 3
+    },
+    {
+      "kind": "summaries",
+      "state": "partial",
+      "count": 39,
+      "note": "39 of 44 sections"
     }
   ],
   "links": {

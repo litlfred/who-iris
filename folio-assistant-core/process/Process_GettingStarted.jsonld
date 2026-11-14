@@ -10,15 +10,15 @@
       "summary": "Somebody said \"create a folio\": work out which request they meant, with the branch computed by a decision table that may answer \"ask\", and what has to be true before anything is written, through to a live site.",
       "description": "Somebody said \"create a folio\": work out which request they meant, with the branch computed by a decision table that may answer \"ask\", and what has to be true before anything is written, through to a live site.\n\n\"Create a folio\" is five different requests. Gateway_Intent computes which one\nfrom decisions/folio-intent.dmn rather than letting the agent assume, and `ask`\nis one of the outcomes the table can return. Gateway_Live applies the same\nconstruction to publication, with `unknown` kept distinct from `not-yet`.\n\nSource of truth: this file. The SVG under docs/assets/img/workflows/ is\ngenerated from it by `bun run cat render:bpmn` — never hand-edit the SVG.",
       "enforcement": "strict",
-      "sourcePath": "processes/conduct/getting-started.bpmn",
-      "sourceUrl": "https://github.com/litlfred/folio-assistant-core/blob/main/processes/conduct/getting-started.bpmn",
+      "sourcePath": "collab/processes/conduct/getting-started.bpmn",
+      "sourceUrl": "https://github.com/litlfred/folio-assistant-core/blob/main/collab/processes/conduct/getting-started.bpmn",
       "depiction": "https://litlfred.github.io/who-iris/assets/img/workflows/getting-started.svg",
       "startNode": [
         "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/StartEvent_AskToStart"
       ],
       "nodeCount": 23,
       "flowCount": 28,
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted"
     },
     {
@@ -27,7 +27,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/StartEvent_AskToStart",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_DetectModality",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_1"
     },
     {
@@ -36,7 +36,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_DetectModality",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReadFacts",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_2"
     },
     {
@@ -45,7 +45,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReadFacts",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Intent",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_3"
     },
     {
@@ -55,7 +55,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Intent",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_AskIntent",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_ask"
     },
     {
@@ -64,7 +64,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_AskIntent",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReadFacts",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_answer"
     },
     {
@@ -74,7 +74,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Intent",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ScanRepo",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_overlay"
     },
     {
@@ -84,7 +84,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Intent",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_CreateRepo",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_newrepo"
     },
     {
@@ -94,7 +94,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Intent",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/EndEvent_HandOff",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_newcontent"
     },
     {
@@ -104,7 +104,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Intent",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_Scaffold",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_addfolio"
     },
     {
@@ -113,7 +113,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ScanRepo",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ChooseHarnessed",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_scan"
     },
     {
@@ -122,7 +122,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ChooseHarnessed",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ConfirmImport",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_chosen"
     },
     {
@@ -131,7 +131,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ConfirmImport",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_Scaffold",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_confirm"
     },
     {
@@ -140,7 +140,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_CreateRepo",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_Scaffold",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_created"
     },
     {
@@ -149,7 +149,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_Scaffold",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Call_BeanOpen",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_seed"
     },
     {
@@ -158,7 +158,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_SeedPlan",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ProvisionGhPages",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_provision"
     },
     {
@@ -167,7 +167,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ProvisionGhPages",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_PagesBootstrap",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_pages"
     },
     {
@@ -176,7 +176,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_PagesBootstrap",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Live",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_probe"
     },
     {
@@ -186,7 +186,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Live",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReportUrl",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_live"
     },
     {
@@ -196,7 +196,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Live",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReportPending",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_notyet"
     },
     {
@@ -206,7 +206,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Live",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReportUnknown",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_unknown"
     },
     {
@@ -216,7 +216,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Gateway_Live",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ProvisionGhPages",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_unprovisioned"
     },
     {
@@ -225,7 +225,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReportUrl",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Call_BeanClose",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_done1"
     },
     {
@@ -234,7 +234,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReportPending",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Call_BeanClose",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_done2"
     },
     {
@@ -243,7 +243,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_ReportUnknown",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Call_BeanClose",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/Flow_done3"
     },
     {
@@ -253,7 +253,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/GW_BeanYours",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Task_SeedPlan",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/SF_Bean_1"
     },
     {
@@ -262,7 +262,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Call_BeanOpen",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/GW_BeanYours",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/SF_Bean_2"
     },
     {
@@ -272,7 +272,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/GW_BeanYours",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/End_BeanNotYours",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/SF_Bean_3"
     },
     {
@@ -281,7 +281,7 @@
       "partOf": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted",
       "from": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/Call_BeanClose",
       "to": "https://litlfred.github.io/who-iris/folio-assistant-core/process/Process_GettingStarted/node/EndEvent_Ready",
-      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/core-processes",
+      "inSubgraph": "https://litlfred.github.io/who-iris/folio-assistant-core/directory/collab",
       "alternateOf": "https://litlfred.github.io/folio-assistant/folio-assistant-core/process/Process_GettingStarted#flow/SF_Bean_4"
     }
   ]

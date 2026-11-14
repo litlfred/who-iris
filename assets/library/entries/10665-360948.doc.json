@@ -2852,7 +2852,10 @@
         }
       ],
       "extract": "CONSOLIDATED GUIDELINES ON PERSON-CENTRED HIV STRATEGIC INFORMATION STRENGTHENING ROUTINE DATA FOR IMPACT CONSOLIDATED GUIDELINES ON PERSON-CENTRED HIV STRATEGIC INFORMATION STRENGTHENING ROUTINE DATA FOR IMPACT Consolidated guidelines on person-centred HIV strategic information: strengthening routine data for impact ISBN 978-92-4-005531-5 (electronic version) ISBN 978-92-4-005532-2 (print version) © World Health",
-      "extractCut": true
+      "extractCut": true,
+      "blocks": [
+        "library/10665-360948/blocks/prose-sec-front-matter"
+      ]
     },
     {
       "id": "sec-000-acknowledgements",
@@ -14904,6 +14907,50 @@
         "ru": "В таблице определены четыре приоритетных показателя (CCA.1–CCA.4) скрининга и лечения рака шейки матки у женщин, живущих с ВИЧ, с указанием для каждого номера, краткого названия, определения, числителя и знаменателя. CCA.1 и CCA.2 отмечены как основные показатели."
       },
       "csv": "tables/table-4-6.csv"
+    }
+  ],
+  "coverage": [
+    {
+      "kind": "contents",
+      "state": "found",
+      "count": 254,
+      "note": "outline"
+    },
+    {
+      "kind": "sections",
+      "state": "found",
+      "count": 196,
+      "note": "3 levels"
+    },
+    {
+      "kind": "figures",
+      "state": "found",
+      "count": 27
+    },
+    {
+      "kind": "tables",
+      "state": "found",
+      "count": 2
+    },
+    {
+      "kind": "references",
+      "state": "not-extracted",
+      "note": "a references section is in the text (p45); its entries are not extracted"
+    },
+    {
+      "kind": "glossary",
+      "state": "not-extracted",
+      "note": "a glossary section is in the text (p12); its entries are not extracted"
+    },
+    {
+      "kind": "footnotes",
+      "state": "not-extracted"
+    },
+    {
+      "kind": "summaries",
+      "state": "partial",
+      "count": 180,
+      "note": "180 of 196 sections"
     }
   ],
   "links": {
