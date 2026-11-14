@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-14T01:40:34.573Z",
+  "updated_at": "2026-11-14T06:51:01.435Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 378418,
+          "value": 379503,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,7 +138,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/be14b2f9177386396c2dc86b395d191e7ca4497d — miss: main/00200f9832645a0d942c19e12593d751bfbede6e has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/3be9ddb3a2ffb9ddafd4aaabe32829469a82416f — miss: main/3be9ddb3a2ffb9ddafd4aaabe32829469a82416f has nothing under health"
     },
     {
       "id": "remote-mounts",
@@ -280,7 +280,7 @@
           "action": "Ask the owner whether the review of `claude-iris-referenced-library-links` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-referenced-library-links` and `cleanup_confirm: claude-iris-referenced-library-links`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         },
         {
-          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 3 days old.",
+          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 4 days old.",
           "severity": "minor",
           "action": "Ask the owner whether the review of `claude-iris-subset-ingest` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-subset-ingest` and `cleanup_confirm: claude-iris-subset-ingest`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
         }
@@ -386,31 +386,31 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 367631898,
+          "value": 367631746,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 352592759,
+          "value": 278069145,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 346016768,
+          "value": 272443392,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
         {
           "metric": "pack-count",
-          "value": 5,
+          "value": 2,
           "unit": "count",
           "command": "git count-objects -v"
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 0.96,
+          "value": 0.76,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
