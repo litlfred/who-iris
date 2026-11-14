@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-14T10:29:47.765Z",
+  "updated_at": "2026-11-14T12:50:51.774Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 384874,
+          "value": 387164,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,7 +138,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/8df4b0d511707db49bd6139afa2d5e0ed523acd2 — miss: main/b0a641fa09afcb07874d31c3383f3cd7ad9ea383 has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/9806785ac3f549425886e4ad2bc3a8ed9e38d63e — miss: main/9806785ac3f549425886e4ad2bc3a8ed9e38d63e has nothing under health"
     },
     {
       "id": "remote-mounts",
@@ -237,7 +237,7 @@
     },
     {
       "id": "staging-preview-orphans",
-      "state": "finding",
+      "state": "unknown",
       "summary": "A `STAGING/` preview that no liveness signal claims — no open pull request, no branch carrying unmerged work, no recent commit. Retained by policy, not by mistake: this is the list a person needs in order to decide, never a list to act on unasked.",
       "thresholds": [
         {
@@ -248,43 +248,9 @@
           "severity": "minor"
         }
       ],
-      "measurements": [
-        {
-          "metric": "staging-orphan-count",
-          "value": 3,
-          "unit": "count",
-          "command": "git ls-tree -r -l FETCH_HEAD:branches/<slug>"
-        },
-        {
-          "metric": "staging-orphan-bytes",
-          "value": 535166155,
-          "unit": "bytes",
-          "command": "git ls-tree -r -l FETCH_HEAD:branches/<slug>"
-        },
-        {
-          "metric": "staging-live-count",
-          "value": 0,
-          "unit": "count",
-          "command": "git ls-tree -r -l FETCH_HEAD:branches/<slug> + git ls-remote --heads origin, then merge-base --is-ancestor per matching branch"
-        }
-      ],
-      "findings": [
-        {
-          "summary": "`branches/claude-iris-derived-kg` (181.7 MB, 5166 files) — no open pull request; `claude/iris-derived-kg` is already in `main`, tip 3 days old.",
-          "severity": "minor",
-          "action": "Ask the owner whether the review of `claude-iris-derived-kg` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-derived-kg` and `cleanup_confirm: claude-iris-derived-kg`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
-        },
-        {
-          "summary": "`branches/claude-iris-referenced-library-links` (166.6 MB, 4833 files) — no open pull request; `claude/iris-referenced-library-links` is already in `main`, tip 4 days old.",
-          "severity": "minor",
-          "action": "Ask the owner whether the review of `claude-iris-referenced-library-links` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-referenced-library-links` and `cleanup_confirm: claude-iris-referenced-library-links`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
-        },
-        {
-          "summary": "`branches/claude-iris-subset-ingest` (162.0 MB, 4001 files) — no open pull request; `claude/iris-subset-ingest` is already in `main`, tip 4 days old.",
-          "severity": "minor",
-          "action": "Ask the owner whether the review of `claude-iris-subset-ingest` is finished. Nothing here removes it. Removal is a `feature-staging.yml` `workflow_dispatch` with `cleanup_slug: claude-iris-subset-ingest` and `cleanup_confirm: claude-iris-subset-ingest`, which re-runs these same liveness signals and refuses if any of them has come back. THE `staging:cleanup` LABEL DOES NOT WORK HERE: `cleanup` reads labels from the `pull_request_target: closed` payload, and a preview is only findable as an orphan once that event has already fired — so labelling now fires nothing (bean `w2g5`). Leaving it is a valid answer."
-        }
-      ]
+      "measurements": [],
+      "findings": [],
+      "reason": "1 preview(s) could not be judged: `branches/claude-iris-derived-kg` — `claude/iris-derived-kg`: this clone's history of `main` is truncated at a graft boundary, so \"not an ancestor of main\" cannot be told from \"the merge point was never fetched\". Re-run with the full history (`fetch-depth: 0`).. A signal that cannot be evaluated sends that preview to `unknown`, never to the orphan list. Determined but NOT reported this run: `branches/claude-iris-referenced-library-links`, `branches/claude-iris-subset-ingest` — named here so the measurement is not lost, but nothing should be acted on while a signal is unreadable."
     },
     {
       "id": "credentials",
@@ -386,31 +352,31 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 367218997,
+          "value": 367219981,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 277685081,
+          "value": 285594494,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 272004096,
+          "value": 278213632,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
         {
           "metric": "pack-count",
-          "value": 2,
+          "value": 3,
           "unit": "count",
           "command": "git count-objects -v"
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 0.76,
+          "value": 0.78,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
