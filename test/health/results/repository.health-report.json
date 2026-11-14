@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-14T13:30:36.074Z",
+  "updated_at": "2026-11-14T15:43:48.647Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 387933,
+          "value": 388131,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,7 +138,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/1035cc33b2a1acaf98dbae3907844ea95e9de877 — miss: main/9806785ac3f549425886e4ad2bc3a8ed9e38d63e has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/95068f86dc1eb54191eddac970b7be5e00426c2d — miss: main/9806785ac3f549425886e4ad2bc3a8ed9e38d63e has nothing under health"
     },
     {
       "id": "remote-mounts",
@@ -250,7 +250,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "3 preview(s) could not be judged: `branches/claude-iris-derived-kg` — `claude/iris-derived-kg`: this clone's history of `main` is truncated at a graft boundary, so \"not an ancestor of main\" cannot be told from \"the merge point was never fetched\". Re-run with the full history (`fetch-depth: 0`).; `branches/claude-iris-referenced-library-links` — `claude/iris-referenced-library-links`: this clone's history of `main` is truncated at a graft boundary, so \"not an ancestor of main\" cannot be told from \"the merge point was never fetched\". Re-run with the full history (`fetch-depth: 0`).; `branches/claude-iris-subset-ingest` — `claude/iris-subset-ingest`: this clone's history of `main` is truncated at a graft boundary, so \"not an ancestor of main\" cannot be told from \"the merge point was never fetched\". Re-run with the full history (`fetch-depth: 0`).. A signal that cannot be evaluated sends that preview to `unknown`, never to the orphan list. No other preview was determined to be an orphan this run."
+      "reason": "1 preview(s) could not be judged: `branches/claude-iris-derived-kg` — `claude/iris-derived-kg`: this clone's history of `main` is truncated at a graft boundary, so \"not an ancestor of main\" cannot be told from \"the merge point was never fetched\". Re-run with the full history (`fetch-depth: 0`).. A signal that cannot be evaluated sends that preview to `unknown`, never to the orphan list. Determined but NOT reported this run: `branches/claude-iris-referenced-library-links`, `branches/claude-iris-subset-ingest` — named here so the measurement is not lost, but nothing should be acted on while a signal is unreadable."
     },
     {
       "id": "credentials",
@@ -352,19 +352,19 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 367219981,
+          "value": 367220234,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 284783591,
+          "value": 283862451,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 278031360,
+          "value": 278103040,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
@@ -376,7 +376,7 @@
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 0.78,
+          "value": 0.77,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
