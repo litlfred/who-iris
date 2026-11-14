@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join as pjoin } from "node:path";
 import { createPrivateKey, webcrypto } from "node:crypto";
 import { allItemIds, changedSince, itemBitstreams, withdrawnOrHidden, type Fetcher } from "../iris-cdn/rest-feed.ts";
-import { catalogueSubset, keyOfHandle, nodeOf, OWN_NOTE_PREFIX, parseHandles, queryPicks, sampleIndices, type ItemResource } from "../iris-cdn/run.ts";
+import { catalogueSubset, displayTitle, keyOfHandle, nodeOf, OWN_NOTE_PREFIX, parseHandles, queryPicks, sampleIndices, type ItemResource } from "../iris-cdn/run.ts";
 import { mkdirSync as mkdirS, readdirSync as readdirS, writeFileSync as writeFileS } from "node:fs";
 
 const e = (path: string, body: string): PayloadEntry => ({ path, sha256: sha256Hex(body), bytes: Buffer.byteLength(body) });
@@ -768,5 +768,17 @@ describe("IRIS subset — catalogue by reference", () => {
     expect(picks).toHaveLength(2);
     expect(picks[0]!.reason).toContain("5 matches");
     expect(f.calls.every((u) => u.includes("query=dc.title%3AHIV"))).toBe(true);
+  });
+});
+
+describe("display titles: the Excel escape `_x000D_` some IRIS records carry", () => {
+  test("decodes `_xHHHH_` and folds a line break, with its spaces, into one space", () => {
+    expect(displayTitle("YELLOW-FEVER VACCINATING CENTRES_x000D_FOR INTERNATIONAL TRAVEL")).toBe("YELLOW-FEVER VACCINATING CENTRES FOR INTERNATIONAL TRAVEL");
+    expect(displayTitle("CENTRES _x000D_FOR")).toBe("CENTRES FOR");
+    expect(displayTitle("EXIGÉS_x000D_ PAR LES DIVERS PAYS")).toBe("EXIGÉS PAR LES DIVERS PAYS");
+    expect(displayTitle("A_x000D__x000A_B")).toBe("A B");
+    expect(displayTitle("A\r\nB")).toBe("A B");
+    expect(displayTitle("caf_x00E9_")).toBe("café");
+    expect(displayTitle("Plain title")).toBe("Plain title");
   });
 });
