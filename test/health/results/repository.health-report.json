@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-14T01:15:26.806Z",
+  "updated_at": "2026-11-14T01:40:34.573Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 377629,
+          "value": 378418,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,7 +138,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/5a6a9c0da27b7619b8720468ecd0e3bb9978224d — miss: main/00200f9832645a0d942c19e12593d751bfbede6e has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/be14b2f9177386396c2dc86b395d191e7ca4497d — miss: main/00200f9832645a0d942c19e12593d751bfbede6e has nothing under health"
     },
     {
       "id": "remote-mounts",
@@ -386,38 +386,38 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 366425582,
+          "value": 367631898,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 295651365,
+          "value": 352592759,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 290000896,
+          "value": 346016768,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
         {
           "metric": "pack-count",
-          "value": 3,
+          "value": 5,
           "unit": "count",
           "command": "git count-objects -v"
         },
         {
           "metric": "git-dir-to-tree-ratio",
-          "value": 0.81,
+          "value": 0.96,
           "unit": "ratio",
           "command": "git-dir-bytes / tracked-tree-bytes"
         }
       ],
       "findings": [
         {
-          "summary": "Tracked content at HEAD is 349.5 MB, past the 250 MB early-warning point.",
+          "summary": "Tracked content at HEAD is 350.6 MB, past the 250 MB early-warning point.",
           "metric": "tracked-tree-bytes",
           "severity": "minor",
           "action": "Note it and re-measure next sweep. No action is due until it approaches 1 GB; this exists so the approach is visible rather than sudden."
