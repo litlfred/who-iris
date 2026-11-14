@@ -1,0 +1,284 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "process",
+    "id": "Process_IrisCdnNightly",
+    "path": "processes/iris-cdn-nightly.bpmn"
+  },
+  "source_hash": "sha256:0a19ecdaf74fef1790d2bccd23713cee5463bcf1d804b42dacac3f1911b3e37b",
+  "criteria": {
+    "raci-role-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "raci-single-accountable": {
+      "result": "n/a",
+      "findings": []
+    },
+    "raci-accountable-not-consulted": {
+      "result": "n/a",
+      "findings": []
+    },
+    "convention-ref-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "skill-ref-resolves": {
+      "result": "pass",
+      "findings": []
+    },
+    "skill-servable": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-skill-has-tool": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Task_ReadCursor",
+          "detail": "names skill \"iris-rest-feed\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_ListChanged",
+          "detail": "names skill \"iris-rest-feed\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_FetchChanged",
+          "detail": "names skill \"iris-rest-feed\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_FetchChanged",
+          "detail": "names skill \"iris-dspace\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_FetchNewBytes",
+          "detail": "names skill \"iris-cdn-exporter\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_WriteRecords",
+          "detail": "names skill \"iris-cdn-exporter\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Call_Rebuild",
+          "detail": "names skill \"iris-oxigraph\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Call_Rebuild",
+          "detail": "names skill \"nquads-distribution\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Call_SignPublish",
+          "detail": "names skill \"iris-cdn-signing\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_AdvanceCursor",
+          "detail": "names skill \"iris-rest-feed\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_Review",
+          "detail": "names skill \"iris-cdn-exporter\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        }
+      ]
+    },
+    "decision-ref-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "role-ref-resolves": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-in-lane": {
+      "result": "pass",
+      "findings": []
+    },
+    "lane-binds-role": {
+      "result": "pass",
+      "findings": []
+    },
+    "variable-performer-declared-alone": {
+      "result": "n/a",
+      "findings": []
+    },
+    "role-carries-activity-skill": {
+      "result": "pass",
+      "findings": []
+    },
+    "lane-role-legacy-binding": {
+      "result": "pass",
+      "findings": []
+    },
+    "task-skill-outside-lane-role": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-names-skill": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-fulfilment-kind": {
+      "result": "n/a",
+      "findings": []
+    },
+    "call-activity-resolves": {
+      "result": "pass",
+      "findings": [
+        {
+          "where": "Call_Rebuild",
+          "detail": "calls \"Process_NQuadsDistribution\", hosted by instance \"cat-harness\"."
+        }
+      ]
+    },
+    "process-diagram-published": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Process_IrisCdnNightly",
+          "detail": "no rendered diagram at iris-cdn-nightly.svg — run `bun run cat render:bpmn`."
+        }
+      ]
+    },
+    "activity-documented": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Task_FetchChanged",
+          "detail": "\"Fetch the changed records and bitstream lists\" carries no <bpmn:documentation>, so its page shows a name and nothing more."
+        },
+        {
+          "where": "Task_FetchNewBytes",
+          "detail": "\"Fetch only bitstreams whose checksum changed\" carries no <bpmn:documentation>, so its page shows a name and nothing more."
+        },
+        {
+          "where": "Call_Rebuild",
+          "detail": "\"Rebuild the whole graph (sorted output)\" carries no <bpmn:documentation>, so its page shows a name and nothing more."
+        },
+        {
+          "where": "Call_SignPublish",
+          "detail": "\"Sign and publish the release\" carries no <bpmn:documentation>, so its page shows a name and nothing more."
+        }
+      ]
+    },
+    "activity-calls-skill-process": {
+      "result": "pass",
+      "findings": []
+    },
+    "gateway-documented": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "GW_Any",
+          "detail": "\"Anything changed?\" carries no <bpmn:documentation>, so its page shows the question and not what answers it — who decides, from what evidence, and what each branch commits the process to."
+        }
+      ]
+    },
+    "gateway-branches-named": {
+      "result": "pass",
+      "findings": []
+    },
+    "node-reachable": {
+      "result": "pass",
+      "findings": []
+    },
+    "node-has-exit": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-implicit-split": {
+      "result": "pass",
+      "findings": []
+    },
+    "gateway-mixed": {
+      "result": "pass",
+      "findings": []
+    },
+    "process-size": {
+      "result": "pass",
+      "findings": []
+    },
+    "process-decompose": {
+      "result": "pass",
+      "findings": []
+    },
+    "process-single-start": {
+      "result": "pass",
+      "findings": []
+    },
+    "decision-label-question": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-label-verb-first": {
+      "result": "pass",
+      "findings": []
+    },
+    "edge-rectilinear": {
+      "result": "pass",
+      "findings": []
+    },
+    "edge-crossing": {
+      "result": "pass",
+      "findings": []
+    },
+    "edge-through-node": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "N4",
+          "detail": "flow GW_Any → End_NoChange runs over \"Fetch the changed records and bitstream lists\", which it does not connect."
+        }
+      ]
+    },
+    "diagram-too-wide": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "diagram",
+          "detail": "2400 wide, budget 1400: text shows at 8.0px in a 1200px band. Close the gaps between columns, stack steps of different lanes in one column, or split by phase."
+        }
+      ]
+    },
+    "diagram-too-tall": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-overlap": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-on-edge": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-on-shape": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-on-lane-line": {
+      "result": "pass",
+      "findings": []
+    },
+    "shape-overlap": {
+      "result": "pass",
+      "findings": []
+    },
+    "lane-order": {
+      "result": "pass",
+      "findings": []
+    },
+    "prose-reviewed-since-code-changed": {
+      "result": "n/a",
+      "findings": []
+    },
+    "prose-claims-resolve": {
+      "result": "n/a",
+      "findings": []
+    }
+  },
+  "totals": {
+    "pass": 30,
+    "fail": 6,
+    "n/a": 9,
+    "unknown": 0
+  }
+}
