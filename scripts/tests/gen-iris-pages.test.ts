@@ -530,7 +530,12 @@ describe("search data is loaded when it is needed (owner, 2026-11-14)", () => {
 
   /** The home page's inline search script, run against a stub page. */
   function runHomeScript(html: string, rows: unknown[], search = "") {
-    const script = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]!).find((s) => s.includes("iris-search-input"));
+    // Any case, any attributes, and `</script >` with space before the `>`, as
+    // an HTML parser closes it; only a script with no `type` is code to run.
+    const script = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\b[^>]*>/gi)]
+      .filter((m) => !/\btype\s*=/i.test(m[1]!))
+      .map((m) => m[2]!)
+      .find((s) => s.includes("iris-search-input"));
     if (!script) throw new Error("no home search script");
     const on: Record<string, ((e?: unknown) => void)[]> = {};
     const listen = (target: string) => (type: string, fn: (e?: unknown) => void) => {
@@ -607,7 +612,7 @@ describe("search data is loaded when it is needed (owner, 2026-11-14)", () => {
   it("searchRecordsCarryNoLowerCasedCopies", () => {
     for (const dir of dirs) {
       const page = readFileSync(join(dir, "search.html"), "utf-8");
-      const m = /<script type="application\/json" id="iris-search-data">([\s\S]*?)<\/script>/.exec(page);
+      const m = /<script\b[^>]*\bid="iris-search-data"[^>]*>([\s\S]*?)<\/script\b[^>]*>/i.exec(page);
       const records = JSON.parse(m![1]!) as Record<string, unknown>[];
       expect(records.length).toBeGreaterThan(0);
       for (const r of records) {
