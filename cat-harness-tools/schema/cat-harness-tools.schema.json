@@ -1122,6 +1122,12 @@
     "zod/code-list/CodeSourceSchema": {
       "$ref": "https://litlfred.github.io/folio-assistant/cat-harness-tools/schema/zod/code-list/CodeSourceSchema.schema.json"
     },
+    "zod/entry-extraction/EntryExtractionSchema": {
+      "$ref": "https://litlfred.github.io/folio-assistant/cat-harness-tools/schema/zod/entry-extraction/EntryExtractionSchema.schema.json"
+    },
+    "zod/entry-extraction/ExtractionStepSchema": {
+      "$ref": "https://litlfred.github.io/folio-assistant/cat-harness-tools/schema/zod/entry-extraction/ExtractionStepSchema.schema.json"
+    },
     "zod/glossary-ledger/LedgerEntrySchema": {
       "$ref": "https://litlfred.github.io/folio-assistant/cat-harness-tools/schema/zod/glossary-ledger/LedgerEntrySchema.schema.json"
     },
