@@ -821,9 +821,25 @@ const first = (md: DspaceMetadata, field: string): string | undefined => md[fiel
 const mediaTypeOf = (name: string): string | undefined =>
   /\.pdf$/i.test(name) ? "application/pdf" : /\.docx$/i.test(name) ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document" : undefined;
 
+/**
+ * A title as the catalogue shows it. Some IRIS records were loaded from Excel,
+ * and carry its OOXML escape `_xHHHH_` for a control character, most often
+ * `_x000D_` (a carriage return), verbatim in `dc.title`. Decode each escape,
+ * then fold any line break (CR, LF or CRLF, with the spaces around it) into
+ * one space, so a title stays on one line. The Dublin Core record keeps
+ * IRIS's value as it is; only the node's display title is normalised.
+ */
+export function displayTitle(raw: string): string {
+  return raw
+    .replace(/_x([0-9A-Fa-f]{4})_/g, (_, hex: string) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/[ \t]*(?:\r\n|\r|\n)[ \t]*/g, " ")
+    .trim();
+}
+
 /** The node this tool writes for one item. Pure: the same inputs give the same node. */
 export function nodeOf(item: ItemResource, bitstreams: BitstreamStub[], reasons: string[], key: string): CatalogueNode {
-  const title = first(item.metadata, "dc.title") ?? item.name;
+  const raw = first(item.metadata, "dc.title") ?? item.name;
+  const title = raw === undefined ? undefined : displayTitle(raw);
   if (!title) throw new Error(`item ${item.uuid} has no dc.title`);
   if (!item.handle) throw new Error(`item ${item.uuid} has no Handle`);
   const owning = item._embedded?.owningCollection as { uuid?: string; name?: string } | undefined;
