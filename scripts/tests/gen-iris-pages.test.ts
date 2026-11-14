@@ -521,3 +521,106 @@ describe("the replica keeps only its IRIS-style home page (owner, 2026-10-30)", 
     expect(html).not.toContain('"href":"../');
   });
 });
+
+describe("search data is loaded when it is needed (owner, 2026-11-14)", () => {
+  // "do lazy load content and libs": the home page fetches its search records
+  // on first use, and the search page ships each record once, not twice.
+  const homeOf = (dir: string): string => readFileSync(join(dir, "index.html"), "utf-8");
+  const dirs = [SITE, ...SITE_LOCALES.map((l) => join(SITE, l))];
+
+  /** The home page's inline search script, run against a stub page. */
+  function runHomeScript(html: string, rows: unknown[], search = "") {
+    // Any case, any attributes, and `</script >` with space before the `>`, as
+    // an HTML parser closes it; only a script with no `type` is code to run.
+    const script = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\b[^>]*>/gi)]
+      .filter((m) => !/\btype\s*=/i.test(m[1]!))
+      .map((m) => m[2]!)
+      .find((s) => s.includes("iris-search-input"));
+    if (!script) throw new Error("no home search script");
+    const on: Record<string, ((e?: unknown) => void)[]> = {};
+    const listen = (target: string) => (type: string, fn: (e?: unknown) => void) => {
+      (on[`${target}:${type}`] ??= []).push(fn);
+    };
+    const results = { style: { display: "none" }, innerHTML: "", replaceChildren() { this.innerHTML = ""; } };
+    const input = { value: "", addEventListener: listen("input") };
+    const form = { addEventListener: listen("form") };
+    const els: Record<string, unknown> = { "iris-search-form": form, "iris-search-input": input, "iris-search-results": results };
+    const fetched: string[] = [];
+    const win: Record<string, unknown> = { addEventListener: listen("window"), location: { search } };
+    const fetchStub = (url: string) => {
+      fetched.push(url);
+      return Promise.resolve({ ok: true, status: 200, json: () => Promise.resolve(rows) });
+    };
+    // input-site: inert — runs the committed page's own inline script against stubs; it reads no environment
+    new Function("window", "document", "fetch", "URLSearchParams", "console", script)(
+      win,
+      { getElementById: (id: string) => els[id] ?? null },
+      fetchStub,
+      URLSearchParams,
+      { warn() {} },
+    );
+    const fire = (key: string) => (on[key] ?? []).forEach((fn) => fn());
+    const settle = () => new Promise((r) => setTimeout(r, 0));
+    return { input, results, fetched, fire, settle };
+  }
+
+  it("homeSearchRecordsAreAFileNotInline", () => {
+    for (const dir of dirs) {
+      const home = homeOf(dir);
+      expect(home).not.toMatch(/var index = \[\{/);
+      expect(home).toContain('var DATA = "home-search.json"');
+      const rows = JSON.parse(readFileSync(join(dir, "home-search.json"), "utf-8")) as { title: string; href: string; text: string }[];
+      expect(rows.length).toBeGreaterThan(0);
+      for (const r of rows) expect(typeof r.title === "string" && typeof r.href === "string" && typeof r.text === "string").toBe(true);
+    }
+  });
+
+  it("homeSearchFetchesOnFirstUseOnly", async () => {
+    const rows = JSON.parse(readFileSync(join(SITE, "home-search.json"), "utf-8")) as { title: string }[];
+    const p = runHomeScript(homeOf(SITE), rows);
+    expect(p.fetched).toEqual([]); // nothing at load
+    p.fire("input:focus");
+    p.fire("input:focus");
+    await p.settle();
+    expect(p.fetched).toEqual(["home-search.json"]); // once, however often it is focused
+    p.input.value = rows[0]!.title.split(/\s+/)[0]!;
+    p.fire("input:input");
+    await p.settle();
+    expect(p.results.style.display).toBe("block");
+    expect(p.results.innerHTML).toContain("search-result-item");
+    expect(p.fetched.length).toBe(1);
+  });
+
+  it("homeSearchPrintsComplete", async () => {
+    // PRINT (owner, 2026-11-14: "Make sure printing loads all of the content
+    // before it renders the PDF"): a box holding a query when the reader prints
+    // loads its records on beforeprint, so the panel is not printed empty.
+    const rows = JSON.parse(readFileSync(join(SITE, "home-search.json"), "utf-8")) as { title: string }[];
+    const p = runHomeScript(homeOf(SITE), rows);
+    p.input.value = rows[0]!.title.split(/\s+/)[0]!;
+    p.fire("window:beforeprint");
+    await p.settle();
+    expect(p.fetched).toEqual(["home-search.json"]);
+    expect(p.results.innerHTML).toContain("search-result-item");
+    // And a ?q= link loads at once, without waiting for a focus.
+    const q = runHomeScript(homeOf(SITE), rows, `?q=${encodeURIComponent(p.input.value)}`);
+    await q.settle();
+    expect(q.fetched).toEqual(["home-search.json"]);
+    expect(q.results.innerHTML).toContain("search-result-item");
+  });
+
+  it("searchRecordsCarryNoLowerCasedCopies", () => {
+    for (const dir of dirs) {
+      const page = readFileSync(join(dir, "search.html"), "utf-8");
+      const m = /<script\b[^>]*\bid="iris-search-data"[^>]*>([\s\S]*?)<\/script\b[^>]*>/i.exec(page);
+      const records = JSON.parse(m![1]!) as Record<string, unknown>[];
+      expect(records.length).toBeGreaterThan(0);
+      for (const r of records) {
+        for (const k of ["titleLc", "abstractLc", "facetLc", "text"]) expect(r).not.toHaveProperty(k);
+        expect(typeof r.ids).toBe("string");
+      }
+      // The client makes them as it parses.
+      for (const k of ["it.titleLc =", "it.abstractLc =", "it.facetLc =", "it.text ="]) expect(page).toContain(k);
+    }
+  });
+});
