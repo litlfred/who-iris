@@ -8,7 +8,7 @@
     "kind": "repository",
     "id": "litlfred/who-iris"
   },
-  "updated_at": "2026-11-14T07:47:26.109Z",
+  "updated_at": "2026-11-14T10:29:47.765Z",
   "verdict": "unknown",
   "checks": [
     {
@@ -84,7 +84,7 @@
       "measurements": [
         {
           "metric": "special-branch-bytes:qa-reports",
-          "value": 380988,
+          "value": 384874,
           "unit": "bytes",
           "command": "git ls-remote --heads origin; git fetch --depth=1 + git ls-tree -r -l <tip> per budgeted branch (unique blobs summed)"
         },
@@ -138,7 +138,7 @@
       ],
       "measurements": [],
       "findings": [],
-      "reason": "no pages-serving observation could be read: qa-reports:main/db882ee8fc9baef00115b6e8cba449f76305266f — miss: main/3be9ddb3a2ffb9ddafd4aaabe32829469a82416f has nothing under health"
+      "reason": "no pages-serving observation could be read: qa-reports:main/8df4b0d511707db49bd6139afa2d5e0ed523acd2 — miss: main/b0a641fa09afcb07874d31c3383f3cd7ad9ea383 has nothing under health"
     },
     {
       "id": "remote-mounts",
@@ -386,19 +386,19 @@
       "measurements": [
         {
           "metric": "tracked-tree-bytes",
-          "value": 365531941,
+          "value": 367218997,
           "unit": "bytes",
           "command": "git ls-tree -r -l HEAD (blob sizes summed)"
         },
         {
           "metric": "git-dir-bytes",
-          "value": 278178380,
+          "value": 277685081,
           "unit": "bytes",
           "command": "du -sb .git"
         },
         {
           "metric": "pack-bytes",
-          "value": 272551936,
+          "value": 272004096,
           "unit": "bytes",
           "command": "git count-objects -v"
         },
@@ -417,7 +417,7 @@
       ],
       "findings": [
         {
-          "summary": "Tracked content at HEAD is 348.6 MB, past the 250 MB early-warning point.",
+          "summary": "Tracked content at HEAD is 350.2 MB, past the 250 MB early-warning point.",
           "metric": "tracked-tree-bytes",
           "severity": "minor",
           "action": "Note it and re-measure next sweep. No action is due until it approaches 1 GB; this exists so the approach is visible rather than sudden."
