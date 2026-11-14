@@ -15,7 +15,7 @@ Held in the library [`who-iris/library/`](../README.md) as `who-2019-ncov-digita
 | holds | count |
 |---|---|
 | [sections](sections/) | 82 |
-| [blocks](blocks/) | 54 |
+| [blocks](blocks/) | 69 |
 | images | 14 |
 
 <!-- kg:subgraph:end -->

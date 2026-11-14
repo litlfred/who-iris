@@ -14,7 +14,7 @@ Held in the library [`who-iris/library/`](../README.md) as `9789240101197-eng`.
 | holds | count |
 |---|---|
 | [sections](sections/) | 156 |
-| [blocks](blocks/) | 79 |
+| [blocks](blocks/) | 94 |
 | images | 14 |
 
 <!-- kg:subgraph:end -->

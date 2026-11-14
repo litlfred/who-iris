@@ -15,7 +15,7 @@ Held in the library [`who-iris/library/`](../README.md) as `9789240099456-eng`.
 | holds | count |
 |---|---|
 | [sections](sections/) | 16 |
-| [blocks](blocks/) | 25 |
+| [blocks](blocks/) | 34 |
 | images | 18 |
 
 <!-- kg:subgraph:end -->
