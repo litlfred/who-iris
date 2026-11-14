@@ -533,7 +533,7 @@ td .iri { font-size: 0.8em; }
 <tr><td><code>decls[].id</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].name</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].module</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
-<tr><td><code>decls[].kind</code></td><td><code>&quot;zod-object&quot; | &quot;zod-union&quot; | &quot;zod-enum&quot; | &quot;zod-array&quot; | &quot;zod-record&quot; | &quot;zod-scalar&quot; | &quot;interface&quot; | &quot;type-alias&quot; | &quot;json-schema&quot; | &quot;undetermined&quot;</code></td><td>yes</td><td></td></tr>
+<tr><td><code>decls[].kind</code></td><td><code>&quot;zod-object&quot; | &quot;zod-union&quot; | &quot;zod-enum&quot; | &quot;zod-array&quot; | &quot;zod-record&quot; | &quot;zod-scalar&quot; | &quot;interface&quot; | &quot;type-alias&quot; | &quot;json-schema&quot; | &quot;fhir-logical&quot; | &quot;undetermined&quot;</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].note</code></td><td><code>string</code></td><td>no</td><td></td></tr>
 <tr><td><code>decls[].doc</code></td><td><code>string</code></td><td>no</td><td></td></tr>
 <tr><td><code>decls[].fields</code></td><td><code>array of object</code></td><td>yes</td><td></td></tr>
@@ -541,12 +541,17 @@ td .iri { font-size: 0.8em; }
 <tr><td><code>decls[].fields[].type</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].fields[].optional</code></td><td><code>boolean</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].fields[].array</code></td><td><code>boolean</code></td><td>yes</td><td></td></tr>
+<tr><td><code>decls[].fields[].card</code></td><td><code>string</code></td><td>no</td><td></td></tr>
+<tr><td><code>decls[].fields[].utype</code></td><td><code>string</code></td><td>no</td><td></td></tr>
+<tr><td><code>decls[].fields[].links</code></td><td><code>object</code></td><td>no</td><td></td></tr>
 <tr><td><code>decls[].fields[].doc</code></td><td><code>string</code></td><td>no</td><td></td></tr>
 <tr><td><code>decls[].extendsNames</code></td><td><code>array of string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].values</code></td><td><code>array of string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].refs</code></td><td><code>array of string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].unresolved</code></td><td><code>array of string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>decls[].external</code></td><td><code>array of string</code></td><td>yes</td><td></td></tr>
+<tr><td><code>decls[].source</code></td><td><code>&quot;zod&quot; | &quot;typescript&quot; | &quot;json-schema&quot; | &quot;fhir&quot; | &quot;skill&quot;</code></td><td>no</td><td></td></tr>
+<tr><td><code>decls[].canonical</code></td><td><code>string</code></td><td>no</td><td></td></tr>
 <tr><td><code>decls[].exported</code></td><td><code>boolean</code></td><td>yes</td><td></td></tr>
 <tr><td><code>edges</code></td><td><code>array of object</code></td><td>yes</td><td></td></tr>
 <tr><td><code>edges[].from</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
@@ -555,6 +560,7 @@ td .iri { font-size: 0.8em; }
 <tr><td><code>edges[].kind</code></td><td><code>&quot;field&quot; | &quot;member&quot; | &quot;extends&quot; | &quot;id-ref&quot;</code></td><td>yes</td><td></td></tr>
 <tr><td><code>edges[].optional</code></td><td><code>boolean</code></td><td>yes</td><td></td></tr>
 <tr><td><code>edges[].array</code></td><td><code>boolean</code></td><td>yes</td><td></td></tr>
+<tr><td><code>unread</code></td><td><code>array of string</code></td><td>no</td><td></td></tr>
 <tr><td><code>nodeKinds</code></td><td><code>array of object</code></td><td>no</td><td></td></tr>
 <tr><td><code>nodeKinds[].id</code></td><td><code>string</code></td><td>yes</td><td></td></tr>
 <tr><td><code>nodeKinds[].source</code></td><td><code>&quot;node-kind&quot; | &quot;family&quot; | &quot;typology&quot;</code></td><td>yes</td><td></td></tr>

@@ -55,6 +55,7 @@ td .iri { font-size: 0.8em; }
 <h4>Two tiers</h4>
 <p>| set | wheels | size | |---|---|---| | <code>lean</code> | 12 wheels | <strong>144 MB</strong> | | <code>lean</code> + <code>extended</code> | 16 wheels | <strong>467 MB</strong> |</p>
 <p><code>extended</code> is <code>camelot-py</code> and what it pulls transitively (numpy, pandas, OpenCV), for ONE script — <code>pdf-tables.py</code> — so it is installed separately. The sizes were measured with a warm cache; a cold CI runner pays more.</p>
+<p>The table predates the OPUS-MT runner's entries (<code>transformers</code>, <code>torch</code>, <code>sentencepiece</code>, 2026-11-14), each of which states its own wheel size; with them, <code>extended</code> is dominated by <code>torch</code>, not <code>camelot-py</code>.</p>
 </div>
 <h2>Schemas</h2>
 <section id="PythonDepSchema"><h3><code>PythonDepSchema</code> · <a href="zod/python-deps/PythonDepSchema.schema.json">JSON Schema</a></h3>
