@@ -2,13 +2,12 @@
   "@context": [
     "https://litlfred.github.io/who-iris/ns/context/v1.jsonld",
     {
-      "@base": "https://litlfred.github.io/folio/",
-      "smart-base": "https://litlfred.github.io/smart-base/v0/ns/"
+      "@base": "https://litlfred.github.io/folio/"
     }
   ],
   "@id": "library/9789240081291-eng/blocks/indicator-sec-042-02",
   "@type": [
-    "smart-base:Indicator"
+    "cat-harness:Block"
   ],
   "kind": "indicator",
   "title": "Existence of national and/or subnational standards for social accountability in accreditation mechanisms of training programmes (Yes/Partial/No)",
