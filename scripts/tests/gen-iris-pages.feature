@@ -232,3 +232,31 @@ Feature: The pages gen-iris-pages writes
     Then the hrefs become ./, catalogue/ and en/cat-harness/library/who-iris/x/
     And the https://example.org/ href is unchanged
     And no href starts with "../"
+
+  @test:scripts/tests/gen-iris-pages.test.ts::search_data_is_loaded_when_it_is_needed_(owner,_2026-11-14)::homeSearchRecordsAreAFileNotInline
+  Scenario: the home page's search records are a file beside it, not inline
+    Given the committed home page of every site locale
+    Then it carries no inline search index and names home-search.json
+    And home-search.json beside it holds the records, each with a title, an href and a text
+
+  @test:scripts/tests/gen-iris-pages.test.ts::search_data_is_loaded_when_it_is_needed_(owner,_2026-11-14)::homeSearchFetchesOnFirstUseOnly
+  Scenario: the home search fetches its records on first use, once
+    Given the committed home page's search script run against a stub page
+    Then nothing is fetched at load
+    When the box is focused twice
+    Then home-search.json is fetched once
+    When a word of a title is typed
+    Then the results panel shows a match without a second fetch
+
+  @test:scripts/tests/gen-iris-pages.test.ts::search_data_is_loaded_when_it_is_needed_(owner,_2026-11-14)::homeSearchPrintsComplete
+  Scenario: printing a page whose box holds a query loads the records first
+    Given the committed home page's search script run against a stub page
+    When the box holds a word of a title and beforeprint fires
+    Then home-search.json is fetched and the results panel shows the match
+    And a ?q= address loads the records at once
+
+  @test:scripts/tests/gen-iris-pages.test.ts::search_data_is_loaded_when_it_is_needed_(owner,_2026-11-14)::searchRecordsCarryNoLowerCasedCopies
+  Scenario: the search page ships each record once, and lower-cases at parse
+    Given the committed search page of every site locale
+    Then no record carries titleLc, abstractLc, facetLc or text, and each carries ids
+    And the page's client makes the lower-cased fields as it parses

@@ -2571,8 +2571,24 @@ function landingPage(all: Node[]): string {
   const itemsUpstream = cat.totalItemsUpstream;
   const filesUpstream = cat.totalFilesUpstream;
 
+  return landingHtml(all, { held, communities, collections, submissions, itemsUpstream, filesUpstream, REFERENCED_NODES });
+}
+
+/**
+ * The file the home page's search box reads, beside each language's
+ * `index.html` (owner, 2026-11-14: "do lazy load content and libs").
+ *
+ * It was an inline `var index = [...]` — 299 KB raw, 75 KB gzip of the 387 KB
+ * home page, in all six languages, whether or not anyone typed. Now it is
+ * fetched on the box's first `focus` or `input`, and cached like any file.
+ * Same records, same order: the client is unchanged past the fetch.
+ */
+export const HOME_SEARCH_DATA = "home-search.json";
+
+/** The home search index for the current `LOCALE`, as the JSON file holds it. */
+export function homeSearchEntries(all: Node[]): unknown[] {
   const byId = new Map(all.map((n) => [n.id, n]));
-  const searchEntries = all
+  return all
     .map((n) => {
       if (n.flavour === "item") {
         const authors = dc(n, "contributor", "author");
@@ -2629,7 +2645,15 @@ function landingPage(all: Node[]): string {
       };
     })
     .sort((a, b) => a.title.localeCompare(b.title, "en"));
+}
 
+function landingHtml(
+  all: Node[],
+  { held, communities, collections, submissions, itemsUpstream, filesUpstream, REFERENCED_NODES }: {
+    held: Node[]; communities: Node[]; collections: Node[]; submissions: string;
+    itemsUpstream: number | undefined; filesUpstream: number | undefined; REFERENCED_NODES: number;
+  },
+): string {
   return `
 <section class="hero">
   <div class="hero-in">
@@ -2678,7 +2702,24 @@ ${collections
 
 <script>
 (function() {
-  var index = ${JSON.stringify(searchEntries)};
+  // FETCHED, NOT INLINED: the records are ${HOME_SEARCH_DATA} beside this page,
+  // read on the box's first focus or input (or at once for a ?q= link, or
+  // before printing a page whose box holds a query, so a printout is never a
+  // half-loaded panel). Until then \`index\` is empty and update() is a no-op.
+  var DATA = ${JSON.stringify(HOME_SEARCH_DATA)};
+  var index = [];
+  var loaded = false;
+  var waiting = null;
+  function load(then) {
+    if (loaded) { if (then) then(); return Promise.resolve(); }
+    if (!waiting) {
+      waiting = fetch(DATA, { cache: "no-cache" })
+        .then(function(r) { if (!r.ok) throw new Error(DATA + ": HTTP " + r.status); return r.json(); })
+        .then(function(rows) { index = Array.isArray(rows) ? rows : []; loaded = true; })
+        .catch(function(e) { waiting = null; if (window.console) console.warn("iris home search:", e); });
+    }
+    return waiting.then(function() { if (then) then(); });
+  }
   var T = ${JSON.stringify({
     matching: t("Matching catalogue nodes ({n}):"),
     also: t("Also search identifier lookup:"),
@@ -2788,7 +2829,10 @@ ${collections
     results.style.display = "block";
   }
 
-  input.addEventListener("input", update);
+  input.addEventListener("focus", function() { load(); }, { once: true });
+  input.addEventListener("input", function() { load(update); });
+  // PRINT: nothing printed may wait on a trigger the printer never fires.
+  window.addEventListener("beforeprint", function() { if (input.value.trim()) load(update); });
   // Submitting goes to the search page with the query, as IRIS's home does
   // (issue #196); the list above is only a preview while typing.
   form.addEventListener("submit", function(e) {
@@ -2799,9 +2843,9 @@ ${collections
   var initQ = urlParams.get("q");
   if (initQ) {
     input.value = initQ;
-    update();
+    load(update);
   }
-  try { window.__irisSearch = { index: index, update: update }; } catch (e) {}
+  try { window.__irisSearch = { load: load, update: update, get index() { return index; } }; } catch (e) {}
 })();
 </script>
 `;
@@ -2847,7 +2891,6 @@ function searchPage(all: Node[]): string {
       series: uniq([...dc(n, "relation", "ispartofseries"), ...dc(n, "relation", "ispartofjournal")]),
       itemtype: uniq(dc(n, "type")),
     };
-    const facetText = [...f.author, ...f.subject, ...f.publisher, ...f.series, ...f.itemtype].join(" ").toLowerCase();
     return {
       title: n.title,
       href: itemHref(n),
@@ -2862,10 +2905,11 @@ function searchPage(all: Node[]): string {
       abstract,
       hasFiles: (n.bitstreams ?? []).some((b) => b.bundle === "ORIGINAL"),
       f,
-      titleLc: n.title.toLowerCase(),
-      abstractLc: abstract.toLowerCase(),
-      facetLc: facetText,
-      text: [n.title, n.id, n.libraryId ?? "", dc(n, "identifier", "govdoc").join(" "), dc(n, "identifier", "isbn").join(" "), facetText, abstract].join(" ").toLowerCase(),
+      // ONLY what the record does not already carry. The lower-cased copies
+      // of the title, abstract and facet values (193 KB of the 686 KB of
+      // records, times six languages) are made by the client as it parses;
+      // \`ids\` is the rest of what a query matches on.
+      ids: [n.id, n.libraryId ?? "", dc(n, "identifier", "govdoc").join(" "), dc(n, "identifier", "isbn").join(" ")].join(" ").toLowerCase(),
     };
   });
   const strings = {
@@ -2903,6 +2947,15 @@ function searchPage(all: Node[]): string {
     "(function () {",
     "  \"use strict\";",
     "  var items = JSON.parse(document.getElementById(\"iris-search-data\").textContent);",
+    "  // The lower-cased fields are made HERE, not shipped: the same values the",
+    "  // generator used to write, from the record's own title, abstract and facets.",
+    "  items.forEach(function (it) {",
+    "    var f = it.f || {};",
+    "    it.titleLc = String(it.title || \"\").toLowerCase();",
+    "    it.abstractLc = String(it.abstract || \"\").toLowerCase();",
+    "    it.facetLc = [].concat(f.author || [], f.subject || [], f.publisher || [], f.series || [], f.itemtype || []).join(\" \").toLowerCase();",
+    "    it.text = [it.titleLc, it.ids || \"\", it.facetLc, it.abstractLc].join(\" \");",
+    "  });",
     "  var T = JSON.parse(document.getElementById(\"iris-search-strings\").textContent);",
     "  var root = document.getElementById(\"iris-search\");",
     "  if (!root) return;",
@@ -4312,7 +4365,10 @@ function main(): number {
     LOCALE = "en";
     const dest = join(resolve(site), "index.html");
     writeFileSync(dest, rebaseToOwnSiteRoot(page("who-iris", [{ label: t("Home") }], landingPage(all), "site", [], "index.html")));
-    console.log(`  wrote ${relative(resolve(site), dest)} into the site source`);
+    // The search box's records go beside it: the page fetches them by a
+    // sibling-relative name, wherever the page is published.
+    writeFileSync(join(resolve(site), HOME_SEARCH_DATA), `${JSON.stringify(homeSearchEntries(all))}\n`);
+    console.log(`  wrote ${relative(resolve(site), dest)} and ${HOME_SEARCH_DATA} into the site source`);
     return 0;
   }
   const into = process.argv.indexOf("--catalogue-into");
@@ -4353,6 +4409,9 @@ function main(): number {
    * inference, and one that has to be kept in step with the OWNED patterns.
    */
   const siteFiles = new Map<string, string>();
+  // DATA beside the pages, keyed like `files` — the home search index each
+  // language's `index.html` fetches. Not pages, so not under the page guard.
+  const dataFiles = new Map<string, string>();
 
   // KEYED BY SIDE, not by name. Both sides need an `index.html` — the replica
   // needs one because it is a site, and the docs side needs one because
@@ -4435,6 +4494,7 @@ function main(): number {
     LOCALE = locale;
     const at = locale === "en" ? "site" : `site/${locale}`;
     files.set(`${at}/index.html`, page("who-iris", [{ label: t("Home") }], landingPage(all), "site", [], "index.html"));
+    dataFiles.set(`${at}/${HOME_SEARCH_DATA}`, `${JSON.stringify(homeSearchEntries(all))}\n`);
     files.set(`${at}/search.html`, page(t("Search"), [{ label: t("Home"), href: "index.html" }, { label: t("Search") }], searchPage(all), "site", [], "search.html"));
   }
   LOCALE = "en";
@@ -4510,6 +4570,7 @@ function main(): number {
       rel: relative(REPO_ROOT, abs),
       html,
     })),
+    ...[...dataFiles].map(([key, html]) => ({ abs: join(INSTANCE, key), rel: `who-iris/${key}`, html })),
   ];
   for (const { abs, rel, html } of targets) {
     const prev = existsSync(abs) ? readFileSync(abs, "utf-8") : undefined;
