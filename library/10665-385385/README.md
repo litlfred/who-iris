@@ -15,7 +15,7 @@ Held in the library [`who-iris/library/`](../README.md) as `10665-385385`.
 | holds | count |
 |---|---|
 | [sections](sections/) | 24 |
-| [blocks](blocks/) | 31 |
+| [blocks](blocks/) | 73 |
 | images | 326 |
 
 <!-- kg:subgraph:end -->
